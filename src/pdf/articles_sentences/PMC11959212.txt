@@ -1,0 +1,157 @@
+Matrix effects by secondary ion mass spectrometry (SIMS) are empirically corrected by calibration using matrix‐matched reference materials.
+However, conventional parametric regression cannot estimate the prediction uncertainty to account for the difference in compositions of new data and reference materials.
+Applying Gaussian process regression (GPR), a nonparametric probabilistic method, enables the correction for matrix effect while providing quantitative prediction uncertainty.
+We developed GPR models for estimating instrumental mass fractionation (IMF).
+Magnesium isotope dataset of 17 olivine reference materials was used as training data, and the developed model was applied to another data set of extraterrestrial olivines.
+The GPR model using FeO/MgO, CaO/MgO, Cr2O3/MgO, and MnO/MgO achieved the higher prediction accuracy of IMF (R2= 0.98) than a previous study.
+We found that minor elements in olivine, such as Ca, Cr, and Mn, independently affected the matrix effect.
+We also demonstrated the effectiveness of this method for extraterrestrial materials.
+We concluded that GPR is a powerful approach for correcting the SIMS matrix effect, especially when minor elements impact the matrix effect.
+This approach can be applied to other trace element and isotope analyses of solid‐solution minerals.
+Isotopic microanalysis using secondary ion mass spectrometry (SIMS) has made tremendous contributions to the study of cosmochemistry and geochemistry [1].
+The high spatial resolution of SIMS permits the determination of microscale or nanoscale isotopic abundances while avoiding the contamination or alteration domain and assessing intra‐ and inter‐grain isotopic variations.
+The development of large‐radius ion microprobe equipped with a multicollector system in the 1990s enabled high‐precision measurement of isotopic ratios [2,3], whereas the improvement of analytical accuracy has been limited by instrumental mass fractionation (IMF), which represents the distinction between measured and true isotopic ratios.
+The IMF results from a combination of isotopic fractionation occurring at sputtering, ionization, ion extraction, transmission of the secondary ions, and detection stages.
+The degree of IMF and the secondary ion yield strongly depend on the chemical composition and crystal structure of the analyte [4,5].
+This dependency is referred to as a matrix effect and critical for consistently reproducible and accurate results.
+A practical approach to tackle the matrix effect problem is quantifying the measured IMF using matrix‐matched reference materials with known isotope compositions.
+Several previous studies proposed theoretical models that explain the sputtering and ionization mechanisms causing isotopic fractionation [6,7]; however, these mechanisms are too complicated to predict the variation in observed IMF theoretically.
+Accordingly, the calibration based on the measurements of matrix‐matched materials is commonly adopted for an empirical correction method.
+A chemical composition of solid solution is the most important factor for IMF [8,9,10], although other factors such as crystal orientations and topography can be apparent depending on the analytical target and precision [11,12,13].
+Matrix effects in olivine isotope analysis have been studied the most extensively for oxygen isotopes.
+Variation in chemical composition of olivine is the most important factor, and the IMF correlates with forsterite content [4,5,14,15] (Fo: 100 × Mg/(Mg + Fe) in mol%).
+The IMF was usually described as parametric models [14,15], such as multinomial functions of Fo content.
+The matrix effect for Li isotope analysis was expressed as a linear function of Fo content [16,17], although the examination was limited to the compositional range from Fo74to Fo94.
+More recently, the nonmonotonic behavior of IMF against Fo content has been reported for Mg isotope analysis [9] and Si isotope analysis [10].
+In other words, the matrix effects cannot always be expressed by a simple function of Fo content.
+The complicated behavior of IMF during olivine Mg isotope analysis could be attributed to the effect of other minor element contents [9] such as Cr.
+Instead of solely using the Fo content, Fukuda et al. [9] proposed a correction method for using a combination of Fo content and measured Mg+/Si+ratio.
+This correction method achieved a precision of 0.3‰ (2σ) for the measurement of δ25Mg (δ25Mg = ([25Mg/24Mg]measured/0.12663 − 1) × 1000, where 0.12663 is a terrestrial25Mg/24Mg isotope ratio [18]).
+However, the fitting curves were obtained separately for specific compositional intervals, resulting in unquantifiable uncertainty near the composition where switching occurred.
+Furthermore, additional measurements of the Mg+/Si+ratio at different analysis points are time‐consuming and may introduce additional uncertainties.
+Therefore, we need to improve the correction method to comprehensively enable handling of various Fo values.
+Preparing perfectly matrix‐matched reference materials is a straightforward approach; however, it is time‐consuming and sometimes impractical to prepare a set of reference materials extensively covering the compositional range of minor elements as well as Fo content.
+Olivine grains from peridotites and plutonic rocks are often used as reference materials in terms of size and homogeneity, while olivine grains in meteorites and volcanic rocks tend to show higher contents in Ca, Cr, and Mn [9,19].
+Therefore, differences in chemical composition need to be considered to estimate the prediction uncertainty of the matrix effect.
+However, in conventional parametric regression [14,20,21], the shape of the confidence interval primarily depends on the functional form of the regression model and its parameters, making it challenging to capture prediction uncertainty that reflects the local structure of the data.
+We apply Gaussian process regression (GPR) to develop comprehensive prediction models of matrix effect in olivine Mg isotope analysis, marking the first application of this approach in data reduction of SIMS analysis.
+GPR, a nonparametric Bayesian approach widely applied in various fields [22,23,24,25], can deal with nonlinear data through a kernel function and provide both predicted values and prediction confidence that are more flexible and adapt to the local structure of the data [26,27,28,29] (Figure1).
+Prediction uncertainty, flexibly calculated based on the compositions of unknown samples, enhances the reliability of data interpretation.
+We estimate the matrix effects using data from Fukuda et al. [9] and propose a new GPR correction method for the matrix effect.
+Furthermore, we use the meteorite and comet sample data from Fukuda et al. [30] to exemplify that the difference in minor element compositions affects the estimation uncertainty.
+This approach is applicable not only to the analysis of olivine but also to that of various minerals with solid solutions.
+Schematic illustration of Gaussian process regression (GPR): (a) the prior distribution with zero mean; (b) the posterior after conditioning on dataset without noise (σy2=0); (c) mean (black line) with prediction uncertainty (shaded area) of the trained GPR model.
+GPR is a nonparametric probabilistic model based on the framework of Bayesian inference [28,29], serving as a generalization of the multivariate Gaussian probability distribution.
+It can capture a nonlinear relationship between inputs and outputs from a given dataset by using a kernel function, which maps the inputs into a higher dimensional feature space.
+The distribution of functions is estimated for each data point, which enables quantification of the prediction uncertainty as a predictive variance (Figure1).
+In this section, we briefly explain the basics of GPR.
+We derive the posterior distribution of a function for a given dataset as a Gaussian process.
+First, functionfxis prepared as a random variable following a Gaussian distribution with a prior mean functionmxand a covariance functionkx,x′.
+whereσlengthis a spatial length scale as a hyperparameter.
+wherekXnx=kx1x⋯kxnx.
+Accordingly, the predictive distribution of outputy*for a new inputx*can be obtained by adding the noise variance to that offx*.
+In this way, we develop predictive models that takes chemical composition data as inputs and outputs the IMF during analysis, along with estimated uncertainties for the predictions.
+The olivine Mg isotope data reported by Fukuda et al. [9] were used for model training and reliable performance validation.
+Magnesium consists of three naturally occurring stable isotopes (24Mg,25Mg, and26Mg), which enables the study mass‐dependent and ‐independent isotope fractionation caused by natural processes.
+Olivine grains of terrestrial and extraterrestrial origins were included in the data.
+Seventeen olivine reference materials (22 grains with different major element compositions) cover a wide composition ranging from Fo59 to Fo100 (Figure2a).
+The chemical and isotopic data are summarized in TableS1.
+We used the data of MgO, FeO, CaO, Cr2O3, and MnO contents.
+The content of Fe oxides is expressed as FeO wt%, assuming all Fe is in the Fe2+state.
+As part of the data preprocessing, the four variables normalized by MgO (FeO/MgO, CaO/MgO, Cr2O3/MgO, and MnO/MgO) were used as input to train the model (corresponding to inputxin Section2).
+Missing values below the detection limit were imputed with 0.
+We estimated the IMF relative to the running standard (hereafter relative bias), caused by the matrix effects during the analysis using an O2−primary beam, as the output variable (corresponding to outputyin Section2).
+The measurement uncertainty in the relative bias was used as the noise variance during the model training process.
+Nonmonotonic behavior of instrumental mass bias against forsterite content during olivine Mg isotope analysis.
+Olivine grains with higher contents of (a) CaO, (b) Cr2O3, and (c) MnO tend to deviate from the general trend.
+(d) Scatterplot matrix with correlation coefficient and histograms for olivine chemical composition.
+Diagonal plots exhibit the histogram of each input variable.
+Red and blue represent the data of olivine reference materials and test data of olivines from extraterrestrial samples, respectively.
+All data are from [9,30].
+Using the relative bias instead of the IMF determined for individual data point eliminates the effect of drift over time, while also improving the reproducibility.
+After calculating the difference between the true and the measured δ25Mg values for samples and running standard (San Carlos olivine: SC‐OL), the relative difference between those was expressed as the relative bias mentioned here.
+The relative bias is formulated as follows and the details are described in Fukuda et al. [9].
+Another Mg isotope dataset from Fukuda et al. [30] was used to compare the previous and new GPR correction methods for the measurement of unknown samples (TableS2).
+The measurement data of reference materials during the same analytical session for unknown samples were used as training data to satisfy the same conditions for the test data, which is the same approach as the conventional bracketing calibration.
+The Fo contents of test data are in the range of the reference materials; however, other minor elements show different behaviors from the reference materials (Figure2d).
+Therefore, it is important to note that this difference from the reference materials is incorporated into the estimated uncertainty by GPR.
+Grouped K‐fold cross‐validation (CV) was used to optimize the hyperparameter and evaluate the prediction performance due to the limited amount of data (in our model, k = 22 according to the number of grains, not type of reference material).
+We adopted K‐fold grouped CV instead of leave‐one‐out CV due to the strong similarity of multiple data points from different grains of the same reference material.
+The K‐fold grouped CV ensures that data from the same grain do not appear on both the training and test sets, whereas the leave‐one‐out CV cannot contribute to the suppression of overfitting in such a data set.
+In the hyperparameter tuning step, inverse kernel width (corresponding to the squared reciprocal ofσlength) was optimized within a range of 0.01 to 1 based on the average of root mean square error (RMSE).
+A grid search approach for hyperparameter tuning is easy to understand and implement but computationally expensive when the hyperparameter space is large.
+On the other hand, an empirical Bayes approach, commonly applied in GPR, is effective particularly when dealing with complex hyperparameter spaces [29].
+In this study, the hyperparameter space is small, consisting of only one parameter with narrow search ranges, making it simple enough to benefit from the straightforward grid search approach.
+To visualize the complexity of the prediction surface, we also checked the response of the trained model using two variables to different hyperparameters.
+The K‐fold grouped CV split the analyzed dataset into training and test sets, and the training dataset was standardized as a preprocessing step.
+The average measurement error of the IMF was used as a representative value for the noise term in the GPR during the CV procedure.
+The prediction performance was compared using RMSE and Akaike information criterion (AIC).
+AIC evaluates the goodness of fitting while considering a penalty for model complexity [31], that is, the model's degrees of freedom.
+We compared the GPR model using the following set of input variables: (i) FeO/MgO, CaO/MgO, Cr2O3/MgO, and MnO/MgO; (ii) FeO/MgO, CaO/MgO, and Cr2O3/MgO; (iii) FeO/MgO and CaO/MgO; (iv) FeO/MgO.
+GPR was implemented using the kernlab package in R language (https://cran.r‐project.org/web/packages/kernlab/kernlab.pdf), and the R source code used for the data analyses is provided in the online (https://github.com/keitaitano/GPR_SIMS_Mg‐isotope).
+We present the results of grouped K‐fold cross validation using different input combinations.
+The optimized hyperparameters for each model are listed in Table1.
+The relationship between the predicted bias and forsterite content when using FeO/MgO as a single explanatory variable is illustrated in FigureS1.
+First, we compared the RMSE of training and test sets when the inverse kernel width (1/σlength2) was varied from 0.01 to 1 (Figure3).
+In general, larger1/σlength2values result in greater sensitivity to local features and a more complex regression model.
+As the models became more complex, the prediction results on the test set were the most improved around1/σlength2value of 0.1 and then worsened with larger1/σlength2values.
+Except when the one variable was used (Figure3d), the RMSE of the test set was larger than that of the training set for the1/σlength2values, suggesting overfitting of the GPR models (Figure3a–c).
+In contrast, the large RMSE of training set over all1/σlength2values in the one‐variable model can be interpreted as underfitting (Figure3d).
+Gaussian process regression model performance with different input variables.
+Hyperparameter (inverse kernel width,1/σlength2) tuning results with comparisons for different sets of input variables: (a) FeO/MgO, CaO/MgO, Cr2O3/FeO, and MnO/MgO; (b) FeO/MgO, CaO/MgO, and Cr2O3/FeO; (c) FeO/MgO and CaO/MgO; (d) FeO/MgO.
+Root mean squared error (RMSE) was computed based on K‐fold cross validation.
+Red and blue curves represent RMSE of training and test sets, respectively.
+The optimized hyperparameters based on the RMSE values for the test sets were as follows: (a) 0.10, (b) 0.23, (c) 0.11, and (d) 0.19.
+To verify the complexity of the regression models, the predicted results of the GPR model using the two input variables were visualized in three‐dimensional surface plots (Figure4).
+We obtained the prediction models using FeO/MgO and CaO/MgO as input variables with different1/σlength2values (0.01, 0.1, and 1).
+Figure3shows that the prediction surface for1/σlength2of 0.01 is clearly underfitting, and the prediction surface for1/σlength2of 1 fits the training data too well, which is consistent with the results of grouped CV results (Figure3).
+Furthermore, when using two input variables, it is evident that there is a larger prediction uncertainty in areas where the training data distribution is sparse.
+Overall, the1/σlength2value with the local minimum of RMSE in the test dataset was adopted as optimized parameter for each GPR model based on the above discussion.
+A relationship between hyperparameter (inverse kernel width,1/σlength2) and the complexity of regression model for SIMS matrix effect.
+The predicted values of instrumental mass bias were visualized as three‐dimensional surface plots for inverse length scales of (a) 0.01, (b) 0.1, and (c) 1, when FeO/MgO and CaO/MgO were used as input variables.
+Orange plots are measured data, and the color bar represents the uncertainty of predict value as standard deviation.
+Here, we compare the prediction performance of each GPR model using a different set of input variables (Table1).
+When the grouped K‐fold CV procedure was performed with the optimized hyperparameter, the GPR model using the four input variables yielded the smallest RMSE for both the raining and test sets.
+Furthermore, the smallest AIC value also indicated that the four‐variable model was the preferred model.
+Interestingly, the GPR model using only FeO/MgO showed better prediction performance than the models using FeO/MgO, CaO/MgO, and Cr2O3(Table1) in terms of the RMSE and AIC values of the test set.
+Although the enrichment in minor elements is likely to have a tendency of a positively larger bias (Figure2a), adding input variables did not result in a remarkable improvement in prediction performance, except in cases where all variables were used.
+Given that minor elements such as Ca, Cr, and Mn do not always correlate with each other (Figure2d), generalization performance can be improved by considering these three elements simultaneously.
+The contribution of CaO content is also exemplified by the relationship between MgO content and the residual bias in three‐dimensional space (Figure4), which clearly shows that the residual bias cannot be expressed as a function of FeO/MgO content alone.
+Although the previous study interpreted the high Cr content in Mg‐rich olivine formed under reducing conditions as having a substantial impact on the matrix effect [9], we found a combined impact of minor elements.
+Accordingly, these results suggest that the composition of minor elements can affect ionization efficiency and, in some cases, this factor cannot be overlooked in matrix effects.
+The prediction results of the best model are summarized in TableS1.
+Residual biases after the correction were within 0.3‰ of the internal precision of analysis (Figure5).
+The coefficient of determination (R2) for this model was 0.98, exceeding the performance of multinomial regressions with separate composition ranges in the previous study (R2of 0.96 for Fo ≤ 88.8 andR2of 0.97 for Fo > 88.8; Fukuda et al. [9]).
+In our model, the uncertainty was estimated for each data point (Figure5) and the average two‐standard deviation was 0.22.
+These results demonstrate that GPR is a powerful method for correcting the SIMS matrix effect, and further improvements could be achieved by expanding the training dataset and incorporating additional hyperparameters in future studies.
+The next section discusses its application to extraterrestrial olivine samples.
+The calibration residuals using Gaussian process regression model.
+Estimated uncertainty is presented with two standard deviation.
+The discrepancy between the predicted and true values is within a measurement precision of ~0.3‰ (dashed line).
+We applied the developed GPR model using the four variables to the measurement data of olivines in extraterrestrial samples.
+Olivine grains from the comet 81P/Wild 2 and those from amoeboid olivine aggregates (AOA) in Kaba and DOM 08006 carbonaceous chondritic meteorites were used as test data set [30].
+These olivine grains are small (< 10 μm) and/or have limited availability so that microanalysis by SIMS is required.
+The correction for IMF caused by the matrix effect is as follows: The measured data of reference materials from the same analysis session of the test data were chosen as training data to use the same analytical conditions, such as accelerating voltage, beam current, and beam size.
+The bias was estimated using the trained GPR model, and the predicted bias was used to calculate the δ25MgDSM‐3value, that is, the bias‐corrected δ25Mg value relative to the DSM‐3 Mg standard material [32].
+The uncertainties of individual analyses were obtained by propagating errors from the 2SE internal errors of the Mg isotope measurement and the estimated uncertainty of the predicted bias (2SD).
+The calculated results are summarized in TableS3.
+Figure6shows the relationship between the bias‐corrected Mg isotope composition (δ25MgDSM‐3) and CaO content.
+In general, the δ25MgDSM‐3values of this study were higher than those corrected by the conventional method using a combination of the Fo content and Mg+/Si+ratio [30].
+This tendency could have resulted from the minor element causing the shift of instrumental mass bias in a negative direction (Figure2a).
+Regardless of the minor systematic differences in the corrected values, the correction method in this study reproduced the two distinct trends observed in the previous study [30].
+The δ25MgDSM‐3values of olivines from AOAs with compact textures (compact AOAs; K27, DOM505, and DOM513) were consistent with the bulk composition of chondrites (dotted line in Figure6), whereas olivines from AOAs with porous textures (pore‐rich AOAs; DOM501, 503, 511, and 512) and a16O‐rich olivine grain from Wild 2 (T77/F50) generally showed a decrease in δ25MgDSM‐3values relative to an increase in Ca content.
+This result corroborated that the Mg isotope composition of pore‐rich AOA olivines preserved the pristine signature recorded when they condensed from the Solar nebular gas and avoided secondary isotopic modification by annealing processes [30].
+Binary plot of Mg isotope data (δ25MgDSM‐3) corrected for matrix effect against CaO content (wt%) for extraterrestrial materials.
+Errors are 2σ and the dotted line represents the Mg isotope composition of bulk chondrites [33].
+Olivines from AOAs with compact textures (compact AOAs: K27, DOM505, and DOM513) are plotted along the line of the Mg isotope composition of bulk chondrites, whereas olivines from AOAs with porous textures (pore‐rich AOAs: the other AOAs in DOM 08006 meteorite and a16O‐rich olivine grain from Wild 2, T77/F50) generally show a decrease in δ25MgDSM‐3value against an increase in Ca content.
+The differences in the chemical composition of each data point were also reflected in the estimation error.
+For example, the compact AOA olivine with large uncertainty is characterized by a higher CaO content compared to the reference materials with comparable Fo content (Figure5).
+The large uncertainty of Wild2 samples is attributed to the higher contents of Cr2O3(~0.3 wt%) and MnO (~0.4 wt%) (TableS2).
+In conclusion, the correction method using GPR allows us to integrate information on olivine chemical composition into the estimation of instrumental mass bias and its uncertainty.
+This method is more beneficial especially when olivine samples are rich in minor elements, because preparing reference materials that completely cover the chemical composition including minor elements is impractical.
+This approach is also applicable to solid‐solution minerals (e.g., pyroxene and garnet) with a wide variation in the major element composition.
+We proposed a new correction method for the SIMS matrix effects using Gaussian process regression.
+We developed prediction models for the matrix effect during olivine Mg isotope analysis, which covers a wide range of mineral composition (Fo59–100) including minor elements.
+Our prediction results demonstrated a higher accuracy (R2= 0.98) than previous studies.
+A key strength of the present study is that the difference in chemical composition between the reference materials and unknown samples is incorporated into the prediction uncertainty.
+The correction method for matrix effects using GPR can be extended to other trace element and isotope SIMS analyses of minerals with solid solutions.

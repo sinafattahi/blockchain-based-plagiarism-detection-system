@@ -113,7 +113,7 @@ async function extractText(pdfPath) {
   }
 }
 
-const pdfPath = "./2.pdf"; // Relative to src/pdf/
+const pdfPath = "./.pdf"; // Relative to src/pdf/
 if (!fs.existsSync(pdfPath)) {
   console.error(`PDF file not found at: ${pdfPath}`);
 } else {
