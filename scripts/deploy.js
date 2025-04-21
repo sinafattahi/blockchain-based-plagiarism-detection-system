@@ -27,10 +27,10 @@ async function main() {
   // await contract.deployed();
   // console.log("MerkleStorage Contract deployed to:", contract.address);
 
-  const SentenceStorage = await ethers.getContractFactory("SentenceStorage");
-  const contract = await SentenceStorage.deploy();
+  const ArticleStorage = await ethers.getContractFactory("ArticleStorage");
+  const contract = await ArticleStorage.deploy();
   await contract.deployed();
-  console.log("SentenceStorage deployed to:", contract.address);
+  console.log("ArticleStorage deployed to:", contract.address);
 }
 
 main().catch((error) => {

@@ -1,79 +1,45 @@
-import { ethers, Contract } from "ethers";
+import { ethers, Contract, utils } from "ethers";
+import { CONTRACT_ABI } from "./constants";
 
-// In-memory cache
-const hashCache = new Map();
+const HASH_CACHE_KEY = "hashCache";
 
-// Blockchain setup
-const contractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
-const provider = new ethers.providers.JsonRpcProvider("http://127.0.0.1:8545");
-
-const contractAbi = [
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: "uint256",
-        name: "textId",
-        type: "uint256",
-      },
-      {
-        indexed: false,
-        internalType: "string[]",
-        name: "sentences",
-        type: "string[]",
-      },
-    ],
-    name: "SentencesStored",
-    type: "event",
-  },
-  {
-    inputs: [
-      { internalType: "uint256", name: "", type: "uint256" },
-      { internalType: "uint256", name: "", type: "uint256" },
-    ],
-    name: "articles",
-    outputs: [{ internalType: "string", name: "", type: "string" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "textId", type: "uint256" }],
-    name: "getSentences",
-    outputs: [{ internalType: "string[]", name: "", type: "string[]" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "bytes32", name: "", type: "bytes32" }],
-    name: "sentenceHashes",
-    outputs: [{ internalType: "bool", name: "", type: "bool" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "uint256", name: "textId", type: "uint256" },
-      { internalType: "string[]", name: "sentences", type: "string[]" },
-    ],
-    name: "storeSentences",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-];
-
-// Hash function
-async function computeHash(text) {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(text);
-  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-  return [...new Uint8Array(hashBuffer)]
-    .map((b) => b.toString(16).padStart(2, "0"))
-    .join("");
+function loadHashCache() {
+  const stored = localStorage.getItem(HASH_CACHE_KEY);
+  return stored ? new Map(JSON.parse(stored)) : new Map();
 }
 
-// Scoring
+function saveHashCache(cache) {
+  localStorage.setItem(
+    HASH_CACHE_KEY,
+    JSON.stringify(Array.from(cache.entries()))
+  );
+}
+
+const hashCache = loadHashCache();
+
+// Blockchain setup
+const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+const provider = new ethers.providers.JsonRpcProvider("http://127.0.0.1:8545");
+
+const contractAbi = CONTRACT_ABI;
+
+// // Hash function
+// async function computeHash(sentence) {
+//   const encoder = new TextEncoder();
+//   const data = encoder.encode(sentence);
+//   const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+//   const hex = [...new Uint8Array(hashBuffer)]
+//     .map((b) => b.toString(16).padStart(2, "0"))
+//     .join("");
+//   return "0x" + hex;
+// }
+
+function computeHash(sentence) {
+  const normalized = sentence.trim().replace(/\s+/g, " ").toLowerCase();
+  return utils.keccak256(utils.toUtf8Bytes(normalized));
+}
+
+// Scoring function
 function computeScore(duplicates) {
   let score = 0;
   let i = 0;
@@ -92,41 +58,102 @@ function computeScore(duplicates) {
   return score;
 }
 
-// Main function
-async function processText(textId, text, signer) {
-  const sentences = text.split("\n").filter((s) => s.trim());
-  const sentenceHashes = await Promise.all(sentences.map(computeHash));
+// Retrieve stored article
+async function getStoredArticle(articleId, signer) {
+  const contract = new Contract(contractAddress, contractAbi, signer);
+  try {
+    const hashes = await contract.getArticleHashes(articleId);
+
+    const sentences = hashes.map(
+      (h) => hashCache.get(h) || "[Unknown Sentence]"
+    );
+    return sentences;
+  } catch (error) {
+    console.error(
+      `Failed to fetch sentences for articleId ${articleId}:`,
+      error
+    );
+    return null;
+  }
+}
+
+// Get total articles
+async function getTotalArticles(signerOrProvider) {
+  const contract = new Contract(contractAddress, contractAbi, signerOrProvider);
+  const total = await contract.totalArticles();
+  return total.toNumber();
+}
+
+// Process and store article
+async function processArticle(articleId, article, signer) {
+  const sentences = article
+    .split("\n")
+    .map((s) => s.trim())
+    .filter((s) => s);
+
+  const normalizedSentences = sentences.map((s) =>
+    s.replace(/\s+/g, " ").toLowerCase()
+  );
+
+  const sentenceHashes = normalizedSentences.map(computeHash);
 
   const duplicates = sentenceHashes.map((h) => hashCache.has(h));
-  const uniqueHashes = sentenceHashes.filter((h, i) => !duplicates[i]);
+
+  const uniqueHashes = [];
+  const uniqueSentences = [];
+
+  for (let i = 0; i < sentenceHashes.length; i++) {
+    if (!duplicates[i]) {
+      uniqueHashes.push(sentenceHashes[i]);
+      uniqueSentences.push(sentences[i]); // store original, not normalized
+    }
+  }
 
   const score = computeScore(duplicates);
   const ratio = sentences.length ? score / sentences.length : 0;
 
-  console.log(`Text ${textId}: score=${score}, ratio=${ratio.toFixed(2)}`);
+  console.log(
+    `Article ${articleId}: score=${score}, ratio=${ratio.toFixed(2)}`
+  );
 
   if (ratio > 0.3) {
-    console.log(`Text ${textId} skipped`);
+    console.log(`Article ${articleId} skipped`);
     return false;
   }
 
   const contract = new Contract(contractAddress, contractAbi, signer);
+
   try {
-    const tx = await contract.storeSentences(textId, sentences, {
+    const tx = await contract.storeArticle(articleId, uniqueHashes, {
       gasLimit: 3_000_000,
     });
     await tx.wait();
-    console.log(`Stored Text ${textId}, tx hash: ${tx.hash}`);
+    console.log(`Stored Article ${articleId}, tx hash: ${tx.hash}`);
   } catch (error) {
     console.error("Blockchain error:", error);
     return false;
   }
 
-  for (const h of uniqueHashes) {
-    hashCache.set(h, textId);
+  for (let i = 0; i < uniqueHashes.length; i++) {
+    const normalizedSentence = uniqueSentences[i]
+      .trim()
+      .replace(/\s+/g, " ")
+      .toLowerCase();
+    hashCache.set(uniqueHashes[i], normalizedSentence);
   }
+
+  // Don't forget to persist the cache
+  saveHashCache(hashCache);
 
   return true;
 }
 
-export { processText, provider, contractAbi, contractAddress };
+export {
+  processArticle,
+  getStoredArticle,
+  getTotalArticles,
+  computeHash,
+  provider,
+  contractAbi,
+  contractAddress,
+};

@@ -252,14 +252,23 @@
 
 // export default App;
 
-import { useState } from "react";
-import { processText, provider } from "./process";
+import { useEffect, useState } from "react";
+import {
+  processArticle,
+  getStoredArticle,
+  getTotalArticles,
+  provider,
+} from "./process";
 
 function App() {
   const [text, setText] = useState("");
-  const [textId, setTextId] = useState(1);
+  const [articleId, setArticleId] = useState(1);
   const [status, setStatus] = useState("Idle");
   const [results, setResults] = useState([]);
+  const [readArticleId, setReadArticleId] = useState([]);
+  const [storedSentences, setStoredSentences] = useState([]);
+
+  const signer = provider.getSigner();
 
   async function requestAccount() {
     await window.ethereum.request({ method: "eth_requestAccounts" });
@@ -271,28 +280,52 @@ function App() {
       return;
     }
 
-    setStatus(`Processing Text ${textId}...`);
+    setStatus(`Processing Article ${articleId}...`);
     try {
       await requestAccount();
-      const signer = await provider.getSigner();
-      const success = await processText(textId, text, signer);
+      const success = await processArticle(articleId, text, signer);
 
       setResults((prev) => [
         ...prev,
-        `Text ${textId}: ${success ? "Stored" : "Skipped"}`,
+        `Text ${articleId}: ${success ? "Stored" : "Skipped"}`,
       ]);
 
       if (success) {
-        setTextId((id) => id + 1);
+        setArticleId((id) => id + 1);
         setText("");
+        setStatus("Idle");
+      } else {
+        setStatus("skipped");
       }
-      setStatus("Idle");
     } catch (error) {
       console.error("Error:", error);
       setStatus("Error");
-      setResults((prev) => [...prev, `Text ${textId}: Error`]);
+      setResults((prev) => [...prev, `Text ${articleId}: Error`]);
     }
   };
+
+  const handleViewStored = async () => {
+    await requestAccount();
+    const storedSentences = await getStoredArticle(readArticleId, signer);
+    if (storedSentences) {
+      setStoredSentences(storedSentences);
+    } else {
+      console.log("No article found or error occurred.");
+    }
+  };
+
+  useEffect(() => {
+    async function fetchTotalArticles() {
+      try {
+        const total = await getTotalArticles(signer || provider);
+        setArticleId(total + 1); // assuming new articleId = totalArticles
+      } catch (error) {
+        console.error("Failed to fetch total articles:", error);
+      }
+    }
+
+    fetchTotalArticles();
+  }, [signer]);
 
   return (
     <div style={{ padding: "20px" }}>
@@ -305,8 +338,11 @@ function App() {
         placeholder="Enter one sentence per line"
       />
       <br />
-      <button onClick={handleProcess} disabled={status !== "Idle"}>
-        Process Text {textId}
+      <button
+        onClick={handleProcess}
+        disabled={status !== "Idle" && status !== "skipped"}
+      >
+        Process Article {articleId}
       </button>
       <p>Status: {status}</p>
       <h2>Results</h2>
@@ -314,6 +350,25 @@ function App() {
         {results.map((result, i) => (
           <li key={i}>{result}</li>
         ))}
+      </ul>
+
+      <input
+        type="number"
+        onChange={(e) => {
+          setReadArticleId(e.target.value);
+        }}
+      />
+
+      <button onClick={handleViewStored} disabled={articleId <= 1}>
+        show {readArticleId}
+      </button>
+
+      <h3>text number {readArticleId}</h3>
+
+      <ul>
+        {storedSentences.map((sentence, i) => {
+          return <li key={i}>{sentence}</li>;
+        })}
       </ul>
     </div>
   );
