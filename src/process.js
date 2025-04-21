@@ -23,20 +23,8 @@ const provider = new ethers.providers.JsonRpcProvider("http://127.0.0.1:8545");
 
 const contractAbi = CONTRACT_ABI;
 
-// // Hash function
-// async function computeHash(sentence) {
-//   const encoder = new TextEncoder();
-//   const data = encoder.encode(sentence);
-//   const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-//   const hex = [...new Uint8Array(hashBuffer)]
-//     .map((b) => b.toString(16).padStart(2, "0"))
-//     .join("");
-//   return "0x" + hex;
-// }
-
 function computeHash(sentence) {
-  const normalized = sentence.trim().replace(/\s+/g, " ").toLowerCase();
-  return utils.keccak256(utils.toUtf8Bytes(normalized));
+  return utils.keccak256(utils.toUtf8Bytes(sentence));
 }
 
 // Scoring function
@@ -86,18 +74,17 @@ async function getTotalArticles(signerOrProvider) {
 
 // Process and store article
 async function processArticle(articleId, article, signer) {
-  const sentences = article
-    .split("\n")
-    .map((s) => s.trim())
-    .filter((s) => s);
+  const sentences = article.split("\n");
 
-  const normalizedSentences = sentences.map((s) =>
-    s.replace(/\s+/g, " ").toLowerCase()
-  );
-
-  const sentenceHashes = normalizedSentences.map(computeHash);
+  const sentenceHashes = sentences.map(computeHash);
 
   const duplicates = sentenceHashes.map((h) => hashCache.has(h));
+
+  for (let i = 0; i < duplicates.length; i++) {
+    if (duplicates[i]) {
+      console.log(`Duplicate sentence: "${sentences[i]}"`);
+    }
+  }
 
   const uniqueHashes = [];
   const uniqueSentences = [];
@@ -125,7 +112,7 @@ async function processArticle(articleId, article, signer) {
 
   try {
     const tx = await contract.storeArticle(articleId, uniqueHashes, {
-      gasLimit: 3_000_000,
+      gasLimit: 10_000_000,
     });
     await tx.wait();
     console.log(`Stored Article ${articleId}, tx hash: ${tx.hash}`);
@@ -135,11 +122,7 @@ async function processArticle(articleId, article, signer) {
   }
 
   for (let i = 0; i < uniqueHashes.length; i++) {
-    const normalizedSentence = uniqueSentences[i]
-      .trim()
-      .replace(/\s+/g, " ")
-      .toLowerCase();
-    hashCache.set(uniqueHashes[i], normalizedSentence);
+    hashCache.set(uniqueHashes[i], uniqueSentences[i]);
   }
 
   // Don't forget to persist the cache

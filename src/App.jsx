@@ -261,10 +261,11 @@ import {
 } from "./process";
 
 function App() {
-  const [text, setText] = useState("");
+  const [fileName, setFileName] = useState("");
   const [articleId, setArticleId] = useState(1);
   const [status, setStatus] = useState("Idle");
-  const [results, setResults] = useState([]);
+  // const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [readArticleId, setReadArticleId] = useState([]);
   const [storedSentences, setStoredSentences] = useState([]);
 
@@ -274,33 +275,59 @@ function App() {
     await window.ethereum.request({ method: "eth_requestAccounts" });
   }
 
+  // const handleProcess = async () => {
+  //   if (!text.trim()) {
+  //     alert("Please enter some text");
+  //     return;
+  //   }
+
+  //   setStatus(`Processing Article ${articleId}...`);
+  //   try {
+  //     await requestAccount();
+  //     const success = await processArticle(articleId, text, signer);
+
+  //     setResults((prev) => [
+  //       ...prev,
+  //       `Text ${articleId}: ${success ? "Stored" : "Skipped"}`,
+  //     ]);
+
+  //     if (success) {
+  //       setArticleId((id) => id + 1);
+  //       setText("");
+  //       setStatus("Idle");
+  //     } else {
+  //       setStatus("skipped");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //     setStatus("Error");
+  //     setResults((prev) => [...prev, `Text ${articleId}: Error`]);
+  //   }
+  // };
+
   const handleProcess = async () => {
-    if (!text.trim()) {
-      alert("Please enter some text");
+    if (!fileName.endsWith(".txt")) {
+      setStatus("Please enter a valid .txt file name");
       return;
     }
 
-    setStatus(`Processing Article ${articleId}...`);
+    setLoading(true);
     try {
-      await requestAccount();
+      const response = await fetch(`/articles/${fileName}`);
+      if (!response.ok) {
+        throw new Error("File not found");
+      }
+
+      const text = await response.text();
+
       const success = await processArticle(articleId, text, signer);
 
-      setResults((prev) => [
-        ...prev,
-        `Text ${articleId}: ${success ? "Stored" : "Skipped"}`,
-      ]);
-
-      if (success) {
-        setArticleId((id) => id + 1);
-        setText("");
-        setStatus("Idle");
-      } else {
-        setStatus("skipped");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      setStatus("Error");
-      setResults((prev) => [...prev, `Text ${articleId}: Error`]);
+      setStatus(success ? "Article processed ✅" : "Article skipped ❌");
+    } catch (err) {
+      console.error(err);
+      setStatus("Failed to load or process file");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -330,27 +357,33 @@ function App() {
   return (
     <div style={{ padding: "20px" }}>
       <h1>Article Processor</h1>
-      <textarea
+      {/* <textarea
         rows="10"
         cols="50"
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Enter one sentence per line"
+      /> */}
+      <input
+        type="text"
+        value={fileName}
+        onChange={(e) => setFileName(e.target.value)}
+        placeholder="Enter file name like 1.txt"
       />
       <br />
       <button
         onClick={handleProcess}
-        disabled={status !== "Idle" && status !== "skipped"}
+        // disabled={status !== "Idle" && status !== "skipped"}
       >
-        Process Article {articleId}
+        {loading ? "Processing..." : "Process"} {articleId}
       </button>
       <p>Status: {status}</p>
-      <h2>Results</h2>
-      <ul>
+      {/* <h2>Results</h2> */}
+      {/* <ul>
         {results.map((result, i) => (
           <li key={i}>{result}</li>
         ))}
-      </ul>
+      </ul> */}
 
       <input
         type="number"
