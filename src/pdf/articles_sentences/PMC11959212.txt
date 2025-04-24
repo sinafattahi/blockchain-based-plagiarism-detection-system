@@ -46,9 +46,8 @@ It can capture a nonlinear relationship between inputs and outputs from a given 
 The distribution of functions is estimated for each data point, which enables quantification of the prediction uncertainty as a predictive variance (Figure1).
 In this section, we briefly explain the basics of GPR.
 We derive the posterior distribution of a function for a given dataset as a Gaussian process.
-First, functionfxis prepared as a random variable following a Gaussian distribution with a prior mean functionmxand a covariance functionkx,x′.
-whereσlengthis a spatial length scale as a hyperparameter.
-wherekXnx=kx1x⋯kxnx.
+First, function fx is prepared as a random variable following a Gaussian distribution with a prior mean functionmxand a covariance functionkx,x′.
+where σ length is a spatial length scale as a hyperparameter.
 Accordingly, the predictive distribution of outputy*for a new inputx*can be obtained by adding the noise variance to that offx*.
 In this way, we develop predictive models that takes chemical composition data as inputs and outputs the IMF during analysis, along with estimated uncertainties for the predictions.
 The olivine Mg isotope data reported by Fukuda et al. [9] were used for model training and reliable performance validation.

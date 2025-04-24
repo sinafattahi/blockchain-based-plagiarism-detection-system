@@ -1,8 +1,8 @@
 import requests
 import os
 
-# Step 1: Query Europe PMC for 100 open-access articles
-api_url = "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=OPEN_ACCESS:Y&format=json&pageSize=100"
+# Step 1: Query Europe PMC for 500 open-access articles
+api_url = "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=OPEN_ACCESS:Y&format=json&pageSize=500"
 response = requests.get(api_url)
 data = response.json()
 
@@ -19,7 +19,7 @@ headers = {
 
 # Step 4: Download and save each article's full HTML
 for pmcid in pmcids:
-    html_url = f'https://www.ncbi.nlm.nih.gov/pmc/articles/{pmcid}/'  # Updated URL
+    html_url = f'https://www.ncbi.nlm.nih.gov/pmc/articles/{pmcid}/?report=classic'
     html_response = requests.get(html_url, headers=headers)
 
     if html_response.status_code == 200:

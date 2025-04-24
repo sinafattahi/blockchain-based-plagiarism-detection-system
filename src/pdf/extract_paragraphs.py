@@ -2,7 +2,7 @@ import os
 from bs4 import BeautifulSoup
 
 html_dir = 'articles_html'
-output_dir = 'articles_text'
+output_dir = 'articles_paragraphs_text'
 os.makedirs(output_dir, exist_ok=True)
 
 min_length = 50

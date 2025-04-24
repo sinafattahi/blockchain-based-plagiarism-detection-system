@@ -15,7 +15,7 @@ punkt_param.abbrev_types = set([
 tokenizer = PunktSentenceTokenizer(punkt_param)
 
 # Input/output paths
-input_dir = 'articles_text'
+input_dir = 'articles_paragraphs_text'
 output_dir = 'articles_sentences'
 os.makedirs(output_dir, exist_ok=True)
 
