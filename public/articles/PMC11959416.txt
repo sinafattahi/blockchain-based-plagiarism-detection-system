@@ -1,0 +1,207 @@
+Inverse probability weighting is a fundamental and general methodology for estimating the causal effects of exposures and interventions, but standard approaches to constructing such weights are often suboptimal.
+In this paper, we describe a recent approach for constructing such weights that directly balances covariates while optimizing the stability of the resulting weighting estimator.
+To illustrate the use of this approach in mental health research, we present an exploratory study of the effects of exposure to violence on the risk of suicide attempt.
+The direct balancing approach to weighting should be given strong consideration in empirical research due to its robustness and transparency in building weighting estimators.
+In many settings in mental health research, the randomized experiment is the ideal study design for inferring causation from association.
+However, in other settings where randomization is impractical, investigators depend on observational studies.
+Such is the case for many questions in behavioral health science, where it is infeasible or unethical to randomize, for example, exposure to violence, substance abuse, or trauma.
+Additionally, conducting a randomized trial can be far more costly than analyzing, for example, routinely collected observational data.
+For these reasons and others, it is critical for investigators to use and thoroughly understand statistical methods for causal inference in observational studies.
+Many of these methods involve weighting, where each unit is assigned a weight equal to the inverse propensity (IP) score; that is, by the inverse of the conditional probability of receiving treatment given observed covariates (Rosenbaum1987).
+Subject to certain assumptions (see Section3), weighting by the true IP score is sufficient to remove confounding, allowing for weighted estimates to be granted a causal interpretation (Rosenbaum and Rubin1983).
+Additionally, weighting any bounded function of covariates by the true IP score will balance this covariate function across exposure groups (Ben‐Michael et al.2021).
+In this vein, investigators analyzing observational datasets involving mental disorders frequently turn to weighting methods to conduct causal analyses (see, e.g., Davisse‐Paturet et al.2023; Kessler et al.2020; Kaster et al.2022; Steeg et al.2018).
+In practice, however, the true propensity scores are unknown and need to be estimated from data.
+There are two primary approaches for estimating the IP weights (Hirshberg and Zubizarreta2017).
+On the one hand, the modeling approach focuses on accurately estimating the conditional probability of exposure, by positing a model (e.g., logistic regression) for the propensity score and then inverting these estimates to construct the weights (see, e.g., Westreich et al.2010).
+However, treatment effect estimates under this approach can be biased if the model is misspecified (Chattopadhyay et al.2020).
+Furthermore, even if the model is correct, the resulting weights can fail to balance covariates in a given sample (Zubizarreta et al.2011).
+This issue is often addressed through an iterative and sometimes ad hoc process of re‐estimating the weights and re‐checking balance (Stuart2010).
+On the other hand, the balancing approach to weighting focuses on the aforementioned balancing property of the weights by finding weights that balance covariates in the sample (Chattopadhyay et al.2020).
+These weights are solutions to an optimization problem that directly balances covariates across treatment groups while addressing other issues related to ad hoc checks often utilized in modeling approaches (e.g., minimizing dispersion, avoiding extreme weights, constraining the weights to be non‐negative).
+By tackling these issues explicitly, balancing approaches circumvent some of the difficulties inherent in modeling approaches.
+Various statistical methods can be classified as balancing approaches, such as entropy balancing (Hainmueller2012), the covariate balancing propensity score (Imai and Ratkovic2014), regularized calibrated estimation of propensity scores (Tan2020), and the lasso minimum distance estimator (Chernozhukov et al.2022).
+Among them, the stable balancing weights (SBW; Zubizarreta,2015) are the weights of minimum variance that approximately balance covariates according to levels specified by the investigator, thus providing explicit control over the bias‐variance trade‐off.
+Although SBW and other methods vary in technical aspects, they all prioritize achieving covariate balance with regularized weights.
+In this paper, we provide an overview of the balancing approach to weighting and illustrate various design choices for constructing these weights through exploratory study of the effects of exposure to violence (specifically, being mugged or threatened with a weapon) on the risk of suicide attempt in the following year.
+Section2describes the data used for the study and introduces our notation and assumptions for making valid causal inferences using IP weighting.
+Section3compares and contrasts balancing weights computed under different design choices, such as which covariate functions to balance, and discusses specific methods, including SBW, as examples.
+This section also analyzes outcomes using a single set of weights carefully selected from among the candidates explored in the previous section.
+Section4concludes with some remarks.
+To illustrate the use of balancing weights, we draw upon data from the World Mental Health (WMH) surveys to estimate the effect of being mugged or threatened with a weapon on the probability of making a suicide attempt in the next year.
+Because this exposure was not randomized, we must use a method that adjusts the estimated exposure‐outcome association for confounding.
+Assuming that all confounders are measured and adjusted for, balancing weights provide an appropriate method for such an adjustment.
+Before describing this assumption and our weighting approach more formally, we begin with a description of the data set and the variable measurements therein.
+The World Mental Health (WMH) surveys are community epidemiological surveys of the prevalence and correlates of common mental disorders that were designed for needs assessment (Kessler and Üstün2008).
+Consistent sampling and field procedures were used in implementing the surveys that are described elsewhere (Heeringa et al.2008).
+Data are presented here from 26 WMH surveys administered across 23 countries with a combined sample size of n = 115,477 respondents ages 18 and older (see TableS1).
+Twelve of these surveys were carried out in countries classified by the World Bank as low‐ or middle‐income (LMIC; a regional survey in São Paulo Brazil, two national surveys in Bulgaria, two in Colombia including one national survey and a regional survey in Medellin, Lebanon, Mexico, Nigeria, Peru, Romania, South Africa, and Ukraine) and the others in high‐income countries (HIC; Argentina, Belgium, France, Germany, Italy, Japan, Netherlands, Northern Ireland, Poland, Portugal, Saudi Arabia, two in Spain including one national survey and another in Murcia, and the United States).
+All surveys were based on multistage clustered area probability household samples.
+Seventeen of the surveys were nationally representative (Belgium, two in Bulgaria, France, Germany, Italy, Lebanon, Netherlands, Northern Ireland, Poland, Portugal, Romania, Saudi Arabia, South Africa, Spain, Ukraine, and United States) and the others were representative of selected regions, metropolitan areas, or urbanized areas.
+Field dates ranged between 2001 and 2019.
+Within‐survey response rates ranged between 45.9% and 97.2%, with a weighted (by sample size) average response rate across surveys of 71.6% using the American Association for Public Opinion Research RR1w definition (https://aapor.org/response‐rates/).
+WMH interviews were administered face‐to‐face by trained lay interviewers in respondent homes.
+All the procedures used to obtain informed consent, to protect the confidentiality of responses, and to provide referrals for services to respondents who experienced distress complied with the ethical standards of the relevant national and institutional committees on human experimentation and with the Helsinki Declaration of 1975, as revised in 2008.
+Interviews were in two parts.
+Part I, administered to all respondents, assessed core DSM‐IV mental disorders (n= 51,002 respondents across all surveys).
+Part II assessed additional disorders and correlates, including questions about traumatic events and PTSD, and was administered to 100% of Part I respondents who met lifetime criteria for any Part I disorder and a probability subsample of other Part I respondents (n= 25,819).
+Part II respondents were weighted to adjust for differential within and between household selection, selection into Part II, and deviations between the sample and population demographic‐geographic distributions (Heeringa et al.2008).
+The Part II sample was used in the analyses reported here.
+The interview used in the WMH surveys is the Composite International Diagnostic Interview (CIDI; Kessler and Üstün2004) a fully structured psychiatric diagnostic interview that was developed in English and translated into other languages using an extensive World Health Organization (WHO) protocol that involved forwards translation, an expert panel to review the translation and conduct pre‐testing and cognitive interviewing, and independent backwards translation with emphasis on conceptual rather than literal equivalence (Harkness et al.2008).
+Being mugged was assessed as part of a battery of traumatic life events (TLEs) that was administered to all Part II respondents.
+This battery included questions about lifetime exposure to 27 types of TLE, including various kinds of exposure to organized violence (e.g. civilian in war zone or region of terror), participation in organized violence (e.g. combat experience), exposure to interpersonal violence (e.g. childhood physical abuse), sexual‐relationship violence (e.g. beaten by spouse or partner, raped, sexual assault), other life‐threatening events (e.g. life‐threatening illness or accident, natural disaster), and events involving loved ones (e.g. unexpected death of a loved one, life‐threatening illness of a child).
+In addition, respondents were asked an open‐ended question about ever experiencing some other “life‐threatening” events, with probes of positive responses for information on the nature of the event, and a final question about exposure to a “private” event that “we won't ask you to describe because of embarrassment, but we'd like to know if it happened and, if so, how old you were when it happened.” A complete listing of the TLE questions can be found elsewhere (Benjet et al.2016).
+Information was obtained on age when each type of TLE first happened.
+We focus here on being mugged, a relatively common and highly stressful TLE.
+Being mugged was assessed with a question asking respondents if they were ever mugged, held up, or threatened with a weapon.
+The outcome of interest is first onset of a suicidal attempt within a year of first exposure to being mugged.
+Suicide attempt was assessed in the CIDI as part of a series of questions about lifetime occurrence, age of onset, and recency of suicide ideation (“Have you ever seriously thought about committing suicide?”), plans (“Have you ever made a plan for committing suicide?”), and attempts (“Have you ever attempted suicide?”).
+Based on evidence that reports of such experiences are higher in self‐administered than interviewer‐administered surveys (Turner et al.1998) responses to these questions were obtained in a self‐administered booklet.
+We focus here of first onset of a suicide attempt within 1 year of the occurrence of being mugged.
+Among the baseline covariates considered in the analysis were a series of lifetime mental disorders assessed in the CIDI, including DSM‐IV mood disorders (major depressive disorder, dysthymic disorder, bipolar disorder), anxiety disorders (panic disorder, agoraphobia, specific phobia, social phobia, generalized anxiety disorder, separation anxiety disorder), disruptive behavior disorders (attention‐deficit/hyperactivity disorder, oppositional‐defiant disorder, conduct disorder, and intermittent explosive disorder), and substance disorders (alcohol abuse with or without dependence; drug abuse with or without dependence).
+Age‐of‐onset (AOO) of each disorder was assessed using special probing techniques shown experimentally to improve recall accuracy (Knäuper et al.1999).
+This allowed determination based on retrospective AOO reports of whether each respondent had a history of each disorder prior to the age of first exposure to being mugged.
+DSM‐IV organic exclusion rules and diagnostic hierarchy rules were used (other than for ODD, which was defined with or without CD, and substance abuse, which was defined with or without dependence).
+Agoraphobia was combined with panic disorder because of low prevalence.
+Dysthymic disorder was combined with major depressive disorder for the same reason.
+As detailed elsewhere (Haro et al.2006), generally good concordance was found between these CIDI diagnoses and blinded clinical diagnoses based on clinical reappraisal interviews with the Structured Clinical Interview for DSM‐IV.
+Other baseline covariates considered in the analysis included socio‐demographics (age, education, marital status, and gender) and exposure to each of 12 childhood (occurring before age 18) family adversities (including three types of interpersonal loss [parental death, parental divorce, other separation from parents], four types of parental maladjustment [mental illness, substance misuse, criminality, violence], three types of maltreatment [physical abuse, sexual abuse, neglect] and two other childhood adversities [life‐threatening respondent physical illness, family economic adversity]).
+Details on measurement of the childhood adversities (Cas) are presented elsewhere (Kessler et al.2010).
+We focused in the current analysis on the association between first exposure to being mugged and subsequent first onset of a suicide attempt (SA) within the next year among WMH respondents who were in the age range 18+ at the time of exposure.
+We limited the analysis to incident muggings that occurred at ages 18+ because the childhood adversities included in the battery of baseline covariates were only dated as having occurred prior to age 18 with no more fine‐grained dating, making it important to focus on muggings occurring for the first time at ages 18+ to guarantee temporal priority of the childhood adversities.
+This means that the analysis as confined to WMH respondents who did not experience either mugging nor a suicide attempt in childhood.
+Analysis was carried out in a truncated discrete‐time survival framework with person‐year selected at random as the unit of analysis and the data array limited to person‐years ages 18 or older either prior to, the year or, or the first year after first exposure to mugging in which observations were censored the year after first occurrence of a suicide attempt.
+Age in the person‐year was included as a control variable along with a series of dummy variables for country.
+The target predictor was onset of mugging.
+The outcome was first onset of a suicide attempt either in the year of or 1 year after the incident occurrence of the mugging.
+All the temporally primary covariates described above (i.e., childhood adversities, other prior TLEs, prior lifetime mental disorders, sex, and time varying socio‐demographics) were used as to the balancing equations.
+The data consist ofnobservations, including covariatesX, a binary exposureA∈{0,1}, and an outcomeY.
+Specifically,Xidenotes thei‐th unit's covariates,Airepresents its exposure status, andYiindicates its outcome measurement.
+In our illustrative study,Xincludes variables such as age and mental health comorbidities,Adenotes whether the individual was mugged in the past year, andYmeasures whether a suicide attempt was made in the following year.
+Our weighting approach unfolds in the potential outcomes framework for causal inference (Neyman1923, 1990; Rubin1974) where we consider counterfactual versions of the outcomeYcorresponding to those that would be observed under each exposure status.
+That is,Yi(a)denotes the outcome that would be observed for unitiunder exposureA= a, fora∈{0,1}.
+This invokes the Stable Unit Treatment Value Assumption (SUTVA), which requires only one version of treatment and no interference between units (Rubin1980).
+In this setup, our goal is to estimate the average treatment effect (ATE): that is, the average effect of the exposure on the outcomes in the overall study population.
+Formally, we want to learn the estimandτ≔E[Y(1)−Y(0)], whereτdenotes the ATE.
+However, for each observation in the data,τinvolves unobserved variables (i.e., potential outcomes), and so we require additional, standard assumptions to identify or “see” the ATE using the observed data.
+Consistency.Yi=AiYi(1)+1−AiYi(0)alli.
+In other words, the observed outcome for unitiis its potential outcome under the observed exposure.
+Positivity.For allxwith positive probability density, we have that0<P(A=1|X=x)<1.
+In other words, for all possible combinations of covariate values, a unit can be exposed or unexposed.
+Exchangeability. {Y(1),Y(0)}⊥A|X.In other words, conditional on covariates, the potential outcomes are independent of the exposure.
+whereπ(x):=P(A=1|X=x)is the propensity score.
+This suggests weighting units by the inverse propensity score to obtain estimates for the ATE.
+Notably, these weights possess an important mathematical property, known as the balancing property, whereby they balance any bounded function of the covariates across the treatment groups in expectation.
+A popular method for estimating the propensity score is logistic regression: however, as with any parametric method, model misspecification is a concern and can result in biased estimates of the ATE.
+Alternative nonparametric methods such as boosting (McCaffrey et al.2004) and others machine learning approaches (Lee et al.2010) have been proposed; however, such complex methods often require large sample sizes for accuracy, and the process of inversion to construct the weights can amplify small estimation errors made in small‐ or moderate‐sized samples.
+This motivates an alternative approach, the balancing approach, for estimating the inverse propensity weights.
+Balancing approaches directly target an in‐sample analog of the balancing property of the weights rather than accuracy in estimating the propensity scores themselves, thus bypassing the need for inversion and prioritizing finite sample performance.
+A variety of such approaches exist in the literature, such as entropy balancing (Hainmueller2012), the stable balancing weights (Zubizarreta2015), regularized calibrated propensity score estimation (Tan2020), and the lasso minimum distance estimator (Chernozhukov et al.2022).
+Each of these prioritizes different aspects of the estimation task, such as achieving covariate balance or avoiding extreme weights, though all can be expressed as optimization problems targeting covariate balance.
+See Ben‐Michael et al. (2021) and Cohn et al. (2023) for additional details and a framework for unifying these different methods.
+Additional requirements, such as constraining the weights to take non‐negative values.
+Before proceeding, we note that when selecting between different weighting methods, it is important to preserve the validity of downstream statistical inference (e.g., the coverage of confidence intervals).
+One way to do so is to compare weighting methods without looking at outcomes: that is, to compare different weighting approaches using diagnostics that do not involve outcomes information.
+This also adheres to an important principle in the design of observational studies to separate the design and analysis stages of the study, as occurs in randomized experiments, to support the objectivity of the study (Rubin2007).
+This is the strategy we take in this section, where we compare the weights under different design choices using diagnostics that assess the quality of covariate balance and the dispersion of the weights.
+Using only these diagnostics, we then select one of the weighting designs, compute the weights under this design, and analyze outcomes.
+Recall that inferring causation from association in observational studies requires adjusting for confounders: covariates that influence both the exposure and the outcome of interest.
+Subject matter knowledge and prior studies can help to identify potential confounders for balance.
+For example, given the collection of variables available in a given data set, the investigator can consult with experts on a particular research topic to identify variables for which it is important to adjust.
+This is the approach we take in this section.
+That is, based on input from subject matter experts, we took as a starting point the following list of covariates in Table1as our set to balance.
+Sometimes, the research team may not have enough knowledge about the subject at hand, or the existing literature on the topic may be sparse.
+In such cases, one can employ variable selection techniques to determine which covariates to balance.
+However, care must be taken to preserve the validity of statistical inference, for example, by sample splitting: using one part of the sample to explore and select covariates and then using another part to construct the weights and estimate effects.
+In this spirit, an existing approach involves using sample splitting with the outcome‐adaptive lasso to select covariates for balancing (Shortreed and Ertefaie2017).
+for scalar coefficientsβp(a)∈Rand eachϕp(⋅)some scalar basis function of the covariate vectorX.
+Then for a weighted estimator of the form∑i=1nIAi=awiYito validly estimateE[Y(a)], the weightswimust balance the covariate functionsϕp(⋅).
+While we present this idea in complete generality, in some settings the task can be much simpler and more familiar.
+For example, suppose thatϕp(X)takes thep‐th entry ofX: that is, the generating models for the potential outcomes are linear in the covariates (i.e., include main terms only).
+Then the weights need only balance the covariate means.
+If the potential outcome models are linear in the main terms and their two‐way interactions, we need to balance the covariate means and the means of their two‐way interactions.
+This highlights a trade‐off between the restrictiveness of our assumptions and the ease of the covariate balancing problem: if we allow for more complex outcome models, we must balance more covariate functions.
+When all covariates are categorical, any possible data‐generating model can be represented as in Equation (1) using only a finite number of basis functions: namely, all interactions of covariates.
+That is, ifXconsists only of categorical covariates, models of the form Equation (1), with a finite number of basis functions, can adequately describe all possible potential outcome models.
+Such an approach can be described as nonparametric, since we make no assumptions about the form of the outcome model.
+When covariates are continuous, however, an assumption‐free (i.e., nonparametric) approach necessarily requires an infinite number of basis functions in Equation (1), which is complicating in practice.
+Of course, even with categorical covariates, the problem can become untenable as the number of possible interactions increases exponentially.
+In such cases, analysts can choose to balance only the most important basis functions (e.g., interactions up to a certain depth) or enforce more stringent balance on some terms (e.g., main terms) while allowing more imbalance on others (e.g., interactions).
+An alternative way forward considers the outcome models in Equation (1) as lying in a reproducing kernel Hilbert space (RKHS).
+Such an assumption is common in the literature on nonparametric regression, and it places few assumptions on the potential outcome models.
+This approach is helpful because it allows for optimization problems involving infinite components (i.e., an infinite number of basis functions) to be reduced to finite‐dimensional problems via the “kernel trick,” which replaces inner products with kernel evaluations.
+In our data analysis, we consider three different designs for what covariate functions to balance.
+That is, we compute three sets of weights that each balance either: (i) main terms only (“marginal design”), (ii) main terms and up to three‐way interactions (“interaction design”), or (iii) the basis functions corresponding to an RKHS with the radial basis function (RBF) kernel (“RKHS design”).
+Specifically, we used the kernelk(x,y)=exp−σ||x−y||2withσ=0.01.This corresponds to the assumption thatMis an RKHS with the kernelk.
+The marginal and interaction designs implement the stable balancing weights (SBW) approach of (Zubizarreta2015) which maximizes the effective sample size subject to approximate balance constraints on the basis functions, where the degree of approximate balance and the basis functions are inputs to SBW set by the analyst.
+For the marginal design, we constrain imbalance on main terms to be less than 0.05 standard deviations, and for the interaction design, we constrain imbalance on main terms to be less than 0.05 standard deviations, imbalance on two‐way interactions to be less than 0.1 standard deviations, and imbalance on three‐way interactions to be less than 0.15 standard deviations.
+whereX‾p(1)is the weighted sample mean in the treated group,X‾p(0)is the weighted sample mean in the control group, andsdXpis the standard deviation.
+Thus, the ASAMD is a measure of covariate balance across treatment groups, and, roughly, lower ASAMDs correspond to lower bias of subsequent estimators.
+For a set of weightswi, the ESS is computed as∑i=1nwi2/∑i=1nwi2, and it provides a measure of the amount of data contributing to subsequent weighted analyses, in units of sample size.
+Roughly, higher ESS corresponds to lower variance of subsequent estimators.
+Figure1shows the ASAMDs for the three balancing weights approaches, along with the original unweighted data (“unweighted” design) and a modeling approach (“modeling” design), where the modeling weights are constructed by fitting a main terms logistic regression to estimate the propensity scores and inverting the estimates to construct the weights.
+The leftmost panel depicts balance on the main terms, showing that, even for relatively highly imbalanced terms (e.g., age, never married), most methods can achieve adequate covariate balance, signified by ASAMD < 0.1, which is a standard benchmark in causal inference for observational studies.
+Although in our setting, the modeling design achieves a high degree of balance on the main terms, this is not always guaranteed in practice.
+On the other hand, the marginal and interaction designs achieve this balance by design, as the investigator specifies the degree of balance as an input to SBW.
+The middle panel shows balance on the main terms and two‐ and three‐way interactions, which shows, again, that the design that explicitly controls imbalance on these terms (i.e., the interaction design) is the only one that achieves this level for all terms.
+The rightmost panel shows the distributions of ASAMDs, and the RKHS design shows the best performance, as expected.
+Covariate balance for different weighting methods.
+Table2shows the ESSs for the different weighting approaches, which shows the balance‐dispersion trade‐off when viewed in comparison to Figure1.
+As is usually the case in practice with any covariate adjustment method such as weighting or regression, the effective sample size is markedly reduced from the unadjusted sample.
+Generally, those methods that target balance on a greater number of covariate functions suffer lower ESS.
+However, Table2also shows that this sacrifice is relatively small when moving from the main to the interaction design: that is, we need to sacrifice only very few units of ESS to balance the two‐ and three‐way interactions in addition to the main terms for our study.
+Additionally, both the main and interaction designs still have higher ESS (albeit, very slightly) than the modeling design does, reflecting that the SBW method explicitly targets maximization of ESS for a given level of covariate balance.
+Effective sample size for different weighting methods.
+In any method of covariate adjustment, there is a bias‐variance trade‐off: generally, methods that are less biased have larger variance, and vice versa.
+With balancing weighting methods, the analyst has flexibility in controlling these competing concerns.
+In this section, we briefly consider how different balancing weights approaches consider balance and dispersion, which are in‐sample counterparts to bias and variance.
+Some balancing approaches penalize the components of this trade‐off in a binary fashion: that is, when balance or dispersion is below a certain threshold, the penalty is 0 (i.e., no penalty), and when balance or dispersion is above a certain threshold, the penalty is infinity (i.e., largest possible penalty).
+This is the approach that SBW takes for the balance component of the balance‐dispersion trade‐off, where the resulting weights must result in covariate balance below a certain threshold, which is a tuning parameter set by the investigator.
+In the SBW designs in the previous section, we set this threshold according to certain heuristics (i.e., ASAMD < 0.05), though other strategies exist, too.
+For example, Chattopadhyay et al. (2020) offer a tuning algorithm involving bootstrapping to select the optimal degree of balance for each term.
+Other approaches penalize components of the balance‐dispersion trade‐off in a more continuous fashion.
+This is the approach that SBW takes for the dispersion component: where the variance of the weights is minimized within the acceptable levels of covariate balance.
+Other methods penalize both the balance and dispersion components continuously, for example, via a tuning parameterλ∈(0,1)which determines the extent to which minimizing imbalance is prioritized over minimizing variance.
+In such cases, the analyst can construct weights for different values ofλand empirically assess balance and dispersion using plots and tables like those in the prior section.
+One can then compare the resulting balance and ESS for different choices ofλand select the value that achieves an acceptable level for each criterion.
+Importantly, this approach maintains valid statistical inference because it does not involve analyzing outcomes.
+This is the strategy undertaken for the RKHS design in the previous section.
+In the balancing designs implemented earlier, we include constraints that require the weights to be non‐negative and to sum to one, which together restrict any subsequent weighted estimates to be interpolations of the observed data: that is, any estimate will necessarily fall within the minimum and maximum of the observed data.
+Avoiding extrapolation can be advantageous in that it makes estimates less sensitive to modeling assumptions, for example, the assumption about the form of the outcome model in (1).
+However, allowing negative weights can result in a better balance‐dispersion trade‐off, which may be useful for small samples.
+Certain methods encountered in practice, such as linear regression, can employ large negative weights (Chattopadhyay and Zubizarreta2023,2024).
+One way for investigators to explore this option is to relax the non‐negativity constraint and assess the degree of improvement in ESS as well as the quantity and magnitude of the negative weights, which can diagnose the severity of any risk of extrapolation: for example, as in Section 16.4.4 of Cohn et al. (2023). In our study, we keep the non‐negativity constraint, as our sample size is large enough that avoiding extrapolation is not too costly.
+In light of the results in the previous section, we use the weights computed under the interaction design as the final weights for analysis.
+This is because these weights achieve covariate balance in many interaction terms (i.e., as in Figure1) while not sacrificing much in terms of ESS (i.e., as in Table2).
+Using these weights, we estimate the effect of being mugged or threatened with a weapon on the probability of suicide attempt in the next year.
+We construct confidence intervals by bootstrapping, where we resample the data 10,000 times, implement the interaction design on each bootstrap resample, and compute a version ofτˆfor each.
+We take the standard deviation of these 10,000 estimates as the standard error forτˆ, denotedseˆ(τˆ), and construct a 95% confidence interval asτˆ±1.96·seˆ(τˆ).
+Figure2displays the results of the outcome analysis.
+Using balancing weights, we estimate that being mugged or threatened with a weapon increases the probability of suicide attempt in the next year by approximately 1.51 times, and the 95% confidence interval (1.01, 2.01) just exceeds the null value 1.00.
+Compared to the unweighted difference‐in‐means, which is centered at 2.22 with a 95% confidence interval of (1.52, 2.92), this estimate is much closer to the null value and has a smaller confidence interval, highlighting the importance of appropriately adjusting for confounders when making causal inferences from observational data, lest we incorrectly accept or reject the null hypothesis.
+Although the effective sample size of the weighted adjusted sample much smaller than the unweighted sample size, as shown in Table2, the confidence interval of the weighted estimate is smaller, suggesting efficiency gains from covariate adjustment.
+This may also be influenced by the use of the risk ratio, which is a nonlinear transformation of outcomes.
+Estimated effect of being mugged or threatened with a weapon on probability of suicide attempt.
+wheremˆa(X)is an estimate of the outcome modelE[Y|X,A=a].
+One can construct each ofmˆa(X), say, via nonparametric or machine learning regression methods ofYonXin groupA=a.
+Inference can then proceed as before, albeit bootstrapping estimates ofτˆrather thanτ∼.
+The described weighting methods are implemented in the SBW package for R. This package is open‐source and freely available for download from CRAN.
+Examples with code can be found in the help file of the package.
+Further examples with code can also be found on Web Appendix 8.10 of Chattopadhyay et al. (2024).
+The core idea of weighting is to remove systematic differences between the treated and control groups that may bias the estimation of causal effects.
+Intuitively, weighting adjusts or recalibrates the treated and control groups according to their observed covariates so that they are similar.
+In essence, weighting aims to approximate a randomized experiment in terms of observed covariates.
+The weighting method we have discussed pursues this goal directly by balancing the distributions of observed covariates with weights that maximize the stability of the resulting estimator, rather than indirectly by maximizing the fit of a propensity score model.
+We have argued that this improves the statistical performance of the estimator and also strengthens other intuitive elements of the study design.
+In the context described, under the assumption of exchangeability, any method of covariate adjustment, such as weighting or regression, requires that all confounders be measured and accounted for, as noted in Assumption (iii) in Section2.2.
+This is a high bar for most observational studies.
+Alternative approaches for causal inference that do not rely on the assumption of exchangeability include difference‐in‐differences, instrumental variables, lagged outcome models, discontinuity designs, and proximal causal inference.
+However, each of these approaches involves its own set of strong, often untestable, assumptions.
+Investigators can enhance their analyses through sensitivity analyses by specifying alternative sets of confounders, using negative control outcomes or negative control exposures (e.g., Lipsitch et al.2010), conducting analyses based on different underlying causal assumptions (e.g., Ding and Li2019), or employing other techniques (e.g., VanderWeele and Ding2017).
+Finally, it is crucial to highlight that the distinction between balancing and modeling approaches to weighting is more procedural than conceptual, as both approaches ultimately model the inverse propensity score (through the dual of the weighting optimization problem) or model the outcome (through the covariate balance requirements that span a model class).
+The key distinction lies in what these approaches emphasize (or optimize for) in any given finite sample.
+Balancing approaches to weighting emphasize criteria such as explicit bias control through covariate balancing and variance stabilization by pursuing small and uniform weights, which are directly relevant for the performance of the effect estimator in finite samples.
+Moreover, these approaches emphasize additional, perhaps less formal criteria related to the workflow and design of the study, as well as the effective communication of its results.
+This entails the direct and transparent construction of comparable samples with specific properties, closely mirroring certain features of a randomized experiment within observational data.
+In these analyses, the linear structure of weighting estimators is crucial because each weight serves as a diagnostic tool for practice (Chattopadhyay and Zubizarreta2024).
+Clear diagnostics and investigator‐control over the adjustment process enhance the integration of substantive knowledge into the statistical estimation process and improve the clarity of communication of study results.

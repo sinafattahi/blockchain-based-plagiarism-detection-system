@@ -1,21 +1,23 @@
 import { ethers, Contract, utils } from "ethers";
+import { set, get } from "idb-keyval";
 import { CONTRACT_ABI } from "./constants";
 
-const HASH_CACHE_KEY = "hashCache";
+let hashCache = {}; // Start empty
 
-function loadHashCache() {
-  const stored = localStorage.getItem(HASH_CACHE_KEY);
-  return stored ? new Map(JSON.parse(stored)) : new Map();
+// Save to IndexedDB
+const saveHashCache = async () => {
+  await set("hashCache", hashCache);
+};
+
+// Load from IndexedDB
+const loadHashCache = async () => {
+  const cached = await get("hashCache");
+  hashCache = cached || {};
+};
+
+async function init() {
+  await loadHashCache();
 }
-
-function saveHashCache(cache) {
-  localStorage.setItem(
-    HASH_CACHE_KEY,
-    JSON.stringify(Array.from(cache.entries()))
-  );
-}
-
-const hashCache = loadHashCache();
 
 // Blockchain setup
 const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
@@ -46,15 +48,11 @@ function computeScore(duplicates) {
   return score;
 }
 
-// Retrieve stored article
 async function getStoredArticle(articleId, signer) {
   const contract = new Contract(contractAddress, contractAbi, signer);
   try {
     const hashes = await contract.getArticleHashes(articleId);
-
-    const sentences = hashes.map(
-      (h) => hashCache.get(h) || "[Unknown Sentence]"
-    );
+    const sentences = hashes.map((h) => hashCache[h] || "[Unknown Sentence]");
     return sentences;
   } catch (error) {
     console.error(
@@ -65,20 +63,16 @@ async function getStoredArticle(articleId, signer) {
   }
 }
 
-// Get total articles
 async function getTotalArticles(signerOrProvider) {
   const contract = new Contract(contractAddress, contractAbi, signerOrProvider);
   const total = await contract.totalArticles();
   return total.toNumber();
 }
 
-// Process and store article
 async function processArticle(articleId, article, signer) {
   const sentences = article.split("\n");
-
   const sentenceHashes = sentences.map(computeHash);
-
-  const duplicates = sentenceHashes.map((h) => hashCache.has(h));
+  const duplicates = sentenceHashes.map((h) => h in hashCache);
 
   for (let i = 0; i < duplicates.length; i++) {
     if (duplicates[i]) {
@@ -92,7 +86,7 @@ async function processArticle(articleId, article, signer) {
   for (let i = 0; i < sentenceHashes.length; i++) {
     if (!duplicates[i]) {
       uniqueHashes.push(sentenceHashes[i]);
-      uniqueSentences.push(sentences[i]); // store original, not normalized
+      uniqueSentences.push(sentences[i]);
     }
   }
 
@@ -122,16 +116,16 @@ async function processArticle(articleId, article, signer) {
   }
 
   for (let i = 0; i < uniqueHashes.length; i++) {
-    hashCache.set(uniqueHashes[i], uniqueSentences[i]);
+    hashCache[uniqueHashes[i]] = uniqueSentences[i];
   }
 
-  // Don't forget to persist the cache
-  saveHashCache(hashCache);
+  await saveHashCache();
 
   return true;
 }
 
 export {
+  init,
   processArticle,
   getStoredArticle,
   getTotalArticles,

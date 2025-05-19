@@ -252,22 +252,176 @@
 
 // export default App;
 
+// import { useEffect, useState } from "react";
+// import {
+//   processArticle,
+//   getStoredArticle,
+//   getTotalArticles,
+//   provider,
+// } from "./process";
+
+// function App() {
+//   const [fileName, setFileName] = useState("");
+//   const [articleId, setArticleId] = useState(1);
+//   const [status, setStatus] = useState("Idle");
+//   // const [results, setResults] = useState([]);
+//   const [loading, setLoading] = useState(false);
+//   const [readArticleId, setReadArticleId] = useState([]);
+//   const [storedSentences, setStoredSentences] = useState([]);
+
+//   const signer = provider.getSigner();
+
+//   async function requestAccount() {
+//     await window.ethereum.request({ method: "eth_requestAccounts" });
+//   }
+
+//   // const handleProcess = async () => {
+//   //   if (!text.trim()) {
+//   //     alert("Please enter some text");
+//   //     return;
+//   //   }
+
+//   //   setStatus(`Processing Article ${articleId}...`);
+//   //   try {
+//   //     await requestAccount();
+//   //     const success = await processArticle(articleId, text, signer);
+
+//   //     setResults((prev) => [
+//   //       ...prev,
+//   //       `Text ${articleId}: ${success ? "Stored" : "Skipped"}`,
+//   //     ]);
+
+//   //     if (success) {
+//   //       setArticleId((id) => id + 1);
+//   //       setText("");
+//   //       setStatus("Idle");
+//   //     } else {
+//   //       setStatus("skipped");
+//   //     }
+//   //   } catch (error) {
+//   //     console.error("Error:", error);
+//   //     setStatus("Error");
+//   //     setResults((prev) => [...prev, `Text ${articleId}: Error`]);
+//   //   }
+//   // };
+
+//   const handleProcess = async () => {
+//     if (!fileName.endsWith(".txt")) {
+//       setStatus("Please enter a valid .txt file name");
+//       return;
+//     }
+
+//     setLoading(true);
+//     try {
+//       const response = await fetch(`/articles/${fileName}`);
+//       if (!response.ok) {
+//         throw new Error("File not found");
+//       }
+
+//       const text = await response.text();
+
+//       const success = await processArticle(articleId, text, signer);
+
+//       setStatus(success ? "Article processed ✅" : "Article skipped ❌");
+//     } catch (err) {
+//       console.error(err);
+//       setStatus("Failed to load or process file");
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   const handleViewStored = async () => {
+//     await requestAccount();
+//     const storedSentences = await getStoredArticle(readArticleId, signer);
+//     if (storedSentences) {
+//       setStoredSentences(storedSentences);
+//     } else {
+//       console.log("No article found or error occurred.");
+//     }
+//   };
+
+//   useEffect(() => {
+//     async function fetchTotalArticles() {
+//       try {
+//         const total = await getTotalArticles(signer || provider);
+//         setArticleId(total + 1); // assuming new articleId = totalArticles
+//       } catch (error) {
+//         console.error("Failed to fetch total articles:", error);
+//       }
+//     }
+
+//     fetchTotalArticles();
+//   }, [signer]);
+
+//   return (
+//     <div style={{ padding: "20px" }}>
+//       <h1>Article Processor</h1>
+//       {/* <textarea
+//         rows="10"
+//         cols="50"
+//         value={text}
+//         onChange={(e) => setText(e.target.value)}
+//         placeholder="Enter one sentence per line"
+//       /> */}
+//       <input
+//         type="text"
+//         value={fileName}
+//         onChange={(e) => setFileName(e.target.value)}
+//         placeholder="Enter file name like 1.txt"
+//       />
+//       <br />
+//       <button
+//         onClick={handleProcess}
+//         // disabled={status !== "Idle" && status !== "skipped"}
+//       >
+//         {loading ? "Processing..." : "Process"} {articleId}
+//       </button>
+//       <p>Status: {status}</p>
+//       {/* <h2>Results</h2> */}
+//       {/* <ul>
+//         {results.map((result, i) => (
+//           <li key={i}>{result}</li>
+//         ))}
+//       </ul> */}
+
+//       <input
+//         type="number"
+//         onChange={(e) => {
+//           setReadArticleId(e.target.value);
+//         }}
+//       />
+
+//       <button onClick={handleViewStored} disabled={articleId <= 1}>
+//         show {readArticleId}
+//       </button>
+
+//       <h3>text number {readArticleId}</h3>
+
+//       <ul>
+//         {storedSentences.map((sentence, i) => {
+//           return <li key={i}>{sentence}</li>;
+//         })}
+//       </ul>
+//     </div>
+//   );
+// }
+
+// export default App;
+
 import { useEffect, useState } from "react";
-import {
-  processArticle,
-  getStoredArticle,
-  getTotalArticles,
-  provider,
-} from "./process";
+import { processArticle, getStoredArticle, provider, init } from "./process";
+
+import IPFSUploader from './components/IPFSUploader';
+import IPFSRetriever from './components/IPFSRetriever';
+
 
 function App() {
-  const [fileName, setFileName] = useState("");
-  const [articleId, setArticleId] = useState(1);
+  const [articleList, setArticleList] = useState([]);
   const [status, setStatus] = useState("Idle");
-  // const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [readArticleId, setReadArticleId] = useState([]);
   const [storedSentences, setStoredSentences] = useState([]);
+  const [readArticleId, setReadArticleId] = useState();
 
   const signer = provider.getSigner();
 
@@ -275,57 +429,34 @@ function App() {
     await window.ethereum.request({ method: "eth_requestAccounts" });
   }
 
-  // const handleProcess = async () => {
-  //   if (!text.trim()) {
-  //     alert("Please enter some text");
-  //     return;
-  //   }
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-  //   setStatus(`Processing Article ${articleId}...`);
-  //   try {
-  //     await requestAccount();
-  //     const success = await processArticle(articleId, text, signer);
-
-  //     setResults((prev) => [
-  //       ...prev,
-  //       `Text ${articleId}: ${success ? "Stored" : "Skipped"}`,
-  //     ]);
-
-  //     if (success) {
-  //       setArticleId((id) => id + 1);
-  //       setText("");
-  //       setStatus("Idle");
-  //     } else {
-  //       setStatus("skipped");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error:", error);
-  //     setStatus("Error");
-  //     setResults((prev) => [...prev, `Text ${articleId}: Error`]);
-  //   }
-  // };
-
-  const handleProcess = async () => {
-    if (!fileName.endsWith(".txt")) {
-      setStatus("Please enter a valid .txt file name");
-      return;
-    }
-
+  const handleProcessAll = async () => {
     setLoading(true);
+    setStatus("Processing all articles...");
+
     try {
-      const response = await fetch(`/articles/${fileName}`);
-      if (!response.ok) {
-        throw new Error("File not found");
+      for (let i = 0; i < articleList.length; i++) {
+        const fileName = i + 1; // Using index + 1 as the integer identifier
+        const response = await fetch(`/articles/${articleList[i]}`);
+        if (!response.ok) {
+          console.error(`Error fetching article ${fileName}: File not found`);
+          continue;
+        }
+
+        const text = await response.text();
+        const success = await processArticle(fileName, text, signer); // Passing fileName as integer
+
+        console.log(`Article ${fileName} processed: ${success ? "✅" : "❌"}`);
+
+        // Wait for 500ms before processing the next article
+        await delay(500);
       }
 
-      const text = await response.text();
-
-      const success = await processArticle(articleId, text, signer);
-
-      setStatus(success ? "Article processed ✅" : "Article skipped ❌");
+      setStatus("All articles processed!");
     } catch (err) {
       console.error(err);
-      setStatus("Failed to load or process file");
+      setStatus("Failed to process articles");
     } finally {
       setLoading(false);
     }
@@ -342,48 +473,40 @@ function App() {
   };
 
   useEffect(() => {
-    async function fetchTotalArticles() {
+    async function fetchArticleList() {
       try {
-        const total = await getTotalArticles(signer || provider);
-        setArticleId(total + 1); // assuming new articleId = totalArticles
-      } catch (error) {
-        console.error("Failed to fetch total articles:", error);
+        const response = await fetch("/articles/list.json");
+        const data = await response.json();
+        setArticleList(data);
+      } catch (err) {
+        console.error("Error loading article list:", err);
       }
     }
 
-    fetchTotalArticles();
-  }, [signer]);
+    init(); // Load hash cache before anything else
+    fetchArticleList();
+  }, []);
 
   return (
     <div style={{ padding: "20px" }}>
+      
+
+      <div className="container mx-auto py-8 px-4">
+      <h1 className="text-3xl font-bold mb-8 text-center">IPFS + React Demo</h1>
+      <IPFSUploader />
+      <IPFSRetriever />
+    </div>
+
+
       <h1>Article Processor</h1>
-      {/* <textarea
-        rows="10"
-        cols="50"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Enter one sentence per line"
-      /> */}
-      <input
-        type="text"
-        value={fileName}
-        onChange={(e) => setFileName(e.target.value)}
-        placeholder="Enter file name like 1.txt"
-      />
-      <br />
+
       <button
-        onClick={handleProcess}
-        // disabled={status !== "Idle" && status !== "skipped"}
+        onClick={handleProcessAll}
+        disabled={loading || !articleList.length}
       >
-        {loading ? "Processing..." : "Process"} {articleId}
+        {loading ? "Processing all articles..." : "Process All Articles"}
       </button>
       <p>Status: {status}</p>
-      {/* <h2>Results</h2> */}
-      {/* <ul>
-        {results.map((result, i) => (
-          <li key={i}>{result}</li>
-        ))}
-      </ul> */}
 
       <input
         type="number"
@@ -392,12 +515,11 @@ function App() {
         }}
       />
 
-      <button onClick={handleViewStored} disabled={articleId <= 1}>
-        show {readArticleId}
+      <button onClick={handleViewStored}>
+        Show Stored Sentences for Article {readArticleId}
       </button>
 
-      <h3>text number {readArticleId}</h3>
-
+      <h3>Stored Sentences for Article {readArticleId}</h3>
       <ul>
         {storedSentences.map((sentence, i) => {
           return <li key={i}>{sentence}</li>;
