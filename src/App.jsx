@@ -411,17 +411,15 @@
 
 import { useEffect, useState } from "react";
 import { processArticle, getStoredArticle, provider, init } from "./process";
-
-import IPFSUploader from './components/IPFSUploader';
-import IPFSRetriever from './components/IPFSRetriever';
-
+import IPFSUploader from "./components/IPFSUploader";
+import IPFSRetriever from "./components/IPFSRetriever";
 
 function App() {
   const [articleList, setArticleList] = useState([]);
   const [status, setStatus] = useState("Idle");
   const [loading, setLoading] = useState(false);
   const [storedSentences, setStoredSentences] = useState([]);
-  const [readArticleId, setReadArticleId] = useState();
+  const [readArticleId, setReadArticleId] = useState("1");
 
   const signer = provider.getSigner();
 
@@ -437,7 +435,7 @@ function App() {
 
     try {
       for (let i = 0; i < articleList.length; i++) {
-        const fileName = i + 1; // Using index + 1 as the integer identifier
+        const fileName = i + 1;
         const response = await fetch(`/articles/${articleList[i]}`);
         if (!response.ok) {
           console.error(`Error fetching article ${fileName}: File not found`);
@@ -445,11 +443,8 @@ function App() {
         }
 
         const text = await response.text();
-        const success = await processArticle(fileName, text, signer); // Passing fileName as integer
-
+        const success = await processArticle(fileName, text, signer);
         console.log(`Article ${fileName} processed: ${success ? "✅" : "❌"}`);
-
-        // Wait for 500ms before processing the next article
         await delay(500);
       }
 
@@ -464,11 +459,23 @@ function App() {
 
   const handleViewStored = async () => {
     await requestAccount();
-    const storedSentences = await getStoredArticle(readArticleId, signer);
-    if (storedSentences) {
-      setStoredSentences(storedSentences);
-    } else {
-      console.log("No article found or error occurred.");
+    const articleId = Number(readArticleId);
+    if (isNaN(articleId) || articleId < 1) {
+      setStatus("Please enter a valid article ID (positive integer)");
+      return;
+    }
+
+    try {
+      const storedSentences = await getStoredArticle(articleId, signer);
+      if (storedSentences) {
+        setStoredSentences(storedSentences);
+        setStatus(`Successfully retrieved sentences for article ${articleId}`);
+      } else {
+        setStatus(`No sentences found for article ${articleId}`);
+      }
+    } catch (err) {
+      console.error("Error retrieving article:", err);
+      setStatus(`Failed to retrieve sentences for article ${articleId}`);
     }
   };
 
@@ -483,20 +490,19 @@ function App() {
       }
     }
 
-    init(); // Load hash cache before anything else
+    init();
     fetchArticleList();
   }, []);
 
   return (
     <div style={{ padding: "20px" }}>
-      
-
       <div className="container mx-auto py-8 px-4">
-      <h1 className="text-3xl font-bold mb-8 text-center">IPFS + React Demo</h1>
-      <IPFSUploader />
-      <IPFSRetriever />
-    </div>
-
+        <h1 className="text-3xl font-bold mb-8 text-center">
+          IPFS + React Demo
+        </h1>
+        <IPFSUploader />
+        <IPFSRetriever />
+      </div>
 
       <h1>Article Processor</h1>
 
@@ -509,21 +515,29 @@ function App() {
       <p>Status: {status}</p>
 
       <input
+        min="1"
         type="number"
+        value={readArticleId}
         onChange={(e) => {
-          setReadArticleId(e.target.value);
+          const value = e.target.value;
+          if (value === "" || (/^\d+$/.test(value) && Number(value) >= 1)) {
+            setReadArticleId(value);
+          }
         }}
       />
 
-      <button onClick={handleViewStored}>
+      <button
+        disabled={isNaN(Number(readArticleId)) || Number(readArticleId) < 1}
+        onClick={handleViewStored}
+      >
         Show Stored Sentences for Article {readArticleId}
       </button>
 
       <h3>Stored Sentences for Article {readArticleId}</h3>
       <ul>
-        {storedSentences.map((sentence, i) => {
-          return <li key={i}>{sentence}</li>;
-        })}
+        {storedSentences.map((sentence, i) => (
+          <li key={i}>{sentence}</li>
+        ))}
       </ul>
     </div>
   );
