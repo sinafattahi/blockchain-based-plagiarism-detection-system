@@ -479,6 +479,8 @@ function App() {
     }
   };
 
+  // debugPrintCache();
+
   useEffect(() => {
     async function fetchArticleList() {
       try {

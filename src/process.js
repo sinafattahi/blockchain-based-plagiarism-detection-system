@@ -2,44 +2,183 @@ import { ethers, Contract, utils } from "ethers";
 import { set, get } from "idb-keyval";
 import { CONTRACT_ABI } from "./constants";
 
-let hashCache = {}; // Start empty
+// LSH Configuration
+const NUM_HASH_FUNCTIONS = 50;
+const NUM_BANDS = 10;
+const BAND_SIZE = NUM_HASH_FUNCTIONS / NUM_BANDS;
+const SIMILARITY_THRESHOLD = 0.7; // Similarity threshold
+
+// Cache structure for LSH
+let lshCache = {
+  bands: {}, // Stores band signatures for quick lookups
+  sentences: {}, // Maps hash values to original sentences
+  signatureMap: {}, // Maps sentence hash to signature
+};
 
 // Save to IndexedDB
-const saveHashCache = async () => {
-  await set("hashCache", hashCache);
+const saveCache = async () => {
+  await set("lshCache", lshCache);
 };
 
 // Load from IndexedDB
-const loadHashCache = async () => {
-  const cached = await get("hashCache");
-  hashCache = cached || {};
+const loadCache = async () => {
+  const cached = await get("lshCache");
+  lshCache = cached || {
+    bands: {},
+    sentences: {},
+    signatureMap: {},
+  };
 };
-
-async function init() {
-  await loadHashCache();
-}
 
 // Blockchain setup
 const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 const provider = new ethers.providers.JsonRpcProvider("http://127.0.0.1:8545");
-
 const contractAbi = CONTRACT_ABI;
 
+// Init function
+async function init() {
+  await loadCache();
+}
+
+// Hash a sentence using keccak256 (kept for blockchain compatibility)
 function computeHash(sentence) {
   return utils.keccak256(utils.toUtf8Bytes(sentence));
 }
 
+// Create shingles (n-grams) from a sentence
+function createShingles(sentence, n = 3) {
+  const words = sentence
+    .toLowerCase()
+    .split(/\s+/)
+    .filter((word) => word.length > 0);
+  if (words.length < n) return [sentence.toLowerCase()];
+
+  const shingles = [];
+  for (let i = 0; i <= words.length - n; i++) {
+    shingles.push(words.slice(i, i + n).join(" "));
+  }
+  return shingles;
+}
+
+// Generate a minhash signature for a set of shingles
+function generateSignature(shingles) {
+  // Simple hash functions based on different prime multipliers
+  function hashFunction(i, shingle) {
+    const primes = [
+      2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67,
+      71, 73, 79, 83, 89, 97,
+    ];
+    let hash = 0;
+    for (let j = 0; j < shingle.length; j++) {
+      hash =
+        (hash * primes[i % primes.length] + shingle.charCodeAt(j)) %
+        Number.MAX_SAFE_INTEGER;
+    }
+    return hash;
+  }
+
+  const signature = new Array(NUM_HASH_FUNCTIONS).fill(Number.MAX_SAFE_INTEGER);
+
+  shingles.forEach((shingle) => {
+    for (let i = 0; i < NUM_HASH_FUNCTIONS; i++) {
+      const hashValue = hashFunction(i, shingle);
+      signature[i] = Math.min(signature[i], hashValue);
+    }
+  });
+
+  return signature;
+}
+
+// Calculate Jaccard similarity between two signatures
+function calculateSimilarity(signature1, signature2) {
+  let matchCount = 0;
+  for (let i = 0; i < signature1.length; i++) {
+    if (signature1[i] === signature2[i]) {
+      matchCount++;
+    }
+  }
+  return matchCount / signature1.length;
+}
+
+// Get band hashes for a signature
+function getBandHashes(signature) {
+  const bandHashes = [];
+
+  for (let i = 0; i < NUM_BANDS; i++) {
+    const bandValues = signature.slice(i * BAND_SIZE, (i + 1) * BAND_SIZE);
+    const bandStr = bandValues.join(",");
+    const bandHash = utils.keccak256(utils.toUtf8Bytes(bandStr));
+    bandHashes.push(bandHash);
+  }
+
+  return bandHashes;
+}
+
+// Check if a sentence is similar to any existing sentence
+function findSimilarSentences(signature) {
+  const bandHashes = getBandHashes(signature);
+  const candidateHashes = new Set();
+
+  // Find all candidates that share at least one band
+  bandHashes.forEach((bandHash, bandIndex) => {
+    if (lshCache.bands[bandIndex] && lshCache.bands[bandIndex][bandHash]) {
+      lshCache.bands[bandIndex][bandHash].forEach((hash) => {
+        candidateHashes.add(hash);
+      });
+    }
+  });
+
+  // Check similarity with each candidate
+  for (const candidateHash of candidateHashes) {
+    const candidateSignature = lshCache.signatureMap[candidateHash];
+    if (!candidateSignature) continue;
+
+    const similarity = calculateSimilarity(signature, candidateSignature);
+    if (similarity >= SIMILARITY_THRESHOLD) {
+      return {
+        isDuplicate: true,
+        similarSentenceHash: candidateHash,
+        similarity,
+        matchedSentence: lshCache.sentences[candidateHash],
+      };
+    }
+  }
+
+  return { isDuplicate: false };
+}
+
+// Store a sentence in the LSH structure
+function storeSentenceInLSH(sentence, sentenceHash, signature) {
+  // Store sentence
+  lshCache.sentences[sentenceHash] = sentence;
+
+  // Store signature
+  lshCache.signatureMap[sentenceHash] = signature;
+
+  // Store band hashes for lookup
+  const bandHashes = getBandHashes(signature);
+  bandHashes.forEach((bandHash, bandIndex) => {
+    if (!lshCache.bands[bandIndex]) {
+      lshCache.bands[bandIndex] = {};
+    }
+    if (!lshCache.bands[bandIndex][bandHash]) {
+      lshCache.bands[bandIndex][bandHash] = [];
+    }
+    lshCache.bands[bandIndex][bandHash].push(sentenceHash);
+  });
+}
+
 // Scoring function
-function computeScore(duplicates) {
+function computeScore(duplicateResults) {
   let score = 0;
   let i = 0;
-  while (i < duplicates.length) {
-    if (!duplicates[i]) {
+  while (i < duplicateResults.length) {
+    if (!duplicateResults[i].isDuplicate) {
       i++;
       continue;
     }
     let n = 0;
-    while (i < duplicates.length && duplicates[i]) {
+    while (i < duplicateResults.length && duplicateResults[i].isDuplicate) {
       n++;
       i++;
     }
@@ -52,7 +191,9 @@ async function getStoredArticle(articleId, signer) {
   const contract = new Contract(contractAddress, contractAbi, signer);
   try {
     const hashes = await contract.getArticleHashes(articleId);
-    const sentences = hashes.map((h) => hashCache[h] || "[Unknown Sentence]");
+    const sentences = hashes.map(
+      (h) => lshCache.sentences[h] || "[Unknown Sentence]"
+    );
     return sentences;
   } catch (error) {
     console.error(
@@ -72,27 +213,42 @@ async function getTotalArticles(signerOrProvider) {
 async function processArticle(articleId, article, signer) {
   const sentences = article.split("\n");
   const sentenceHashes = sentences.map(computeHash);
-  const duplicates = sentenceHashes.map((h) => h in hashCache);
 
-  for (let i = 0; i < duplicates.length; i++) {
-    if (duplicates[i]) {
-      console.log(`Duplicate sentence: "${sentences[i]}"`);
-    }
-  }
-
+  // Process each sentence with LSH
+  const duplicateResults = [];
   const uniqueHashes = [];
   const uniqueSentences = [];
 
-  for (let i = 0; i < sentenceHashes.length; i++) {
-    if (!duplicates[i]) {
-      uniqueHashes.push(sentenceHashes[i]);
-      uniqueSentences.push(sentences[i]);
+  for (let i = 0; i < sentences.length; i++) {
+    const sentence = sentences[i];
+    const sentenceHash = sentenceHashes[i];
+
+    // Generate LSH signature
+    const shingles = createShingles(sentence);
+    const signature = generateSignature(shingles);
+
+    // Check for similar sentences
+    const result = findSimilarSentences(signature, sentenceHash);
+    duplicateResults.push(result);
+
+    if (result.isDuplicate) {
+      console.log(
+        `Similar sentence found:
+    -> New: "${sentence}"
+    -> Match: "${result.matchedSentence}"
+    -> Similarity: ${result.similarity.toFixed(2)}`
+      );
+    } else {
+      uniqueHashes.push(sentenceHash);
+      uniqueSentences.push(sentence);
+
+      // Store in LSH structure
+      storeSentenceInLSH(sentence, sentenceHash, signature);
     }
   }
 
-  const score = computeScore(duplicates);
+  const score = computeScore(duplicateResults);
   const ratio = sentences.length ? score / sentences.length : 0;
-
   console.log(
     `Article ${articleId}: score=${score}, ratio=${ratio.toFixed(2)}`
   );
@@ -103,7 +259,6 @@ async function processArticle(articleId, article, signer) {
   }
 
   const contract = new Contract(contractAddress, contractAbi, signer);
-
   try {
     const tx = await contract.storeArticle(articleId, uniqueHashes, {
       gasLimit: 10_000_000,
@@ -115,13 +270,15 @@ async function processArticle(articleId, article, signer) {
     return false;
   }
 
-  for (let i = 0; i < uniqueHashes.length; i++) {
-    hashCache[uniqueHashes[i]] = uniqueSentences[i];
-  }
-
-  await saveHashCache();
-
+  // Save cache to IndexedDB
+  await saveCache();
   return true;
+}
+
+async function debugPrintCache() {
+  const cache = await get("lshCache");
+  console.log("LSH Cache:", cache);
+  return cache;
 }
 
 export {
@@ -130,6 +287,7 @@ export {
   getStoredArticle,
   getTotalArticles,
   computeHash,
+  debugPrintCache,
   provider,
   contractAbi,
   contractAddress,
