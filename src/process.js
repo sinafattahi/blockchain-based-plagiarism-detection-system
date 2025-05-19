@@ -1,6 +1,8 @@
 import { ethers, Contract, utils } from "ethers";
 import { set, get } from "idb-keyval";
 import { CONTRACT_ABI } from "./constants";
+import { uploadToIPFS, getFromIPFS } from "./services/ipfsService";
+import { Buffer } from "buffer";
 
 // LSH Configuration
 const NUM_HASH_FUNCTIONS = 50;
@@ -187,29 +189,13 @@ function computeScore(duplicateResults) {
   return score;
 }
 
-async function getStoredArticle(articleId, signer) {
-  const contract = new Contract(contractAddress, contractAbi, signer);
-  try {
-    const hashes = await contract.getArticleHashes(articleId);
-    const sentences = hashes.map(
-      (h) => lshCache.sentences[h] || "[Unknown Sentence]"
-    );
-    return sentences;
-  } catch (error) {
-    console.error(
-      `Failed to fetch sentences for articleId ${articleId}:`,
-      error
-    );
-    return null;
-  }
-}
-
 async function getTotalArticles(signerOrProvider) {
   const contract = new Contract(contractAddress, contractAbi, signerOrProvider);
   const total = await contract.totalArticles();
   return total.toNumber();
 }
 
+// First, modify the processArticle function to use IPFS
 async function processArticle(articleId, article, signer) {
   const sentences = article.split("\n");
   const sentenceHashes = sentences.map(computeHash);
@@ -258,21 +244,70 @@ async function processArticle(articleId, article, signer) {
     return false;
   }
 
-  const contract = new Contract(contractAddress, contractAbi, signer);
+  // NEW: Store uniqueHashes to IPFS instead of directly on blockchain
   try {
-    const tx = await contract.storeArticle(articleId, uniqueHashes, {
-      gasLimit: 10_000_000,
+    // Convert the array of hashes to a JSON string
+    const hashesData = JSON.stringify(uniqueHashes);
+    // Convert the JSON string to a Buffer for IPFS
+    const hashesBuffer = Buffer.from(hashesData);
+    // Upload to IPFS
+    const ipfsCid = await uploadToIPFS(hashesBuffer);
+    console.log(`Stored hashes on IPFS with CID: ${ipfsCid}`);
+
+    // Now store only the CID on the blockchain
+    const contract = new Contract(contractAddress, contractAbi, signer);
+    const tx = await contract.storeArticleCID(articleId, ipfsCid, {
+      gasLimit: 1_000_000, // Reduced gas limit since we're storing less data
     });
     await tx.wait();
-    console.log(`Stored Article ${articleId}, tx hash: ${tx.hash}`);
+    console.log(
+      `Stored Article ${articleId} CID on blockchain, tx hash: ${tx.hash}`
+    );
   } catch (error) {
-    console.error("Blockchain error:", error);
+    console.error("Error in IPFS/Blockchain storage:", error);
     return false;
   }
 
   // Save cache to IndexedDB
   await saveCache();
   return true;
+}
+
+// Also create a new function to retrieve article hashes from IPFS
+async function getStoredArticle(articleId, signer) {
+  const contract = new Contract(contractAddress, contractAbi, signer);
+  try {
+    // Get the CID from the blockchain
+    const cid = await contract.getArticleCID(articleId);
+
+    // If there's no CID, return null
+    if (!cid || cid === "") {
+      console.log(`No CID found for articleId ${articleId}`);
+      return null;
+    }
+
+    // Retrieve the data from IPFS
+    const ipfsData = await getFromIPFS(cid);
+    // Convert the Buffer to a string and parse it as JSON
+    const hashes = JSON.parse(ipfsData.toString());
+
+    // Convert hashes to sentences
+    const sentences = hashes.map(
+      (h) => lshCache.sentences[h] || "[Unknown Sentence]"
+    );
+
+    // Return both the sentences and the CID
+    return {
+      sentences,
+      cid,
+    };
+  } catch (error) {
+    console.error(
+      `Failed to fetch sentences for articleId ${articleId}:`,
+      error
+    );
+    return null;
+  }
 }
 
 async function debugPrintCache() {

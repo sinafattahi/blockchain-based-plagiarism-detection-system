@@ -420,6 +420,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [storedSentences, setStoredSentences] = useState([]);
   const [readArticleId, setReadArticleId] = useState("1");
+  const [currentCid, setCurrentCid] = useState(""); // Add state for current CID
 
   const signer = provider.getSigner();
 
@@ -466,16 +467,25 @@ function App() {
     }
 
     try {
-      const storedSentences = await getStoredArticle(articleId, signer);
-      if (storedSentences) {
-        setStoredSentences(storedSentences);
-        setStatus(`Successfully retrieved sentences for article ${articleId}`);
+      // Updated to work with the new IPFS-based retrieval
+      const result = await getStoredArticle(articleId, signer);
+
+      if (result) {
+        setStoredSentences(result.sentences);
+        setCurrentCid(result.cid); // Store the CID
+        setStatus(
+          `Successfully retrieved sentences for article ${articleId} (CID: ${result.cid})`
+        );
       } else {
-        setStatus(`No sentences found for article ${articleId}`);
+        setStoredSentences([]);
+        setCurrentCid("");
+        setStatus(`No data found for article ${articleId}`);
       }
     } catch (err) {
       console.error("Error retrieving article:", err);
-      setStatus(`Failed to retrieve sentences for article ${articleId}`);
+      setStatus(
+        `Failed to retrieve sentences for article ${articleId}: ${err.message}`
+      );
     }
   };
 
@@ -500,7 +510,7 @@ function App() {
     <div style={{ padding: "20px" }}>
       <div className="container mx-auto py-8 px-4">
         <h1 className="text-3xl font-bold mb-8 text-center">
-          IPFS + React Demo
+          IPFS + Blockchain Demo
         </h1>
         <IPFSUploader />
         <IPFSRetriever />
@@ -534,6 +544,15 @@ function App() {
       >
         Show Stored Sentences for Article {readArticleId}
       </button>
+
+      {currentCid && (
+        <div>
+          <h3>IPFS CID for Article {readArticleId}</h3>
+          <p>
+            <code>{currentCid}</code>
+          </p>
+        </div>
+      )}
 
       <h3>Stored Sentences for Article {readArticleId}</h3>
       <ul>

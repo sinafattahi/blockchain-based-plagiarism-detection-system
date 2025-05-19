@@ -2,26 +2,26 @@
 pragma solidity ^0.8.20;
 
 contract ArticleStorage {
-    mapping(uint256 => bytes32[]) public articles;
+    // Mapping from articleId to IPFS CID (stored as string)
+    mapping(uint256 => string) public articleCIDs;
 
     uint256 public totalArticles;
 
-    event ArticleHashesStored(uint256 indexed articleId, bytes32[] hashes);
+    event ArticleCIDStored(uint256 indexed articleId, string cid);
 
-    function storeArticle(uint256 articleId, bytes32[] calldata hashes) external {
-        require(articles[articleId].length == 0, "Article already stored for articleId");
+    function storeArticleCID(uint256 articleId, string calldata cid) external {
+        require(bytes(articleCIDs[articleId]).length == 0, "Article already stored for articleId");
+        require(bytes(cid).length > 0, "CID cannot be empty");
 
-        for (uint256 i = 0; i < hashes.length; i++) {
-            articles[articleId].push(hashes[i]);
-        }
+        articleCIDs[articleId] = cid;
 
         totalArticles += 1;
 
-        emit ArticleHashesStored(articleId, hashes);
+        emit ArticleCIDStored(articleId, cid);
     }
 
-    function getArticleHashes(uint256 articleId) external view returns (bytes32[] memory) {
-        require(articles[articleId].length > 0, "Article does not exist");
-        return articles[articleId];
+    function getArticleCID(uint256 articleId) external view returns (string memory) {
+        require(bytes(articleCIDs[articleId]).length > 0, "Article does not exist");
+        return articleCIDs[articleId];
     }
 }
