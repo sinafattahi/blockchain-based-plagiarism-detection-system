@@ -313,7 +313,7 @@
 
 //     setLoading(true);
 //     try {
-//       const response = await fetch(`/articles/${fileName}`);
+//       const response = await fetch(`/articles1/${fileName}`);
 //       if (!response.ok) {
 //         throw new Error("File not found");
 //       }
@@ -410,7 +410,13 @@
 // export default App;
 
 import { useEffect, useState } from "react";
-import { processArticle, getStoredArticle, provider, init } from "./process";
+import {
+  processArticle,
+  getStoredArticle,
+  provider,
+  init,
+  printRatioStatistics,
+} from "./process";
 import IPFSUploader from "./components/IPFSUploader";
 import IPFSRetriever from "./components/IPFSRetriever";
 
@@ -437,7 +443,7 @@ function App() {
     try {
       for (let i = 0; i < articleList.length; i++) {
         const fileName = i + 1;
-        const response = await fetch(`/articles/${articleList[i]}`);
+        const response = await fetch(`/articles1/${articleList[i]}`);
         if (!response.ok) {
           console.error(`Error fetching article ${fileName}: File not found`);
           continue;
@@ -494,7 +500,7 @@ function App() {
   useEffect(() => {
     async function fetchArticleList() {
       try {
-        const response = await fetch("/articles/list.json");
+        const response = await fetch("/articles1/list.json");
         const data = await response.json();
         setArticleList(data);
       } catch (err) {
@@ -505,6 +511,111 @@ function App() {
     init();
     fetchArticleList();
   }, []);
+
+  const findDivisors = (num) => {
+    const divisors = [];
+    for (let i = 1; i <= num; i++) {
+      if (num % i === 0) {
+        divisors.push(i);
+      }
+    }
+    return divisors;
+  };
+
+  const predictPerformance = (k) => {
+    // const r = k / b;
+
+    // فاکتورهای مختلف کارایی
+    const accuracyFactor = Math.min(k / 100, 1); // دقت بالاتر با k بیشتر
+    const speedFactor = Math.max(1 - k / 200, 0.1); // سرعت کمتر با k بیشتر
+    // const balanceFactor = Math.max(1 - Math.abs(r - 8) / 10, 0.1); // r بهینه حول 8
+    // const thresholdFactor = Math.max(1 - Math.abs(threshold - 0.7) / 0.3, 0.1); // threshold بهینه 0.7
+
+    return (
+      accuracyFactor * 0.6 + speedFactor * 0.4
+      // balanceFactor * 0.3 +
+      // thresholdFactor * 0.2
+    );
+  };
+
+  const removeDuplicates = (combinations) => {
+    const seen = new Set();
+    return combinations.filter((combo) => {
+      const key = `${combo.NUM_HASH_FUNCTIONS}-${combo.NUM_BANDS}-${combo.SIMILARITY_THRESHOLD}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  };
+
+  const generateSmartCombinations = () => {
+    const combinations = [];
+
+    // بر اساس تئوری LSH: s ≈ (1/b)^(1/r) که r = k/b
+    const targetSimilarities = [0.6, 0.7, 0.8, 0.9];
+
+    // مقادیر منطقی برای hash functions
+    const hashFunctions = [4, 8, 16, 32, 64, 128, 256, 512];
+
+    hashFunctions.forEach((k) => {
+      // پیدا کردن تمام مقسوم علیه های k
+      const divisors = findDivisors(k);
+
+      divisors.forEach((b) => {
+        // if (b < 4 || b > k/2) return; // محدودیت منطقی برای تعداد bands
+
+        const r = k / b;
+        // if (r < 2 || r > 40) return; // محدودیت منطقی برای band size
+
+        // محاسبه threshold نظری
+        const theoreticalThreshold = Math.pow(1 / b, 1 / r);
+
+        // انتخاب threshold های نزدیک به مقدار نظری
+        targetSimilarities.forEach((targetThreshold) => {
+          const diff = Math.abs(theoreticalThreshold - targetThreshold);
+          if (diff < 0.5) {
+            // فقط threshold های نزدیک
+            combinations.push({
+              NUM_HASH_FUNCTIONS: k,
+              NUM_BANDS: b,
+              SIMILARITY_THRESHOLD: targetThreshold,
+              BAND_SIZE: r,
+              theoreticalThreshold: theoreticalThreshold,
+              expectedPerformance: predictPerformance(k),
+              // expectedPerformance: predictPerformance(k, b, targetThreshold),
+            });
+          }
+        });
+      });
+    });
+
+    // حذف تکراری ها و مرتب کردن بر اساس کارایی پیش‌بینی شده
+    const uniqueCombinations = removeDuplicates(combinations);
+
+    const sortedCombinations = uniqueCombinations.sort(
+      (a, b) => b.expectedPerformance - a.expectedPerformance
+    );
+
+    // sortedCombinations.forEach((u, index) => {
+    //   console.log("=".repeat(30));
+
+    //   console.log("index", index);
+    //   console.log("NUM_HASH_FUNCTIONS", u.NUM_HASH_FUNCTIONS);
+    //   console.log("NUM_BANDS", u.NUM_BANDS);
+    //   console.log("SIMILARITY_THRESHOLD", u.SIMILARITY_THRESHOLD);
+    //   console.log("BAND_SIZE", u.BAND_SIZE);
+    //   console.log("theoreticalThreshold", u.theoreticalThreshold);
+    //   console.log("expectedPerformance", u.expectedPerformance);
+
+    //   console.log("=".repeat(30));
+    // });
+
+    return sortedCombinations;
+  };
+
+  // const a = generateSmartCombinations();
+
+  // console.log(a);
 
   return (
     <div style={{ padding: "20px" }}>
@@ -560,6 +671,8 @@ function App() {
           <li key={i}>{sentence}</li>
         ))}
       </ul>
+
+      <button onClick={() => printRatioStatistics()}>print result</button>
     </div>
   );
 }

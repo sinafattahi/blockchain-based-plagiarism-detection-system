@@ -5,10 +5,10 @@ import { uploadToIPFS, getFromIPFS } from "./services/ipfsService";
 import { Buffer } from "buffer";
 
 // LSH Configuration
-const NUM_HASH_FUNCTIONS = 50;
-const NUM_BANDS = 10;
+const NUM_HASH_FUNCTIONS = 32;
+const NUM_BANDS = 16;
 const BAND_SIZE = NUM_HASH_FUNCTIONS / NUM_BANDS;
-const SIMILARITY_THRESHOLD = 0.7; // Similarity threshold
+const SIMILARITY_THRESHOLD = 0.5; // Similarity threshold
 
 // Cache structure for LSH
 let lshCache = {
@@ -17,9 +17,85 @@ let lshCache = {
   signatureMap: {}, // Maps sentence hash to signature
 };
 
+// Statistics tracker for ratios
+let ratioStats = {};
+
+// Function to add ratio to statistics
+function addRatioToStats(ratio) {
+  // Round ratio to 2 decimal places for grouping
+  const roundedRatio = Math.round(ratio * 100) / 100;
+  const ratioKey = roundedRatio.toFixed(2);
+
+  if (ratioStats[ratioKey]) {
+    ratioStats[ratioKey]++;
+  } else {
+    ratioStats[ratioKey] = 1;
+  }
+}
+
+// Function to print ratio statistics table
+function printRatioStatistics() {
+  console.log("\n" + "=".repeat(50));
+  console.log("RATIO STATISTICS TABLE");
+  console.log("=".repeat(50));
+  console.log("Ratio\t\tCount");
+  console.log("-".repeat(30));
+
+  // Sort ratios for better display
+  const sortedRatios = Object.keys(ratioStats).sort(
+    (a, b) => parseFloat(a) - parseFloat(b)
+  );
+
+  let totalArticles = 0;
+  sortedRatios.forEach((ratio) => {
+    const count = ratioStats[ratio];
+    totalArticles += count;
+    console.log(`${ratio}\t\t${count}`);
+  });
+
+  console.log("-".repeat(30));
+  console.log(`Total Articles: ${totalArticles}`);
+  console.log("=".repeat(30));
+  console.log(`Total hash functions: ${NUM_HASH_FUNCTIONS}`);
+  console.log("=".repeat(30));
+  console.log(`Total bands: ${NUM_BANDS}`);
+  console.log("=".repeat(30));
+  console.log(`similarity threshold: ${SIMILARITY_THRESHOLD}`);
+  console.log("=".repeat(30));
+
+  // Additional statistics
+  if (sortedRatios.length > 0) {
+    const uniqueRatios = new Set(Object.keys(ratioStats));
+    const zeroRatioCount = ratioStats["0.00"] || 0;
+    const highRatioCount = Object.keys(ratioStats)
+      .filter((ratio) => parseFloat(ratio) > 0.3)
+      .reduce((sum, ratio) => sum + ratioStats[ratio], 0);
+
+    console.log(`\nAdditional Statistics:`);
+    console.log(`- Unique ratio values: ${uniqueRatios.size}`);
+    console.log(`- Articles with 0.00 ratio: ${zeroRatioCount}`);
+    console.log(`- Articles with ratio > 0.30 (skipped): ${highRatioCount}`);
+    console.log(
+      `- Articles processed successfully: ${totalArticles - highRatioCount}`
+    );
+  }
+}
+
+// Function to reset statistics
+function resetRatioStatistics() {
+  ratioStats = {};
+  console.log("Ratio statistics reset.");
+}
+
+// Function to get current statistics
+function getRatioStatistics() {
+  return { ...ratioStats };
+}
+
 // Save to IndexedDB
 const saveCache = async () => {
   await set("lshCache", lshCache);
+  await set("ratioStats", ratioStats); // Also save statistics
 };
 
 // Load from IndexedDB
@@ -30,6 +106,10 @@ const loadCache = async () => {
     sentences: {},
     signatureMap: {},
   };
+
+  // Load statistics
+  const cachedStats = await get("ratioStats");
+  ratioStats = cachedStats || {};
 };
 
 // Blockchain setup
@@ -195,7 +275,7 @@ async function getTotalArticles(signerOrProvider) {
   return total.toNumber();
 }
 
-// First, modify the processArticle function to use IPFS
+// Modified processArticle function with ratio tracking
 async function processArticle(articleId, article, signer) {
   const sentences = article.split("\n");
   const sentenceHashes = sentences.map(computeHash);
@@ -220,9 +300,9 @@ async function processArticle(articleId, article, signer) {
     if (result.isDuplicate) {
       console.log(
         `Similar sentence found:
-    -> New: "${sentence}"
-    -> Match: "${result.matchedSentence}"
-    -> Similarity: ${result.similarity.toFixed(2)}`
+      -> New: "${sentence}"
+      -> Match: "${result.matchedSentence}"
+      -> Similarity: ${result.similarity.toFixed(2)}`
       );
     } else {
       uniqueHashes.push(sentenceHash);
@@ -235,6 +315,10 @@ async function processArticle(articleId, article, signer) {
 
   const score = computeScore(duplicateResults);
   const ratio = sentences.length ? score / sentences.length : 0;
+
+  // Add ratio to statistics
+  addRatioToStats(ratio);
+
   console.log(
     `Article ${articleId}: score=${score}, ratio=${ratio.toFixed(2)}`
   );
@@ -326,4 +410,9 @@ export {
   provider,
   contractAbi,
   contractAddress,
+  // New exports for ratio statistics
+  printRatioStatistics,
+  resetRatioStatistics,
+  getRatioStatistics,
+  addRatioToStats,
 };
