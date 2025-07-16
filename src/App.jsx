@@ -313,7 +313,7 @@
 
 //     setLoading(true);
 //     try {
-//       const response = await fetch(`/articles1/${fileName}`);
+//       const response = await fetch(`/1-paragraph-paraphrasing/${fileName}`);
 //       if (!response.ok) {
 //         throw new Error("File not found");
 //       }
@@ -428,6 +428,10 @@ function App() {
   const [readArticleId, setReadArticleId] = useState("1");
   const [currentCid, setCurrentCid] = useState(""); // Add state for current CID
 
+  const randomNumber = Math.round(Math.random(3) * 1000);
+
+  console.log("randomNumber", randomNumber);
+
   const signer = provider.getSigner();
 
   async function requestAccount() {
@@ -442,8 +446,8 @@ function App() {
 
     try {
       for (let i = 0; i < articleList.length; i++) {
-        const fileName = i + 1;
-        const response = await fetch(`/articles1/${articleList[i]}`);
+        const fileName = i + randomNumber;
+        const response = await fetch(`/1-paragraph-paraphrasing/${articleList[i]}`);
         if (!response.ok) {
           console.error(`Error fetching article ${fileName}: File not found`);
           continue;
@@ -500,7 +504,7 @@ function App() {
   useEffect(() => {
     async function fetchArticleList() {
       try {
-        const response = await fetch("/articles1/list.json");
+        const response = await fetch("/1-paragraph-paraphrasing/list.json");
         const data = await response.json();
         setArticleList(data);
       } catch (err) {
@@ -552,10 +556,12 @@ function App() {
     const combinations = [];
 
     // بر اساس تئوری LSH: s ≈ (1/b)^(1/r) که r = k/b
-    const targetSimilarities = [0.6, 0.7, 0.8, 0.9];
+    // const targetSimilarities = [0.6, 0.7, 0.8, 0.9];
+    const targetSimilarities = [0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
 
     // مقادیر منطقی برای hash functions
-    const hashFunctions = [4, 8, 16, 32, 64, 128, 256, 512];
+    // const hashFunctions = [4, 8, 16, 32, 64, 128, 256, 512];
+    const hashFunctions = [32];
 
     hashFunctions.forEach((k) => {
       // پیدا کردن تمام مقسوم علیه های k

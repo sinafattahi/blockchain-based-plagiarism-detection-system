@@ -4,17 +4,17 @@ import { CONTRACT_ABI } from "./constants";
 import { uploadToIPFS, getFromIPFS } from "./services/ipfsService";
 import { Buffer } from "buffer";
 
-// LSH Configuration
+// LSH Configuration - Improved settings
 const NUM_HASH_FUNCTIONS = 32;
 const NUM_BANDS = 16;
 const BAND_SIZE = NUM_HASH_FUNCTIONS / NUM_BANDS;
-const SIMILARITY_THRESHOLD = 0.5; // Similarity threshold
+const SIMILARITY_THRESHOLD = 0.6;
 
 // Cache structure for LSH
 let lshCache = {
-  bands: {}, // Stores band signatures for quick lookups
-  sentences: {}, // Maps hash values to original sentences
-  signatureMap: {}, // Maps sentence hash to signature
+  bands: {},
+  sentences: {},
+  signatureMap: {},
 };
 
 // Statistics tracker for ratios
@@ -22,7 +22,6 @@ let ratioStats = {};
 
 // Function to add ratio to statistics
 function addRatioToStats(ratio) {
-  // Round ratio to 2 decimal places for grouping
   const roundedRatio = Math.round(ratio * 100) / 100;
   const ratioKey = roundedRatio.toFixed(2);
 
@@ -41,7 +40,6 @@ function printRatioStatistics() {
   console.log("Ratio\t\tCount");
   console.log("-".repeat(30));
 
-  // Sort ratios for better display
   const sortedRatios = Object.keys(ratioStats).sort(
     (a, b) => parseFloat(a) - parseFloat(b)
   );
@@ -63,7 +61,6 @@ function printRatioStatistics() {
   console.log(`similarity threshold: ${SIMILARITY_THRESHOLD}`);
   console.log("=".repeat(30));
 
-  // Additional statistics
   if (sortedRatios.length > 0) {
     const uniqueRatios = new Set(Object.keys(ratioStats));
     const zeroRatioCount = ratioStats["0.00"] || 0;
@@ -95,7 +92,7 @@ function getRatioStatistics() {
 // Save to IndexedDB
 const saveCache = async () => {
   await set("lshCache", lshCache);
-  await set("ratioStats", ratioStats); // Also save statistics
+  await set("ratioStats", ratioStats);
 };
 
 // Load from IndexedDB
@@ -107,7 +104,6 @@ const loadCache = async () => {
     signatureMap: {},
   };
 
-  // Load statistics
   const cachedStats = await get("ratioStats");
   ratioStats = cachedStats || {};
 };
@@ -122,41 +118,173 @@ async function init() {
   await loadCache();
 }
 
-// Hash a sentence using keccak256 (kept for blockchain compatibility)
+// Hash a sentence using keccak256
 function computeHash(sentence) {
   return utils.keccak256(utils.toUtf8Bytes(sentence));
 }
 
-// Create shingles (n-grams) from a sentence
-function createShingles(sentence, n = 3) {
-  const words = sentence
+// Improved normalization function
+function normalizeSentence(sentence) {
+  return sentence
     .toLowerCase()
-    .split(/\s+/)
-    .filter((word) => word.length > 0);
-  if (words.length < n) return [sentence.toLowerCase()];
-
-  const shingles = [];
-  for (let i = 0; i <= words.length - n; i++) {
-    shingles.push(words.slice(i, i + n).join(" "));
-  }
-  return shingles;
+    .replace(/[^\w\s]/g, " ") // Replace punctuation with spaces
+    .replace(/\s+/g, " ") // Normalize whitespace
+    .trim();
 }
 
-// Generate a minhash signature for a set of shingles
-function generateSignature(shingles) {
-  // Simple hash functions based on different prime multipliers
-  function hashFunction(i, shingle) {
-    const primes = [
-      2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67,
-      71, 73, 79, 83, 89, 97,
-    ];
-    let hash = 0;
-    for (let j = 0; j < shingle.length; j++) {
-      hash =
-        (hash * primes[i % primes.length] + shingle.charCodeAt(j)) %
-        Number.MAX_SAFE_INTEGER;
+// Create multiple types of shingles for better detection
+function createShingles(sentence) {
+  const normalized = normalizeSentence(sentence);
+  const words = normalized.split(/\s+/).filter((word) => word.length > 0);
+
+  const shingles = new Set();
+
+  // Add individual significant words (skip common words)
+  const stopWords = new Set([
+    "a",
+    "an",
+    "and",
+    "are",
+    "as",
+    "at",
+    "be",
+    "by",
+    "for",
+    "from",
+    "has",
+    "he",
+    "in",
+    "is",
+    "it",
+    "its",
+    "of",
+    "on",
+    "that",
+    "the",
+    "to",
+    "was",
+    "were",
+    "will",
+    "with",
+    "the",
+    "this",
+    "but",
+    "they",
+    "have",
+    "had",
+    "what",
+    "said",
+    "each",
+    "which",
+    "she",
+    "do",
+    "how",
+    "their",
+    "if",
+    "up",
+    "out",
+    "many",
+    "then",
+    "them",
+    "these",
+    "so",
+    "some",
+    "her",
+    "would",
+    "make",
+    "like",
+    "into",
+    "him",
+    "time",
+    "two",
+    "more",
+    "go",
+    "no",
+    "way",
+    "could",
+    "my",
+    "than",
+    "first",
+    "been",
+    "call",
+    "who",
+    "oil",
+    "sit",
+    "now",
+    "find",
+    "down",
+    "day",
+    "did",
+    "get",
+    "come",
+    "made",
+    "may",
+    "part",
+  ]);
+
+  words.forEach((word) => {
+    if (word.length > 2 && !stopWords.has(word)) {
+      shingles.add(word);
     }
-    return hash;
+  });
+
+  // Add 2-grams (better for paraphrases)
+  for (let i = 0; i < words.length - 1; i++) {
+    const bigram = words[i] + " " + words[i + 1];
+    shingles.add(bigram);
+  }
+
+  // Add 3-grams if sentence is long enough
+  if (words.length >= 3) {
+    for (let i = 0; i < words.length - 2; i++) {
+      const trigram = words[i] + " " + words[i + 1] + " " + words[i + 2];
+      shingles.add(trigram);
+    }
+  }
+
+  // Add character n-grams for fuzzy matching
+  const charNgrams = [];
+  for (let i = 0; i < normalized.length - 3; i++) {
+    charNgrams.push(normalized.substring(i, i + 4));
+  }
+  charNgrams.forEach((ngram) => shingles.add(ngram));
+
+  return Array.from(shingles);
+}
+
+// Improved hash function with better distribution
+function generateSignature(shingles) {
+  // Use a more diverse set of hash functions
+  const primes = [
+    2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
+    73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151,
+    157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233,
+    239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313,
+  ];
+
+  const saltValues = [
+    0x9e3779b9, 0x85ebca6b, 0xc2b2ae3d, 0x27d4eb2f, 0x165667b1, 0x9e3779b9,
+    0x85ebca6b, 0xc2b2ae3d, 0x27d4eb2f, 0x165667b1, 0x9e3779b9, 0x85ebca6b,
+    0xc2b2ae3d, 0x27d4eb2f, 0x165667b1, 0x9e3779b9, 0x85ebca6b, 0xc2b2ae3d,
+    0x27d4eb2f, 0x165667b1, 0x9e3779b9, 0x85ebca6b, 0xc2b2ae3d, 0x27d4eb2f,
+    0x165667b1, 0x9e3779b9, 0x85ebca6b, 0xc2b2ae3d, 0x27d4eb2f, 0x165667b1,
+    0x9e3779b9, 0x85ebca6b, 0xc2b2ae3d, 0x27d4eb2f, 0x165667b1, 0x9e3779b9,
+    0x85ebca6b, 0xc2b2ae3d, 0x27d4eb2f, 0x165667b1, 0x9e3779b9, 0x85ebca6b,
+    0xc2b2ae3d, 0x27d4eb2f, 0x165667b1, 0x9e3779b9, 0x85ebca6b, 0xc2b2ae3d,
+    0x27d4eb2f, 0x165667b1, 0x9e3779b9, 0x85ebca6b, 0xc2b2ae3d, 0x27d4eb2f,
+    0x165667b1, 0x9e3779b9, 0x85ebca6b, 0xc2b2ae3d, 0x27d4eb2f, 0x165667b1,
+    0x9e3779b9, 0x85ebca6b, 0xc2b2ae3d, 0x27d4eb2f,
+  ];
+
+  function hashFunction(i, shingle) {
+    let hash = saltValues[i % saltValues.length];
+    const prime = primes[i % primes.length];
+
+    for (let j = 0; j < shingle.length; j++) {
+      hash = ((hash ^ shingle.charCodeAt(j)) * prime) % Number.MAX_SAFE_INTEGER;
+    }
+
+    return Math.abs(hash);
   }
 
   const signature = new Array(NUM_HASH_FUNCTIONS).fill(Number.MAX_SAFE_INTEGER);
@@ -211,33 +339,45 @@ function findSimilarSentences(signature) {
   });
 
   // Check similarity with each candidate
+  let bestMatch = { isDuplicate: false };
+  let highestSimilarity = 0;
+
   for (const candidateHash of candidateHashes) {
     const candidateSignature = lshCache.signatureMap[candidateHash];
     if (!candidateSignature) continue;
 
     const similarity = calculateSimilarity(signature, candidateSignature);
-    if (similarity >= SIMILARITY_THRESHOLD) {
-      return {
-        isDuplicate: true,
-        similarSentenceHash: candidateHash,
-        similarity,
-        matchedSentence: lshCache.sentences[candidateHash],
-      };
+
+    if (similarity > highestSimilarity) {
+      highestSimilarity = similarity;
+      if (similarity >= SIMILARITY_THRESHOLD) {
+        bestMatch = {
+          isDuplicate: true,
+          similarSentenceHash: candidateHash,
+          similarity,
+          matchedSentence: lshCache.sentences[candidateHash],
+        };
+      }
     }
   }
 
-  return { isDuplicate: false };
+  // Debug: always show the best match found
+  // if (candidateHashes.size > 0) {
+  //   console.log(
+  //     `Best similarity found: ${highestSimilarity.toFixed(
+  //       3
+  //     )} (threshold: ${SIMILARITY_THRESHOLD})`
+  //   );
+  // }
+
+  return bestMatch;
 }
 
 // Store a sentence in the LSH structure
 function storeSentenceInLSH(sentence, sentenceHash, signature) {
-  // Store sentence
   lshCache.sentences[sentenceHash] = sentence;
-
-  // Store signature
   lshCache.signatureMap[sentenceHash] = signature;
 
-  // Store band hashes for lookup
   const bandHashes = getBandHashes(signature);
   bandHashes.forEach((bandHash, bandIndex) => {
     if (!lshCache.bands[bandIndex]) {
@@ -253,19 +393,40 @@ function storeSentenceInLSH(sentence, sentenceHash, signature) {
 // Scoring function
 function computeScore(duplicateResults) {
   let score = 0;
+  let hasDuplicates = false;
   let i = 0;
+
+  // Process consecutive duplicate runs
   while (i < duplicateResults.length) {
     if (!duplicateResults[i].isDuplicate) {
       i++;
       continue;
     }
+
+    hasDuplicates = true;
+
+    // Count consecutive duplicates
     let n = 0;
     while (i < duplicateResults.length && duplicateResults[i].isDuplicate) {
       n++;
       i++;
     }
-    score += 2 ** (n - 1);
+
+    // For consecutive runs, apply exponential formula
+    if (n > 1) {
+      score += 4 ** (n - 1);
+    }
+    // For isolated duplicates, just add 1
+    else {
+      score += 1;
+    }
   }
+
+  // If there were duplicates but somehow no score, ensure minimum of 1
+  if (hasDuplicates && score === 0) {
+    score = 1;
+  }
+
   return score;
 }
 
@@ -280,7 +441,6 @@ async function processArticle(articleId, article, signer) {
   const sentences = article.split("\n");
   const sentenceHashes = sentences.map(computeHash);
 
-  // Process each sentence with LSH
   const duplicateResults = [];
   const uniqueHashes = [];
   const uniqueSentences = [];
@@ -289,11 +449,9 @@ async function processArticle(articleId, article, signer) {
     const sentence = sentences[i];
     const sentenceHash = sentenceHashes[i];
 
-    // Generate LSH signature
     const shingles = createShingles(sentence);
     const signature = generateSignature(shingles);
 
-    // Check for similar sentences
     const result = findSimilarSentences(signature, sentenceHash);
     duplicateResults.push(result);
 
@@ -302,13 +460,11 @@ async function processArticle(articleId, article, signer) {
         `Similar sentence found:
       -> New: "${sentence}"
       -> Match: "${result.matchedSentence}"
-      -> Similarity: ${result.similarity.toFixed(2)}`
+      -> Similarity: ${result.similarity.toFixed(3)}`
       );
     } else {
       uniqueHashes.push(sentenceHash);
       uniqueSentences.push(sentence);
-
-      // Store in LSH structure
       storeSentenceInLSH(sentence, sentenceHash, signature);
     }
   }
@@ -316,7 +472,6 @@ async function processArticle(articleId, article, signer) {
   const score = computeScore(duplicateResults);
   const ratio = sentences.length ? score / sentences.length : 0;
 
-  // Add ratio to statistics
   addRatioToStats(ratio);
 
   console.log(
@@ -328,20 +483,15 @@ async function processArticle(articleId, article, signer) {
     return false;
   }
 
-  // NEW: Store uniqueHashes to IPFS instead of directly on blockchain
   try {
-    // Convert the array of hashes to a JSON string
     const hashesData = JSON.stringify(uniqueHashes);
-    // Convert the JSON string to a Buffer for IPFS
     const hashesBuffer = Buffer.from(hashesData);
-    // Upload to IPFS
     const ipfsCid = await uploadToIPFS(hashesBuffer);
     console.log(`Stored hashes on IPFS with CID: ${ipfsCid}`);
 
-    // Now store only the CID on the blockchain
     const contract = new Contract(contractAddress, contractAbi, signer);
     const tx = await contract.storeArticleCID(articleId, ipfsCid, {
-      gasLimit: 1_000_000, // Reduced gas limit since we're storing less data
+      gasLimit: 1_000_000,
     });
     await tx.wait();
     console.log(
@@ -352,35 +502,27 @@ async function processArticle(articleId, article, signer) {
     return false;
   }
 
-  // Save cache to IndexedDB
   await saveCache();
   return true;
 }
 
-// Also create a new function to retrieve article hashes from IPFS
 async function getStoredArticle(articleId, signer) {
   const contract = new Contract(contractAddress, contractAbi, signer);
   try {
-    // Get the CID from the blockchain
     const cid = await contract.getArticleCID(articleId);
 
-    // If there's no CID, return null
     if (!cid || cid === "") {
       console.log(`No CID found for articleId ${articleId}`);
       return null;
     }
 
-    // Retrieve the data from IPFS
     const ipfsData = await getFromIPFS(cid);
-    // Convert the Buffer to a string and parse it as JSON
     const hashes = JSON.parse(ipfsData.toString());
 
-    // Convert hashes to sentences
     const sentences = hashes.map(
       (h) => lshCache.sentences[h] || "[Unknown Sentence]"
     );
 
-    // Return both the sentences and the CID
     return {
       sentences,
       cid,
@@ -410,7 +552,6 @@ export {
   provider,
   contractAbi,
   contractAddress,
-  // New exports for ratio statistics
   printRatioStatistics,
   resetRatioStatistics,
   getRatioStatistics,
