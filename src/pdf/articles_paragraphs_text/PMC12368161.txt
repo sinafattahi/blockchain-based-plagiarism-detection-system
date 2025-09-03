@@ -1,0 +1,87 @@
+The role of inflammation-related markers in patients with elderly hepatocellular carcinoma (HCC) is not well known. This study aimed to evaluate and compare the prognostic value of various inflammation-related markers in elderly HCC patients after radical resection.350 elderly HCC patients after radical resection were included. Survival rate and prognostic analysis were using Kaplan-Meier and Cox regression analysis. The prognostic value of inflammation-related markers was compared by C-index and time-dependent receiver operating characteristic curve (AUC). Propensity score matching (PSM) was used for patient selection to minimize bias. The C-index and time-dependent AUC showed that PNI was higher than the other inflammation-related markers. After PSM, the 1-year, 3-year, and 5-year overall survival rates in the low prognostic nutritional index (PNI) and high PNI groups were 83.3%, 69.5%, 51.5%, and 95.0%, 87.8%, 71.3% (p = 0.047), respectively. The 1-year, 3-year, and 5-year recurrence-free survival rates in the two groups were 63.3%, 47.8%, 24.5%, and 86.7%, 76.3%, 57.1% (p < 0.001), respectively. Multivariate Cox regression revealed that PNI was the independent risk factor associated with death (p = 0.016, HR = 0.552) and tumor recurrence (p = 0.001, HR = 0.432). PNI was a better inflammation-based prognostic marker in elderly HCC patients after radical resection. This simple marker could help physicians determine elder HCC patients at high risk of tumor recurrence for frequent clinical surveillance.
+
+Hepatocellular carcinoma (HCC) is one of the most common malignancies in the elderly, and the highest age specific rates of HCC are observed among persons over age 70 years in developed countries1–3. Due to the aging of the population, increase in life expectancy, improvement in overall health conditions, the proportion of elderly patients with HCC in need of oncological treatment is likely to increase4–6. At present, the elderly comprise 20–30% of HCC patients, but the prognosis is not satisfactory7,8.
+
+The inflammatory, nutritional, and immunological status are important for elderly HCC patients9. The elderly HCC patients usually tend to have a severe inflammatory response, malnutrition, and weakened immunity, which may influence the prognosis10. Therefore, clinical management for elderly HCC patients may be more complicated and different.
+
+Recently, there has been increasing evidence that the presence of systemic inflammatory response, as well as nutritional and immunological status, are independent predictors of poor outcomes in patients with HCC, as also observed in other malignancies11–14. In particular, prognostic nutritional index (PNI)15, platelet-to-lymphocyte ratio (PLR)16, lymphocyte to monocyte ratio (LMR)17, neutrophil to lymphocyte ratio (NLR)18, neutrophil times γ-glutamyl transpeptidase to lymphocyte ratio (PNI)19, and systemic immune-inflammation index (SII)20have been studied for their prognostic roles among HCC patients. These results show an unusual relationship between inflammation and HCC. However, the impact of inflammation-related markers on elderly HCC patients is not well known.
+
+To address the issue, we collected a multicenter cohort to evaluate and compare the prognostic value of various inflammation-related markers in elderly HCC patients after radical resection.
+
+This study was approved by the institutional ethics committee of Mengchao Hepatobiliary Hospital of Fujian Medical University (NO.:2023_019_01) and followed the principles of the Declaration of Helsinki. Informed consent was obtained from each patient for their data to be used for research purposes.
+
+HCC patients undergoing radical resection between January 2010 and December 2018 were organized from a multicenter database (primary liver cancer big data, PLCBD) including Mengchao Hepatobiliary Hospital of Fujian Medical University, Eastern Hepatobiliary Surgery Hospital, and the First Affiliated Hospital of Fujian Medical University. Then the clinical data was checked by project researchers (Dr. Jinhua Zeng and Dr. Jianxing Zeng).
+
+The age threshold for elderly HCC patients is ≥ 65 years old in this study. The inclusion criteria included: (i) elderly HCC patients (age ≥ 65 years old), (ii) no distant metastasis, (iii) no macrovascular invasion, (iv) radical hepatectomy of the tumor with normal margins. Exclusion criteria included: (1) preoperative anticancer treatment, (2) history of other malignancies, (3) incomplete data, and (4) lost to follow-up within 2 months after surgery.
+
+After hospital discharge, patients were followed up once every 3 months in the first 2 years, then once every 6 months subsequently. Each visit included physical examination, complete blood count, serum AFP, liver function, abdominal ultrasound, and CT scan. Recurrence was defined as new neoplastic nodules confirmed by enhanced CT and/or enhanced MRI.
+
+Prognostic nutritional index (PNI), platelet to lymphocyte ratio (PLR), lymphocyte to monocyte ratio (LMR), neutrophil times lymphocyte ratio (NLR), and systemic immune-inflammation index (SII) were analyzed in this study. We used the “surv_cutpoint” function from “survminer” R package to identify the optimal cut-off value of these inflammation-related indexes. The definition and cut-off value of five inflammation-related markers were shown in Table1.
+
+The definition and cut-off value of inflammation-related marker.
+
+Abbreviations: PNI, prognostic nutritional index; PLR, platelet to lymphocyte ratio; LMR, lymphocyte to monocyte ratio; NLR, neutrophil to lymphocyte ratio; SII, systemic immune-inflammation index.
+
+The categorical variable was compared by the chi-square test or Fisher’s exact test. Mean (standard deviation, SD) was presented for normally distributed continuous variables and compared using the Student t-test. Survival analysis was estimated by the Kaplan–Meier survival method and compared by log-rank test.
+
+Prognostic analysis was carried out using the Cox proportional hazards model. The prognostic value of these inflammation-related markers was compared by C-index and time-dependent receiver operating characteristic curve (AUC). The comparison of AUC values at 3 years among inflammation-related markers were used the “compare” function from “timeROC” R package. Propensity score matching analysis (nearest-neighbor matching is 1:1, caliper width is 0.04) was employed to minimize the confounding prognostic factors (blood transfusion and tumor size).
+
+A p-value of less than 0.05 was considered to be statistically significant. All statistical analysis was performed with R 3.6.1 version and SPSS 20.0. The R packages of “Table1”, “MatchIt”, “glmnet”, “timeROC”, “survminer”, and “survival” were used in this study.
+
+During the study period, 375 elderly HCC patients who underwent radical resection were extracted from primary liver cancer big data. A total of 350 patients who met the inclusion criteria were included in this study. The flow chart of these patients was shown in Fig.1.
+
+The flow chart in the study. Abbreviations: HCC, hepatocellular carcinoma.
+
+In our cohort, the average age was 69.6 years. 296 (84.6%) patients were male, and the remaining 54 (15.4%) patients were female. There were 243 (69.4%) patients with hepatitis, 228 (65.1%) patients with liver cirrhosis. Pathological examination showed that microvascular invasion was recorded in 81 (23.1%).
+
+The C-index of PNI, PLR, MLR, NLR, and SII for OS were following:0.594, 0511, 0.534, 0.550, and 0.505, respectively (Table2). The C-index of PNI, PLR, MLR, NLR, and SII for recurrence were following:0.570, 0551, 0.538, 0.548, and 0.529, respectively (Table2). Time-dependent AUC (1-, 3-, and 5-years) showed that PNI was higher than the other inflammation-related markers (Table2; Fig.2). Therefore, the prognostic value of PNI was better than other inflammation-related markers in patients with elderly HCC.
+
+Comparison of C-index and time-dependent AUC between PNI, PLR, LMR, NLR, and SII.
+
+The parentheses are standard errors. AUC, areas under receiver operating characteristic curve; PNI, prognostic nutritional index; PLR, platelet to lymphocyte ratio; LMR, lymphocyte to monocyte ratio; NLR, neutrophil to lymphocyte ratio; SII, systemic immune-inflammation index.
+
+Comparison of time-dependent AUC between PNI, PLR, LMR, NLR, and SII. (A) Overall survival; (B) Recurrence-free survival. Abbreviations: AUC, areas under receiver operating characteristic curve; PNI, prognostic nutritional index; PLR, platelet to lymphocyte ratio; LMR, lymphocyte to monocyte ratio; NLR, neutrophil to lymphocyte ratio; SII, systemic immune-inflammation index.
+
+The optimal cut-off value for PNI was 53.1 (Table1). The patients were divided into two groups. As summarized in Table3, there were 290 patients with PNI ≤ 53.1 (the low PNI group) and 60 patients with PNI > 53.1 (the high PNI group). Low PNI groups had higher rates of blood transfusion than high PNI groups (p= 0.026). Considering tumor features, low PNI groups had greater tumor size than high PNI groups (p= 0.003).
+
+Comparison of baseline characteristics between low PNI and high PNI groups before PSM and after PSM.
+
+Abbreviations: Mean (standard deviation, SD) was presented for continuous variables. PSM, propensity score matching; PNI, prognostic nutritional index; AFP, alpha-fetoprotein.
+
+To minimize potential bias, we matched 60 pairs of patients by propensity score matching. There were no significant differences in baseline characteristics between the low and high PNI groups (Table3).
+
+Before PSM, the 1-year, 3-year, and 5-year OS rates in the low PNI and high PNI groups were 89.0%, 69.2%, 49.7%, and 95.0%, 87.8%, 71.3% (p= 0.013), respectively (Fig.3A). The 1-year, 3-year, and 5-year RFS rates in the two groups were 64.5%, 43.2%, 30.4%, and 86.7%, 76.3%, 57.1% (p< 0.001), respectively (Fig.3B).
+
+Comparison of prognosis between Low PNI and High PNI Groups before PSM and after PSM. (A) OS before PSM; (B) RFS before PSM; (C) OS after PSM; (D) RFS after PSM. Abbreviations: OS, overall survival; RFS, recurrence-free survival; PNI, prognostic nutritional index; PSM, propensity score matching.
+
+After PSM, the 1-year, 3-year, and 5-year OS rates in the low PNI and high PNI groups were 83.3%, 69.5%, 51.5%, and 95.0%, 87.8%, 71.3% (p= 0.047), respectively (Fig.3C). The 1-year, 3-year, and 5-year RFS rates in the two groups were 63.3%, 47.8%, 24.5%, and 86.7%, 76.3%, 57.1% (p< 0.001), respectively (Fig.3D).
+
+Univariate Cox regression analysis for determining the independent factors was shown in Table4. Multivariate analysis showed that PNI of ≤ 53.1, AFP of > 20ng/mL, operative bleeding loss > 800mL, tumor size of ≥ 5 cm, and microvascular invasion were the risk factors for OS (Table5). The PNI of ≤ 53.1, AFP of > 20ng/mL, operative bleeding loss > 800mL, tumor size of ≥ 5 cm, multiple tumor number, and microvascular invasion were the risk factors associated with tumor recurrence by multivariate analysis (Table5). These results showed that PNI was the independent risk factor associated with OS (p= 0.016, HR = 0.552) and tumor recurrence (p= 0.001, HR = 0.432) in elderly HCC patients (Table5).
+
+Univariate Cox regression analysis of factors associated with overall survival and recurrence in elderly HCC patients.
+
+Abbreviations: HCC, hepatocellular carcinoma; HR, hazard ratio; CI, confidence interval; AFP, alpha-fetoprotein; ALBI, albumin-bilirubin; PNI, prognostic nutritional index; PLR, platelet to lymphocyte ratio; LMR, lymphocyte to monocyte ratio; NLR, neutrophil to lymphocyte ratio; SII, systemic immune-inflammation index.
+
+Multivariable Cox regression analysis of factors associated with overall survival and recurrence in elderly HCC patients.
+
+Abbreviations: HCC, hepatocellular carcinoma; CI, confidence interval; HR, hazard ratio; PNI, prognostic nutritional index; AFP, alpha-fetoprotein.
+
+To further compare of prognosis between low PNI and high PNI groups in several subgroups, forest plots were performed by tumor features and liver function. In several subgroups (such as male, hepatitis, AFP of > 20ng/mL, tumor size of ≥ 5 cm, solitary tumor number, microvascular invasion, edmondson-Steiner grade of III-IV, and liver cirrhosis), the low PNI group also had a worse prognosis than the high PNI group, indicating that PNI had a favorable stratification for OS and RFS in different populations (Figs.4and5).
+
+Comparison of overall survival between Low PNI and High PNI Groups in different subgroups. Abbreviations: PNI, prognostic nutritional index; AFP, alpha-fetoprotein.
+
+Comparison of recurrence-free survival between Low PNI and High PNI Groups in different subgroups. Abbreviations: PNI, prognostic nutritional index; AFP, alpha-fetoprotein.
+
+Based on a multicenter cohort, there are several novel findings in this study. First, we discovered that inflammation-related markers such as PNI, PLR, LMR, NLR, and SII could predict the outcomes of patients with elderly HCC. Second, among these markers, PNI had the best performance in predicting the prognosis of patients. Third, A low level of PNI is associated with more aggressive tumor features, and poorer long-term survival, which was consistently observed in PSM. These results confirmed that PNI was the significant prognostic factor for OS and tumor recurrence in elderly HCC patients after radical resection.
+
+Nutritional and inflammatory status are parts of tumor microenvironment and affect tumor prognosis, including HCC21–23. A better nutritional status can lead to a more favorable outcome. Liver inflammatory status is associated with tumor recurrence and poor prognosis in HCC patients, especially in HBV infection8. Given that malnutrition and weakened immunity are more common in elderly HCC patients, these factors may be of particular concern in the elderly population9,24. The PNI based on patients’ total lymphocyte count and serum albumin is a valuable and convenient tool to evaluate the patient’s inflammation and nutritional status. In this study, we evaluate and compare the prognostic value of various inflammation-related markers in elderly HCC patients. We found that PNI outperformed other inflammation-related markers on prognosis predictability in elderly HCC patients.
+
+The PNI was initially designed to assess the nutritional and inflammatory status of patients undergoing surgery of the gastrointestinal tract, predominantly as an indicator of the nutritional status of any given patient25–27. Several studies have assessed the impact of PNI on patients with HCC who underwent surgical resection28,29. However, there remains a notable gap in research concerning the role of PNI in predicting outcomes for elderly HCC patients. Our finding revealed that PNI was an independent risk factor for OS and tumor recurrence in elderly HCC patients.
+
+HCC is not only caused by tumor burden but is also associated with a sustained systemic inflammatory response30,31. Tumor burden plays an important predictor in HCC prognosis. In this study, we found that AFP, tumor size, and microvascular invasion were the independent risk factors associated with prognosis in elderly HCC patients.
+
+In subgroup analysis, the low PNI group had a worse prognosis than the high PNI group in liver cirrhosis and advance tumor burden. Clinically significant portal hypertension (CSPH) is a serious complication in patients with liver cirrhosis32. CSPH and liver cirrhosis is prone to cause hypoproteinemia, leading to malnutrition. Therefore, elderly HCC patients usually tend to have more severe liver cirrhosis and higher comorbidities rates such as hypertension (HBP), diabetes mellitus (DB), and CSPH, in comparison to younger HCC patients, lead to a deterioration in their nutritional and inflammatory status, which are associated with poor outcomes.
+
+Our study has some limitations. First, it was a retrospective study, which may be affected by bias. Therefore, we used propensity score matching to minimize the difference between the two groups. Second, we could not evaluate the dynamic nutritional and inflammatory status of patients after surgical resection. This was due to missing data in most of the patient files. Third, the subgroup analysis might be influenced by covariates before PSM. There were only 120 patients and no significant differences in baseline characteristics and prognosis between the low and high PNI groups in many subgroups analysis after PSM. Therefore, we conducted subgroups analysis before PSM.
+
+In conclusion, our study showed that the PNI was the significant prognostic factor for OS and tumor recurrence in elderly HCC patients after radical resection. It can assist physicians to identify high-risk patients at early stages and help develop personalized care.

@@ -1,0 +1,139 @@
+This study computes M-polynomial indices for Daunorubicin, an anthracycline antibiotic, is a potent anticancer agent used in treating various malignancies, including acute myeloid leukemia, acute lymphoblastic leukemia and breast cancer. We calculated M-polynomial indices using the edge partition of graphs based on degree and adjacency matrix. A Python code is developed based on an adjacency matrix to efficiently compute the indices that reduce calculation time from days to minutes and eliminate human error. Quantitative structure-property relationships are established using Multiple Linear, Ridge, Lasso, ElasticNet and Support Vector Regression in Python software to predict breast cancer drugs’ physical properties. Our results demonstrate that M-polynomial indices accurately predict physical properties, providing valuable insights into structural requirements for optimal anticancer activity. Additionally, we proposed the models against each physical property. This research facilitates the design of novel cancer therapeutics and enables the prediction of physical properties for uncharacterized drugs.
+
+In 1878, the word “graph” was first used by James J. Sylvester1. In Mathematics, one of the subfields that is expanding at a rapid rate these days is Graph Theory. In addition, graph theory has been utilized in a wide variety of domains, including but not limited to engineering, computer science, biology, operation research, statistical mechanics, optimization theory, physics, and even chemistry. Chemical Graph Theory, which was initially developed by Milan Randić2, Ante Graovac3, Haruo Hosoya4, Alexander Balaban5, Ivan Gutman6, and Nenad Trinajstić7, is considered to be one of the most significant subfields within the discipline of Mathematical Chemistry.
+
+The topological indices of undirected connected molecular graphs provide valuable insights into the physiochemical characteristics and biological activities of chemical compounds8. In the realm of cheminformatics, QSPR and QSAR are two pivotal methodologies employed to predict physiochemical properties of compounds9. These methodologies significantly contribute to the investigation of topological indices10. A molecular graph, a topological representation of a molecule, comprises vertices (atoms) and edges (covalent bonds), offering a mathematical framework to analyze molecular structures11. This graph-theoretic approach enables the examination of molecular properties and activities.
+
+Numerous studies have investigated specific degree-based topological indices for particular graph families12. To overcome limitations of traditional methods, this work computes the M-polynomial and demonstrates that many degree-based indices can be expressed as derivatives or integrals, or both, of the associated M-polynomial.
+
+Recent advancements in chemical graph theory have leveraged M-polynomial methodology to analyze diverse chemical structures13. Many researchers have contributed to deriving M-polynomials for various indices14. Initial applications include calculating Zagreb indices for infinite dendrimer nanostars15, as well as M-polynomials for benzene rings embedded in P-type surfaces and polyhex nanotubes16. Generalized M-polynomial forms have also been established for specific nanostructures17.
+
+The M-polynomial, a recent advancement in polynomial theory, has the potential to transform the field of degree-based topological indices and chemical graph theory. This versatile tool enables accurate calculation of over 10 degree-based indices, opening up new avenues for research. The development of the M-polynomial is progressing rapidly.
+
+Notably, Kwun et al.18have made significant contributions to this field by deriving M-polynomial indices for nanotubes, demonstrating its applicability in cutting-edge research.
+
+Letbe a simple connected graph, whereis the set of vertices andis the set of edges. In graph theory, a vertex (or node) represents an individual object, while an edge denotes a connection between two vertices. For any vertex, thedegreeof the vertex, denoted by, is the number of edges incident to vertex; in other words, it is the count of direct neighbors of. The degree of a vertex plays a central role in analyzing the topological structure of a graph.
+
+whereis the number of edgessuch that the degrees of the verticesandsatisfywith. That is, each edge is counted according to the degrees of its endpoints, and the sum aggregates all such edges across the graph. The variablesandare formal variables used to encode this degree-based edge distribution.
+
+Several polynomials, including the Tutte, matching, Schultz, Hosoya, and Zhang-Zhang polynomial, have been proposed. This study focuses on the M-polynomial, demonstrating its role in calculating degree-based indices, analogous to the Hosoya polynomial’s function for distance-based indices.
+
+Table1shows the mathematical form of M-polynomial indices.
+
+In this section, we present the methodology adopted in this study for computing M-polynomial indices and analyzing their correlation with physical properties of chemical compounds.
+
+The chemical structure of Daunorubicin is converted into a molecular graph, where atoms are treated as vertices and chemical bonds as edges.
+
+The vertices and edges of the graph are partitioned based on vertex degrees.
+
+Using the degree-based edge distribution, the M-polynomial is constructed.
+
+The M-polynomial indices are visualized through graphical representations plotted usingMATLABsoftware.
+
+We implement a Python-based algorithm to automate the computation of M-polynomial indices for a given molecular graph. The input to the algorithm is the adjacency matrix of the graph, which is derived usingnewGraphsoftware. The algorithm processes the degree of each vertex and constructs the M-polynomial by counting the edges between vertices of varying degrees.
+
+A specific class of breast cancer drugs is selected.
+
+Each drug’s chemical structure is converted into a molecular graph, following the same approach used for Daunorubicin.
+
+The adjacency matrix for each graph is computed usingnewGraphsoftware.
+
+M-polynomial indices for each drug are computed using the proposed Python algorithm.
+
+Physical properties of the drugs (e.g., molecular weight, boiling point, melting point, and solubility) are collected from public databases such ashttps://pubchem.ncbi.nlm.nih.gov/andhttps://www.chemspider.com/.
+
+Model performance is evaluated using standard metrics such as coefficient of determinationand mean squared error (MSE).
+
+This methodological framework enables both the formulation of novel descriptors (M-polynomial indices) and their empirical validation through statistical modeling.
+
+In this work, we are calculating the degree based M-polynomial indices for Daunorubicin. we are using edge partition method technique to compute the indices. For the edges partition, we are converting the chemical structure of Daunorubicin into molecular graph.
+
+Daunorubicin, an anthracycline antibiotic, is a potent anticancer agent used in treating various malignancies, including acute myeloid leukemia (AML), acute lymphoblastic leukemia (ALL), and breast cancer31. Its chemical structure consists of a planar, tetracyclic aromatic ring system, comprising a central quinone ring, two benzene rings, and a sugar moiety, daunosamine32. This unique structure facilitates DNA binding and intercalation, inhibiting topoisomerase II and inducing apoptosis33.
+
+Daunorubicin’s molecular connectivity involves hydrogen bonding with DNA phosphate groups andstacking interactions with DNA bases34. Its pharmacophore consists of the quinone ring, essential for redox reactions, and the daunosamine sugar moiety, facilitating DNA binding35. Daunorubicin’s merits include high efficacy in inducing complete remission in AML patients (60-80%)36, critical role in combination chemotherapy regimens for AML and ALL37, ability to overcome multidrug resistance in cancer cells38, and potential in targeting cancer stem cells, reducing relapse rates39.
+
+However, Daunorubicin’s limitations encompass cardiotoxicity, leading to heart failure and arrhythmias40, myelosuppression, causing anemia, neutropenia, and thrombocytopenia41, hepatotoxicity, resulting in elevated liver enzymes42, and resistance development, reducing its efficacy43. Despite these limitations, Daunorubicin remains vital in cancer treatment due to its clinical efficacy in treating AML, ALL, and breast cancer31, unique mechanism of action, providing an alternative to other anticancer agents35, and research applications as a model compound for studying DNA-intercalating agents33.
+
+Additionally, Daunorubicin’s importance extends to synergistic effects with other anticancer agents, enhancing treatment outcomes, potential in targeting leukemia stem cells, improving patient prognosis39, and emerging role in immunotherapy, stimulating antitumor immune responses38.
+
+The unit chemical structure and molecular graph of Daunorubicin are shown in Figure1. Supplementary Figure S1 and Supplementary Figure S2 show the chemical structure and molecular graph of Daunorubicin for, respectively.
+
+A molecular graphis a representation of a molecule in which atoms correspond to vertices and chemical bonds correspond to edges. The degreeof a vertexuinis defined as the number of chemical bonds (edges) incident to that atom (vertex). This information can be derived directly from the molecular structure based on standard valency rules in chemistry (see44).
+
+The computation of M-polynomial indices values is a complex and time-consuming task that involves several error-prone steps. Traditionally, this process begins with converting the chemical structure of a molecule into a molecular graph, where atoms are represented as vertices and chemical bonds as edges. Next, degrees are assigned to each vertex, and edges are partitioned based on the degrees of their end vertices. The frequency of edges is then used to generate a polynomial in two variables, usually x and y. Following partial derivative w.r.t. x and y, this polynomial is then integrated w.r.t. x and y. The M-polynomial indices are then determined using the resultant polynomial, necessitating further mathematical operations.
+
+In addition to being time-consuming, this manual procedure is prone to human mistake, especially when working with big and intricate molecular structures. We suggest a novel Python method that effectively computes M-polynomial indices by utilizing the molecular graph’s adjacency matrix in order to address these issues. Our method eliminates human mistake, drastically cuts down computation time from days to minutes, and gives researchers a dependable and quick result by automating the calculating process. The Python code for computing the M-polynomial indices is provided in Supplementary File Section 3.2.
+
+Quantitative Structure-Property Relationship (QSPR) investigations based on topological indices have become a fundamental approach for predicting the physical properties of molecules. These indices encode structural information that corresponds with physical attributes and are obtained from molecular graphs.
+
+Topological indices, such as Wiener index, Randić index, and Zagreb indices (,), have been extensively used in QSPR studies45–47. Researchers have established correlations between these indices and various physical properties, such as boiling point (BP) can be predicted using Wiener, Randić, and Zagreb indices48,49, melting point can be predicted using Wiener, Randić, and augmented Zagreb index50,51, polar surface area (PSA) can be predicted using harmonic, first and second Zagreb index52,53, molar refraction (MR) can be predicted using symmetric division and Zagreb indices54,55, and LogPcan be predicted using Randić, Wiener and harmonic index56,57.
+
+In order to increase the accuracy of the QSPR model, recent research has used sophisticated statistical techniques including machine learning and artificial neural networks. These methods have improved prediction accuracy and made it possible to investigate intricate structure-property correlations.
+
+In this study, a Quantitative Structure-Property Relationship (QSPR) model is developed to explore the relationship between the M-polynomial indices and the physicochemical properties of cancer drugs. A total of 25 breast cancer-related medications are analyzed, including Abemaciclib, Abraxane, Anastrozole, Capecitabine, Cyclophosphamide, Exemestane, Fulvestrant, Ixabepilone, Letrozole, Megestrol Acetate, Methotrexate, Tamoxifen, Thiotepa, Acetaminophen, Gabapentin, Ibuprofen, Lisinopril, Loratadine, Meloxicam, Naproxen, Omeprazole, Pantoprazole, Prednisone, Tramadol, and Trazodone.
+
+Eleven physicochemical properties are considered as dependent variables: boiling point, enthalpy of vaporization, flash point, molar refractivity, molar volume, polarization, molecular weight, monoisotopic mass, polar surface area, heavy atom count, and molecular complexity. The independent variables consist of nine M-polynomial indices, namely,,AZI,,H,I,F, andSDD.
+
+To compute these indices, the chemical structures of the drugs were first converted into molecular graphs. The computed M-polynomial indices are presented in Supplementary Table S1, while the corresponding physicochemical properties are listed in Supplementary Table S2.
+
+Multiple Linear Regression, Ridge, Lasso, ElasticNet, and Support Vector Regression (SVR) models are employed to explore the relationship between M-polynomial indices and the physical properties of cancer drugs. To identify the most effective predictive model for each physical property listed in Table2to Table12, we evaluate performance based on the Pearson R, coefficient of determination (), and mean squared error (MSE) metrics.
+
+Table2compares the predictive performance of various regression models. Linear Regression shows the weakest performance with a lowand highest MSE (64976.88), indicating poor fit. Lasso and Ridge significantly improve accuracy, while ElasticNet achieves a good balance (, MSE = 37058.52). SVR delivers the lowest MSE (9192.12), though with slightly lower. Overall, Lasso maximizes explanatory power, SVR minimizes error, and ElasticNet offers balanced reliability.
+
+Table3provides a comparative assessment of regression models based on their ability to predict the enthalpy of vaporization. Linear Regression shows the weakest performance with the lowestand highest MSE (1016.5432), indicating limited predictive accuracy. Ridge and Lasso Regression yield substantially improved results, achievingvalues of 0.987 and 1.000, respectively, with significantly lower MSEs. Although ElasticNet Regression performs well (), it falls short compared to Ridge and Lasso. SVR records the lowest MSE (174.9831), reflecting excellent precision, despite a slightly lower. Overall, Lasso is preferred for explanatory power, while SVR excels in minimizing prediction errors.
+
+Table4compares the predictive performance of different regression models for estimating flash point values. Linear Regression shows the weakest results withand the highest MSE (52497.6155), indicating limited accuracy. Ridge, Lasso, and ElasticNet regressions improve performance significantly, with ElasticNet achievingand a notably reduced MSE. SVR delivers the best performance, attaining the highestand the lowest MSE (29390.0422), reflecting exceptional predictive precision. Overall, ElasticNet is preferred for accurately modeling the flash point due to their strong explanatory power and predictive reliability.
+
+Table5presents a comparative evaluation of regression models in predicting molar refractivity. Linear Regression shows strong explanatory power with, though it yields a relatively high MSE (3612.5899), indicating higher prediction errors. Ridge and Lasso offer lowervalues (0.916 and 0.917) and moderately reduced MSEs, reflecting weaker predictive performance. ElasticNet strikes a balance withand the lowest MSE among linear models (2358.7572). SVR achieves the best results with the low MSE (2267.3684) and the high, suggesting excellent precision. Overall, ElasticNet is preferred for modeling molar refractivity due to its superior accuracy and predictive capability.
+
+Table6presents a comparative evaluation of regression models in predicting molar volume using M-polynomial indices. The results indicate that all models-Linear, Ridge, Lasso, ElasticNet, and SVR-demonstrate limited predictive performance, with consistently lowvalues and high MSEs. This suggests a weak correlation between the M-polynomial indices and molar volume. The overall findings highlight that M-polynomial descriptors may not be suitable predictors for this particular physio-chemical property.
+
+Table7presents a comparative analysis of various regression models in predicting polarization using M-polynomial indices. Linear Regression shows strong performance with the highest, but also the highest MSE (567.3684), indicating a good fit but relatively larger prediction errors. Ridge and Lasso Regression provide marginal improvements in MSE, but lowervalues (0.919 and 0.921), suggesting limited effectiveness. ElasticNet achieves a balance between performance and generalization withand the lowest MSE among linear models (363.9165). Overall, ElasticNet is preferred for modeling polarization due to its superior accuracy and predictive capability.
+
+Table8presents a comparative analysis of various regression models for predicting molecular weight using M-polynomial indices. Linear Regression shows the weakest performance with a lowand the highest MSE (37521.2779), indicating poor predictive accuracy. In contrast, Ridge and Lasso Regression demonstrate significant improvements, withvalues of 0.990 and 1.000, respectively, and substantially lower MSEs. ElasticNet Regression also performs well (), though slightly below Ridge and Lasso. SVR achieves the lowest MSE (12622.7928), indicating highly accurate predictions, despite a moderately lower.
+
+Overall, Lasso Regression is preferred for maximizing explanatory power, while SVR excels in minimizing prediction errors.
+
+Table9presents a comparative analysis of various regression models for predicting monoisotopic mass using M-polynomial indices. Linear Regression shows the weakest performance, with a relatively lowand the highest MSE (37470.3229), indicating limited predictive accuracy. In contrast, Ridge and Lasso Regression exhibit strong performance, withvalues of 0.990 and 1.000, respectively, and significantly lower MSEs. ElasticNet Regression also performs well (), though slightly below Ridge and Lasso. SVR achieves the lowest MSE (12609.0643), suggesting high predictive precision, despite a moderately lower.
+
+Overall, Lasso Regression is preferred for maximizing explanatory power, while SVR is effective in minimizing prediction errors.
+
+Table10presents a comparative evaluation of various regression models in predicting topological polar surface area from M-polynomial indices. The results indicate that Linear, ElasticNet, and Support Vector Regression models show limited predictive capability. In contrast, Ridge and Lasso Regression demonstrate marked improvements, withvalues of 0.869 and 0.973, respectively, along with substantially lower MSEs. These findings highlight the superior ability of Lasso Regression to capture the relationship between M-polynomial indices and topological polar surface area.
+
+Overall, Lasso Regression emerges as the most effective model for this predictive task.
+
+Table11compares the predictive performance of various regression models for estimating heavy atom count using M-polynomial indices. Linear Regression performs the worst, with the lowest(0.865) and highest MSE (299.8747). Ridge and Lasso Regression show strong predictive ability, achievingvalues of 0.999 and 0.997, respectively. ElasticNet also performs well with. SVR delivers the lowest MSE (76.2366), indicating high prediction precision despite a slightly lower. Overall, Lasso is best for explanatory power, while SVR excels in minimizing prediction errors.
+
+Table12presents a comparative evaluation of various regression models, assessing their predictive capabilities in relating M-polynomial indices to complexity. The results indicate that all models, including Linear, Ridge, Lasso, ElasticNet, and Support Vector Regression, exhibit limited success in capturing this relationship. This suggests that M-polynomial indices may not be suitable predictors of complexity, as reflected by the poor performance of all models presented in Table12.
+
+In our analysis, we observe that while thevalue is quite high, indicating a strong correlation between the predicted and actual physical properties, the Mean Squared Error (MSE) remains relatively large. This discrepancy can be attributed to several factors.
+
+First,is a measure of the proportion of the variance in the dependent variable that is explained by the independent variables. A highvalue suggests that the model captures the overall trend well. However,is not sensitive to outliers or large individual prediction errors. In contrast, MSE is more sensitive to the magnitude of errors, especially when the data includes extreme values or outliers. Even a few significant prediction errors can inflate the MSE, which may occur in datasets with skewed distributions or extreme values.
+
+Another potential explanation for the high MSE, despite a strong, is the presence ofmulticollinearityamong the independent variables. Multicollinearity refers to the situation where two or more predictor variables are highly correlated, leading to redundancy in the information they provide. This redundancy can cause instability in the model’s coefficients, making the predictions less reliable and increasing the variance of the prediction errors. As a result, the model may still explain a significant portion of the variance (high) but generate higher prediction errors (higher MSE).
+
+Therefore, while the highsuggests that the model fits the data well overall, the high MSE indicates that the model’s predictions may not be consistently accurate across all data points, particularly due to outliers or multicollinearity. Addressing multicollinearity, possibly through techniques such as ridge regression and further investigating the data for outliers may help mitigate this issue.
+
+A heatmap provides a visual representation of the correlation between M-polynomial indices and physical properties, facilitating the identification of influential independent variables. Each cell in the heatmap corresponds to the correlation coefficient between a specific M-polynomial index and a physical property, with colors indicating the strength and direction of the linear relationship. The diagonal values are always 1.0, indicating perfect correlation with themselves. The color scheme reveals strong positive correlations (red) and low correlations (blue) between variables.
+
+Figure2illustrates a highly significant relationship between M-polynomial indices and physical properties. This heatmap also enables the detection of multicollinearity, informing decisions about which indices to include or exclude. Furthermore, it offers a concise overview of the relationships between all variables in the dataset.
+
+This study successfully computed the M-polynomial indices of Daunorubicin using edge partitioning based on vertex degrees and adjacency matrices. A custom-developed Python script significantly improved computational efficiency, reducing processing time from days to minutes while minimizing human error.
+
+Furthermore, QSPR models were developed using five regression techniques: Multiple Linear Regression (MLR), Ridge, Lasso, ElasticNet, and Support Vector Regression (SVR), to assess the predictive utility of M-polynomial indices for key physiochemical properties of breast cancer drugs. Among these, Lasso Regression frequently exhibited the highest coefficient of determination (), indicating strong explanatory capability, while SVR consistently achieved the lowest mean squared error (MSE), highlighting its superior predictive performance. ElasticNet emerged as a balanced model, combining the interpretability of linear models with enhanced generalization. These results affirm the superiority of regularized and kernel-based methods over standard linear regression for capturing complex structure-property relationships encoded by M-polynomial descriptors.
+
+Successful computation of M-polynomial indices for the Daunorubicin.
+
+Development of a highly efficient and accurate Python-based tool for computing M-polynomial indices.
+
+Validation of the predictive capability of M-polynomial indices for the physicochemical properties of breast cancer drugs through QSPR modeling.
+
+Providing a fast and error-free method for computing graph-theoretic descriptors.
+
+Establishing effective regression-based QSPR models using M-polynomial indices.
+
+Offering insights into the structural features associated with enhanced anticancer activity.
+
+Finally, the integration of graph-based indices with machine learning models demonstrates a powerful approach for accelerating drug discovery. The findings lay the groundwork for future studies in computational drug design, particularly in developing new therapeutic agents against breast cancer.
+
+The authors gratefully acknowledge the funding of the Deanship of Graduate Studies and Scientific Research, Jazan University, Saudi Arabia, through Project number:  JU-202502101-DGSSR-RP-2025.

@@ -1,33 +1,94 @@
 import requests
 import os
+import time
 
-# Step 1: Query Europe PMC for 500 open-access articles
-api_url = "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=OPEN_ACCESS:Y&format=json&pageSize=500"
-response = requests.get(api_url)
-data = response.json()
+# --------------------------
+# CONFIG
+# --------------------------
+BASE_URL = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
+QUERY = "OPEN_ACCESS:Y"
+PAGE_SIZE = 1000       # max allowed
+SAVE_DIR = "articles_html"
 
-# Step 2: Extract PMCIDs
-pmcids = [result['pmcid'] for result in data['resultList']['result'] if 'pmcid' in result]
+# Create folder for HTMLs
+os.makedirs(SAVE_DIR, exist_ok=True)
 
-# Step 3: Create output folder
-os.makedirs('articles_html', exist_ok=True)
-
-# Set headers to simulate a browser
-headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+# Browser-like headers
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                  "AppleWebKit/537.36 (KHTML, like Gecko) "
+                  "Chrome/58.0.3029.110 Safari/537.36"
 }
 
-# Step 4: Download and save each article's full HTML
-for pmcid in pmcids:
-    html_url = f'https://www.ncbi.nlm.nih.gov/pmc/articles/{pmcid}/?report=classic'
-    html_response = requests.get(html_url, headers=headers)
+# --------------------------
+# Step 1: Collect PMCIDs with cursorMark
+# --------------------------
+pmcids = []
+cursor = "*"
+batch = 0
+max_batches = 10   # adjust as needed (200*1000 = 200k articles max)
 
+while True:
+    batch += 1
+    print(f"📥 Fetching batch {batch} (cursor={cursor}) ...")
+    params = {
+        "query": QUERY,
+        "format": "json",
+        "pageSize": PAGE_SIZE,
+        "cursorMark": cursor
+    }
+    response = requests.get(BASE_URL, params=params)
+    if response.status_code != 200:
+        print(f"⚠️ Failed batch {batch}: {response.status_code}")
+        break
+    
+    data = response.json()
+    results = data.get("resultList", {}).get("result", [])
+    if not results:
+        print("✅ No more results, stopping.")
+        break
+    
+    new_ids = [r["pmcid"] for r in results if "pmcid" in r]
+    pmcids.extend(new_ids)
+    print(f"   Found {len(new_ids)} PMCIDs (total so far: {len(pmcids)})")
+    
+    next_cursor = data.get("nextCursorMark")
+    if not next_cursor or next_cursor == cursor:
+        print("✅ Reached end of dataset.")
+        break
+    
+    cursor = next_cursor
+    if batch >= max_batches:
+        print("⏹️ Reached max_batches limit, stopping.")
+        break
+    
+    time.sleep(0.5)
+
+print(f"\n✅ Total PMCIDs collected: {len(pmcids)}\n")
+
+# --------------------------
+# Step 2: Download articles (skip existing files)
+# --------------------------
+for pmcid in pmcids:
+    file_path = os.path.join(SAVE_DIR, f"{pmcid}.html")
+    
+    # ✅ Skip if already exists
+    if os.path.exists(file_path):
+        print(f"⏭️ Skipped {pmcid} (already downloaded)")
+        continue
+    
+    html_url = f"https://www.ncbi.nlm.nih.gov/pmc/articles/{pmcid}/?report=classic"
+    html_response = requests.get(html_url, headers=HEADERS)
+    
     if html_response.status_code == 200:
-        file_path = f'articles_html/{pmcid}.html'
-        with open(file_path, 'w', encoding='utf-8') as f:
+        with open(file_path, "w", encoding="utf-8") as f:
             f.write(html_response.text)
         print(f"✅ Saved {pmcid}")
     elif html_response.status_code == 403:
-        print(f"❌ Failed to fetch {pmcid}: Access Forbidden (403)")
+        print(f"❌ Forbidden (403): {pmcid}")
+    elif html_response.status_code == 404:
+        print(f"❌ Not found (404): {pmcid}")
     else:
-        print(f"❌ Failed to fetch {pmcid}: {html_response.status_code}")
+        print(f"❌ Error {html_response.status_code}: {pmcid}")
+    
+    time.sleep(0.5)  # polite delay

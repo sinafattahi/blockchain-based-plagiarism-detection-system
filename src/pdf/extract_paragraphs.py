@@ -14,7 +14,11 @@ stop_sections = [
     'Data Availability Statement',
     'Data availability',
     'Footnotes',
-    'References'
+    'References',
+    'Human subjects',
+    'Payment/services info',
+    'Financial relationships',
+    'Other relationships'
 ]
 
 for filename in os.listdir(html_dir):
@@ -36,7 +40,7 @@ for filename in os.listdir(html_dir):
         tags = soup.body.find_all(True) if soup.body else []
 
     for tag in tags:
-        # Stop if a disallowed <h2> section is reached
+        # اگر به یک بخش با عنوان استاپ رسیدیم، پردازش رو متوقف کنیم
         if tag.name == 'h2' and tag.string:
             heading_text = tag.string.strip().lower()
             if any(stop.lower() in heading_text for stop in stop_sections):
@@ -44,6 +48,12 @@ for filename in os.listdir(html_dir):
 
         if tag.name == 'p':
             text = tag.get_text(strip=True)
+
+            # اگر متن شامل هرکدوم از عبارات استاپ بود، ردش کن
+            if any(stop.lower() in text.lower() for stop in stop_sections):
+                continue
+
+            # فقط پاراگراف‌های بزرگتر از حداقل طول و پایان‌یافته با نقطه رو ذخیره کن
             if len(text) >= min_length and text.endswith('.'):
                 content_tags.append(text)
 

@@ -1,0 +1,207 @@
+This tutorial provides stepwise instructions to install over 20 tools, written in multiple languages. Their integration in theCoLoMoTosoftware suite makes them accessible with a single popular language (Python), thereby enabling reproducible and sophisticated dynamical analyses of logical models of complex cellular networks. The tutorial specifically focuses on the analysis of a previously published model of the regulatory network controlling mammalian cell proliferation. It includes chunks ofPythoncode to reproduce several of the results and figures published in the original article, and further extends these results with the help of selected tools included in theCoLoMoTosuite. The tutorial covers the visualization of the network with the toolGINsim, an attractor analysis withbioLQM, the computation of synchronous attractors withBNS, the extraction of modules from the full model, stochastic simulations of the wild-type model and of selected perturbations withMaBoSSand finally the delineation of compressed probabilistic state transition graphs. The integration of all these analyses in an executableJupyter Notebookgreatly eases their reproducibility, as well as the inclusion of further extensions. The notebook provided along with this tutorial further constitutes a template, which can be enriched with otherColoMoTotools, to develop comprehensive dynamical analyses of various biological network models.
+
+Since the seminal studies from Sugita [1], Kauffman [2] and Thomas [3], Boolean models have been increasingly applied to biological signalling and regulatory networks [4–7]. With the rise of high-throughput functional genomic methods and the development of molecular pathway knowledge databases, modellers are now coping with networks encompassing hundreds of regulatory components controlling cell fate decisions for normal and pathological conditions (e.g. [8]).
+
+About a decade ago, several international teams working on the development of Boolean modelling tools gathered efforts to address these challenges. A first effort focused on the definition of a common standard format to foster the exchange and reuse of qualitative models between different software tools, which took the form of a dedicated extension of a new, modular release of the popularSBMLformat, known assbml-qual[11].
+
+A second, recurrent effort is devoted to the integration of a growing set of tools in aDockercontainer to ease their installation and articulation in flexible analysis workflows. The first release of the resultingCommon Logical Modelling Toolbox(orCoLoMoTo) encompassed six complementary software tools [12]. Since then, the number of tools integrated into theCoLoMoTosuite has been constantly increasing, reaching a total of 24 in 2025. The tools currently integrated in the suite are listed infigure 1, with key characteristics.
+
+Tools currently integrated in theCoLoMoTosuite. Names in bold refer to theCoLoMoTotools used in this tutorial.
+
+This tutorial aims to help modellers take advantage of the multiple tools integrated into theCoLoMoTosoftware suite and perform sophisticated Boolean model analyses of complex signalling/regulatory networks. This tutorial relies on a comprehensive model of key signalling pathways and a core regulatory network controlling mammalian cell proliferation, published by Sizeket al. [13]. The proposed tasks performed with selected tools aim at comparing the model outcomes with expected experimental behaviours (e.g. existence of cell states in response to receptor activation, cell differentiation, etc.), predicting the results of potential perturbations (such as mutations in patients) or anticipating the effect of treatments.
+
+As we shall see, the tutorial includes chunks ofPythoncode to reproduce several of the results and figures published in the original article, and further extends these results with the help of several tools included in theCoLoMoTosoftware suite, in particular taking advantage of theMaBoSSpackage to perform stochastic simulations for the wild-type (WT) and various mutant backgrounds. This tutorial specifically aims to demonstrate the added value of combining different tools to perform reproducible dynamic analyses, and shows the effectiveness of usingPythonto orchestrate these different analyses.
+
+The notebook can be run on a recent personal computer with at least 16 Go of RAM and about 10 Go of available disk space.
+
+TheCoLoMoTosuite can be installed either as aDockercontainer or as individualcondapackages.
+
+Dockerallows packaging a complete pre-installed software environment, so that applications can run consistently across different machines and operating systems. As such, it is well adapted to reproduce complex computational workflows, relying on numerous software.
+
+BecauseBNSandboolSimexecutables are not available forWindows®operating systems, the complete notebook can be executed only within aDockerenvironment on these systems.
+
+More generally, as the versions of package dependencies cannot be fully controlled with the aforementionedcondacommand, reproducibility is better ensured by using theDockercontainer.
+
+The model published by Sizeket al.[13] has been imported and edited with theGINsimsoftware [14]. It is publicly available in the GINsimzginmlmodel format (including the layout, to be open withGINsim, version ≥ 3.0), as well as in thesbml-qualformat, in theGINsimmodel repository (http://ginsim.org/). Hence, the model can be directly loaded from the notebook using the link to the correspondingGINsimmodel repository entry. Alternatively, the model can be downloaded locally and the loading command modified accordingly, thereby enabling offline work.
+
+The model was initially conceived as the combination of five main signalling/regulatory modules contributing to the decision between cell proliferation versus death. A first module accounts for the orchestration of the cell cycle, resulting in the successive activation of the main markers of the cell division process, the cyclins. A second module accounts for the control of apoptosis, represented by the activation of Casp3 and the influence of the TRAIL death signal. A third module represents the regulation of growth via the MAPK and PI3k/AKT pathways and their activation by environmental factors. A fourth module represents the G1 restriction point. A fifth module represents the regulation of the origin of replication. Connecting all these modules (displayed with different colours in figure 2), the model can account for many different cellular situations, including genetic alterations common in cancer, and can successfully reproduce observed phenotypes.
+
+Loading of the packages required for the tutorial.
+
+Loading of the model and visualization of the network with the softwareGINsim.
+
+Analysis of the attractors of the model modules usingbioLQM,BNSandboolSim.
+
+Stochastic dynamical simulations of the WT and mutant models withMaBoSS.
+
+The construction of compressed probabilistic transition graphs withMaBoSS.
+
+This chaining of steps constitutes a coherent analysis workflow, starting with the identification of attractors (stable states or cycles), considering different updating schemes, before performing more precise and complex stochastic simulations, for the WT case, as well as for selected mutant backgrounds. Each step is performed using one selected software tool, but otherCoLoMoTotools could be used to perform similar analyses (cf.figure 1).
+
+Before running the analyses, the packages to be used need to be loaded. For this tutorial, only the necessaryCoLoMoTopackages are selected. The other packages listed infigure 1can be loaded according to the instructions provided athttps://colomoto.github.io/colomoto-docker/.html. Note that these packages can also be loaded later on, just before their use.
+
+Pieces of code will be shown in this tutorial in boxes as follows. They represent code cells extracted from thePython Jupyternotebook.
+
+Prior to this tutorial, the model was first imported usingGINsim, in order to redesign its layout and to associate extensive annotations with each regulatory node. The resulting model has the same logical rules as the original one and can be found in theGINsimrepository at:http://ginsim.org/node/258.
+
+Figure 2displays the corresponding regulatory graph.
+
+Boolean model published by Sizeket al. [13]. The corresponding regulatory graph encompasses 87 nodes, representing different molecular species and cellular processes involved in the regulation of cell proliferation and apoptosis in a generic human cell. Green: growth signalling module; red: apoptosis module; yellow: origin of replication licensing module; blue: restriction point module; pink: cell phase control module; orange: nodes connecting different modules/processes; white: environmental factors. Green arrows and red blunt arcs denote activatory and inhibitory interactions, respectively.
+
+The growth signalling module (green nodes) incorporates growth signalling pathways driving cell cycle commitment, responsible for modelling the dynamics of PI3K, AKT1, MAPK and mTORC.
+
+The restriction switch module (blue nodes) is responsible for commitment to DNA synthesis.
+
+The origin licensing switch module (yellow nodes) controls licensing and firing of replication origins.
+
+The phase switch module (pink nodes) controls cell cycle progression (G1 → S → G2 → M), taking into account the role of Polo-like kinase 1 (Plk1) during mitosis.
+
+The apoptosis switch module (red nodes) implements the decision between cell survival versus apoptosis.
+
+In the regulatory graph, green arrows denote activatory interactions, while red blunt arcs represent inhibitions. As many model nodes are regulated by multiple nodes, their responses to regulatory input node levels are encoded in Boolean rules, which combine literals (i.e. node ids) with the classical Boolean operators NOT (written ‘!’ inGINsim), OR (‘|’) and AND (‘&’). The rules defined in the initial publication were encoded in thezginmlfile available in theGINsimmodel repository.
+
+Attractorsrepresent the long-term (asymptotic) behaviours of the model. In the case of Boolean models, attractors can correspond to stable states (with each of the components frozen at level 0 or 1) or to periodic/cyclic behaviour (with a subset of components switching between values 0 or 1). Attractors are often associated with cellular phenotypes, cell fates (e.g. cell proliferation or cell death), or cellular types in the case of cell differentiation models. Their analysis allows the modeller to verify that the model reproduces the dynamical properties expected for the biological system under study, for normal or perturbed conditions.
+
+The execution of this code cell takes less than a second and outputs a table listing the eight stable states (also calledfixed points) of the model (shown in the notebook), matching those reported by Sizeket al. in the supplementary table S2 of their article.
+
+Such a visualization highlights the pathways/modules that are active in one particular stable state. An example of such stable state projection is provided infigure 3.
+
+Graphical representation of a stable state of the Boolean model published by Sizeket al. [13] corresponding to a cell death phenotype. Active nodes and their outgoing edges are displayed in blue.
+
+In their publication, Sizeket al. report the existence of a cyclic behaviour when a synchronous simulation method is used. Synchronous simulations simultaneously update all the components at a given state, according to the logical rules, leading to a unique successor state. This is a strong assumption, as in reality, timing plays an important role in biology and concurrent events barely occur simultaneously.
+
+In contrast, asynchronous simulations typically update only one component at each time step, either selecting randomly one component to update, or yet considering separately all single update calls, potentially giving rise to more complex, non-deterministic dynamics.
+
+Of note, for a given Boolean model, the stable states are not affected by the choice of updating, as stable states are devoid of update calls.
+
+Cyclic attractors correspond to a circular sequence of events, such as the activation of cyclins, markers of the cell cycle. Cyclic attractors may depend on the choice of updating, and their identification is more complex in the asynchronous updating case.
+
+BNScan be used to compute the synchronous attractors of the model (i.e. fixed points, as well as simple cyclic trajectories in the synchronous case). AlthoughBNScan search for attractors of any length, this search fails with such a complex model. To overcome this limitation, a range of cycle lengths is defined, and attractors for the corresponding lengths are explored sequentially.
+
+In the following code cell, we consider a maximum length of 32, and useBNSto compute all cycles of lengths between 1 to this maximum length. Of note, an attractor of length k is also an attractor of length 2k, 3k, etc. In particular, fixed points are detected as attractors of any length. Hence, in the following code cell, we further filter the attractors that amount to iterations of smaller ones.
+
+In addition to the eight fixed points already identified (corresponding tocyclic attractors of length 1),BNSreturns four attractors of length 10, and one attractor of length 21, which correspond to the cyclic attractor reported by Sizeket al. in electronic supplementary material, table S2, supposedly representing the successive phases of the cell cycle: G1 from step 1 to 5, S for steps 6 and 7, G2 from step 8 to 13, prometaphase for step 14, metaphase from step 15 to 18, anaphase for step 19, telophase for step 20 and cytokinesis for step 21.
+
+However, the interpretation of cyclic attractors under the synchronous updating strategy is not that straightforward. Indeed, the cyclic attractors of length 10 might be artefactual, as synchronous updating is known to give rise to spurious cycles.
+
+In the following section, we further characterize the attractors of the five main constitutive regulatory modules, as well as the presence of coupling between these modules.
+
+In §3.7, we will compute the probability of cyclic attractors under an asynchronous mode to follow the successive activations of the cyclins, each representing a phase of the cell cycle.
+
+To generate their complex model, Sizek et al. initially developed smaller models for different functional modules (cf. §2). These modules correspond to processes such as DNA damage, cell cycle, MAPK pathway or apoptosis and encompass the main genes that are known to be involved in these processes. They are defined by the authors in electronic supplementary material. The following code cell retrieves the information on the node composition of each module, counts the total number of nodes belonging to each of these modules, together with the number of nodes that belong to the rest of the network and that regulate nodes belonging to the module (also known as moduleinputs). It then computes the number of stable states, the number of terminal trap spaces (i.e. sub-hypercubes closed by the logical rules, comprising the stable states, but potentially also approximations to cyclic attractors), as well as the numbers of synchronous and asynchronous attractors for each of these modules.
+
+The execution of this code cell takes less than a second to generate the results reported intable 1.
+
+Some properties of the five modules constitutive of the model of Sizeket al. [13].
+
+We can observe that the modules are highly interconnected, as they all have high numbers of inputs relative to their sizes, due to regulations exerted by nodes belonging to other modules.
+
+Furthermore, all these modules but one display multistability, but no cyclic behaviour. The PI3K module is the exception, as it has a unique, cyclic attractor, regardless of the use of synchronous or asynchronous updating. The cyclic behaviour of the PI3K module is indeed reported and discussed by Sizeket al.[13].
+
+In conclusion, the attractors found for the different modules do not help us understand the mechanisms underlying the cyclic behaviour of the whole model. More precisely, at this point, it becomes apparent that the global cyclic behaviour corresponding to the cell cycle (see §3.4) arises from the interconnections of multiple modules.
+
+To interpret the meaning of a cyclic attractor, it is important to check which variables are fixed in this attractor and which ones switch values.
+
+The resulting heatmap is shown infigure 4, exhibiting the full states sequence of the aforementioned cyclic attractor.
+
+Heat map displaying the sequence of 22 states (columns) forming the synchronous cycle of length 21, with the initial state (first column, index 0) matching the last one (column with index 21). Orange cells denote the active components (rows) at the corresponding cycle state (column), whereas the blue cells denote the suppressed components.
+
+Note that some nodes are never activated along the cycle, while others are always activated. In particular, the apoptotic pathway (BIM, BAX, BAK, CytC, Casp3, Casp9, etc.) is inactive in this sequence, while the cell cycle is activated by the MAPK pathway (RTK, Ras, Raf, PI3K, etc.).
+
+Hence, using different tools, we could also identify the synchronous attractor reported by Sizeket al.[13], which recapitulates the typical sequence of (in)activation of cell components, including cyclins. However, as this synchronous cyclic attractor is not expected to precisely reproduce the biological cyclic behaviour, a deeper analysis of the timing of cyclin (in)activations will be considered using asynchronous updating in §3.7.
+
+This cell takes a few seconds to execute. Note that a longer maximal number of steps (500) is considered here because we do not know if the trace will end up in an asynchronous cycle, or how long such a cycle might be. A typical result is shown infigure 5.
+
+Heat map displaying a sequence of 500 states (columns) resulting from a random asynchronous updating of the model, starting with the same initial state shown infigure 4. Orange cells denote the active components (rows) at the corresponding cycle state (column), whereas the blue cells denote the suppressed components.
+
+In the heatmap shown infigure 5, we can observe a transient oscillating pattern, but this pattern gets progressively degraded along the simulation. This is due to the random choice of transitions whenever several components are called to switch their values at a given state, according to their logical rules. Of note, if we repeat the same random asynchronous simulation, we typically end up with a different transient oscillating pattern.
+
+Interestingly, when large enough maximal step numbers are considered, simulations ultimately lead to a stable state corresponding to an apoptotic fate. To visualize this, in the notebook, we provide the code for a simulation using a maximum number of steps set to 2000, which needs to be uncommented to be run.
+
+In their paper, the authors defined a biased transition order to enforce a more robust cyclic behaviour. Hereafter, we propose an alternative approach to deepen our understanding of the asynchronous behaviour of the model, taking advantage of the softwareMaBoSS[17] to integrate over a large number of potentially different traces.
+
+It is difficult to build the asynchronous state transition graph and analyse the transient dynamics of such complex models. To cope with this issue, we useMaBoSS, a tool performing stochastic simulations over Boolean networks based on the continuous-timeMarkov chainformalism, relying on theGillespie algorithm[17]. The software enables the generation oftime plotsshowing the evolution of mean component values (or patterns thereof), as well as ofpie chartsshowing the probabilities of the different model states reached at the end of the simulation.
+
+Maximum length of the simulation (in arbitrary units): 200.
+
+Note thatMaBoSSuses continuous-time Boolean modelling and requires the specification of a maximum simulation length and an interval between time points. All the stochastic simulations reported in the notebook use these same simulation parameters.
+
+Next, we define a WT version of the model, calledWT, and we select theexternal variables, i.e. the variables for which the values will be reported during the simulation. This is crucial to avoid combinatorial explosion.
+
+Note that when exporting a model toMaBoSSwithbioLQMorGINsim, all the initial values are set to 0 by default. Hereafter, we assign to the model the initial conditions defined by Sizeket al.[13] in their fig. 6.
+
+MaBoSSsimulation results can be graphically displayed astime plotsshowing the probabilities of active nodes or model states (vectors of active nodes) over time, or aspie chartsshowing the probabilities of the final states (i.e. the states reached at the end of the simulations). In brief, the trajectories plotted on these graphs represent mean trajectories of 5000 single trajectories focusing on a subset of seven selected nodes. It is possible to visualize the activity of each of these nodes over time (figure 6, upper left), or the evolution of model states defined as configurations of active nodes (figure 6, upper right), which can also be displayed as a pie chart for the last time point considered (figure 6, lower left).
+
+MaBoSSsimulations of the WT model. Upper left panel: trajectories for a subset of nodes. Upper right panel: trajectories for a subset of model states (legend in the lower left panel). Lower left panel: pie chart representing the probabilities for the model states at maximum time (time = 200). Lower right panel: entropy (H) and transition entropy (TH) time plots.
+
+It is also possible to compute thestate entropy(H) and thetransition entropy(TH) over time (figure 6, lower right), which can be interpreted as signatures for the stable states or cyclic attractors. These curves provide a means to check the nature of the attractors of the model. Entropy measures the ‘disorder’ of the system studied. A very low transition entropy at the end of a simulation thus suggests that the system has reached an equilibrium, while a positive state entropy may suggest the existence of a cyclic attractor or the occurrence of multiple stable states (for more details, see [18]).
+
+The simulations reveal a transient cyclic-like behaviour, which is eventually lost due to the spontaneous Casp3 activation, thereby revealing the progressive dominance of the apoptotic stable state.
+
+The state entropy initially rises abruptly, and later slowly decreases. In parallel, the transition entropy curve displays a little peak before remaining close to zero, with some noise. Together, these two curves are suggestive of a transient periodic behaviour, which ultimately collapses as more and more cells trigger apoptosis.
+
+MaBoSSsimulations for the WT condition with death receptor signals active. Upper left panel: trajectories for a subset of nodes. Upper right panel: trajectories for a subset of model states. Lower left panel: pie chart displaying the probabilities for the model states at maximum time (time = 200). Lower right panel: entropy (H) and transition entropy (TH) time plots.
+
+Looking at the graphs offigure 7, we can see that the activation of TRAIL at the initial state enables a faster rise of Casp3 and thus of the apoptotic fate. In parallel, the state entropy drops much faster, while the transition entropy stabilizes around zero, suggesting a stable state situation.
+
+In their article, Sizeket al.report a sophisticated analysis of the role and dynamical properties of the PI3K/AKT1 pathway, and recapitulate deleterious effects of alterations thereof. They further analyse the impact of the blocking of the Polo-like kinase 1 (Plk1, a mitotic driver and chemotherapy target) on cell cycle progression.
+
+Hereafter, we focus on the analysis of the impact of the perturbations of other model components, using theMaBoSSsoftware. Such perturbations can be understood as mutations that patients bear, or as targets of drugs that would suppress proliferation or increase apoptosis.
+
+Casp8 is a caspase initiating the apoptotic cascade. By changing its activity (ectopic activity or knockdown), we can explore its role in triggering cell death. Using the following code cell, we first simulate the impact of a constant activation of Casp8 and display the resulting time plot and pie chart.
+
+Figure 8(left) shows the resulting plots. Based on these results, we can conclude that the ectopic expression of Casp8 drives the cells into apoptosis faster, whether the death signal (TRAIL) is ON or OFF. This shows that death is not dependent on external signals in this context: the cell becomes independent from the death receptor engagement and apoptosis is constantly activated.
+
+MaBoSSsimulations for Casp8 mutants. Left panels: node trajectories and pie chart showing the asymptotic solutions for Casp8 overexpression. Right panels: node trajectories and pie chart representing the probabilities for the model states at the end of simulations for Casp8 knockdown.
+
+As shown infigure 8(right), Casp3 is initially blocked but becomes ultimately activated, like in the WT case, independently of the status of Casp8. Hence, the model predicts that apoptosis (represented by Casp3 activity) can ultimately occur even in the absence of Casp8 activity. The knockout of Casp8 does not affect the model in the absence or presence of TRAIL.
+
+Using a bit ofPythoncode, it is further possible to systematically explore a series of mutants, and to filter the results. In this respect, the notebook provides an example of such code, considering 10 mutant simulations (inhibition and activation of five different nodes), and filtering those enabling a blockade of apoptosis, denoted by the suppression of Casp3 activation, while keeping the cell cycle active. This would correspond to a highly proliferative phenotype, with some alterations correlating with cancer patient conditions.
+
+Overall, this analysis shows the important but not necessary role of Casp8 in triggering apoptosis in this model. The gradual activation of Casp3, even in the absence of Casp8, may be an artefact of the model, or could be interpreted as an intrinsic propensity of cells to die after multiple rounds of divisions. In the latter case, the model would benefit from the inclusion of more details regarding the mechanisms triggering cell death.
+
+In this section, we explore the dynamics of the cell cycle by studying the succession of cyclin activations and inactivations. In continuous frameworks, i.e. models based on ordinary differential equations, it is possible to follow the activations of the cyclins that are crucial to ensure a proper cell cycle. In the WT situation, we expect that the cyclins get activated in the following order: CyclinE, followed by CyclinA, then CyclinB, and get inactivated in the same order. This sequence is not based on a simple cascade, but on complex regulation where new phases are controlled by checkpoints.
+
+In the case of stochastic Boolean simulations, the verification of this sequence of cyclin activations is more challenging. In this respect, we have developed a functionality reporting the probabilities of occurrences of specific node level transitions, thereby enabling the delineation of highly probable orders of activations and inactivations of cyclins over time.
+
+The resulting time plot is shown infigure 9(top left). We can see that the cyclins follow the expected order with the proper sequence of peaks: first CyclinE aroundt= 5, then CyclinA aroundt= 10, and finally CyclinB aroundt= 15. Note that asMaBoSSreports mean probabilities over time, these oscillations are rapidly damped.
+
+Left:MaBoSSsimulation of the WT condition, showing the mean probabilities of cyclin activations and inactivations (upper left panel), along with a compressed state transition graph (lower left panel). Middle:MaBoSSsimulation of the WT condition, showing the mean probabilities of cyclin and Casp3 activations and inactivations (upper middle panel), along with a compressed state transition graph (lower middle panel). Right:MaBoSSsimulation of the p110++mutant, showing the mean probabilities of cyclin and Casp3 activations and inactivations (upper right panel), along with a compressed state transition graph (lower right panel). In the compressed state transition graphs, each node represents a set of states characterized by a specific combination of activated markers (i.e. cyclins A, B and E, plus Casp3 in the middle lower panel), whereas the colours of the edges denote the probabilities of transitions between pairs of sets of states (light blue: low probability; dark blue: high probability).
+
+We can further compute the frequencies of cyclin activations and inactivations over all individual trajectories of the simulation. To do this, we use a new functionality ofMaBoSS, estimating the frequencies of transitions betweenactivity patternsinvolving selected nodes, and plot them as a graph. To prevent the explosion of the size of this graph, we only use the three main cyclins responsible for the cyclic attractor. The following code cell computes such transition frequencies and displays the results as acompressed state transition graph, i.e. a projection of the transition frequencies computed over the full state space onto the cyclin activity patterns of interest.
+
+The resulting transition graph is shown infigure 9(bottom left).
+
+In this graph, the transitions denoted by darker blue arrows have a higher probability of occurring. This representation enables us to visualize the most probable sequence of cyclin activations and inactivations. Starting from the state ‘<nil>’ (corresponding to G0), the most probable sequence of state transitions successively involves CyclinE activation, CyclinA activation, CyclinE inactivation, CyclinB activation, CyclinA inactivation and finally CyclinB inactivation, thereby completing the cycle. Note that other cycles can be followed with lower probabilities.
+
+The resulting graphs are shown infigure 9(middle). In the time plot (figure 9, middle top), we can observe that cells initially follow the expected cycle, but quickly activate Casp3 and are thus led to apoptosis.
+
+Turning to the compressed transition graph (figure 9, middle bottom), we used a minimum probability threshold (2%) to discard unlikely edges during plotting. We see that there are two main ways to activate apoptosis: from the node ‘<nil>’ (with no active cyclins), which presumably represents the G0 state, and from the node ‘cyclinB’ (with only cyclin B active), which tentatively represents the G2/M phase.
+
+As can be seen in the resulting graph (figure 9, right), the ectopic activity of p110_H completely disables the activation of apoptosis, enabling the maintenance of the oscillatory behaviour.
+
+TheCoLoMoTosoftware suite integrates over 20 tools written in multiple languages, and makes them accessible with a single popular language (Python). After providing the instructions to install the suite, this tutorial focused on the analysis of a published model of the regulatory network controlling mammalian cell proliferation [13], which can be further used as a template for the analysis of any other Boolean model encoded in one of the multiple supported formats (e.g.sbml-qual).
+
+The tutorial includesPythoncode enabling the reproduction of several of the results reported by the initial publication [13], as well as to further extend these results with new stochastic simulation results for WT cells, as well as for various single and double mutants. Using selected tools included in theCoLoMoTosuite, we showed how to compute the model attractors with synchronous or asynchronous updating. Although stable states are consistently preserved, our analysis emphasizes the sensitivity of synchronous cyclic attractors to the update mode.
+
+We further showed how the use of a probabilistic simulation framework, implemented in theMaBoSSsoftware, can provide interesting information on the transient behaviour of such a complex model, for WT conditions, as well as for different types of model perturbations.
+
+Integrating all these analyses into an executableJupyter Notebookgreatly facilitates their reproducibility, as well as extensions. The notebook can also be used as a template for encoding completely new model analyses.
+
+Due to space constraints, this notebook explicitly covers the use of only a fraction of the tools available in theCoLoMoTosuite. However, all integrated tools are accompanied by short specific tutorials available in theCoLoMoTo Dockercontainer, as well as on theCoLoMoTowebsite (https://colomoto.github.io/). The analysis presented in this tutorial can be easily modified or extended by taking advantage of other tools included in theCoLoMoTosuite. For example, simulations with different updating modes can also be performed withmpbnorBooleanNet;BooNcan be used for stable state analysis;Pintcan be used to perform automatic search of mutations enforcing or impeding the reachability of a specific attractor; models can be imported from other databases, such asCell Collective, in different formats, such asBoolSimorBoolNetformats.
+
+We are grateful to Claudine Chaouiya and Pedro Monteiro for their key contributions to the development ofGINsimand to our many colleagues who contributed tools integrated in theCoLoMoTosuite.
+
+Laurence Calzone, Email: laurence.calzone@curie.fr.
+
+This work did not require ethical approval from a human subject or animal welfare committee.
+
+The notebook and companion files are available at Zenodo [19]. The source notebook file (with an ipynb extension) can be uploaded and executed within the Jupyter interface of the CoLoMoTo notebook, using the Docker image colomoto/colomoto-docker:2025-03-01.
+
+We have not used AI-assisted technologies in creating this article.
+
+V.N.: conceptualization, formal analysis, investigation, methodology, software, validation, writing—original draft, writing—review and editing; A.N.: formal analysis, investigation, methodology, software, writing—original draft, writing—review and editing; L.C.: conceptualization, formal analysis, funding acquisition, methodology, software, supervision, validation, visualization, writing—original draft, writing—review and editing; L.P.: conceptualization, formal analysis, investigation, methodology, software, supervision, validation, writing—original draft, writing—review and editing; D.T.: conceptualization, formal analysis, investigation, methodology, software, supervision, validation, visualization, writing—original draft, writing—review and editing.
+
+All authors gave final approval for publication and agreed to be held accountable for the work performed therein.
+
+This work has been supported by the French Plan Cancer-MIC ITMO, project MoDICeD (grant 20CM114-00). L.C. and L.P. were partly supported by the French ANR, project RD2BOOL (ANR-23-CE45-0014). L.P. was partly supported by France 2030 project ‘AI4scMED’ (grant ANR-22-PESN-0002).

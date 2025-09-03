@@ -1,0 +1,2786 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+    <head >
+
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+        
+
+        
+        
+  <link rel="stylesheet" href="/static/assets/style-8258669d.css" />
+<script type="module" crossorigin="" src="/static/assets/base_style-f4a99799.js"></script>
+
+  <link rel="stylesheet" href="/static/assets/style-ef962842.css" />
+<link rel="stylesheet" href="/static/assets/style-3ade8b5c.css" />
+<script type="module" crossorigin="" src="/static/assets/article_style-d757a0dd.js"></script>
+
+  
+  
+    <style>
+  
+  
+  @media screen and (min-width: 64em) {
+    div.pmc-wm {
+      background: repeat-y;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='350' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-.02' y='0' width='1.05' height='1' id='c'%3E%3CfeFlood flood-color='%23FFF'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3Ctext id='b' font-family='Helvetica' font-size='11pt' style='opacity:1;fill:%23005ea2;stroke:none;text-anchor:middle' x='175' y='14'%3E%3C/text%3E%3Cpath id='a' style='fill:%23005ea2' d='M0 8h350v3H0z'/%3E%3C/defs%3E%3Cuse xlink:href='%23a' transform='rotate(90 10 10)'/%3E%3Cuse xlink:href='%23b' transform='rotate(90 10 10)' filter='url(%23c)'/%3E%3C/svg%3E");
+      padding-left: 3rem;
+    }
+  }
+</style>
+
+  
+
+
+
+        
+            <link rel="apple-touch-icon"
+                  sizes="180x180"
+                  href="/static/img/favicons/apple-touch-icon.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="48x48"
+                  href="/static/img/favicons/favicon-48x48.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="/static/img/favicons/favicon-32x32.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="/static/img/favicons/favicon-16x16.png" />
+            <link rel="manifest" href="/static/img/favicons/site.webmanifest" />
+            <link rel="mask-icon"
+                  href="/static/img/favicons/safari-pinned-tab.svg"
+                  color="#0071bc" />
+            <meta name="msapplication-config"
+                  content="/static/img/favicons/browserconfig.xml" />
+            <meta name="theme-color" content="#ffffff" />
+        
+
+        <title>
+            A Data Centric HitL Framework for Conducting aSsystematic Error Analysis of NLP Datasets using Explainable AI - PMC
+        </title>
+
+        
+        
+  
+  <!-- Logging params: Pinger defaults -->
+<meta name="ncbi_app" content="cloudpmc-viewer" />
+<meta name="ncbi_db" content="pmc" />
+<meta name="ncbi_phid" content="AE5341B88AF3DEF30541B8004239B9AA.m_1" />
+<meta name="ncbi_pinger_stat_url" content="https://pmc.ncbi.nlm.nih.gov/stat" />
+<!-- Logging params: Pinger custom -->
+<meta name="ncbi_pdid" content="article" />
+  
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+
+    
+        <link rel="preconnect" href="https://cdn.ncbi.nlm.nih.gov" />
+    
+
+    <!-- Include USWDS Init Script -->
+    <script src="/static/assets/uswds-init.js"></script>
+
+
+    <meta name="ncbi_domain" content="scirep">
+<meta name="ncbi_type" content="fulltext">
+<meta name="ncbi_pcid" content="journal">
+<meta name="ncbi_feature" content="associated_data">
+<link rel="canonical" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12365264/">
+<meta name="robots" content="INDEX,NOFOLLOW,NOARCHIVE">
+<meta name="citation_journal_title" content="Scientific Reports">
+<meta name="citation_title" content="A Data Centric HitL Framework for Conducting aSsystematic Error Analysis of NLP Datasets using Explainable AI">
+<meta name="citation_author" content="Ahmed El-Sayed">
+<meta name="citation_author_institution" content="Computer and Systems Engineering Department, Faculty of Engineering, Alexandria University, Alexandria, Egypt">
+<meta name="citation_author" content="Aly Nasr">
+<meta name="citation_author_institution" content="Computer and Systems Engineering Department, Faculty of Engineering, Alexandria University, Alexandria, Egypt">
+<meta name="citation_author" content="Youssef Mohamed">
+<meta name="citation_author_institution" content="Computer and Systems Engineering Department, Faculty of Engineering, Alexandria University, Alexandria, Egypt">
+<meta name="citation_author" content="Ahmed Alaaeldin">
+<meta name="citation_author_institution" content="Computer and Systems Engineering Department, Faculty of Engineering, Alexandria University, Alexandria, Egypt">
+<meta name="citation_author" content="Mohab Ali">
+<meta name="citation_author_institution" content="Computer and Systems Engineering Department, Faculty of Engineering, Alexandria University, Alexandria, Egypt">
+<meta name="citation_author" content="Omar Salah">
+<meta name="citation_author_institution" content="Computer and Systems Engineering Department, Faculty of Engineering, Alexandria University, Alexandria, Egypt">
+<meta name="citation_author" content="Abdullatif Khalid">
+<meta name="citation_author_institution" content="Computer and Systems Engineering Department, Faculty of Engineering, Alexandria University, Alexandria, Egypt">
+<meta name="citation_author" content="Shaimaa Lazem">
+<meta name="citation_author_institution" content="Informatics Research Institute, City of Scientific Research and Technological Applications, New Borg El-Arab, Egypt">
+<meta name="citation_publication_date" content="2025 Aug 19">
+<meta name="citation_volume" content="15">
+<meta name="citation_firstpage" content="30406">
+<meta name="citation_doi" content="10.1038/s41598-025-13452-y">
+<meta name="citation_pmid" content="40830156">
+<meta name="citation_abstract_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12365264/">
+<meta name="citation_fulltext_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12365264/">
+<meta name="citation_pdf_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12365264/pdf/41598_2025_Article_13452.pdf">
+<meta name="description" content="The interest in data-centric AI has been recently growing. As opposed to model-centric AI, data-centric approaches aim at iteratively and systematically improving the data throughout the model life cycle rather than in a single pre-processing step. ...">
+<meta name="og:title" content="A Data Centric HitL Framework for Conducting aSsystematic Error Analysis of NLP Datasets using Explainable AI">
+<meta name="og:type" content="article">
+<meta name="og:site_name" content="PubMed Central (PMC)">
+<meta name="og:description" content="The interest in data-centric AI has been recently growing. As opposed to model-centric AI, data-centric approaches aim at iteratively and systematically improving the data throughout the model life cycle rather than in a single pre-processing step. ...">
+<meta name="og:url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12365264/">
+<meta name="og:image" content="https://cdn.ncbi.nlm.nih.gov/pmc/cms/images/pmc-card-share.jpg?_=0">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ncbi">
+    
+    
+
+    </head>
+    <body >
+        
+    <a class="usa-skipnav " href="#main-content">
+      Skip to main content
+    </a>
+
+
+        
+            
+
+<section class="usa-banner " aria-label="Official website of the United States government" >
+    <div class="usa-accordion">
+        <header class="usa-banner__header">
+            <div class="usa-banner__inner">
+                <div class="grid-col-auto">
+                    <img aria-hidden="true"
+                         class="usa-banner__header-flag"
+                         src="/static/img/us_flag.svg"
+                         alt="" />
+                </div>
+
+                <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+                    <p class="usa-banner__header-text">
+                        An official website of the United States government
+                    </p>
+                    <span class="usa-banner__header-action">Here's how you know</span>
+                </div>
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-accordion__button usa-banner__button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    aria-expanded="false"
+    aria-controls="gov-banner-default"
+    
+    data-testid="storybook-django-banner"
+    
+    >
+    
+        
+
+        
+                    <span class="usa-banner__button-text">Here's how you know</span>
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </div>
+        </header>
+
+        <div class="usa-banner__content usa-accordion__content"
+             id="gov-banner-default"
+             hidden>
+            <div class="grid-row grid-gap-lg">
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-dot-gov.svg"
+                         alt=""
+                         aria-hidden="true" />
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Official websites use .gov</strong>
+                            <br />
+                            A
+                            <strong>.gov</strong> website belongs to an official
+                            government organization in the United States.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-https.svg"
+                         alt=""
+                         aria-hidden="true" />
+
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Secure .gov websites use HTTPS</strong>
+                            <br />
+                            A <strong>lock</strong> (
+                            <span class="icon-lock">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     width="52"
+                                     height="64"
+                                     viewBox="0 0 52 64"
+                                     class="usa-banner__lock-image"
+                                     role="graphics-symbol"
+                                     aria-labelledby="banner-lock-description"
+                                     focusable="false">
+                                    <title id="banner-lock-title">Lock</title>
+                                    <desc id="banner-lock-description">
+                                    Locked padlock icon
+                                    </desc>
+                                    <path fill="#000000"
+                                          fill-rule="evenodd"
+                                          d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+                                </svg>
+</span>) or <strong>https://</strong> means you've safely
+                                connected to the .gov website. Share sensitive
+                                information only on official, secure websites.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        
+
+        
+    
+    
+    
+
+<div class="usa-overlay">
+</div>
+
+
+
+<header class="usa-header usa-header--extended usa-header--wide" data-header data-testid="header"    >
+    <div class="ncbi-header">
+        <div class="ncbi-header__container">
+            <a class="ncbi-header__logo-container"
+               href="https://www.ncbi.nlm.nih.gov/">
+                <img alt="NCBI home page"
+                     class="ncbi-header__logo-image"
+                     src="/static/img/ncbi-logos/nih-nlm-ncbi--white.svg"
+                     width="410"
+                     height="100" />
+            </a>
+
+            <!-- Mobile menu hamburger button -->
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-menu-btn ncbi-header__hamburger-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Show menu"
+    data-testid="navMenuButton"
+    
+    >
+    
+        
+
+        
+                <svg aria-hidden="true"
+                     class="ncbi-hamburger-icon"
+                     fill="none"
+                     focusable="false"
+                     height="21"
+                     viewBox="0 0 31 21"
+                     width="31"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd"
+                          d="M0.125 20.75H30.875V17.3333H0.125V20.75ZM0.125 12.2083H30.875V8.79167H0.125V12.2083ZM0.125 0.25V3.66667H30.875V0.25H0.125Z"
+                          fill="#F1F1F1"
+                          fill-rule="evenodd" />
+                </svg>
+            
+
+        
+    
+        
+            </button>
+        
+
+
+
+            
+                <!-- Desktop buttons-->
+                <div class="ncbi-header__desktop-buttons">
+                    
+                        <!-- Desktop search button -->
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button
+           "
+    aria-expanded="false"
+    aria-controls="search-field-desktop-navigation"
+    aria-label="Show search overlay"
+    data-testid="toggleSearchPanelButton"
+    data-toggle-search-panel-button
+    >
+    
+        
+
+        
+                            
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#search" />
+    </svg>
+
+
+                            Search
+                        
+
+        
+    
+        
+            </button>
+        
+
+
+                    
+
+                    <!-- Desktop login dropdown -->
+                    
+                        <div class="ncbi-header__login-dropdown">
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button ncbi-header__login-dropdown-button
+           "
+    aria-expanded="false"
+    aria-controls="login-dropdown-menu"
+    aria-label="Show login menu"
+    data-testid="toggleLoginMenuDropdown"
+    data-desktop-login-button
+    >
+    
+        
+
+        
+                                
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#person" />
+    </svg>
+
+
+
+                                <span data-login-dropdown-text>Log in</span>
+
+                                <!-- Dropdown icon pointing up -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-less ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-up-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_less" />
+    </svg>
+
+
+
+                                <!-- Dropdown icon pointing down -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-more ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-down-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_more" />
+    </svg>
+
+
+                            
+
+        
+    
+        
+            </button>
+        
+
+
+
+                            <!-- Login dropdown menu -->
+                            <ul class="usa-nav__submenu ncbi-header__login-dropdown-menu"
+                                id="login-dropdown-menu"
+                                data-desktop-login-menu-dropdown
+                                hidden>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                <li class="usa-nav__submenu-item">
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--outline ncbi-header__login-dropdown-logout-button
+           "
+    
+    
+    
+    data-testid="desktopLogoutButton"
+    data-desktop-logout-button
+    >
+    
+        
+
+        Log out
+
+        
+    
+        
+            </button>
+        
+
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                </div>
+            
+        </div>
+    </div>
+
+    <!-- Search panel -->
+    
+        <div class="ncbi-search-panel ncbi--show-only-at-desktop"
+             data-header-search-panel
+             hidden>
+            <div class="ncbi-search-panel__container">
+                <form action="https://www.ncbi.nlm.nih.gov/search/all/"
+                      
+                      autocomplete="off"
+                      class="usa-search usa-search--big ncbi-search-panel__form"
+                      data-testid="desktop-navigation-search-form"
+                      method="GET"
+                      role="search">
+                    <label class="usa-sr-only" for="search-field-desktop-navigation">
+                        Search…
+                    </label>
+                    <input class="usa-input"
+                           id="search-field-desktop-navigation"
+                           name="term"
+                           
+                               placeholder="Search NCBI"
+                           
+                           type="search"
+                           value="" />
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                        <span class="usa-search__submit-text">
+                            Search NCBI
+                        </span>
+                    
+
+        
+    
+        
+            </button>
+        
+
+
+                </form>
+
+                
+            </div>
+        </div>
+    
+
+    <nav aria-label="Primary navigation" class="usa-nav">
+        <p class="usa-sr-only" id="primary-navigation-sr-only-title">
+            Primary site navigation
+        </p>
+
+        <!-- Mobile menu close button -->
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-nav__close ncbi-nav__close-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Close navigation menu"
+    data-testid="navCloseButton"
+    
+    >
+    
+        
+
+        
+            <img src="/static/img/usa-icons/close.svg" alt="Close" />
+        
+
+        
+    
+        
+            </button>
+        
+
+
+
+        
+            <!-- Mobile search component -->
+            <form class="usa-search usa-search--small ncbi--hide-at-desktop margin-top-6"
+                  action="https://www.ncbi.nlm.nih.gov/search/all/"
+                  
+                  autocomplete="off"
+                  data-testid="mobile-navigation-search-form"
+                  method="GET"
+                  role="search">
+                <label class="usa-sr-only" for="search-field-mobile-navigation">
+                    Search
+                </label>
+
+                <input class="usa-input"
+                       id="search-field-mobile-navigation"
+                       type="search"
+                       
+                           placeholder="Search NCBI"
+                       
+                       name="term" />
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                    <!-- This SVG should be kept inline and not replaced with a link to the icon as otherwise it will render in the wrong color -->
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0E2LjQ3MSA2LjQ3MSAwIDAgMCAxNiA5LjUgNi41IDYuNSAwIDEgMCA5LjUgMTZjMS42MSAwIDMuMDktLjU5IDQuMjMtMS41N2wuMjcuMjh2Ljc5bDUgNC45OUwyMC40OSAxOWwtNC45OS01em0tNiAwQzcuMDEgMTQgNSAxMS45OSA1IDkuNVM3LjAxIDUgOS41IDUgMTQgNy4wMSAxNCA5LjUgMTEuOTkgMTQgOS41IDE0eiIvPjwvc3ZnPg=="
+                         class="usa-search__submit-icon"
+                         alt="Search" />
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </form>
+
+            
+        
+
+        <!-- Primary navigation menu items -->
+        <!-- This usa-nav__inner wrapper is required to correctly style the navigation items on Desktop -->
+        
+
+        
+            <div class="ncbi-nav__mobile-login-menu ncbi--hide-at-desktop"
+                 data-mobile-login-menu
+                 hidden>
+                <p class="ncbi-nav__mobile-login-menu-status">
+                    Logged in as:
+                    <strong class="ncbi-nav__mobile-login-menu-email"
+                            data-mobile-login-email-text></strong>
+                </p>
+                <ul class="usa-nav__primary usa-accordion">
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           ncbi-nav__mobile-login-button ncbi--hide-at-desktop
+           "
+    
+    
+    
+    data-testid="mobileLoginButton"
+    data-mobile-login-button
+    >
+    
+        
+
+        Log in
+
+        
+    
+        
+            </button>
+        
+
+
+    </nav>
+</header>
+
+    
+    
+        
+
+<section class="pmc-header pmc-header--basic" aria-label="PMC Header with search box">
+    <div class="pmc-nav-container">
+        <div class="pmc-header__bar">
+           <div class="pmc-header__logo">
+               <a href="/" title="Home" aria-label="PMC Home"></a>
+           </div>
+            <button
+                    type="button"
+                    class="usa-button usa-button--unstyled pmc-header__search__button"
+                    aria-label="Open search"
+                    data-ga-category="search"
+                    data-ga-action="PMC"
+                    data-ga-label="pmc_search_panel_mobile"
+            >
+                <svg class="usa-icon width-4 height-4 pmc-icon__open" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#search"></use>
+                </svg>
+                <svg class="usa-icon width-4 height-4 pmc-icon__close" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="pmc-header__search">
+            
+
+
+<form class="usa-search usa-search--extra usa-search--article-right-column  pmc-header__search__form" id="pmc-search-form" autocomplete="off" role="search">
+<label class="usa-sr-only" for="pmc-search">Search PMC Full-Text Archive</label>
+<span class="autoComplete_wrapper flex-1">
+<input class="usa-input width-full maxw-none" required="required" placeholder="Search PMC Full-Text Archive" id="pmc-search"  type="search" name="term" data-autocomplete-url="https://pmc.ncbi.nlm.nih.gov/autocomp/search/autocomp/"/>
+</span>
+<button
+class="usa-button"
+type="submit"
+formaction="https://www.ncbi.nlm.nih.gov/pmc/"
+data-ga-category="search"
+data-ga-action="PMC"
+data-ga-label="PMC_search_button"
+>
+<span class="usa-search__submit-text">Search in PMC</span>
+<img
+src="/static/img/usa-icons-bg/search--white.svg"
+class="usa-search__submit-icon"
+alt="Search"
+/>
+</button>
+</form>
+            <div class="display-flex flex-column tablet:flex-row tablet:flex-justify flex-justify-center flex-align-center width-full desktop:maxw-44">
+                <ul class="pmc-header__search__menu">
+                    <li>
+                        
+                            <a class="usa-link" href="/journals/" data-ga-action="featured_link" data-ga-label="journal list">
+                                Journal List
+                            </a>
+                        
+                    </li>
+                    <li>
+                        
+                            <a class="usa-link" href="/about/userguide/" data-ga-action="featured_link"
+                            data-ga-label="user guide">
+                                User Guide
+                            </a>
+                        
+                    </li>
+                </ul>
+                
+                    <button form="pmc-search-form" formaction="https://pmc.ncbi.nlm.nih.gov/search/" type="submit" class="usa-button usa-button--unstyled hover:text-no-underline text-no-underline width-auto margin-top-1 tablet:margin-top-0">
+     <span class="bg-green-label padding-05 text-white">New</span><span class="text-underline text-primary">Try this search in PMC Beta Search</span>
+</button>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+
+
+        
+        
+
+       
+  <div class="usa-section padding-top-0 desktop:padding-top-6 pmc-article-section" data-article-db="pmc" data-article-id="12365264">
+
+    
+
+   
+
+
+
+<div class="grid-container pmc-actions-bar" aria-label="Actions bar" role="complementary">
+    <div class="grid-row">
+        <div class="grid-col-fill display-flex">
+             <div class="display-flex">
+                <ul class="usa-list usa-list--unstyled usa-list--horizontal">
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <button
+                                type="button"
+                                class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                                aria-label="Open resources"
+                                data-extra-class="is-visible-resources"
+                                data-ga-category="resources_accordion"
+                                data-ga-action="click"
+                                data-ga-label="mobile_icon"
+                        >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#more_vert"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <a
+                                href="https://doi.org/10.1038/s41598-025-13452-y"
+                                class="usa-link display-flex usa-tooltip"
+                                role="button"
+                                target="_blank"
+                                rel="noreferrer noopener"
+                                title="View on publisher site"
+                                data-position="bottom"
+                                aria-label="View on publisher site"
+                                data-ga-category="actions"
+                                data-ga-action="click"
+                                data-ga-label="publisher_link_mobile"
+                        >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#launch"></use>
+                                </svg>
+                        </a>
+                    </li>
+                    
+                    
+                        <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                             <a
+                                     href="pdf/41598_2025_Article_13452.pdf"
+                                     class="usa-link display-flex usa-tooltip"
+                                     role="button"
+                                     title="Download PDF"
+                                     data-position="bottom"
+                                     aria-label="Download PDF"
+                                     data-ga-category="actions"
+                                     data-ga-action="click"
+                                     data-ga-label="pdf_download_mobile"
+                             >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button
+                            class="usa-button usa-button--unstyled  usa-tooltip collections-dialog-trigger collections-button display-flex collections-button-empty"
+                            title="Add to Collections"
+                            data-position="bottom"
+                            aria-label="Save article in MyNCBI collections."
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="collections_button_mobile"
+                            data-collections-open-dialog-enabled="false"
+                            data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12365264%2F%3Freport%3Dclassic%23open-collections-dialog"
+                            data-in-collections="false"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button role="button" class="usa-button usa-button--unstyled usa-tooltip citation-dialog-trigger display-flex"
+                            aria-label="Open dialog with citation text in different styles"
+                            title="Cite"
+                            data-position="bottom"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="cite_mobile"
+                            data-all-citations-url="/resources/citations/12365264/"
+                            data-citation-style="nlm"
+                            data-download-format-link="/resources/citations/12365264/export/"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="pmc-permalink display-flex" >
+                         <button
+                                 type="button"
+                                 title="Permalink"
+                                 data-position="bottom"
+                                 class="usa-button usa-button--unstyled display-flex usa-tooltip"
+                                 aria-label="Show article permalink"
+                                 aria-expanded="false"
+                                 aria-haspopup="true"
+                                 data-ga-category="actions"
+                                 data-ga-action="open"
+                                 data-ga-label="permalink_mobile"
+                         >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#share"></use>
+                            </svg>
+                        </button>
+                        
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12365264/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+                    </li>
+                </ul>
+            </div>
+            <button
+                    type="button"
+                    class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                    aria-label="Open article navigation"
+                    data-extra-class="is-visible-in-page"
+                    data-ga-category="actions"
+                    data-ga-action="open"
+                    data-ga-label="article_nav_mobile"
+            >
+                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#list"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+    <div class="grid-container desktop:padding-left-6">
+      <div id="article-container" class="grid-row grid-gap">
+        <div class="grid-col-12 desktop:grid-col-8 order-2 pmc-layout__content">
+            <div class="grid-container padding-left-0 padding-right-0">
+                <div class="grid-row desktop:margin-left-neg-6">
+                    <div class="grid-col-12">
+                        <div class="pmc-layout__disclaimer" role="complementary" aria-label="Disclaimer note">
+    As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,
+    the contents by NLM or the National Institutes of Health.<br/>
+    Learn more:
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="Disclaimer" data-ga-label="New disclaimer box" href="/about/disclaimer/">PMC Disclaimer</a>
+    |
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="PMC Copyright Notice" data-ga-label="New disclaimer box" href="/about/copyright/">
+        PMC Copyright Notice
+    </a>
+</div>
+                    </div>
+                </div>
+                <div class="grid-row pmc-wm desktop:margin-left-neg-6">
+                    <!-- Main content -->
+                    <main
+                      id="main-content"
+                      class="usa-layout-docs__main usa-layout-docs grid-col-12 pmc-layout pmc-prose padding-0"
+                    >
+
+                      
+                        <section class="pmc-journal-banner text-center line-height-none" aria-label="Journal banner"><img src="https://cdn.ncbi.nlm.nih.gov/pmc/banners/logo-scirep.jpg" alt="Scientific Reports logo" usemap="#pmc-banner-imagemap" width="500" height="75"><map name="pmc-banner-imagemap"><area alt="Link to Scientific Reports" title="Link to Scientific Reports" shape="default" href="http://www.nature.com/srep" target="_blank" rel="noopener noreferrer"></map></section><article lang="en"><section aria-label="Article citation and metadata"><section class="pmc-layout__citation font-secondary font-xs"><div>
+<div class="display-inline-block"><button type="button" class="cursor-pointer text-no-underline bg-transparent border-0 padding-0 text-left margin-0 text-normal text-primary" aria-controls="journal_context_menu">Sci Rep</button></div>. 2025 Aug 19;15:30406. doi: <a href="https://doi.org/10.1038/s41598-025-13452-y" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">10.1038/s41598-025-13452-y</a>
+</div>
+<nav id="journal_context_menu" hidden="hidden"><ul class="menu-list font-family-ui" role="menu">
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/pmc/?term=%22Sci%20Rep%22%5Bjour%5D" class="usa-link" role="menuitem">Search in PMC</a></li>
+<li role="presentation"><a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Sci%20Rep%22%5Bjour%5D" lang="en" class="usa-link" role="menuitem">Search in PubMed</a></li>
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/nlmcatalog?term=%22Sci%20Rep%22%5BTitle%20Abbreviation%5D" class="usa-link" role="menuitem">View in NLM Catalog</a></li>
+<li role="presentation"><a href="?term=%22Sci%20Rep%22%5Bjour%5D" class="usa-link" role="menuitem" data-add-to-search="true">Add to search</a></li>
+</ul></nav></section><section class="front-matter"><div class="ameta p font-secondary font-xs">
+<hgroup><h1>A Data Centric HitL Framework for Conducting aSsystematic Error Analysis of NLP Datasets using Explainable AI</h1></hgroup><div class="cg p">
+<a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22El-Sayed%20A%22%5BAuthor%5D" class="usa-link" aria-describedby="id1"><span class="name western">Ahmed El-Sayed</span></a><div hidden="hidden" id="id1">
+<h3><span class="name western">Ahmed El-Sayed</span></h3>
+<div class="p">
+<sup>1</sup>Computer and Systems Engineering Department, Faculty of Engineering, Alexandria University, Alexandria, Egypt </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22El-Sayed%20A%22%5BAuthor%5D" class="usa-link"><span class="name western">Ahmed El-Sayed</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>✉</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Nasr%20A%22%5BAuthor%5D" class="usa-link" aria-describedby="id2"><span class="name western">Aly Nasr</span></a><div hidden="hidden" id="id2">
+<h3><span class="name western">Aly Nasr</span></h3>
+<div class="p">
+<sup>1</sup>Computer and Systems Engineering Department, Faculty of Engineering, Alexandria University, Alexandria, Egypt </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Nasr%20A%22%5BAuthor%5D" class="usa-link"><span class="name western">Aly Nasr</span></a>
+</div>
+</div>
+<sup>1</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Mohamed%20Y%22%5BAuthor%5D" class="usa-link" aria-describedby="id3"><span class="name western">Youssef Mohamed</span></a><div hidden="hidden" id="id3">
+<h3><span class="name western">Youssef Mohamed</span></h3>
+<div class="p">
+<sup>1</sup>Computer and Systems Engineering Department, Faculty of Engineering, Alexandria University, Alexandria, Egypt </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Mohamed%20Y%22%5BAuthor%5D" class="usa-link"><span class="name western">Youssef Mohamed</span></a>
+</div>
+</div>
+<sup>1</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Alaaeldin%20A%22%5BAuthor%5D" class="usa-link" aria-describedby="id4"><span class="name western">Ahmed Alaaeldin</span></a><div hidden="hidden" id="id4">
+<h3><span class="name western">Ahmed Alaaeldin</span></h3>
+<div class="p">
+<sup>1</sup>Computer and Systems Engineering Department, Faculty of Engineering, Alexandria University, Alexandria, Egypt </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Alaaeldin%20A%22%5BAuthor%5D" class="usa-link"><span class="name western">Ahmed Alaaeldin</span></a>
+</div>
+</div>
+<sup>1</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Ali%20M%22%5BAuthor%5D" class="usa-link" aria-describedby="id5"><span class="name western">Mohab Ali</span></a><div hidden="hidden" id="id5">
+<h3><span class="name western">Mohab Ali</span></h3>
+<div class="p">
+<sup>1</sup>Computer and Systems Engineering Department, Faculty of Engineering, Alexandria University, Alexandria, Egypt </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Ali%20M%22%5BAuthor%5D" class="usa-link"><span class="name western">Mohab Ali</span></a>
+</div>
+</div>
+<sup>1</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Salah%20O%22%5BAuthor%5D" class="usa-link" aria-describedby="id6"><span class="name western">Omar Salah</span></a><div hidden="hidden" id="id6">
+<h3><span class="name western">Omar Salah</span></h3>
+<div class="p">
+<sup>1</sup>Computer and Systems Engineering Department, Faculty of Engineering, Alexandria University, Alexandria, Egypt </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Salah%20O%22%5BAuthor%5D" class="usa-link"><span class="name western">Omar Salah</span></a>
+</div>
+</div>
+<sup>1</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Khalid%20A%22%5BAuthor%5D" class="usa-link" aria-describedby="id7"><span class="name western">Abdullatif Khalid</span></a><div hidden="hidden" id="id7">
+<h3><span class="name western">Abdullatif Khalid</span></h3>
+<div class="p">
+<sup>1</sup>Computer and Systems Engineering Department, Faculty of Engineering, Alexandria University, Alexandria, Egypt </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Khalid%20A%22%5BAuthor%5D" class="usa-link"><span class="name western">Abdullatif Khalid</span></a>
+</div>
+</div>
+<sup>1</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Lazem%20S%22%5BAuthor%5D" class="usa-link" aria-describedby="id8"><span class="name western">Shaimaa Lazem</span></a><div hidden="hidden" id="id8">
+<h3><span class="name western">Shaimaa Lazem</span></h3>
+<div class="p">
+<sup>2</sup>Informatics Research Institute, City of Scientific Research and Technological Applications, New Borg El-Arab, Egypt </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Lazem%20S%22%5BAuthor%5D" class="usa-link"><span class="name western">Shaimaa Lazem</span></a>
+</div>
+</div>
+<sup>2</sup>
+</div>
+<ul class="d-buttons inline-list">
+<li><button class="d-button" aria-controls="aip_a" aria-expanded="false">Author information</button></li>
+<li><button class="d-button" aria-controls="anp_a" aria-expanded="false">Article notes</button></li>
+<li><button class="d-button" aria-controls="clp_a" aria-expanded="false">Copyright and License information</button></li>
+</ul>
+<div class="d-panels font-secondary-light">
+<div id="aip_a" class="d-panel p" style="display: none">
+<div class="p" id="Aff1">
+<sup>1</sup>Computer and Systems Engineering Department, Faculty of Engineering, Alexandria University, Alexandria, Egypt </div>
+<div id="Aff2">
+<sup>2</sup>Informatics Research Institute, City of Scientific Research and Technological Applications, New Borg El-Arab, Egypt </div>
+<div class="author-notes p"><div class="fn" id="_fncrsp93pmc__">
+<sup>✉</sup><p class="display-inline">Corresponding author.</p>
+</div></div>
+</div>
+<div id="anp_a" class="d-panel p" style="display: none"><div class="notes p"><section id="historyarticle-meta1" class="history"><p>Received 2024 Oct 12; Accepted 2025 Jul 24; Collection date 2025.</p></section></div></div>
+<div id="clp_a" class="d-panel p" style="display: none">
+<div>© The Author(s) 2025</div>
+<p><strong>Open Access</strong> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <a href="https://creativecommons.org/licenses/by/4.0/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">http://creativecommons.org/licenses/by/4.0/</a>.</p>
+<div class="p"><a href="/about/copyright/" class="usa-link">PMC Copyright notice</a></div>
+</div>
+</div>
+<div>PMCID: PMC12365264  PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/40830156/" class="usa-link">40830156</a>
+</div>
+</div></section></section><section aria-label="Article content"><section class="body main-article-body"><section class="abstract" id="Abs1"><h2>Abstract</h2>
+<p id="Par1">The interest in data-centric AI has been recently growing. As opposed to model-centric AI, data-centric approaches aim at iteratively and systematically improving the data throughout the model life cycle rather than in a single pre-processing step. The merits of such an approach have not been fully explored on NLP datasets. Particular interest lies in how error analysis, a crucial step in data-centric AI, manifests itself in NLP. X-Deep, a Human-in-the-Loop framework designed to debug an NLP dataset using Explainable AI techniques, is proposed to uncover data problems related to a certain task. Our case study addresses emotion detection in Arabic text. Using the framework, a thorough analysis that leveraged two Explainable AI techniques LIME and SHAP, was conducted of misclassified instances for four classifiers: Naive Bayes, Logistic Regression, GRU, and MARBERT. The systematic process has resulted in identifying spurious correlation, bias patterns, and other anomaly patterns in the dataset. Appropriate mitigation strategies are suggested for an informed and improved data augmentation plan for performing emotion detection tasks on this dataset.</p>
+<section id="kwd-group1" lang="en" class="kwd-group"><p><strong>Keywords:</strong> Arabic emotion analysis, Explainable AI, XAI, Machine learning, LIME, SHAP, Human centered AI, Human in the loop, Error analysis</p></section><section id="kwd-group2" class="kwd-group"><p><strong>Subject terms:</strong> Computer science, Information technology</p></section></section><section id="Sec1"><h2 class="pmc_sec_title">Introduction</h2>
+<p id="Par2">Conventional AI model development prioritizes architecture design followed by optimization of hyperparameters. Advancements often involve new or enhanced architectures, with data preparation (pre-processing and augmentation) as the first and only data manipulation step. This approach assumes inherent data quality, allowing researchers to focus on tuning and improving the model as the primary variable while treating the data as constant. Model quality is assessed using accuracy and similar metrics. Low accuracy may prompt suggestions for training additional data or the exploration of more complex models. However, even with improved accuracy, the quality of the model remains questionable if the underlying data is flawed. It could be additionally misleading if the data is never scrutinized resulting in cases of rightly classified data for the wrong reasons, for instance. In these scenarios, observed accuracy gains may not reflect genuine improvement.</p>
+<p id="Par3">Data collection and annotation are expensive endeavors. The assumption underlying the conventional approach, often relying on large, perfectly labeled datasets, proves unrealistic in practice. Noise and inherent biases, which often go undetected, further complicate matters. While techniques such as data augmentation, semi-supervised learning, transfer learning, and active learning offer valuable cost-reduction strategies by automating or bypassing those expensive endeavors, further exploration of data optimization techniques is warranted. This is where the data-centric approach comes into play<sup><a href="#CR1" class="usa-link" aria-describedby="CR1">1</a>–<a href="#CR3" class="usa-link" aria-describedby="CR3">3</a></sup>. Data-centric AI (DCAI) draws attention to the central role data plays in elevating AI model performances. It is motivated by the increased availability and democratization of optimized AI architectures and models, allowing the research community to shift their focus and bandwidth to data research<sup><a href="#CR2" class="usa-link" aria-describedby="CR2">2</a></sup>. The key to DCAI is treating data as a first class citizen in the discussion on using AI in real-world applications<sup><a href="#CR4" class="usa-link" aria-describedby="CR4">4</a></sup>. Further, DCAI treats data as dynamic, where data refining using error analysis, augmentation, and quality assessment becomes an integrated process into the model development life cycle<sup><a href="#CR2" class="usa-link" aria-describedby="CR2">2</a></sup>. The major problems plaguing data such as noisy data, dirty data, poisoned data, missing or incorrect features and labels, bias and unfairness are at the center of DCAI scholarship<sup><a href="#CR1" class="usa-link" aria-describedby="CR1">1</a></sup>. Many of these techniques have already existed before the term was coined<sup><a href="#CR2" class="usa-link" aria-describedby="CR2">2</a>,<a href="#CR5" class="usa-link" aria-describedby="CR5">5</a></sup> but as a single step rather than embedded within a process for improving both the data and the model together. Zha et al.<sup><a href="#CR3" class="usa-link" aria-describedby="CR3">3</a></sup> provided a general overview of the data-centric AI process, the need to use it instead of the model-centric approaches, and its’ steps - Training data development, Inference data development, and Data maintenance - to systematically engineer high quality data for building AI models. The discourse on DCAI is still growing and therefore has been abstract in nature with limited specificity on how the approach would work with various kinds of messy real-world datasets. Further, techniques more specific to AI such as Explainable AI (XAI) have not been thoroughly examined in DCAI discussions.</p>
+<p id="Par4">This research fills this gap by proposing a DCAI inspired framework for error analysis and data refinement in the domain of Arabic NLP<sup><a href="#CR6" class="usa-link" aria-describedby="CR6">6</a></sup>, using XAI techniques. The chosen case study is the problem of emotion detection<sup><a href="#CR7" class="usa-link" aria-describedby="CR7">7</a></sup>. Quality emotion detection from text is the backbone for enabling a wide class of applications, most notably chatbots that could be empathic in conversation with users<sup><a href="#CR8" class="usa-link" aria-describedby="CR8">8</a></sup>. Emotion detection in Arabic poses DCAI specific challenges and opportunities. Despite its popularity on the Internet, Arabic language datasets’ availability is low compared to other popular languages such as English. Arabic NLP developers often start building their models using the available minimum viable data<sup><a href="#CR9" class="usa-link" aria-describedby="CR9">9</a></sup>. This research demonstrates that a DCAI approach could help refine and decide on informed data augmentation efforts. Further, Arabic datasets collected from social media lack proper knowledge about the context of the data, e.g., collecting tweets using hashtags. This, in turn, makes data annotation subject to inconsistencies and unpredictable biases. The emotion detection task is even more challenging due to the inherent subjectivity in interpreting emotions. A DCAI would help developers improve data quality by unveiling inconsistencies in data annotation and potential sources of bias.</p>
+<p id="Par5">In particular, X-Deep, a Human-in-the-Loop (HitL) framework, is contributed to leverage XAI for refining and debugging NLP datasets. The framework was used to systematically analyze misclassified instances across four classifiers and examine them using two XAI techniques. This process has resulted in the identification of patterns that can improve dataset quality. To the best of our knowledge, neither the identified patterns nor the process used to uncover them has been addressed in the literature. The practical insights from this research contribute to broadening and advancing the DCAI discourse on NLP data.</p>
+<p id="Par6">The rest of the paper is organized as follows. A summary of the related work is presented in Section “<a href="#Sec2" class="usa-link">Related work</a>”. The X-Deep framework is proposed in Section “<a href="#Sec5" class="usa-link">Approach</a>”. The results are presented in Section “<a href="#Sec16" class="usa-link">Experimental results</a>”, and discussed in Section “<a href="#Sec29" class="usa-link">Discussion</a>”. The paper is concluded and recommendations for future work are outlined in Section “<a href="#Sec32" class="usa-link">Conclusion and future work</a>”.</p></section><section id="Sec2"><h2 class="pmc_sec_title">Related Work</h2>
+<p id="Par7">This section reviews the existing research efforts for developing XAI debugging frameworks and Arabic emotion detection models.</p>
+<section id="Sec3"><h3 class="pmc_sec_title">XAI Debugging Frameworks</h3>
+<p id="Par8">The use of XAI has exploded in popularity in recent years<sup><a href="#CR10" class="usa-link" aria-describedby="CR10">10</a></sup> as means to understand the inner working of black-box models and justify their decisions<sup><a href="#CR11" class="usa-link" aria-describedby="CR11">11</a></sup>. The provided explanations have various uses, whether in supporting human decision making, verifying model reasoning, finding potential causes of errors, or simply building trust in models<sup><a href="#CR12" class="usa-link" aria-describedby="CR12">12</a></sup>. This is particularly important with the growing concern regarding trustworthy AI and responsible AI as AI takes on increasingly critical roles in our lives<sup><a href="#CR13" class="usa-link" aria-describedby="CR13">13</a></sup> such as in medical or safety-critical systems.</p>
+<p id="Par9">While XAI has shown promise in improving models, its application in debugging often focused on internal model workings rather than data quality<sup><a href="#CR14" class="usa-link" aria-describedby="CR14">14</a></sup>. Critics argue that current XAI methods excel at explaining simple, non-realistic scenarios<sup><a href="#CR15" class="usa-link" aria-describedby="CR15">15</a></sup>. They may overlook spurious correlations or lack a systematic approach to identify data-related issues, leading to the exploration of only anticipated data bugs<sup><a href="#CR14" class="usa-link" aria-describedby="CR14">14</a></sup>. In the field of NLP, involving human users in debugging using XAI has proven to be beneficial. Hartmann et al.<sup><a href="#CR16" class="usa-link" aria-describedby="CR16">16</a></sup> showed how training a model with access to human explanations can improve data efficiency and model performance. Jinghui et al.<sup><a href="#CR17" class="usa-link" aria-describedby="CR17">17</a></sup> aimed to increase the generalization of models in few-shot learning scenarios using human-identified rationales in the training process. This approach boosted the performance of models in both in-distribution and out-of-distribution datasets and made models more robust. Mosca et al.<sup><a href="#CR18" class="usa-link" aria-describedby="CR18">18</a></sup> argued that interpretability and human participation are the fundamentals of complex NLP models and proposed a framework for real-time explanation-based interaction with NLP models. Through this framework, users provided feedback to the model’s predictions and explanations, and that feedback is then used to fine-tune the model. This approach helped in reducing bias with minimal impact on model performance. Dong-Ho et al.<sup><a href="#CR19" class="usa-link" aria-describedby="CR19">19</a></sup> also proposed a framework for explanation-based model debugging using user feedback on task-level and instance-level explanations to guide the model to make predictions following the correct reasons. This approach led to significant improvement on model generalizability. Notably, most of the debugging frameworks explored hate-speech detection, a task where the source of potential bias can be predicted. Our work expand these efforts to emotion detection tasks, where potential sources of bias(es) or spurious correlations are challenging to predict beforehand.</p></section><section id="Sec4"><h3 class="pmc_sec_title">Emotion Detection in Arabic NLP</h3>
+<p id="Par10">Arabic’s unique linguistic features present significant complexity, especially in emotion analysis and during pre-processing due to its rich morphology, dialectical variations, cultural nuances, and diacritics and character variation. Previous research has largely focused on increasing model size in Arabic NLP, neglecting the potential benefits of customized, task-specific pre-processing techniques<sup><a href="#CR20" class="usa-link" aria-describedby="CR20">20</a></sup>. The work on emotion detection from Arabic text is rather scarce, and the available annotated datasets are limited. Semi-supervised self-learning and transfer learning had shown promising results as alternative approaches<sup><a href="#CR21" class="usa-link" aria-describedby="CR21">21</a></sup>. Abdelwahab et al.<sup><a href="#CR22" class="usa-link" aria-describedby="CR22">22</a></sup> analyzed sentiment in Arabic tweets about LASIK eye surgery using LSTMs and LIME<sup><a href="#CR23" class="usa-link" aria-describedby="CR23">23</a></sup>. Interestingly, skipping common pre-processing steps improved their accuracy to 79.1%, suggesting a trade-off between simplicity and performance in this specific case. Aljameel et al.<sup><a href="#CR24" class="usa-link" aria-describedby="CR24">24</a></sup> built a sentiment analysis model to assess public awareness of COVID-19 precautions in Saudi Arabia, aiming to inform public health responses. Analyzing Twitter data during quarantine, they found the Naive Bayes model performed best (80% accuracy) and identified the southern region as most aware, while the central region showed lower awareness, aligning with confirmed COVID-19 cases. Abdelwahab et al.<sup><a href="#CR25" class="usa-link" aria-describedby="CR25">25</a></sup> addressed the challenge of multi-dialect Arabic sentiment analysis using CNN, LSTM, CNN-LSTM, and RNN models on word and character levels. They found that LSTMs perform best at word-level (79% accuracy) and CNNs at character-level (86%). Larger and more diverse datasets significantly improve performance compared to single-dialect datasets. Annotating large datasets for a comprehensive task such as emotion analysis is challenging<sup><a href="#CR26" class="usa-link" aria-describedby="CR26">26</a></sup>. A DCAI approach could be helpful in refining the annotation process for smaller datasets by unveiling potential sources of data problems before expanding the annotation efforts.</p>
+<p id="Par11">Analyzing the literature shows that existing research heavily employs XAI for model interpretation or fine-tuning. Data-centric approaches, on the other hand, often overlook the potential of XAI. This work seeks to bridge this gap by leveraging XAI within a data-centric framework. The inherent complexities of Arabic language make it an ideal case study to demonstrate the value of the proposed approach.</p></section></section><section id="Sec5"><h2 class="pmc_sec_title">Approach</h2>
+<p id="Par12">While previous studies have used XAI tools for model debugging or post-hoc interpretation, they often treat explainability as an end rather than a means for improving the model development process. In contrast, this study introduces a novel framework that integrates HitL feedback and XAI insights to inform key stages of model development, including data pre-processing, model selection, and evaluation. Specifically, the proposed framework, X-Deep expands the use of XAI tools to perform the following.</p>
+<ul class="list" style="list-style-type:disc">
+<li><p id="Par13">Identify anomalies and spurious correlations in the data that may lead to biased predictions.</p></li>
+<li><p id="Par14">Compare the behavior of different model architectures to uncover strengths and weaknesses with respect to a specific dataset.</p></li>
+<li><p id="Par15">Refine training data and guide model selection based on interpretable signals.</p></li>
+<li><p id="Par16">Go beyond surface-level accuracy by ensuring that model predictions are justified by meaningful patterns in the data, in other words, they are right for the right reasons.</p></li>
+</ul>
+<p>This comprehensive approach shows how explainability can inform and improve each stage of development, from data curation to model evaluation. We demonstrate the utility of this framework through a case study in Arabic emotion detection, a challenging task where model bias, language complexity, and limited resources make interpretability especially valuable. The ultimate objective is not solely to achieve high accuracy, but rather to improve data collection in order to develop a model that provides explainable and coherent outputs.</p>
+<p id="Par17">X-Deep, a HitL framework, to help NLP developers in analyzing datasets to detect recurring patterns and ambiguities, that we will call anomalies, which may mislead classifiers. Rather than relying solely on standard accuracy metrics, X-Deep uncovers deeper quality issues within the data. Highlighting these anomalies offers insights for pre-processing or additional data collection, avoiding brute-force methods like indiscriminate data collection or uniform pre-processing. The goal is to augment human analysis with XAI to identify anomalies<sup><a href="#CR2" class="usa-link" aria-describedby="CR2">2</a></sup>, where the augmentation of human expertise was shown to reveal latent weaknesses and refine critical processes such as data acquisition and pre-processing<sup><a href="#CR12" class="usa-link" aria-describedby="CR12">12</a></sup>, <sup><a href="#CR27" class="usa-link" aria-describedby="CR27">27</a></sup>, <sup><a href="#CR28" class="usa-link" aria-describedby="CR28">28</a></sup>.</p>
+<p id="Par18">As shown in Fig. <a href="#Fig1" class="usa-link">1</a>, the framework begins by training models on a dataset and identifying misclassifications, using XAI to inspect and interpret these misclassifications to infer underlying data anomalies. The process can also extend to correctly classified samples suspected of flawed reasoning. We define anomaly patterns as recurring phenomena that lead to systematic misclassifications across classifiers, indicating inherent data issues such as incorrect labels, biases, or spurious correlations–problems that cannot be resolved by blindly adding more data. XAI tools are deployed to confirm these anomalies are systemic (not isolated instances) and to validate proposed mitigation strategies.</p>
+<figure class="fig xbox font-sm" id="Fig1"><h3 class="obj_head">Fig. 1.</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12365264_41598_2025_13452_Fig1_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8fe5/12365264/981e93e3bf83/41598_2025_13452_Fig1_HTML.jpg" loading="lazy" id="MO1" height="415" width="750" alt="Fig. 1"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>X-Deep HitL framework illustration.</p></figcaption></figure><p id="Par19">Four diverse classifiers, Naive Bayes, Logistic Regression, GRU, and MARBERT, along with two model-agnostic XAI methods, LIME<sup><a href="#CR23" class="usa-link" aria-describedby="CR23">23</a></sup> and SHAP<sup><a href="#CR29" class="usa-link" aria-describedby="CR29">29</a></sup>, were used in the presented experiments to prevent technique-specific or classifier-specific biases in anomaly detection. An initial list of hypothesized anomalies helped initiate and guide the iterative process of anomaly detection. The list was formed based on an exploratory analysis of the dataset, including label distributions, frequent word-label associations, and manual review of the text.</p>
+<p id="Par20">A key component of X-Deep is the incorporation of human feedback. Human involvement is essential for interpreting the nuances revealed by XAI, identifying subtle patterns, and providing qualitative judgments that automated processes might miss. The framework presents XAI explanations to human participants, who then offer feedback to refine and improve the dataset. In this study, the human participants were seven of the authors of the study, all of which are native Arabic speakers with a background in computer science and familiarity with emotion detection tasks. This linguistic and technical expertise was important for interpreting the anomalies within the Arabic dataset and how they related to choices made during the data collection or pre-processing. Optimally, for the X-Deep framework to be most effective, the humans participating in the HitL process should possess relevant subject matter expertise combined with proficiency in the language of the dataset being analyzed. This combination allows for a deeper understanding of context, cultural nuances, and domain-specific issues that are essential for accurately identifying and interpreting data anomalies highlighted by XAI tools.</p>
+<section id="Sec6"><h3 class="pmc_sec_title">Experiments</h3>
+<p id="Par21">The chosen dataset<sup><a href="#CR30" class="usa-link" aria-describedby="CR30">30</a></sup> is an Arabic tweets dataset that was aggregated from pre-existing datasets and and newly scrapped tweets and then manually annotated into eight emotion classes: None, anger, joy, sadness, love, sympathy, surprise, and fear. The label “none” was given to tweets that were perceived to contain “no emotion”. Four models were tested: two deep neural networks and two machine learning algorithms. For deep learning classifiers, Gated Recurrent Unit (GRU) and transformer (MARBERT)<sup><a href="#CR31" class="usa-link" aria-describedby="CR31">31</a></sup> models were used. GRU was chosen for being the best performing model for sentiment analysis in related work<sup><a href="#CR32" class="usa-link" aria-describedby="CR32">32</a></sup>, while the MARBERT model was chosen for being the state of the art model for Arabic NLP tasks at the time of conducting the experiments<sup><a href="#CR21" class="usa-link" aria-describedby="CR21">21</a></sup>. For machine learning classifiers, Naive Bayes (NB) and Logistic Regression (LR) were picked. Those two models were chosen for being the worst case and best case performance respectively in similar NLP tasks<sup><a href="#CR33" class="usa-link" aria-describedby="CR33">33</a></sup>.</p>
+<p id="Par22">Four main explorations were conducted: exploring the dataset, comparing the two XAI techniques, generating anomaly patterns, and comparing the four classification models. The first exploration was conducted to determine initial pre-processing; the remaining ones aim to answer the following research questions. <strong>RQ1</strong> How do the performances of LIME and SHAP compare in investigating the nuances of the dataset? <strong>RQ2</strong> How effective is X-Deep with respect to devising a data pre-processing and augmentation plan for refining the current dataset? <strong>RQ3</strong> What insights can XAI provide into the performance of the four classifiers GRU, MARBERT, LR, and NB in the emotion detection task?</p>
+<p id="Par23">The details of each experiment are presented in the following subsections.</p>
+<section id="Sec7"><h4 class="pmc_sec_title">Exploring the Dataset</h4>
+<p id="Par24">An exploratory data analysis phase was conducted to determine the pre-processing techniques suitable to the dataset and the purpose of the experiments to follow. This initial step involved a thorough examination of the dataset characteristics. Specifically, we analyzed the distribution of labels and performed word frequency analyses across the entire corpus. Furthermore, we investigated the prevalence of emojis, both globally and within individual label categories, to identify potential patterns and inform subsequent pre-processing decisions. Observations during this phase included instances of non-standard language usage, such as word repetition (e.g., “no no no”) and character elongation (e.g., “nooooooo”), as well as the presence of non-alphabetic characters. Notably, preliminary analysis highlighted potential challenges, such as the ambiguous labeling criteria associated with the “None” category and the skewed distribution of the most frequent word towards a single label, which could introduce bias in model training. Based on these initial findings, we formulated and evaluated several pre-processing strategies, including various stemming approaches and methods for handling emojis.</p>
+<p id="Par25">Further, transformer models, recognized as the state-of-the-art in NLP, are typically pre-trained on raw text data. To isolate the impact of pre-processing on MARBERT–a model pre-trained on raw text–we compared between two configurations: using common Arabic NLP pre-processing steps (e.g., emoji replacement, stemming, stop-word removal, and text normalization) and another retaining the original, unprocessed text. The evaluation was conducted according to the pipeline in Fig. <a href="#Fig2" class="usa-link">2</a>, aimed to determine whether pre-processing enhances the performance for models trained on raw linguistic data, while also assessing its effect on the interpretability of XAI outcomes.</p>
+<figure class="fig xbox font-sm" id="Fig2"><h5 class="obj_head">Fig. 2.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12365264_41598_2025_13452_Fig2_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8fe5/12365264/9709546702e7/41598_2025_13452_Fig2_HTML.jpg" loading="lazy" id="MO2" height="135" width="749" alt="Fig. 2"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Raw data vs pre-processed experiment pipeline.</p></figcaption></figure><p id="Par26">For each pre-processing configuration (including raw data), we independently fine-tuned MARBERT. Classification metrics were then compared, and mismatched predictions were analyzed using XAI. This dual approach evaluated not only predictive accuracy but also the fidelity of explanations, particularly for correct predictions driven by potential spurious correlations.</p></section><section id="Sec8"><h4 class="pmc_sec_title">Comparison of the XAI Techniques</h4>
+<p id="Par27">The goal of the experiment is to compare LIME and SHAP for inspecting the nuances of NLP models. The pipeline of the experiment follows Fig. <a href="#Fig3" class="usa-link">3</a>. At the outset, we defined preliminary aspects–namely consistency and robustness–that we wanted to evaluate, but remained uncertain about what other behaviors to probe; therefore, we first observed how the tools behaved on a randomly selected subset of the data. The resulting explanations were then scrutinized to identify problematic or particularly interesting anomalies and behavior patterns that required deeper analysis. Subsequently, a targeted selection focused on samples with specific pre-processing or structural properties, such as the presence of repeated words or variations in text length. This targeted approach aimed to determine whether observed characteristics represented isolated occurrences or consistent patterns across similar samples (either by extracting items with matching structures or attributes directly from the dataset, or by manually generating parallel examples). The two XAI techniques were then compared across a number of different aspects.</p>
+<figure class="fig xbox font-sm" id="Fig3"><h5 class="obj_head">Fig. 3.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12365264_41598_2025_13452_Fig3_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8fe5/12365264/7dd4985cc1b3/41598_2025_13452_Fig3_HTML.jpg" loading="lazy" id="MO3" height="116" width="740" alt="Fig. 3"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig3/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Comparison of the XAI techniques experiment pipeline.</p></figcaption></figure><p id="Par28"><strong>Consistency</strong> checks for whether the XAI technique will maintain similar feature weights upon repeated application to the same sample. This is crucial as the framework relies on iterative analysis, and significant variations in weights between runs would compromise the validity of the process. This was tested by running the same sample through both tools multiple times and observing any changes in the weights assigned to words.</p>
+<p id="Par29"><strong>Robustness</strong> assesses the sensitivity of the feature weights to minor perturbations in the input. Testing was done by manually removing words, focusing especially on those with low weights, and observing the resulting effects on the weights of other words.</p>
+<p id="Par30">The handling of <strong>Repeated words</strong> by XAI tools like LIME and SHAP is notably different. By default, LIME employs a Bag-of-Words (BoW) representation, grouping all instances of a repeated word into a single feature and assigning a cumulative weight to the collection as a whole. In contrast, SHAP assigns a distinct weight to each individual occurrence of a repeated term, reflecting its specific position and contextual interactions. This difference makes it crucial to analyze how it impacts the resulting explanations.</p>
+<p id="Par31"><strong>Time complexity</strong> analysis was conducted to provide a heuristic comparison of the computational runtime of the two XAI techniques. This analysis involved examining how each tool operates in both theory and practice.Despite the availability of adequate computing resources, the iterative nature of the analysis highlights the necessity of considering computational efficiency. If the performance of the XAI techniques is comparable, a faster algorithm would be preferred, especially when the model being examined is of higher complexity. These comparisons were conducted for the four classifiers.</p></section><section id="Sec9"><h4 class="pmc_sec_title">Generating Anomalies</h4>
+<p id="Par32">The goal of this experiment is to systematically identify and document anomaly patterns within the dataset that contribute to classification errors, as shown in Table <a href="#Tab1" class="usa-link">1</a>. A suggested list of anomalies was proposed based on initial explorations of the dataset in the previous experiments and prior experience with similar datasets. The pipeline of the experiment, illustrated in Fig. <a href="#Fig4" class="usa-link">4</a>, is a multi-stage process designed to set and refine this list and analyze the characteristics and potential impact of the identified anomalies. Note that this experiment focuses exclusively on the identification and validation of these patterns within a dataset, rather than implementing or evaluating specific corrections for the identified anomalies.The framework proceeds through the following stages: <strong>Initial Identification and Inspection</strong> Utilizing confusion matrices generated from the models’ predictions, we selected samples that were incorrectly classified across all target labels. We placed particular focus on labels with a high frequency of misclassifications, labels that were consistently confused with specific other labels, and samples misclassified by more than one model. This broad selection strategy ensured a comprehensive pool of instances for subsequent analysis. The sample-selection stage was also guided by the list of potential anomalies in Table <a href="#Tab1" class="usa-link">1</a>. All selected samples were then subjected to in-depth inspection using the XAI tools across all classifiers. Our goal was to understand the specific features or patterns within each instance that contributed to the classification error, thereby characterizing the anomalies present in the data. <strong>XAI-Guided Anomaly Hypothesis Testing:</strong> Each selected sample was analyzed using XAI tools, namely LIME and SHAP. By examining <strong>feature attributions</strong> across similar samples and classifiers, we pinpointed the specific linguistic or structural elements that caused each misclassification. Whenever a recurring pattern emerged–such as problems related to a specific word or dialect, it was designated as an anomaly. Hypotheses that lacked sufficient empirical support were set aside for subsequent review. <strong>Cross-Classifier Sensitivity Analysis</strong> For each newly defined anomaly, we assessed whether other classifiers in our suite exhibited similar error patterns. This step revealed model-specific blind spots and determined whether the anomaly was inherent to the data or specific to a particular model. <strong>Iterative Refinement &amp; Validation</strong> To refine each anomaly’s definition and confirm its impact, we conducted two additional <strong>HitL</strong> passes. In the second iteration, borderline cases were reviewed by either minimally editing existing examples or crafting synthetic ones that embodied the anomaly; we then observed whether removing the anomalous feature would flip the classification outcome. A third pass served purely to validate consistency: every anomaly had to reliably reproduce the failure mode across multiple samples and classifiers. In total, we performed three annotation cycles–identification, refinement, and validation–to converge on a robust, actionable anomaly catalog.</p>
+<section class="tw xbox font-sm" id="Tab1"><h5 class="obj_head">Table 1.</h5>
+<div class="caption p"><p>The list of Anomalies.</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1">Anomaly</th>
+<th align="left" colspan="1" rowspan="1">Explanation</th>
+<th align="left" colspan="1" rowspan="1">Arabic example</th>
+<th align="left" colspan="1" rowspan="1">Translation</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">Specific words</td>
+<td align="left" colspan="1" rowspan="1">Popular words that might result in spurious correlations (e.g., hashtags used to scrap the dataset)</td>
+<td align="left" colspan="1" rowspan="1">اﻻولمبياد</td>
+<td align="left" colspan="1" rowspan="1">Olympics</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Context-sensitive words</td>
+<td align="left" colspan="1" rowspan="1">Some words used can convey certain emotions but due to the context they end up having a different meaning</td>
+<td align="left" colspan="1" rowspan="1">يوجعني قلبي وانا خايفه يتركني وانا احبه مجرد ناس عابرين</td>
+<td align="left" colspan="1" rowspan="1">My heart aches and I’m afraid he’ll leave me, even though I love him. They’re just passing people.</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Incorrect labels</td>
+<td align="left" colspan="1" rowspan="1">Labeled example with an emotion that does not suit that example</td>
+<td align="left" colspan="1" rowspan="1">أيه الالفاظ المقرفه دي</td>
+<td align="left" colspan="1" rowspan="1">What are these disgusting words</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Diversity of dialects</td>
+<td align="left" colspan="1" rowspan="1">Sentences in dialects from countries other than Egypt (ex: Tunisia, Saudi Arabia, ...) could be a source of confusion</td>
+<td align="left" colspan="1" rowspan="1">قول لصالح محبينك من صلاله ونحنا معكم وشدو الحيل زد رصيدك</td>
+<td align="left" colspan="1" rowspan="1">Tell Saleh that his fans from Salalah are with him, and they are cheering him on. Keep up the good work, and increase your score</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Short statements</td>
+<td align="left" colspan="1" rowspan="1">Statements that becomes shorter than five words after pre-processing may not have enough context to infer an emotion</td>
+<td align="left" colspan="1" rowspan="1">الجوع ملحد</td>
+<td align="left" colspan="1" rowspan="1">Hunger knows no religion</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Long statements</td>
+<td align="left" colspan="1" rowspan="1">Statements longer than twenty words after pre-processing may cause confusion with some models</td>
+<td align="left" colspan="1" rowspan="1">جنود بريطانيون يرمون اوسمتهم امام مبني الحكومه لا يمكننا ان نجني السلام ونحن نقتل مدنيين بحجه داعش وعلي بريطانيا بالانسحاب من التحالف الدولي</td>
+<td align="left" colspan="1" rowspan="1">In front of the government building, we cannot seek peace while we are killing civilians under the pretext of ISIS, and Britain should withdraw from the international coalition.</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Mixed feelings</td>
+<td align="left" colspan="1" rowspan="1">Examples that convey more than one emotion</td>
+<td align="left" colspan="1" rowspan="1">ليتنا ماعرفنا بعض ولا عشقنا ،! ليتني غضيت البصر ولا شفتك .. ليت العمر وقف يالغلا ولا تصادقنا ،، ليت مابه حب بهالدنيا وماحبيتًك</td>
+<td align="left" colspan="1" rowspan="1">We didn’t know each other, nor did we love. I wish I had lowered my gaze and not seen you. I wish time had stopped, my love, and we hadn’t become friends. I wish there was no love in this world and I hadn’t loved you.</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Repeated emojis/words</td>
+<td align="left" colspan="1" rowspan="1">Examples that have a specific word or emoji repeated multiple times may force the model to make a different prediction</td>
+<td align="left" colspan="1" rowspan="1">مصر في المركز الخامس في اﻻولمبياد (: (: (:</td>
+<td align="left" colspan="1" rowspan="1">Egypt is in fifth place in the Olympics :) :) :)</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></section><figure class="fig xbox font-sm" id="Fig4"><h5 class="obj_head">Fig. 4.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12365264_41598_2025_13452_Fig4_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8fe5/12365264/3f9b50ecbe79/41598_2025_13452_Fig4_HTML.jpg" loading="lazy" id="MO4" height="281" width="750" alt="Fig. 4"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig4/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Generating anomalies experiment pipeline.</p></figcaption></figure></section><section id="Sec10"><h4 class="pmc_sec_title">Comparison of the Models</h4>
+<p id="Par34">The goal of this experiment is to gain a better understanding of the particularities of different classification models with the Arabic emotion detection task in general by examining how the XAI techniques justify their predictions. For instance, even when all classifiers predict the same label for a specific sample, the explanations can differ significantly, let alone in cases where models predict different labels and the corresponding explanations diverge. The pipeline of the experiment follows Fig. <a href="#Fig5" class="usa-link">5</a>. Samples where all models achieved correct predictions, where all models made incorrect predictions, and where only a single model predicted correctly or incorrectly were selected for explanation. The rationale behind this selection was to identify the unique behavioral characteristics of each model under identical circumstances. These samples were then analyzed using both LIME and SHAP across all classifiers to identify potential trends in model behavior, such as whether two models exhibit similar explanatory patterns or if their behaviors are entirely distinct. Throughout the iterative analysis, observed trends were either confirmed, refuted, or temporarily noted for further investigation based on the consistency of the findings across one or multiple classifiers.</p>
+<figure class="fig xbox font-sm" id="Fig5"><h5 class="obj_head">Fig. 5.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12365264_41598_2025_13452_Fig5_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8fe5/12365264/4ab4fbf04161/41598_2025_13452_Fig5_HTML.jpg" loading="lazy" id="MO5" height="76" width="750" alt="Fig. 5"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig5/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Comparison of the models experiment pipeline.</p></figcaption></figure></section></section><section id="Sec11"><h3 class="pmc_sec_title">Implementation Details</h3>
+<p id="Par35">All of the experiments were run using an NVIDIA P100 GPU to accelerate training. The dataset was split into 70% for training, 15% for validation, and 15% for testing, and all models were trained and evaluated on the same splits. Furthermore, a fixed checkpoint was used for testing across all experiments to ensure consistency. Hyperparameter optimization was performed for each model to maximize the validation F1-score.</p>
+<section id="Sec12"><h4 class="pmc_sec_title">Naive Bayes</h4>
+<p id="Par36">The Gaussian Naive Bayes implementation was used with variance smoothing set to <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq1"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8fe5/12365264/f9c74c11ac05/d33e658.gif" loading="lazy" id="d33e658" alt="Inline graphic"></span>. This configuration was evaluated both alone and in combination with Linear Discriminant Analysis (LDA) using 44 components. The average inference time per sample was 0.0009 s for both configurations.</p></section><section id="Sec13"><h4 class="pmc_sec_title">Logistic Regression</h4>
+<p id="Par37">The sklearn LogisticRegression model was used with the “lbfgs” solver and the One-vs-Rest strategy. The model was trained on 86-dimensional embeddings with L2 regularization (inverse regularization strength <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq2"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8fe5/12365264/e8938e7febfb/d33e671.gif" loading="lazy" id="d33e671" alt="Inline graphic"></span>). The model took around 41 s to converge during training and the average inference time per sample was 0.0005 s.</p></section><section id="Sec14"><h4 class="pmc_sec_title">GRU</h4>
+<p id="Par38">The GRU model comprised of three layers with 128, 64, and 32 units, respectively, interleaved with 20% dropout. The token sequences were embedded into 86-dimensional vectors and processed using gated recurrences. Optimization was performed using Adam (learning rate <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq3"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8fe5/12365264/8e965166d8eb/d33e681.gif" loading="lazy" id="d33e681" alt="Inline graphic"></span>). Training was capped at 100 epochs with early stopping (patience of 10 epochs and restoration of best weights) and mini-batches of size 64. The model converged on average after 11 epochs, requiring approximately 30 s. The average inference time per sample was 0.026 s</p></section><section id="Sec15"><h4 class="pmc_sec_title">MARBERT</h4>
+<p id="Par39">The pre-trained MARBERTv2 model was used as a base model and fine-tuned for two epochs on the dataset. A batch size of 16 and a learning rate of <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq4"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8fe5/12365264/5a8f1fb449cd/d33e691.gif" loading="lazy" id="d33e691" alt="Inline graphic"></span> with a weight decay of 0.0156 were used. The model training took around 189.5 s for two epochs. The average inference time per sample was 0.140 s.</p></section></section></section><section id="Sec16"><h2 class="pmc_sec_title">Experimental Results</h2>
+<p id="Par40">This section presents the results of the four sets of experiments described in Section “<a href="#Sec5" class="usa-link">Approach</a>”.</p>
+<section id="Sec17"><h3 class="pmc_sec_title">Exploring the Dataset</h3>
+<p id="Par41">An exploratory data analysis phase was conducted to characterize the corpus and help decide on an appropriate pre-processing strategy. The distribution of the emotion labels in the dataset was found to be relatively balanced, without significant disparities, as illustrated in Fig. <a href="#Fig6" class="usa-link">6</a>. Word clouds were utilized to gain insights into the textual content, as shown in Fig. <a href="#Fig7" class="usa-link">7</a>, where the word “الاولمبياد” (Olympics in Arabic) is observed to be the most frequently occurring term in the dataset and appears predominantly within the <em>none</em> class. This observation suggests a potential for spurious correlations during model training. Furthermore, while the <em>none</em> class was formally defined as encompassing “sentences that carry no discernible emotion,” in practice, annotators appear to have included instances that did not clearly align with the other defined emotion categories. For example, sarcastic praise of a rival team’s performance (e.g., mock acclaim after a humiliating loss) or disdain for a sports team’s uniform design were frequently labeled as ‘none’, despite conveying clear emotional undertones misaligned with the predefined categories.</p>
+<figure class="fig xbox font-sm" id="Fig6"><h4 class="obj_head">Fig. 6.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8fe5/12365264/065e60d4ec1b/41598_2025_13452_Fig6_HTML.jpg" loading="lazy" id="MO6" height="481" width="732" alt="Fig. 6"></p>
+<div class="p text-right font-secondary"><a href="figure/Fig6/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Emotion label distribution from the dataset(anger, fear, joy, love, none, sadness, surprise, sympathy).</p></figcaption></figure><figure class="fig xbox font-sm" id="Fig7"><h4 class="obj_head">Fig. 7.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8fe5/12365264/9ebc247afcb6/41598_2025_13452_Fig7_HTML.jpg" loading="lazy" id="MO7" height="296" width="589" alt="Fig. 7"></p>
+<div class="p text-right font-secondary"><a href="figure/Fig7/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Word cloud from the processed dataset where the most common words are (Olympics/الاولمبياد), (Egypt/مصر), (God/الله) and emotional words like (happiness/فرح), (love/حب), (sadness/حزن) and (fear/خايفه), alongside linking words like (اللي) and negation words (مش).</p></figcaption></figure><p id="Par42">In the dataset, most tweets do not include emojis as shown in Fig. <a href="#Fig8" class="usa-link">8</a> with an emoji use ratio of 18%. However, there’s a clear relation between emoji usage and labels as shown in Fig. <a href="#Fig9" class="usa-link">9</a>. For instance, ‘anger’ tweets have significantly lower emoji usage, while ‘love’ and ‘fear’ exhibit higher emoji usage (34% for ‘love’). Surprisingly, the class ‘None,’ representing a lack of emotion, has around 20% emoji usage. This suggests that emojis should remain as part of the text to hold the intended meaning.</p>
+<figure class="fig xbox font-sm" id="Fig8"><h4 class="obj_head">Fig. 8.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8fe5/12365264/aaad590f2e86/41598_2025_13452_Fig8_HTML.jpg" loading="lazy" id="MO8" height="365" width="550" alt="Fig. 8"></p>
+<div class="p text-right font-secondary"><a href="figure/Fig8/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Comparison of the number of tweets with and without emojis.</p></figcaption></figure><figure class="fig xbox font-sm" id="Fig9"><h4 class="obj_head">Fig. 9.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8fe5/12365264/0e728833be7a/41598_2025_13452_Fig9_HTML.jpg" loading="lazy" id="MO9" height="359" width="548" alt="Fig. 9"></p>
+<div class="p text-right font-secondary"><a href="figure/Fig9/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Ratio of emoji usage across emotion classes (e.g., joy, fear, love).</p></figcaption></figure><p id="Par43">Based on the exploratory analysis, several pre-processing techniques were employed. Initially, emojis are mapped to certain emotion categories, with each emoji being handled as a separate word. Emojis that fail to effectively convey emotions are removed. The text is then normalized by eliminating non-Arabic characters, numerals, and punctuation marks.</p>
+<p id="Par44">Stop words are filtered out. A mild stemmer ISRI stemmer from the NLTK library<sup><a href="#CR34" class="usa-link" aria-describedby="CR34">34</a></sup> was used to balance readability, which would be important to interpret XAI results, with word reduction to their most basic forms. MARBERT was used to generate word embedding by obtaining the output for each word from the final layer of the model. For models that need their input to have constant dimensions like LR and NB, the embedding of the whole sentence was calculated by taking the average of the word embeddings. Table <a href="#Tab2" class="usa-link">2</a> summarizes both the classification results for all four models on the pre-processed data and the comparison of MARBERT’s performance on raw versus pre-processed data.</p>
+<section class="tw xbox font-sm" id="Tab2"><h4 class="obj_head">Table 2.</h4>
+<div class="caption p"><p>Classification metrics: (a) All models on pre-processed data; (b) MARBERT raw Vs pre-processed.</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1">Metric</th>
+<th align="left" colspan="1" rowspan="1">NB</th>
+<th align="left" colspan="1" rowspan="1">LR</th>
+<th align="left" colspan="1" rowspan="1">GRU</th>
+<th align="left" colspan="1" rowspan="1">MARBERT</th>
+</tr></thead>
+<tbody>
+<tr><td align="left" colspan="5" rowspan="1">(a) All models with data pre-processing</td></tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Accuracy</td>
+<td align="left" colspan="1" rowspan="1">53%</td>
+<td align="left" colspan="1" rowspan="1">71%</td>
+<td align="left" colspan="1" rowspan="1">71%</td>
+<td align="left" colspan="1" rowspan="1">76%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Precision</td>
+<td align="left" colspan="1" rowspan="1">53%</td>
+<td align="left" colspan="1" rowspan="1">72%</td>
+<td align="left" colspan="1" rowspan="1">72%</td>
+<td align="left" colspan="1" rowspan="1">76%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Recall</td>
+<td align="left" colspan="1" rowspan="1">52%</td>
+<td align="left" colspan="1" rowspan="1">72%</td>
+<td align="left" colspan="1" rowspan="1">71%</td>
+<td align="left" colspan="1" rowspan="1">76%</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">F1-Score</td>
+<td align="left" colspan="1" rowspan="1">53%</td>
+<td align="left" colspan="1" rowspan="1">71%</td>
+<td align="left" colspan="1" rowspan="1">70%</td>
+<td align="left" colspan="1" rowspan="1">76%</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1"> Metric</th>
+<th align="left" colspan="1" rowspan="1">Raw</th>
+<th align="left" colspan="1" rowspan="1">Pre-processed</th>
+<th align="left" colspan="1" rowspan="1"></th>
+<th align="left" colspan="1" rowspan="1"></th>
+</tr></thead>
+<tbody>
+<tr><td align="left" colspan="5" rowspan="1">(b) MARBERT: raw Vs pre-processed</td></tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Accuracy</td>
+<td align="left" colspan="1" rowspan="1">80%</td>
+<td align="left" colspan="1" rowspan="1">76%</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Avg F1-Score</td>
+<td align="left" colspan="1" rowspan="1">80%</td>
+<td align="left" colspan="1" rowspan="1">76%</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></section><p id="Par45">MARBERT exhibited the best performance, significantly outperforming GRU, LR, and NB; these findings are consistent with previous studies<sup><a href="#CR21" class="usa-link" aria-describedby="CR21">21</a>,<a href="#CR33" class="usa-link" aria-describedby="CR33">33</a></sup>. Moreover, MARBERT without text pre-processing achieved a 4% higher accuracy and average F1-score compared to its performance on pre-processed data, as shown in Table <a href="#Tab2" class="usa-link">2</a>(b).</p>
+<p id="Par46">Beyond the observed accuracy improvements, a detailed review of 200 misclassified samples, analyzed using XAI across different preprocessing methods, revealed valuable insights. Utilizing raw data increases the model’s susceptibility to noise and data variations. A case in point is the phenomenon of exaggeration in Arabic words, where the repetition of characters serves to amplify the meaning, as exemplified by ‘حرااااااام’and ‘حرام’ (both denoting unfairness but with differing degrees of emphasis). This variation can lead to the assignment of different weights and potentially different label associations for each orthographic variant, thereby diminishing the model’s predictability and explainability. Interestingly, the analysis additionally revealed instances where stop words exhibited unexpectedly high feature weights. Employing pre-processing techniques to normalize such variations, including the removal of repeated letters, effectively mitigates this issue.</p>
+<p id="Par47">Further, both LIME and SHAP can be affected when working with raw data. LIME can’t interpret the punctuation marks or the emojis which would lead to inaccurate explanations when sentences include them, this was highlighted in multiple examples, where the question marks (?) had the most significant weight on the prediction when using SHAP, whereas LIME assigned them no weight because it cannot process them. The same issue applies to emojis and other punctuation marks.” Furthermore, the explainability of raw data gives weights to stop words. Exclamation marks (!), question marks (?), emojis, and emoticons seem to improve the model’s performance as well, but as mentioned before they don’t help with explainability. In conclusion, raw data achieved higher accuracies but poorer interpretability and model stability. Since the study focuses on explainability, pre-processed data was used with all models.</p></section><section id="Sec18"><h3 class="pmc_sec_title">Comparing XAI Techniques</h3>
+<p id="Par48">The goal of this experiment was to compare the two XAI techniques, LIME and SHAP, with respect to their performance consistency, robustness to changes in data, behavior with repeated words, and time complexity.</p>
+<section id="Sec19"><h4 class="pmc_sec_title">Consistency</h4>
+<p id="Par49">SHAP has demonstrated greater consistency in its output compared to LIME, which may be attributed to the inherent randomness of the latter. Repeated explanations of the same data using LIME yielded varying weights with each iteration, although the general interpretation remained consistent. The most significant word always persisted, and the probabilities of each label appeared stable. The criticality of the case arises when numerical precision in the weights is required. For example, rerunning the same sample through LIME multiple times resulted in fluctuations of approximately 0.01 to 0.02 in the assigned word weights. This variability was most noticeable in samples where prediction probabilities for multiple labels were very close. Such inconsistency presents a significant challenge when multiple words already possess similar weights, as it undermines the ability of the tool to perform precise fine-grained analysis in these situations.</p></section><section id="Sec20"><h4 class="pmc_sec_title">Robustness</h4>
+<p id="Par50">When words with minor weights are removed, ideally, this should not significantly impact the provided explanation. In our observations, LIME’s explanations remained largely unaffected by such removals. However, in SHAP explanations, we noted instances where a word that originally had no weight in the sentence gained a new, non-zero weight after the removal, even though the removed words themselves had insignificant weights. This phenomenon occurs because SHAP does not calculate each word’s contribution in isolation but rather considers the entire input as a whole. It is important to note that, in these cases, the overall prediction result did not change. The significance of this observation is that SHAP’s word weights should be interpreted as relative contributions within the context of the input.</p></section><section id="Sec21"><h4 class="pmc_sec_title">Behavior with Repeated Words</h4>
+<p id="Par51">Repeated words in a sample are usually due to people repeating a certain word (e.g., “love love love”) or an emoji (replaced with a word representing the emotion during pre-processing). This repetition often emphasizes an emotion. However, how XAI tools handle repetitions reveals limitations in providing useful text interpretations.</p>
+<p id="Par52">For instance, LIME’s approach of aggregating repeated words by assigning a single cumulative value to all instances, can obscure how different occurrences of a word contribute to the output in varying contexts or positions. On the other hand, SHAP assigns individual weights to each repetition, theoretically preserving positional information. However, this creates issues–for example, if a word is repeated ten times consecutively, SHAP generates ten distinct weights, causing visual clutter for the user. These scores often lack meaningful differences (e.g., the 6th repetition’s contribution rarely differs from the 5th), undermining their interpretive value.</p>
+<p id="Par53">These shortcomings highlight the need to balance granularity (for detail) and abstraction (for clarity), as neither tool achieves this inherently. To address this, pre-processing could limit repetitions to a threshold (e.g., three instances). Additionally, LIME’s default BOW tokenization could be replaced with context-aware alternatives to better capture positional relationships between repeated words.</p></section><section id="Sec22"><h4 class="pmc_sec_title">Time Complexity</h4>
+<p id="Par54">Analysis of the theoretical runtimes of the XAI tools shows that SHAP’s Partition Explainer, which is primarily used for text explanations, runs in <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq5"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8fe5/12365264/51a11fe6be8d/d33e916.gif" loading="lazy" id="d33e916" alt="Inline graphic"></span> time, where <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq6"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8fe5/12365264/a6a69047805d/d33e922.gif" loading="lazy" id="d33e922" alt="Inline graphic"></span> is the number of input features and <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq7"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8fe5/12365264/391609a27f82/d33e928.gif" loading="lazy" id="d33e928" alt="Inline graphic"></span> is the model’s end-to-end runtime. LIME also scales roughly quadratically for moderate values of <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq8"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8fe5/12365264/a6a69047805d/d33e934.gif" loading="lazy" id="d33e934" alt="Inline graphic"></span>, but its overall cost is multiplied by the number of perturbations <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq9"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8fe5/12365264/e1842c352784/d33e940.gif" loading="lazy" id="d33e940" alt="Inline graphic"></span> (typically in the hundreds or thousands), resulting in <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq10"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8fe5/12365264/637c15626a9d/d33e947.gif" loading="lazy" id="d33e947" alt="Inline graphic"></span> runtime. In practice, this extra factor makes LIME substantially slower—especially when explaining more complex models with computationally expensive components.</p></section></section><section id="Sec23"><h3 class="pmc_sec_title">Generating Anomalies</h3>
+<p id="Par55">This experiment sought to identify distinctive anomaly patterns in the dataset, following the pipeline described in Section “<a href="#Sec9" class="usa-link">Experiments</a>”. The most striking trends and correlations identified are summarized here. </p>
+<ol class="list" style="list-style-type:decimal">
+<li><p id="Par56">The word “الاوليمبياد” (Olympics) tends to have a spurious correlation with the label ‘none’.</p></li>
+<li><p id="Par57">The word “الله” (God) and any kind of prayers-related words tend to be classified as ‘sympathy’ disregarding the true label (potential bias).</p></li>
+<li><p id="Par58">Poetry or songs tend to be classified as Love disregarding the true label (potential bias).</p></li>
+<li><p id="Par59">Religious talk tends to be classified as anger disregarding the true label (potential bias).</p></li>
+<li><p id="Par60">Politics and public characters tend to be classified as anger disregarding the true label (potential bias).</p></li>
+<li><p id="Par61">Tweets exhibiting mixed feelings are -predictably- a problem with all classifiers.</p></li>
+<li><p id="Par62">Different dialects often result in misclassifications.</p></li>
+<li><p id="Par63">Some samples can’t be appropriately classified as one of the eight classes such as disgust and sarcasm.</p></li>
+<li><p id="Par64">The abuse of emojis is prevalent in social media and thus in this dataset too, resulting in some misclassifications.</p></li>
+<li><p id="Par65">Many times, the classifiers’ predictions and explanations were more accurate than the true data label, especially using the MARBERT model.</p></li>
+</ol>
+<p>These trends were observed and validated across all classifiers. That doesn’t mean that each example in those trends holds true for all classifiers all the time, but it means that in the general sense it holds true for the classifiers most of the time. Some of these anomalies are expanded upon in the paragraphs below.</p>
+<p id="Par66">XAI analysis uncovered a spurious correlation in the dataset involving the word اﻻوليمبياد (Olympics). Since a subset of the dataset was collected during Olympic events, the term appeared with unusually high frequency. This skewed its statistical correlation with the label ‘none’, biased the model to disproportionately classify tweets containing “Olympics” as ‘none’. To confirm this observation, the word “Olympics” was replaced in misclassified tweets with synonyms or generic terms that hold a similar meaning, which resulted in correct label predictions for the majority of cases.</p>
+<p id="Par67">Another observed pattern in misclassified examples stemmed from contextual misunderstandings. For instance, tweets containing Islamic duā (prayers) expressing sympathy for a sick person were more likely to be misclassified as ‘love’. Similarly, political or religious topics were frequently misclassified as ‘anger’, regardless of the tweet’s content. These errors suggest that biases can manifest on multiple levels, not only through repeated words but also through contextual associations. For example, if certain topics (e.g., politics, religion, Poetry) have a high frequency of a specific label (e.g., ‘anger’, ’love’) in the training data, the model may overgeneralize, conflating domain-specific language with emotion. This underscores the need for datasets to prioritize diversity, not just in topical or lexical coverage but also in the distribution of labels associated with those topics.</p>
+<p id="Par68">The model exhibited higher misclassification rates for samples written in dialects other than Egyptian (the primary dialect in the training dataset). For example, a Gulf region dialect phrase ما عُمري (“I never”)–a grammatical construct uncommon in Egyptian dialects–was incorrectly labeled as ‘anger’ despite its neutral intent. This suggests the model struggles with dialect-specific syntactic and lexical variations, misinterpreting unfamiliar constructs as sentiment-bearing. Such errors highlight the need for dialect-aware training data.</p>
+<p id="Par69">Short statements were observed to be more prone to misclassification. For example, replacing the word مُرعب (horrific) with خوف (fear) in a short sentence caused the predicted label to shift from ‘sympathy’ (incorrect) to ‘fear’ (correct). This occurred despite both words conveying semantically equivalent meanings, highlighting a concerning level of instability in the model’s sensitivity to lexical substitutions. Such instability persisted across various labels and contexts in short texts, underscoring a broader problem: minor wording changes disproportionately affect predictions, even when the semantic intent remains unchanged.</p>
+<p id="Par70">On the other hand, long statements can sometimes confuse some models because the sentiment in a very long sentence is not always constant across the whole sentence, which would lead simpler models to misclassify them.</p></section><section id="Sec24"><h3 class="pmc_sec_title">Comparison of the Models</h3>
+<p id="Par71">In order to better understand the behaviour of the classifiers, the aim of this experiment was to use XAI to identify patterns peculiar to the classifiers in dealing with this dataset, if any.</p>
+<section id="Sec25"><h4 class="pmc_sec_title">Naive Bayes</h4>
+<p id="Par72">Naive Bayes(NB) treats each feature independently; it gives weights to each word independently, which makes it difficult to infer the label from the whole context. This becomes apparent when there are repeated words in the sample being processed, as it gives a considerable weight to each occurrence of the word, so in cases of repeated words or emojis, these words drive the prediction of the sentence into a certain label. For example, repeated occurrences of a word like حُب (love) are treated independently. In practice, this leads to a situation whereby a sentence with multiple repetitions of حُب is misclassified as ‘love’, when the true sentiment is ‘happiness’.</p>
+<p id="Par73">The issue arises because NB overweights term frequency: each repetition of حُب increases the probability for ‘love’, drowning out other contextual signals. When repetitions are removed (e.g., reducing “حُب حُب حُب” to a single حُب), NB’s prediction shifts to the correct label, demonstrating its reliance on surface-level lexical patterns rather than semantic understanding.</p>
+<p id="Par74">It was hypothesized that dimensionality reduction would improve the performance of NB by summarizing the features input into the model and reducing the severity of the independence problem. Applying Principal Component Analysis (PCA) enhanced the performance going from 49.5% test accuracy to 53.4% (see Fig. <a href="#Fig10" class="usa-link">10</a>). Using Linear Discriminant Analysis (LDA) has further enhanced the performance to 70%. In contrast to more complex models like MARBERT and GRU, NB with LDA has a very small model size, a quick prediction time, and very few hyperparameters. Despite this, NB with LDA achieves results that are very competitive with these models, making it a plausible option for real-time applications or mobile applications with limited resources. Although this particular observation is not a result of applying XAI, the techniques, however, made it clear why it is needed. This observation supports the employment of weaker models with quick inference times because they can be improved and adjusted to produce competitive results. Dimensionality reduction negatively affects the other ML model (LR) as it results in feature loss, therefore less information for the models to train, bearing in mind that these models did not suffer from the independence problem; so there is no problem to solve here in the first place.</p>
+<figure class="fig xbox font-sm" id="Fig10"><h5 class="obj_head">Fig. 10.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8fe5/12365264/080d5491259f/41598_2025_13452_Fig10_HTML.jpg" loading="lazy" id="MO10" height="443" width="590" alt="Fig. 10"></p>
+<div class="p text-right font-secondary"><a href="figure/Fig10/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>The effect of PCA on Naive Bayes model.</p></figcaption></figure></section><section id="Sec26"><h4 class="pmc_sec_title">Logistic Regression</h4>
+<p id="Par75">Logistic Regression showed a performance level between NB and GRU, achieving test accuracy around 71%. It handled the features better than NB, but lacked the capacity to model sequence dependencies or complex contextual cues. XAI tools revealed that LR focused on high-weighted keywords and performed well when strong lexical indicators of emotion were present. However, it struggled with subtle expressions or when emotion was implied indirectly. Unlike GRU or MARBERT, it didn’t display any unique behavior in terms of attention patterns or feature reliance. It served as a useful baseline but did not demonstrate characteristics that made it particularly suited to this task beyond its simplicity and interpretability.</p></section><section id="Sec27"><h4 class="pmc_sec_title">GRU</h4>
+<p id="Par76">GRU achieved reasonable performance (approximately 71% test accuracy), comparable to Logistic Regression but trailing MARBERT, and its contextual modeling outperformed NB yet fell short of transformer-based approaches. However, XAI analyses revealed that GRU often placed disproportionate focus on named entities and titles rather than on the actual emotion-bearing content. For instance, in the tweet “احساس خالد عبدالرحمن لا يوصف” (“Khaled Abdelrahman’s feeling cannot be described”), the model assigned the highest attention weight to “خالد عبدالرحمن” (“Khaled Abdelrahman”), which led to a misclassification. In another example describing a heroic act by a “ملازم” (“lieutenant”), the model similarly focused mainly on the title rather than the content of the tweet. These findings demonstrate that, although the GRU captures sentence-level structure better than simpler models, it remains vulnerable to dataset biases and overfitting to specific entities.</p></section><section id="Sec28"><h4 class="pmc_sec_title">MARBERT</h4>
+<p id="Par77">MARBERT consistently outperformed the other models, achieving the highest test accuracy (76%). It demonstrated superior contextual understanding, effectively handling nuances of Arabic sentence structure and idiomatic expressions. Through explainability analysis, MARBERT was observed to sometimes “correct” mislabeled examples, for instance, predicting “surprise” in cases where the true label was “fear”, but where surprise was arguably more appropriate based on the tweet’s content . This suggests that MARBERT can serve not only as a classifier but also as a tool for dataset auditing, flagging potential labeling inconsistencies for human review.</p>
+<p id="Par78">Moreover, MARBERT proved less sensitive to surface-level features like repetition compared to Naive Bayes (NB). For example, in samples with emphatic repetitions–such as “حُب حُب حُب” (love)–MARBERT interpreted these as stylistic markers of emotional intensity (e.g., signaling ‘happiness’) rather than literal evidence for the ‘love’ label. This contrasts sharply with NB, which misclassified such repetitions.</p>
+<p id="Par79">However, MARBERT’s advanced contextual awareness did not protect it from subtler biases rooted in dataset patterns. For instance, the spurious correlation between the word اﻻوليمبياد (Olympics) and the label ‘none’–a result of topic-skewed training data–persisted in MARBERT’s predictions. Unlike NB, which tends to overfit by focusing on repeated words or phrases, MARBERT shows a different kind of bias driven by context. Its ability to detect thematic patterns sometimes leads to misclassification. For instance, tweets about the Olympics were frequently labeled as ‘none’, even when they clearly expressed sentiment, because MARBERT learned to associate the overall topic (Olympics) with neutral content, based on its high occurrence in ‘none’-labeled tweets within the dataset.</p></section></section></section><section id="Sec29"><h2 class="pmc_sec_title">Discussion</h2>
+<p id="Par80">This research addressed three key questions through a case study. First, in response to <strong>How do the performances of LIME and SHAP compare in investigating dataset nuances?</strong>, the findings showed both techniques had comparable performance, although LIME demonstrated unique effectiveness in handling punctuation marks and repeated words, suggesting these elements need special pre-processing. SHAP, on the other hand, was more time-efficient. Both LIME and SHAP exhibited sensitivities: LIME was sensitive to re-running the same data, while SHAP was sensitive to slight input changes. This impacts result interpretability and indicates that the choice of pre-processing techniques can influence the results.</p>
+<p id="Par81">For the second question <strong>How effectivfe is X-Deep in refining a dataset through data pre-processing and augmentation?</strong>, X-Deep has effectively helped in identifying anomaly patterns that could guide data augmentation strategies. For instance, the framework showed that MARBERT consistently outperformed the other classifiers, assigning labels that aligned more closely with each sample’s true sentiment sometimes even more than the original annotations did. which could help in validating dataset labels. Further insights suggested handling short sentences differently by augmenting them with filler words, while longer sentences, often expressing more than one emotion, could be removed. Word repetition, particularly due to emoji handling, was handled inconsistently across classifiers, with Naive Bayes being more sensitive to repetition than Logistic Regression or Transformer-based models. We will expand more on the anomaly mitigation strategies in Section “<a href="#Sec30" class="usa-link">Mitigation strategies</a>”. While these findings are based on Arabic tweets, many of the observed patterns, such as classifier sensitivity to word repetition or sentence length, are not unique to Arabic and are expected to occur in other languages as well. At the same time, some patterns were specific to Arabic, such as ambiguity caused by different dialects and challenges related to complex morphology. This suggests that while language-specific behavior may influence identified anomalies, some of the identified issues are language-agnostic. Other languages may present their own unique patterns that, once identified, could be integrated into the workflow to further support the framework’s effectiveness.</p>
+<p id="Par82">Regarding the third question <strong>What insights can XAI offer into the performance of classifiers (GRU, MARBERT, LR, NB)?</strong>, XAI techniques provided valuable insights. GRU struggled with compound Arabic names, MARBERT excelled at correcting label errors, and dimension reduction significantly improved Naive Bayes performance. This highlighted the importance of examining misclassifications for error analysis. It is additionally advisable not to depend solely on accuracy to compare the performance of classifiers. Overall, the comprehensive analysis, enabled by XAI, emphasized the significance of documenting these particularities to better inform the choice and use of classifiers and improve model performance in the case of NB.</p>
+<section id="Sec30"><h3 class="pmc_sec_title">Mitigation Strategies</h3>
+<p id="Par83">By leveraging the insights from the framework and the list of identified anomalies, targeted strategies can be developed to address these issues, while demonstrating how systematic anomaly detection can strengthen overall model robustness and performance. For example, spurious correlations were detected between certain words (e.g., اﻻوليمبياد, “Olympics”) and specific labels (e.g., “none”), and political content was often linked with anger. To combat the issue of spurious correlations, the data collection process should account for biases introduced by collecting data on time-limited events (e.g., high-profile sporting, political, or social occurrences). If collecting such data is needed, measures should be taken to ensure that no event or word is overrepresented in the dataset. This could be done by reducing the number of samples that contribute to the bias or replacing words that are overrepresented by appropriate synonyms. Proactively identifying and mitigating these correlations through anomaly detection not only reduces overfitting, but also improves the model’s ability to generalize to unseen data, as it minimizes reliance on transient or context-specific patterns.</p>
+<p id="Par84">The framework also reveals weaknesses in the annotation process. The presence of mislabeled samples highlights the need to increase both the number of annotators and their demographic diversity to increase the likelihood that the labels reflect the true underlying classes. Additionally, the annotation scheme itself may require refinement, as the presence of samples that did not fit any of the pre-existing classes lead to them being labeled and annotated as ’none’, which points to a need for more classes or a more nuanced scheme, such as a multiclass framework or a continuous scale, to capture the full spectrum of emotions in the data. This, in turn, would enhance the model’s semantic understanding ability and reduces ambiguity in training data, directly improving the robustness of the model.</p>
+<p id="Par85">Dialect-related misclassifications revealed by the framework highlight another critical area to be aware of. This could be addressed by restricting the data sourcing to the geographic region and dialects for which the model is intended, which was done to some extent with this dataset but was not enough to limit the appearance of this issue, pointing to the need for more exploration of the dialectical impact on model performance. Finally, the framework exposes vulnerabilities in handling specific text structures, like short sentences or word repetition. To improve robustness, models should be rigorously tested for consistency when processing such inputs, and pre-processing steps such as imposing a minimum word count to ensure adequate context or filtering out excessive repetitions should be considered to further enhance prediction reliability.</p>
+<p id="Par86">The integration of error analysis and anomaly detection into model development pipelines offers two key advantages. First, it acts as a diagnostic tool, uncovering subtle biases and inconsistencies that traditional evaluation metrics might overlook. Second, it facilitates proactive mitigation, enabling iterative improvements to data quality, annotation protocols, and pre-processing pipelines. By systematically addressing anomalies, models become less susceptible to edge cases and distribution shifts, ensuring performance remains stable across diverse inputs.</p></section><section id="Sec31"><h3 class="pmc_sec_title">X-Deep Framework Utility</h3>
+<p id="Par87">The X-Deep framework demonstrated the value of XAI in error analysis, revealing root causes of misclassifications and identifying biases and spurious correlations in the data. This process is essential in DCAI approaches for refining datasets and guiding future data collection. For example, a spurious correlation was discovered between specific terms used to collect the data and the ’none’ class, and biases between religious and poetry texts were identified. XAI’s systematic approach, combined with human input, revealed subtle patterns that might otherwise go unnoticed, especially in larger datasets. Although only a small number of such anomalies were detected, their presence in a relatively small dataset is alarming, suggesting that more might emerge as the dataset grows.</p>
+<p id="Par88">The iterative error analysis involved multiple classifiers and XAI techniques, confirming the consistency of detected patterns across classifiers. Both LIME and SHAP performed similarly, indicating that one technique might be sufficient for such investigations. In this case study, the inclusion of various machine learning (ML) and deep learning (DL) classifiers ensured comprehensiveness, though DL models like MARBERT consistently yielded better results, suggesting that one or two DL techniques might suffice in future work.</p>
+<p id="Par89">One significant takeaway from this study is the need to document anomaly patterns, as these patterns will simplify future data cleaning and refinement for similar datasets. This could provide AI developers with starting points to investigate. While anomaly detection is a standard practice for data engineers, its importance is often overlooked in the data-centric approach. Our framework sheds light on the value of anomaly detection in guiding further data collection and dataset refinement. Moreover, the study underscores the importance of human involvement in the analysis process. While aspects of the framework could be automated, human intuition remains essential in identifying subtle patterns, as demonstrated in our case study.</p>
+<p id="Par90">The state-of-the-art performance in Arabic emotion detection is relatively average, and conventional wisdom suggests simply increasing dataset size. However, the findings of this study show that systematic inspection of errors using XAI can significantly improve data collection and pre-processing strategies. By addressing issues such as spurious correlations and biases, this research provides insights into the best practices for refining Arabic emotion datasets, an area that, to the best of our knowledge, is still under-served in NLP literature.</p></section></section><section id="Sec32"><h2 class="pmc_sec_title">Conclusion and Future Work</h2>
+<p id="Par91">This research introduced a DCAI framework that utilizes XAI tools and human sensibility in the development cycle of emotion detection models. This framework aims to improve the development cycle by helping developers better understand model weakness, data biases, and XAI interpretations that stem from the collected data. Multi-class emotion analysis in Arabic was used as a case study to demonstrate how this framework operated. Naive Bayes, Logistic Regression, GRU, and MARBERT based models were developed and investigated using X-Deep. Certain weaknesses and biases in the dataset were identified leveraging LIME and SHAP XAI techniques. Comparing different XAI tools demonstrated their differences in handling Arabic NLP data. The comprehensive analysis using X-Deep framework has led to the formulation of multiple mitigation strategies that could be acted upon to address the issues uncovered in the dataset. While the proposed framework yielded promising results, we acknowledge that the study is limited to Arabic-language tweets from a single domain. This limitation may affect the generalization of the findings to other languages or application areas. Future work should extend the evaluation to datasets in other languages and broader tasks to assess the framework’s adaptability and robustness, and should systematically test the mitigation strategies outlined in Section “<a href="#Sec30" class="usa-link">Mitigation strategies</a>”, evaluating their efficacy in improving model robustness, generalization, and fairness across diverse datasets. Moreover, it would be interesting to test the framework in computer vision data using XAI tools like Grad-Cam<sup><a href="#CR35" class="usa-link" aria-describedby="CR35">35</a></sup>.</p></section><section id="ack1" class="ack"><h2 class="pmc_sec_title">Acknowledgements</h2>
+<p>Not applicable.</p></section><section id="notes1"><h2 class="pmc_sec_title">Author contributions</h2>
+<p>A.E., A.N., Y.M., A.A., M.A., O.S. and A.K. developed the pipelines, performed the experiments, interpreted the results and wrote the manuscript under the supervision of S.L. and A.E. All authors made equal contribution to the conception and analysis of the work. All authors read and approved the final manuscript.</p></section><section id="notes2"><h2 class="pmc_sec_title">Funding</h2>
+<p>Open access funding provided by The Science, Technology &amp; Innovation Funding Authority (STDF) in cooperation with The Egyptian Knowledge Bank (EKB).</p></section><section id="notes3"><h2 class="pmc_sec_title">Data availability</h2>
+<p>The dataset analysed during the current study are available in the Emotional-Tone repository, <a href="https://github.com/amrmalkhatib/Emotional-Tone" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://github.com/amrmalkhatib/Emotional-Tone</a>, with all user-identifying information removed. Only tweet texts are retained and available. We did not perform any additional data collection. Based on commonly accepted academic standards and practices at our institution, the use of this publicly available and anonymized dataset does not require additional ethical approval.</p></section><section id="notes4"><h2 class="pmc_sec_title">Declarations</h2>
+<section id="FPar1"><h3 class="pmc_sec_title">Competing interests</h3>
+<p id="Par95">The authors declare no competing interests.</p></section></section><section id="fn-group1" class="fn-group"><h2 class="pmc_sec_title">Footnotes</h2>
+<div class="fn-group p font-secondary-light font-sm"><div class="fn p" id="fn1">
+<p><strong>Publisher’s note</strong></p>
+<p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</div></div></section><section id="Bib1" class="ref-list"><h2 class="pmc_sec_title">References</h2>
+<section id="Bib1_sec2"><ul class="ref-list font-sm" style="list-style-type:none">
+<li id="CR1">
+<span class="label">1.</span><cite>Whang, S. E., Roh, Y., Song, H. &amp; Lee, J.-G. Data collection and quality challenges in deep learning: A data-centric ai perspective. <em>VLDB J.</em> (2022).</cite>
+</li>
+<li id="CR2">
+<span class="label">2.</span><cite>Jarrahi, M. H., Memariani, A. &amp; Guha, S. The principles of data-centric AI. <em>Commun. ACM</em><strong>66</strong>, 84–92. 10.1145/3571724 (2023).</cite> [<a href="https://scholar.google.com/scholar_lookup?Jarrahi,%20M.%20H.,%20Memariani,%20A.%20&amp;%20Guha,%20S.%20The%20principles%20of%20data-centric%20AI.%20Commun.%20ACM66,%2084%E2%80%9392.%2010.1145/3571724%20(2023)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR3">
+<span class="label">3.</span><cite>Zha, D. <em>et al.</em> Data-centric artificial intelligence: A survey (2023). <a href="http://arxiv.org/abs/2303.10158" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv: 2303.10158</a>.</cite>
+</li>
+<li id="CR4">
+<span class="label">4.</span><cite>Whang, S. E., Roh, Y., Song, H. &amp; Lee, J.-G. Data collection and quality challenges in deep learning: A data-centric AI perspective. <em>VLDB J.</em><strong>32</strong>, 791–813 (2023).</cite> [<a href="https://scholar.google.com/scholar_lookup?Whang,%20S.%20E.,%20Roh,%20Y.,%20Song,%20H.%20&amp;%20Lee,%20J.-G.%20Data%20collection%20and%20quality%20challenges%20in%20deep%20learning:%20A%20data-centric%20AI%20perspective.%20VLDB%20J.32,%20791%E2%80%93813%20(2023)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR5">
+<span class="label">5.</span><cite>Singh, P. Systematic review of data-centric approaches in artificial intelligence and machine learning. <em>Data Sci. Manag.</em><strong>6</strong>, 144–157. 10.1016/j.dsm.2023.06.001 (2023).</cite> [<a href="https://scholar.google.com/scholar_lookup?Singh,%20P.%20Systematic%20review%20of%20data-centric%20approaches%20in%20artificial%20intelligence%20and%20machine%20learning.%20Data%20Sci.%20Manag.6,%20144%E2%80%93157.%2010.1016/j.dsm.2023.06.001%20(2023)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR6">
+<span class="label">6.</span><cite>Top Ten Internet Languages in The World—Internet Statistics (2023). [Online; accessed 24. Sep. 2023].</cite>
+</li>
+<li id="CR7">
+<span class="label">7.</span><cite>Birjali, M., Kasri, M. &amp; Beni-Hssane, A. A comprehensive survey on sentiment analysis: Approaches, challenges and trends. <em>Knowl.-Based Syst.</em><strong>226</strong>, 107134. 10.1016/j.knosys.2021.107134 (2021).</cite> [<a href="https://scholar.google.com/scholar_lookup?Birjali,%20M.,%20Kasri,%20M.%20&amp;%20Beni-Hssane,%20A.%20A%20comprehensive%20survey%20on%20sentiment%20analysis:%20Approaches,%20challenges%20and%20trends.%20Knowl.-Based%20Syst.226,%20107134.%2010.1016/j.knosys.2021.107134%20(2021)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR8">
+<span class="label">8.</span><cite>Demszky, D., et al. GoEmotions: A dataset of fine-grained emotions. in <em>Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics</em> (eds Jurafsky, D., Chai, J., Schluter, N. &amp; Tetreault, J.), 4040–4054 (Association for Computational Linguistics, 2020). 10.18653/v1/2020.acl-main.372</cite>
+</li>
+<li id="CR9">
+<span class="label">9.</span><cite>Hariharan Subramonyam, E. A., Colleen Seifert. How can human-centered design shape data-centric AI?</cite>
+</li>
+<li id="CR10">
+<span class="label">10.</span><cite>Gao, Y. <em>et al.</em> Going beyond xai: A systematic survey for explanation-guided learning. <em>ACM Comput. Surv.</em><strong>56</strong>, 10.1145/3644073 (2024).</cite>
+</li>
+<li id="CR11">
+<span class="label">11.</span><cite>Guidotti, R. <em>et al.</em> A survey of methods for explaining black box models. <em>ACM Comput. Surv.</em><strong>51</strong>, 10.1145/3236009 (2018).</cite>
+</li>
+<li id="CR12">
+<span class="label">12.</span><cite>Lertvittayakumjorn, P. &amp; Toni, F. Explanation-based human debugging of nlp models: A survey. <em>Trans. Assoc. Comput. Linguist.</em><strong>9</strong>, 1508–1528 (2021).</cite> [<a href="https://scholar.google.com/scholar_lookup?Lertvittayakumjorn,%20P.%20&amp;%20Toni,%20F.%20Explanation-based%20human%20debugging%20of%20nlp%20models:%20A%20survey.%20Trans.%20Assoc.%20Comput.%20Linguist.9,%201508%E2%80%931528%20(2021)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR13">
+<span class="label">13.</span><cite>Dwivedi, R. <em>et al.</em> Explainable ai (xai): Core ideas, techniques, and solutions. <em>ACM Comput. Surv.</em><strong>55</strong>, (2023). 10.1145/3561048.</cite>
+</li>
+<li id="CR14">
+<span class="label">14.</span><cite>Lertvittayakumjorn, P. &amp; Toni, F. Explanation-based human debugging of NLP models: A survey. <em>Trans. Assoc. Comput. Linguist.</em><strong>9</strong>, 1508–1528. 10.1162/tacl_a_00440 (2021).</cite> [<a href="https://scholar.google.com/scholar_lookup?Lertvittayakumjorn,%20P.%20&amp;%20Toni,%20F.%20Explanation-based%20human%20debugging%20of%20NLP%20models:%20A%20survey.%20Trans.%20Assoc.%20Comput.%20Linguist.9,%201508%E2%80%931528.%2010.1162/tacl_a_00440%20(2021)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR15">
+<span class="label">15.</span><cite>Vale, D., El-Sharif, A. &amp; Ali, M. Explainable artificial intelligence (xai) post-hoc explainability methods: Risks and limitations in non-discrimination law. <em>AI Ethics</em> (2022).</cite>
+</li>
+<li id="CR16">
+<span class="label">16.</span><cite>Hartmann, M. &amp; Sonntag, D. A survey on improving nlp models with human explanations (2022). <a href="http://arxiv.org/abs/2204.08892" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv: 2204.08892</a>.</cite>
+</li>
+<li id="CR17">
+<span class="label">17.</span><cite>Lu, J., Yang, L., Namee, B. M. &amp; Zhang, Y. A rationale-centric framework for human-in-the-loop machine learning (2022). <a href="http://arxiv.org/abs/2203.12918" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv: 2203.12918</a>.</cite>
+</li>
+<li id="CR18">
+<span class="label">18.</span><cite>Mosca, E., et al. Ifan: An explainability-focused interaction framework for humans and NLP models (2023). <a href="http://arxiv.org/abs/2303.03124" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv: 2303.03124</a>.</cite>
+</li>
+<li id="CR19">
+<span class="label">19.</span><cite>Lee, D.-H., et al. Xmd: An end-to-end framework for interactive explanation-based debugging of NLP models (2022). <a href="http://arxiv.org/abs/2210.16978" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv: 2210.16978</a>.</cite>
+</li>
+<li id="CR20">
+<span class="label">20.</span><cite>Alaa, M., Sherine, R. &amp; Tarek, G. An ensemble deep learning approach for emotion detection in arabic tweets. <em>(IJACSA) Int. J. Adv. Comput. Sci. Appl.</em> (2022).</cite>
+</li>
+<li id="CR21">
+<span class="label">21.</span><cite>El-Sayed, A., Lazem, S. &amp; Abougabal, M. Benchmarking a large twitter dataset for arabic emotion analysis. <em>SN Appl. Sci.</em> (2023).</cite>
+</li>
+<li id="CR22">
+<span class="label">22.</span><cite>Abdelwahab, Y., Kholief, M. &amp; Sedky, A. A. H. Justifying arabic text sentiment analysis using explainable ai (xai): Lasik surgeries case study. <em>Information</em><strong>13</strong>, 10.3390/info13110536 (2022).</cite>
+</li>
+<li id="CR23">
+<span class="label">23.</span><cite>Ribeiro, M. T., Singh, S. &amp; Guestrin, C. “why should i trust you?”: Explaining the predictions of any classifier (2016). <a href="http://arxiv.org/abs/1602.04938" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv: 1602.04938</a>.</cite>
+</li>
+<li id="CR24">
+<span class="label">24.</span><cite>Aljameel, S. S. et al. A sentiment analysis approach to predict an individual’s awareness of the precautionary procedures to prevent covid-19 outbreaks in saudi arabia. <em>Int. J. Environ. Rese. Public Health</em><strong>18</strong>, 10.3390/ijerph18010218 (2021).</cite> [<a href="https://doi.org/10.3390/ijerph18010218" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC7795573/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/33396713/" class="usa-link">PubMed</a>]</li>
+<li id="CR25">
+<span class="label">25.</span><cite>Abdelwahab, Y., Kholief, M. &amp; Sedky, A. A. H. An experimental survey of asa on dl classifiers using multi-dialect arabic texts. in <em>Advances in Information and Communication</em> (ed Arai, K. ) 52–64 (Springer, 2023).</cite>
+</li>
+<li id="CR26">
+<span class="label">26.</span><cite>El-Sayed, A., Lazem, S. &amp; Abougabal, M. An arabic egyptian dialect COVID-19 twitter dataset (ArECTD). in <em>9th International Japan-Africa Conference on Electronics, Communications, and Computations (JAC-ECC)</em> 179–182 (2021).</cite>
+</li>
+<li id="CR27">
+<span class="label">27.</span><cite>Lertvittayakumjorn, P., Specia, L. &amp; Toni, F. Find: Human-in-the-loop debugging deep text classifiers (2020). <a href="http://arxiv.org/abs/2010.04987" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv: 2010.04987</a>.</cite>
+</li>
+<li id="CR28">
+<span class="label">28.</span><cite>Zylberajch, H., Lertvittayakumjorn, P. &amp; Toni, F. HILDIF: Interactive debugging of NLI models using influence functions. in <em>Proceedings of the First Workshop on Interactive Learning for Natural Language Processing</em> (eds Brantley, K. et al. ) 1–6 (Association for Computational Linguistics, 2021). 10.18653/v1/2021.internlp-1.1.</cite>
+</li>
+<li id="CR29">
+<span class="label">29.</span><cite>Lundberg, S. &amp; Lee, S.-I. A unified approach to interpreting model predictions (2017). <a href="http://arxiv.org/abs/1705.07874" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv: 1705.07874</a>.</cite>
+</li>
+<li id="CR30">
+<span class="label">30.</span><cite>Al-Khatib, A. &amp; El-Beltagy, S. <em>Emotional Tone Detection in Arabic Tweets: 18th International Conference, CICLing 2017, Budapest, Hungary, April 17–23, 2017, Revised Selected Papers, Part II</em> 105–114 (2018).</cite>
+</li>
+<li id="CR31">
+<span class="label">31.</span><cite>Abdul-Mageed, M., Elmadany, A. &amp; Nagoudi, E. B. ARBERT &amp; MARBERT: Deep bidirectional transformers for Arabic. in <em>59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing</em> 7088–7105. 10.18653/v1/2021.acl-long.551 (2021).</cite>
+</li>
+<li id="CR32">
+<span class="label">32.</span><cite>El-Sayed, A., Lazem, S. &amp; Abougabal, M. An improved emotion-based analysis of arabic twitter data using deep learning. in <em>2021 9th International Japan-Africa Conference on Electronics, Communications, and Computations (JAC-ECC)</em> 175–178. 10.1109/JAC-ECC54461.2021.9691416 (2021).</cite>
+</li>
+<li id="CR33">
+<span class="label">33.</span><cite>El-Sayed, A., Lazem, S. &amp; Abougabal, M. An improved emotion-based analysis of arabic twitter data using deep learning. in <em>9th International Japan-Africa Conference on Electronics, Communications, and Computations (JAC-ECC)</em> 175–178 (2021).</cite>
+</li>
+<li id="CR34">
+<span class="label">34.</span><cite>Bird, Steven, Loper, E. &amp; Klein, E. <em>Natural Language Processing with Python</em> (O’Reilly Media Inc., 2009).</cite>
+</li>
+<li id="CR35">
+<span class="label">35.</span><cite>Selvaraju, R. R. et al. Grad-CAM: Visual explanations from deep networks via gradient-based localization. <em>Int. J. Comput. Vision</em><strong>128</strong>, 336–359. 10.1007/s11263-019-01228-7 (2019).</cite> [<a href="https://scholar.google.com/scholar_lookup?Selvaraju,%20R.%20R.%20et%20al.%20Grad-CAM:%20Visual%20explanations%20from%20deep%20networks%20via%20gradient-based%20localization.%20Int.%20J.%20Comput.%20Vision128,%20336%E2%80%93359.%2010.1007/s11263-019-01228-7%20(2019)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+</ul></section></section><section id="_ad93_" lang="en" class="associated-data"><h2 class="pmc_sec_title">Associated Data</h2>
+<p class="font-secondary"><em>This section collects any data citations, data availability statements, or supplementary materials included in this article.</em></p>
+<section id="_adda93_" lang="en" class="data-availability-statement"><h3 class="pmc_sec_title">Data Availability Statement</h3>
+<p>The dataset analysed during the current study are available in the Emotional-Tone repository, <a href="https://github.com/amrmalkhatib/Emotional-Tone" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://github.com/amrmalkhatib/Emotional-Tone</a>, with all user-identifying information removed. Only tweet texts are retained and available. We did not perform any additional data collection. Based on commonly accepted academic standards and practices at our institution, the use of this publicly available and anonymized dataset does not require additional ethical approval.</p></section></section></section><footer class="p courtesy-note font-secondary font-sm text-center"><hr class="headless">
+<p>Articles from Scientific Reports are provided here courtesy of <strong>Nature Publishing Group</strong></p></footer></section></article>
+
+                      
+
+                    </main>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+<!-- Secondary navigation placeholder -->
+<div class="pmc-sidenav desktop:grid-col-4 display-flex">
+    <section class="pmc-sidenav__container" aria-label="Article resources and navigation">
+        <button type="button" class="usa-button pmc-sidenav__container__close usa-button--unstyled">
+            <img src="/static/img/usa-icons/close.svg" role="img" alt="Close" />
+        </button>
+    <div class="display-none desktop:display-block">
+       <section class="margin-top-4 desktop:margin-top-0">
+              <h2 class="margin-top-0">ACTIONS</h2>
+           <ul class="usa-list usa-list--unstyled usa-list--actions">
+               
+               <li>
+                     <a
+                             href="https://doi.org/10.1038/s41598-025-13452-y"
+                             class="usa-button usa-button--outline width-24 font-xs display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                             target="_blank"
+                             rel="noreferrer noopener"
+                             data-ga-category="actions"
+                             data-ga-action="click"
+                             data-ga-label="publisher_link_desktop"
+                     >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#launch"></use>
+                         </svg>
+                         <span class="display-inline-flex flex-justify-center flex-1 padding-right-2">View on publisher site</span>
+                     </a>
+               </li>
+               
+               
+               <li>
+                    <a
+                            href="pdf/41598_2025_Article_13452.pdf"
+                            class="usa-button usa-button--outline width-24 display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="pdf_download_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1">PDF (2.3 MB)</span>
+                    </a>
+               </li>
+               
+                
+               <li>
+                   <button role="button" class="usa-button width-24 citation-dialog-trigger display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                        aria-label="Open dialog with citation text in different styles"
+                        data-ga-category="actions"
+                        data-ga-action="open"
+                        data-ga-label="cite_desktop"
+                        data-all-citations-url="/resources/citations/12365264/"
+                        data-citation-style="nlm"
+                        data-download-format-link="/resources/citations/12365264/export/"
+                    >
+                        <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                        </svg>
+                       <span class="display-inline-flex flex-justify-center flex-1 button-label">Cite</span>
+                    </button>
+               </li>
+                
+               <li>
+
+                        <button class="usa-button width-24 collections-dialog-trigger collections-button display-inline-flex flex-align-center flex-justify-start padding-left-1 collections-button-empty"
+                              aria-label="Save article in MyNCBI collections."
+                              data-ga-category="actions"
+                              data-ga-action="click"
+                              data-ga-label="collections_button_desktop"
+                              data-collections-open-dialog-enabled="false"
+                              data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12365264%2F%3Freport%3Dclassic%23open-collections-dialog"
+                              data-in-collections="false">
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                            <span class="display-inline-flex flex-justify-center flex-1">Collections</span>
+                       </button>
+               </li>
+               <li class="pmc-permalink">
+                    <button
+                            type="button"
+                            class="usa-button width-24 display-inline-flex flex-align-center flex-justify padding-left-1 shadow-none"
+                            aria-label="Show article permalink"
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="permalink_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#share"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1 button-label">Permalink</span>
+                    </button>
+                   
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12365264/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+               </li>
+           </ul>
+       </section>
+     </div>
+
+        <section class="pmc-resources margin-top-6 desktop:margin-top-4" data-page-path="/articles/PMC12365264/">
+            <h2 class="margin-top-0">RESOURCES</h2>
+            
+                <div class="usa-accordion usa-accordion--multiselectable" data-allow-multiple>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-similar-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_similar_articles"
+                        data-ga-label="/articles/PMC12365264/"
+                        data-action-open="open_similar_articles"
+                        data-action-close="close_similar_articles"
+                        >
+                            Similar articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-similar-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/similar-article-links/40830156/"
+                            
+                    >
+                        
+                    </div>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-cited-by-other-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_cited_by"
+                        data-ga-label="/articles/PMC12365264/"
+                        data-action-open="open_cited_by"
+                        data-action-close="close_cited_by"
+                        >
+                             Cited by other articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-cited-by-other-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/cited-by-links/40830156/"
+                            
+                    >
+                          
+                    </div>
+                    
+                        <h3 class="usa-accordion__heading">
+                            <button
+                            type="button"
+                            class="usa-accordion__button"
+                            aria-expanded="false"
+                            aria-controls="resources-links-to-ncbi-databases"
+                            data-ga-category="resources_accordion"
+                            data-ga-action="open_NCBI_links"
+                            data-ga-label="/articles/PMC12365264/"
+                            data-action-open="open_NCBI_links"
+                            data-action-close="close_NCBI_link"
+                            >
+                                 Links to NCBI Databases
+                            </button>
+                        </h3>
+                        <div
+                                id="resources-links-to-ncbi-databases"
+                                class="usa-accordion__content usa-prose"
+                                data-source-url="/resources/db-links/12365264/"
+                        >
+                        </div>
+                    
+                    
+                </div>
+            
+        </section>
+
+
+        <section
+        class="usa-in-page-nav usa-in-page-nav--wide margin-top-6 desktop:margin-top-4"
+        data-title-text="On this page"
+        data-title-heading-level="h2"
+        data-scroll-offset="0"
+        data-root-margin="-10% 0px -80% 0px"
+        data-main-content-selector="main"
+        data-threshold="1"
+        hidden
+        ></section>
+    </section>
+</div>
+
+
+        
+
+<div class="overlay" role="dialog" aria-label="Citation Dialog" hidden>
+    <div class="dialog citation-dialog" aria-hidden="true">
+        <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+            <h2 class="usa-modal__heading margin-0">Cite</h2>
+             <button type="button" class="usa-button usa-button--unstyled close-overlay text-black width-auto"  tabindex="1">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+             </button>
+        </div>
+
+        
+
+<div class="citation-text-block">
+  <div class="citation-text margin-bottom-2"></div>
+  <ul class="usa-list usa-list--unstyled display-inline-flex flex-justify width-full flex-align-center">
+      <li>
+        <button
+          class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center copy-button dialog-focus"
+          data-ga-category="save_share"
+          data-ga-action="cite"
+          data-ga-label="copy"
+          tabindex="2">
+            <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+            </svg>
+            <span>Copy</span>
+        </button>
+      </li>
+      <li>
+          <a
+              href="#"
+              role="button"
+              class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center export-button"
+              data-ga-category="save_share"
+              data-ga-action="cite"
+              data-ga-label="download"
+              title="Download a file for external citation management software"
+              tabindex="3">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                </svg>
+                <span class="display-none mobile-lg:display-inline">Download .nbib</span>
+                <span class="display-inline mobile-lg:display-none">.nbib</span>
+            </a>
+      </li>
+      <li>
+          
+
+<div class="display-inline-flex flex-align-center">
+  <label class="usa-label margin-top-0">Format:</label>
+  <select aria-label="Format" class="usa-select citation-style-selector padding-1 margin-top-0 border-0 padding-right-4" tabindex="4" >
+    
+      <option data-style-url-name="ama"
+              value="AMA"
+              >
+        AMA
+      </option>
+    
+      <option data-style-url-name="apa"
+              value="APA"
+              >
+        APA
+      </option>
+    
+      <option data-style-url-name="mla"
+              value="MLA"
+              >
+        MLA
+      </option>
+    
+      <option data-style-url-name="nlm"
+              value="NLM"
+              selected="selected">
+        NLM
+      </option>
+    
+  </select>
+</div>
+      </li>
+  </ul>
+</div>
+    </div>
+</div>
+
+        <div class="overlay" role="dialog" hidden>
+  <div id="collections-action-dialog" class="dialog collections-dialog" aria-hidden="true">
+   <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+        <h2 class="usa-modal__heading margin-0">Add to Collections</h2>
+    </div>
+    <div class="collections-action-panel action-panel">
+      
+
+
+<form id="collections-action-dialog-form"
+      class="usa-form maxw-full collections-action-panel-form action-panel-content action-form action-panel-smaller-selectors"
+      data-existing-collections-url="/list-existing-collections/"
+      data-add-to-existing-collection-url="/add-to-existing-collection/"
+      data-create-and-add-to-new-collection-url="/create-and-add-to-new-collection/"
+      data-myncbi-max-collection-name-length="100"
+      data-collections-root-url="https://www.ncbi.nlm.nih.gov/myncbi/collections/">
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="itTpP1fDTSwMrkcFwqOwRAh3bSrWvqQgglk6pgKTt7sBpb7AF9RncZsvuVnjH9KC">
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-new"
+            class="usa-radio__input usa-radio__input--tile collections-new  margin-top-0"
+            name="collections"
+            value="new"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_new" />
+            <label class="usa-radio__label" for="collections-action-dialog-new">Create a new collection</label>
+        </div>
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-existing"
+            class="usa-radio__input usa-radio__input--tile collections-existing"
+            name="collections"
+            value="existing"
+            checked="true"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_existing" />
+            <label class="usa-radio__label" for="collections-action-dialog-existing">Add to an existing collection</label>
+        </div>
+    </fieldset>
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="action-panel-control-wrap new-collections-controls">
+           <label for="collections-action-dialog-add-to-new" class="usa-label margin-top-0">
+                Name your collection
+               <abbr title="required" class="usa-hint usa-hint--required text-no-underline">*</abbr>
+          </label>
+          <input
+            type="text"
+            name="add-to-new-collection"
+            id="collections-action-dialog-add-to-new"
+            class="usa-input collections-action-add-to-new"
+            pattern="[^&quot;&amp;=&lt;&gt;/]*" title="The following characters are not allowed in the Name field: &quot;&amp;=&lt;&gt;/"
+            maxlength=""
+            data-ga-category="collections_button"
+            data-ga-action="create_collection"
+            data-ga-label="non_favorties_collection"
+            required
+          />
+        </div>
+        <div class="action-panel-control-wrap existing-collections-controls">
+             <label for="collections-action-dialog-add-to-existing" class="usa-label margin-top-0">
+                Choose a collection
+              </label>
+              <select id="collections-action-dialog-add-to-existing"
+                      class="usa-select collections-action-add-to-existing"
+                      data-ga-category="collections_button"
+                      data-ga-action="select_collection"
+                      data-ga-label="($('.collections-action-add-to-existing').val() === 'Favorites') ? 'Favorites' : 'non_favorites_collection'">
+              </select>
+              <div class="collections-retry-load-on-error usa-input-error-message selection-validation-message">
+                Unable to load your collection due to an error<br>
+                <a href="#">Please try again</a>
+              </div>
+        </div>
+    </fieldset>
+
+    <div class="display-inline-flex">
+        <button class="usa-button margin-top-0 action-panel-submit"
+            type="submit"
+            data-loading-label="Adding..."
+            data-pinger-ignore
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="add">
+          Add
+        </button>
+        <button class="usa-button usa-button--outline margin-top-0 action-panel-cancel"
+                aria-label="Close 'Add to Collections' panel"
+                ref="linksrc=close_collections_panel"
+                data-ga-category="collections_button"
+                data-ga-action="click"
+                data-ga-label="cancel">
+          Cancel
+        </button>
+    </div>
+</form>
+    </div>
+  </div>
+</div>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+
+
+        
+    
+    
+
+<footer class="ncbi-footer ncbi-dark-background " >
+    
+        <div class="ncbi-footer__icon-section">
+            <div class="ncbi-footer__social-header">
+                Follow NCBI
+            </div>
+
+            <div class="grid-container ncbi-footer__ncbi-social-icons-container">
+                
+                    <a href="https://twitter.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="40"
+                             height="40"
+                             viewBox="0 0 40 40"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on X (formerly known as Twitter)</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.facebook.com/ncbi.nlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="16"
+                             height="29"
+                             focusable="false"
+                             aria-hidden="true"
+                             viewBox="0 0 16 29"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.8809 21.4002C3.8809 19.0932 3.8809 16.7876 3.8809 14.478C3.8809 14.2117 3.80103 14.1452 3.54278 14.1492C2.53372 14.1638 1.52334 14.1492 0.514288 14.1598C0.302626 14.1598 0.248047 14.0972 0.248047 13.8936C0.256034 12.4585 0.256034 11.0239 0.248047 9.58978C0.248047 9.37013 0.302626 9.30224 0.528931 9.3049C1.53798 9.31688 2.54837 9.3049 3.55742 9.31555C3.80103 9.31555 3.8809 9.26097 3.87957 9.00272C3.87158 8.00565 3.85428 7.00592 3.90753 6.00884C3.97142 4.83339 4.31487 3.73115 5.04437 2.78467C5.93095 1.63318 7.15699 1.09005 8.56141 0.967577C10.5582 0.79319 12.555 0.982221 14.5518 0.927641C14.7102 0.927641 14.7462 0.99287 14.7449 1.13664C14.7449 2.581 14.7449 4.02668 14.7449 5.47104C14.7449 5.67604 14.6517 5.68669 14.4946 5.68669C13.4523 5.68669 12.4113 5.68669 11.3703 5.68669C10.3506 5.68669 9.92057 6.10868 9.90593 7.13904C9.89661 7.7647 9.91525 8.39303 9.89794 9.01869C9.88995 9.26364 9.96583 9.31822 10.2015 9.31688C11.7204 9.30623 13.2393 9.31688 14.7595 9.3049C15.0257 9.3049 15.0723 9.3728 15.0444 9.62439C14.89 10.9849 14.7515 12.3467 14.6144 13.7085C14.5691 14.1571 14.5785 14.1585 14.1458 14.1585C12.8386 14.1585 11.5313 14.1665 10.2254 14.1518C9.95119 14.1518 9.89794 14.2317 9.89794 14.4899C9.90593 19.0799 9.89794 23.6752 9.91125 28.2612C9.91125 28.5674 9.8407 28.646 9.53186 28.6433C7.77866 28.6273 6.02414 28.6366 4.27094 28.634C3.82499 28.634 3.87158 28.6992 3.87158 28.22C3.87602 25.9472 3.87913 23.6739 3.8809 21.4002Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on Facebook</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.linkedin.com/company/ncbinlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="25"
+                             height="23"
+                             viewBox="0 0 26 24"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M14.6983 9.98423C15.6302 9.24808 16.5926 8.74754 17.6762 8.51991C19.673 8.09126 21.554 8.30824 23.1262 9.7526C24.2351 10.7723 24.7529 12.1115 25.0165 13.5612C25.1486 14.3363 25.2105 15.1218 25.2015 15.9081C25.2015 18.3043 25.2015 20.6898 25.2082 23.0806C25.2082 23.3468 25.1549 23.444 24.8621 23.4414C23.1297 23.4272 21.3992 23.4272 19.6704 23.4414C19.4041 23.4414 19.3429 23.3588 19.3442 23.1019C19.3535 20.5194 19.3442 17.9368 19.3442 15.3543C19.3442 14.0005 18.3258 12.9448 17.0266 12.9488C15.7273 12.9528 14.6983 14.0071 14.6983 15.361C14.6983 17.9328 14.6917 20.5047 14.6983 23.0753C14.6983 23.3708 14.6198 23.444 14.3296 23.4427C12.6185 23.4294 10.9079 23.4294 9.19779 23.4427C8.93155 23.4427 8.86099 23.3735 8.86232 23.1086C8.8783 19.7619 8.88628 16.4144 8.88628 13.066C8.88628 11.5688 8.87874 10.0708 8.86365 8.57182C8.86365 8.3575 8.90758 8.27896 9.14054 8.28029C10.9048 8.29094 12.6687 8.29094 14.4321 8.28029C14.6464 8.28029 14.6983 8.34818 14.6983 8.54653C14.6903 9.00047 14.6983 9.45441 14.6983 9.98423Z">
+                            </path>
+                            <path d="M6.55316 15.8443C6.55316 18.2564 6.55316 20.6699 6.55316 23.082C6.55316 23.3629 6.48127 23.4388 6.19906 23.4374C4.47737 23.4241 2.75568 23.4241 1.03399 23.4374C0.767751 23.4374 0.69986 23.3629 0.701191 23.1006C0.709178 18.2648 0.709178 13.4281 0.701191 8.59053C0.701191 8.34026 0.765089 8.27237 1.01669 8.2737C2.74991 8.28435 4.48048 8.28435 6.20838 8.2737C6.47462 8.2737 6.5465 8.33627 6.54517 8.6065C6.54783 11.0186 6.55316 13.4308 6.55316 15.8443Z">
+                            </path>
+                            <path d="M3.65878 0.243898C5.36804 0.243898 6.58743 1.45529 6.58743 3.1406C6.58743 4.75801 5.32145 5.95742 3.60819 5.96807C3.22177 5.97614 2.83768 5.90639 2.47877 5.76299C2.11985 5.61959 1.79344 5.40546 1.51897 5.13334C1.24449 4.86123 1.02755 4.53668 0.881058 4.17902C0.734563 3.82136 0.661505 3.43788 0.666231 3.05141C0.67555 1.42601 1.9362 0.242566 3.65878 0.243898Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on LinkedIn</span>
+                    </a>
+                
+
+                
+                    <a href="https://github.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="28"
+                             height="27"
+                             viewBox="0 0 28 28"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M16.7228 20.6334C17.5057 20.5527 18.2786 20.3944 19.0301 20.1608C21.3108 19.4193 22.5822 17.8259 22.963 15.4909C23.1228 14.5112 23.1814 13.5287 22.9883 12.5437C22.8106 11.6423 22.4013 10.8028 21.8007 10.1076C21.7526 10.0605 21.7197 10 21.7064 9.934C21.6931 9.86799 21.7 9.79952 21.7262 9.73748C22.0856 8.6206 21.9711 7.51969 21.601 6.42677C21.582 6.3497 21.5345 6.2827 21.468 6.23923C21.4016 6.19577 21.3211 6.17906 21.2429 6.19248C20.7329 6.21649 20.2313 6.33051 19.7611 6.52928C19.1103 6.7908 18.4899 7.12198 17.9104 7.51703C17.84 7.56996 17.7581 7.60551 17.6713 7.62078C17.5846 7.63605 17.4954 7.6306 17.4112 7.60489C15.2596 7.05882 13.0054 7.06203 10.8554 7.61421C10.7806 7.63586 10.7018 7.63967 10.6253 7.62534C10.5487 7.611 10.4766 7.57892 10.4148 7.53167C9.64788 7.03247 8.85171 6.58918 7.96368 6.33359C7.65781 6.24338 7.34123 6.19458 7.02239 6.18849C6.94879 6.17986 6.87462 6.19893 6.81432 6.242C6.75402 6.28507 6.71191 6.34904 6.69621 6.42145C6.32342 7.51437 6.2209 8.61527 6.56307 9.73348C6.59635 9.84264 6.64694 9.93316 6.54177 10.0516C5.47666 11.2604 5.09988 12.6834 5.19574 14.2676C5.2663 15.4244 5.46201 16.5466 6.01454 17.5769C6.84399 19.1171 8.21664 19.9119 9.85158 20.3352C10.3938 20.4706 10.9444 20.5698 11.4998 20.632C11.5384 20.7492 11.4506 20.7798 11.408 20.8291C11.1734 21.1179 10.9894 21.4441 10.8634 21.7942C10.7622 22.0458 10.8315 22.4039 10.6065 22.5516C10.263 22.7766 9.83827 22.8485 9.42421 22.8871C8.17936 23.0056 7.26471 22.4877 6.6283 21.4348C6.25552 20.8184 5.76956 20.3325 5.08523 20.0663C4.76981 19.9325 4.42139 19.8967 4.08537 19.9638C3.7898 20.029 3.73788 20.1901 3.93891 20.4111C4.03639 20.5234 4.14989 20.6207 4.27575 20.6999C4.9796 21.1318 5.51717 21.7884 5.80152 22.5636C6.37002 23.9973 7.48039 24.5697 8.93825 24.6323C9.43741 24.6575 9.93768 24.615 10.4254 24.5058C10.5892 24.4672 10.6531 24.4872 10.6517 24.6762C10.6451 25.4936 10.6637 26.3123 10.6517 27.131C10.6517 27.6635 10.1684 27.9297 9.58663 27.7393C8.17396 27.2671 6.84977 26.5631 5.66838 25.656C2.59555 23.2891 0.720966 20.1861 0.217704 16.3376C-0.357453 11.9127 0.911353 8.00824 3.98551 4.73881C6.11909 2.42656 8.99932 0.939975 12.1203 0.540191C16.5351 -0.0601815 20.4347 1.14323 23.7232 4.16373C26.2449 6.47869 27.724 9.37672 28.1048 12.7726C28.5828 17.0325 27.3686 20.7945 24.4768 23.9827C22.9762 25.6323 21.0956 26.8908 18.9982 27.6488C18.8783 27.6927 18.7585 27.738 18.636 27.7726C18.0356 27.9404 17.6189 27.6395 17.6189 27.0098C17.6189 25.7452 17.6308 24.4806 17.6295 23.2159C17.6329 22.9506 17.6128 22.6856 17.5696 22.4238C17.4325 21.6664 17.3419 21.484 16.7228 20.6334Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on GitHub</span>
+                    </a>
+                
+
+                
+                    <a href="https://ncbiinsights.ncbi.nlm.nih.gov/"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="26"
+                             height="26"
+                             viewBox="0 0 27 27"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M23.7778 26.4574C23.1354 26.3913 22.0856 26.8024 21.636 26.3087C21.212 25.8444 21.4359 24.8111 21.324 24.0347C19.9933 14.8323 14.8727 8.80132 6.09057 5.85008C4.37689 5.28406 2.58381 4.99533 0.779072 4.99481C0.202773 4.99481 -0.0229751 4.83146 0.00455514 4.21479C0.0660406 3.08627 0.0660406 1.95525 0.00455514 0.826734C-0.0413285 0.0815827 0.259669 -0.0193618 0.896534 0.00266238C6.96236 0.222904 12.3693 2.24179 16.9889 6.16209C22.9794 11.2478 26.1271 17.7688 26.4372 25.648C26.4629 26.294 26.3179 26.5271 25.6609 26.4684C25.0827 26.417 24.4991 26.4574 23.7778 26.4574Z">
+                            </path>
+                            <path d="M14.8265 26.441C14.0924 26.441 13.2371 26.6795 12.6626 26.3786C12.0092 26.0372 12.3781 25.0644 12.246 24.378C11.1154 18.5324 6.6849 14.5497 0.74755 14.1001C0.217135 14.0615 -0.0104482 13.9422 0.0134113 13.3659C0.0519536 12.1454 0.0482829 10.9213 0.0134113 9.69524C-0.00127145 9.14464 0.196946 9.03268 0.703502 9.04736C9.21217 9.27128 16.5994 16.2511 17.2804 24.7231C17.418 26.4446 17.418 26.4446 15.6579 26.4446H14.832L14.8265 26.441Z">
+                            </path>
+                            <path d="M3.58928 26.4555C2.64447 26.4618 1.73584 26.0925 1.06329 25.4289C0.39073 24.7653 0.00933763 23.8617 0.0030097 22.9169C-0.00331824 21.9721 0.365937 21.0635 1.02954 20.3909C1.69315 19.7184 2.59675 19.337 3.54156 19.3306C4.48637 19.3243 5.39499 19.6936 6.06755 20.3572C6.7401 21.0208 7.1215 21.9244 7.12782 22.8692C7.13415 23.814 6.7649 24.7226 6.10129 25.3952C5.43768 26.0677 4.53409 26.4491 3.58928 26.4555Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI RSS feed</span>
+                    </a>
+                
+            </div>
+        </div>
+    
+
+    <div data-testid="gridContainer"
+         class="grid-container ncbi-footer__container">
+        <div class="grid-row ncbi-footer__main-content-container"
+             data-testid="grid">
+            
+                <div class="ncbi-footer__column">
+                    
+                        <p class="ncbi-footer__circled-icons-heading">
+                            Connect with NLM
+                        </p>
+                    
+
+                    <div class="ncbi-footer__circled-icons-list">
+                        
+                            <a href=https://twitter.com/nlm_nih class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="32"
+                                     height="32"
+                                     viewBox="0 0 40 40"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on X (formerly known as Twitter)</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.facebook.com/nationallibraryofmedicine class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="13"
+                                     height="24"
+                                     viewBox="0 0 13 24"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M4.11371 23.1369C4.11371 23.082 4.11371 23.0294 4.11371 22.9745V12.9411H0.817305C0.6709 12.9411 0.670898 12.9411 0.670898 12.8016C0.670898 11.564 0.670898 10.3287 0.670898 9.09341C0.670898 8.97903 0.705213 8.95158 0.815017 8.95158C1.8673 8.95158 2.91959 8.95158 3.97417 8.95158H4.12057V8.83263C4.12057 7.8055 4.12057 6.7738 4.12057 5.74897C4.1264 4.92595 4.31387 4.11437 4.66959 3.37217C5.12916 2.38246 5.94651 1.60353 6.95717 1.1921C7.64827 0.905008 8.3913 0.764035 9.13953 0.778051C10.0019 0.791777 10.8644 0.830666 11.7268 0.860404C11.8869 0.860404 12.047 0.894717 12.2072 0.90158C12.2964 0.90158 12.3261 0.940469 12.3261 1.02968C12.3261 1.5421 12.3261 2.05452 12.3261 2.56465C12.3261 3.16857 12.3261 3.7725 12.3261 4.37642C12.3261 4.48165 12.2964 4.51367 12.1912 4.51138C11.5369 4.51138 10.8804 4.51138 10.2261 4.51138C9.92772 4.51814 9.63058 4.5526 9.33855 4.61433C9.08125 4.6617 8.84537 4.78881 8.66431 4.97766C8.48326 5.16652 8.3662 5.40755 8.32972 5.66661C8.28476 5.89271 8.26027 6.1224 8.25652 6.35289C8.25652 7.19014 8.25652 8.02969 8.25652 8.86923C8.25652 8.89439 8.25652 8.91955 8.25652 8.95615H12.0219C12.1797 8.95615 12.182 8.95616 12.1614 9.10714C12.0768 9.76596 11.9876 10.4248 11.9029 11.0813C11.8312 11.6319 11.7626 12.1824 11.697 12.733C11.6719 12.9434 11.6787 12.9434 11.4683 12.9434H8.26338V22.899C8.26338 22.979 8.26338 23.0591 8.26338 23.1392L4.11371 23.1369Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on Facebook</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.youtube.com/user/NLMNIH class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="21"
+                                     height="15"
+                                     viewBox="0 0 21 15"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M19.2561 1.47914C18.9016 1.15888 18.5699 0.957569 17.2271 0.834039C15.5503 0.678484 13.2787 0.655608 11.563 0.65332H9.43556C7.71987 0.65332 5.4483 0.678484 3.77151 0.834039C2.43098 0.957569 2.097 1.15888 1.74242 1.47914C0.813665 2.32097 0.619221 4.62685 0.598633 6.89384C0.598633 7.31781 0.598633 7.74101 0.598633 8.16345C0.626084 10.4121 0.827391 12.686 1.74242 13.521C2.097 13.8412 2.4287 14.0425 3.77151 14.1661C5.4483 14.3216 7.71987 14.3445 9.43556 14.3468H11.563C13.2787 14.3468 15.5503 14.3216 17.2271 14.1661C18.5676 14.0425 18.9016 13.8412 19.2561 13.521C20.1712 12.6929 20.3725 10.451 20.3999 8.22064C20.3999 7.74025 20.3999 7.25986 20.3999 6.77946C20.3725 4.54907 20.1689 2.30724 19.2561 1.47914ZM8.55942 10.5311V4.65201L13.5601 7.50005L8.55942 10.5311Z"
+                                          fill="white" />
+                                </svg>
+                                <span class="usa-sr-only">NLM on YouTube</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            
+
+            
+                <address class="ncbi-footer__address ncbi-footer__column">
+                    
+        <p>
+            <a class="usa-link usa-link--external"
+            href="https://www.google.com/maps/place/8600+Rockville+Pike,+Bethesda,+MD+20894/%4038.9959508,
+            -77.101021,17z/data%3D!3m1!4b1!4m5!3m4!1s0x89b7c95e25765ddb%3A0x19156f88b27635b8!8m2!3d38.9959508!
+            4d-77.0988323"
+            rel="noopener noreferrer" target="_blank">National Library of Medicine
+            <br/> 8600 Rockville Pike<br/> Bethesda, MD 20894</a>
+        </p>
+    
+                </address>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/web_policies.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Web Policies
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/institutes-nih/nih-office-director/office-communications-public-liaison/freedom-information-act-office" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            FOIA
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS Vulnerability Disclosure
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://support.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Help
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/accessibility.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Accessibility
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/careers/careers.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Careers
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+        </div>
+
+        
+            <div class="grid-row grid-col-12" data-testid="grid">
+                <ul class="ncbi-footer__bottom-links-list">
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NLM
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NIH
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.usa.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            USA.gov
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+    </div>
+</footer>
+
+    
+
+
+        
+        
+    
+  <script  type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/pinger/pinger.js"> </script>
+
+
+    
+        
+
+<button class="back-to-top" data-ga-category="pagination" data-ga-action="back_to_top">
+    <label>Back to Top</label>
+    <svg class="usa-icon order-0" aria-hidden="true" focusable="false" role="img">
+        <use xlink:href="/static/img/sprite.svg#arrow_upward"></use>
+    </svg>
+</button>
+    
+
+
+        
+    
+    
+    
+        
+    <script type="application/javascript">
+    window.ncbi = window.ncbi || {};
+    window.ncbi.pmc = window.ncbi.pmc || {};
+    window.ncbi.pmc.options = {
+        logLevel: 'INFO',
+        
+        staticEndpoint: '/static/',
+        
+        citeCookieName: 'pmc-cf',
+    };
+</script>
+    <script type="module" crossorigin="" src="/static/assets/base-133c6271.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/jquery/jquery-3.6.0.min.js">&#xA0;</script>
+    <script type="text/javascript">
+        jQuery.getScript("https://cdn.ncbi.nlm.nih.gov/core/alerts/alerts.js", function () {
+            galert(['div.nav_and_browser', 'div.header', '#universal_header', '.usa-banner', 'body > *:nth-child(1)'])
+        });
+    </script>
+
+
+    <script type="text/javascript">var exports = {};</script>
+     <script src="/static/CACHE/js/output.13b077bc3ffd.js"></script>
+
+    <script type="module" crossorigin="" src="/static/assets/article-44d04358.js"></script>
+    
+    
+
+    </body>
+</html>

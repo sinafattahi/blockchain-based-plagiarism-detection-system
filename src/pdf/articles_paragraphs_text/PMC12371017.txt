@@ -1,0 +1,267 @@
+In decision environments characterized by vagueness and uncertainty, traditional models often struggle to accommodate the inherent hesitation in expert judgments. To address this challenge, this study introduces the novel concept of theHesitant Fuzzy Tensor (HFT), a multidimensional extension of hesitant fuzzy sets, capable of representing multiple opinions across complex criteria spaces. The proposed HFT framework captures hesitation more effectively by organizing hesitant fuzzy data within tensorial structures, enabling more comprehensive analysis in group decision-making scenarios. Theoretical foundations of HFT are rigorously developed, including formal definitions, fundamental operations, and algebraic properties. Several theorems are presented to establish the mathematical consistency and operational soundness of the structure. Furthermore, a group decision-making algorithm tailored for HFT is formulated, leveraging aggregation operators and a scoring mechanism that accounts for maximum hesitation values. To demonstrate the practical utility of the proposed framework, an application to the selection of optimal heterogeneous wireless communication networks is conducted. Multiple wireless technologies are evaluated under various performance criteria using expert assessments expressed in hesitant fuzzy form. The results highlight the robustness, interpretability, and effectiveness of the HFT-based approach in complex real-world decision problems. This research not only advances the theoretical landscape of hesitant fuzzy modeling but also provides a scalable and realistic tool for uncertainty-based decision analysis in emerging technological domains.
+
+In real-world decision-making scenarios, uncertainty and hesitation frequently arise due to incomplete, imprecise, or conflicting expert opinions. Traditional fuzzy models often fail to adequately capture the hesitation inherent in human judgment. Hesitant fuzzy sets (HFS), introduced to address this issue, allow decision makers to express uncertainty by providing multiple possible membership values. However, existing HFS-based models are typically limited to low-dimensional data structures and struggle with complex, multi-criteria decision problems involving diverse expert inputs.
+
+To overcome these limitations, this study proposes the concept of theHesitant Fuzzy Tensor (HFT), which extends hesitant fuzzy logic into a multidimensional tensor framework. The HFT model enables the representation and manipulation of hesitant information across multiple criteria, alternatives, and decision makers simultaneously. In addition to establishing its fundamental structure, we define key operations, derive algebraic properties, and prove relevant theorems that ensure mathematical soundness.
+
+Furthermore, a group decision-making algorithm based on HFT is developed to support rational selection under uncertainty. The proposed method is applied to a practical case study involving the evaluation of heterogeneous wireless communication networks, demonstrating the model’s effectiveness in handling complex, uncertain, and high-dimensional decision environments.
+
+In modern data analysis, the methodologies used to interpret and process collected information have progressed significantly. However, as datasets become increasingly complex–due to uncertain measurements, incomplete human expertise, or multidimensional relationships–conventional crisp set approaches often fail to capture underlying ambiguity. To address this limitation, advanced mathematical theories have been introduced to enable robust reasoning under uncertainty. Among them, Fuzzy Set (FS) theory, pioneered by Zadeh in 19651, provides a flexible way of expressing partial truths by assigning membership degrees between 0 and 1. This foundational framework has since proven instrumental in numerous domains where imprecision is inherent.
+
+Building upon FS theory, researchers have proposed several enhancements to tackle more sophisticated real-world scenarios. One such development is cut set theory, crucial for analyzing fuzzy matrices (FMs), where Fan and Liu19,20contributed significantly by formulating decomposition theorems to improve FM applicability. Anti-fuzzy theory21,22later emerged, offering a complementary structure for algebraic modeling in uncertain contexts. Expanding the capabilities of fuzzy modeling to multidimensional spaces, Chen and Lu23,24merged fuzzy theory with tensor algebra to propose fuzzy tensors (FT) and intuitionistic fuzzy tensors (IFT). These innovations enable effective representation and analysis of complex, high-order data, making them particularly suitable for modern data science problems.
+
+A further leap in uncertainty modeling was achieved with Atanassov’s introduction of Intuitionistic Fuzzy Sets (IFS) in 19862, which incorporate both membership and non-membership degrees with the constraint that their sum does not exceed unity. This dual representation allows a more refined modeling of hesitation or indeterminacy in data. Applications of IFS in decision analysis are numerous, particularly through Intuitionistic Fuzzy Matrices (IFMs), which have been widely adopted for practical evaluations. Several researchers have refined decomposition techniques for IFMs: Yuan et al.3applied cut sets for structural analysis, Muthuraji and Sriram4utilized cut matrices for simplification, Lee and Jeong5introduced decompositions into nilpotent and symmetric parts, and Murugadas and Lalitha6employed implication operators for algebraic factorization.
+
+Recognizing the expressive limitations of IFS, Yager7introduced the Pythagorean Fuzzy Set (PFS) in 2013, where the sum of squares of membership and non-membership degrees is constrained to be. This relaxed condition provides increased flexibility in representing uncertainty, especially in complex multi-criteria decision-making (MCDM) problems. The practical utility of PFS has been demonstrated through enhancements of established decision methods–for example, Zhang and Xu8extended the TOPSIS method to handle PFS environments, reinforcing the applicability of fuzzy logic in real-world decisions.
+
+Meanwhile, tensor-based methodologies have gained prominence in applied mathematics and data analysis, especially since 20059,10. Tensors generalize matrices to higher dimensions, allowing for richer representations of structured data. Their decomposition–analogous to matrix factorization–has become a vital technique in extracting patterns from multi-dimensional data. Prominent decomposition methods include Tucker Decomposition13,14, which offers a PCA-like structure but becomes computationally expensive for high-order tensors; CP Decomposition15,16, which represents tensors as sums of rank-one components, although identifying the correct rank can be difficult; and Tensor Train (TT) Decomposition17,18, which addresses efficiency by decomposing high-order tensors into sequences of third-order cores. The origins of tensor decomposition can be traced to Hitchcock’s early work in 192711,12, and continued advancements have enabled wide applications in signal processing, image analysis, and machine learning.
+
+In response to the growing need for tools that can address both human hesitation and data complexity, this study proposes the concept of theHesitant Fuzzy Tensor (HFT). By integrating hesitant fuzzy logic into the tensor framework, HFT allows for more comprehensive modeling of multi-criteria decision problems. The proposed model defines algebraic operations, establishes key properties and theorems, and introduces a novel decision-making algorithm. Its practical effectiveness is demonstrated through an application to heterogeneous wireless network selection, highlighting the model’s potential for handling real-world uncertainties in high-dimensional environments.
+
+In today’s digital ecosystem, users and devices rely on a variety of wireless communication technologies–such as Wi-Fi, 5G, Zigbee, and LoRa–each with different performance characteristics in terms of speed, latency, energy efficiency, coverage, and cost. Selecting the most suitable heterogeneous wireless network (HWN) for a given application is a critical multi-criteria decision-making (MCDM) problem, especially in environments where user requirements, technical conditions, and expert assessments are uncertain or inconsistent.
+
+Experts may hesitate when assigning evaluations across multiple alternatives and criteria due to incomplete data, subjective judgments, or conflicting priorities. This inherent uncertainty and hesitation make the HWN selection problem an ideal candidate for modeling using Hesitant Fuzzy Sets (HFS) and their extensions. However, existing HFS-based models are limited in handling high-dimensional data involving multiple experts, alternatives, and criteria simultaneously.
+
+To address this challenge, we propose a new decision-making model based on Hesitant Fuzzy Tensors (HFTs), which can capture the complex, multi-way relationships and hesitations encountered in HWN selection problems. The proposed framework is theoretically rigorous and practically applicable to real-world technology evaluation scenarios where multiple expert opinions must be fused under uncertainty.
+
+The proposed work introduces a novel Hesitant Fuzzy Tensor (HFT) model for multi-criteria group decision-making under uncertainty. While traditional hesitant fuzzy models such as hesitant fuzzy sets, hesitant fuzzy numbers, and hesitant fuzzy decision matrices have been extensively applied in decision theory, they exhibit limitations in representing multi-way data and retaining the full spectrum of expert hesitation.
+
+Tensor-Based Extension of Hesitant Fuzzy Models:The HFT model extends conventional hesitant fuzzy approaches into a higher-order tensor structure. This allows simultaneous modeling of alternatives, criteria, and decision-makers within a unified framework, enhancing structural expressiveness.
+
+Preservation of Multidimensional Hesitancy:Unlike prior models that defuzzify or average hesitant values early in the process, HFT retains the full set of hesitant values across all dimensions throughout computation. This preserves uncertainty information and improves interpretability.
+
+Unified Aggregation and Ranking Mechanism:A robust aggregation mechanism based on tensor union operations and score functions is proposed. It avoids inconsistencies introduced by separate handling of expert inputs, and allows for direct ranking of alternatives based on normalized tensor scores.
+
+Scalability and Real-World Applicability:The model is naturally scalable to large decision spaces with multiple experts and criteria, making it suitable for complex systems such as wireless networks, healthcare planning, and financial analysis.
+
+Comparative Advantage Over Traditional MCDM Methods:Through a comparative case study, we demonstrate that the HFT model provides more nuanced and reliable results than classical MCDM techniques like TOPSIS, MOORA, EDAS, WASPAS, and GRA – particularly when dealing with vague, hesitant, and group-based evaluations.
+
+These contributions establish the proposed HFT framework as a significant extension of existing hesitant fuzzy models and a powerful tool for decision-making in uncertain and multidimensional environments.
+
+This article is organized as: SectionIntroductiongives introduction. SectionBasic Definitionsgives basic definitions. SectionHesitant Fuzzy Tensorproposes novel approach, examples of novel approach, operations, properties and basic theorems. SectionGroup decision-making algorithm based on hesitant fuzzy tensors (HFT)presents proposed decision making algorithm, problem statement of heterogeneous wireless networks and solution of this problem by using proposed algorithm. SectionTheoretical Correctness and superiority of the proposed approachgives advantages and empirical support. SectionReflexivitygives comparative analysis and limitations. And at the end, we gave conclusion and future research directions.
+
+In this section we gave basic definitions of fuzzy set, hesitant fuzzy set, tensor and fuzzy tensor. These basic definitions are helpful for next study.
+
+wheredenotes the membership function that quantifies the degree to whichxbelongs toA.
+
+whereis a finite set of membership values expressing the hesitation or uncertainty ofxbelonging to the set.
+
+where eachdenotes the dimension in thekth mode9,10. Tensors are widely used to represent multiway data in signal processing, machine learning, and data analysis.
+
+whereare the tensor elements, andis the fuzzy membership function defined on each tensor entry23,24.
+
+In real-world scenarios, especially under uncertain and conflicting expert opinions, decision-makers often hesitate among several possible membership degrees when evaluating an element. This leads to the development of thehesitant fuzzy set (HFS)framework, introduced to capture such hesitation. To extend this concept for multi-dimensional, structured, and dynamic data representation, we define theHesitant Fuzzy Tensor (HFT)– a higher-order generalization of hesitant fuzzy matrices and hesitant fuzzy vectors, suitable for applications involving complex decision systems, multidimensional clustering, and intelligent analytics.
+
+wherefor, anddenotes a finite set of possible membership degrees expressing the hesitation of experts in assigning a precise membership value. Eachis known as ahesitant fuzzy element (HFE).
+
+Each entry in the tensor denotes the set of possible membership degrees due to hesitation in evaluation.
+
+This enables capturing hesitation across multiple dimensions and stakeholders.
+
+This allows urban planners to analyze the degree of support or concern for different technologies and deployment strategies over time.
+
+Hesitant Fuzzy Tensors (HFTs) extend hesitant fuzzy sets into multi-dimensional spaces, enabling rich modeling of complex, uncertain information. To support analysis and decision-making over HFTs, it is essential to define core operations. These operations are generally performed element-wise across corresponding hesitant fuzzy elements (HFEs) in tensors of identical shape. In what follows, we describe and illustrate the most fundamental operations.
+
+Hesitant Fuzzy Tensors (HFTs) allow each element to hold a set of possible membership degrees instead of a single value. To ensure meaningful operations and analysis, it is critical to explore the mathematical properties of HFTs. The following section outlines several fundamental properties – monotonicity, idempotency, boundedness, reflexivity, and convexity – each with a formal proof and example.
+
+for all tensors, where the orderingis defined as:iff for every, there existssuch that.
+
+If, then convexity holds. However, ifis closed under convex combination, the condition is satisfied.
+
+To build a rigorous mathematical framework for Hesitant Fuzzy Tensors (HFTs), it is essential to establish foundational theorems that govern their structure and operations. These theorems help verify closure, consistency, and the preservation of essential properties such as associativity and commutativity, which are vital in ensuring their applicability in real-world modeling and computational frameworks.
+
+Thus, every result oflies in [0, 1], and since the result is a finite set,is a valid HFT.
+
+Sincefor all real numbersa,b, the result remains unchanged when switchingand.
+
+Sinceby real number lattice theory, the result follows.
+
+Thus, both sides are equal. Similarly for the second identity using.
+
+This directly follows from the De Morgan’s laws for hesitant fuzzy tensors, as proven above. Therefore, the operations of union and intersection are dual under the complement operation.
+
+Union of Tensors:The aggregation step requires element-wise union acrossmdecision-makers for eachposition. Assuming average hesitant set lengthl, the union has a complexity ofper element (due to duplicate removal and sorting).
+
+Score Computation:For each alternative, the algorithm computes the maximum hesitant value for each criterion. This requiresoperations.
+
+Normalization and Ranking:Score normalization and ranking overnalternatives is performed intime.
+
+This is linear in the number of alternatives and criteria, but increases linearly with the number of decision-makers and logarithmically with the size of hesitant sets.
+
+Memory Usage:The HFT structure stores sets of floating-point values per position, requiring space in the order of. For large-scale applications or higher-order tensors, optimized storage or sparse representations may be adopted to improve performance.
+
+Scalability Considerations:Although the model is computationally efficient for moderate dimensions, in real-time or large-scale systems it may benefit from parallelization or distributed tensor processing methods.
+
+Introduction.In many real-life scenarios, decision-makers hesitate among several membership degrees when evaluating alternatives. To accommodate such uncertainty, we propose a novel group decision-making algorithm built on the framework of Hesitant Fuzzy Tensors. This method supports multi-criteria, multi-expert evaluations and provides a structured way to fuse and analyze these hesitant inputs.
+
+Let there bedecision-makers (DMs),alternatives, andcriteria. Each DM provides hesitant fuzzy evaluations across criteria and alternatives.
+
+Rank the Alternatives.Rank the alternativesbased on descending order ofor. The alternative with the highest score is the most preferable.
+
+Sensitivity or Robustness Check (Optional).Analyze the impact of variations in hesitant values or weight distributions (if used later) to validate the robustness of the ranking.
+
+Accommodates hesitation and ambiguity in expert judgments.
+
+Preserves multi-dimensional structure using tensor representation.
+
+Provides a simple yet powerful aggregation and scoring method.
+
+Can be extended to incorporate criteria weights, decision-maker weights, or fuzzy distance measures.
+
+The increasing adoption of digital technologies and the Internet of Things (IoT) has significantly intensified the demand for reliable and diverse wireless communication networks. As users and devices become more mobile and interconnected, effective selection of wireless networks is crucial to ensure optimal connectivity.Heterogeneous Wireless Networks(HWNs) encompass a variety of communication technologies, including low-power wide-area networks (LPWANs) such as LoRa and Zigbee, local area networks like Wi-Fi, and mobile cellular networks including LTE and 5G. Each technology offers distinct advantages and disadvantages in terms of coverage, capacity, energy consumption, and security. Figure1illustrates the various HWN technologies considered in this study.
+
+Selecting the most suitable wireless network for a specific application is a complex process influenced by multiple, often competing, criteria. Traditional methods that rely on a single factor such as cost or bandwidth are typically insufficient to capture the multifaceted nature of this decision. Consequently, fuzzy neural networks combined with Multi-Criteria Decision-Making (MCDM) techniques have proven effective in evaluating and ranking various alternatives based on several criteria.
+
+: A low-power wide-area network (LPWAN) technology designed for long-range communication with minimal energy consumption. It is widely used in IoT applications such as smart cities and agricultural monitoring.
+
+: Worldwide Interoperability for Microwave Access (WiMAX) provides long-distance, high-speed broadband wireless connectivity, serving as an alternative to wired broadband for both fixed and mobile users.
+
+: Also known as 802.11ax, Wi-Fi 6 is the latest generation of wireless local area network technology, designed to enhance capacity, speed, and efficiency in environments with numerous connected devices.
+
+(Long-Term Evolution Advanced): An enhanced version of LTE offering improved coverage, capacity, and data rates, incorporating advanced features to support multimedia and mobile broadband services.
+
+: A low-power, low-data-rate wireless protocol often used for short-range communication in applications such as industrial control systems and home automation.
+
+(New Radio): The next-generation mobile communication technology aiming to provide higher capacity, reduced latency, and faster speeds, supporting diverse applications from IoT to enhanced mobile broadband.
+
+: The delay in data transmission, crucial for real-time communication applications.
+
+: The data throughput capacity, essential for applications requiring high data rates.
+
+: Power consumption levels, important for battery-powered and IoT devices.
+
+: The geographic range over which the network can reliably operate.
+
+: Measures including encryption and data protection to safeguard communications.
+
+: The expenses associated with network deployment, operation, and maintenance.
+
+The case study focuses on selecting the most suitable heterogeneous wireless network technology from six alternatives: Zigbee (Z1), WiFi (Z2), WiMAX (Z3), Bluetooth (Z4), LTE (Z5), and 5G NR (Z6). This decision is complex due to the variability in performance, cost, energy efficiency, and user requirements across different contexts (e.g., IoT, mobile broadband, or smart infrastructure).
+
+Prior involvement in technology assessment or network deployment planning.
+
+The experts were asked to evaluate the six technologies based on a common set of technical and practical criteria using hesitant fuzzy linguistic assessments.
+
+Security & Reliability (C6):The resilience and protection against attacks or faults.
+
+These criteria were chosen based on their relevance to real-world wireless deployment decisions, particularly in smart environments where trade-offs between performance and cost are significant.
+
+The hesitant fuzzy evaluations provided by the experts reflect their uncertainty or hesitation in assigning precise membership values. Each evaluation is represented as a set of values in the [0, 1] range, capturing multiple possible ratings for each criterion-alternative pair.
+
+To examine the reliability of the proposed Hesitant Fuzzy Tensor (HFT)-based decision-making model under minor variations in expert inputs, two controlled experiments were conducted.
+
+In this experiment, we modified certain hesitant membership values given by decision-maker D3. Specifically, small perturbations of ±0.1 were applied to evaluations across two randomly selected criteria. Following aggregation and recalculation, the resulting alternative rankings remained unchanged. This suggests that the model is stable under mild fluctuations in the input data.
+
+The inclusion of an additional decision-maker (D4) resulted in only slight changes in score magnitudes, while the overall ranking structure remained intact. The top three alternatives–,, and–continued to occupy the highest positions. This confirms the robustness of the HFT-based approach under dynamic group structures and uncertain expert assessments.
+
+To enhance the realism of the proposed HFT-based decision-making model, we extend the original framework to incorporate weighting mechanisms for both criteria and decision-makers.
+
+Tensor Aggregation (Union):Each hesitant fuzzy tensor entry contains a finite set of membership values, typically of sizel(average cardinality of a hesitant set). For each element, the union ofmsets (each of size) is computed and then sorted. The complexity isper element, leading to an overall aggregation complexity of.
+
+Score Computation:For each alternative, the algorithm computes the maximum value from each aggregated hesitant fuzzy element. This requiresoperations.
+
+Normalization and Ranking:The final scores fornalternatives are normalized and sorted for ranking, which takestime.
+
+Pruning techniques to discard low-influence hesitant values.
+
+These improvements would enhance the feasibility of the HFT-based model in big-data decision environments such as smart cities, healthcare systems, and IoT networks.
+
+To rigorously test the reliability of the HFT-based decision-making model under uncertain or evolving decision data, we performed a multi-level sensitivity analysis with controlled perturbations.
+
+We introducedperturbations to randomly selected hesitant values in the evaluations of decision-maker 2 across three criteria and all six alternatives. The resulting normalized scores and rankings were computed and compared with the baseline.
+
+As Table1shows, the ranking order remains unchanged, indicating strong robustness to small fluctuations in hesitant data.
+
+Effect of hesitant value perturbation on rankings.
+
+A fourth decision-maker () with a slightly different evaluation profile was added. We re-aggregated the hesitant tensors and recalculated the scores. The top-3 alternatives remained unchanged.
+
+Interpretation:These experiments demonstrate that the HFT-based approach produces stable and consistent rankings under moderate changes to decision inputs. This supports its suitability for real-world decision-making where data may be uncertain, incomplete, or evolving over time.
+
+Future work may involve Monte Carlo simulation-based sensitivity analyses to assess model behavior under stochastic fluctuations across large datasets.
+
+The proposed Hesitant Fuzzy Tensor (HFT)-based decision-making model has been established on a rigorous mathematical foundation. Several formal theorems and algebraic properties–including closure under addition, associativity, commutativity, boundedness, De Morgan’s laws, and the identity element theorem–have been thoroughly proven in SectionHesitant fuzzy tensor. These proofs confirm the internal consistency, correctness, and operational soundness of the proposed HFT structure.
+
+To further support the practical correctness and effectiveness of the model, we applied the HFT-based group decision-making algorithm to a real-world problem involving the evaluation of heterogeneous wireless networks. This case study demonstrates the model’s ability to aggregate hesitant expert evaluations and produce interpretable and robust rankings under uncertainty.
+
+Handling Expert Hesitation:Traditional methods often require single-valued or crisp inputs, whereas the HFT model allows for sets of possible membership values, effectively capturing expert hesitation and ambiguity.
+
+High-Order Data Modeling:The tensor structure enables the representation of multi-dimensional relationships among alternatives, criteria, and decision-makers, which is not feasible with classical matrix-based methods.
+
+Improved Accuracy and Interpretability:As shown in Table1, the proposed method consistently yields higher performance scores across the alternatives. This reflects a more precise evaluation that accommodates uncertainty and hesitancy.
+
+Robustness in Dynamic Environments:Unlike methods that assume static or uniform data inputs, the HFT approach is inherently adaptable to changing criteria weights or evolving expert judgments due to its flexible tensor representation.
+
+Computational Feasibility:Despite its expressive power, the algorithm involves simple element-wise operations and max-based scoring, making it computationally efficient for practical deployment.
+
+Tables2and3demonstrate that the 5G NR technology (Z6) is consistently ranked as the best-performing alternative across all methods. However, the proposed HFT-based approach assigns the highest score and exhibits clearer separation among alternatives, thereby improving the decision-maker’s confidence. Figure3visually affirms the superiority of the proposed method.
+
+These results confirm that the HFT-based model not only aligns with conventional MCDM outcomes but also offers enhanced granularity, interpretability, and correctness in environments where decision data is uncertain, hesitant, or multidimensional.
+
+Table2shows the comparative results of proposed approach with existing techniques. The comparison was performed using evaluations provided by three domain experts specializing in heterogeneous wireless networks. Their assessments served as the foundation for our analysis, ensuring real-world applicability and credibility.
+
+1.Handling Hesitation and Uncertainty: Unlike traditional MCDM techniques, our proposed hesitant fuzzy tensor-based approach effectively captures and processes uncertainty and expert hesitancy, which is often overlooked in conventional methods.
+
+2.Flexibility in Data Representation: While WASPAS and TOPSIS rely on crisp or fuzzy inputs, our model incorporates higher-order tensor structures, allowing for more nuanced and multi-dimensional decision-making.
+
+3.Robustness in Dynamic Environments: MOORA and EDAS perform well in static scenarios, but our method demonstrates superior adaptability in dynamic wireless network environments where criteria weights and alternatives frequently change.
+
+4.Computational Efficiency: GRA and EDAS offer simplicity but may lack precision in complex scenarios. In contrast, our approach balances computational efficiency with high accuracy, making it suitable for real-time applications.
+
+The results highlight that our proposed technique not only aligns with existing methods but also addresses their limitations, particularly in handling imprecise and incomplete data. This makes it a more reliable and advanced tool for decision-making in heterogeneous wireless networks.
+
+According to the results of the WASPAS, MOORA, EDAS, TOPSIS, and GRA techniques, the 5G New Radio (NR) performs better than other heterogeneous wireless networks. The proposed approach is successful in improving decision support systems, demonstrating its efficacy and validity, according to the comparison analysis. Figure3, which graphically depicts the 5G NR network’s greater efficiency in comparison to other networks, and Table2which offer comprehensive performance information.
+
+In order to identify the best HWN, the final rankings were determined using the proposed approach along with several well-known MCDM techniques, including WASPAS, MOORA, EDAS, TOPSIS, and GRA. The rankings generated by each approach are compared in Table3. The overall results consistently indicate that the 5G NR network is the best-performing HWN, with only minor differences in the rankings of individual HWNs across the methods. Despite slight variations in the rankings of the other assessed networks, this consistency reinforces the reliability of 5G NR as the top HWN selection.
+
+Although traditional MCDM methods such as TOPSIS, MOORA, EDAS, WASPAS, and GRA have been widely used across application domains, they exhibit several limitations when dealing with real-world decision problems that involve uncertainty, hesitation, and high-dimensional data. A summary of these limitations and the corresponding advantages of the proposed HFT model is provided below.
+
+Single-Valued Input Assumption:Most traditional methods assume that decision inputs are crisp or scalar values. They are not equipped to handle hesitation in expert evaluations, where multiple membership values may exist for a single criterion-alternative pair. In contrast, HFT directly supports hesitant fuzzy sets, allowing for richer and more realistic modeling of expert uncertainty.
+
+Flat Decision Matrices:Traditional MCDM models use 2D matrices to represent alternatives and criteria. This structure cannot inherently accommodate evaluations from multiple decision-makers or multidimensional relationships. HFT overcomes this by using a 3D (or higher) tensor structure, which allows simultaneous handling of alternatives, criteria, and experts in a unified framework.
+
+Aggregation Constraints:Methods like TOPSIS or MOORA rely on normalization or distance calculations that are sensitive to scale and may not robustly aggregate hesitant or uncertain data. The HFT approach uses union-based aggregation and score-maximization that are better suited for non-exact inputs.
+
+Limited Expressiveness under Ambiguity:Classical methods struggle in scenarios with subjective or conflicting evaluations from experts. HFT accommodates multiple membership degrees, retaining the inherent ambiguity in human judgments instead of forcing premature precision.
+
+Loss of Information during Simplification:Many methods require defuzzification or averaging of hesitant inputs, leading to potential information loss. HFT preserves all original hesitant values throughout the computation pipeline, enhancing interpretability and traceability.
+
+These structural and theoretical distinctions underscore the value of the HFT model, especially in uncertain and multi-expert decision contexts such as network selection, medical treatment planning, or urban infrastructure evaluation. The comparative results shown in Tables2and3along with Fig.3, quantitatively reinforce the model’s robustness and practicality.
+
+The ranking results derived from the proposed HFT-based approach demonstrate its robustness and effectiveness in handling multidimensional hesitant information. As shown in Table2, Alternative(5G NR) consistently ranks first across all decision-maker inputs, affirming its superior performance in terms of data rate, latency, and reliability.
+
+Compared to traditional MCDM methods (TOPSIS, MOORA, EDAS, etc.), the HFT model preserves hesitant information without premature averaging or defuzzification. This leads to more nuanced and reliable ranking outcomes. In addition, the HFT framework accommodates complex expert evaluations while maintaining interpretability – a key advantage for real-world deployment in domains such as telecommunications, healthcare, and finance.
+
+The results indicate that the proposed model is not only theoretically sound but also practically applicable, especially in decision-making scenarios with uncertainty and hesitation among expert inputs.
+
+This article has introduced a novel decision-making framework based on the concept of theHesitant Fuzzy Tensor (HFT). By integrating the flexibility of hesitant fuzzy sets with the multi-dimensional capacity of tensors, the proposed approach effectively addresses complex decision environments characterized by ambiguity, hesitation, and multi-source evaluations. The methodology captures expert hesitation in assigning membership degrees and enables the aggregation and analysis of multidimensional decision data in a structured and scalable format. A comprehensive group decision-making algorithm using HFT was developed and validated through an application to the selection of heterogeneous wireless communication networks. The results demonstrate that the HFT model provides a robust and adaptable solution, offering improved precision and reliability compared to traditional hesitant fuzzy models.
+
+Healthcare:Evaluating treatment plans or medical technologies where decisions are based on multiple expert opinions under uncertain clinical conditions.
+
+Finance:Portfolio management or credit scoring, where different investment options must be assessed under market uncertainty and investor hesitation.
+
+Urban Planning:Selecting infrastructure projects, sustainability policies, or smart city components involving multidimensional and conflicting expert criteria.
+
+By conducting empirical studies in these domains, we aim to validate the flexibility, adaptability, and robustness of the HFT framework under diverse decision-making contexts.
+
+Integration with Other Fuzzy Extensions:Incorporating neutrosophic, intuitionistic, or interval-valued hesitant fuzzy components into the tensor framework could further improve modeling of more complex uncertainties.
+
+Optimization Algorithms:Hybridizing the HFT decision-making process with metaheuristic optimization methods (e.g., PSO, GA, ACO) may aid in solving large-scale multi-objective problems.
+
+Dynamic and Time-Dependent Tensors:Developing temporal hesitant fuzzy tensors could extend the method to dynamic decision environments, such as real-time systems or evolving expert opinions.
+
+Machine Learning Synergy:Embedding HFT into machine learning models (e.g., clustering, classification, recommendation systems) may lead to improved interpretability and performance in uncertain data-driven tasks.
+
+Software and Computational Tools:Creating a dedicated toolbox or package for hesitant fuzzy tensor operations would promote wider adoption and simplify implementation for researchers and practitioners.
+
+Open-Source Toolbox Development:A future objective is to develop a Python- or MATLAB-based open-source toolbox that supports HFT construction, operations, aggregation, and decision-making workflows. Such a toolkit would significantly enhance usability for researchers and practitioners across domains.
+
+In conclusion, the hesitant fuzzy tensor model lays a strong foundation for advanced decision analysis under uncertainty and opens new avenues for future exploration in both theory and application.
+
+Healthcare:HFT can be used to evaluate treatment strategies for chronic diseases (e.g., cancer), where multiple experts assess treatment options under uncertain outcomes and patient conditions.
+
+Finance:Portfolio selection or credit risk assessment often involves multiple conflicting criteria and opinions from financial analysts. HFT enables robust modeling of such hesitant evaluations.
+
+Urban Planning:In smart city initiatives, decisions about infrastructure, environmental sustainability, or public safety require integration of conflicting expert views across multiple stakeholders and locations. HFT supports multidimensional assessment and priority mapping in such contexts.
+
+These domains highlight the model’s potential to serve as a unified decision support framework under uncertainty across sectors. In future work, we aim to develop full case studies to validate HFT in these domains.

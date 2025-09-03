@@ -1,0 +1,2838 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+    <head >
+
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+        
+
+        
+        
+  <link rel="stylesheet" href="/static/assets/style-8258669d.css" />
+<script type="module" crossorigin="" src="/static/assets/base_style-f4a99799.js"></script>
+
+  <link rel="stylesheet" href="/static/assets/style-ef962842.css" />
+<link rel="stylesheet" href="/static/assets/style-3ade8b5c.css" />
+<script type="module" crossorigin="" src="/static/assets/article_style-d757a0dd.js"></script>
+
+  
+  
+    <style>
+  
+  
+  @media screen and (min-width: 64em) {
+    div.pmc-wm {
+      background: repeat-y;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='350' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-.02' y='0' width='1.05' height='1' id='c'%3E%3CfeFlood flood-color='%23FFF'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3Ctext id='b' font-family='Helvetica' font-size='11pt' style='opacity:1;fill:%23005ea2;stroke:none;text-anchor:middle' x='175' y='14'%3E%3C/text%3E%3Cpath id='a' style='fill:%23005ea2' d='M0 8h350v3H0z'/%3E%3C/defs%3E%3Cuse xlink:href='%23a' transform='rotate(90 10 10)'/%3E%3Cuse xlink:href='%23b' transform='rotate(90 10 10)' filter='url(%23c)'/%3E%3C/svg%3E");
+      padding-left: 3rem;
+    }
+  }
+</style>
+
+  
+
+
+
+        
+            <link rel="apple-touch-icon"
+                  sizes="180x180"
+                  href="/static/img/favicons/apple-touch-icon.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="48x48"
+                  href="/static/img/favicons/favicon-48x48.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="/static/img/favicons/favicon-32x32.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="/static/img/favicons/favicon-16x16.png" />
+            <link rel="manifest" href="/static/img/favicons/site.webmanifest" />
+            <link rel="mask-icon"
+                  href="/static/img/favicons/safari-pinned-tab.svg"
+                  color="#0071bc" />
+            <meta name="msapplication-config"
+                  content="/static/img/favicons/browserconfig.xml" />
+            <meta name="theme-color" content="#ffffff" />
+        
+
+        <title>
+            Adaptive robust control of tea-picking-manipulator’s position tracking based on dead zone compensation with modified RBF - PMC
+        </title>
+
+        
+        
+  
+  <!-- Logging params: Pinger defaults -->
+<meta name="ncbi_app" content="cloudpmc-viewer" />
+<meta name="ncbi_db" content="pmc" />
+<meta name="ncbi_phid" content="D2E4A6E88AF25BD305A6E80028C38990.m_1" />
+<meta name="ncbi_pinger_stat_url" content="https://pmc.ncbi.nlm.nih.gov/stat" />
+<!-- Logging params: Pinger custom -->
+<meta name="ncbi_pdid" content="article" />
+  
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+
+    
+        <link rel="preconnect" href="https://cdn.ncbi.nlm.nih.gov" />
+    
+
+    <!-- Include USWDS Init Script -->
+    <script src="/static/assets/uswds-init.js"></script>
+
+
+    <meta name="ncbi_domain" content="scirep">
+<meta name="ncbi_type" content="fulltext">
+<meta name="ncbi_pcid" content="journal">
+<meta name="ncbi_feature" content="associated_data">
+<link rel="canonical" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12370935/">
+<meta name="robots" content="INDEX,NOFOLLOW,NOARCHIVE">
+<meta name="citation_journal_title" content="Scientific Reports">
+<meta name="citation_title" content="Adaptive robust control of tea-picking-manipulator’s position tracking based on dead zone compensation with modified RBF">
+<meta name="citation_author" content="Yu Han">
+<meta name="citation_author_institution" content="School of Automation, Southeast University, Nanjing, 210096 China">
+<meta name="citation_author_institution" content="School of Mathematics, Southeast University, Nanjing, 210096 China">
+<meta name="citation_author_institution" content="Ministry of Agriculture and Rural Affairs, Nanjing Institute of Agricultural Machanization, Nanjing, 210014 China">
+<meta name="citation_author" content="Zhiyu Song">
+<meta name="citation_author_institution" content="Ministry of Agriculture and Rural Affairs, Nanjing Institute of Agricultural Machanization, Nanjing, 210014 China">
+<meta name="citation_author" content="Wenyu Yi">
+<meta name="citation_author_institution" content="Key Laboratory of Agricultural Equipment Technology for Hilly and Mountainous Areas, Ministry of Agriculture and Rural Affairs, Chengdu, 610066 China">
+<meta name="citation_author" content="Caixue Zhan">
+<meta name="citation_author_institution" content="Ministry of Agriculture and Rural Affairs, Nanjing Institute of Agricultural Machanization, Nanjing, 210014 China">
+<meta name="citation_author_institution" content="The Key Laboratory for Crop Production and Smart Agriculture of Yunnan Province, Kunming, 650540 China">
+<meta name="citation_publication_date" content="2025 Aug 21">
+<meta name="citation_volume" content="15">
+<meta name="citation_firstpage" content="30697">
+<meta name="citation_doi" content="10.1038/s41598-025-10981-4">
+<meta name="citation_pmid" content="40841718">
+<meta name="citation_abstract_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12370935/">
+<meta name="citation_fulltext_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12370935/">
+<meta name="citation_pdf_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12370935/pdf/41598_2025_Article_10981.pdf">
+<meta name="description" content="Neural Network has been used in approximation of dead zone nonlinearity when modeling the manipulator control systems. However the existed method fail to minimize the possible input saturation effect and the NN mapping accuracy also be degraded, ...">
+<meta name="og:title" content="Adaptive robust control of tea-picking-manipulator’s position tracking based on dead zone compensation with modified RBF">
+<meta name="og:type" content="article">
+<meta name="og:site_name" content="PubMed Central (PMC)">
+<meta name="og:description" content="Neural Network has been used in approximation of dead zone nonlinearity when modeling the manipulator control systems. However the existed method fail to minimize the possible input saturation effect and the NN mapping accuracy also be degraded, ...">
+<meta name="og:url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12370935/">
+<meta name="og:image" content="https://cdn.ncbi.nlm.nih.gov/pmc/cms/images/pmc-card-share.jpg?_=0">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ncbi">
+    
+    
+
+    </head>
+    <body >
+        
+    <a class="usa-skipnav " href="#main-content">
+      Skip to main content
+    </a>
+
+
+        
+            
+
+<section class="usa-banner " aria-label="Official website of the United States government" >
+    <div class="usa-accordion">
+        <header class="usa-banner__header">
+            <div class="usa-banner__inner">
+                <div class="grid-col-auto">
+                    <img aria-hidden="true"
+                         class="usa-banner__header-flag"
+                         src="/static/img/us_flag.svg"
+                         alt="" />
+                </div>
+
+                <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+                    <p class="usa-banner__header-text">
+                        An official website of the United States government
+                    </p>
+                    <span class="usa-banner__header-action">Here's how you know</span>
+                </div>
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-accordion__button usa-banner__button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    aria-expanded="false"
+    aria-controls="gov-banner-default"
+    
+    data-testid="storybook-django-banner"
+    
+    >
+    
+        
+
+        
+                    <span class="usa-banner__button-text">Here's how you know</span>
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </div>
+        </header>
+
+        <div class="usa-banner__content usa-accordion__content"
+             id="gov-banner-default"
+             hidden>
+            <div class="grid-row grid-gap-lg">
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-dot-gov.svg"
+                         alt=""
+                         aria-hidden="true" />
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Official websites use .gov</strong>
+                            <br />
+                            A
+                            <strong>.gov</strong> website belongs to an official
+                            government organization in the United States.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-https.svg"
+                         alt=""
+                         aria-hidden="true" />
+
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Secure .gov websites use HTTPS</strong>
+                            <br />
+                            A <strong>lock</strong> (
+                            <span class="icon-lock">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     width="52"
+                                     height="64"
+                                     viewBox="0 0 52 64"
+                                     class="usa-banner__lock-image"
+                                     role="graphics-symbol"
+                                     aria-labelledby="banner-lock-description"
+                                     focusable="false">
+                                    <title id="banner-lock-title">Lock</title>
+                                    <desc id="banner-lock-description">
+                                    Locked padlock icon
+                                    </desc>
+                                    <path fill="#000000"
+                                          fill-rule="evenodd"
+                                          d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+                                </svg>
+</span>) or <strong>https://</strong> means you've safely
+                                connected to the .gov website. Share sensitive
+                                information only on official, secure websites.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        
+
+        
+    
+    
+    
+
+<div class="usa-overlay">
+</div>
+
+
+
+<header class="usa-header usa-header--extended usa-header--wide" data-header data-testid="header"    >
+    <div class="ncbi-header">
+        <div class="ncbi-header__container">
+            <a class="ncbi-header__logo-container"
+               href="https://www.ncbi.nlm.nih.gov/">
+                <img alt="NCBI home page"
+                     class="ncbi-header__logo-image"
+                     src="/static/img/ncbi-logos/nih-nlm-ncbi--white.svg"
+                     width="410"
+                     height="100" />
+            </a>
+
+            <!-- Mobile menu hamburger button -->
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-menu-btn ncbi-header__hamburger-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Show menu"
+    data-testid="navMenuButton"
+    
+    >
+    
+        
+
+        
+                <svg aria-hidden="true"
+                     class="ncbi-hamburger-icon"
+                     fill="none"
+                     focusable="false"
+                     height="21"
+                     viewBox="0 0 31 21"
+                     width="31"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd"
+                          d="M0.125 20.75H30.875V17.3333H0.125V20.75ZM0.125 12.2083H30.875V8.79167H0.125V12.2083ZM0.125 0.25V3.66667H30.875V0.25H0.125Z"
+                          fill="#F1F1F1"
+                          fill-rule="evenodd" />
+                </svg>
+            
+
+        
+    
+        
+            </button>
+        
+
+
+
+            
+                <!-- Desktop buttons-->
+                <div class="ncbi-header__desktop-buttons">
+                    
+                        <!-- Desktop search button -->
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button
+           "
+    aria-expanded="false"
+    aria-controls="search-field-desktop-navigation"
+    aria-label="Show search overlay"
+    data-testid="toggleSearchPanelButton"
+    data-toggle-search-panel-button
+    >
+    
+        
+
+        
+                            
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#search" />
+    </svg>
+
+
+                            Search
+                        
+
+        
+    
+        
+            </button>
+        
+
+
+                    
+
+                    <!-- Desktop login dropdown -->
+                    
+                        <div class="ncbi-header__login-dropdown">
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button ncbi-header__login-dropdown-button
+           "
+    aria-expanded="false"
+    aria-controls="login-dropdown-menu"
+    aria-label="Show login menu"
+    data-testid="toggleLoginMenuDropdown"
+    data-desktop-login-button
+    >
+    
+        
+
+        
+                                
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#person" />
+    </svg>
+
+
+
+                                <span data-login-dropdown-text>Log in</span>
+
+                                <!-- Dropdown icon pointing up -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-less ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-up-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_less" />
+    </svg>
+
+
+
+                                <!-- Dropdown icon pointing down -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-more ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-down-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_more" />
+    </svg>
+
+
+                            
+
+        
+    
+        
+            </button>
+        
+
+
+
+                            <!-- Login dropdown menu -->
+                            <ul class="usa-nav__submenu ncbi-header__login-dropdown-menu"
+                                id="login-dropdown-menu"
+                                data-desktop-login-menu-dropdown
+                                hidden>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                <li class="usa-nav__submenu-item">
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--outline ncbi-header__login-dropdown-logout-button
+           "
+    
+    
+    
+    data-testid="desktopLogoutButton"
+    data-desktop-logout-button
+    >
+    
+        
+
+        Log out
+
+        
+    
+        
+            </button>
+        
+
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                </div>
+            
+        </div>
+    </div>
+
+    <!-- Search panel -->
+    
+        <div class="ncbi-search-panel ncbi--show-only-at-desktop"
+             data-header-search-panel
+             hidden>
+            <div class="ncbi-search-panel__container">
+                <form action="https://www.ncbi.nlm.nih.gov/search/all/"
+                      
+                      autocomplete="off"
+                      class="usa-search usa-search--big ncbi-search-panel__form"
+                      data-testid="desktop-navigation-search-form"
+                      method="GET"
+                      role="search">
+                    <label class="usa-sr-only" for="search-field-desktop-navigation">
+                        Search…
+                    </label>
+                    <input class="usa-input"
+                           id="search-field-desktop-navigation"
+                           name="term"
+                           
+                               placeholder="Search NCBI"
+                           
+                           type="search"
+                           value="" />
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                        <span class="usa-search__submit-text">
+                            Search NCBI
+                        </span>
+                    
+
+        
+    
+        
+            </button>
+        
+
+
+                </form>
+
+                
+            </div>
+        </div>
+    
+
+    <nav aria-label="Primary navigation" class="usa-nav">
+        <p class="usa-sr-only" id="primary-navigation-sr-only-title">
+            Primary site navigation
+        </p>
+
+        <!-- Mobile menu close button -->
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-nav__close ncbi-nav__close-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Close navigation menu"
+    data-testid="navCloseButton"
+    
+    >
+    
+        
+
+        
+            <img src="/static/img/usa-icons/close.svg" alt="Close" />
+        
+
+        
+    
+        
+            </button>
+        
+
+
+
+        
+            <!-- Mobile search component -->
+            <form class="usa-search usa-search--small ncbi--hide-at-desktop margin-top-6"
+                  action="https://www.ncbi.nlm.nih.gov/search/all/"
+                  
+                  autocomplete="off"
+                  data-testid="mobile-navigation-search-form"
+                  method="GET"
+                  role="search">
+                <label class="usa-sr-only" for="search-field-mobile-navigation">
+                    Search
+                </label>
+
+                <input class="usa-input"
+                       id="search-field-mobile-navigation"
+                       type="search"
+                       
+                           placeholder="Search NCBI"
+                       
+                       name="term" />
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                    <!-- This SVG should be kept inline and not replaced with a link to the icon as otherwise it will render in the wrong color -->
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0E2LjQ3MSA2LjQ3MSAwIDAgMCAxNiA5LjUgNi41IDYuNSAwIDEgMCA5LjUgMTZjMS42MSAwIDMuMDktLjU5IDQuMjMtMS41N2wuMjcuMjh2Ljc5bDUgNC45OUwyMC40OSAxOWwtNC45OS01em0tNiAwQzcuMDEgMTQgNSAxMS45OSA1IDkuNVM3LjAxIDUgOS41IDUgMTQgNy4wMSAxNCA5LjUgMTEuOTkgMTQgOS41IDE0eiIvPjwvc3ZnPg=="
+                         class="usa-search__submit-icon"
+                         alt="Search" />
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </form>
+
+            
+        
+
+        <!-- Primary navigation menu items -->
+        <!-- This usa-nav__inner wrapper is required to correctly style the navigation items on Desktop -->
+        
+
+        
+            <div class="ncbi-nav__mobile-login-menu ncbi--hide-at-desktop"
+                 data-mobile-login-menu
+                 hidden>
+                <p class="ncbi-nav__mobile-login-menu-status">
+                    Logged in as:
+                    <strong class="ncbi-nav__mobile-login-menu-email"
+                            data-mobile-login-email-text></strong>
+                </p>
+                <ul class="usa-nav__primary usa-accordion">
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           ncbi-nav__mobile-login-button ncbi--hide-at-desktop
+           "
+    
+    
+    
+    data-testid="mobileLoginButton"
+    data-mobile-login-button
+    >
+    
+        
+
+        Log in
+
+        
+    
+        
+            </button>
+        
+
+
+    </nav>
+</header>
+
+    
+    
+        
+
+<section class="pmc-header pmc-header--basic" aria-label="PMC Header with search box">
+    <div class="pmc-nav-container">
+        <div class="pmc-header__bar">
+           <div class="pmc-header__logo">
+               <a href="/" title="Home" aria-label="PMC Home"></a>
+           </div>
+            <button
+                    type="button"
+                    class="usa-button usa-button--unstyled pmc-header__search__button"
+                    aria-label="Open search"
+                    data-ga-category="search"
+                    data-ga-action="PMC"
+                    data-ga-label="pmc_search_panel_mobile"
+            >
+                <svg class="usa-icon width-4 height-4 pmc-icon__open" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#search"></use>
+                </svg>
+                <svg class="usa-icon width-4 height-4 pmc-icon__close" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="pmc-header__search">
+            
+
+
+<form class="usa-search usa-search--extra usa-search--article-right-column  pmc-header__search__form" id="pmc-search-form" autocomplete="off" role="search">
+<label class="usa-sr-only" for="pmc-search">Search PMC Full-Text Archive</label>
+<span class="autoComplete_wrapper flex-1">
+<input class="usa-input width-full maxw-none" required="required" placeholder="Search PMC Full-Text Archive" id="pmc-search"  type="search" name="term" data-autocomplete-url="https://pmc.ncbi.nlm.nih.gov/autocomp/search/autocomp/"/>
+</span>
+<button
+class="usa-button"
+type="submit"
+formaction="https://www.ncbi.nlm.nih.gov/pmc/"
+data-ga-category="search"
+data-ga-action="PMC"
+data-ga-label="PMC_search_button"
+>
+<span class="usa-search__submit-text">Search in PMC</span>
+<img
+src="/static/img/usa-icons-bg/search--white.svg"
+class="usa-search__submit-icon"
+alt="Search"
+/>
+</button>
+</form>
+            <div class="display-flex flex-column tablet:flex-row tablet:flex-justify flex-justify-center flex-align-center width-full desktop:maxw-44">
+                <ul class="pmc-header__search__menu">
+                    <li>
+                        
+                            <a class="usa-link" href="/journals/" data-ga-action="featured_link" data-ga-label="journal list">
+                                Journal List
+                            </a>
+                        
+                    </li>
+                    <li>
+                        
+                            <a class="usa-link" href="/about/userguide/" data-ga-action="featured_link"
+                            data-ga-label="user guide">
+                                User Guide
+                            </a>
+                        
+                    </li>
+                </ul>
+                
+                    <button form="pmc-search-form" formaction="https://pmc.ncbi.nlm.nih.gov/search/" type="submit" class="usa-button usa-button--unstyled hover:text-no-underline text-no-underline width-auto margin-top-1 tablet:margin-top-0">
+     <span class="bg-green-label padding-05 text-white">New</span><span class="text-underline text-primary">Try this search in PMC Beta Search</span>
+</button>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+
+
+        
+        
+
+       
+  <div class="usa-section padding-top-0 desktop:padding-top-6 pmc-article-section" data-article-db="pmc" data-article-id="12370935">
+
+    
+
+   
+
+
+
+<div class="grid-container pmc-actions-bar" aria-label="Actions bar" role="complementary">
+    <div class="grid-row">
+        <div class="grid-col-fill display-flex">
+             <div class="display-flex">
+                <ul class="usa-list usa-list--unstyled usa-list--horizontal">
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <button
+                                type="button"
+                                class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                                aria-label="Open resources"
+                                data-extra-class="is-visible-resources"
+                                data-ga-category="resources_accordion"
+                                data-ga-action="click"
+                                data-ga-label="mobile_icon"
+                        >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#more_vert"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <a
+                                href="https://doi.org/10.1038/s41598-025-10981-4"
+                                class="usa-link display-flex usa-tooltip"
+                                role="button"
+                                target="_blank"
+                                rel="noreferrer noopener"
+                                title="View on publisher site"
+                                data-position="bottom"
+                                aria-label="View on publisher site"
+                                data-ga-category="actions"
+                                data-ga-action="click"
+                                data-ga-label="publisher_link_mobile"
+                        >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#launch"></use>
+                                </svg>
+                        </a>
+                    </li>
+                    
+                    
+                        <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                             <a
+                                     href="pdf/41598_2025_Article_10981.pdf"
+                                     class="usa-link display-flex usa-tooltip"
+                                     role="button"
+                                     title="Download PDF"
+                                     data-position="bottom"
+                                     aria-label="Download PDF"
+                                     data-ga-category="actions"
+                                     data-ga-action="click"
+                                     data-ga-label="pdf_download_mobile"
+                             >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button
+                            class="usa-button usa-button--unstyled  usa-tooltip collections-dialog-trigger collections-button display-flex collections-button-empty"
+                            title="Add to Collections"
+                            data-position="bottom"
+                            aria-label="Save article in MyNCBI collections."
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="collections_button_mobile"
+                            data-collections-open-dialog-enabled="false"
+                            data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12370935%2F%3Freport%3Dclassic%23open-collections-dialog"
+                            data-in-collections="false"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button role="button" class="usa-button usa-button--unstyled usa-tooltip citation-dialog-trigger display-flex"
+                            aria-label="Open dialog with citation text in different styles"
+                            title="Cite"
+                            data-position="bottom"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="cite_mobile"
+                            data-all-citations-url="/resources/citations/12370935/"
+                            data-citation-style="nlm"
+                            data-download-format-link="/resources/citations/12370935/export/"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="pmc-permalink display-flex" >
+                         <button
+                                 type="button"
+                                 title="Permalink"
+                                 data-position="bottom"
+                                 class="usa-button usa-button--unstyled display-flex usa-tooltip"
+                                 aria-label="Show article permalink"
+                                 aria-expanded="false"
+                                 aria-haspopup="true"
+                                 data-ga-category="actions"
+                                 data-ga-action="open"
+                                 data-ga-label="permalink_mobile"
+                         >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#share"></use>
+                            </svg>
+                        </button>
+                        
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12370935/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+                    </li>
+                </ul>
+            </div>
+            <button
+                    type="button"
+                    class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                    aria-label="Open article navigation"
+                    data-extra-class="is-visible-in-page"
+                    data-ga-category="actions"
+                    data-ga-action="open"
+                    data-ga-label="article_nav_mobile"
+            >
+                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#list"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+    <div class="grid-container desktop:padding-left-6">
+      <div id="article-container" class="grid-row grid-gap">
+        <div class="grid-col-12 desktop:grid-col-8 order-2 pmc-layout__content">
+            <div class="grid-container padding-left-0 padding-right-0">
+                <div class="grid-row desktop:margin-left-neg-6">
+                    <div class="grid-col-12">
+                        <div class="pmc-layout__disclaimer" role="complementary" aria-label="Disclaimer note">
+    As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,
+    the contents by NLM or the National Institutes of Health.<br/>
+    Learn more:
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="Disclaimer" data-ga-label="New disclaimer box" href="/about/disclaimer/">PMC Disclaimer</a>
+    |
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="PMC Copyright Notice" data-ga-label="New disclaimer box" href="/about/copyright/">
+        PMC Copyright Notice
+    </a>
+</div>
+                    </div>
+                </div>
+                <div class="grid-row pmc-wm desktop:margin-left-neg-6">
+                    <!-- Main content -->
+                    <main
+                      id="main-content"
+                      class="usa-layout-docs__main usa-layout-docs grid-col-12 pmc-layout pmc-prose padding-0"
+                    >
+
+                      
+                        <section class="pmc-journal-banner text-center line-height-none" aria-label="Journal banner"><img src="https://cdn.ncbi.nlm.nih.gov/pmc/banners/logo-scirep.jpg" alt="Scientific Reports logo" usemap="#pmc-banner-imagemap" width="500" height="75"><map name="pmc-banner-imagemap"><area alt="Link to Scientific Reports" title="Link to Scientific Reports" shape="default" href="http://www.nature.com/srep" target="_blank" rel="noopener noreferrer"></map></section><article lang="en"><section aria-label="Article citation and metadata"><section class="pmc-layout__citation font-secondary font-xs"><div>
+<div class="display-inline-block"><button type="button" class="cursor-pointer text-no-underline bg-transparent border-0 padding-0 text-left margin-0 text-normal text-primary" aria-controls="journal_context_menu">Sci Rep</button></div>. 2025 Aug 21;15:30697. doi: <a href="https://doi.org/10.1038/s41598-025-10981-4" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">10.1038/s41598-025-10981-4</a>
+</div>
+<nav id="journal_context_menu" hidden="hidden"><ul class="menu-list font-family-ui" role="menu">
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/pmc/?term=%22Sci%20Rep%22%5Bjour%5D" class="usa-link" role="menuitem">Search in PMC</a></li>
+<li role="presentation"><a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Sci%20Rep%22%5Bjour%5D" lang="en" class="usa-link" role="menuitem">Search in PubMed</a></li>
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/nlmcatalog?term=%22Sci%20Rep%22%5BTitle%20Abbreviation%5D" class="usa-link" role="menuitem">View in NLM Catalog</a></li>
+<li role="presentation"><a href="?term=%22Sci%20Rep%22%5Bjour%5D" class="usa-link" role="menuitem" data-add-to-search="true">Add to search</a></li>
+</ul></nav></section><section class="front-matter"><div class="ameta p font-secondary font-xs">
+<hgroup><h1>Adaptive robust control of tea-picking-manipulator’s position tracking based on dead zone compensation with modified RBF</h1></hgroup><div class="cg p">
+<a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Han%20Y%22%5BAuthor%5D" class="usa-link" aria-describedby="id1"><span class="name western">Yu Han</span></a><div hidden="hidden" id="id1">
+<h3><span class="name western">Yu Han</span></h3>
+<div class="p">
+<sup>1</sup>School of Automation, Southeast University, Nanjing, 210096 China </div>
+<div class="p">
+<sup>2</sup>School of Mathematics, Southeast University, Nanjing, 210096 China </div>
+<div class="p">
+<sup>3</sup>Ministry of Agriculture and Rural Affairs, Nanjing Institute of Agricultural Machanization, Nanjing, 210014 China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Han%20Y%22%5BAuthor%5D" class="usa-link"><span class="name western">Yu Han</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>2,</sup><sup>3,</sup><sup>✉</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Song%20Z%22%5BAuthor%5D" class="usa-link" aria-describedby="id2"><span class="name western">Zhiyu Song</span></a><div hidden="hidden" id="id2">
+<h3><span class="name western">Zhiyu Song</span></h3>
+<div class="p">
+<sup>3</sup>Ministry of Agriculture and Rural Affairs, Nanjing Institute of Agricultural Machanization, Nanjing, 210014 China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Song%20Z%22%5BAuthor%5D" class="usa-link"><span class="name western">Zhiyu Song</span></a>
+</div>
+</div>
+<sup>3,</sup><sup>✉</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Yi%20W%22%5BAuthor%5D" class="usa-link" aria-describedby="id3"><span class="name western">Wenyu Yi</span></a><div hidden="hidden" id="id3">
+<h3><span class="name western">Wenyu Yi</span></h3>
+<div class="p">
+<sup>4</sup>Key Laboratory of Agricultural Equipment Technology for Hilly and Mountainous Areas, Ministry of Agriculture and Rural Affairs, Chengdu, 610066 China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Yi%20W%22%5BAuthor%5D" class="usa-link"><span class="name western">Wenyu Yi</span></a>
+</div>
+</div>
+<sup>4,</sup><sup>✉</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Zhan%20C%22%5BAuthor%5D" class="usa-link" aria-describedby="id4"><span class="name western">Caixue Zhan</span></a><div hidden="hidden" id="id4">
+<h3><span class="name western">Caixue Zhan</span></h3>
+<div class="p">
+<sup>3</sup>Ministry of Agriculture and Rural Affairs, Nanjing Institute of Agricultural Machanization, Nanjing, 210014 China </div>
+<div class="p">
+<sup>5</sup>The Key Laboratory for Crop Production and Smart Agriculture of Yunnan Province, Kunming, 650540 China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Zhan%20C%22%5BAuthor%5D" class="usa-link"><span class="name western">Caixue Zhan</span></a>
+</div>
+</div>
+<sup>3,</sup><sup>5</sup>
+</div>
+<ul class="d-buttons inline-list">
+<li><button class="d-button" aria-controls="aip_a" aria-expanded="false">Author information</button></li>
+<li><button class="d-button" aria-controls="anp_a" aria-expanded="false">Article notes</button></li>
+<li><button class="d-button" aria-controls="clp_a" aria-expanded="false">Copyright and License information</button></li>
+</ul>
+<div class="d-panels font-secondary-light">
+<div id="aip_a" class="d-panel p" style="display: none">
+<div class="p" id="Aff1">
+<sup>1</sup>School of Automation, Southeast University, Nanjing, 210096 China </div>
+<div id="Aff2">
+<sup>2</sup>School of Mathematics, Southeast University, Nanjing, 210096 China </div>
+<div id="Aff3">
+<sup>3</sup>Ministry of Agriculture and Rural Affairs, Nanjing Institute of Agricultural Machanization, Nanjing, 210014 China </div>
+<div id="Aff4">
+<sup>4</sup>Key Laboratory of Agricultural Equipment Technology for Hilly and Mountainous Areas, Ministry of Agriculture and Rural Affairs, Chengdu, 610066 China </div>
+<div id="Aff5">
+<sup>5</sup>The Key Laboratory for Crop Production and Smart Agriculture of Yunnan Province, Kunming, 650540 China </div>
+<div class="author-notes p"><div class="fn" id="_fncrsp93pmc__">
+<sup>✉</sup><p class="display-inline">Corresponding author.</p>
+</div></div>
+</div>
+<div id="anp_a" class="d-panel p" style="display: none"><div class="notes p"><section id="historyarticle-meta1" class="history"><p>Received 2025 Jan 14; Accepted 2025 Jul 7; Collection date 2025.</p></section></div></div>
+<div id="clp_a" class="d-panel p" style="display: none">
+<div>© The Author(s) 2025</div>
+<p><strong>Open Access</strong> This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modified the licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">http://creativecommons.org/licenses/by-nc-nd/4.0/</a>.</p>
+<div class="p"><a href="/about/copyright/" class="usa-link">PMC Copyright notice</a></div>
+</div>
+</div>
+<div>PMCID: PMC12370935  PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/40841718/" class="usa-link">40841718</a>
+</div>
+</div></section></section><section aria-label="Article content"><section class="body main-article-body"><section class="abstract" id="Abs1"><h2>Abstract</h2>
+<p id="Par1">Neural Network has been used in approximation of dead zone nonlinearity when modeling the manipulator control systems. However the existed method fail to minimize the possible input saturation effect and the NN mapping accuracy also be degraded, which leads to degrading in tracking precise and accuracy. To establish an accurate control model of the tea picking robot, an adaptive compensator of m-RBF (modified radial basis function neural network) and adaptive law were designed aimed at the nonlinearity units and dead zone. The closed-loop tracking error of the proposed control system is eventually going to be stable and bounded. A simulation was carried out with Simulink, which show that m-RBF provides a good approximation to characteristic of Dead zone nonlinearity, and that the control scheme based on m-RBF had a excellent and stable tracking accuracy. The tea picking experiment with six-axis manipulator verifies the effectiveness of the proposed algorithm, in which the proposed method got a higher score of 95.3, near two times that of traditional PID control methods. It can be drown that the m-RBF has a faster learning rate and can avoid local minima; the control scheme based on m-RBF has a excellent performance on control accuracy, robustness and self-adaption, which is especially appropriate for real-time control, like tea picking robot.</p>
+<section id="kwd-group1" lang="en" class="kwd-group"><p><strong>Keywords:</strong> Dead zone nonlinearity, RBF neural network, Manipulator, Tracking, Control, Tea harvesting</p></section><section id="kwd-group2" class="kwd-group"><p><strong>Subject terms:</strong> Mechanical engineering, Applied mathematics</p></section></section><section id="Sec1"><h2 class="pmc_sec_title">Introduction</h2>
+<p id="Par2">Tea, the Chinese national drink, is the carrier of Chinese culture and an important cash crop in China with an annual output value of more than 150 billion yuan; among them, the output value of famous tea accounts for more than 50%<sup><a href="#CR1" class="usa-link" aria-describedby="CR1">1</a></sup>. Because of the strict requirements on the appearance of famous tea, it still needs a lot of manual labor to pick it. Due to the shortage of agricultural labor force, the cost of picking high-quality tea has exceeded 60% of the production cost<sup><a href="#CR2" class="usa-link" aria-describedby="CR2">2</a></sup>. However, due to the strong seasonal nature of tea, it will cause huge economic losses (due to the decline in quality) when not picked: the development of tea industry is severely restricted. The realization of famous tea picking machine replacement is imminent.</p>
+<p id="Par3">Both domestic and foreign tea picking machinery adopt the integral picking principle of “reciprocating cutting”, which has no selectivity and the buds and leaves are seriously damaged, so it is not applicable for picking famous tea (high quality tea). Due to the unique Chinese characteristics of famous tea, only a small number of studies on tea picking technology have been carried out abroad. Based on feature extraction and object detection, Vu et al.<sup><a href="#CR3" class="usa-link" aria-describedby="CR3">3</a></sup> studied the automatic counting method of tea shoots based on machine vision and realized regional detection of tea leaves. Thangavel et al.<sup><a href="#CR4" class="usa-link" aria-describedby="CR4">4</a></sup> adopted key frame extraction method to identify tea leaves and realized leaf region detection. Karunasena et al.<sup><a href="#CR5" class="usa-link" aria-describedby="CR5">5</a></sup> used machine learning and image processing techniques to identify tea bud and leaf. Jain et al.<sup><a href="#CR6" class="usa-link" aria-describedby="CR6">6</a></sup> designed a picking robot based on double R manipulator, which was equipped with small scissors at the end to cut tea shoot. Combined with the Internet of Things technology, the scheduling control technology of the picking robot was studied. Motokura et al.<sup><a href="#CR7" class="usa-link" aria-describedby="CR7">7</a></sup> conducted a preliminary study on the pose and trajectory planning of the end-effector of tea picking robot. Due to less research, there is no mature and available intelligent tea picking technology abroad.</p>
+<p id="Par4">The research on the picking technology of famous tea mainly focuses on the picking robot technology based on computer vision. In terms of tea bud visual recognition, picture-processed-based methods have been well investigated, such as Yang et al.<sup><a href="#CR8" class="usa-link" aria-describedby="CR8">8</a></sup>, Jin et al.<sup><a href="#CR9" class="usa-link" aria-describedby="CR9">9</a></sup>, Wang et al.<sup><a href="#CR10" class="usa-link" aria-describedby="CR10">10</a></sup> and Qi et al.<sup><a href="#CR11" class="usa-link" aria-describedby="CR11">11</a></sup>. These methods have poor generalization ability for they are relied heavily on artificial target’s features that vary from different tea trees, ripeness and weather conditions. To kill the problem, deep learning began to be applied to tea bud identification, such as Lv et al.<sup><a href="#CR12" class="usa-link" aria-describedby="CR12">12</a></sup> adopted Alex-Net CNN (Convolutional Neural Network), Yang et al.<sup><a href="#CR13" class="usa-link" aria-describedby="CR13">13</a>,<a href="#CR14" class="usa-link" aria-describedby="CR14">14</a></sup>, Li et al.<sup><a href="#CR15" class="usa-link" aria-describedby="CR15">15</a></sup> and Gong et al.<sup><a href="#CR16" class="usa-link" aria-describedby="CR16">16</a></sup> adopted YOLO (you look only once), Chen et al.<sup><a href="#CR17" class="usa-link" aria-describedby="CR17">17</a></sup> adopted deep CNN to identify the tea bud target. Their In-field experiment showed a picking success rate of 65%. Due to the diverse tea varieties, interleaved and dense distribution and complex background, the problem of accurate identification and positioning of tea buds has not been effectively solved.</p>
+<p id="Par5">Refers to picking robot ontology, Chen<sup><a href="#CR18" class="usa-link" aria-describedby="CR18">18</a></sup> carried out the research and design of the parallel mechanism and end-effector of tea picking robot, and developed the prototype. Wei<sup><a href="#CR19" class="usa-link" aria-describedby="CR19">19</a></sup> and Sun<sup><a href="#CR20" class="usa-link" aria-describedby="CR20">20</a></sup> have also carried out researches on tender shoot identification, picking point determination, parallel mechanism, bionic picking finger, robot ontology, intelligent control, etc., and achieved a series of breakthrough results. However, both the picking efficiency and quality of the robot are still relatively low. In the transmission system of picking robot, the main factors affecting the control performance of the system are the existence of a wide range of nonlinearities in the process of power transmission, such as backlash, dead zone, friction and saturation, which become the main factors affecting the control accuracy<sup><a href="#CR21" class="usa-link" aria-describedby="CR21">21</a></sup>. In most cases, these nonlinear phenomena are unknown and time varying, and can have a great impact on the system. As one of the main nonlinear characteristics, dead zone nonlinear has always been one of the main research objects in the field of high precision transmission control. Dead zones have a great impact on the control system, the most common of which is to reduce the accuracy of the static output and make the dynamic output appear “flat top”<sup><a href="#CR22" class="usa-link" aria-describedby="CR22">22</a></sup>. Limit cycles or system instability may also result because the system does not respond within the dead zone. Consequently, it may cause the Tea-picking-manipulator’s shaking and inaccuracy of tracking target, leading to damage to tea leaves and the fail of picking. Therefore, the compensation of dead zone becomes an important subject of high precision control system.</p>
+<p id="Par6">The mathematical description of a dead zone is a static nonlinear function used to describe the insensitivity of a system to small signals<sup><a href="#CR23" class="usa-link" aria-describedby="CR23">23</a></sup>. When the signal enters the dead zone, there will be considerable loss of signal information, which will cause the limit cycle and tracking error of the system. From a feedback perspective, dead zones represent a “loss of information”. Like many other discontinuous nonlinear phenomena, the main cause of dead zone is friction. Due to the non-differentiable nonlinearity of the dead zone, it is very difficult to compensate the dead zone, which greatly increases the complexity of the drive system control<sup><a href="#CR24" class="usa-link" aria-describedby="CR24">24</a></sup>. It is of great theoretical significance and engineering value to study the dead zone nonlinearity in mechanical and electromechanical transmission systems. However, the control problem of robot with unmeasurable constrained states and other unknown nonlinearities is not properly addressed.</p>
+<p id="Par7">In early years, various control methods have been designed to handle deadzone, which enhanced the performance of control systems, such as backstepping control, model predictive control, variable structure control, etc.<sup><a href="#CR25" class="usa-link" aria-describedby="CR25">25</a></sup>. However, These methods work on the condition that some parameters of deadzone functions are known. In practice, these parameters are always hard to measure, especially when considering the effect of time. Deadzone function is inherently nonlinear. Wang et al.<sup><a href="#CR26" class="usa-link" aria-describedby="CR26">26</a></sup> focus on the adaptive control of nonlinear dynamic systems with an unknown deadzone. The fuzzy logic control methods have been employed generally to approximate the nonlinear systems. Tong et al.<sup><a href="#CR27" class="usa-link" aria-describedby="CR27">27</a></sup> investigated the problem of the adaptive fuzzy decentralized output-feedback control for a category of switched nonlinear strict-feedback large-scale systems. Pei et al.<sup><a href="#CR28" class="usa-link" aria-describedby="CR28">28</a></sup> proposed a robust deadzone compensation method against parameter variations based on kalman filter and neural networks. Because the neural network can approximate any nonlinear continuous function with any precision, it has the ability of self-adaptation and self-learning for complex uncertain problems. Lewis et al.<sup><a href="#CR29" class="usa-link" aria-describedby="CR29">29</a></sup> studied the neural network control of the dead zone link in the robot actuator, and adopted network to carry out adaptive compensation for the dead zone in the control system, which is a classic research achievement in neural network control. Zhou et al.<sup><a href="#CR30" class="usa-link" aria-describedby="CR30">30</a></sup> designed a NN(neural network) controller for the robotic manipulators subject to the dead zone. The NN approximation approach is employed to approximate the intermediate control signals with unknown nonlinear functions, reduced the number of estimated parameters. Lu et al.<sup><a href="#CR31" class="usa-link" aria-describedby="CR31">31</a></sup> used RBF to generate several networks to replace the BP network in the original compensator, and designed the RBF(Radial Basis Function) network adaptive robust control with dead zone compensation, which could not only greatly reduce the system parameters, but also make the network initialization more clear and definite. Bensidhoum et al.<sup><a href="#CR32" class="usa-link" aria-describedby="CR32">32</a></sup> used RBF neural network to approximate the unknown nonlinear functions in contrl system of robot manipulators with unknown input dead-zone. The clustering algorithm is used to determine the center of radial basis function in RBF neural network, but how to determine the appropriate number of clusters has not been well solved, which degrads the RBF mapping accuracy. Also, only the proportional action is used in the control scheme to avoid the measurement noise, which fails to minimize the possible input saturation effect (the input exceeds its limit), leading to degrading in tracking precise and accuracy.</p>
+<p id="Par8">To adress this problem in tea picking robot, this paper propose an control skeme based on modified RBF to approximate the deadzone of tea picking manupulator. The main work and contributions are as follow:</p>
+<ol class="list" style="list-style-type:decimal">
+<li><p id="Par9">Proposed a modified Radial Basis Function (m-RBF) neural network to compensate the dead zone in tea picking robot control system, in which a new clustering algorithm and clustering automatic termination criterion are introduced to improve RBF and the mapping accuracy.</p></li>
+<li><p id="Par10">Construct the control system with m-RBF compensator, and design the adaptive law of neural network compensator. Also, Introduce the mathematical concepts of GL (General Linear) matrix and GL multiplication operator to prove the uniformly bounded stability of <em>n</em> joint robot system strictly.</p></li>
+<li><p id="Par11">The control system with m-RBF compensator is simulated with Matlab, showing the superiority of the control scheme based on m-RBF compensation. And the tea picking experiment verifies the effectiveness of the control system, the tracking becoming rapid and smooth with less breakdown of chattering and being stuck.</p></li>
+</ol>
+<p id="Par12">The rest of this article is organized as follows. In Section "<a href="#Sec2" class="usa-link">Tea picking manipulator model</a>", tea picking manipulator model is presented. The adaptive control based on m-RBF neural network and its convergence analysis are given in Section "<a href="#Sec3" class="usa-link">Model</a>". To show the effectiveness of the proposed control scheme, an simulation example and the picking experiment are conducted in Section "<a href="#Sec13" class="usa-link">Simulation and experiment</a>". Finally, conclusions and Discussion are drawn in Section "<a href="#Sec18" class="usa-link">Conclusion and discussion</a>".</p></section><section id="Sec2"><h2 class="pmc_sec_title">Tea picking manipulator model</h2>
+<p id="Par13">Here, we write the dynamic equation of the N-joint manipulator as:</p>
+<table class="disp-formula p" id="Equ1"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/e8edb9bec3f1/d33e423.gif" loading="lazy" id="d33e423" alt="graphic file with name d33e423.gif"></td>
+<td class="label">1</td>
+</tr></table>
+<p>where Type of <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq1"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/a2ae747ca3bd/d33e430.gif" loading="lazy" id="d33e430" alt="Inline graphic"></span> for joint angular displacement quantity, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq2"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/511d6a80fa3d/d33e436.gif" loading="lazy" id="d33e436" alt="Inline graphic"></span> as the inertia matrix, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq3"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/a1741bfebad3/d33e442.gif" loading="lazy" id="d33e442" alt="Inline graphic"></span> as centrifugal force and Coriolis force, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq4"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/6a9ccb91a993/d33e448.gif" loading="lazy" id="d33e448" alt="Inline graphic"></span> as gravity, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq5"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/38b16cdfe0ad/d33e455.gif" loading="lazy" id="d33e455" alt="Inline graphic"></span> for control of torque.</p>
+<p id="Par14">The mathematical expression of the dead zone is a static nonlinear function that describes the insensitivity of the system to small signals, as shown in Fig. <a href="#Fig1" class="usa-link">1</a>. In most closed-loop systems, the dead zone has a bad effect on both transient and steady-state performance. The signal entering the dead zone is accompanied by information loss, which easily leads to the limit cycle and large tracking error.</p>
+<figure class="fig xbox font-sm" id="Fig1"><h3 class="obj_head">Fig. 1.</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/0b67112a2e46/41598_2025_10981_Fig1_HTML.jpg" loading="lazy" id="MO1" height="445" width="629" alt="Fig. 1"></p>
+<div class="p text-right font-secondary"><a href="figure/Fig1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Characters of dead zone nonlinearity.</p></figcaption></figure><p id="Par15">Generally speaking, the dead zone phenomenon in the motion control system can be expressed as:</p>
+<table class="disp-formula p" id="Equ2"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/4bda8de1bf5f/d33e475.gif" loading="lazy" id="d33e475" alt="graphic file with name d33e475.gif"></td>
+<td class="label">2</td>
+</tr></table>
+<p>where <em>u</em> is the input signal, <em>h</em> and <em>g</em> are two smooth nonlinear functions, and <em>τ</em> is the output of the dead zone.</p>
+<p id="Par16">The description of formula (<a href="#Equ2" class="usa-link">2</a>) covers various possible situations in the dead zone phenomenon. <em>h(u),g(u),d</em><sub>+</sub> and <em>d-</em> are all unknown. Suppose <em>h(u)</em> and <em>g(u)</em> are monotonically invertible increasing functions on the definition interval, so there is an inverse <em>D</em><sup><em>-</em></sup><em>(w)</em> with a dead zone:</p>
+<table class="disp-formula p" id="Equ3"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/cee6cc58dd22/d33e521.gif" loading="lazy" id="d33e521" alt="graphic file with name d33e521.gif"></td>
+<td class="label">3</td>
+</tr></table>
+<p id="Par17">Then we have</p>
+<table class="disp-formula p" id="Equ4"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/d88e043e023f/d33e529.gif" loading="lazy" id="d33e529" alt="graphic file with name d33e529.gif"></td>
+<td class="label">4</td>
+</tr></table>
+<p id="Par18">In order to compensate the negative effects of the unknown dead zone, the neural network compensator is put in front of the control input to compensate the nonlinear link of the dead zone.</p>
+<p id="Par19">The structure of robot moment arm control system is shown in Fig. <a href="#Fig2" class="usa-link">2</a>. The control objective is to expect the output <strong><em>w</em></strong> of the controller to be the same as the output <strong><em>τ</em></strong> of the actuator. Therefore, RBF neural network can be used to compensate. In Fig. <a href="#Fig2" class="usa-link">2</a>, <strong><em>w</em></strong> is the ideal control input, <strong><em>u</em></strong> is the actual control input of the robot after dead zone compensation, and <strong><em>τ</em></strong> is the control signal after dead zone compensation.</p>
+<figure class="fig xbox font-sm" id="Fig2"><h3 class="obj_head">Fig. 2.</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12370935_41598_2025_10981_Fig2_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/65b1e92e94bc/41598_2025_10981_Fig2_HTML.jpg" loading="lazy" id="MO2" height="149" width="766" alt="Fig. 2"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Control system based on neural network compensation.</p></figcaption></figure></section><section id="Sec3"><h2 class="pmc_sec_title">Model</h2>
+<p id="Par20">This section will setup the neural network model to establish the compensator model for the dead zone. Also, the control system stability will be analyzed.</p>
+<section id="Sec4"><h3 class="pmc_sec_title">GL matrix and GL multiplication operator</h3>
+<p id="Par21">Define symbol “{·}” as GL matrix and “·” as its multiplication operator. <strong><em>I</em></strong><sub><strong><em>0</em></strong></sub> as an integer set, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq6"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/80af14e3b990/d33e582.gif" loading="lazy" id="d33e582" alt="Inline graphic"></span>, where <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq7"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/ae25709ff698/d33e588.gif" loading="lazy" id="d33e588" alt="Inline graphic"></span>. For function approximation, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq8"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/8a8c302b3349/d33e594.gif" loading="lazy" id="d33e594" alt="Inline graphic"></span> can be regarded as a weight vector and <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq9"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/45049750542e/d33e600.gif" loading="lazy" id="d33e600" alt="Inline graphic"></span> can be regarded as a Gaussian basis function vector. The GL vector {<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq10"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/d0e75a79f00e/d33e607.gif" loading="lazy" id="d33e607" alt="Inline graphic"></span>} and its transpose, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq11"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/b8f1736c569c/d33e613.gif" loading="lazy" id="d33e613" alt="Inline graphic"></span>, are defined as follows:</p>
+<table class="disp-formula p" id="Equ5"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/ef17860bb655/d33e619.gif" loading="lazy" id="d33e619" alt="graphic file with name d33e619.gif"></td>
+<td class="label">5</td>
+</tr></table>
+<table class="disp-formula p" id="Equ6"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/d06a237c58fc/d33e625.gif" loading="lazy" id="d33e625" alt="graphic file with name d33e625.gif"></td>
+<td class="label">6</td>
+</tr></table>
+<p id="Par22">The GL Matrix {<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq12"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/d0e75a79f00e/d33e633.gif" loading="lazy" id="d33e633" alt="Inline graphic"></span>} and its transpose <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq13"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/b8f1736c569c/d33e639.gif" loading="lazy" id="d33e639" alt="Inline graphic"></span> are defined as follows:</p>
+<p id="Par23"><span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq14"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/654179fb7519/d33e646.gif" loading="lazy" id="d33e646" alt="Inline graphic"></span>, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq15"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/d8419d456089/d33e652.gif" loading="lazy" id="d33e652" alt="Inline graphic"></span></p>
+<p id="Par24">For a given GL matrix, {ξ} <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq16"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/f5ef0530fc10/d33e659.gif" loading="lazy" id="d33e659" alt="Inline graphic"></span>,</p>
+<p id="Par25">GL Multiplication of <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq17"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/a27c539b1984/d33e667.gif" loading="lazy" id="d33e667" alt="Inline graphic"></span> and <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq18"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/1d34da19d495/d33e673.gif" loading="lazy" id="d33e673" alt="Inline graphic"></span> is defined as an n by n matrix:</p>
+<table class="disp-formula p" id="Equ7"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/6823ff32e65d/d33e679.gif" loading="lazy" id="d33e679" alt="graphic file with name d33e679.gif"></td>
+<td class="label">7</td>
+</tr></table>
+<p id="Par26">Let <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq19"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/c232db7456a1/d33e687.gif" loading="lazy" id="d33e687" alt="Inline graphic"></span>, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq20"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/7ab292238b55/d33e693.gif" loading="lazy" id="d33e693" alt="Inline graphic"></span>, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq21"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/a1ead554c5be/d33e699.gif" loading="lazy" id="d33e699" alt="Inline graphic"></span>, Then the GL multiplication of a square matrix and a GL vector is defined as</p>
+<table class="disp-formula p" id="Equ8"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/365dc1f5ac36/d33e705.gif" loading="lazy" id="d33e705" alt="graphic file with name d33e705.gif"></td>
+<td class="label">8</td>
+</tr></table>
+<p id="Par27">In the mixed calculation of matrix and GL matrix with respect to GL multiplication operator, the GL multiplication is computed first. For example: {<strong><em>A</em></strong>}·{<strong><em>B</em></strong>}<strong><em>C</em></strong>, first calculate {<strong><em>A</em></strong>}·{<strong><em>B</em></strong>}, and then multiply the result with <strong><em>C</em></strong>. For further information about GL matrix and operator, please refer to the work of Ge<sup><a href="#CR33" class="usa-link" aria-describedby="CR33">33</a></sup>.</p></section><section id="Sec5"><h3 class="pmc_sec_title">Neural network model</h3>
+<section id="Sec6"><h4 class="pmc_sec_title">RBF neural network</h4>
+<p id="Par28">The neural network can approximate any nonlinear continuous function with any precision and has adaptive and self-learning ability for complex uncertain problems. A Radial Basis Function (RBF) neural network is a three-layer feed-forward network with a single hidden layer. The function of RBF network is a Gaussian basis function, and its value is non-zero in the finite range of input space, so RBF network is a local approximation neural network. The mapping from the input layer to the output layer is nonlinear, while the mapping from the hidden layer space to the output layer space is linear. Due to its local approximation property, it can greatly accelerate the learning speed and avoid the local minimum problem, which is suitable for the application requirements of real-time control. The neural network control scheme composed of RBF network can effectively improve the control precision, robustness and adaptability of the system.</p>
+<p id="Par29">FCM (Fuzzy C-Means) clustering algorithm is often used to determine the center of radial basis function in RBF neural network, but how to determine the appropriate number of clusters has not been well solved. In order to obtain reasonable central parameters of radial basis function, a new clustering algorithm and clustering automatic termination criterion are introduced here to improve RBF and improve the mapping accuracy.</p></section><section id="Sec7"><h4 class="pmc_sec_title">m-RBF neural network</h4>
+<p id="Par30">Here, the RBF neural network is improved by two stages: (1) the central parameter of radial basis function is learned by using the Reduced Clustering algorithm<sup><a href="#CR34" class="usa-link" aria-describedby="CR34">34</a></sup>, and the number of RBF basis functions is determined by applying the self-terminating clustering criterion; (2) The output weight is adjusted by gradient descent method. The self-terminating clustering criterion in the first stage is that: If the ratio between the current maximum density value and the initial maximum density value is less than some very small given value, the clustering is terminated. That is, when the current cluster center contains very few data points, you can ignore the cluster center and end the cluster.</p>
+<p id="Par31">The specific learning steps are as follows:</p>
+<p id="Par32"><strong><em>Step</em></strong> 1: the density index of each data is calculated according to formula (<a href="#Equ9" class="usa-link">9</a>) and saved in the set <em>A</em>. The data point with the highest density index is selected as the first clustering center.</p>
+<table class="disp-formula p" id="Equ9"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/c728d88011be/d33e764.gif" loading="lazy" id="d33e764" alt="graphic file with name d33e764.gif"></td>
+<td class="label">9</td>
+</tr></table>
+<p>where <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq22"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/7d3d2dbfb633/d33e771.gif" loading="lazy" id="d33e771" alt="Inline graphic"></span> define the neighborhood radius of each data. <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq23"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/c08f5293f59c/d33e777.gif" loading="lazy" id="d33e777" alt="Inline graphic"></span> denote the <em>i</em> th and <em>j</em> th date of the N-dimensional data space.</p>
+<p id="Par33"><strong><em>Step</em></strong> 2: The <em>m</em> th cluster center is determined, the density index of each data is modified by formula (<a href="#Equ10" class="usa-link">10</a>), and the highest density index is searched.</p>
+<table class="disp-formula p" id="Equ10"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/dc55a45e5331/d33e800.gif" loading="lazy" id="d33e800" alt="graphic file with name d33e800.gif"></td>
+<td class="label">10</td>
+</tr></table>
+<p>where <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq24"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/712a2dcda6f3/d33e807.gif" loading="lazy" id="d33e807" alt="Inline graphic"></span> define a neighborhood with a significantly smaller density index. Generally, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq25"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/712a2dcda6f3/d33e813.gif" loading="lazy" id="d33e813" alt="Inline graphic"></span> &gt; <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq26"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/7d3d2dbfb633/d33e820.gif" loading="lazy" id="d33e820" alt="Inline graphic"></span>, which avoid cluster centers that are very close together.</p>
+<p id="Par34"><strong><em>Step</em></strong> 3: Substitute the highest density index <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq27"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/f11de25ec7fd/d33e830.gif" loading="lazy" id="d33e830" alt="Inline graphic"></span> into the criterion. If the criteria are met, the criteria are terminated and go to Step 4. If the criterion is not met, the point <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq28"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/da971024b577/d33e836.gif" loading="lazy" id="d33e836" alt="Inline graphic"></span> is accepted as the <em>m</em>-th cluster center, and it is kept in the set <em>A</em>; updated: <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq29"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/8a44a33cd985/d33e848.gif" loading="lazy" id="d33e848" alt="Inline graphic"></span>, <em>m</em> = <em>m</em> + 1; then go to the second step.</p>
+<p id="Par35"><strong><em>Step</em></strong> 4: end of cluster.</p>
+<p id="Par36">Apparently, a total of <em>m</em>-1 clustering centers were identified. After the clustering center is determined, the width parameter can be determined by taking the nearest neighbor average distance to the neighboring points of each cluster center. By these steps we have the m-RBF.</p></section></section><section id="Sec8"><h3 class="pmc_sec_title">Dead zone compensator design with m-RBF</h3>
+<p id="Par37">The adaptive neural network compensator consists of two m-RBF neural networks, one m-RBF is used to estimate the nonlinear link in the actuator, and the other m-RBF is used to compensate the dead zone of the feedforward channel of the system. The basic structure of the neural network compensator is shown in Fig. <a href="#Fig3" class="usa-link">3</a>.</p>
+<figure class="fig xbox font-sm" id="Fig3"><h4 class="obj_head">Fig. 3.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/bed5c21705a1/41598_2025_10981_Fig3_HTML.jpg" loading="lazy" id="MO3" height="298" width="668" alt="Fig. 3"></p>
+<div class="p text-right font-secondary"><a href="figure/Fig3/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p><em>m-</em>RBF adaptive neural network compensator.</p></figcaption></figure><p id="Par38">where <em>u</em> is as follow:</p>
+<table class="disp-formula p" id="Equ11"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/d66d83f89a78/d33e892.gif" loading="lazy" id="d33e892" alt="graphic file with name d33e892.gif"></td>
+<td class="label">11</td>
+</tr></table>
+<p id="Par39">The inverse of the dead-zone link can be expressed in the following equivalent form:</p>
+<table class="disp-formula p" id="Equ12"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/fe20654ced83/d33e900.gif" loading="lazy" id="d33e900" alt="graphic file with name d33e900.gif"></td>
+<td class="label">12</td>
+</tr></table>
+<p>where <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq30"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/f93353a68cb0/d33e907.gif" loading="lazy" id="d33e907" alt="Inline graphic"></span> can be wrote as follow,</p>
+<table class="disp-formula p" id="Equ13"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/c98bde425652/d33e913.gif" loading="lazy" id="d33e913" alt="graphic file with name d33e913.gif"></td>
+<td class="label">13</td>
+</tr></table>
+<p id="Par40">According to Universal approximation of m-RBF neural network, we have,</p>
+<table class="disp-formula p" id="Equ14"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/26c7a382fd07/d33e921.gif" loading="lazy" id="d33e921" alt="graphic file with name d33e921.gif"></td>
+<td class="label">14</td>
+</tr></table>
+<table class="disp-formula p" id="Equ15"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/4b23bd4724a5/d33e927.gif" loading="lazy" id="d33e927" alt="graphic file with name d33e927.gif"></td>
+<td class="label">15</td>
+</tr></table>
+<p id="Par41">Where <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq31"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/f4070bd1905b/d33e935.gif" loading="lazy" id="d33e935" alt="Inline graphic"></span> and <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq32"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/06cbf824842f/d33e941.gif" loading="lazy" id="d33e941" alt="Inline graphic"></span> is the modeling error of neural network, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq33"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/78b515de073d/d33e947.gif" loading="lazy" id="d33e947" alt="Inline graphic"></span> and <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq34"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/3fe92fd11527/d33e953.gif" loading="lazy" id="d33e953" alt="Inline graphic"></span> is the ideal weight, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq35"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/2aabd379ce4a/d33e959.gif" loading="lazy" id="d33e959" alt="Inline graphic"></span> and <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq36"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/792fc230c60e/d33e966.gif" loading="lazy" id="d33e966" alt="Inline graphic"></span> is the output of the radial basis function.</p>
+<p id="Par42">Let <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq37"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/d4098565316f/d33e974.gif" loading="lazy" id="d33e974" alt="Inline graphic"></span> and <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq38"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/097e8001ff78/d33e980.gif" loading="lazy" id="d33e980" alt="Inline graphic"></span> refer to ideal estimation of RBF weights. Refered to Wang’s work<sup><a href="#CR35" class="usa-link" aria-describedby="CR35">35</a></sup>, we can estimate the corresponding links through two RBF neural networks:</p>
+<table class="disp-formula p" id="Equ16"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/fd94c7f6f596/d33e990.gif" loading="lazy" id="d33e990" alt="graphic file with name d33e990.gif"></td>
+<td class="label">16</td>
+</tr></table>
+<table class="disp-formula p" id="Equ17"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/6e3876cf0d21/d33e996.gif" loading="lazy" id="d33e996" alt="graphic file with name d33e996.gif"></td>
+<td class="label">17</td>
+</tr></table>
+<p id="Par43">Define <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq39"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/c2b7739d94f7/d33e1004.gif" loading="lazy" id="d33e1004" alt="Inline graphic"></span> as the estimation error of RBF weights.</p>
+<p id="Par44">It can be seen from Fig. <a href="#Fig2" class="usa-link">2</a> that the purpose of the design of the control system is to make the output <strong><em>τ</em></strong> of the controller and the robot input <strong><em>w</em></strong> after the dead zone tend to be as consistent as possible. The mathematical relationship between the two and the corresponding proof are given below.</p>
+<p id="Par45">In Fig. <a href="#Fig2" class="usa-link">2</a>, given the m-RBF neural network compensator <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq40"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/afae95c5925a/d33e1026.gif" loading="lazy" id="d33e1026" alt="Inline graphic"></span>, the mathematical relation between the control input <strong><em>w</em></strong> and the control output <strong><em>τ</em></strong> in the dead zone is as follows:</p>
+<table class="disp-formula p" id="Equ18"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/dd1734ec4ef1/d33e1038.gif" loading="lazy" id="d33e1038" alt="graphic file with name d33e1038.gif"></td>
+<td class="label">18</td>
+</tr></table>
+<p id="Par46">The non-matching item of the model is:</p>
+<table class="disp-formula p" id="Equ19"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/ad17bd308592/d33e1046.gif" loading="lazy" id="d33e1046" alt="graphic file with name d33e1046.gif"></td>
+<td class="label">19</td>
+</tr></table>
+<table class="disp-formula p" id="Equ20"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/33aa4975d0d4/d33e1052.gif" loading="lazy" id="d33e1052" alt="graphic file with name d33e1052.gif"></td>
+<td class="label">20</td>
+</tr></table></section><section id="Sec9"><h3 class="pmc_sec_title">The proof of mathematical relationship between w and τ</h3>
+<p id="Par47">According to Eqs. (<a href="#Equ2" class="usa-link">2</a>), (<a href="#Equ11" class="usa-link">11</a>) and (<a href="#Equ14" class="usa-link">14</a>), the dead zone output of the <em>k</em><sup>th</sup> joint in the N-joint robot can be written:</p>
+<table class="disp-formula p" id="Equ21"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/9cba7c98ce0d/d33e1075.gif" loading="lazy" id="d33e1075" alt="graphic file with name d33e1075.gif"></td>
+<td class="label">21</td>
+</tr></table>
+<p id="Par48">From Eq. (<a href="#Equ4" class="usa-link">4</a>) and (<a href="#Equ12" class="usa-link">12</a>), yields</p>
+<table class="disp-formula p" id="Equ22"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/bab5609e1062/d33e1089.gif" loading="lazy" id="d33e1089" alt="graphic file with name d33e1089.gif"></td>
+<td class="label">22</td>
+</tr></table>
+<p id="Par49">By substituting Eqs. (<a href="#Equ21" class="usa-link">21</a>) and (<a href="#Equ15" class="usa-link">15</a>) into Eqs. (<a href="#Equ22" class="usa-link">22</a>), we have:</p>
+<table class="disp-formula p" id="Equa"><tr><td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/417d647657b9/d33e1106.gif" loading="lazy" id="d33e1106" alt="graphic file with name d33e1106.gif"></td></tr></table>
+<table class="disp-formula p" id="Equb"><tr><td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/5a470b28212d/d33e1111.gif" loading="lazy" id="d33e1111" alt="graphic file with name d33e1111.gif"></td></tr></table>
+<table class="disp-formula p" id="Equc"><tr><td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/9b838779a474/d33e1116.gif" loading="lazy" id="d33e1116" alt="graphic file with name d33e1116.gif"></td></tr></table>
+<p id="Par50">Let <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq41"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/0dbda34b14d5/d33e1123.gif" loading="lazy" id="d33e1123" alt="Inline graphic"></span></p>
+<p id="Par51">Then <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq42"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/8bc12584b09d/d33e1130.gif" loading="lazy" id="d33e1130" alt="Inline graphic"></span></p>
+<p id="Par52">And <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq43"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/c22cc458cfa9/d33e1137.gif" loading="lazy" id="d33e1137" alt="Inline graphic"></span></p>
+<p id="Par53">Let <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq44"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/414c757b8cd5/d33e1144.gif" loading="lazy" id="d33e1144" alt="Inline graphic"></span>, According to the first order Taylor expansion formula, yields</p>
+<table class="disp-formula p" id="Equ23"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/1651ba7b6c08/d33e1150.gif" loading="lazy" id="d33e1150" alt="graphic file with name d33e1150.gif"></td>
+<td class="label">23</td>
+</tr></table>
+<table class="disp-formula p" id="Equd"><tr><td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/ce2b554fd2bc/d33e1156.gif" loading="lazy" id="d33e1156" alt="graphic file with name d33e1156.gif"></td></tr></table>
+<table class="disp-formula p" id="Eque"><tr><td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/aa15cd8850ac/d33e1161.gif" loading="lazy" id="d33e1161" alt="graphic file with name d33e1161.gif"></td></tr></table>
+<table class="disp-formula p" id="Equf"><tr><td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/65367e1026aa/d33e1166.gif" loading="lazy" id="d33e1166" alt="graphic file with name d33e1166.gif"></td></tr></table>
+<p id="Par54">By substituting <strong><em>b(t)</em></strong> from Eq. (<a href="#Equ20" class="usa-link">20</a>) into the above equation, yields</p>
+<table class="disp-formula p" id="Equ24"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/c800a522b79f/d33e1179.gif" loading="lazy" id="d33e1179" alt="graphic file with name d33e1179.gif"></td>
+<td class="label">24</td>
+</tr></table>
+<p id="Par55">By combining Eqs. (<a href="#Equ11" class="usa-link">11</a>) and (<a href="#Equ17" class="usa-link">17</a>), Eq. (<a href="#Equ24" class="usa-link">24</a>) can be written as:</p>
+<table class="disp-formula p" id="Equ25"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/77c95551d15e/d33e1196.gif" loading="lazy" id="d33e1196" alt="graphic file with name d33e1196.gif"></td>
+<td class="label">25</td>
+</tr></table>
+<p id="Par56">By combining Eqs. (<a href="#Equ19" class="usa-link">19</a>) and (<a href="#Equ21" class="usa-link">21</a>), the above equation can be written as:</p>
+<table class="disp-formula p" id="Equg"><tr><td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/bfae17515b2a/d33e1210.gif" loading="lazy" id="d33e1210" alt="graphic file with name d33e1210.gif"></td></tr></table>
+<p id="Par57">Namely, we have:</p>
+<table class="disp-formula p" id="Equ26"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/43c5c6605a4a/d33e1218.gif" loading="lazy" id="d33e1218" alt="graphic file with name d33e1218.gif"></td>
+<td class="label">26</td>
+</tr></table>
+<p id="Par58">Then, it is proved.</p>
+<p id="Par59"><strong><em>Lemma2</em></strong>: The norm of model non-match term <strong><em>d(t)</em></strong> is bounded, and its upper bound is,</p>
+<table class="disp-formula p" id="Equ27"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/84a87c2ef0c1/d33e1233.gif" loading="lazy" id="d33e1233" alt="graphic file with name d33e1233.gif"></td>
+<td class="label">27</td>
+</tr></table>
+<p>where <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq45"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/f50223f6de96/d33e1240.gif" loading="lazy" id="d33e1240" alt="Inline graphic"></span> is a constant that can be computed.</p>
+<p id="Par60">This can be proved as follow:</p>
+<p id="Par61">From the definition of <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq46"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/a90eb477563b/d33e1250.gif" loading="lazy" id="d33e1250" alt="Inline graphic"></span> in Eq. (<a href="#Equ19" class="usa-link">19</a>), we easily know that</p>
+<table class="disp-formula p" id="Equ28"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/12f7285e3bf5/d33e1259.gif" loading="lazy" id="d33e1259" alt="graphic file with name d33e1259.gif"></td>
+<td class="label">28</td>
+</tr></table>
+<p>where <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq47"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/29273c53599a/d33e1266.gif" loading="lazy" id="d33e1266" alt="Inline graphic"></span></p>
+<p id="Par62">From the definition of <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq48"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/ee6f8544dfd9/d33e1273.gif" loading="lazy" id="d33e1273" alt="Inline graphic"></span> in Eq. (<a href="#Equ20" class="usa-link">20</a>), and Eq. (<a href="#Equ23" class="usa-link">23</a>), we know that,</p>
+<table class="disp-formula p" id="Equ29"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/4bcce9677c0e/d33e1285.gif" loading="lazy" id="d33e1285" alt="graphic file with name d33e1285.gif"></td>
+<td class="label">29</td>
+</tr></table>
+<p>where <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq49"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/f25afbc27cff/d33e1292.gif" loading="lazy" id="d33e1292" alt="Inline graphic"></span>, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq50"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/d0aff0910b69/d33e1299.gif" loading="lazy" id="d33e1299" alt="Inline graphic"></span><strong>,</strong></p>
+<table class="disp-formula p" id="Equh"><tr><td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/ceab1e94b95c/d33e1306.gif" loading="lazy" id="d33e1306" alt="graphic file with name d33e1306.gif"></td></tr></table>
+<p id="Par63">From Eq. (<a href="#Equ28" class="usa-link">28</a>) and (<a href="#Equ29" class="usa-link">29</a>), Lemma2 was approved.</p>
+<p id="Par64">The adaptive law of neural network compensator is designed as follows:</p>
+<table class="disp-formula p" id="Equ30"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/b34f3b53e9ea/41598_2025_10981_Article_Equ30.gif" loading="lazy" height="21" width="200" alt="graphic file with name 41598_2025_10981_Article_Equ30.gif"></td>
+<td class="label">30</td>
+</tr></table>
+<p>where, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq51"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/52c6c41c9d5c/d33e1328.gif" loading="lazy" id="d33e1328" alt="Inline graphic"></span>,<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq52"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/80bdce858c72/d33e1334.gif" loading="lazy" id="d33e1334" alt="Inline graphic"></span> is a positive definite constant symmetric matrix, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq53"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/a71c3076c354/d33e1340.gif" loading="lazy" id="d33e1340" alt="Inline graphic"></span>. <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq54"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/5c3b323fec5b/d33e1346.gif" loading="lazy" id="d33e1346" alt="Inline graphic"></span> and <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq55"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/7b1861e36961/d33e1353.gif" loading="lazy" id="d33e1353" alt="Inline graphic"></span> is the <em>k</em><sup>th</sup> group weight vector in the <em>n</em> group weight vector of the compensator (1 ≤ <em>k</em> ≤ <em>n</em>).</p></section><section id="Sec10"><h3 class="pmc_sec_title">System stability analysis</h3>
+<p id="Par65">Given that the ideal trajectory is <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq56"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/103159919cf0/d33e1376.gif" loading="lazy" id="d33e1376" alt="Inline graphic"></span>, the tracking error is:</p>
+<table class="disp-formula p" id="Equ31"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/2536c5ff7011/d33e1382.gif" loading="lazy" id="d33e1382" alt="graphic file with name d33e1382.gif"></td>
+<td class="label">31</td>
+</tr></table>
+<p id="Par66">Define the error function as:</p>
+<table class="disp-formula p" id="Equ32"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/d4bb138504a7/d33e1390.gif" loading="lazy" id="d33e1390" alt="graphic file with name d33e1390.gif"></td>
+<td class="label">32</td>
+</tr></table>
+<p>where <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq57"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/aa77c696d23b/d33e1397.gif" loading="lazy" id="d33e1397" alt="Inline graphic"></span>&gt;0.</p>
+<p id="Par67">Define <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq58"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/86005ffee119/d33e1405.gif" loading="lazy" id="d33e1405" alt="Inline graphic"></span>, then <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq59"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/971054c9f54d/41598_2025_10981_Article_IEq59.gif" loading="lazy" alt="Inline graphic"></span></p>
+<p id="Par68">According to the system dynamic Eqs. (<a href="#Equ1" class="usa-link">1</a>), (<a href="#Equ6" class="usa-link">6</a>) and (<a href="#Equ7" class="usa-link">7</a>), there is</p>
+<table class="disp-formula p" id="Equ33"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/facb9b59c55e/d33e1427.gif" loading="lazy" id="d33e1427" alt="graphic file with name d33e1427.gif"></td>
+<td class="label">33</td>
+</tr></table>
+<p>where <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq60"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/551555deb1a4/d33e1434.gif" loading="lazy" id="d33e1434" alt="Inline graphic"></span>, <strong><em>f</em></strong> represents model information.</p>
+<p id="Par69">Take the ideal control signal as:</p>
+<table class="disp-formula p" id="Equ34"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/855c28c2edbc/d33e1446.gif" loading="lazy" id="d33e1446" alt="graphic file with name d33e1446.gif"></td>
+<td class="label">34</td>
+</tr></table>
+<p>where <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq61"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/f315ab21785d/d33e1453.gif" loading="lazy" id="d33e1453" alt="Inline graphic"></span> refers to the estimation of <em>f</em>, and the error is <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq62"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/f4b668ff5209/d33e1462.gif" loading="lazy" id="d33e1462" alt="Inline graphic"></span>, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq63"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/d382082584e6/d33e1468.gif" loading="lazy" id="d33e1468" alt="Inline graphic"></span>, <em>v</em> is a robust term used to overcome modeling uncertainties.</p>
+<p id="Par70">The robust control law is:</p>
+<table class="disp-formula p" id="Equ35"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/7995e57e05d9/d33e1480.gif" loading="lazy" id="d33e1480" alt="graphic file with name d33e1480.gif"></td>
+<td class="label">35</td>
+</tr></table>
+<p>where <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq64"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/88c8282b9046/d33e1487.gif" loading="lazy" id="d33e1487" alt="Inline graphic"></span> is a sign function.</p>
+<p id="Par71">By substituting the control law (<a href="#Equ18" class="usa-link">18</a>) and Eq. (<a href="#Equ34" class="usa-link">34</a>) into Eq. (<a href="#Equ33" class="usa-link">33</a>), we have:</p>
+<table class="disp-formula p" id="Equ36"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/2216daee668c/d33e1504.gif" loading="lazy" id="d33e1504" alt="graphic file with name d33e1504.gif"></td>
+<td class="label">36</td>
+</tr></table>
+<p id="Par72">Given the robotic system (1), it is acceptable to ignore the friction terms and disturbance terms<sup><a href="#CR36" class="usa-link" aria-describedby="CR36">36</a></sup>. Assuming that the neural network has a bounded ideal weight, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq65"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/06f7aea68a61/d33e1516.gif" loading="lazy" id="d33e1516" alt="Inline graphic"></span>, select the controller Eq. (<a href="#Equ34" class="usa-link">34</a>) and the neural network compensator Eq. (<a href="#Equ17" class="usa-link">17</a>). Taking the adaptive law of neural network as Eq. (<a href="#Equ30" class="usa-link">30</a>), the closed-loop tracking control error of the control system is globly uniformly ultimately bounded stable, and the tracking error decreases with the increase of the gain Kv.</p></section></section><section id="Sec11"><h2 class="pmc_sec_title">Simulation and experiment</h2>
+<section id="Sec12"><h3 class="pmc_sec_title">Simulation model</h3>
+<p id="Par73">The mathematical model of the double-joint tea picking mechanical arm is as Eqs. (<a href="#Equ37" class="usa-link">37</a>)–(<a href="#Equ38" class="usa-link">40</a>):</p>
+<table class="disp-formula p" id="Equ37"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/4751ddff9385/d33e1543.gif" loading="lazy" id="d33e1543" alt="graphic file with name d33e1543.gif"></td>
+<td class="label">37</td>
+</tr></table>
+<table class="disp-formula p" id="Equ38"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/0fd305fb14cb/d33e1549.gif" loading="lazy" id="d33e1549" alt="graphic file with name d33e1549.gif"></td>
+<td class="label">38</td>
+</tr></table>
+<table class="disp-formula p" id="Equ39"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/367c0245b906/d33e1555.gif" loading="lazy" id="d33e1555" alt="graphic file with name d33e1555.gif"></td>
+<td class="label">39</td>
+</tr></table>
+<table class="disp-formula p" id="Equ40"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/0e8e513708a4/d33e1561.gif" loading="lazy" id="d33e1561" alt="graphic file with name d33e1561.gif"></td>
+<td class="label">40</td>
+</tr></table>
+<p id="Par74">The actual parameters used in the simulation are:</p>
+<table class="disp-formula p" id="Equi"><tr><td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/a4f13e44d1aa/d33e1569.gif" loading="lazy" id="d33e1569" alt="graphic file with name d33e1569.gif"></td></tr></table>
+<p id="Par75">It is reasonable to assume that the initial states of the robot are all at the zero position, and the parts outside the dead zone are linear functions<sup><a href="#CR37" class="usa-link" aria-describedby="CR37">37</a></sup>. The dead zone parameter is <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq66"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/49fa6651891a/d33e1580.gif" loading="lazy" id="d33e1580" alt="Inline graphic"></span>. The expected trajectory is: <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq67"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/9f18c3da0007/d33e1586.gif" loading="lazy" id="d33e1586" alt="Inline graphic"></span>. The parameters of the neural network controller are set to <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq68"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/94197b7c4b9e/d33e1592.gif" loading="lazy" id="d33e1592" alt="Inline graphic"></span>,<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq69"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/662009ccea59/d33e1598.gif" loading="lazy" id="d33e1598" alt="Inline graphic"></span>, The central value c of the m-RBF neural network is the value uniformly distributed within the input value range of the RBF network. <em>b</em> = 1 <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq70"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/0bfd7ccf08d6/d33e1608.gif" loading="lazy" id="d33e1608" alt="Inline graphic"></span>, The initial value of each element in the weight of m-RBF neural network is 20. The simulink simulation model of the system is shown in Fig. <a href="#Fig4" class="usa-link">4</a>. The simulation is conducted on an experimental computer, the parameters of which is as follow: CPU Intel(R) Core(TM) i7-4790, @3.60 GHz, number of cores: 8, memory: 4 GB.</p>
+<figure class="fig xbox font-sm" id="Fig4"><h4 class="obj_head">Fig. 4.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12370935_41598_2025_10981_Fig4_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/4c1eaf9529f5/41598_2025_10981_Fig4_HTML.jpg" loading="lazy" id="MO4" height="297" width="669" alt="Fig. 4"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig4/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Simulink simulation model of the system.</p></figcaption></figure></section><section id="Sec13"><h3 class="pmc_sec_title">Simulation result</h3>
+<section id="Sec14"><h4 class="pmc_sec_title">Tracking performance</h4>
+<p id="Par76">Simulation results are shown in Figs. <a href="#Fig5" class="usa-link">5</a>, <a href="#Fig6" class="usa-link">6</a> and <a href="#Fig7" class="usa-link">7</a>. It is illustrated in Fig. <a href="#Fig5" class="usa-link">5</a> that the tracking performance of the control model is rather exact. The red line is the expected trajectory, while the blue ones denote the tracking trajectory. Both in the position tracking of link 1 and link 2, our control model could track the target within 1 second and copy the expected trajectory with nearly no bias once the expected trajectory is tracked.</p>
+<figure class="fig xbox font-sm" id="Fig5"><h5 class="obj_head">Fig. 5.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12370935_41598_2025_10981_Fig5_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/a8ddab2863f2/41598_2025_10981_Fig5_HTML.jpg" loading="lazy" id="MO5" height="410" width="767" alt="Fig. 5"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig5/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Position tracking. L1 denotes Link 1, L2 denotes Link2.</p></figcaption></figure><figure class="fig xbox font-sm" id="Fig6"><h5 class="obj_head">Fig. 6.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12370935_41598_2025_10981_Fig6_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/ce72db1ca0c9/41598_2025_10981_Fig6_HTML.jpg" loading="lazy" id="MO6" height="791" width="708" alt="Fig. 6"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig6/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Control input.</p></figcaption></figure><figure class="fig xbox font-sm" id="Fig7"><h5 class="obj_head">Fig. 7.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12370935_41598_2025_10981_Fig7_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/b7291f3c187a/41598_2025_10981_Fig7_HTML.jpg" loading="lazy" id="MO7" height="405" width="767" alt="Fig. 7"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig7/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Dead zone and its estimation.</p></figcaption></figure></section><section id="Sec15"><h4 class="pmc_sec_title">Control input analysis</h4>
+<p id="Par77">The control input of the control system is shown in Fig. <a href="#Fig6" class="usa-link">6</a>. The ideal control input without consideration of the dead zone is shown in Fig. <a href="#Fig6" class="usa-link">6</a>a, in which situation it is assumed that the links are deal ones that has no dead zone. Therefore its control input is with rather less fluctuation, especially for link 2.</p>
+<p id="Par78">However, the impact of the dead zone shouldn’t be neglected, because it has a sever side effect on the tracking performance of the manipulator, such as impairing tracking speed and accuracy. In this work, the dead zone is well modeled with m-RBF, the compensation for the dead zone is integrated into the control input. As shown in Fig. <a href="#Fig5" class="usa-link">6</a>b, both control input for joint 1 and joint 2 become more fluctuated due to the introduction of the dead zone model. Even so, the variation range is still be confined between ±50 for joint 1 and ±30 for joint 2. Compared with ideal control input variation range ([− 20, 40] for link 1, [− 10,5] for link 2), The variation range increments is still tolerable and physically achievable.</p></section><section id="Sec16"><h4 class="pmc_sec_title">Dead zone estimation</h4>
+<p id="Par79">As shown in Fig. <a href="#Fig1" class="usa-link">1</a>, we know that the characters of dead zone nonlinearity can be estimated by equation (<a href="#Equ2" class="usa-link">2</a>). When the manipulator is running at a high speed, the nonlinearity of dead zone could be shown with a trapezoidal wave shown in Fig. <a href="#Fig7" class="usa-link">7</a> with red line. From the figure, it can be seen that our m-RBF model coule model the characotoristics of the nonlinearity of dead zone perfectly. Because the m-RBF is training in an online manner, the Net needs 1~2 seconds to converse to stable state when running for the first time. Although, there is small overshoot for link 1 when it steps in each dead zone, but the model could convers quickly to the target. As a whole, the proposed model could estimate the dead zone well.</p></section><section id="Sec17"><h4 class="pmc_sec_title">Severe situation tracking performance</h4>
+<p id="Par80">In order to simulate the actual picking process as much as possible, we set two more jumping target trajectories: a sine wave of higher frequency (see in Fig. <a href="#Fig8" class="usa-link">8</a>), and a compound curve of sine wave and square wave as Eq. (<a href="#Equ41" class="usa-link">41</a>), see in Fig. <a href="#Fig9" class="usa-link">9</a>.</p>
+<table class="disp-formula p" id="Equ41"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/1180e66eeb66/d33e1705.gif" loading="lazy" id="d33e1705" alt="graphic file with name d33e1705.gif"></td>
+<td class="label">41</td>
+</tr></table>
+<p>where <em>square</em>(<strong>·</strong>) is a MATLab built-in function that produces a square wave.</p>
+<figure class="fig xbox font-sm" id="Fig8"><h5 class="obj_head">Fig. 8.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12370935_41598_2025_10981_Fig8_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/d770cbe59a22/41598_2025_10981_Fig8_HTML.jpg" loading="lazy" id="MO8" height="406" width="767" alt="Fig. 8"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig8/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Tracking of a sine wave of higher frequency.</p></figcaption></figure><figure class="fig xbox font-sm" id="Fig9"><h5 class="obj_head">Fig. 9.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12370935_41598_2025_10981_Fig9_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/bf5a07d968c9/41598_2025_10981_Fig9_HTML.jpg" loading="lazy" id="MO9" height="401" width="767" alt="Fig. 9"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig9/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Tracking a compound curve of sine wave and square wave.</p></figcaption></figure><p id="Par81">As shown in Fig. <a href="#Fig8" class="usa-link">8</a>, the target trajectory of higher frequency sine wave simulates the situation of high-speed continuous turning motion. And our mehtod could tracking this kind of motion precisely within about 1s, except for a slight error at the turning point. As shown in Fig. <a href="#Fig9" class="usa-link">9</a>, the target trajectory composed of a sine wave and a square wave simulates the situations of sudden start, emergency stop and reverse return. As is well known, it is relatively difficult to track step signals. The simulation result indicates that the proposed method could handle the tracking of these motions well. This “jumping” motion could also be tracked within 1s. The simulation of severe situation indicates that the proposed control method is suitable for the robot application of tea picking.</p></section></section><section id="Sec18"><h3 class="pmc_sec_title">Experiment</h3>
+<p id="Par82">In order to verify the effectiveness of the proposed algorithm, an experiment on tea picking is conducted using the robot test platform. The platform mainly consists of Vision system, Manipulator, Picking mechanism, Computer control center, see in Fig. <a href="#Fig10" class="usa-link">10</a>. Some tea tree branches are picked and kept in a bucket with some water in it, which analogies the tea tree canopy. The vision system detects the tender tea shoots and provides their three-dimensional coordinate information to robot control system as the target location. The optimal running path is planned and calculated according to the target points by control system. Then the manipulator will be controlled to pick tea shoot along the running path.</p>
+<figure class="fig xbox font-sm" id="Fig10"><h4 class="obj_head">Fig. 10.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12370935_41598_2025_10981_Fig10_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/0350/12370935/bbf45f59e72c/41598_2025_10981_Fig10_HTML.jpg" loading="lazy" id="MO10" height="580" width="707" alt="Fig. 10"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig10/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Robot platform and experiment.</p></figcaption></figure><p id="Par83">In our previous experiments, generally, the arm would be chattering or get stuck when it encountered a dead zone. When the proposed algorithm is applied to the robot test platform, the running of the arm becomes smoother. To illustrate our algorithm’s effectiveness, two sets of comparative experiments are conducted: one group used the traditional control method, and the other group added the death compensation control method proposed in this paper. Each group includes 100 times picking test, tracking one picking point in each test. The breakdown get chattering or stuck) are recorded and a score is given for each control mode, as shown in Table <a href="#Tab1" class="usa-link">1</a>.</p>
+<section class="tw xbox font-sm" id="Tab1"><h4 class="obj_head">Table 1.</h4>
+<div class="caption p"><p>Comparative experiment result.</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" rowspan="2" colspan="1">Control mode</th>
+<th align="left" colspan="2" rowspan="1">Breakdown times</th>
+<th align="left" rowspan="2" colspan="1">P</th>
+<th align="left" rowspan="2" colspan="1">S</th>
+</tr>
+<tr>
+<th align="left" colspan="1" rowspan="1">Ch</th>
+<th align="left" colspan="1" rowspan="1">St</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">Traditional method</td>
+<td align="left" colspan="1" rowspan="1">51</td>
+<td align="left" colspan="1" rowspan="1">27</td>
+<td align="left" colspan="1" rowspan="1"> − 42.3</td>
+<td align="center" colspan="1" rowspan="1">57.7</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">The proposed method</td>
+<td align="left" colspan="1" rowspan="1">9</td>
+<td align="left" colspan="1" rowspan="1">2</td>
+<td align="left" colspan="1" rowspan="1"> − 4.7</td>
+<td align="center" colspan="1" rowspan="1">95.3</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<div class="tw-foot p"><div class="fn" id="_fn_p95"><p>Ch and St denote the breakdown of chattering and being stuck respectively; P is penalty, S is general score of different control mode.</p></div></div></section><p id="Par84">The initial score for each control mode is 100, and a penalty is given for each failure. The penalty is determined by the kind of the breakdown, − 0.3 for chattering and − 0.7 for being stuck. In one test, multiple chattering may occur, but only once is recorded to avoid a negative general score.</p>
+<p id="Par85">From Table <a href="#Tab1" class="usa-link">1</a>, we know that it is very prone to be breakdown under the traditional control mode, while our control method based on dead zone estimation using RBF could improve this defect significantly, with a high score of 95.3. That is to say, the proposed method for the estimation of manipulator’s dead zone and the compensation of its control is effective.</p></section></section><section id="Sec19"><h2 class="pmc_sec_title">Conclusion and discussion</h2>
+<p id="Par86">As one of the main nonlinear characteristics, dead zone nonlinearity has an important effect on the performance of power transmission system. In this study, m-RBF neural network adaptive compensator and adaptive control law were designed for the nonlinear link and dead zone characteristics of feed-forward channel of tea picking robot system. Through the stability analysis of the system, it can be seen that by selecting the controller, neural network compensator and neural network adaptive law designed in this paper, the closed-loop tracking error of the control system is always stable and bounded eventually, and the tracking error decreases with the increase of the gain. Compared with other works, Zhou<sup><a href="#CR30" class="usa-link" aria-describedby="CR30">30</a></sup>, He<sup><a href="#CR25" class="usa-link" aria-describedby="CR25">25</a></sup>, and Bensidhoum<sup><a href="#CR32" class="usa-link" aria-describedby="CR32">32</a></sup>, our method has globally uniformly ultimately bounded stability, which outperforms their semi-globally uniformly ultimately bounded, semi-globally uniformly bounded and asymptotically stable respectively.</p>
+<p id="Par87">To visually demonstrate the performance of the control system, taking the two joints manipulator as an example, the system simulation model is established in MATLAB/Simulink. The simulation results show that the m-RBF neural network has a good approximation performance for the nonlinear system, and can approximate the dead zone nonlinear characteristics well. The control system based on the neural network model can realize the stable tracking control of a manipulator better, and has a strong ability to restrain the load disturbance.</p>
+<p id="Par88">Finally, the proposed algorithm was applied to a six-axis manipulator to carry out tea picking experiments. Compared with the traditional PID control methods (Proportional, Integral, Differential control), the proposed method got a higher score of 95.3 in the comprehensive evaluation, and could effectively deal with the problems caused by the dead zone of the manipulator, making the operation of the manipulator more smooth and efficient.</p>
+<p id="Par89">Because of the local approximation property of m-RBF neural network, the learning speed is fast and the local minimum problem can be avoided, which is especially suitable for the application requirements of real-time control. Therefore, the neural network control scheme of the tea picking manipulator composed of m-RBF network has good control precision, robustness and adaptability. As shown in section "<a href="#Sec15" class="usa-link">Simulation result</a>", it still takes about 1 s to adjust before tracking stably, which is not good for real-time tracking applications. Therefore, it is necessary to further study the dead zone compensation algorithm and network structure in the future to improve the compensation and tracking performance.</p></section><section id="ack1" class="ack"><h2 class="pmc_sec_title">Acknowledgements</h2>
+<p>This work was supported mainly by the Key Laboratory of Modern Agricultural Equipment, Ministry of Agriculture and Rural Affairs, P.R., China; the open subject from Key Laboratory of Agricultural Equipment Technology for Hilly and Mountainious Areas under Grant 20224LOP04; the Modern Agricultural Technology System of Tea Industry (Grant No. CARS-19, China), The Innovating Program of the Chinese Academy of Agricultural Science, China; The Key Laboratory for Crop Production and Smart Agriculture of Yunnan Province (2023ZHNY06).</p></section><section id="notes1"><h2 class="pmc_sec_title">Author contributions</h2>
+<p>Conceptualization, Y.H.; Writing—original draft， Y.H.; methodology, Y.H.; software, Y.S.; validation, Y.S.; formal analysis, Y.H.; project administration, Y.Y.; funding acquisition, Y.Y.; Experiment, Y. H., Y.S., Y.Y., C.Z. All authors have read and agreed to the published version of the manuscript.</p></section><section id="notes2"><h2 class="pmc_sec_title">Data availability</h2>
+<p>Data is provided within the manuscript or supplementary information files, further inquiries can be directed to the corresponding author.</p></section><section id="notes3"><h2 class="pmc_sec_title">Declarations</h2>
+<section id="FPar1"><h3 class="pmc_sec_title">Competing interests</h3>
+<p id="Par90">The authors declare no competing interests.</p></section></section><section id="fn-group1" class="fn-group"><h2 class="pmc_sec_title">Footnotes</h2>
+<div class="fn-group p font-secondary-light font-sm"><div class="fn p" id="fn1">
+<p><strong>Publisher’s note</strong></p>
+<p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</div></div></section><section id="_ci93_" lang="en" class="contrib-info"><h2 class="pmc_sec_title">Contributor Information</h2>
+<p>Yu Han, Email: hanyu@caas.cn.</p>
+<p>Zhiyu Song, Email: songzy1984@163.com.</p>
+<p>Wenyu Yi, Email: ywycd@scsaas.cn.</p></section><section id="Bib1" class="ref-list"><h2 class="pmc_sec_title">References</h2>
+<section id="Bib1_sec2"><ul class="ref-list font-sm" style="list-style-type:none">
+<li id="CR1">
+<span class="label">1.</span><cite>Fu, L. &amp; Xu, Q. Research on the status quo and promotion strategy of Chinese tea industry. <em>Chin. Business Theory</em><strong>06</strong>(2), 221–223 (2019).</cite> [<a href="https://scholar.google.com/scholar_lookup?Fu,%20L.%20&amp;%20Xu,%20Q.%20Research%20on%20the%20status%20quo%20and%20promotion%20strategy%20of%20Chinese%20tea%20industry.%20Chin.%20Business%20Theory06(2),%20221%E2%80%93223%20(2019)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR2">
+<span class="label">2.</span><cite>Han, Y. et al. Research on the development status of tea picking machinery at home and abroad. <em>Chin. J. Agric. Mech.</em><strong>35</strong>(02), 20–24 (2014).</cite> [<a href="https://scholar.google.com/scholar_lookup?Han,%20Y.%20et%20al.%20Research%20on%20the%20development%20status%20of%20tea%20picking%20machinery%20at%20home%20and%20abroad.%20Chin.%20J.%20Agric.%20Mech.35(02),%2020%E2%80%9324%20(2014)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR3">
+<span class="label">3.</span><cite>Vu, H., Le, T., Tran, T. &amp; Nguyen, T. A vision-based method for automatizing tea shoots detection. In: IEEE International Conference on Image Processing, Melbourne, VIC, Australia, 3775–3779 (2013).</cite>
+</li>
+<li id="CR4">
+<span class="label">4.</span><cite>Thangavel, S. &amp; Mursi, M. A semi-automated system for smart harvesting of tea leaves. In: 4th International Conference on Advanced Computing and Communication Systems (ICACCS), Coimbatore, India, 1–10 (2017).</cite>
+</li>
+<li id="CR5">
+<span class="label">5.</span><cite>Karunasena, G. &amp; Priyankara, H. Tea bud leaf identification by using machine learning and image processing. <em>Techniques</em><strong>11</strong>(8), 624–628 (2020).</cite> [<a href="https://scholar.google.com/scholar_lookup?Karunasena,%20G.%20&amp;%20Priyankara,%20H.%20Tea%20bud%20leaf%20identification%20by%20using%20machine%20learning%20and%20image%20processing.%20Techniques11(8),%20624%E2%80%93628%20(2020)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR6">
+<span class="label">6.</span><cite>Jain, S. K., et al. IoT based smart tea leaves plucker with two revolute type planar manipulator. In: IEEE International Students’ Conference on Electrical, Electronics and Computer Science (SCEECS), Bhopal, India, 1–6 (2018).</cite>
+</li>
+<li id="CR7">
+<span class="label">7.</span><cite>Motokura, K., Takahashi, M., Ewerton, M. &amp; Peters, J. Plucking motions for tea harvesting robots using probabilistic movement primitives. <em>IEEE Robot. Autom. Lett.</em><strong>5</strong>(2), 3275–3282 (2020).</cite> [<a href="https://scholar.google.com/scholar_lookup?Motokura,%20K.,%20Takahashi,%20M.,%20Ewerton,%20M.%20&amp;%20Peters,%20J.%20Plucking%20motions%20for%20tea%20harvesting%20robots%20using%20probabilistic%20movement%20primitives.%20IEEE%20Robot.%20Autom.%20Lett.5(2),%203275%E2%80%933282%20(2020)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR8">
+<span class="label">8.</span><cite>Yang, F. Z., Yang, L. L., Tian, Y. N. &amp; Yang, Q. Recognition of the tea sprout based on color and shape features. <em>Trans. Chin. Soc. Agric. Mach.</em><strong>40</strong>, 119–123 (2009).</cite> [<a href="https://scholar.google.com/scholar_lookup?Yang,%20F.%20Z.,%20Yang,%20L.%20L.,%20Tian,%20Y.%20N.%20&amp;%20Yang,%20Q.%20Recognition%20of%20the%20tea%20sprout%20based%20on%20color%20and%20shape%20features.%20Trans.%20Chin.%20Soc.%20Agric.%20Mach.40,%20119%E2%80%93123%20(2009)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR9">
+<span class="label">9.</span><cite>Jin, X. J., Chen, Y., Zhang, H., Sun, Y. X. &amp; Chen, J. High-quality tea flushes detection under natural conditions using computer vision. <em>JDCTA Int. J. Digit. Content Technol. Appl.</em><strong>6</strong>(8), 600–606 (2012).</cite> [<a href="https://scholar.google.com/scholar_lookup?Jin,%20X.%20J.,%20Chen,%20Y.,%20Zhang,%20H.,%20Sun,%20Y.%20X.%20&amp;%20Chen,%20J.%20High-quality%20tea%20flushes%20detection%20under%20natural%20conditions%20using%20computer%20vision.%20JDCTA%20Int.%20J.%20Digit.%20Content%20Technol.%20Appl.6(8),%20600%E2%80%93606%20(2012)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR10">
+<span class="label">10.</span><cite>Wang, J., Zeng, X. Y. &amp; Liu, J. B. Three-dimensional modeling of tea-shoots using images and models. <em>Sensors</em><strong>11</strong>, 3803–3815 (2011).
+</cite> [<a href="https://doi.org/10.3390/s110403803" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC3231353/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/22163823/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Wang,%20J.,%20Zeng,%20X.%20Y.%20&amp;%20Liu,%20J.%20B.%20Three-dimensional%20modeling%20of%20tea-shoots%20using%20images%20and%20models.%20Sensors11,%203803%E2%80%933815%20(2011)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR11">
+<span class="label">11.</span><cite>Qi, F., Xie, Z. &amp; Tang, Z. Related study based on otsu watershed algorithm and new squeeze-and-excitation networks for segmentation and level classification of tea buds. <em>Neural Process. Lett.</em><strong>53</strong>(3), 2261–2275 (2021).</cite> [<a href="https://scholar.google.com/scholar_lookup?Qi,%20F.,%20Xie,%20Z.%20&amp;%20Tang,%20Z.%20Related%20study%20based%20on%20otsu%20watershed%20algorithm%20and%20new%20squeeze-and-excitation%20networks%20for%20segmentation%20and%20level%20classification%20of%20tea%20buds.%20Neural%20Process.%20Lett.53(3),%202261%E2%80%932275%20(2021)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR12">
+<span class="label">12.</span><cite>Lv, J., Xia, H. K., Fang, M. R. &amp; Zhou, L. Z. Research on intelligent identification of tea sprouts state based on alex net. <em>J. Heilongjiang Bayi Agric. Univ.</em><strong>31</strong>(2), 72–78 (2019).</cite> [<a href="https://scholar.google.com/scholar_lookup?Lv,%20J.,%20Xia,%20H.%20K.,%20Fang,%20M.%20R.%20&amp;%20Zhou,%20L.%20Z.%20Research%20on%20intelligent%20identification%20of%20tea%20sprouts%20state%20based%20on%20alex%20net.%20J.%20Heilongjiang%20Bayi%20Agric.%20Univ.31(2),%2072%E2%80%9378%20(2019)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR13">
+<span class="label">13.</span><cite>Yang, H. L. et al. Tender tea shoots recognition and positioning for picking robot using improved yolo-v3 model. <em>IEEE Access.</em><strong>7</strong>, 180998–181011 (2019).</cite> [<a href="https://scholar.google.com/scholar_lookup?Yang,%20H.%20L.%20et%20al.%20Tender%20tea%20shoots%20recognition%20and%20positioning%20for%20picking%20robot%20using%20improved%20yolo-v3%20model.%20IEEE%20Access.7,%20180998%E2%80%93181011%20(2019)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR14">
+<span class="label">14.</span><cite>Yang, H. L. et al. Computer vision-based high-quality tea automatic plucking robot using Delta parallel manipulator. <em>Comput. Electron. Agric.</em><strong>181</strong>, 105946–105955 (2021).</cite> [<a href="https://scholar.google.com/scholar_lookup?Yang,%20H.%20L.%20et%20al.%20Computer%20vision-based%20high-quality%20tea%20automatic%20plucking%20robot%20using%20Delta%20parallel%20manipulator.%20Comput.%20Electron.%20Agric.181,%20105946%E2%80%93105955%20(2021)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR15">
+<span class="label">15.</span><cite>Li, Y. L. et al. In-field tea shoot detection and 3D localization using an RGB-D camera. <em>Comput. Electron. Agric.</em><strong>185</strong>, 106149 (2021).</cite> [<a href="https://scholar.google.com/scholar_lookup?Li,%20Y.%20L.%20et%20al.%20In-field%20tea%20shoot%20detection%20and%203D%20localization%20using%20an%20RGB-D%20camera.%20Comput.%20Electron.%20Agric.185,%20106149%20(2021)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR16">
+<span class="label">16.</span><cite>Gong, T. &amp; Wang, Z. L. A tea tip detection method suitable for tea pickers based on YOLOv4 network. In <em>2021 3rd International Symposium on Robotics &amp; Intelligent Manufacturing Technology (ISRIMT)</em> (eds Gong, T. &amp; Wang, Z. L.) 264–268 (IEEE, 2021).</cite> [<a href="https://scholar.google.com/scholar_lookup?Gong,%20T.%20&amp;%20Wang,%20Z.%20L.%20A%20tea%20tip%20detection%20method%20suitable%20for%20tea%20pickers%20based%20on%20YOLOv4%20network.%20In%202021%203rd%20International%20Symposium%20on%20Robotics%20&amp;%20Intelligent%20Manufacturing%20Technology%20(ISRIMT)%20(eds%20Gong,%20T.%20&amp;%20Wang,%20Z.%20L.)%20264%E2%80%93268%20(IEEE,%202021)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR17">
+<span class="label">17.</span><cite>Chen, Y. T. &amp; Chen, S. F. Localizing plucking points of tea leaves using deep convolutional neural networks. <em>Comput. Electron. Agric.</em><strong>171</strong>, 105298 (2020).</cite> [<a href="https://scholar.google.com/scholar_lookup?Chen,%20Y.%20T.%20&amp;%20Chen,%20S.%20F.%20Localizing%20plucking%20points%20of%20tea%20leaves%20using%20deep%20convolutional%20neural%20networks.%20Comput.%20Electron.%20Agric.171,%20105298%20(2020)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR18">
+<span class="label">18.</span><cite>Chen, M. T. <em>Recognition and Localization of Famous Tea Buds Based on Computer Vision</em> (Qingdao University of Science and Technology, 2019).</cite> [<a href="https://scholar.google.com/scholar_lookup?Chen,%20M.%20T.%20Recognition%20and%20Localization%20of%20Famous%20Tea%20Buds%20Based%20on%20Computer%20Vision%20(Qingdao%20University%20of%20Science%20and%20Technology,%202019)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR19">
+<span class="label">19.</span><cite>Wei, J. J. <em>Research on Bud Identification Method for Mechanized Picking of Famous Tea</em> (Nanjing Forestry University, 2012).</cite> [<a href="https://scholar.google.com/scholar_lookup?Wei,%20J.%20J.%20Research%20on%20Bud%20Identification%20Method%20for%20Mechanized%20Picking%20of%20Famous%20Tea%20(Nanjing%20Forestry%20University,%202012)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR20">
+<span class="label">20.</span><cite>Sun, X. F. <em>Research on the Method of Identifying New Shoot and Determining Center Point for Intelligent Picking of Famous Tea</em> (Nanjing Forestry University, 2014).</cite> [<a href="https://scholar.google.com/scholar_lookup?Sun,%20X.%20F.%20Research%20on%20the%20Method%20of%20Identifying%20New%20Shoot%20and%20Determining%20Center%20Point%20for%20Intelligent%20Picking%20of%20Famous%20Tea%20(Nanjing%20Forestry%20University,%202014)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR21">
+<span class="label">21.</span><cite>Zhao, Z. J. et al. Adaptive quantized control of flexible manipulators subject to unknown dead zones. <em>IEEE Trans. Syst. Man Cybern. Syst.</em><strong>53</strong>(10), 6438–6447 (2023).</cite> [<a href="https://scholar.google.com/scholar_lookup?Zhao,%20Z.%20J.%20et%20al.%20Adaptive%20quantized%20control%20of%20flexible%20manipulators%20subject%20to%20unknown%20dead%20zones.%20IEEE%20Trans.%20Syst.%20Man%20Cybern.%20Syst.53(10),%206438%E2%80%936447%20(2023)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR22">
+<span class="label">22.</span><cite>Charandabi, B. A., Salmasi, F. R. &amp; Sedigh, A. K. Improved dead zone modification for robust adaptive control of uncertain linear systems described by input-output models with actuator faults. <em>IEEE Trans. Autom. Control</em><strong>56</strong>(4), 863–867 (2011).</cite> [<a href="https://scholar.google.com/scholar_lookup?Charandabi,%20B.%20A.,%20Salmasi,%20F.%20R.%20&amp;%20Sedigh,%20A.%20K.%20Improved%20dead%20zone%20modification%20for%20robust%20adaptive%20control%20of%20uncertain%20linear%20systems%20described%20by%20input-output%20models%20with%20actuator%20faults.%20IEEE%20Trans.%20Autom.%20Control56(4),%20863%E2%80%93867%20(2011)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR23">
+<span class="label">23.</span><cite>Liu, Z., Lai, G. Y., Zhang, Y. &amp; Philip Chen, C. L. Adaptive fuzzy tracking control of nonlinear time-delay systems with dead-zone output mechanism based on a novel smooth model. <em>IEEE Trans. Fuzzy Syst</em>. <strong>23</strong>(6)<strong>,</strong> 1998–2011(2015).</cite>
+</li>
+<li id="CR24">
+<span class="label">24.</span><cite>Zhao, Z. J., Ahn, C. K. &amp; Li, H. X. Dead zone compensation and adaptive vibration control of uncertain spatial flexible riser systems. <em>IEEE/ASME Trans. Mechatron.</em><strong>25</strong>(3), 1398–1408 (2020).</cite> [<a href="https://scholar.google.com/scholar_lookup?Zhao,%20Z.%20J.,%20Ahn,%20C.%20K.%20&amp;%20Li,%20H.%20X.%20Dead%20zone%20compensation%20and%20adaptive%20vibration%20control%20of%20uncertain%20spatial%20flexible%20riser%20systems.%20IEEE/ASME%20Trans.%20Mechatron.25(3),%201398%E2%80%931408%20(2020)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR25">
+<span class="label">25.</span><cite>He, W., Huang, B., Dong, Y., Li, Z. &amp; Su, C. Y. Adaptive neural network control for robotic manipulators with unknown deadzone. <em>IEEE Trans. Cybern.</em><strong>48</strong>(9), 2670–2682 (2018).
+</cite> [<a href="https://doi.org/10.1109/TCYB.2017.2748418" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/29990230/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?He,%20W.,%20Huang,%20B.,%20Dong,%20Y.,%20Li,%20Z.%20&amp;%20Su,%20C.%20Y.%20Adaptive%20neural%20network%20control%20for%20robotic%20manipulators%20with%20unknown%20deadzone.%20IEEE%20Trans.%20Cybern.48(9),%202670%E2%80%932682%20(2018)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR26">
+<span class="label">26.</span><cite>Wang, X. S., Su, C. Y. &amp; Hong, H. Robust adaptive control of a class of nonlinear systems with unknown dead-zone. <em>Automatica</em><strong>40</strong>(3), 407–413 (2004).</cite> [<a href="https://scholar.google.com/scholar_lookup?Wang,%20X.%20S.,%20Su,%20C.%20Y.%20&amp;%20Hong,%20H.%20Robust%20adaptive%20control%20of%20a%20class%20of%20nonlinear%20systems%20with%20unknown%20dead-zone.%20Automatica40(3),%20407%E2%80%93413%20(2004)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR27">
+<span class="label">27.</span><cite>Tong, S., Zhang, L. &amp; Li, Y. Observed-based adaptive fuzzy decentralized tracking control for switched uncertain nonlinear large-scale systems with dead zones. <em>IEEE Trans. Syst. Man Cybern. Syst.</em><strong>46</strong>(1), 37–47 (2016).</cite> [<a href="https://scholar.google.com/scholar_lookup?Tong,%20S.,%20Zhang,%20L.%20&amp;%20Li,%20Y.%20Observed-based%20adaptive%20fuzzy%20decentralized%20tracking%20control%20for%20switched%20uncertain%20nonlinear%20large-scale%20systems%20with%20dead%20zones.%20IEEE%20Trans.%20Syst.%20Man%20Cybern.%20Syst.46(1),%2037%E2%80%9347%20(2016)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR28">
+<span class="label">28.</span><cite>Pei, L., et al. A robust deadzone compensation method against parameter variations based on kalman filter and neural networks. <em>IECON 2021 – 47th Annual Conference of the IEEE Industrial Electronics Society</em>, Toronto, Canada, 1–6 (2021).</cite>
+</li>
+<li id="CR29">
+<span class="label">29.</span><cite>Lewis, F. L., Liu, K. &amp; Yesidirek, A. Neural net robot controller with guaranteed tracking performance. <em>IEEE Trans. Neural Netw.</em><strong>6</strong>(3), 703–715 (1995).
+</cite> [<a href="https://doi.org/10.1109/72.377975" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/18263355/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Lewis,%20F.%20L.,%20Liu,%20K.%20&amp;%20Yesidirek,%20A.%20Neural%20net%20robot%20controller%20with%20guaranteed%20tracking%20performance.%20IEEE%20Trans.%20Neural%20Netw.6(3),%20703%E2%80%93715%20(1995)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR30">
+<span class="label">30.</span><cite>Zhou, Q., Zhao, S. Y. &amp; Li, H. Y. Adaptive neural network tracking control for robotic manipulators with dead zone. <em>IEEE Trans. Neural Netw. Learn. Syst.</em><strong>30</strong>(12), 3611–3620 (2019).
+</cite> [<a href="https://doi.org/10.1109/TNNLS.2018.2869375" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/30346291/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Zhou,%20Q.,%20Zhao,%20S.%20Y.%20&amp;%20Li,%20H.%20Y.%20Adaptive%20neural%20network%20tracking%20control%20for%20robotic%20manipulators%20with%20dead%20zone.%20IEEE%20Trans.%20Neural%20Netw.%20Learn.%20Syst.30(12),%203611%E2%80%933620%20(2019)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR31">
+<span class="label">31.</span><cite>Lu, Y., Liu, J. K. &amp; Sun, F. C. Actuator nonlinearities compensation using rbf neural networks in robot control system. In: Proc. 4th CESA Multi-conference on Computational Engineering in Systems Application, Beijing, China. <strong>1,</strong> 231–238 (2006).</cite>
+</li>
+<li id="CR32">
+<span class="label">32.</span><cite>Bensidhoum, T. &amp; Bouakrif, F. Adaptive P-type iterative learning radial basis function control for robot manipulators with unknown varying disturbances and unknown input dead zone. <em>Int. J. Robust Nonlinear Control</em><strong>30</strong>, 4075–4094 (2020).</cite> [<a href="https://scholar.google.com/scholar_lookup?Bensidhoum,%20T.%20&amp;%20Bouakrif,%20F.%20Adaptive%20P-type%20iterative%20learning%20radial%20basis%20function%20control%20for%20robot%20manipulators%20with%20unknown%20varying%20disturbances%20and%20unknown%20input%20dead%20zone.%20Int.%20J.%20Robust%20Nonlinear%20Control30,%204075%E2%80%934094%20(2020)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR33">
+<span class="label">33.</span><cite>Ge, S. S. Robust adaptive NN feedback linearization control of nonlinear systems. <em>Int. J. Syst. Sci.</em><strong>27</strong>(2), 1327–1338 (1996).</cite> [<a href="https://scholar.google.com/scholar_lookup?Ge,%20S.%20S.%20Robust%20adaptive%20NN%20feedback%20linearization%20control%20of%20nonlinear%20systems.%20Int.%20J.%20Syst.%20Sci.27(2),%201327%E2%80%931338%20(1996)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR34">
+<span class="label">34.</span><cite>Chiu, S. F. Fuzzy model identification based on cluster estimation. <em>J. Intell. Fuzzy Syst.</em><strong>2</strong>(3), 749–755 (1994).</cite> [<a href="https://scholar.google.com/scholar_lookup?Chiu,%20S.%20F.%20Fuzzy%20model%20identification%20based%20on%20cluster%20estimation.%20J.%20Intell.%20Fuzzy%20Syst.2(3),%20749%E2%80%93755%20(1994)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR35">
+<span class="label">35.</span><cite>Wang, Y. N. <em>Robot Intelligent Control Engineering</em> 226–229 (Science Press, 2003).</cite> [<a href="https://scholar.google.com/scholar_lookup?Wang,%20Y.%20N.%20Robot%20Intelligent%20Control%20Engineering%20226%E2%80%93229%20(Science%20Press,%202003)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR36">
+<span class="label">36.</span><cite>Zhao, H., Liu, W. Y., Chen, X. L. &amp; Sun, H. Adaptive robust constraint-following control for under actuated unmanned bicycle robot with uncertainties. <em>ISA Trans.</em><strong>143</strong>(04), 144–155 (2023).
+</cite> [<a href="https://doi.org/10.1016/j.isatra.2023.09.016" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/37777378/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Zhao,%20H.,%20Liu,%20W.%20Y.,%20Chen,%20X.%20L.%20&amp;%20Sun,%20H.%20Adaptive%20robust%20constraint-following%20control%20for%20under%20actuated%20unmanned%20bicycle%20robot%20with%20uncertainties.%20ISA%20Trans.143(04),%20144%E2%80%93155%20(2023)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR37">
+<span class="label">37.</span><cite>Peng, H. J., Li, N., Jiang, D. H. &amp; Li, F. Soft robot fast simulation via reduced order extended position based dynamics. <em>Robot. Auton. Syst.</em><strong>175</strong>(05), 204–215 (2024).</cite> [<a href="https://scholar.google.com/scholar_lookup?Peng,%20H.%20J.,%20Li,%20N.,%20Jiang,%20D.%20H.%20&amp;%20Li,%20F.%20Soft%20robot%20fast%20simulation%20via%20reduced%20order%20extended%20position%20based%20dynamics.%20Robot.%20Auton.%20Syst.175(05),%20204%E2%80%93215%20(2024)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+</ul></section></section><section id="_ad93_" lang="en" class="associated-data"><h2 class="pmc_sec_title">Associated Data</h2>
+<p class="font-secondary"><em>This section collects any data citations, data availability statements, or supplementary materials included in this article.</em></p>
+<section id="_adda93_" lang="en" class="data-availability-statement"><h3 class="pmc_sec_title">Data Availability Statement</h3>
+<p>Data is provided within the manuscript or supplementary information files, further inquiries can be directed to the corresponding author.</p></section></section></section><footer class="p courtesy-note font-secondary font-sm text-center"><hr class="headless">
+<p>Articles from Scientific Reports are provided here courtesy of <strong>Nature Publishing Group</strong></p></footer></section></article>
+
+                      
+
+                    </main>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+<!-- Secondary navigation placeholder -->
+<div class="pmc-sidenav desktop:grid-col-4 display-flex">
+    <section class="pmc-sidenav__container" aria-label="Article resources and navigation">
+        <button type="button" class="usa-button pmc-sidenav__container__close usa-button--unstyled">
+            <img src="/static/img/usa-icons/close.svg" role="img" alt="Close" />
+        </button>
+    <div class="display-none desktop:display-block">
+       <section class="margin-top-4 desktop:margin-top-0">
+              <h2 class="margin-top-0">ACTIONS</h2>
+           <ul class="usa-list usa-list--unstyled usa-list--actions">
+               
+               <li>
+                     <a
+                             href="https://doi.org/10.1038/s41598-025-10981-4"
+                             class="usa-button usa-button--outline width-24 font-xs display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                             target="_blank"
+                             rel="noreferrer noopener"
+                             data-ga-category="actions"
+                             data-ga-action="click"
+                             data-ga-label="publisher_link_desktop"
+                     >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#launch"></use>
+                         </svg>
+                         <span class="display-inline-flex flex-justify-center flex-1 padding-right-2">View on publisher site</span>
+                     </a>
+               </li>
+               
+               
+               <li>
+                    <a
+                            href="pdf/41598_2025_Article_10981.pdf"
+                            class="usa-button usa-button--outline width-24 display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="pdf_download_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1">PDF (3.0 MB)</span>
+                    </a>
+               </li>
+               
+                
+               <li>
+                   <button role="button" class="usa-button width-24 citation-dialog-trigger display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                        aria-label="Open dialog with citation text in different styles"
+                        data-ga-category="actions"
+                        data-ga-action="open"
+                        data-ga-label="cite_desktop"
+                        data-all-citations-url="/resources/citations/12370935/"
+                        data-citation-style="nlm"
+                        data-download-format-link="/resources/citations/12370935/export/"
+                    >
+                        <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                        </svg>
+                       <span class="display-inline-flex flex-justify-center flex-1 button-label">Cite</span>
+                    </button>
+               </li>
+                
+               <li>
+
+                        <button class="usa-button width-24 collections-dialog-trigger collections-button display-inline-flex flex-align-center flex-justify-start padding-left-1 collections-button-empty"
+                              aria-label="Save article in MyNCBI collections."
+                              data-ga-category="actions"
+                              data-ga-action="click"
+                              data-ga-label="collections_button_desktop"
+                              data-collections-open-dialog-enabled="false"
+                              data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12370935%2F%3Freport%3Dclassic%23open-collections-dialog"
+                              data-in-collections="false">
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                            <span class="display-inline-flex flex-justify-center flex-1">Collections</span>
+                       </button>
+               </li>
+               <li class="pmc-permalink">
+                    <button
+                            type="button"
+                            class="usa-button width-24 display-inline-flex flex-align-center flex-justify padding-left-1 shadow-none"
+                            aria-label="Show article permalink"
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="permalink_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#share"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1 button-label">Permalink</span>
+                    </button>
+                   
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12370935/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+               </li>
+           </ul>
+       </section>
+     </div>
+
+        <section class="pmc-resources margin-top-6 desktop:margin-top-4" data-page-path="/articles/PMC12370935/">
+            <h2 class="margin-top-0">RESOURCES</h2>
+            
+                <div class="usa-accordion usa-accordion--multiselectable" data-allow-multiple>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-similar-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_similar_articles"
+                        data-ga-label="/articles/PMC12370935/"
+                        data-action-open="open_similar_articles"
+                        data-action-close="close_similar_articles"
+                        >
+                            Similar articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-similar-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/similar-article-links/40841718/"
+                            
+                    >
+                        
+                    </div>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-cited-by-other-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_cited_by"
+                        data-ga-label="/articles/PMC12370935/"
+                        data-action-open="open_cited_by"
+                        data-action-close="close_cited_by"
+                        >
+                             Cited by other articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-cited-by-other-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/cited-by-links/40841718/"
+                            
+                    >
+                          
+                    </div>
+                    
+                        <h3 class="usa-accordion__heading">
+                            <button
+                            type="button"
+                            class="usa-accordion__button"
+                            aria-expanded="false"
+                            aria-controls="resources-links-to-ncbi-databases"
+                            data-ga-category="resources_accordion"
+                            data-ga-action="open_NCBI_links"
+                            data-ga-label="/articles/PMC12370935/"
+                            data-action-open="open_NCBI_links"
+                            data-action-close="close_NCBI_link"
+                            >
+                                 Links to NCBI Databases
+                            </button>
+                        </h3>
+                        <div
+                                id="resources-links-to-ncbi-databases"
+                                class="usa-accordion__content usa-prose"
+                                data-source-url="/resources/db-links/12370935/"
+                        >
+                        </div>
+                    
+                    
+                </div>
+            
+        </section>
+
+
+        <section
+        class="usa-in-page-nav usa-in-page-nav--wide margin-top-6 desktop:margin-top-4"
+        data-title-text="On this page"
+        data-title-heading-level="h2"
+        data-scroll-offset="0"
+        data-root-margin="-10% 0px -80% 0px"
+        data-main-content-selector="main"
+        data-threshold="1"
+        hidden
+        ></section>
+    </section>
+</div>
+
+
+        
+
+<div class="overlay" role="dialog" aria-label="Citation Dialog" hidden>
+    <div class="dialog citation-dialog" aria-hidden="true">
+        <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+            <h2 class="usa-modal__heading margin-0">Cite</h2>
+             <button type="button" class="usa-button usa-button--unstyled close-overlay text-black width-auto"  tabindex="1">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+             </button>
+        </div>
+
+        
+
+<div class="citation-text-block">
+  <div class="citation-text margin-bottom-2"></div>
+  <ul class="usa-list usa-list--unstyled display-inline-flex flex-justify width-full flex-align-center">
+      <li>
+        <button
+          class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center copy-button dialog-focus"
+          data-ga-category="save_share"
+          data-ga-action="cite"
+          data-ga-label="copy"
+          tabindex="2">
+            <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+            </svg>
+            <span>Copy</span>
+        </button>
+      </li>
+      <li>
+          <a
+              href="#"
+              role="button"
+              class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center export-button"
+              data-ga-category="save_share"
+              data-ga-action="cite"
+              data-ga-label="download"
+              title="Download a file for external citation management software"
+              tabindex="3">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                </svg>
+                <span class="display-none mobile-lg:display-inline">Download .nbib</span>
+                <span class="display-inline mobile-lg:display-none">.nbib</span>
+            </a>
+      </li>
+      <li>
+          
+
+<div class="display-inline-flex flex-align-center">
+  <label class="usa-label margin-top-0">Format:</label>
+  <select aria-label="Format" class="usa-select citation-style-selector padding-1 margin-top-0 border-0 padding-right-4" tabindex="4" >
+    
+      <option data-style-url-name="ama"
+              value="AMA"
+              >
+        AMA
+      </option>
+    
+      <option data-style-url-name="apa"
+              value="APA"
+              >
+        APA
+      </option>
+    
+      <option data-style-url-name="mla"
+              value="MLA"
+              >
+        MLA
+      </option>
+    
+      <option data-style-url-name="nlm"
+              value="NLM"
+              selected="selected">
+        NLM
+      </option>
+    
+  </select>
+</div>
+      </li>
+  </ul>
+</div>
+    </div>
+</div>
+
+        <div class="overlay" role="dialog" hidden>
+  <div id="collections-action-dialog" class="dialog collections-dialog" aria-hidden="true">
+   <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+        <h2 class="usa-modal__heading margin-0">Add to Collections</h2>
+    </div>
+    <div class="collections-action-panel action-panel">
+      
+
+
+<form id="collections-action-dialog-form"
+      class="usa-form maxw-full collections-action-panel-form action-panel-content action-form action-panel-smaller-selectors"
+      data-existing-collections-url="/list-existing-collections/"
+      data-add-to-existing-collection-url="/add-to-existing-collection/"
+      data-create-and-add-to-new-collection-url="/create-and-add-to-new-collection/"
+      data-myncbi-max-collection-name-length="100"
+      data-collections-root-url="https://www.ncbi.nlm.nih.gov/myncbi/collections/">
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="A9Wefk35oHDIr2aICwAZozeq4pQFCbnEtMXGlgY3xtihD45iQrm1gPqHDozhWlby">
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-new"
+            class="usa-radio__input usa-radio__input--tile collections-new  margin-top-0"
+            name="collections"
+            value="new"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_new" />
+            <label class="usa-radio__label" for="collections-action-dialog-new">Create a new collection</label>
+        </div>
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-existing"
+            class="usa-radio__input usa-radio__input--tile collections-existing"
+            name="collections"
+            value="existing"
+            checked="true"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_existing" />
+            <label class="usa-radio__label" for="collections-action-dialog-existing">Add to an existing collection</label>
+        </div>
+    </fieldset>
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="action-panel-control-wrap new-collections-controls">
+           <label for="collections-action-dialog-add-to-new" class="usa-label margin-top-0">
+                Name your collection
+               <abbr title="required" class="usa-hint usa-hint--required text-no-underline">*</abbr>
+          </label>
+          <input
+            type="text"
+            name="add-to-new-collection"
+            id="collections-action-dialog-add-to-new"
+            class="usa-input collections-action-add-to-new"
+            pattern="[^&quot;&amp;=&lt;&gt;/]*" title="The following characters are not allowed in the Name field: &quot;&amp;=&lt;&gt;/"
+            maxlength=""
+            data-ga-category="collections_button"
+            data-ga-action="create_collection"
+            data-ga-label="non_favorties_collection"
+            required
+          />
+        </div>
+        <div class="action-panel-control-wrap existing-collections-controls">
+             <label for="collections-action-dialog-add-to-existing" class="usa-label margin-top-0">
+                Choose a collection
+              </label>
+              <select id="collections-action-dialog-add-to-existing"
+                      class="usa-select collections-action-add-to-existing"
+                      data-ga-category="collections_button"
+                      data-ga-action="select_collection"
+                      data-ga-label="($('.collections-action-add-to-existing').val() === 'Favorites') ? 'Favorites' : 'non_favorites_collection'">
+              </select>
+              <div class="collections-retry-load-on-error usa-input-error-message selection-validation-message">
+                Unable to load your collection due to an error<br>
+                <a href="#">Please try again</a>
+              </div>
+        </div>
+    </fieldset>
+
+    <div class="display-inline-flex">
+        <button class="usa-button margin-top-0 action-panel-submit"
+            type="submit"
+            data-loading-label="Adding..."
+            data-pinger-ignore
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="add">
+          Add
+        </button>
+        <button class="usa-button usa-button--outline margin-top-0 action-panel-cancel"
+                aria-label="Close 'Add to Collections' panel"
+                ref="linksrc=close_collections_panel"
+                data-ga-category="collections_button"
+                data-ga-action="click"
+                data-ga-label="cancel">
+          Cancel
+        </button>
+    </div>
+</form>
+    </div>
+  </div>
+</div>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+
+
+        
+    
+    
+
+<footer class="ncbi-footer ncbi-dark-background " >
+    
+        <div class="ncbi-footer__icon-section">
+            <div class="ncbi-footer__social-header">
+                Follow NCBI
+            </div>
+
+            <div class="grid-container ncbi-footer__ncbi-social-icons-container">
+                
+                    <a href="https://twitter.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="40"
+                             height="40"
+                             viewBox="0 0 40 40"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on X (formerly known as Twitter)</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.facebook.com/ncbi.nlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="16"
+                             height="29"
+                             focusable="false"
+                             aria-hidden="true"
+                             viewBox="0 0 16 29"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.8809 21.4002C3.8809 19.0932 3.8809 16.7876 3.8809 14.478C3.8809 14.2117 3.80103 14.1452 3.54278 14.1492C2.53372 14.1638 1.52334 14.1492 0.514288 14.1598C0.302626 14.1598 0.248047 14.0972 0.248047 13.8936C0.256034 12.4585 0.256034 11.0239 0.248047 9.58978C0.248047 9.37013 0.302626 9.30224 0.528931 9.3049C1.53798 9.31688 2.54837 9.3049 3.55742 9.31555C3.80103 9.31555 3.8809 9.26097 3.87957 9.00272C3.87158 8.00565 3.85428 7.00592 3.90753 6.00884C3.97142 4.83339 4.31487 3.73115 5.04437 2.78467C5.93095 1.63318 7.15699 1.09005 8.56141 0.967577C10.5582 0.79319 12.555 0.982221 14.5518 0.927641C14.7102 0.927641 14.7462 0.99287 14.7449 1.13664C14.7449 2.581 14.7449 4.02668 14.7449 5.47104C14.7449 5.67604 14.6517 5.68669 14.4946 5.68669C13.4523 5.68669 12.4113 5.68669 11.3703 5.68669C10.3506 5.68669 9.92057 6.10868 9.90593 7.13904C9.89661 7.7647 9.91525 8.39303 9.89794 9.01869C9.88995 9.26364 9.96583 9.31822 10.2015 9.31688C11.7204 9.30623 13.2393 9.31688 14.7595 9.3049C15.0257 9.3049 15.0723 9.3728 15.0444 9.62439C14.89 10.9849 14.7515 12.3467 14.6144 13.7085C14.5691 14.1571 14.5785 14.1585 14.1458 14.1585C12.8386 14.1585 11.5313 14.1665 10.2254 14.1518C9.95119 14.1518 9.89794 14.2317 9.89794 14.4899C9.90593 19.0799 9.89794 23.6752 9.91125 28.2612C9.91125 28.5674 9.8407 28.646 9.53186 28.6433C7.77866 28.6273 6.02414 28.6366 4.27094 28.634C3.82499 28.634 3.87158 28.6992 3.87158 28.22C3.87602 25.9472 3.87913 23.6739 3.8809 21.4002Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on Facebook</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.linkedin.com/company/ncbinlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="25"
+                             height="23"
+                             viewBox="0 0 26 24"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M14.6983 9.98423C15.6302 9.24808 16.5926 8.74754 17.6762 8.51991C19.673 8.09126 21.554 8.30824 23.1262 9.7526C24.2351 10.7723 24.7529 12.1115 25.0165 13.5612C25.1486 14.3363 25.2105 15.1218 25.2015 15.9081C25.2015 18.3043 25.2015 20.6898 25.2082 23.0806C25.2082 23.3468 25.1549 23.444 24.8621 23.4414C23.1297 23.4272 21.3992 23.4272 19.6704 23.4414C19.4041 23.4414 19.3429 23.3588 19.3442 23.1019C19.3535 20.5194 19.3442 17.9368 19.3442 15.3543C19.3442 14.0005 18.3258 12.9448 17.0266 12.9488C15.7273 12.9528 14.6983 14.0071 14.6983 15.361C14.6983 17.9328 14.6917 20.5047 14.6983 23.0753C14.6983 23.3708 14.6198 23.444 14.3296 23.4427C12.6185 23.4294 10.9079 23.4294 9.19779 23.4427C8.93155 23.4427 8.86099 23.3735 8.86232 23.1086C8.8783 19.7619 8.88628 16.4144 8.88628 13.066C8.88628 11.5688 8.87874 10.0708 8.86365 8.57182C8.86365 8.3575 8.90758 8.27896 9.14054 8.28029C10.9048 8.29094 12.6687 8.29094 14.4321 8.28029C14.6464 8.28029 14.6983 8.34818 14.6983 8.54653C14.6903 9.00047 14.6983 9.45441 14.6983 9.98423Z">
+                            </path>
+                            <path d="M6.55316 15.8443C6.55316 18.2564 6.55316 20.6699 6.55316 23.082C6.55316 23.3629 6.48127 23.4388 6.19906 23.4374C4.47737 23.4241 2.75568 23.4241 1.03399 23.4374C0.767751 23.4374 0.69986 23.3629 0.701191 23.1006C0.709178 18.2648 0.709178 13.4281 0.701191 8.59053C0.701191 8.34026 0.765089 8.27237 1.01669 8.2737C2.74991 8.28435 4.48048 8.28435 6.20838 8.2737C6.47462 8.2737 6.5465 8.33627 6.54517 8.6065C6.54783 11.0186 6.55316 13.4308 6.55316 15.8443Z">
+                            </path>
+                            <path d="M3.65878 0.243898C5.36804 0.243898 6.58743 1.45529 6.58743 3.1406C6.58743 4.75801 5.32145 5.95742 3.60819 5.96807C3.22177 5.97614 2.83768 5.90639 2.47877 5.76299C2.11985 5.61959 1.79344 5.40546 1.51897 5.13334C1.24449 4.86123 1.02755 4.53668 0.881058 4.17902C0.734563 3.82136 0.661505 3.43788 0.666231 3.05141C0.67555 1.42601 1.9362 0.242566 3.65878 0.243898Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on LinkedIn</span>
+                    </a>
+                
+
+                
+                    <a href="https://github.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="28"
+                             height="27"
+                             viewBox="0 0 28 28"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M16.7228 20.6334C17.5057 20.5527 18.2786 20.3944 19.0301 20.1608C21.3108 19.4193 22.5822 17.8259 22.963 15.4909C23.1228 14.5112 23.1814 13.5287 22.9883 12.5437C22.8106 11.6423 22.4013 10.8028 21.8007 10.1076C21.7526 10.0605 21.7197 10 21.7064 9.934C21.6931 9.86799 21.7 9.79952 21.7262 9.73748C22.0856 8.6206 21.9711 7.51969 21.601 6.42677C21.582 6.3497 21.5345 6.2827 21.468 6.23923C21.4016 6.19577 21.3211 6.17906 21.2429 6.19248C20.7329 6.21649 20.2313 6.33051 19.7611 6.52928C19.1103 6.7908 18.4899 7.12198 17.9104 7.51703C17.84 7.56996 17.7581 7.60551 17.6713 7.62078C17.5846 7.63605 17.4954 7.6306 17.4112 7.60489C15.2596 7.05882 13.0054 7.06203 10.8554 7.61421C10.7806 7.63586 10.7018 7.63967 10.6253 7.62534C10.5487 7.611 10.4766 7.57892 10.4148 7.53167C9.64788 7.03247 8.85171 6.58918 7.96368 6.33359C7.65781 6.24338 7.34123 6.19458 7.02239 6.18849C6.94879 6.17986 6.87462 6.19893 6.81432 6.242C6.75402 6.28507 6.71191 6.34904 6.69621 6.42145C6.32342 7.51437 6.2209 8.61527 6.56307 9.73348C6.59635 9.84264 6.64694 9.93316 6.54177 10.0516C5.47666 11.2604 5.09988 12.6834 5.19574 14.2676C5.2663 15.4244 5.46201 16.5466 6.01454 17.5769C6.84399 19.1171 8.21664 19.9119 9.85158 20.3352C10.3938 20.4706 10.9444 20.5698 11.4998 20.632C11.5384 20.7492 11.4506 20.7798 11.408 20.8291C11.1734 21.1179 10.9894 21.4441 10.8634 21.7942C10.7622 22.0458 10.8315 22.4039 10.6065 22.5516C10.263 22.7766 9.83827 22.8485 9.42421 22.8871C8.17936 23.0056 7.26471 22.4877 6.6283 21.4348C6.25552 20.8184 5.76956 20.3325 5.08523 20.0663C4.76981 19.9325 4.42139 19.8967 4.08537 19.9638C3.7898 20.029 3.73788 20.1901 3.93891 20.4111C4.03639 20.5234 4.14989 20.6207 4.27575 20.6999C4.9796 21.1318 5.51717 21.7884 5.80152 22.5636C6.37002 23.9973 7.48039 24.5697 8.93825 24.6323C9.43741 24.6575 9.93768 24.615 10.4254 24.5058C10.5892 24.4672 10.6531 24.4872 10.6517 24.6762C10.6451 25.4936 10.6637 26.3123 10.6517 27.131C10.6517 27.6635 10.1684 27.9297 9.58663 27.7393C8.17396 27.2671 6.84977 26.5631 5.66838 25.656C2.59555 23.2891 0.720966 20.1861 0.217704 16.3376C-0.357453 11.9127 0.911353 8.00824 3.98551 4.73881C6.11909 2.42656 8.99932 0.939975 12.1203 0.540191C16.5351 -0.0601815 20.4347 1.14323 23.7232 4.16373C26.2449 6.47869 27.724 9.37672 28.1048 12.7726C28.5828 17.0325 27.3686 20.7945 24.4768 23.9827C22.9762 25.6323 21.0956 26.8908 18.9982 27.6488C18.8783 27.6927 18.7585 27.738 18.636 27.7726C18.0356 27.9404 17.6189 27.6395 17.6189 27.0098C17.6189 25.7452 17.6308 24.4806 17.6295 23.2159C17.6329 22.9506 17.6128 22.6856 17.5696 22.4238C17.4325 21.6664 17.3419 21.484 16.7228 20.6334Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on GitHub</span>
+                    </a>
+                
+
+                
+                    <a href="https://ncbiinsights.ncbi.nlm.nih.gov/"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="26"
+                             height="26"
+                             viewBox="0 0 27 27"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M23.7778 26.4574C23.1354 26.3913 22.0856 26.8024 21.636 26.3087C21.212 25.8444 21.4359 24.8111 21.324 24.0347C19.9933 14.8323 14.8727 8.80132 6.09057 5.85008C4.37689 5.28406 2.58381 4.99533 0.779072 4.99481C0.202773 4.99481 -0.0229751 4.83146 0.00455514 4.21479C0.0660406 3.08627 0.0660406 1.95525 0.00455514 0.826734C-0.0413285 0.0815827 0.259669 -0.0193618 0.896534 0.00266238C6.96236 0.222904 12.3693 2.24179 16.9889 6.16209C22.9794 11.2478 26.1271 17.7688 26.4372 25.648C26.4629 26.294 26.3179 26.5271 25.6609 26.4684C25.0827 26.417 24.4991 26.4574 23.7778 26.4574Z">
+                            </path>
+                            <path d="M14.8265 26.441C14.0924 26.441 13.2371 26.6795 12.6626 26.3786C12.0092 26.0372 12.3781 25.0644 12.246 24.378C11.1154 18.5324 6.6849 14.5497 0.74755 14.1001C0.217135 14.0615 -0.0104482 13.9422 0.0134113 13.3659C0.0519536 12.1454 0.0482829 10.9213 0.0134113 9.69524C-0.00127145 9.14464 0.196946 9.03268 0.703502 9.04736C9.21217 9.27128 16.5994 16.2511 17.2804 24.7231C17.418 26.4446 17.418 26.4446 15.6579 26.4446H14.832L14.8265 26.441Z">
+                            </path>
+                            <path d="M3.58928 26.4555C2.64447 26.4618 1.73584 26.0925 1.06329 25.4289C0.39073 24.7653 0.00933763 23.8617 0.0030097 22.9169C-0.00331824 21.9721 0.365937 21.0635 1.02954 20.3909C1.69315 19.7184 2.59675 19.337 3.54156 19.3306C4.48637 19.3243 5.39499 19.6936 6.06755 20.3572C6.7401 21.0208 7.1215 21.9244 7.12782 22.8692C7.13415 23.814 6.7649 24.7226 6.10129 25.3952C5.43768 26.0677 4.53409 26.4491 3.58928 26.4555Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI RSS feed</span>
+                    </a>
+                
+            </div>
+        </div>
+    
+
+    <div data-testid="gridContainer"
+         class="grid-container ncbi-footer__container">
+        <div class="grid-row ncbi-footer__main-content-container"
+             data-testid="grid">
+            
+                <div class="ncbi-footer__column">
+                    
+                        <p class="ncbi-footer__circled-icons-heading">
+                            Connect with NLM
+                        </p>
+                    
+
+                    <div class="ncbi-footer__circled-icons-list">
+                        
+                            <a href=https://twitter.com/nlm_nih class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="32"
+                                     height="32"
+                                     viewBox="0 0 40 40"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on X (formerly known as Twitter)</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.facebook.com/nationallibraryofmedicine class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="13"
+                                     height="24"
+                                     viewBox="0 0 13 24"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M4.11371 23.1369C4.11371 23.082 4.11371 23.0294 4.11371 22.9745V12.9411H0.817305C0.6709 12.9411 0.670898 12.9411 0.670898 12.8016C0.670898 11.564 0.670898 10.3287 0.670898 9.09341C0.670898 8.97903 0.705213 8.95158 0.815017 8.95158C1.8673 8.95158 2.91959 8.95158 3.97417 8.95158H4.12057V8.83263C4.12057 7.8055 4.12057 6.7738 4.12057 5.74897C4.1264 4.92595 4.31387 4.11437 4.66959 3.37217C5.12916 2.38246 5.94651 1.60353 6.95717 1.1921C7.64827 0.905008 8.3913 0.764035 9.13953 0.778051C10.0019 0.791777 10.8644 0.830666 11.7268 0.860404C11.8869 0.860404 12.047 0.894717 12.2072 0.90158C12.2964 0.90158 12.3261 0.940469 12.3261 1.02968C12.3261 1.5421 12.3261 2.05452 12.3261 2.56465C12.3261 3.16857 12.3261 3.7725 12.3261 4.37642C12.3261 4.48165 12.2964 4.51367 12.1912 4.51138C11.5369 4.51138 10.8804 4.51138 10.2261 4.51138C9.92772 4.51814 9.63058 4.5526 9.33855 4.61433C9.08125 4.6617 8.84537 4.78881 8.66431 4.97766C8.48326 5.16652 8.3662 5.40755 8.32972 5.66661C8.28476 5.89271 8.26027 6.1224 8.25652 6.35289C8.25652 7.19014 8.25652 8.02969 8.25652 8.86923C8.25652 8.89439 8.25652 8.91955 8.25652 8.95615H12.0219C12.1797 8.95615 12.182 8.95616 12.1614 9.10714C12.0768 9.76596 11.9876 10.4248 11.9029 11.0813C11.8312 11.6319 11.7626 12.1824 11.697 12.733C11.6719 12.9434 11.6787 12.9434 11.4683 12.9434H8.26338V22.899C8.26338 22.979 8.26338 23.0591 8.26338 23.1392L4.11371 23.1369Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on Facebook</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.youtube.com/user/NLMNIH class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="21"
+                                     height="15"
+                                     viewBox="0 0 21 15"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M19.2561 1.47914C18.9016 1.15888 18.5699 0.957569 17.2271 0.834039C15.5503 0.678484 13.2787 0.655608 11.563 0.65332H9.43556C7.71987 0.65332 5.4483 0.678484 3.77151 0.834039C2.43098 0.957569 2.097 1.15888 1.74242 1.47914C0.813665 2.32097 0.619221 4.62685 0.598633 6.89384C0.598633 7.31781 0.598633 7.74101 0.598633 8.16345C0.626084 10.4121 0.827391 12.686 1.74242 13.521C2.097 13.8412 2.4287 14.0425 3.77151 14.1661C5.4483 14.3216 7.71987 14.3445 9.43556 14.3468H11.563C13.2787 14.3468 15.5503 14.3216 17.2271 14.1661C18.5676 14.0425 18.9016 13.8412 19.2561 13.521C20.1712 12.6929 20.3725 10.451 20.3999 8.22064C20.3999 7.74025 20.3999 7.25986 20.3999 6.77946C20.3725 4.54907 20.1689 2.30724 19.2561 1.47914ZM8.55942 10.5311V4.65201L13.5601 7.50005L8.55942 10.5311Z"
+                                          fill="white" />
+                                </svg>
+                                <span class="usa-sr-only">NLM on YouTube</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            
+
+            
+                <address class="ncbi-footer__address ncbi-footer__column">
+                    
+        <p>
+            <a class="usa-link usa-link--external"
+            href="https://www.google.com/maps/place/8600+Rockville+Pike,+Bethesda,+MD+20894/%4038.9959508,
+            -77.101021,17z/data%3D!3m1!4b1!4m5!3m4!1s0x89b7c95e25765ddb%3A0x19156f88b27635b8!8m2!3d38.9959508!
+            4d-77.0988323"
+            rel="noopener noreferrer" target="_blank">National Library of Medicine
+            <br/> 8600 Rockville Pike<br/> Bethesda, MD 20894</a>
+        </p>
+    
+                </address>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/web_policies.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Web Policies
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/institutes-nih/nih-office-director/office-communications-public-liaison/freedom-information-act-office" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            FOIA
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS Vulnerability Disclosure
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://support.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Help
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/accessibility.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Accessibility
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/careers/careers.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Careers
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+        </div>
+
+        
+            <div class="grid-row grid-col-12" data-testid="grid">
+                <ul class="ncbi-footer__bottom-links-list">
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NLM
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NIH
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.usa.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            USA.gov
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+    </div>
+</footer>
+
+    
+
+
+        
+        
+    
+  <script  type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/pinger/pinger.js"> </script>
+
+
+    
+        
+
+<button class="back-to-top" data-ga-category="pagination" data-ga-action="back_to_top">
+    <label>Back to Top</label>
+    <svg class="usa-icon order-0" aria-hidden="true" focusable="false" role="img">
+        <use xlink:href="/static/img/sprite.svg#arrow_upward"></use>
+    </svg>
+</button>
+    
+
+
+        
+    
+    
+    
+        
+    <script type="application/javascript">
+    window.ncbi = window.ncbi || {};
+    window.ncbi.pmc = window.ncbi.pmc || {};
+    window.ncbi.pmc.options = {
+        logLevel: 'INFO',
+        
+        staticEndpoint: '/static/',
+        
+        citeCookieName: 'pmc-cf',
+    };
+</script>
+    <script type="module" crossorigin="" src="/static/assets/base-133c6271.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/jquery/jquery-3.6.0.min.js">&#xA0;</script>
+    <script type="text/javascript">
+        jQuery.getScript("https://cdn.ncbi.nlm.nih.gov/core/alerts/alerts.js", function () {
+            galert(['div.nav_and_browser', 'div.header', '#universal_header', '.usa-banner', 'body > *:nth-child(1)'])
+        });
+    </script>
+
+
+    <script type="text/javascript">var exports = {};</script>
+     <script src="/static/CACHE/js/output.13b077bc3ffd.js"></script>
+
+    <script type="module" crossorigin="" src="/static/assets/article-44d04358.js"></script>
+    
+    
+
+    </body>
+</html>

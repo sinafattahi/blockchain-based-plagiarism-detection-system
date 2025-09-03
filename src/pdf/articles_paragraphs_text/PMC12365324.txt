@@ -1,0 +1,329 @@
+The increasing digitization of the Financial Services Sector (FSS) has significantly improved operational efficiency but has also exposed institutions to sophisticated Cyber Threat Intelligence (CTI) such as Advanced Persistent Threats (APT), zero-day exploits, and high-volume Denial-of-Service (DoS) attacks. Traditional Intrusion Detection Systems (IDS), including signature-based and anomaly-based approaches, suffer from high False Positive Rates (FPR) and lack the adaptability required for modern threat landscapes. This study aims to develop and evaluate an Artificial Intelligence-Enhanced Defense-in-Depth (AI-E-DiD) designed to provide real-time, adaptive, and scalable cybersecurity prevention for financial networks. The proposed model integrates a hybrid Generative Adversarial Network and Long Short-Term Memory Autoencoder (GAN-LSTM-AE) for intelligent anomaly detection, an Advanced Encryption Standard in Galois/Counter Mode (AES-GCM) for data integrity and confidentiality, and an AI-Enhanced Intrusion Prevention System (AI-E-IPS) for dynamic threat mitigation. Empirical evaluation using the NSL-KDD and CICIDS-2017 datasets demonstrates high detection accuracy (95.6% for DoS and 94.2% for DDoS), low response times (< 0.25 s), and robust performance under varying user loads, attack types, and data sizes. The NS-3 results show that AI-DiD outperforms conventional IDS and traditional DiD in terms of Detection Rate (DR), Computational Overhead (CO), Network Throughput (NT), and operational scalability. These findings highlight the model’s probable for deployment in high-stakes financial environments requiring resilient and intelligent cybersecurity infrastructure.
+
+Global economic development in recent years has likely contributed to the growth of the Financial Services Sector (FSS) worldwide; furthermore, globalization and technological advancements in the finance field have also contributed to its significant development1,2. Such exponential evolution exposed some direct implications regarding how financial institutions operate by moving from traditional banking systems to more technology-driven procedures based on the internet3,4, as these moves helped operational efficiency and secured the system from a series of Cyber Threat Intelligence (CTI) that undermined its constancy and reliability5,6. The over-reliance on digital platforms and the internet has further complicated the security state of financial institutions7. The most common CTI include data breaches, ransomware attacks, and Advanced Persistent Threats (APT), which are also becoming technically innovative, making it challenging for existing security models to provide data security8.
+
+The most common types of cybersecurity models in practice that provide the first line of defense against CTI are Signature- Intrusion Detection Systems (S-IDS) and Anomaly-based Intrusion Detection Systems (A-IDS)9. The S-IDS uses a database containing known threat signatures. It compares the network traffic against this database and decides whether to block or allow the traffic. It is at its best against verified malware but fails to handle novel or modified CTI that do not have their signature stored in the database10. have recommended several methods for S-IDS that employ Machine Learning (ML) and Deep Learning (DL)11,12. Their work has analyzed the significance of using predefined rulesets in S-IDS performance13. In their work, they invented a dynamic S-IDS for Anomaly Detection (AD) in cluster collections that can detect weak microlensing measures at exceptionally early phases. On the other hand, A-IDS monitors network behavior and flags activities that deviate from a predefined‘normal’baseline. While this method can potentially detect unknown CTI, it is frequently challenged by high False Positive Rates (FPR), particularly in dynamic environments where normal behavior changes frequently, leading to substantial functioning interruptions due to false alarms. In the work by14,15, a Convolutional Neural Network (CNN)--based Abstractive Summarization (ABS) approach was utilized in AD for Internet of Things (IoT) traffic. Using decentralized communicative multi-agent Reinforcement Learning (RL)16–18, this study has implied a secure communication method to mitigate the non-stationarity problem19. using unsupervised DL with a semi-supervised learning method to AD network traffic from flow-based data.
+
+These traditional cybersecurity models are primarily designed to be static and rule-based, making them inherently inflexible in the face of new, sophisticated attack vectors that continuously evolve20. Since they depend on known data to function effectively, they are not equipped to recognize or stop zero-day activities21, which are newly discovered vulnerabilities that hackers exploit before developers can implement fixes. Moreover, relying on a static set of rules allows adversaries to study these systems and develop methods to avoid detection22. These limitations of traditional models have made organizations vulnerable, as they are unable to respond more quickly to emerging threats. This lays the groundwork for designing adaptive security solutions that employ advanced technologies23, such as machine learning (ML) and Artificial Intelligence (AI), as these models can dynamically learn and adjust to ever-evolving cybersecurity challenges.
+
+Organizations are now moving towards more advanced security models to overcome the limitations of standard defense models; one such model is the Defense-in-Depth (DiD)24. The DiD, unlike the other model, provides security at various practical levels of data within an organization by employing a multilayered method of security measures that ensure continued protection; even if one layer fails, it provides security over the other layers. However, DiD has certain limitations25, as the conventional implementation of DiD involves manual setup and static defense mechanisms at layer levels, which makes it difficult for it to handle novel, sophisticated CTI effectively26.
+
+Integrating AI into cybersecurity has led to the development of several models to enhance security measures across different sectors. Artificial Intelligence-Enhanced Defense-in-Depth (AI-E-DiD) is designed to detect and prevent intrusions by leveraging ML to analyze network traffic and identify AD of probable CTI. Its adaptability allows it to learn from new attack types, enhancing its detection capabilities27. employs supervised learning to detect malware in Android devices. The model generates promising results in AD by developing a comprehensive, labeled dataset with over 18,000 samples classified into numerous categories, including Adware, Banking, Riskware, and Benign applications. The effectiveness of this approach is validated using verified datasets, such as CICMalDroid 2020, CICMalDroid 2017, and CICAndMal 2017.
+
+Existing CTI exhibit several critical limitations that hinder their ability to mitigate evolving attacks effectively. S-IDS rely on predefined attack signatures, making them incapable of detecting zero-day exploits and novel attack variations that have not yet been documented28. Moreover, polymorphic and metamorphic malware, which dynamically modify their structure, can easily bypass S-IDS29. In contrast, A-IDS monitors deviations from normal network behavior to detect probable threats. However, they frequently suffer from high FPR due to the dynamic nature of network environments, leading to operational disruptions and increased manual errors30.
+
+Furthermore, S-IDS and A-IDS fail to effectively counter APT, which employ stealthy, multi-stage attacks that evade static AD mechanisms31. The DiD, a layered security model, lacks real-time adaptability due to its predictable implementation, which relies on manually configured defense mechanisms that cannot dynamically respond to emerging attack vectors32. These limitations necessitate an intelligent, adaptive security solution that leverages AI to enhance AD, minimize FPR, and automate real-time response mechanisms.
+
+These limitations underscore the need for an intelligent, adaptive security solution that leverages AI-driven methodologies to enhance AD, reduce FPR, and automate real-time response mechanisms33.
+
+The research proposes AI-E-DiD for the FSS by providing adaptive and intelligent systems that investigate and respond to CTI in real-time. The AI-E-DiD integrates three security components: AI-driven AD, Advanced Encryption Standards (AES) for secure computing, and AI-Enhanced Intrusion Prevention System (AI-E-IPS). The AI-driven AD uses Long Short-Term Memory-Autoencoders (LSTM-AE) to detect unusual network and transaction patterns, while AES in Galois/Counter Mode (GCM) ensures data integrity and confidentiality. AI-E-IPS dynamically adjusts real-time security to avoid active threats.
+
+Implement AI-Driven AD: LSTM-AE will find cybersecurity AD by identifying unusual network and transaction patterns.
+
+Strengthen Data Security with AES: Apply AES in GCM to ensure data integrity and confidentiality across all financial transactions.
+
+Optimize IPS: Develop an AI-E-IPS that dynamically adjusts security measures in real-time to mitigate active threats.
+
+The paper is organized as follows: Sect.Literature reviewdescribes the background studies, Sect.Methodologypresents the methodology, Sect.Resultspresents the experimental analysis, and Sect.Conclusion and future worksconcludes the work.
+
+Conventional IDS have historically relied on two dominant paradigms: S-IDS and A-IDS. S-IDS operates by matching incoming traffic against a predefined database of threat signatures, presenting high precision for known attack vectors but inherently lacking in adaptability to zero-day exploits or polymorphic threats.
+
+Sun et al.34reviewed the application of S-IDS in IoT environments, noting that although S-IDS provides foundational security, their utility rapidly diminishes without continuous signature updates or integration with adaptive models.
+
+Similarly35, examined the detection capabilities of S-IDS in the context of web attacks, finding that static rulesets result in limited responsiveness to novel threat patterns36. introduced dynamic S-IDS but applied them outside core network security, highlighting the difficulty in translating such methods to high-volume, real-time environments typical of financial setups.
+
+In contrast, A-IDS monitors system behavior and flags deviations from established norms, present probable for detecting previously unseen threats37. leveraged Deep-Convolutional Neural Network (D-CNN) to model network traffic in IoT networks, signifying improved AD rates; however, the system’s performance deteriorated under noisy or high-throughput conditions38. addressed behavioral non-stationarity in A-IDS using an intelligent multi-agent network enhanced by RL, which provided greater stability in developing environments but still lacked embedded prevention capabilities39. proposed a variational AE for flow-based AD, successfully identifying hidden attack patterns but without integration into broader adaptive response systems.
+
+While these models represent advancements in AD theory, practical limitations persist. High FPR remains a consistent issue for A-IDS, particularly in dynamic environments40. , In a systematic review of dynamic risk factors in CTI, it was emphasized that most existing systems lack temporal adaptability, making them ill-suited for rapidly shifting network topologies. Context-awareness, as investigated by41, presents a promising avenue, yet few implementations effectively embed contextual intelligence into real-time detection pipelines.
+
+The emergence of sophisticated and stealthy attack types, particularly zero-day exploits, has further exposed the limitations of traditional IDS42. compiled case-based analyses of zero-day vulnerabilities, underscoring the growing speed and impact of undisclosed threat vectors43. analyzed the development cycles of offensive exploits and highlighted the inadequacy of static AD networks in responding within required timeframes. The broader challenge of adversarial manipulation in ML-based classifiers was addressed by44, who called for robust IDS to retain classification performance even under adversarial pressure—yet such functionality remains largely unimplemented in production-grade IDS.
+
+Infrastructural and orchestration challenges further complicate IDS deployment in financial network environments45. analyzed service function chaining and virtualization in cloud-based networks, revealing bottlenecks that can degrade IDS performance under increased User Load (UL). These issues are especially pertinent to scalability in modern defense models46. invented meta-learning optimizations for nonconvex environments, providing a theoretical basis for adaptive IDS training, but practical integration into IDS workflows remains nascent.
+
+Taken together, these studies establish the basis upon which modern IDS have been developed while simultaneously pointing to critical limitations in adaptability, resilience, and responsiveness. The current work builds upon these insights by proposing an AI-driven, hybridized, and encryption-aware DiD that directly addresses the deficits of S-IDS and A-IDS in real-world financial CTI.
+
+The DiD paradigm remains an introductory model in cybersecurity, aiming to provide layered protective mechanisms that mitigate threats at multiple operational stages47. examined the adaptation of CTI for frontier AI risks and emphasized DiD as a comprehensive method that integrates lifecycle-aware controls and threat modelling. Their work outlined a structured alignment of functional and threat-centric models but remained high-level, lacking specificity in system-level implementation and integration of real-time IPS.
+
+Shi et al.48introduced a multi-layer taxonomy of attack vectors targeting the Industrial Internet of Things (IIoT), underlining the requirement of layered vulnerability classification across device, communication, and software levels. However, their taxonomy does not address dynamic defense behaviors or how ML can be embedded across these layers. Earlier efforts, such as those by49, proposed formal modelling of DiD in deployment models, focusing on interdependencies between technical and human factors. While methodologically sound, such work is limited in scope to defense hardware rather than adaptive digital environments.
+
+Chu et al.50explored decision models for determining when DiD is acceptable in risk mitigation and crisis response, presenting a conceptual basis for adaptive control selection. Yet, their model lacks empirical validation in high-frequency threat observations such as those encountered in financial or real-time systems51. extended DiD principles within nuclear systems, proposing domain-specific adjustments that reinforce resilience but, again, do not incorporate AI-enabled detection or response.
+
+Emerging studies have attempted to modernize DiD with supporting technologies52. developed a secure IDS using blockchain and radial basis function Neural Networks (NN) in Internet of Drones contexts, enabling trusted communication and threat recognition. Similarly53, proposed a multi-objective performance optimization model using Glowworm Swarm Optimization (GSO) for blockchain-based IIoT, with an emphasis on trust management. Although technically innovative, these models are constrained to niche environments and do not generalize to broader financial cybersecurity applications.
+
+Hao et al.54presented a detailed survey on evolving botnet methods and reviewed multi-layered defense mechanisms, recognizing the demand for intelligent, decentralized IDS. However, despite acknowledging the need for deeper integration of AI and automation, most surveyed models remain theoretical or narrowly scoped. Additionally, initial studies by55provided valuable insights into dynamic service provisioning and optimization in networked systems, but their relevance to DiD lies primarily in network support rather than IDS or IPS.
+
+Collectively, the existing literature on DiD reflects a mature understanding of layered defense theory but exhibits limitations in real-time adaptability, AI integration, and tools of encrypted communication and prevention mechanisms. These identified gaps underscore the relevance of the proposed AI-DiD, which seeks to operationalize DiD as an intelligent, encrypted, and dynamically responsive model for scalable cybersecurity in financial network contexts.
+
+Building on advances in IDS, AI-integrated cybersecurity research has increasingly targeted mobile and financial domains56. employed DL for Android malware analysis using a labelled dataset of over 18,000 samples, achieving improved detection performance—however, their model remains platform-specific and does not generalize to financial network scenarios57. further advanced Android-focused defenses by proposing a hybrid NN that enhanced threat classification granularity, yet their work remains disconnected from enterprise-scale intrusion response.
+
+Chen et al.58presented a comprehensive review of AI-based security models tailored to securing financial data, highlighting the use of IDS and IPS. The study emphasized system metrics, including Detection Accuracy (DA), Response Time (RT), and FPR, and discussed deployment challenges. For instance59, examined empirical cases of AI and data analytics implementation in financial institutions, highlighting how advanced algorithms can proactively detect phishing, ransomware, and insider threats. Their work underscored the value of a multilayered defense that combines human oversight with automated analytics, although real-world integration remains limited.
+
+While focusing on IoT ecosystems, such as Electronic Vehicle (EV) charging networks, it demonstrated60how association network analysis can support system resilience and threat prediction. Though pertinent to infrastructure security, their approach lacks direct application to fraud or intrusion detection in financial systems.
+
+Collectively, these studies highlight the effectiveness of AI-driven models in AD, threat classification, and predictive security. However, they tend to remain siloed—either addressing mobile malware or theoretical reviews—without unifying real-time AD, encrypted communications, and preventive actions within a cohesive, enterprise-level network. These insights directly inform the design of the proposed AI-E-DiD, which integrates real-time AD, encryption safeguards, and active intrusion prevention tailored to financial networks.
+
+Recent advancements in AI-driven cybersecurity have led to the development of numerous models that integrate ML and DL for IDS and IPS. However, these models still exhibit limitations in dynamic threat adaptation, FPR, RT, and Computational Overhead (CO). AI-DiD addresses these challenges by integrating multiple AI-driven components within a DiD (Table1).
+
+Below, this study compares AI-E-DiD with three commonly used AI-integrated security models.
+
+Existing Approach: AI-IDS commonly employ ML classifiers, such as Decision Trees (DT), Support Vector Machines (SVM), or Deep Neural Networks (DNN), to identify anomalous network traffic. These models have proved to improve accuracy in detecting CTI; however, they frequently lack real-time adaptability and still generate a high FPR in dynamic environments61.
+
+AI-E-DiD Advantage: AI-E-DiD-based IDS by employing LSTM-AE, which captures sequential dependencies in financial transactions and network traffic. This FPR enhances the AD of APT, which evolves over time.
+
+Existing Approach: Some AI-enhanced security models incorporate S-IDS combined with AI-powered threat intelligence to classify known attack patterns more efficiently42. However, these models remain limited to detecting pre-defined attack patterns and cannot effectively counter zero-day exploits or emerging attack approaches.
+
+AI-E-DiD Advantage: AI-E-DiD overcomes this limitation by integrating Generative Adversarial Networks (GAN) into the AI-E-IPS. GAN generates synthetic attack scenarios, improving the system’s ability to detect previously unseen attack patterns while maintaining a low FPR.
+
+Existing Approach: Some hybrid AI combines supervised and unsupervised learning to enhance AD, utilizing methods such as AE62. While these models can learn from unlabelled data, they typically lack real-time mitigation methods, requiring human intervention for threat response.
+
+AI-E-DiD Advantage: AI-E-DiD extends beyond AD by incorporating AI-driven dynamic security policies within an adaptive IPS. The Generative Adversarial Networks-Long Short-Term Memory-Autoencoders (GAN-LSTM-AE) not only detect attacks but also trigger automated response mechanisms to neutralize them in real time.
+
+The AI-E-DiD demonstrates superiority over existing AI-driven CTI by integrating multiple AI components for enhanced AD, automated response, and security adaptation. Unlike traditional AI-E-IDS or S-IDS, AI-DiD provides a real-time, adaptive security mechanism that ensures low FP, effective zero-day attack mitigation, and automated response to evolving threats63.
+
+The DiD paradigm is a foundational principle in modern CTI, designed to provide multilayered security across technological, operational, and procedural domains. Rather than relying on a single defensive mechanism, DiD ensures that failure in one layer does not compromise the security of the entire system. This layered method is particularly vital in high-value sectors, such as financial services, where the confidentiality, integrity, and availability of data must be synchronously secured against both external and internal threats.
+
+As illustrated in Fig.1, the DiD is hypothesized to form a series of concentric defensive rings that collectively protect the system’s core, which comprises sensitive data and critical assets. The outermost layer focuses on human-centric controls such as policies, procedures, and awareness training, which aim to reduce social engineering risks and ensure secure behavior by personnel. Moving inward, network, and edge protection enforces perimeter security through firewalls, intrusion prevention systems, and secure gateways.
+
+The next layer, identity and access management, govern user authentication, authorization, and role-based access control, mitigating risks associated with credential misuse and unauthorized privilege escalation. The threat detection and incident response layer is responsible for proactively identifying malicious activity and ensuring timely containment and mitigation, typically using IDS, Security Information and Event Management (SIEM), and security orchestration tools.
+
+The infrastructure protection layer encompasses measures to secure physical and virtual system components, including servers, routers, storage systems, and hypervisors. Application protection focuses on hardening the software layer through secure coding practices, vulnerability scanning, and runtime protection mechanisms. Finally, at the core of the DiD lies data protection, which includes CTI, data masking, secure backups, and access auditing to ensure that sensitive financial data remains secure even under compromise conditions.
+
+This standard DiD proposes a robust framework to structure security defenses in financial networks. However, traditional DiD implementations are essentially static, frequently requiring manual configuration and lacking the ability to dynamically adapt to evolving CTI such as zero-day exploits or APT. To address these limitations, the proposed AI-E-DiD integrates intelligent, adaptive components across multiple DiD layers—most notably anomaly detection through GAN-LSTM-AE, secure communication via AES-GCM, and real-time threat mitigation by AI-E-IPS.
+
+The proposed AI-E-DiD extends the fundamental principles of the classical DiD by incorporating AI-driven mechanisms into multiple security layers, enabling adaptive, autonomous, and context-aware AD and mitigation across federated financial networks. As illustrated in Fig.2, the traditional concentric DiD layers—comprising policies, network and edge protection, identity and access management, AD and incident response, infrastructure defense, application protection, and data security—serve as the base schema upon which AI-E-DiD operates64.
+
+Within this schema, the AI-E-DiD incorporates a multi-stage intelligent security system that continuously monitors, detects, and responds to threats. At the Threat Detection & Incident Response layer, the system employs a hybrid GAN–LSTM–AE, capable of identifying deviations in network traffic and transaction behavior indicative of CTI, including both known and zero-day attacks. This ML core functions as the autonomous AD, supporting continuous surveillance and adaptive threat inference across diverse network behaviors.
+
+Category II: Potential Breach, considered by traffic irregularities and exploitation attempts (Mapped to Identity & Access Management and Threat Detection) and.
+
+Category III: Compromised IDS, indicating system takeovers or internal compromise requiring immediate containment (Infrastructure and Application Protection layers).
+
+Following this classification, the Decision-Making Process (DMP) shown in Fig.3is initiated. If an attack is confirmed, the AI-E-DiD informs the Security Operations Center (SOC) and initiates multi-stage isolation protocols. These are executed across the infrastructure protection and application security layers, where compromised nodes or services are disconnected from the broader system and remote using AES-GCM encryption and key renegotiation, preserving integrity and confidentiality.
+
+Specifically, the system distinguishes between minor and major threat levels. In low-impact scenarios, automated alerts trigger system isolation and restoration workflows. For severe threats, the model enforces intelligent process-level quarantine, initiates a new AES key exchange, and secures sensitive service flows under isolation until the threat is neutralized. This corresponds to the Application Protection and Data Protection layers of DiD65.
+
+What distinguishes AI-E-DiD from static DiD is its embedded closed-loop learning mechanism. The GAN–LSTM–AE engine continuously retrains on post-incident logs to improve its predictive capabilities, reducing FPR and enhancing DR. This renders the model inherently robust and self-adaptive, capable of evolving with novel attack vectors and emerging behavioral anomalies, thereby strengthening the overall incident response loop.
+
+The time-series transaction data is preprocessed and forwarded to the designed LSTM-AE. The LSTM-AE is trained using preprocessed data containing standard transaction patterns66. The AD is conducted at the final stage by computing the model’s reconstruction errors on test samples that contain both standard and anomalous transactions (Fig.4).
+
+The process begins with analyzing the dataset to identify patterns and address missing or incorrect data67. Normalization prevents skewed results from non-normal data distributions. The SCI-Kit-learnMinMaxScalerscales the values between 0 and 1, applying the same scaling conditions across training, validation, and testing datasets to maintain consistency.
+
+Missing data points are managed by imputation, where the missing entries are replaced with the median of the corresponding feature. Outliers are identified using the z-score EQU (2).
+
+The FG decides what data to maintain or remove from the cell state, impacted by the previous hidden stateand the current input, considered as EQU (4) to EQU (6).
+
+,tanh◊The sigmoid and hyperbolic tangent functions.
+
+The OG computes the new hidden state using the updated cell state, as shown in EQU (7) to (8).
+
+The process cycles with the newly computed hidden stateand cell stateserving as inputs for the next unit.
+
+The model of the AE, presented in Fig.6, comprises two components: the encoder, which compresses the input, and the decoder, which reconstructs the input from its compressed form69.
+
+Encoder: Takes the input dataand transforms it into a more miniature, dense representation, EQU (9).
+
+Decoder: The decoder part generates a reconstructionof the original inputfrom the latent code, EQU (10).
+
+To evaluate the accuracy of the AE, the reconstruction loss is intended using the Root Mean Squared Error (RMSE), EQU (11).
+
+In this work, the AE reduces dimensionality in transaction data and Feature Extraction, which is fed into an LSTM. After training the model on the transaction dataset, the AD function measures the rebuilt test dataset using the RMSE to identify anomalies.
+
+The selection of AES-GCM over alternative encryption modes such as Cipher Block Chaining (CBC) and XEX-based Tweaked CodeBook Mode with CipherText Stealing (XTS) was made based on three key factors: performance, efficiency, and security relevance, particularly for financial services where data confidentiality, integrity, and real-time transaction security are paramount.
+
+AES-GCM presents parallelizable encryption and decryption, unlike AES-CBC, which is inherently sequential and cannot be parallelized due to its chaining mechanism. This feature reduces processing latency in financial transactions where real-time encryption is key.
+
+Lower CO: AES-GCM performs encryption and authentication simultaneously, unlike AES-XTS, which focuses primarily on disk encryption and requires additional authentication mechanisms for data integrity verification.
+
+AES-GCM leverages hardware acceleration in modern processors (e.g., Intel’s AES-NI), enhancing performance in large-scale financial transactions.
+
+AES-GCM includes GMAC, which provides built-in integrity verification, reducing the need for additional cryptographic functions. This is a significant advantage over AES-CBC, which requires a separate Message Authentication Code (MAC) to ensure integrity, leading to increased computational costs and potential security risks if not implemented properly.
+
+Data authenticity and non-repudiation in financial networks is critical to prevent transaction tampering. AES-GCM’s authentication ensures that any alteration in encrypted transactions is immediately detected, reducing fraud risks.
+
+Resistance To Padding Oracle Attacks: AES-CBC is vulnerable to padding oracle attacks, which exploit improper handling of ciphertext padding, making it a less secure choice for online transactions. AES-GCM is immune to such attacks, operating in a stream-like counter mode without requiring padding.
+
+Resilience Against Replay Attacks: Financial transactions frequently require strong protection against replay attacks, where encrypted data is intercepted and resent maliciously. AES-GCM employs a unique nonce for each encryption session, ensuring that previously used ciphertexts cannot be replayed.
+
+Scalability In Cloud-Based Financial Platforms: AES-GCM supports efficient encryption in cloud computing environments, making it ideal for securing large-scale, multi-user financial networks where low-latency encryption and secure transmission of sensitive data are essential.
+
+AES-GCM was selected over other encryption modes, such as AES-CBC and AES-XTS, due to its parallelizable encryption and decryption, built-in authentication mechanism, and resistance to padding oracle and replay attacks. Unlike AES-CBC, which requires a separate integrity verification mechanism, AES-GCM provides authenticated encryption in a single pass, reducing CO. Moreover, AES-GCM ensures low-latency encryption, making it highly suitable for real-time financial transactions and cloud-based financial services.
+
+AES-GCM operates by integrating encryption and authentication in a structured process. Figures5and6present the encryption and encryption of AES-GCM.
+
+Key Schedule: AES-GCM uses a symmetric key, typically of {128, 192, 256}bits, which is the same key for encryption and decryption processes. The key schedule in AES involves generating a series of round keys from the initial key. These round keys are used in each round of the AES encryption and decryption process.
+
+Counter Mode for Encryption: AES-GCM utilizes a counter mode (CTR) for encryption, converting the block cipher into a stream cipher. It encrypts input blocks of data by combining them with an encrypted counter. The counter, incremented for each block, is encrypted with the AES key, and the output is XORed with plaintext (PT) to produce ciphertext (CT).
+
+Authentication Tags via Galois Field Multiplication: The authentication feature of GCM is handled by GMAC, which uses Galois field multiplication to compute an authentication tag.
+
+◊The output of the Galois field multiplication of the encrypted data and any additional authenticated data.
+
+After AD (Fig.7), AES-GCM ensures that any data processed under these conditions remains untampered. Verifying the authentication tag during decryption ensures that any unauthorized changes to encrypted data are detected immediately. If the tag does not match the expected result, it indicates probable tampering, triggering further security measures.
+
+The AI-E-IPS process begins with data preprocessing, normalization, and cleaning of network traffic data to remove noise and other unwanted elements. This data is then input into a GAN to generate synthetic threat data, which the LSTM-AE then analyzes to identify cyber-attacks AD.
+
+The LSTM-AE discriminator in this model, while the Generator generates synthetic data that resembles secure network traffic.
+
+Generator: The Generatorgenerates synthetic network traffic from a noise vectorsampled from a probability distribution, EQU (15).
+
+Discriminator (LSTM-AE): As the Discriminator, the LSTM-AE evaluates the authenticity of the data by checking whether it is real or generated by the GAN, EQU (16).
+
+The LSTM-AE regenerates input sequences and flags anomalies based on reconstruction errors. Over time, the GAN refines its data generation method using feedback from the LSTM-AE, thereby enhancing its ability to detect and avoid known and unknown attacks.
+
+The AI-driven AD system in AI-E-DiD utilizes a hybrid LSTM-AE to identify known and unknown CTIs in real time. This model was selected due to its ability to learn temporal dependencies in time-series data, which is crucial for detecting deviations in network traffic patterns and financial transactions.
+
+LSTM is a type of RNN designed to capture long-range dependencies in sequential data. In cybersecurity, the model can recognize complex attack patterns and distinguish between normal traffic and anomalies over time, thereby enhancing security.
+
+AE are DL used for unsupervised learning and designed to rebuild input data and identify deviations. In our model, the AE learns normal transaction patterns, and anomalies are flagged based on rebuilding errors when processing hidden attack data.
+
+Time-series transaction data is pre-processed before being fed into the LSTM-AE.
+
+TheMinMaxScaler()is applied to normalize the values between 0 and 1, ensuring that all features contribute proportionally to AD.
+
+Imputation and outlier handling methods (e.g., median replacement for missing values, Z-score filtering for outliers) enhance data integrity before training.
+
+The encoder component of the AE compresses input transaction data into a low-dimensional representation.
+
+The decoder reconstructs the input, and the reconstruction error is computed using the RMSE to assess anomalies.
+
+Transactions or network activities with high rebuilding errors are classified as anomalies, indicating potential CTI.
+
+The model is trained using normal transaction data, ensuring that deviations from expected patterns are detected effectively.
+
+This study integrates a GAN-based approach for generating synthetic attack data to enhance the robustness of the AD system.
+
+The GAN consists of a Generator and a Discriminator, where the LSTM-AE functions as the Discriminator, distinguishing real network traffic from GAN-generated synthetic attack data.
+
+Over time, the GAN improves its ability to generate realistic CTI, enhancing the LSTM-AE’s capability to detect sophisticated and evolving attacks.
+
+Once an anomaly is detected, the AI-E-IPS dynamically adjusts security protocols to mitigate attacks.
+
+The IPS separates AI segments and prevents unauthorized access by leveraging real-time AD feedback from the LSTM-AE.
+
+Captures Sequential Dependencies –Unlike tree-based models (e.g., RF), LSTM-AE can analyze transaction sequences over time, generating it more effectively for detecting time-dependent CTI.
+
+Unsupervised Learning –Many traditional MLs require labelled data, whereas AE works unsupervised, making them suitable for detecting novel, previously unseen attacks.
+
+Adaptive Threat Learning –By integrating a GAN-based threat generator, our model can learn from evolving attack methods, unlike static ML, which relies on predefined rules.
+
+The experiments are conducted in a computer with a multi-core Intel Xeon processor, 128 GB of RAM, and an NVIDIA Tesla GPU. The software stack included Python 3.8 for scripting, TensorFlow for AI implementation, and OpenSSL for the AES-GCM encryption tasks. The system was hosted on a Linux-based operating system (Ubuntu 20.04 LTS).
+
+The AD approach in this proposed AI-E-DiD is based on DL, explicitly utilizing a hybrid LSTM-AE for AD in network traffic and financial transactions. Below, this study provides a detailed explanation of the model selection and its role in the AI-E-DiD-based AD mechanism.
+
+Two datasets are used to analyze the proposed ML: (a) New Standard-Knowledge Discovery and Data Mining (NSL-KDD) and (b) The Canadian Institute for Cybersecurity Intrusion Detection System 2017 (CICIDS-2017) datasets. The NSL-KDD is a refined version of the original KDD-99, commonly used for evaluating network IDS. It contains data representing normal network activities and four classes of attacks: DoS, User-to-Root (U2R), Remote-to-Local (R2L), and Probing (Probe). The CICIDS-2017 is a collection of network traffic data that captures several types of modern-day attacks. It includes 79 network flow features that provide details, such as connection logs, including Secure Shell (SSH), email, Hypertext Transfer Protocol (HTTP), File Transfer Protocol (FTP), and Simple Mail Transfer Protocol (SMTP) traffic. Table2presents attack types for both datasets.
+
+Normalization: The raw feature values are normalized using theMinMaxScaler()to scale numerical variables between 0 and 1, preventing skewed results due to variable scales.
+
+Handling Missing Values: Missing entries in the dataset are addressed using median imputation, where missing values are replaced with the median value of the corresponding feature.
+
+Outlier Removal: The Z-score is applied to identify and remove outliers. Data points with Z-scores beyond ± 3 of SD are considered anomalous and excluded.
+
+Categorical Encoding: CVs, such as protocol types, are converted into numerical form using one-hot encoding. e.g., protocol types (HTTP, FTP, SMTP) are transformed into binary vectors.
+
+The FS process ensures that only the most relevant variables are used for model training. Key network flow features, including connection logs (for SSH, email, HTTP, and FTP traffic), packet size distributions, and flow durations, are retained to enhance classification performance.
+
+This study has ensured a comprehensive evaluation of AI-E-DiD by employing multiple performance metrics beyond accuracy and precision to assess its effectiveness in CTI. These metrics provide a holistic assessment of AD capability, false alarm minimization, robustness under different conditions, and real-time response efficiency.
+
+Accuracy: This metric measures the proportion of acceptably classified attacks and normal instances; however, it is not uniquely relied upon due to probable class imbalances in cybersecurity datasets.
+
+Precision: The study reveals that AI-DiD maintains high precision across all attack types, particularly for DoS at 94.0% and DDoS at 92.7%, signifying its ability to distinguish between actual attacks and benign network activities, thereby reducing false positives and minimizing redundant security alerts.
+
+Recall: Recall is a crucial CTI, ensuring sensitivity to attacks. AI-DiD achieves 91.9% recall for probing attacks and 91.5% for Distributed Denial-of-Service (DDoS), confirming its robustness in AD.
+
+F1-score: The F1-score measures AD performance by balancing precision and recall, with high scores signifying precision without losing recall. The model’s strong F1-scores for significant attacks, like DoS and DDoS, ensure a reliable trade-off between minimizing FPR and maximizing AD.
+
+The DR of AI-E-DiD with traditional IDS for different CTI demonstrates higher DR for critical attacks, such as backdoor establishment and data exfiltration.
+
+The PR assesses how effectively AI-E-DiD mitigates attacks after they are detected. AI-E-DiD achieves superior PR across numerous attack types, outperforming Traditional Defense-in-Depth (T-DiD), S-IDS, and Machine Learning-Based Intrusion Detection Systems (ML-IDS) in stopping threats before they cause system damage.
+
+Performance Over Time Intervals: AI-E-DiD maintains consistent DR and PR above 90% NT different periods, signifying stability.
+
+Scalability with User Load (UL): AI-E-DiD’s performance remains strong even as user activity increases from 10 to 100 users, proving its scalability in real-world financial networks.
+
+Impact of Data Size: AI-E-DiD handles increasing data volumes with minimal performance degradation as data size increases from 512 bytes to 8 MB.
+
+AI-E-DiD sustains high NT across changing attack scenarios, ensuring that security mechanisms do not create significant network slowdowns.
+
+During a backdoor attack, AI-R-DiD maintains an NT of 942 Mbps, outperforming T-DiD, S-IDS, and ML-IDS, confirming an efficient security implementation without bottlenecks.
+
+RT is critical for real-time cybersecurity applications.
+
+AI-E-DiD proves faster RT than all compared models, responding to backdoor attacks in 0.24Sec.and data exfiltration in 0.20Sec. This significantly reduces the attack window and mitigatespotential damage.
+
+The GAN-LSTM-AE is evaluated using the following metrics: EQU (17) to EQU (20).
+
+Accuracy: It measures the model’s ability to identify the anomaly correctly.
+
+Precision: It measures the percentage of accurately identified attack traffic to that of the total classified as attacks in the dataset.
+
+Recall: It computes the section of correctly predicted attack traffic over the actual attack instances.
+
+F1-score: The F1-score is the harmonic mean of precision and recall.
+
+Hyperparameters used for training the GAN-LSTM-AE.
+
+The simulation environment for evaluating the proposed AI-E-DiD was set up using the Network Simulator-3 (NS-3) tool. The simulation Environment for the AI-E-DiD includes a primary transaction server essential for processing financial transactions, three major subnet domains corresponding to Banking, Finance, and Management, and further subdivisions within two of these subnets. A single external gateway handles all external traffic. The simulation engages up to 100 virtual users in the subnet, who perform transactions of variable sizes ranging from 512 bytes to 8 MB. Two attack scenarios were considered: the first targets starting a backdoor in the Corporate Finance subnet, and the second aims to extract data from a server in the Management subnet. Both attacks start by collecting intelligence on the network’s defenses and focus on compromising the Virtual Private Network (VPN) server, which then serves as a conduit to the targeted subnets. The simulation is driven by an automated attack generator that dynamically generates attack sequences to simulate an evolving CTI.
+
+5% Miscellaneous Activities— other non-specific activities.
+
+The simulation is designed to run for a set duration, with an additional 5-minute extension post-attack, to assess the network’s handling of residual activities. Each step and response is logged, with timestamps provided in Table4as the‘Ground Truth’for evaluating the effectiveness of the AI-E-DiD under simulated cyber-attack conditions.
+
+As presented in Table5, the GAN-LSTM-AE achieves high accuracy and F1-scores for frequent, high-volume attack classes, such as DoS (F1 = 91.8%), DDoS (F1 = 90.1%), and PortScan (F1 = 89.9%). These classes are typically well-represented in the training data and exhibit distinctive temporal patterns, which the LSTM-AE component can effectively model.
+
+Performance of GAN-LSTM-AE for different attack types (NSL-KDD/CICIDS-2017).
+
+In contrast, F1 scores are significantly lower for R2L (75.9%), U2R (70.6%), Web attacks (78.1%), and Infiltration (70.1%), despite high overall model accuracy. This discrepancy arises from several interrelated factors. Firstly, these attack types are underrepresented in NSL-KDD and CICIDS-2017, leading to a class imbalance that biases the model toward majority classes. For example, the NSL-KDD test set contains fewer than 50 U2R instances, which is insufficient to learn stable temporal signatures.
+
+Secondly, these attacks frequently manifest as low-visibility, stealth-based behaviors, such as privilege escalation or data exfiltration over authorized channels, making their statistical and temporal features harder to distinguish from benign activity. Thirdly, Web and Infiltration attacks in CICIDS-2017 are diverse and loosely defined, spanning multiple subtypes with limited overlap in feature space. This high intra-class variance reduces the model’s regeneration reliability and penalizes its anomaly detection performance.
+
+These findings emphasize the importance of attack-specific augmentation, sampling methods, and potentially integrating attention mechanisms or multi-head temporal encoders to improve the model’s sensitivity to rare and stealthy intrusions in future iterations.
+
+Detection Rate (DR): Measures how effectively AI-E-DiD identifies CTI in real-time.
+
+Prevention Rate (PR): Evaluate the system’s capability to mitigate CTI before they escalate into significant security breaches.
+
+By focusing on DR and PR, the evaluation directly correlates with real-world security implications, where minimizing successful attacks is more critical than merely reducing FP. In contrast, Area Under the Receiver Operating Characteristic Curve (AUC-ROC) curves focus on classifier decision expertise, which, while applicable, does not provide insights into the system’s actual threat mitigation performance.
+
+The robustness analysis across various dimensions is presented in Tables6and7, and8for different attack types, as shown in Figs.8(a) and 7(b); the AI-E-DiD performs better in DR and PR across different attack types. For backdoor establishment attacks, the AI-E-DiD achieves DR of 94.87% and PR of 89.52%, which is higher than those of T-DiD and S-IDS, at 84.61% and 74.29%, respectively. Similarly, for data exfiltration attacks, AI-E-DiD maintains a higher DR of 92.73% and PR of 87.66%, outperforming the other models in both metrics. For robustness by time interval (Fig.9), the AI-E-DiD’s performance remains consistently high throughout the day, with DR mostly above 90%. The model’s DR is highest in the early hours (94.07% from 00:00 to 02:00), gradually decreasing to 89.28% by the end of the day (22:00 to 24:00). The PR follows a similar trend, starting at 89.12% and decreasing to 85.22%. In contrast, the T-DiD and S-IDS exhibit lower DR and PR throughout all time intervals.
+
+For robustness, as per UL (Fig.10), the AI-E-DiD exhibits strong performance even when the UL increases. With a DR of 95.07% and a PR of 90.12% at a low UL (10 users), the model’s performance decreases slightly as the load increases, reaching a DR of 91.13% and a PR of 85.70% at the maximum UL (100 users). At the same time, the T-DiD and S-IDS show a stable decrease in performance compared to the proposed model. For data size variations, as shown in Table8; Fig.11, the AI-E-DiD achieves a 95.07% DR and 90.12% PR at 512 bytes. This is higher than the T-DiD’s 85.03% DR and 80.05% PR. As the data size increases to 1 MB and 2 MB, AI-E-DiD maintains strong performance, with DR of 94.62% and 94.18%, and PR of 89.58% and 89.01%. Even at 4 MB and 8 MB, the AI-E-DiD continues to excel, with DRs of 93.73% and 93.29% and PRs of 88.45% and 87.90%.
+
+The results of the NT analysis of the compared models under various attack scenarios, data sizes, and UL (Tables9,10,11and12).
+
+Figure12illustrates the impact of several attack scenarios, data sizes, and UL on NT across all models. In baseline conditions with no attacks (Fig.12(a)), all models maintain an NT of 1000 Mbps. However, under adversarial conditions, the AI-E-DiD exhibits superior resilience. During a backdoor attack, it sustains an NT of 942 Mbps—outperforming T-DiD (898 Mbps), S-IDS (882 Mbps), and ML-IDS (917 Mbps). Similarly, during data exfiltration, AI-E-DiD maintains an NT of 935 Mbps, indicating minimal NT degradation compared to its counterparts.
+
+NT comparison against (a) Attacks, (b) Data size, and (c) User count.
+
+Figure12(b) highlights NT under variable data sizes. As packet size increases from 512 bytes to 8 MB, AI-E-DiD maintains high NT, declining only modestly from 1000 to 915 Mbps. In contrast, the T-DiD and S-IDS experience more significant drops, reaching only 894 and 875 Mbps, respectively, at 8 MB. This proves AI-E-DiD’s efficiency in handling large-volume encrypted traffic—a critical requirement in financial systems.
+
+Figure12(c) shows NT scalability across increasing UL. While all models perform comparably at 10 users, NT degradation becomes pronounced with higher UL. At 100 users, AI-E-DiD still achieves 892 Mbps, compared to 876 Mbps (T-DiD), 862 Mbps (S-IDS), and 880 Mbps (ML-IDS). These results confirm AI-E-DiD’s robustness in high-demand environments, reflecting its suitability for real-time financial applications with concurrent transactions and evolving threats.
+
+The RT analysis for the compared models is presented in Table13; Fig.13; for backdoor generation in the Corporate Finance subnet, the AI-E-DiD responds in 0.24Sec., faster than T-DiD (0.38Sec.), S-IDS (0.55Sec.,), and ML-IDS (0.30Sec.,), reducing the time attackers must exploit the system. During data exfiltration in the Management subnet, AI-E-DiD’s 0.20Sec.response outpaces T-DiD (0.40Sec.), S-IDS (0.60Sec.), and ML-IDS (0.25Sec.), preventing unauthorized data transfer.
+
+While AI-E-DiD proves a superior threat to DR and PR, its deployment in high-transaction financial settings demands an evaluation of CO, resource consumption, and scalability. Table14presents a comparative analysis of AI-E-DiD and traditional security models based on processing time, memory usage, and scalability under high UL.
+
+The results indicate that the proposed AI-E-DiD incurs higher CO compared to traditional S-IDS and T-DiD, primarily due to its continuous learning and adaptive security mechanisms. However, this increased resource demand is offset by the model’s ability to significantly reduce FPR, dynamically mitigate threats, and optimize real-time security responses. The model maintains an average inference time of 5.3msper transaction, which is well within real-time operational constraints. Nevertheless, this latency increases to 8.1msunder high UL conditions (with 100 or more concurrent users), underscoring the necessity of GPU acceleration to sustain optimal performance in such scenarios.
+
+To better address deployment problems, an additional set of results has been introduced to evaluate the system’s CO, latency, and real-world scalability. While earlier sections covered NT and RT across diverse conditions, Table13has now been added to compare the AI-E-DiD against traditional methods in terms of processing time, memory consumption, and scalability under increased load.
+
+The findings confirm that AI-E-DiD demands more computational resources than T-DiD and S-IDS due to its adaptive model. However, it consistently delivers superior DR and PR while maintaining NT of 892Mbpsat 100 concurrent users, signifying its viability for deployment in large-scale financial setups.
+
+Overall, the enhanced capability of AI-E-DiD to respond to real-time CTI, scale under high transactional workloads, and adapt to evolving attacks has been substantiated through existing and newly introduced experimental results. Nonetheless, this study recognizes that the current model’s reliance on GPU set-up presents a limitation for resource-constrained environments. Future research will focus on model compression methods, such as pruning and quantization, as well as hybrid CPU-GPU deployment methods, to improve feasibility across diverse hardware settings.
+
+This study evaluated AI-E-DiD in comparison to a one-layered security model (T-DiD) and two IDSs (S-IDS and ML-IDS). This selection was proposed to provide a representative assessment of AI-E-DiD’s effectiveness within multi-layered defense and standalone detection contexts, examining key metrics including DR, PR, FPR, RT, and CO.
+
+However, this study recognizes a limitation in the current work: the comparative analysis did not extend to other modern DiD implementations beyond T-DiD. While our evaluation demonstrates the superiority of AI-E-DiD over conventional mechanisms, future studies should incorporate a broader range of DiD employing numerous networks and policy enforcement methods. This will help validate the generalizability and robustness of AI-E-DiD across heterogeneous multi-layered security environments.
+
+The increasing dependence of the FSS on digital and internet technologies has rendered it highly vulnerable to sophisticated and evolving CTI. Although traditional security models such as DiD provide layered protection, they remain insufficient in addressing dynamic, multi-vector attacks and zero-day exploits. In response to these limitations, this study proposed the AI-E-DiD, which integrates AI-driven AD using LSTM-AE, AES-GCM for secure communication, and an AI-E-IPS for real-time threat mitigation.
+
+The AI-E-DiD improves CTI by enabling accurate AD, reducing FPR, and providing adaptive response mechanisms. Empirical evaluations using NSL-KDD and CICIDS-2017 confirm that the system delivers strong DR, with the GAN-LSTM-AE dynamically adapting to emerging threats and supporting real-time intrusion response. However, the system does exhibit limitations, particularly in its susceptibility to adversarial attacks where malicious inputs are designed to evade detection.
+
+While the current AI-E-DiD implementation proves real-time DR, it relies on GPU acceleration—particularly under high user loads—to maintain optimal performance. This hardware dependency presents a limitation for deployment in resource-constrained environments. Although the present version does not incorporate mixed-precision inference or cloud-edge hybrid deployment, future work will address these challenges by exploring model compression techniques, such as pruning and quantization, and developing modular inference pipelines that can operate on CPU-only or edge-compatible devices. These enhancements aim to reduce computational overhead and ensure deployment feasibility across heterogeneous financial infrastructures.
+
+Future research will also focus on implementing adversarial training methods and developing robust FS to enhance resistance against adversarial manipulation. Another critical challenge is the lack of interpretability in DL–based decision-making. Therefore, we aim to explore explainable AI (XAI), such as Shapley Additive Explanations and attention-based visualizations, to improve transparency and build trust in AI-driven CTI.
+
+Moreover, integrating AI solutions into legacy FSS set-ups presents significant operational challenges, as not all financial institutions are equipped to support high-performance AI models. To address this, future work will investigate modular AI deployment methods, hybrid CPU-GPU inference networks, and continuous learning mechanisms to ensure adaptability to evolving threats.
+
+Finally, to validate the higher suitability of AI-E-DiD, this study plans to extend its use to other critical domains, such as healthcare networks and smart grid systems, where CTI is an increasingly complex and high-risk factor. By addressing the outlined limitations and expanding the system’s adaptability, AI-E-DiD can evolve into a scalable, interpretable, and robust cybersecurity model suitable for a wide range of high-assurance digital infrastructures.
+
+The authors extend their appreciation to Taif University, Saudi Arabia, for supporting this work through project number (TU-DSPP-2024-17).

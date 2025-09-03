@@ -1,0 +1,2914 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+    <head >
+
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+        
+
+        
+        
+  <link rel="stylesheet" href="/static/assets/style-8258669d.css" />
+<script type="module" crossorigin="" src="/static/assets/base_style-f4a99799.js"></script>
+
+  <link rel="stylesheet" href="/static/assets/style-ef962842.css" />
+<link rel="stylesheet" href="/static/assets/style-3ade8b5c.css" />
+<script type="module" crossorigin="" src="/static/assets/article_style-d757a0dd.js"></script>
+
+  
+  
+    <style>
+  
+  
+  @media screen and (min-width: 64em) {
+    div.pmc-wm {
+      background: repeat-y;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='350' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-.02' y='0' width='1.05' height='1' id='c'%3E%3CfeFlood flood-color='%23FFF'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3Ctext id='b' font-family='Helvetica' font-size='11pt' style='opacity:1;fill:%23005ea2;stroke:none;text-anchor:middle' x='175' y='14'%3E%3C/text%3E%3Cpath id='a' style='fill:%23005ea2' d='M0 8h350v3H0z'/%3E%3C/defs%3E%3Cuse xlink:href='%23a' transform='rotate(90 10 10)'/%3E%3Cuse xlink:href='%23b' transform='rotate(90 10 10)' filter='url(%23c)'/%3E%3C/svg%3E");
+      padding-left: 3rem;
+    }
+  }
+</style>
+
+  
+
+
+
+        
+            <link rel="apple-touch-icon"
+                  sizes="180x180"
+                  href="/static/img/favicons/apple-touch-icon.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="48x48"
+                  href="/static/img/favicons/favicon-48x48.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="/static/img/favicons/favicon-32x32.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="/static/img/favicons/favicon-16x16.png" />
+            <link rel="manifest" href="/static/img/favicons/site.webmanifest" />
+            <link rel="mask-icon"
+                  href="/static/img/favicons/safari-pinned-tab.svg"
+                  color="#0071bc" />
+            <meta name="msapplication-config"
+                  content="/static/img/favicons/browserconfig.xml" />
+            <meta name="theme-color" content="#ffffff" />
+        
+
+        <title>
+            Prediction of ultimate load capacity of demountable shear stud connectors using machine learning techniques - PMC
+        </title>
+
+        
+        
+  
+  <!-- Logging params: Pinger defaults -->
+<meta name="ncbi_app" content="cloudpmc-viewer" />
+<meta name="ncbi_db" content="pmc" />
+<meta name="ncbi_phid" content="AE532F1D8AF228D3052F1D002B0AC8E6.m_1" />
+<meta name="ncbi_pinger_stat_url" content="https://pmc.ncbi.nlm.nih.gov/stat" />
+<!-- Logging params: Pinger custom -->
+<meta name="ncbi_pdid" content="article" />
+  
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+
+    
+        <link rel="preconnect" href="https://cdn.ncbi.nlm.nih.gov" />
+    
+
+    <!-- Include USWDS Init Script -->
+    <script src="/static/assets/uswds-init.js"></script>
+
+
+    <meta name="ncbi_domain" content="scirep">
+<meta name="ncbi_type" content="fulltext">
+<meta name="ncbi_pcid" content="journal">
+<meta name="ncbi_feature" content="associated_data">
+<link rel="canonical" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12370999/">
+<meta name="robots" content="INDEX,NOFOLLOW,NOARCHIVE">
+<meta name="citation_journal_title" content="Scientific Reports">
+<meta name="citation_title" content="Prediction of ultimate load capacity of demountable shear stud connectors using machine learning techniques">
+<meta name="citation_author" content="Ahmed I Saleh">
+<meta name="citation_author_institution" content="Civil Engineering Department, Faculty of Engineering, Delta University for Science and Technology, Gamasa, Egypt">
+<meta name="citation_author" content="Nabil S Mahmoud">
+<meta name="citation_author_institution" content="Structural Engineering Department, Faculty of Engineering, Mansoura University, Mansoura, Egypt">
+<meta name="citation_author" content="Fikry A Salem">
+<meta name="citation_author_institution" content="Structural Engineering Department, Faculty of Engineering, Mansoura University, Mansoura, Egypt">
+<meta name="citation_author" content="Mohamed Ghannam">
+<meta name="citation_author_institution" content="Structural Engineering Department, Faculty of Engineering, Mansoura University, Mansoura, Egypt">
+<meta name="citation_publication_date" content="2025 Aug 21">
+<meta name="citation_volume" content="15">
+<meta name="citation_firstpage" content="30752">
+<meta name="citation_doi" content="10.1038/s41598-025-15711-4">
+<meta name="citation_pmid" content="40841393">
+<meta name="citation_abstract_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12370999/">
+<meta name="citation_fulltext_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12370999/">
+<meta name="citation_pdf_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12370999/pdf/41598_2025_Article_15711.pdf">
+<meta name="description" content="This study investigates the use of machine learning (ML) models to predict the ultimate load capacity of demountable shear connectors in steel–concrete composite structures. A dataset of 239 experimental and numerical records was assembled, ...">
+<meta name="og:title" content="Prediction of ultimate load capacity of demountable shear stud connectors using machine learning techniques">
+<meta name="og:type" content="article">
+<meta name="og:site_name" content="PubMed Central (PMC)">
+<meta name="og:description" content="This study investigates the use of machine learning (ML) models to predict the ultimate load capacity of demountable shear connectors in steel–concrete composite structures. A dataset of 239 experimental and numerical records was assembled, ...">
+<meta name="og:url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12370999/">
+<meta name="og:image" content="https://cdn.ncbi.nlm.nih.gov/pmc/cms/images/pmc-card-share.jpg?_=0">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ncbi">
+    
+    
+
+    </head>
+    <body >
+        
+    <a class="usa-skipnav " href="#main-content">
+      Skip to main content
+    </a>
+
+
+        
+            
+
+<section class="usa-banner " aria-label="Official website of the United States government" >
+    <div class="usa-accordion">
+        <header class="usa-banner__header">
+            <div class="usa-banner__inner">
+                <div class="grid-col-auto">
+                    <img aria-hidden="true"
+                         class="usa-banner__header-flag"
+                         src="/static/img/us_flag.svg"
+                         alt="" />
+                </div>
+
+                <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+                    <p class="usa-banner__header-text">
+                        An official website of the United States government
+                    </p>
+                    <span class="usa-banner__header-action">Here's how you know</span>
+                </div>
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-accordion__button usa-banner__button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    aria-expanded="false"
+    aria-controls="gov-banner-default"
+    
+    data-testid="storybook-django-banner"
+    
+    >
+    
+        
+
+        
+                    <span class="usa-banner__button-text">Here's how you know</span>
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </div>
+        </header>
+
+        <div class="usa-banner__content usa-accordion__content"
+             id="gov-banner-default"
+             hidden>
+            <div class="grid-row grid-gap-lg">
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-dot-gov.svg"
+                         alt=""
+                         aria-hidden="true" />
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Official websites use .gov</strong>
+                            <br />
+                            A
+                            <strong>.gov</strong> website belongs to an official
+                            government organization in the United States.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-https.svg"
+                         alt=""
+                         aria-hidden="true" />
+
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Secure .gov websites use HTTPS</strong>
+                            <br />
+                            A <strong>lock</strong> (
+                            <span class="icon-lock">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     width="52"
+                                     height="64"
+                                     viewBox="0 0 52 64"
+                                     class="usa-banner__lock-image"
+                                     role="graphics-symbol"
+                                     aria-labelledby="banner-lock-description"
+                                     focusable="false">
+                                    <title id="banner-lock-title">Lock</title>
+                                    <desc id="banner-lock-description">
+                                    Locked padlock icon
+                                    </desc>
+                                    <path fill="#000000"
+                                          fill-rule="evenodd"
+                                          d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+                                </svg>
+</span>) or <strong>https://</strong> means you've safely
+                                connected to the .gov website. Share sensitive
+                                information only on official, secure websites.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        
+
+        
+    
+    
+    
+
+<div class="usa-overlay">
+</div>
+
+
+
+<header class="usa-header usa-header--extended usa-header--wide" data-header data-testid="header"    >
+    <div class="ncbi-header">
+        <div class="ncbi-header__container">
+            <a class="ncbi-header__logo-container"
+               href="https://www.ncbi.nlm.nih.gov/">
+                <img alt="NCBI home page"
+                     class="ncbi-header__logo-image"
+                     src="/static/img/ncbi-logos/nih-nlm-ncbi--white.svg"
+                     width="410"
+                     height="100" />
+            </a>
+
+            <!-- Mobile menu hamburger button -->
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-menu-btn ncbi-header__hamburger-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Show menu"
+    data-testid="navMenuButton"
+    
+    >
+    
+        
+
+        
+                <svg aria-hidden="true"
+                     class="ncbi-hamburger-icon"
+                     fill="none"
+                     focusable="false"
+                     height="21"
+                     viewBox="0 0 31 21"
+                     width="31"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd"
+                          d="M0.125 20.75H30.875V17.3333H0.125V20.75ZM0.125 12.2083H30.875V8.79167H0.125V12.2083ZM0.125 0.25V3.66667H30.875V0.25H0.125Z"
+                          fill="#F1F1F1"
+                          fill-rule="evenodd" />
+                </svg>
+            
+
+        
+    
+        
+            </button>
+        
+
+
+
+            
+                <!-- Desktop buttons-->
+                <div class="ncbi-header__desktop-buttons">
+                    
+                        <!-- Desktop search button -->
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button
+           "
+    aria-expanded="false"
+    aria-controls="search-field-desktop-navigation"
+    aria-label="Show search overlay"
+    data-testid="toggleSearchPanelButton"
+    data-toggle-search-panel-button
+    >
+    
+        
+
+        
+                            
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#search" />
+    </svg>
+
+
+                            Search
+                        
+
+        
+    
+        
+            </button>
+        
+
+
+                    
+
+                    <!-- Desktop login dropdown -->
+                    
+                        <div class="ncbi-header__login-dropdown">
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button ncbi-header__login-dropdown-button
+           "
+    aria-expanded="false"
+    aria-controls="login-dropdown-menu"
+    aria-label="Show login menu"
+    data-testid="toggleLoginMenuDropdown"
+    data-desktop-login-button
+    >
+    
+        
+
+        
+                                
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#person" />
+    </svg>
+
+
+
+                                <span data-login-dropdown-text>Log in</span>
+
+                                <!-- Dropdown icon pointing up -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-less ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-up-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_less" />
+    </svg>
+
+
+
+                                <!-- Dropdown icon pointing down -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-more ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-down-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_more" />
+    </svg>
+
+
+                            
+
+        
+    
+        
+            </button>
+        
+
+
+
+                            <!-- Login dropdown menu -->
+                            <ul class="usa-nav__submenu ncbi-header__login-dropdown-menu"
+                                id="login-dropdown-menu"
+                                data-desktop-login-menu-dropdown
+                                hidden>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                <li class="usa-nav__submenu-item">
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--outline ncbi-header__login-dropdown-logout-button
+           "
+    
+    
+    
+    data-testid="desktopLogoutButton"
+    data-desktop-logout-button
+    >
+    
+        
+
+        Log out
+
+        
+    
+        
+            </button>
+        
+
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                </div>
+            
+        </div>
+    </div>
+
+    <!-- Search panel -->
+    
+        <div class="ncbi-search-panel ncbi--show-only-at-desktop"
+             data-header-search-panel
+             hidden>
+            <div class="ncbi-search-panel__container">
+                <form action="https://www.ncbi.nlm.nih.gov/search/all/"
+                      
+                      autocomplete="off"
+                      class="usa-search usa-search--big ncbi-search-panel__form"
+                      data-testid="desktop-navigation-search-form"
+                      method="GET"
+                      role="search">
+                    <label class="usa-sr-only" for="search-field-desktop-navigation">
+                        Search…
+                    </label>
+                    <input class="usa-input"
+                           id="search-field-desktop-navigation"
+                           name="term"
+                           
+                               placeholder="Search NCBI"
+                           
+                           type="search"
+                           value="" />
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                        <span class="usa-search__submit-text">
+                            Search NCBI
+                        </span>
+                    
+
+        
+    
+        
+            </button>
+        
+
+
+                </form>
+
+                
+            </div>
+        </div>
+    
+
+    <nav aria-label="Primary navigation" class="usa-nav">
+        <p class="usa-sr-only" id="primary-navigation-sr-only-title">
+            Primary site navigation
+        </p>
+
+        <!-- Mobile menu close button -->
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-nav__close ncbi-nav__close-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Close navigation menu"
+    data-testid="navCloseButton"
+    
+    >
+    
+        
+
+        
+            <img src="/static/img/usa-icons/close.svg" alt="Close" />
+        
+
+        
+    
+        
+            </button>
+        
+
+
+
+        
+            <!-- Mobile search component -->
+            <form class="usa-search usa-search--small ncbi--hide-at-desktop margin-top-6"
+                  action="https://www.ncbi.nlm.nih.gov/search/all/"
+                  
+                  autocomplete="off"
+                  data-testid="mobile-navigation-search-form"
+                  method="GET"
+                  role="search">
+                <label class="usa-sr-only" for="search-field-mobile-navigation">
+                    Search
+                </label>
+
+                <input class="usa-input"
+                       id="search-field-mobile-navigation"
+                       type="search"
+                       
+                           placeholder="Search NCBI"
+                       
+                       name="term" />
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                    <!-- This SVG should be kept inline and not replaced with a link to the icon as otherwise it will render in the wrong color -->
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0E2LjQ3MSA2LjQ3MSAwIDAgMCAxNiA5LjUgNi41IDYuNSAwIDEgMCA5LjUgMTZjMS42MSAwIDMuMDktLjU5IDQuMjMtMS41N2wuMjcuMjh2Ljc5bDUgNC45OUwyMC40OSAxOWwtNC45OS01em0tNiAwQzcuMDEgMTQgNSAxMS45OSA1IDkuNVM3LjAxIDUgOS41IDUgMTQgNy4wMSAxNCA5LjUgMTEuOTkgMTQgOS41IDE0eiIvPjwvc3ZnPg=="
+                         class="usa-search__submit-icon"
+                         alt="Search" />
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </form>
+
+            
+        
+
+        <!-- Primary navigation menu items -->
+        <!-- This usa-nav__inner wrapper is required to correctly style the navigation items on Desktop -->
+        
+
+        
+            <div class="ncbi-nav__mobile-login-menu ncbi--hide-at-desktop"
+                 data-mobile-login-menu
+                 hidden>
+                <p class="ncbi-nav__mobile-login-menu-status">
+                    Logged in as:
+                    <strong class="ncbi-nav__mobile-login-menu-email"
+                            data-mobile-login-email-text></strong>
+                </p>
+                <ul class="usa-nav__primary usa-accordion">
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           ncbi-nav__mobile-login-button ncbi--hide-at-desktop
+           "
+    
+    
+    
+    data-testid="mobileLoginButton"
+    data-mobile-login-button
+    >
+    
+        
+
+        Log in
+
+        
+    
+        
+            </button>
+        
+
+
+    </nav>
+</header>
+
+    
+    
+        
+
+<section class="pmc-header pmc-header--basic" aria-label="PMC Header with search box">
+    <div class="pmc-nav-container">
+        <div class="pmc-header__bar">
+           <div class="pmc-header__logo">
+               <a href="/" title="Home" aria-label="PMC Home"></a>
+           </div>
+            <button
+                    type="button"
+                    class="usa-button usa-button--unstyled pmc-header__search__button"
+                    aria-label="Open search"
+                    data-ga-category="search"
+                    data-ga-action="PMC"
+                    data-ga-label="pmc_search_panel_mobile"
+            >
+                <svg class="usa-icon width-4 height-4 pmc-icon__open" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#search"></use>
+                </svg>
+                <svg class="usa-icon width-4 height-4 pmc-icon__close" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="pmc-header__search">
+            
+
+
+<form class="usa-search usa-search--extra usa-search--article-right-column  pmc-header__search__form" id="pmc-search-form" autocomplete="off" role="search">
+<label class="usa-sr-only" for="pmc-search">Search PMC Full-Text Archive</label>
+<span class="autoComplete_wrapper flex-1">
+<input class="usa-input width-full maxw-none" required="required" placeholder="Search PMC Full-Text Archive" id="pmc-search"  type="search" name="term" data-autocomplete-url="https://pmc.ncbi.nlm.nih.gov/autocomp/search/autocomp/"/>
+</span>
+<button
+class="usa-button"
+type="submit"
+formaction="https://www.ncbi.nlm.nih.gov/pmc/"
+data-ga-category="search"
+data-ga-action="PMC"
+data-ga-label="PMC_search_button"
+>
+<span class="usa-search__submit-text">Search in PMC</span>
+<img
+src="/static/img/usa-icons-bg/search--white.svg"
+class="usa-search__submit-icon"
+alt="Search"
+/>
+</button>
+</form>
+            <div class="display-flex flex-column tablet:flex-row tablet:flex-justify flex-justify-center flex-align-center width-full desktop:maxw-44">
+                <ul class="pmc-header__search__menu">
+                    <li>
+                        
+                            <a class="usa-link" href="/journals/" data-ga-action="featured_link" data-ga-label="journal list">
+                                Journal List
+                            </a>
+                        
+                    </li>
+                    <li>
+                        
+                            <a class="usa-link" href="/about/userguide/" data-ga-action="featured_link"
+                            data-ga-label="user guide">
+                                User Guide
+                            </a>
+                        
+                    </li>
+                </ul>
+                
+                    <button form="pmc-search-form" formaction="https://pmc.ncbi.nlm.nih.gov/search/" type="submit" class="usa-button usa-button--unstyled hover:text-no-underline text-no-underline width-auto margin-top-1 tablet:margin-top-0">
+     <span class="bg-green-label padding-05 text-white">New</span><span class="text-underline text-primary">Try this search in PMC Beta Search</span>
+</button>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+
+
+        
+        
+
+       
+  <div class="usa-section padding-top-0 desktop:padding-top-6 pmc-article-section" data-article-db="pmc" data-article-id="12370999">
+
+    
+
+   
+
+
+
+<div class="grid-container pmc-actions-bar" aria-label="Actions bar" role="complementary">
+    <div class="grid-row">
+        <div class="grid-col-fill display-flex">
+             <div class="display-flex">
+                <ul class="usa-list usa-list--unstyled usa-list--horizontal">
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <button
+                                type="button"
+                                class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                                aria-label="Open resources"
+                                data-extra-class="is-visible-resources"
+                                data-ga-category="resources_accordion"
+                                data-ga-action="click"
+                                data-ga-label="mobile_icon"
+                        >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#more_vert"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <a
+                                href="https://doi.org/10.1038/s41598-025-15711-4"
+                                class="usa-link display-flex usa-tooltip"
+                                role="button"
+                                target="_blank"
+                                rel="noreferrer noopener"
+                                title="View on publisher site"
+                                data-position="bottom"
+                                aria-label="View on publisher site"
+                                data-ga-category="actions"
+                                data-ga-action="click"
+                                data-ga-label="publisher_link_mobile"
+                        >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#launch"></use>
+                                </svg>
+                        </a>
+                    </li>
+                    
+                    
+                        <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                             <a
+                                     href="pdf/41598_2025_Article_15711.pdf"
+                                     class="usa-link display-flex usa-tooltip"
+                                     role="button"
+                                     title="Download PDF"
+                                     data-position="bottom"
+                                     aria-label="Download PDF"
+                                     data-ga-category="actions"
+                                     data-ga-action="click"
+                                     data-ga-label="pdf_download_mobile"
+                             >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button
+                            class="usa-button usa-button--unstyled  usa-tooltip collections-dialog-trigger collections-button display-flex collections-button-empty"
+                            title="Add to Collections"
+                            data-position="bottom"
+                            aria-label="Save article in MyNCBI collections."
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="collections_button_mobile"
+                            data-collections-open-dialog-enabled="false"
+                            data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12370999%2F%3Freport%3Dclassic%23open-collections-dialog"
+                            data-in-collections="false"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button role="button" class="usa-button usa-button--unstyled usa-tooltip citation-dialog-trigger display-flex"
+                            aria-label="Open dialog with citation text in different styles"
+                            title="Cite"
+                            data-position="bottom"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="cite_mobile"
+                            data-all-citations-url="/resources/citations/12370999/"
+                            data-citation-style="nlm"
+                            data-download-format-link="/resources/citations/12370999/export/"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="pmc-permalink display-flex" >
+                         <button
+                                 type="button"
+                                 title="Permalink"
+                                 data-position="bottom"
+                                 class="usa-button usa-button--unstyled display-flex usa-tooltip"
+                                 aria-label="Show article permalink"
+                                 aria-expanded="false"
+                                 aria-haspopup="true"
+                                 data-ga-category="actions"
+                                 data-ga-action="open"
+                                 data-ga-label="permalink_mobile"
+                         >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#share"></use>
+                            </svg>
+                        </button>
+                        
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12370999/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+                    </li>
+                </ul>
+            </div>
+            <button
+                    type="button"
+                    class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                    aria-label="Open article navigation"
+                    data-extra-class="is-visible-in-page"
+                    data-ga-category="actions"
+                    data-ga-action="open"
+                    data-ga-label="article_nav_mobile"
+            >
+                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#list"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+    <div class="grid-container desktop:padding-left-6">
+      <div id="article-container" class="grid-row grid-gap">
+        <div class="grid-col-12 desktop:grid-col-8 order-2 pmc-layout__content">
+            <div class="grid-container padding-left-0 padding-right-0">
+                <div class="grid-row desktop:margin-left-neg-6">
+                    <div class="grid-col-12">
+                        <div class="pmc-layout__disclaimer" role="complementary" aria-label="Disclaimer note">
+    As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,
+    the contents by NLM or the National Institutes of Health.<br/>
+    Learn more:
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="Disclaimer" data-ga-label="New disclaimer box" href="/about/disclaimer/">PMC Disclaimer</a>
+    |
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="PMC Copyright Notice" data-ga-label="New disclaimer box" href="/about/copyright/">
+        PMC Copyright Notice
+    </a>
+</div>
+                    </div>
+                </div>
+                <div class="grid-row pmc-wm desktop:margin-left-neg-6">
+                    <!-- Main content -->
+                    <main
+                      id="main-content"
+                      class="usa-layout-docs__main usa-layout-docs grid-col-12 pmc-layout pmc-prose padding-0"
+                    >
+
+                      
+                        <section class="pmc-journal-banner text-center line-height-none" aria-label="Journal banner"><img src="https://cdn.ncbi.nlm.nih.gov/pmc/banners/logo-scirep.jpg" alt="Scientific Reports logo" usemap="#pmc-banner-imagemap" width="500" height="75"><map name="pmc-banner-imagemap"><area alt="Link to Scientific Reports" title="Link to Scientific Reports" shape="default" href="http://www.nature.com/srep" target="_blank" rel="noopener noreferrer"></map></section><article lang="en"><section aria-label="Article citation and metadata"><section class="pmc-layout__citation font-secondary font-xs"><div>
+<div class="display-inline-block"><button type="button" class="cursor-pointer text-no-underline bg-transparent border-0 padding-0 text-left margin-0 text-normal text-primary" aria-controls="journal_context_menu">Sci Rep</button></div>. 2025 Aug 21;15:30752. doi: <a href="https://doi.org/10.1038/s41598-025-15711-4" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">10.1038/s41598-025-15711-4</a>
+</div>
+<nav id="journal_context_menu" hidden="hidden"><ul class="menu-list font-family-ui" role="menu">
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/pmc/?term=%22Sci%20Rep%22%5Bjour%5D" class="usa-link" role="menuitem">Search in PMC</a></li>
+<li role="presentation"><a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Sci%20Rep%22%5Bjour%5D" lang="en" class="usa-link" role="menuitem">Search in PubMed</a></li>
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/nlmcatalog?term=%22Sci%20Rep%22%5BTitle%20Abbreviation%5D" class="usa-link" role="menuitem">View in NLM Catalog</a></li>
+<li role="presentation"><a href="?term=%22Sci%20Rep%22%5Bjour%5D" class="usa-link" role="menuitem" data-add-to-search="true">Add to search</a></li>
+</ul></nav></section><section class="front-matter"><div class="ameta p font-secondary font-xs">
+<hgroup><h1>Prediction of ultimate load capacity of demountable shear stud connectors using machine learning techniques</h1></hgroup><div class="cg p">
+<a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Saleh%20AI%22%5BAuthor%5D" class="usa-link" aria-describedby="id1"><span class="name western">Ahmed I Saleh</span></a><div hidden="hidden" id="id1">
+<h3><span class="name western">Ahmed I Saleh</span></h3>
+<div class="p">
+<sup>1</sup>Civil Engineering Department, Faculty of Engineering, Delta University for Science and Technology, Gamasa, Egypt </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Saleh%20AI%22%5BAuthor%5D" class="usa-link"><span class="name western">Ahmed I Saleh</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>✉</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Mahmoud%20NS%22%5BAuthor%5D" class="usa-link" aria-describedby="id2"><span class="name western">Nabil S Mahmoud</span></a><div hidden="hidden" id="id2">
+<h3><span class="name western">Nabil S Mahmoud</span></h3>
+<div class="p">
+<sup>2</sup>Structural Engineering Department, Faculty of Engineering, Mansoura University, Mansoura, Egypt </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Mahmoud%20NS%22%5BAuthor%5D" class="usa-link"><span class="name western">Nabil S Mahmoud</span></a>
+</div>
+</div>
+<sup>2</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Salem%20FA%22%5BAuthor%5D" class="usa-link" aria-describedby="id3"><span class="name western">Fikry A Salem</span></a><div hidden="hidden" id="id3">
+<h3><span class="name western">Fikry A Salem</span></h3>
+<div class="p">
+<sup>2</sup>Structural Engineering Department, Faculty of Engineering, Mansoura University, Mansoura, Egypt </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Salem%20FA%22%5BAuthor%5D" class="usa-link"><span class="name western">Fikry A Salem</span></a>
+</div>
+</div>
+<sup>2</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Ghannam%20M%22%5BAuthor%5D" class="usa-link" aria-describedby="id4"><span class="name western">Mohamed Ghannam</span></a><div hidden="hidden" id="id4">
+<h3><span class="name western">Mohamed Ghannam</span></h3>
+<div class="p">
+<sup>2</sup>Structural Engineering Department, Faculty of Engineering, Mansoura University, Mansoura, Egypt </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Ghannam%20M%22%5BAuthor%5D" class="usa-link"><span class="name western">Mohamed Ghannam</span></a>
+</div>
+</div>
+<sup>2</sup>
+</div>
+<ul class="d-buttons inline-list">
+<li><button class="d-button" aria-controls="aip_a" aria-expanded="false">Author information</button></li>
+<li><button class="d-button" aria-controls="anp_a" aria-expanded="false">Article notes</button></li>
+<li><button class="d-button" aria-controls="clp_a" aria-expanded="false">Copyright and License information</button></li>
+</ul>
+<div class="d-panels font-secondary-light">
+<div id="aip_a" class="d-panel p" style="display: none">
+<div class="p" id="Aff1">
+<sup>1</sup>Civil Engineering Department, Faculty of Engineering, Delta University for Science and Technology, Gamasa, Egypt </div>
+<div id="Aff2">
+<sup>2</sup>Structural Engineering Department, Faculty of Engineering, Mansoura University, Mansoura, Egypt </div>
+<div class="author-notes p"><div class="fn" id="_fncrsp93pmc__">
+<sup>✉</sup><p class="display-inline">Corresponding author.</p>
+</div></div>
+</div>
+<div id="anp_a" class="d-panel p" style="display: none"><div class="notes p"><section id="historyarticle-meta1" class="history"><p>Received 2025 Apr 27; Accepted 2025 Aug 11; Collection date 2025.</p></section></div></div>
+<div id="clp_a" class="d-panel p" style="display: none">
+<div>© The Author(s) 2025</div>
+<p><strong>Open Access</strong> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <a href="https://creativecommons.org/licenses/by/4.0/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">http://creativecommons.org/licenses/by/4.0/</a>.</p>
+<div class="p"><a href="/about/copyright/" class="usa-link">PMC Copyright notice</a></div>
+</div>
+</div>
+<div>PMCID: PMC12370999  PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/40841393/" class="usa-link">40841393</a>
+</div>
+</div></section></section><section aria-label="Article content"><section class="body main-article-body"><section class="abstract" id="Abs1"><h2>Abstract</h2>
+<p id="Par1">This study investigates the use of machine learning (ML) models to predict the ultimate load capacity of demountable shear connectors in steel–concrete composite structures. A dataset of 239 experimental and numerical records was assembled, incorporating critical features such as bolt diameter, bolt yield and ultimate strengths, concrete and grout compressive strengths, and multiple interfacial friction coefficients. Eight supervised ML algorithms were evaluated: Linear Regression, Ridge, Lasso, K-Nearest Neighbors (KNN), Support Vector Regression (SVR), Decision Tree, Random Forest, and XGBoost. Model performance was assessed using R², Mean Absolute Error (MAE), and Mean Squared Error (MSE). Among these, XGBoost and Random Forest delivered the best predictive accuracy, with R² values of 0.9477 and 0.9255, respectively, outperforming other methods across all evaluation metrics. SHAP analysis was employed to explain model behavior and identify the most influential features. The analysis revealed that bolt diameter, steel ultimate strength, and bolt-to-concrete friction were the most impactful predictors of shear capacity. These insights were supported by feature importance heatmaps generated from the top-performing models. Despite the robust performance of advanced algorithms, the study acknowledges challenges such as data imbalance and minimal influence of certain parameters, which may affect model generalizability.</p>
+<section id="sec1"><h3 class="pmc_sec_title">Supplementary Information</h3>
+<p>The online version contains supplementary material available at 10.1038/s41598-025-15711-4.</p></section><section id="kwd-group1" lang="en" class="kwd-group"><p><strong>Keywords:</strong> Demountable shear stud connectors, Ultimate shear capacity prediction, Linear regression, Ridge, Lasso, K-Nearest neighbors (KNN), Support vector regression (SVR), Decision tree, Random forest, XGBoost</p></section><section id="kwd-group2" class="kwd-group"><p><strong>Subject terms:</strong> Engineering, Civil engineering</p></section></section><section id="Sec1"><h2 class="pmc_sec_title">Introduction</h2>
+<p id="Par2">Steel–concrete composite beams are widely used in modern construction due to their exceptional strength, stiffness, and structural efficiency. These systems rely on shear connectors to ensure effective force transfer between the steel and concrete components, enabling them to behave as a single structural unit. Traditionally, welded headed studs have served this purpose. However, their permanent nature complicates disassembly, recycling, and reuse, especially at the end of a structure’s life, often resulting in mixed waste and lost material value<sup><a href="#CR1" class="usa-link" aria-describedby="CR1">1</a></sup>. In response, researchers have introduced demountable shear connectors, which employ mechanical fastening methods—such as bolts, threaded connections, or friction-grip systems—to allow for easier disassembly, material recovery, and reduced waste<sup><a href="#CR2" class="usa-link" aria-describedby="CR2">2</a>–<a href="#CR4" class="usa-link" aria-describedby="CR4">4</a></sup>. These connectors align with the principles of the circular economy, which emphasize design for disassembly, extended material usability, and recyclability. Furthermore, traditional welded systems rely on energy-intensive installation, contributing to the construction sector’s high carbon emissions, a sector already responsible for approximately 30% of global solid waste and 39% of energy-related CO₂ emissions<sup><a href="#CR5" class="usa-link" aria-describedby="CR5">5</a></sup>.</p>
+<p id="Par3">Beyond sustainability, demountable connectors offer practical advantages, especially in modular construction, where prefabricated parts are assembled and disassembled quickly, reducing labor, construction time, and waste<sup><a href="#CR2" class="usa-link" aria-describedby="CR2">2</a></sup>. Studies have confirmed that bolted connectors can match or exceed welded studs in terms of ductility, load-slip performance, and strength, making them suitable for demanding applications such as high-rise buildings and bridges<sup><a href="#CR6" class="usa-link" aria-describedby="CR6">6</a></sup>. A growing body of research supports these findings. Ataei et al.<sup><a href="#CR7" class="usa-link" aria-describedby="CR7">7</a></sup> tested bolted shear connectors in thin-walled beams, demonstrating improved ductility and distinct failure modes. Fahmy et al.<sup><a href="#CR8" class="usa-link" aria-describedby="CR8">8</a></sup> conducted experimental and numerical studies on high-strength demountable connectors, evaluating the effects of bolt geometry, grout strength, preloading, and material properties. Their results highlighted the reusability, strength, and stiffness of bolted systems and introduced improved predictive equations.</p>
+<p id="Par4">Further studies have proposed new design models. Ataei<sup><a href="#CR9" class="usa-link" aria-describedby="CR9">9</a></sup> introduced design equations accounting for bolt clearance, preload, and material interaction, offering improved prediction accuracy over existing standards. Similarly, Kwon et al.<sup><a href="#CR10" class="usa-link" aria-describedby="CR10">10</a></sup> proposed retrofitting strategies using post-installed bolted connectors, while Pavlović et al.<sup><a href="#CR11" class="usa-link" aria-describedby="CR11">11</a></sup> demonstrated comparable shear resistance between bolted and welded connectors, emphasizing the dismantling potential of bolted systems.</p>
+<p id="Par5">Studies by Lam and Dai<sup><a href="#CR12" class="usa-link" aria-describedby="CR12">12</a></sup> and Lee and Bradford<sup><a href="#CR13" class="usa-link" aria-describedby="CR13">13</a></sup> focused on eco-friendly materials, such as geopolymer concrete combined with bolted systems, achieving high ductility and CO₂ reduction. Rehman et al.<sup><a href="#CR14" class="usa-link" aria-describedby="CR14">14</a></sup>confirmed that such systems met Eurocode 4<sup><a href="#CR15" class="usa-link" aria-describedby="CR15">15</a></sup> requirements for ductility and load capacity. Recent works by Suwaed and Karavasilis<sup><a href="#CR16" class="usa-link" aria-describedby="CR16">16</a></sup>Lam et al.<sup><a href="#CR17" class="usa-link" aria-describedby="CR17">17</a></sup>and Patel et al.<sup><a href="#CR18" class="usa-link" aria-describedby="CR18">18</a></sup> further validated the structural and environmental benefits of blind bolts and demountable connectors in composite and precast systems. In addition, Kozma et al.<sup><a href="#CR19" class="usa-link" aria-describedby="CR19">19</a></sup>Loqman et al.<sup><a href="#CR20" class="usa-link" aria-describedby="CR20">20</a></sup>and Hosseini et al.<sup><a href="#CR21" class="usa-link" aria-describedby="CR21">21</a></sup> confirmed that demountable connectors not only allow for deconstruction and reuse but also provide higher fatigue resistance and slip capacity than welded studs. Suwaed<sup><a href="#CR22" class="usa-link" aria-describedby="CR22">22</a></sup> introduced a friction-based, high-strength bolted connector that achieved high shear resistance and rapid disassembly.</p>
+<p id="Par6">Recent studies have incorporated advanced numerical modeling to validate experimental results. Wang et al.<sup><a href="#CR23" class="usa-link" aria-describedby="CR23">23</a></sup> used FE analysis to study high-strength bolted connectors under inverse push-off loading, while Csillag and Pavlović<sup><a href="#CR24" class="usa-link" aria-describedby="CR24">24</a></sup> explored blind-bolted and SRR connectors in FRP decks. Hosseinpour et al.<sup><a href="#CR25" class="usa-link" aria-describedby="CR25">25</a></sup> verified the suitability of bolted connectors in thin-walled cold-formed beams, meeting Eurocode 4 ductility standards. A variety of innovative connector types have emerged: the lockbolt (LB-DSC) with grout-filled tubes and a conical lug<sup><a href="#CR26" class="usa-link" aria-describedby="CR26">26</a></sup>Y-shaped bolted connectors with tapered nuts (Jung et al. 2022), and double-nut friction-grip connectors<sup><a href="#CR27" class="usa-link" aria-describedby="CR27">27</a></sup> Song et al.<sup><a href="#CR28" class="usa-link" aria-describedby="CR28">28</a></sup> tested tapered iron bolt (TIB) systems and proposed new design formulations. Liu et al.<sup><a href="#CR29" class="usa-link" aria-describedby="CR29">29</a></sup> and Jakovljević et al.<sup><a href="#CR30" class="usa-link" aria-describedby="CR30">30</a></sup> confirmed the adaptability of single-nut embedded connectors and the reliability of demountable connections across precast and cast-in-place systems. Furthermore, Fang<sup><a href="#CR31" class="usa-link" aria-describedby="CR31">31</a></sup> evaluated high-strength bolted connectors in UHPC, confirming their superior behavior. Fahmy et al.<sup><a href="#CR8" class="usa-link" aria-describedby="CR8">8</a></sup> and Ataei et al.<sup><a href="#CR4" class="usa-link" aria-describedby="CR4">4</a></sup> used a combination of experimental and FEM data to propose predictive models for load capacity and stiffness in cold-formed composite beams. Yu and Kim<sup><a href="#CR32" class="usa-link" aria-describedby="CR32">32</a></sup> analyzed how stud shear connectors behave in steel–UHPC composite structures, especially when using short studs. They improved existing models by factoring in stud head rotation and plastic deformation, which helped better match experimental results. Their study showed that both UHPC strength and stud size have a strong impact on shear performance, offering clearer guidance for designing more efficient composite systems.</p>
+<p id="Par7">Although machine learning has demonstrated strong potential in forecasting the shear behavior of connectors in steel–concrete composite systems, several limitations have been identified in previous research. A common issue is the reliance on small or unbalanced datasets, which restricts the models’ performance across a range of structural conditions. The practical usefulness of these models is often reduced by the neglect or oversimplification of critical factors such as cyclic loading, complex failure mechanisms, and environmental effects. Furthermore, many approaches lack transparency, providing predictions without clearly explaining the contribution of input variables to the final outcome, making them less accessible for engineers in real-world design applications. Additionally, few studies integrate both numerical and experimental data to enhance model accuracy.</p>
+<p id="Par8">Several studies have demonstrated the effectiveness of machine learning in predicting the shear behavior of stud connectors in steel–concrete composite structures. Zhu and Farouk<sup><a href="#CR33" class="usa-link" aria-describedby="CR33">33</a></sup> employed artificial neural networks enhanced by particle swarm optimization to predict the shear resistance of grouped stud connectors, outperforming conventional design codes based on 232 push-out tests. Similarly, Lee et al.<sup><a href="#CR34" class="usa-link" aria-describedby="CR34">34</a></sup> evaluated different Machine Learning (ML) models, finding that artificial neural networks provided the most accurate predictions. Their use of global sensitivity analysis identified stud diameter, concrete strength, and stud yield strength as key influencing factors. Zhou et al.<sup><a href="#CR35" class="usa-link" aria-describedby="CR35">35</a></sup> further applied various machine learning models, including eXtreme Gradient Boosting (XGBoost) and Random Forest, to predict the shear strength of headed studs in steel–UHPC systems using 194 test samples. SHapley Additive explanations (SHAP) analysis was used to interpret feature importance, and a user-friendly tool was developed to support engineering applications.</p>
+<p id="Par9">In related work, Li et al.<sup><a href="#CR36" class="usa-link" aria-describedby="CR36">36</a></sup> proposed an ensemble stacking model combining XGBoost, LightGBM, and ExtraTrees to estimate the shear capacity of Perfobond Rib (PBL) connectors using 245 test results. Their model achieved high accuracy (R² = 0.92) and interpretability, with concrete strength, rebar count, and rebar yield strength identified as the most significant features via SHAP analysis. Taffese et al.<sup><a href="#CR37" class="usa-link" aria-describedby="CR37">37</a></sup> also developed an explainable AI model using LightGBM and SHAP to predict slip behavior at the steel–UHPC interface, highlighting stud diameter and spacing as dominant factors. These studies<sup><a href="#CR33" class="usa-link" aria-describedby="CR33">33</a>–<a href="#CR37" class="usa-link" aria-describedby="CR37">37</a></sup> emphasize the growing integration of interpretable machine learning techniques in structural prediction tasks, providing both accurate results and valuable design insights.</p>
+<p id="Par10">For fatigue behavior, Kang et al.<sup><a href="#CR38" class="usa-link" aria-describedby="CR38">38</a></sup> introduced a Gaussian Process Regression model trained on a large fatigue test dataset to predict the life of stud connectors in steel–concrete bridges. Their approach outperformed traditional design codes and provided insights into the most influential fatigue-related variables through explainable AI techniques.</p>
+<p id="Par11">He et al.<sup><a href="#CR39" class="usa-link" aria-describedby="CR39">39</a></sup> studied machine learning applications in the design, optimization, and evaluation of steel–concrete composite structures, providing a more comprehensive viewpoint. In addition to highlighting the effectiveness of ML models in prediction and damage assessment tasks, the review also identified many significant drawbacks, including a lack of data, a lack of model transparency, and a lack of real-world validation.</p>
+<p id="Par12">Despite these advancements, most existing models are empirical and limited in scope. There is a lack of generalized, data-driven frameworks that account for the complex relationships between design parameters, material properties, and performance outcomes specific to demountable connectors. At the same time, machine learning (ML) has proven effective in structural engineering applications, such as predicting material strength, corrosion, and damage progression. ML models can capture nonlinear and multivariable interactions without simplifying assumptions, offering new opportunities for predicting connector behavior. However, their application to demountable systems remains underexplored, largely due to the absence of comprehensive, high-quality datasets.</p>
+<p id="Par13">To bridge this gap, this study develops and compares multiple ML models trained on a hybrid dataset that integrates experimental and numerical data for demountable bolted shear connectors. The objective is to create a reliable predictive tool for estimating ultimate shear capacity, supporting the design of efficient, sustainable, and reusable composite systems.</p></section><section id="Sec2"><h2 class="pmc_sec_title">Source of dataset</h2>
+<p id="Par14">The dataset employed in this study was compiled from a combination of experimental results reported in published literature and validated finite element simulations. These sources provided a diverse range of configurations for demountable shear stud connectors as shown in Fig. <a href="#Fig1" class="usa-link">1</a>, encompassing variations in geometry, material properties, and structural boundary conditions. Experimental data were extracted from full-scale push-out tests and component-level studies, while simulation data were obtained from nonlinear finite element analyses calibrated against experimental results to ensure accuracy and consistency. A total of 239 experimental and numerical samples were collected, uploaded as a supplementary data. Each capturing a distinct combination of geometric, material, and interface-related parameters relevant to the behavior of demountable shear connectors. The 44.77% experimental and 55.23% numerical data ratio (107 experimental, 132 numerical samples) shapes model training by slightly favoring numerical data’s simulation patterns, potentially limiting the capture of experimental variability, though the latter’s 44.77% share ensures real-world relevance. Normalization mitigates higher experimental variability. Training multiple models with cross-validation leverages the 45:55 split to reduce overfitting, with SHAP plots highlighting feature impacts and confidence intervals confirming robustness, ensuring reliable learning despite numerical dominance as shown in Table <a href="#Tab1" class="usa-link">1</a>. To visualize performance and behavior od demountable shear stud connectors. Figure <a href="#Fig2" class="usa-link">2</a> shows a typical load–slip curve based on experimental and simulation data, helping connect the machine learning predictions to real structural behavior. The dataset comprised a mix of input features and a single target output representing the ultimate load capacity Pu of the connector system. Key geometric inputs included bolt diameter and number of bolts, which play a critical role in defining the physical configuration of the connectors. Material properties were also extensively represented, including the compressive strengths of concrete and grout, as well as the yield and ultimate strengths of steel and bolts, reflecting variations in component stiffness and load resistance. To capture interaction behavior at critical connection points, several interfacial friction coefficients such as those between the bolt and concrete, stud and grout, and nut and beam were also included.</p>
+<figure class="fig xbox font-sm" id="Fig1"><h3 class="obj_head">Fig. 1.</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12370999_41598_2025_15711_Fig1_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/c389f8dab293/41598_2025_15711_Fig1_HTML.jpg" loading="lazy" id="d33e457" height="537" width="669" alt="Fig. 1"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Schematic diagram of the push-out test for demountable shear stud connectors.</p></figcaption></figure><section class="tw xbox font-sm" id="Tab1"><h3 class="obj_head">Table 1.</h3>
+<div class="caption p"><p>Experimental vs. numerical data distribution.</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1">Data type</th>
+<th align="left" colspan="1" rowspan="1">Number of samples</th>
+<th align="left" colspan="1" rowspan="1">Proportion (%)</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">Experimental</td>
+<td align="center" colspan="1" rowspan="1">107</td>
+<td align="left" colspan="1" rowspan="1">44.8</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Numerical</td>
+<td align="center" colspan="1" rowspan="1">132</td>
+<td align="left" colspan="1" rowspan="1">55.2</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Total</td>
+<td align="center" colspan="1" rowspan="1">239</td>
+<td align="left" colspan="1" rowspan="1">100</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></section><figure class="fig xbox font-sm" id="Fig2"><h3 class="obj_head">Fig. 2.</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12370999_41598_2025_15711_Fig2_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/b2cca0eafec6/41598_2025_15711_Fig2_HTML.jpg" loading="lazy" id="d33e467" height="433" width="669" alt="Fig. 2"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Load–Slip curve for single connector.</p></figcaption></figure></section><section id="Sec3"><h2 class="pmc_sec_title">Selection of input parameters</h2>
+<p id="Par18">A total of 13 input parameters were carefully selected to ensure comprehensive representation of the physical and mechanical behaviors that influence the shear capacity of demountable connectors. This selection was guided by both experimental findings and engineering judgment to ensure that the chosen features reflect the key factors governing load transfer in steel–concrete composite systems. Together, these parameters enable the development of robust and accurate machine learning models capable of capturing the complex interactions within the connector system. The mechanical properties include the compressive strength of concrete <em>F</em><sub><em>cu, C</em></sub> which defines the load-bearing capacity of the surrounding matrix, and the grout compressive strength <em>F</em><sub><em>cu, G</em></sub>, which plays a role in confinement and localized stress distribution. The stud connector diameter Db is a primary geometric parameter due to its direct impact on the shear-resisting area. Additionally, the yield strength <em>F</em><sub><em>y, b</em></sub> and ultimate tensile strength <em>F</em><sub><em>u, b</em></sub> of the connector describes its material behavior under load, while the applied pretension force Tb affects both the initial stiffness and the slip characteristics at the interface. Recognizing the importance of interfacial behavior in composite action, the dataset al.so includes friction coefficients at seven key contact interfaces: beam–concrete, stud–concrete, grout–concrete, stud–grout, stud–beam, grout–beam, and nut–beam (these friction coefficients were not considered in previous studies)<sup><a href="#CR33" class="usa-link" aria-describedby="CR33">33</a>,<a href="#CR36" class="usa-link" aria-describedby="CR36">36</a>,<a href="#CR37" class="usa-link" aria-describedby="CR37">37</a>,<a href="#CR39" class="usa-link" aria-describedby="CR39">39</a></sup>. These parameters help capture the resistance to relative movement between materials and allow the models to consider interaction effects that significantly influence shear transfer. By integrating both material and interface-related features, the selected input set provides a holistic foundation for accurately predicting the performance of demountable shear connectors under load.</p></section><section id="Sec4"><h2 class="pmc_sec_title">Data normalization and splitting</h2>
+<p id="Par19">Before training the machine learning models, the data needed to be adjusted to a consistent scale so that all features could be fairly considered during the learning process. Since the dataset included 13 input parameters with different measurement units and value ranges similar bolt diameter, compressive strength, and friction coefficients normalizing the data helped prevent any one feature from overpowering the others. To do this, the values in each feature were scaled between 0 and 1 by dividing each value by the feature’s maximum using MinMaxScaler from scikit-learnc. Once normalized, the 239 data records were shuffled to remove any order-related bias and then split into two sets: 70% of the data was used to train the models, while the remaining 30% was set aside to test how well the models could predict new, unseen results. This approach helped ensure that the models were both accurate and reliable.</p></section><section id="Sec5"><h2 class="pmc_sec_title">Overview of machine learning algorithms</h2>
+<ol class="list" style="list-style-type:decimal">
+<li>
+<div class="p" id="Par21">Linear regression is a foundational supervised learning method that models the relationship between a continuous target variable and one or more input features<sup><a href="#CR40" class="usa-link" aria-describedby="CR40">40</a></sup>. It assumes a linear association between inputs and output defined in Eq. (<a href="#Equ1" class="usa-link">1</a>), making it suitable for problems with simple dependencies. While it is computationally efficient and easy to interpret, its limitations become evident in datasets with complex, nonlinear structures or multicollinearity.<table class="disp-formula p" id="Equ1"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/9a4f96267be8/d33e532.gif" loading="lazy" id="d33e532" alt="graphic file with name d33e532.gif"></td>
+<td class="label">1</td>
+</tr></table>
+</div>
+<p id="Par23">where <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq1"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/ae2038c97710/d33e540.gif" loading="lazy" id="d33e540" alt="Inline graphic"></span>​ is the intercept, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq2"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/da492166c1c8/d33e546.gif" loading="lazy" id="d33e546" alt="Inline graphic"></span>​ is the slope, and <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq3"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/b2bc129adef3/d33e552.gif" loading="lazy" id="d33e552" alt="Inline graphic"></span> is the error term. This method is straightforward and understandable, making it appropriate for datasets with linear relationships between variables.</p>
+</li>
+<li>
+<div class="p" id="Par25">Ridge regression is an extension of linear regression that incorporates L2 regularization. By penalizing large coefficient values, it addresses multicollinearity among features and enhances the model’s stability. Ridge regression retains all features in the model, making it useful when all input variables are believed to contribute to the outcome as shown in Eq. (<a href="#Equ2" class="usa-link">2</a>), though it may struggle with variable selection<sup><a href="#CR34" class="usa-link" aria-describedby="CR34">34</a></sup>.<table class="disp-formula p" id="Equ2"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/8e58f6ce00f1/d33e570.gif" loading="lazy" id="d33e570" alt="graphic file with name d33e570.gif"></td>
+<td class="label">2</td>
+</tr></table>
+</div>
+<p id="Par27">where <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq4"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/95c7c0c413ff/d33e578.gif" loading="lazy" id="d33e578" alt="Inline graphic"></span> is the regularization parameter.</p>
+</li>
+<li><div class="p" id="Par29">Lasso regression introduces L1 regularization to the linear regression framework<sup><a href="#CR41" class="usa-link" aria-describedby="CR41">41</a></sup>. This regularization technique not only reduces overfitting but also enables automatic feature selection by shrinking less important feature coefficients to zero as defined in Eq. (<a href="#Equ3" class="usa-link">3</a>). It is particularly advantageous in high-dimensional datasets where only a subset of features is expected to influence the target.<table class="disp-formula p" id="Equ3"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/ecd8bbf905e8/d33e596.gif" loading="lazy" id="d33e596" alt="graphic file with name d33e596.gif"></td>
+<td class="label">3</td>
+</tr></table>
+</div></li>
+<li><p id="Par31">The decision tree regressor is a non-parametric model that predicts output by learning simple decision rules inferred from the input data<sup><a href="#CR41" class="usa-link" aria-describedby="CR41">41</a></sup>. The model recursively partitions the dataset based on feature thresholds, forming a tree structure where each branch represents a decision rule. This approach effectively captures nonlinearity and feature interactions, but it may overfit unless pruning or depth constraints are applied.</p></li>
+<li><p id="Par32">Random Forest is an ensemble method that combines the outputs of multiple decision trees to produce a robust prediction. Each tree is trained on a random subset of data and features, ensuring diversity among trees. The model mitigates overfitting and improves generalization by averaging the results from all trees. It is widely used in engineering and science for its accuracy and ability to handle high-dimensional and noisy data<sup><a href="#CR41" class="usa-link" aria-describedby="CR41">41</a></sup>.</p></li>
+<li><p id="Par33">Support Vector Regression is an adaptation of the support vector machine algorithm for regression tasks. It aims to find a function that approximates the target values within a predefined margin while maintaining the flattest possible prediction curve. SVR uses kernel functions to model nonlinear relationships and is known for its robustness and ability to generalize well in cases of limited or high-dimensional data<sup><a href="#CR42" class="usa-link" aria-describedby="CR42">42</a></sup>.</p></li>
+<li><p id="Par34">The K-Nearest Neighbors Regressor is a simple, instance-based learning algorithm that makes predictions by averaging the outputs of the closest training samples to a new input<sup><a href="#CR43" class="usa-link" aria-describedby="CR43">43</a></sup>. It does not require training in the traditional sense and relies heavily on the local structure of the data. Its effectiveness depends on the choice of distance metric and the number of neighbors considered.</p></li>
+<li><p id="Par35">XGBoost is a highly efficient and scalable implementation of gradient boosting that builds models sequentially by correcting the errors of previous models<sup><a href="#CR44" class="usa-link" aria-describedby="CR44">44</a></sup>. It incorporates regularization techniques to control model complexity and prevent overfitting. XGBoost is well-regarded for its performance in regression and classification tasks across various domains, including structural engineering and data science.</p></li>
+</ol></section><section id="Sec6"><h2 class="pmc_sec_title">Evaluation metrics</h2>
+<p id="Par36">To assess the predictive performance of the developed machine learning models, several commonly used regression evaluation metrics were employed: the coefficient of determination (<em>R²</em>) Eq. (<a href="#Equ4" class="usa-link">4</a>), Root Mean Square Error (RMSE) Eq. (<a href="#Equ5" class="usa-link">5</a>), and Mean Absolute Error (MAE) Eq. (<a href="#Equ6" class="usa-link">6</a>). These metrics provide a comprehensive understanding of model accuracy, precision, and generalization capability.</p>
+<p id="Par37">The <em>R²</em> measures the proportion of variance in the target variable that is predictable from the input features. A value closer to 1 indicates a strong correlation between the predicted and actual values, reflecting a high-quality fit. RMSE, on the other hand, quantifies the average magnitude of prediction error, giving more weight to larger errors. It is particularly useful in structural applications where large deviations can be critical. MAE represents the average of the absolute differences between predicted and actual values, offering a straightforward interpretation of model accuracy that is less sensitive to outliers compared to RMSE.</p>
+<table class="disp-formula p" id="Equ4"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/90380841724d/d33e669.gif" loading="lazy" id="d33e669" alt="graphic file with name d33e669.gif"></td>
+<td class="label">4</td>
+</tr></table>
+<table class="disp-formula p" id="Equ5"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/866bebacd448/d33e675.gif" loading="lazy" id="d33e675" alt="graphic file with name d33e675.gif"></td>
+<td class="label">5</td>
+</tr></table>
+<table class="disp-formula p" id="Equ6"><tr>
+<td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/e8b73c783456/d33e681.gif" loading="lazy" id="d33e681" alt="graphic file with name d33e681.gif"></td>
+<td class="label">6</td>
+</tr></table>
+<p id="Par38">where: <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq5"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/74314b25acfb/d33e689.gif" loading="lazy" id="d33e689" alt="Inline graphic"></span> are the observed values, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq6"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/cf1aba7a9601/d33e695.gif" loading="lazy" id="d33e695" alt="Inline graphic"></span> are the predicted values, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq7"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/d235d4074c18/d33e701.gif" loading="lazy" id="d33e701" alt="Inline graphic"></span> is the mean of the observed values.</p></section><section id="Sec7"><h2 class="pmc_sec_title">Statistical description</h2>
+<p id="Par39">A Pearson correlation analysis was carried out to examine the linear relationships between the selected input parameters and the ultimate shear load, as illustrated in Fig. <a href="#Fig3" class="usa-link">3</a>. The results reveal that the bolt diameter <em>D</em><sub><em>b</em></sub> exhibits the strongest positive correlation with the load (<em>r</em> = 0.75), confirming its critical role in increasing the effective shear area and mechanical interlock. Additionally, the stud connector pretension force Tb shows a moderate positive correlation with load (<em>r</em> = 0.44), indicating that higher axial clamping contributes to improved load transfer and overall system resistance.</p>
+<figure class="fig xbox font-sm" id="Fig3"><h3 class="obj_head">Fig. 3.</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12370999_41598_2025_15711_Fig3_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/ce7dd0cc2f02/41598_2025_15711_Fig3_HTML.jpg" loading="lazy" id="d33e734" height="589" width="669" alt="Fig. 3"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig3/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Pearson correlation among features.</p></figcaption></figure><p id="Par41">In contrast, several friction-related parameters demonstrate moderate to strong negative correlations with the load. Notably, the friction between bolt and concrete <em>f</em><sub><em>BC</em></sub>, stud and grout <em>f</em><sub><em>SG</em></sub>, and stud and beam <em>f</em><sub><em>SB</em></sub> show negative relationships of <em>r</em> = − 0.61, − 0.51, and − 0.40, respectively. These results suggest that excessive friction at these interfaces may lead to early relative movement or reduced energy dissipation, thereby affecting the effective shear transfer mechanisms.</p>
+<p id="Par42">Material strength parameters such as grout compressive strength <em>F</em><sub><em>cu, G</em></sub>, concrete compressive strength <em>F</em><sub><em>cu, C</em></sub>, and steel yield strength <em>F</em><sub><em>y, S</em></sub> show relatively weak correlations with the load, ranging between <em>r</em> = − 0.24 and 0.13. This indicates that while these variables are necessary for defining material behavior, they may not be the primary drivers of shear resistance in demountable connections, where interface behavior and geometry play larger roles.</p>
+<p id="Par43">A particularly strong correlation is observed between bolt yield strength <em>F</em><sub><em>y, b</em></sub> and ultimate strength F<sub>ub</sub>, with a near-perfect value of <em>r</em> = 0.98, reflecting their expected consistency in standardized bolt materials. Additionally, multicollinearity is evident among several friction parameters, particularly between <em>f</em><sub><em>SC</em></sub>, <em>f</em><sub><em>SG</em></sub>, and <em>f</em><sub><em>BG</em></sub>, where correlation values exceed <em>r</em> = 0.85. These interdependencies should be addressed in the modeling process through dimensionality reduction or regularization to improve model stability and interpretability.</p>
+<p id="Par44">Table <a href="#Tab2" class="usa-link">2</a> offers a clear picture of how varied and well-distributed the dataset is, which plays a key role in building effective machine learning models. For example, bolt diameter <em>D</em><sub><em>b</em></sub> ranges from 6 <em>mm</em> to 27 <em>mm</em>, and the number of bolts <em>N</em> varies between 4 and 8. Both features show a healthy amount of variation, which allows the model to learn how different sizes and quantities of connectors impact shear performance. The dataset also includes a broad range of bolt yield <em>F</em><sub><em>y, b</em></sub> and ultimate strength <em>F</em><sub><em>ub</em></sub>, with values stretching from around 250 MPa up to over 1300 MPa. This wide spread helps the model capture how differences in material strength affect the connectors’ behavior under load.</p>
+<section class="tw xbox font-sm" id="Tab2"><h3 class="obj_head">Table 2.</h3>
+<div class="caption p"><p>Descriptive statistics of the numerical features.</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1">Parameter</th>
+<th align="left" colspan="1" rowspan="1">Mean</th>
+<th align="left" colspan="1" rowspan="1">STD</th>
+<th align="left" colspan="1" rowspan="1">Min.</th>
+<th align="left" colspan="1" rowspan="1">25%</th>
+<th align="left" colspan="1" rowspan="1">50%</th>
+<th align="left" colspan="1" rowspan="1">75%</th>
+<th align="left" colspan="1" rowspan="1">Max.</th>
+</tr></thead>
+<tbody>
+<tr><td align="left" colspan="8" rowspan="1">Input</td></tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> F<sub>cu, C</sub> (Mpa)</td>
+<td align="center" colspan="1" rowspan="1">37.59707</td>
+<td align="center" colspan="1" rowspan="1">12.26444</td>
+<td align="left" colspan="1" rowspan="1">23.06</td>
+<td align="left" colspan="1" rowspan="1">30</td>
+<td align="left" colspan="1" rowspan="1">30</td>
+<td align="left" colspan="1" rowspan="1">48.2</td>
+<td align="left" colspan="1" rowspan="1">65</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> F<sub>cu, G</sub> (Mpa)</td>
+<td align="center" colspan="1" rowspan="1">14.4749</td>
+<td align="center" colspan="1" rowspan="1">26.68559</td>
+<td align="left" colspan="1" rowspan="1">0</td>
+<td align="left" colspan="1" rowspan="1">0</td>
+<td align="left" colspan="1" rowspan="1">0</td>
+<td align="left" colspan="1" rowspan="1">31.62</td>
+<td align="left" colspan="1" rowspan="1">95.1</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> F<sub>y, S</sub> (Mpa)</td>
+<td align="center" colspan="1" rowspan="1">325.9478</td>
+<td align="center" colspan="1" rowspan="1">39.95516</td>
+<td align="left" colspan="1" rowspan="1">235</td>
+<td align="left" colspan="1" rowspan="1">280.3</td>
+<td align="left" colspan="1" rowspan="1">342</td>
+<td align="left" colspan="1" rowspan="1">355</td>
+<td align="left" colspan="1" rowspan="1">375</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> F<sub>u, S</sub> (Mpa)</td>
+<td align="center" colspan="1" rowspan="1">447.6119</td>
+<td align="center" colspan="1" rowspan="1">62.32162</td>
+<td align="left" colspan="1" rowspan="1">350</td>
+<td align="left" colspan="1" rowspan="1">387.5</td>
+<td align="left" colspan="1" rowspan="1">470</td>
+<td align="left" colspan="1" rowspan="1">479.2</td>
+<td align="left" colspan="1" rowspan="1">541</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> D<sub>b</sub>(mm)</td>
+<td align="center" colspan="1" rowspan="1">16.30962</td>
+<td align="center" colspan="1" rowspan="1">4.480156</td>
+<td align="left" colspan="1" rowspan="1">6</td>
+<td align="left" colspan="1" rowspan="1">12</td>
+<td align="left" colspan="1" rowspan="1">16</td>
+<td align="left" colspan="1" rowspan="1">20</td>
+<td align="left" colspan="1" rowspan="1">27</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> N</td>
+<td align="center" colspan="1" rowspan="1">5.389121</td>
+<td align="center" colspan="1" rowspan="1">1.90842</td>
+<td align="left" colspan="1" rowspan="1">4</td>
+<td align="left" colspan="1" rowspan="1">4</td>
+<td align="left" colspan="1" rowspan="1">4</td>
+<td align="left" colspan="1" rowspan="1">8</td>
+<td align="left" colspan="1" rowspan="1">8</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> F<sub>y, b</sub> (Mpa)</td>
+<td align="center" colspan="1" rowspan="1">656.3626</td>
+<td align="center" colspan="1" rowspan="1">266.178</td>
+<td align="left" colspan="1" rowspan="1">248.81</td>
+<td align="left" colspan="1" rowspan="1">330</td>
+<td align="left" colspan="1" rowspan="1">800</td>
+<td align="left" colspan="1" rowspan="1">830</td>
+<td align="left" colspan="1" rowspan="1">1115</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> F<sub>ub</sub> (Mpa)</td>
+<td align="center" colspan="1" rowspan="1">817.6174</td>
+<td align="center" colspan="1" rowspan="1">285.3866</td>
+<td align="left" colspan="1" rowspan="1">385.8</td>
+<td align="left" colspan="1" rowspan="1">540</td>
+<td align="left" colspan="1" rowspan="1">955</td>
+<td align="left" colspan="1" rowspan="1">1035</td>
+<td align="left" colspan="1" rowspan="1">1319</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> T<sub>b</sub> (kN)</td>
+<td align="center" colspan="1" rowspan="1">48.51326</td>
+<td align="center" colspan="1" rowspan="1">42.99424</td>
+<td align="left" colspan="1" rowspan="1">0</td>
+<td align="left" colspan="1" rowspan="1">20</td>
+<td align="left" colspan="1" rowspan="1">27</td>
+<td align="left" colspan="1" rowspan="1">95</td>
+<td align="left" colspan="1" rowspan="1">155</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> f<sub>SC</sub>
+</td>
+<td align="center" colspan="1" rowspan="1">0.293431</td>
+<td align="center" colspan="1" rowspan="1">0.1749</td>
+<td align="left" colspan="1" rowspan="1">0.1</td>
+<td align="left" colspan="1" rowspan="1">0.1</td>
+<td align="left" colspan="1" rowspan="1">0.3</td>
+<td align="left" colspan="1" rowspan="1">0.45</td>
+<td align="left" colspan="1" rowspan="1">0.7</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> f<sub>SG</sub>
+</td>
+<td align="center" colspan="1" rowspan="1">0.090377</td>
+<td align="center" colspan="1" rowspan="1">0.204856</td>
+<td align="left" colspan="1" rowspan="1">0</td>
+<td align="left" colspan="1" rowspan="1">0</td>
+<td align="left" colspan="1" rowspan="1">0</td>
+<td align="left" colspan="1" rowspan="1">0</td>
+<td align="left" colspan="1" rowspan="1">0.7</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> f<sub>BC</sub>
+</td>
+<td align="center" colspan="1" rowspan="1">0.277908</td>
+<td align="center" colspan="1" rowspan="1">0.156661</td>
+<td align="left" colspan="1" rowspan="1">0</td>
+<td align="left" colspan="1" rowspan="1">0.25</td>
+<td align="left" colspan="1" rowspan="1">0.25</td>
+<td align="left" colspan="1" rowspan="1">0.3</td>
+<td align="left" colspan="1" rowspan="1">0.7</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> f<sub>BG</sub>
+</td>
+<td align="center" colspan="1" rowspan="1">0.138703</td>
+<td align="center" colspan="1" rowspan="1">0.267021</td>
+<td align="left" colspan="1" rowspan="1">0</td>
+<td align="left" colspan="1" rowspan="1">0</td>
+<td align="left" colspan="1" rowspan="1">0</td>
+<td align="left" colspan="1" rowspan="1">0</td>
+<td align="left" colspan="1" rowspan="1">0.7</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> f<sub>SB</sub>
+</td>
+<td align="center" colspan="1" rowspan="1">0.302092</td>
+<td align="center" colspan="1" rowspan="1">0.132747</td>
+<td align="left" colspan="1" rowspan="1">0</td>
+<td align="left" colspan="1" rowspan="1">0.25</td>
+<td align="left" colspan="1" rowspan="1">0.25</td>
+<td align="left" colspan="1" rowspan="1">0.3</td>
+<td align="left" colspan="1" rowspan="1">0.7</td>
+</tr>
+<tr><td align="left" colspan="8" rowspan="1">Output</td></tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> P<sub>u</sub> (kN)</td>
+<td align="center" colspan="1" rowspan="1">122.3347</td>
+<td align="center" colspan="1" rowspan="1">67.2099</td>
+<td align="left" colspan="1" rowspan="1">5.5</td>
+<td align="left" colspan="1" rowspan="1">68.5</td>
+<td align="left" colspan="1" rowspan="1">112.5</td>
+<td align="left" colspan="1" rowspan="1">183.75</td>
+<td align="left" colspan="1" rowspan="1">347.5</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></section><p id="Par46">Even though some friction-related features like <em>f</em><sub><em>SC</em></sub>, <em>f</em><sub><em>SG</em></sub>, and <em>f</em><sub><em>BC</em></sub> have lower average values, they still cover a wide range (from 0 to 0.7), making them important for understanding the role of interface behavior in load transfer. The target variable, ultimate load capacity <em>P</em><sub><em>u</em></sub>, also shows significant variability from as low as 5.5 kN up to 347.5 kN which means the dataset captures both weak and strong connection performances. This kind of diversity in the data helps ensure that the machine learning models can learn from a wide range of scenarios and make accurate, generalizable predictions.</p></section><section id="Sec8"><h2 class="pmc_sec_title">Prediction performance of machine learning models</h2>
+<p id="Par47">The bar chart in Fig. <a href="#Fig4" class="usa-link">4</a> presents the R-squared (<em>R²</em>) scores for various machine learning regression models applied to predict the ultimate load capacity of demountable shear connectors. Among all the tested models, XGBoost Regressor delivered the best performance, achieving an impressive <em>R²</em> value of 0.9477, indicating that nearly 95% of the variability in the output could be explained by the model. Close behind, Random Forest achieved an <em>R²</em> of 0.9255, also demonstrating excellent predictive capability. The strong performance of these ensemble-based models can be attributed to their ability to handle nonlinear relationships and complex feature interactions through iterative learning and model averaging.</p>
+<figure class="fig xbox font-sm" id="Fig4"><h3 class="obj_head">Fig. 4.</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12370999_41598_2025_15711_Fig4_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/ad7ad71871e8/41598_2025_15711_Fig4_HTML.jpg" loading="lazy" id="d33e1247" height="531" width="669" alt="Fig. 4"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig4/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Tested R<sup>2</sup> for different models.</p></figcaption></figure><p id="Par48">The Decision Tree Regressor also performed well, with an <em>R²</em> score of 0.9237, showing that even a single-tree structure can effectively capture patterns in the data when nonlinearity is present. The K-Nearest Neighbors (KNN) Regressor followed with a moderate <em>R²</em> value of 0.8201, suggesting that similarity-based methods can be effective with appropriate tuning, though they may lack the flexibility of ensemble approaches.</p>
+<p id="Par50">In contrast, linear models such as Linear Regression (<em>R²</em> = 0.7507), Ridge (<em>R²</em> = 0.7200), and Lasso (<em>R²</em> = 0.6907) showed lower performance, indicating that their assumption of linearity limits their ability to fully capture the complexity of the dataset. Finally, Support Vector Regression (SVR) produced the lowest <em>R²</em> value at 0.6775, reflecting reduced predictive accuracy. This underperformance could be due to sensitivity in kernel selection and poor generalization in high-dimensional feature spaces. These findings highlight that ensemble tree-based models, particularly XGBoost and Random Forest, are the most reliable for modeling complex structural behaviors in demountable shear connector systems.</p>
+<p id="Par51">Figure <a href="#Fig5" class="usa-link">5</a>(a) presents the Mean Absolute Error (MAE) for each regression model used in predicting the shear load of demountable shear connectors. MAE measures the average difference between predicted and actual values, offering a straightforward interpretation of accuracy. From the results, the XGBoost Regressor stands out with the lowest MAE, around 10, indicating that its predictions were consistently close to the true values. Random Forest and Decision Tree also performed well, with MAE values only slightly higher, showing their reliability in minimizing average prediction error. In contrast, Lasso, Ridge, and Linear Regression models reported the highest MAE values (above 25), reflecting less accurate and more variable predictions. SVR and K-Nearest Neighbors fell in the middle, performing better than linear models but not quite reaching the precision of ensemble methods. These results reinforce that tree-based and boosting algorithms offer better consistency in prediction when dealing with nonlinear structural behavior.</p>
+<figure class="fig xbox font-sm" id="Fig5"><h3 class="obj_head">Fig. 5.</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12370999_41598_2025_15711_Fig5_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/16327e9118ef/41598_2025_15711_Fig5_HTML.jpg" loading="lazy" id="d33e1283" height="264" width="669" alt="Fig. 5"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig5/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Bar charts for (<strong>a</strong>) Mean Absolute Error. (<strong>b</strong>) Mean Squared Error.</p></figcaption></figure><p id="Par53">Figure <a href="#Fig5" class="usa-link">5</a>(b) shows the Mean Squared Error (MSE) values for the same models, which penalize larger errors more heavily and provide a clearer picture of model robustness. Once again, XGBoost achieved the best performance, with an MSE of approximately 300, indicating both accuracy and resilience to large prediction errors. Random Forest and Decision Tree followed closely, with relatively low MSE values that reflect their strength in handling complex feature interactions. On the other hand, Lasso and Ridge Regression recorded the highest MSE scores (around 1400), suggesting that these models are more prone to large deviations between predicted and actual values. Linear Regression and SVR also showed weaker performance, with elevated MSE values compared to the top-performing models. K-Nearest Neighbors, while not the most precise, showed moderate MSE, positioning it as a viable option under certain conditions. Overall, the MSE results further confirm that XGBoost and Random Forest are the most robust models, making them strong candidates for practical engineering applications where predictive accuracy is essential.</p>
+<p id="Par54">Table <a href="#Tab3" class="usa-link">3</a> presents 95% confidence intervals (CI) for R², Mean Squared Error (MSE), and Mean Absolute Error (MAE) for various regression models evaluated on a dataset. The XGBRegressor and Decision Tree models exhibit the highest R² CI ranges (0.8958–0.9759 and 0.8440–0.9758, respectively), indicating strong predictive performance. In contrast, Lasso and SVR have the lowest R² CI ranges (0.5554–0.7860 and 0.5615–0.8016) and wider MSE CIs (922.90-2057.40 and 784.08-2375.08), reflecting poorer fit and higher variability.</p>
+<section class="tw xbox font-sm" id="Tab3"><h3 class="obj_head">Table 3.</h3>
+<div class="caption p"><p>Confidence intervals for all models.</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1">Model name</th>
+<th align="left" colspan="1" rowspan="1">
+<em>R</em><sup>2</sup> CI (95%)</th>
+<th align="left" colspan="1" rowspan="1">MSE CI (95%)</th>
+<th align="left" colspan="1" rowspan="1">MAE CI (95%)</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">Linear regression</td>
+<td align="center" colspan="1" rowspan="1">0.6474–0.8226</td>
+<td align="center" colspan="1" rowspan="1">775.08-1622.89</td>
+<td align="center" colspan="1" rowspan="1">20.99–31.45</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Decision tree</td>
+<td align="center" colspan="1" rowspan="1">0.8440–0.9758</td>
+<td align="center" colspan="1" rowspan="1">113.24-659.81</td>
+<td align="center" colspan="1" rowspan="1">7.19–14.66</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Random forest</td>
+<td align="center" colspan="1" rowspan="1">0.8288–0.9696</td>
+<td align="center" colspan="1" rowspan="1">139.47-699.13</td>
+<td align="center" colspan="1" rowspan="1">8.46–15.27</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Ridge</td>
+<td align="center" colspan="1" rowspan="1">0.6147–0.8073</td>
+<td align="center" colspan="1" rowspan="1">816.65-1879.35</td>
+<td align="center" colspan="1" rowspan="1">20.99–31.72</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Lasso</td>
+<td align="center" colspan="1" rowspan="1">0.5554–0.7860</td>
+<td align="center" colspan="1" rowspan="1">922.90-2057.40</td>
+<td align="center" colspan="1" rowspan="1">22.86–34.23</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">SVR</td>
+<td align="center" colspan="1" rowspan="1">0.5615–0.8016</td>
+<td align="center" colspan="1" rowspan="1">784.08-2375.08</td>
+<td align="center" colspan="1" rowspan="1">20.58–33.38</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">KNeighborsRegressor</td>
+<td align="center" colspan="1" rowspan="1">0.7036–0.9049</td>
+<td align="center" colspan="1" rowspan="1">397.67-1420.08</td>
+<td align="center" colspan="1" rowspan="1">13.81–24.54</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">XGBRegressor</td>
+<td align="center" colspan="1" rowspan="1">0.8958–0.9759</td>
+<td align="center" colspan="1" rowspan="1">126.60-430.61</td>
+<td align="center" colspan="1" rowspan="1">7.94–13.20</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab3/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></section></section><section id="Sec9"><h2 class="pmc_sec_title">Machine learning models versus experimental results</h2>
+<p id="Par56">Figure <a href="#Fig6" class="usa-link">6</a> shows the scatter plots of predicted versus actual shear load Pu for eight different machine learning models, providing a visual assessment of each model’s predictive performance. The ideal outcome is represented by the red dashed line, where predicted values perfectly match the true experimental results.</p>
+<figure class="fig xbox font-sm" id="Fig6"><h3 class="obj_head">Fig. 6.</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12370999_41598_2025_15711_Fig6_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/d72ee130f72f/41598_2025_15711_Fig6_HTML.jpg" loading="lazy" id="d33e1427" height="992" width="659" alt="Fig. 6"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig6/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Predicted shear resistance from ML models versus experimental results.</p></figcaption></figure><p id="Par57">Among all the models, XGBoost Fig. <a href="#Fig6" class="usa-link">6</a>(a) achieved the best performance with an <em>R²</em> value of 0.9477, closely followed by Random Forest Fig. <a href="#Fig6" class="usa-link">6</a>(f) and Decision Tree Fig. <a href="#Fig6" class="usa-link">6</a>(g), with <em>R²</em> values of 0.9255 and 0.9237, respectively. These ensemble and tree-based methods demonstrated excellent alignment with the experimental data, confirming their ability to accurately capture nonlinear relationships in the dataset. Predictions using these models clustered tightly around the ideal line, indicating both precision and consistency.</p>
+<p id="Par60">The K-Nearest Neighbors model Fig. <a href="#Fig6" class="usa-link">6</a> (b) also delivered acceptable performance (<em>R²</em> = 0.8201), though with slightly greater dispersion, especially at higher load values. Linear Regression Fig. <a href="#Fig6" class="usa-link">6</a> (h), Ridge Fig. <a href="#Fig6" class="usa-link">6</a> (e), and Lasso Fig. <a href="#Fig6" class="usa-link">6</a> (d) showed moderate performance, with <em>R²</em> values of 0.7507, 0.7200, and 0.6907, respectively. While they captured general trends in the data, their predictive accuracy decreased as the complexity of the relationships increased, which is expected given their linear nature.</p>
+<p id="Par61">On the other end of the spectrum, Support Vector Regression Fig. <a href="#Fig5" class="usa-link">5</a>(c) exhibited the weakest performance, with an <em>R²</em> of just 0.6775. The wider scatter and deviation from the ideal line suggest a limited ability to model the nonlinear and high-dimensional behavior characteristic of shear connector performance.</p>
+<p id="Par62">The error distribution plots for Decision Tree, XGBoost Regressor, KNeighborsRegressor, Lasso, Linear Regression, Random Forest, Ridge, and SVR across low, medium, and high load ranges provide a comprehensive view of prediction accuracy for each model as shown in Fig. <a href="#Fig7" class="usa-link">7</a>. For low load, all models exhibit a pronounced peak in error distribution around 0 kN, with a long tail towards negative errors (e.g., Decision Tree and XGBoost show errors up to -100 kN), indicating a tendency to underestimate load, though the density is highest near zero. In the medium load range, most models (e.g., XGBoost, Random Forest, Ridge, SVR) display a more symmetric error distribution centered around 0 kN with a bell-shaped curve, suggesting improved accuracy and balanced over- and underestimation, though outliers persist (e.g., Lasso and Linear Regression show errors up to -100 kN). For high load, the error distributions shift towards positive values (e.g., 0 to 60 kN for Decision Tree and Random Forest), reflecting a tendency to overestimate, with SVR and XGBoost showing the densest peaks around 0 to 50 kN, indicating better precision in this range. Across all models, the error variance increases with load range, with high load predictions showing the widest spread (e.g., up to 200 kN for SVR), suggesting greater uncertainty.</p>
+<figure class="fig xbox font-sm" id="Fig7"><h3 class="obj_head">Fig. 7.</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12370999_41598_2025_15711_Fig7a_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/c58b734e2b25/41598_2025_15711_Fig7a_HTML.jpg" loading="lazy" id="d33e1471" height="974" width="739" alt="Fig. 7"></a></p>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12370999_41598_2025_15711_Fig7b_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/acdada195611/41598_2025_15711_Fig7b_HTML.jpg" loading="lazy" id="d33e1473" height="974" width="739" alt="Fig. 7"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig7/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Error histograms for all models across different load ranges.</p></figcaption></figure><p id="Par64">Significant variations in predictive accuracy are shown by the heatmap that compares the p-values from paired t-test between the models (Decision Tree, KNeighborsRegressor, Lasso, Linear Regression, Random Forest, Ridge, SVR, and XGBoostRegressor) are shown in Fig. <a href="#Fig8" class="usa-link">8</a>. Comparisons like Decision Tree vs. Lasso, Linear Regression vs. Random Forest (0.8456), and Ridge vs. SVR (0.6183) show notable significant p-values (e.g., &lt; 0.001), showing different error distributions or prediction accuracies between these models. Blue hues (e.g., Lasso vs. XGBoostRegressor at 0.0000) show highly significant disparities, whereas strong red hues (e.g., Decision Tree vs. XGBoostRegressor at 0.6709) reflect less significant variances, signaling similar performance. Ridge and SVR show moderate differences (e.g., 0.0266 and 0.0285), but models like as Random Forest and XGBoostRegressor consistently show significance against others (e.g., <em>p</em> &lt; 0.001), indicating higher robustness.</p>
+<figure class="fig xbox font-sm" id="Fig8"><h3 class="obj_head">Fig. 8.</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12370999_41598_2025_15711_Fig8_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/312c50a9719f/41598_2025_15711_Fig8_HTML.jpg" loading="lazy" id="d33e1491" height="401" width="669" alt="Fig. 8"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig8/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Paired t-test.</p></figcaption></figure></section><section id="Sec10"><h2 class="pmc_sec_title">SHAP-based explanation of ML models</h2>
+<p id="Par66">Figure <a href="#Fig9" class="usa-link">9</a> presents a SHAP summary plot, which offers a transparent and model-agnostic interpretation of how each feature influences the predicted ultimate load <em>P</em><sub><em>u</em></sub> in the machine learning model. Each dot in the plot represents a single prediction, with its horizontal position showing the feature’s impact on the model output, while the color gradient reflects the value of the feature from low (blue) to high (red).</p>
+<figure class="fig xbox font-sm" id="Fig9"><h3 class="obj_head">Fig. 9.</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/42aeffd450c6/41598_2025_15711_Fig9_HTML.jpg" loading="lazy" id="d33e1598" height="654" width="698" alt="Fig. 9"></p>
+<div class="p text-right font-secondary"><a href="figure/Fig9/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>SHAP summary plot.</p></figcaption></figure><p id="Par67">From the plot, it is clear that bolt diameter <em>D</em><sub><em>b</em></sub> has the most significant impact on the predicted load, with higher values consistently pushing predictions upward. This reaffirms its physical relevance, as larger diameters naturally contribute to greater shear resistance. Other important features include the ultimate strength of steel <em>F</em><sub><em>u, S</em></sub>, compressive strength of concrete <em>F</em><sub><em>cu, C</em></sub>, and bolt yield strength <em>F</em><sub><em>y, b</em></sub>, all of which show considerable influence on the model predictions. These material properties play a direct role in determining how the connector performs under load.</p>
+<p id="Par68">Additionally, the number of bolts <em>N</em> and ultimate strength of bolts <em>F</em><sub><em>ub</em></sub> contribute positively to model output, indicating that increasing either the connector counts or material capacity enhances the predicted shear load. Conversely, several interface-related friction coefficients, such as <em>f</em><sub><em>BC</em></sub> (bolt–concrete), <em>f</em><sub><em>SG</em></sub> (stud–grout), and <em>f</em><sub><em>SC</em></sub> (stud–concrete), show more scattered and subtle effects, sometimes positively influencing the output and other times reducing it depending on their value and interaction context.</p>
+<p id="Par69">Less influential features, including grout compressive strength <em>F</em><sub><em>cu, G</em></sub>, pretension force <em>T</em><sub><em>b</em></sub>, and friction at beam–grout <em>f</em><sub><em>BG</em></sub> or stud–beam <em>f</em><sub><em>SB</em></sub> interfaces, exhibit minimal impact, clustering closely around zero on the SHAP value axis. This suggests that although these variables are part of the connection system, they contribute less to the model’s decision-making process in predicting shear resistance.</p></section><section id="Sec11"><h2 class="pmc_sec_title">Feature importance</h2>
+<p id="Par71">The final shear capacity of demountable shear connectors was predicted using three machine learning models: Decision Tree, Random Forest, and XGBoost Regressor. A comparative heatmap of feature importance scores for each model is presented in Fig. <a href="#Fig10" class="usa-link">10</a>, where darker shades indicate higher influence, and the numeric values reflect the relative contribution of each input to the model’s predictive performance. Bolt diameter <em>D</em><sub><em>b</em></sub> consistently emerged as the most dominant feature across all models, with the highest importance in Random Forest (0.5538) and Decision Tree (0.4890), highlighting the critical role of connector geometry in determining load-bearing behavior.</p>
+<figure class="fig xbox font-sm" id="Fig10"><h3 class="obj_head">Fig. 10.</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/afe5310a128f/41598_2025_15711_Fig10_HTML.jpg" loading="lazy" id="d33e1655" height="519" width="780" alt="Fig. 10"></p>
+<div class="p text-right font-secondary"><a href="figure/Fig10/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Impact of each feature on shear capacity of single stud.</p></figcaption></figure><p id="Par72">In the XGBoost model, steel ultimate strength <em>F</em><sub><em>u, S</em></sub> had the most pronounced influence (0.4709), indicating that material strength plays a significant role in shaping the model’s predictions in gradient boosting frameworks. Additionally, interface-related parameters, particularly stud–grout friction <em>f</em><sub><em>SG</em></sub> and bolt–concrete friction <em>f</em><sub><em>BC</em></sub>, showed notable importance in XGBoost, with scores of 0.1005 and 0.0967, respectively. These values reinforce the relevance of local interface behavior in accurately modeling shear resistance.</p>
+<p id="Par73">Other features, such as the number of bolts, bolt yield strength, and bolt ultimate strength, had moderate influence, while parameters like grout strength <em>F</em><sub><em>cu, G</em></sub>, steel yield strength <em>F</em><sub><em>y, S</em></sub>, and several interface friction terms contributed marginally. The results confirm that geometric and material properties are the primary drivers of shear capacity prediction, with interface effects contributing more prominently in complex, non-linear models like XGBoost.</p>
+<p id="Par75">Figure <a href="#Fig11" class="usa-link">11</a> shows the partial dependence plots (PDPs) for D<sub>b</sub> and F<sub>u_S</sub> on load provide critical insights into their non-linear relationships with the predicted outcome. The PDP for D<sub>b</sub> shows a relatively stable predicted load (around 100 kN) up to 0.6, followed by a sharp increase to approximately 350 kN as D<sub>b</sub> approaches 1.0, suggesting a threshold effect where higher D<sub>b</sub> values significantly boost load predictions. In contrast, the PDP for F<sub>u_S</sub> exhibits a step-wise pattern, with load remaining constant at around 100 kN until 0.2, then increasing to 150 kN between 0.2 and 0.6, and further rising to 200 kN beyond 0.6, indicating discrete shifts in influence. These patterns highlight D<sub>b</sub> and F<sub>u_S</sub> as pivotal features, with their impact varying across ranges, enhancing model interpretability.</p>
+<figure class="fig xbox font-sm" id="Fig11"><h3 class="obj_head">Fig. 11.</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12370999_41598_2025_15711_Fig11_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/be3e7d149644/41598_2025_15711_Fig11_HTML.jpg" loading="lazy" id="d33e1698" height="261" width="669" alt="Fig. 11"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig11/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>The partial dependance plots for: (<strong>a</strong>) steel ultimate strength, F<sub>u, S</sub>​ (<strong>b</strong>) bolt diameter, D<sub>b</sub> on load.</p></figcaption></figure></section><section id="Sec12"><h2 class="pmc_sec_title">Scope of the developed ML models</h2>
+<p id="Par77">A varied dataset reflecting realistic structural configurations and material parameters was gathered in order to guarantee the accuracy and generalizability of machine learning (ML) models for forecasting the final load capacity of demountable shear connectors. The chosen characteristics cover a broad spectrum of mechanical, geometric, and interfacial circumstances that are frequently present in composite systems made of steel and concrete. These input variables, which capture the intricate relationships between steel, concrete, grout, and connector components, were selected based on engineering judgment and experimental significance. The dataset facilitates accurate prediction across a range of loading scenarios and robust model training by encompassing the whole spectrum of practical values as the following:</p>
+<ul class="list" style="list-style-type:disc">
+<li><p id="Par79">Compressive strength of reinforced concrete: 23.06 MPa ≤ <em>F</em><sub><em>cu, C</em></sub> ≤ 65 MPa.</p></li>
+<li><p id="Par80">Compressive strength of grout: 0 MPa ≤ <em>F</em><sub><em>cu, G</em></sub> ≤ 95.1 MPa.</p></li>
+<li><p id="Par81">Yield strength of steel: 235 MPa ≤ <em>F</em><sub><em>y, S​</em></sub> ≤ 375 MPa.</p></li>
+<li><p id="Par82">Ultimate strength of steel: 350 MPa ≤ <em>F</em><sub><em>u, S</em></sub>​ ≤ 541 MPa.</p></li>
+<li><p id="Par83">Bolt diameter: 6 mm ≤ <em>D</em><sub><em>b</em></sub> ≤ 27 mm.</p></li>
+<li><p id="Par84">Number of bolts: 4 ≤ <em>N</em> ≤ 8.</p></li>
+<li><p id="Par85">Yield strength of bolts: 248.81 MPa ≤ <em>F</em><sub><em>y, b</em></sub> ≤ 1115 MPa.</p></li>
+<li><p id="Par86">Ultimate strength of bolts: 385.8 MPa ≤ <em>F</em><sub><em>u, b</em></sub> ≤ 1319 MPa.</p></li>
+<li><p id="Par87">Bolt pretension force: 0 kN ≤ <em>T</em><sub><em>b</em></sub>​ ≤ 155 kN.</p></li>
+<li><p id="Par88">Friction coefficients for all interfaces (e.g., beam–concrete, bolt–grout, nut–beam): 0 ≤ <em>f</em> ≤ 0.7.</p></li>
+</ul></section><section id="Sec13"><h2 class="pmc_sec_title">Interactive software development for shear capacity prediction</h2>
+<p id="Par89">To translate the outcomes of this research into a practical tool for engineers, an interactive software application was developed to predict the ultimate shear capacity of demountable shear connectors. The program was written in Python<sup><a href="#CR45" class="usa-link" aria-describedby="CR45">45</a></sup>built around the two top-performing machine learning models XGBoost and Random Forest which demonstrated high predictive accuracy, with <em>R²</em> values of 0.9477 and 0.9255, respectively. As shown in Fig. <a href="#Fig12" class="usa-link">12</a>, the software features an intuitive and user-friendly interface that allows users to input key design variables, such as bolt diameter, concrete and grout strength, bolt material properties, and interface friction coefficients. Once the data is entered, the software instantly calculates the predicted shear capacity and displays the results along with a visual explanation of feature contributions using SHAP values. This functionality not only supports accurate estimation but also helps users understand the impact of each input on the final outcome. Designed for accessibility and efficiency, the tool bridges the gap between complex machine learning techniques and practical engineering application, enabling faster, smarter, and more transparent decision-making in the design of demountable shear stud connectors.</p>
+<figure class="fig xbox font-sm" id="Fig12"><h3 class="obj_head">Fig. 12.</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12370999_41598_2025_15711_Fig12_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/4336/12370999/ca1c65f84959/41598_2025_15711_Fig12_HTML.jpg" loading="lazy" id="d33e1812" height="537" width="629" alt="Fig. 12"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig12/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Interface of developed interactive software.</p></figcaption></figure></section><section id="Sec14"><h2 class="pmc_sec_title">Conclusion</h2>
+<p id="Par91">This study highlights the potential of machine learning (ML) techniques in accurately predicting the ultimate load capacity of demountable shear connectors in steel–concrete composite structures. By training and evaluating eight supervised regression models on a diverse dataset of 239 experimentally derived samples, the research provided meaningful insights into both model performance and the role of key design variables in structural behavior.</p>
+<ul class="list" style="list-style-type:disc">
+<li><p id="Par93">Among all models, XGBoost and Random Forest demonstrated the highest predictive capabilities, achieving <em>R²</em> values of 0.9477 and 0.9255, respectively. These ensemble learning methods consistently outperformed traditional linear models such as Linear Regression, Ridge, and Lasso, as well as Support Vector Regression (SVR), which showed the weakest performance across all evaluation metrics. The superior accuracy of ensemble models is largely due to their ability to model complex, nonlinear relationships within the dataset.</p></li>
+<li><p id="Par94">To enhance model interpretability, SHAP analysis was employed to evaluate the contribution of individual features. The results identified bolt diameter, steel ultimate strength, and bolt-to-concrete friction as the most influential parameters affecting load prediction. Conversely, variables such as grout strength, bolt pretension, and certain friction coefficients involving beam and grout showed minimal impact, suggesting these may be simplified or deemphasized in future design-focused models.</p></li>
+<li><p id="Par95">The findings were further supported by feature importance heatmaps and true vs. predicted scatter plots, which visually reinforced the reliability of the top-performing models.</p></li>
+<li><p id="Par96">Despite these promising outcomes, some challenges remain. The dataset, although extensive, may still lack representation of extreme or failure-specific behaviors under diverse environmental or loading conditions. Additionally, multicollinearity among certain input features especially friction parameters can affect model generalizability.</p></li>
+<li><p id="Par97">Future research should aim to enrich the dataset through additional experiments and simulations, incorporate dynamic or cyclic loading conditions, environmental degradation, or time dependent behaviour and explore hybrid models that combine physics-based and data-driven approaches. In addition, we could add some parameters as slip modulus, ductility index, or failure mode classifications.</p></li>
+</ul></section><section id="Sec15"><h2 class="pmc_sec_title">Supplementary Information</h2>
+<p>Below is the link to the electronic supplementary material.</p>
+<section class="sm xbox font-sm" id="MOESM1"><div class="media p"><div class="caption">
+<a href="/articles/instance/12370999/bin/41598_2025_15711_MOESM1_ESM.xlsx" data-ga-action="click_feat_suppl" class="usa-link">Supplementary Material 1</a><sup> (23KB, xlsx) </sup>
+</div></div></section></section><section id="notes1"><h2 class="pmc_sec_title">Author contributions</h2>
+<p>A.I.S.: Investigation, data curation, writing—original draft, visualization, writing—review and editing, N.S.M.: review and editing., F.A.S.: review and editing, M.G.: Investigation, data curation, writing—original draft, visualization, writing—review and editing. All authors reviewed the manuscript.</p></section><section id="notes2"><h2 class="pmc_sec_title">Funding</h2>
+<p>Open access funding provided by The Science, Technology &amp; Innovation Funding Authority (STDF) in cooperation with The Egyptian Knowledge Bank (EKB).</p></section><section id="notes3"><h2 class="pmc_sec_title">Data availability</h2>
+<p>All data generated or analyzed during this study are included in this published article as supplementary information files. In addition, any additional required data is available by the corresponding author.</p></section><section id="notes4"><h2 class="pmc_sec_title">Declarations</h2>
+<section id="FPar1"><h3 class="pmc_sec_title">Competing interests</h3>
+<p id="Par98">The authors declare no competing interests.</p></section></section><section id="fn-group1" class="fn-group"><h2 class="pmc_sec_title">Footnotes</h2>
+<div class="fn-group p font-secondary-light font-sm"><div class="fn p" id="fn1">
+<p><strong>Publisher’s note</strong></p>
+<p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</div></div></section><section id="Bib1" class="ref-list"><h2 class="pmc_sec_title">References</h2>
+<section id="Bib1_sec2"><ul class="ref-list font-sm" style="list-style-type:none">
+<li id="CR1">
+<span class="label">1.</span><cite>Ataei, A., Bradford, M. A. &amp; Liu, X. Sustainable Composite Beams and Joints With Deconstructable Bolted Shear. II, 621–626 (2015).</cite>
+</li>
+<li id="CR2">
+<span class="label">2.</span><cite>Jiang, H. et al. Push-out tests on demountable high-strength friction-grip bolt shear connectors in steel-precast UHPC composite beams for accelerated Bridge construction. <em>Steel Compos. Struct.</em><strong>45</strong>, 797–818 (2022).</cite> [<a href="https://scholar.google.com/scholar_lookup?Jiang,%20H.%20et%20al.%20Push-out%20tests%20on%20demountable%20high-strength%20friction-grip%20bolt%20shear%20connectors%20in%20steel-precast%20UHPC%20composite%20beams%20for%20accelerated%20Bridge%20construction.%20Steel%20Compos.%20Struct.45,%20797%E2%80%93818%20(2022)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR3">
+<span class="label">3.</span><cite>Jung, D. S., Park, S. H., Kim, T. H., Han, J. W. &amp; Kim, C. Y. Demountable bolted shear connector for easy Deconstruction and reconstruction of concrete slabs in Steel–Concrete bridges. <em>Appl Sci</em><strong>12</strong>, (2022).</cite>
+</li>
+<li id="CR4">
+<span class="label">4.</span><cite>Ataei, A., Ali, S., Zeynalian, M., Chiniforush, A. A. &amp; Ngo, D. Thin-Walled structures experimental study of innovative bolted shear connectors in demountable cold-formed steel – concrete composite beams. <em>Thin-Walled Struct.</em><strong>192</strong>, 111116 (2023).</cite> [<a href="https://scholar.google.com/scholar_lookup?Ataei,%20A.,%20Ali,%20S.,%20Zeynalian,%20M.,%20Chiniforush,%20A.%20A.%20&amp;%20Ngo,%20D.%20Thin-Walled%20structures%20experimental%20study%20of%20innovative%20bolted%20shear%20connectors%20in%20demountable%20cold-formed%20steel%20%E2%80%93%20concrete%20composite%20beams.%20Thin-Walled%20Struct.192,%20111116%20(2023)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR5">
+<span class="label">5.</span><cite>González-González, C., Santos-Ortega, L., Fraile-García, J. &amp; Ferreiro-Cabello, J. E. Environmental and economic analyses of TIG, MIG, MAG and SMAW welding processes. <em>Metals (Basel)</em><strong>13</strong>, (2023).</cite>
+</li>
+<li id="CR6">
+<span class="label">6.</span><cite>Yang, F. &amp; Liu, Y. Behavior of an innovative demountable steel-concrete connector under static loading. <em>Maintenance, Safety, Risk, Manag. Life-Cycle Perform. Bridg. - Proc. 9th Int. Conf. Bridg. Maintenance, Saf. Manag. IABMAS</em> 416–423 (2018) 416–423 (2018) (2018). 10.1201/9781315189390-52</cite>
+</li>
+<li id="CR7">
+<span class="label">7.</span><cite>Ataei, A. &amp; Zeynalian, M. A study on structural performance of deconstructable bolted shear connectors in composite beams. <em>Structures</em><strong>29</strong>, 519–533 (2021).</cite> [<a href="https://scholar.google.com/scholar_lookup?Ataei,%20A.%20&amp;%20Zeynalian,%20M.%20A%20study%20on%20structural%20performance%20of%20deconstructable%20bolted%20shear%20connectors%20in%20composite%20beams.%20Structures29,%20519%E2%80%93533%20(2021)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR8">
+<span class="label">8.</span><cite>Shamel Fahmy, A., Mostafa Swelem, S. &amp; Kamal Abdelaziz, M. Behavior of high-strength demountable bolted shear connectors in steel-concrete girders with prefabricated slabs. <em>Alexandria Eng. J.</em><strong>70</strong>, 247–260 (2023).</cite> [<a href="https://scholar.google.com/scholar_lookup?Shamel%20Fahmy,%20A.,%20Mostafa%20Swelem,%20S.%20&amp;%20Kamal%20Abdelaziz,%20M.%20Behavior%20of%20high-strength%20demountable%20bolted%20shear%20connectors%20in%20steel-concrete%20girders%20with%20prefabricated%20slabs.%20Alexandria%20Eng.%20J.70,%20247%E2%80%93260%20(2023)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR9">
+<span class="label">9.</span><cite>Ataei, A. Modelling of demountable steel-concrete composite connections: validation of finite element model and parametric study. <em>J. Constr. Steel Res.</em><strong>198</strong>, 107585 (2022).</cite> [<a href="https://scholar.google.com/scholar_lookup?Ataei,%20A.%20Modelling%20of%20demountable%20steel-concrete%20composite%20connections:%20validation%20of%20finite%20element%20model%20and%20parametric%20study.%20J.%20Constr.%20Steel%20Res.198,%20107585%20(2022)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR10">
+<span class="label">10.</span><cite>Kwon, G., Engelhardt, M. D. &amp; Klingner, R. E. Behavior of post-installed shear connectors under static and fatigue loading. <em>J. Constr. Steel Res.</em><strong>66</strong>, 532–541 (2010).</cite> [<a href="https://scholar.google.com/scholar_lookup?Kwon,%20G.,%20Engelhardt,%20M.%20D.%20&amp;%20Klingner,%20R.%20E.%20Behavior%20of%20post-installed%20shear%20connectors%20under%20static%20and%20fatigue%20loading.%20J.%20Constr.%20Steel%20Res.66,%20532%E2%80%93541%20(2010)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR11">
+<span class="label">11.</span><cite>Pavlovi, M., Markovi, Z., Veljkovi, M. &amp; Bu, D. Bolted shear connectors vs. headed studs behaviour in push-out tests. <strong>88</strong>, 134–149 (2013).</cite>
+</li>
+<li id="CR12">
+<span class="label">12.</span><cite>Lam, D. &amp; Dai, X. Demountable shear connectors for sustainable composite construction. <em>2013 World Congr Adv. Struct. Eng. Mech</em> 93–100 (2013).</cite>
+</li>
+<li id="CR13">
+<span class="label">13.</span><cite>Lee, S. S. M. &amp; Bradford, M. A. Sustainable composite beams with deconstructable bolted shear connectors. <em>Res. Appl. Struct. Eng. Mech. Comput. - Proc. 5th Int. Conf. Struct. Eng. Mech. Comput. SEMC 2013</em> 1373–1378 (2013). 10.1201/b15963-247</cite>
+</li>
+<li id="CR14">
+<span class="label">14.</span><cite>Rehman, N., Lam, D., Dai, X. &amp; Ashour, A. F. Experimental study on demountable shear connectors in composite slabs with pro Fi led decking. <em>JCSR</em><strong>122</strong>, 178–189 (2016).</cite> [<a href="https://scholar.google.com/scholar_lookup?Rehman,%20N.,%20Lam,%20D.,%20Dai,%20X.%20&amp;%20Ashour,%20A.%20F.%20Experimental%20study%20on%20demountable%20shear%20connectors%20in%20composite%20slabs%20with%20pro%20Fi%20led%20decking.%20JCSR122,%20178%E2%80%93189%20(2016)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR15">
+<span class="label">15.</span><cite>CEN. Eurocode 4: Design of Composite Steel and Concrete Structures – Part 1–1: General Rules and Rules for Buildings. vols 4-1-1. (2004).</cite>
+</li>
+<li id="CR16">
+<span class="label">16.</span><cite>Suwaed, A. S. H. &amp; Karavasilis, T. L. Novel demountable shear connector for accelerated disassembly, repair, or replacement of precast Steel-Concrete composite bridges. <strong>22</strong>, 1–18 (2017).</cite>
+</li>
+<li id="CR17">
+<span class="label">17.</span><cite>Lam, D., Dai, X., Ashour, A. &amp; Rehman, N. Recent research on composite beams with demountable shear connectors. <em>Steel Constr.</em><strong>10</strong>, 125–134 (2017).</cite> [<a href="https://scholar.google.com/scholar_lookup?Lam,%20D.,%20Dai,%20X.,%20Ashour,%20A.%20&amp;%20Rehman,%20N.%20Recent%20research%20on%20composite%20beams%20with%20demountable%20shear%20connectors.%20Steel%20Constr.10,%20125%E2%80%93134%20(2017)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR18">
+<span class="label">18.</span><cite>Patel, V. I. et al. Finite element analysis of demountable Steel-Concrete composite beams under static loading. <strong>14</strong>, 392–411 (2018).</cite>
+</li>
+<li id="CR19">
+<span class="label">19.</span><cite>Kozma, A., Odenbreit, C., Braun, M. V., Veljkovic, M. &amp; Nijgh, M. P. Push-out tests on demountable shear connectors of steel-concrete composite structures. <em>Structures</em><strong>21</strong>, 45–54 (2019).</cite> [<a href="https://scholar.google.com/scholar_lookup?Kozma,%20A.,%20Odenbreit,%20C.,%20Braun,%20M.%20V.,%20Veljkovic,%20M.%20&amp;%20Nijgh,%20M.%20P.%20Push-out%20tests%20on%20demountable%20shear%20connectors%20of%20steel-concrete%20composite%20structures.%20Structures21,%2045%E2%80%9354%20(2019)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR20">
+<span class="label">20.</span><cite>Loqman, N., Safiee, N. A., Bakar, N. A., Azline, N. &amp; Nasir, M. Structural behavior of Steel-Concrete composite beam using bolted shear connectors. <em>Rev.</em><strong>06010</strong>, 1–12 (2018).</cite> [<a href="https://scholar.google.com/scholar_lookup?Loqman,%20N.,%20Safiee,%20N.%20A.,%20Bakar,%20N.%20A.,%20Azline,%20N.%20&amp;%20Nasir,%20M.%20Structural%20behavior%20of%20Steel-Concrete%20composite%20beam%20using%20bolted%20shear%20connectors.%20Rev.06010,%201%E2%80%9312%20(2018)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR21">
+<span class="label">21.</span><cite>Hosseini, S. M., Mashiri, F. &amp; Mirza, O. Research and developments on strength and durability prediction of composite beams utilising bolted shear connectors (Review). <em>Eng. Fail. Anal.</em><strong>117</strong>, 104790 (2020).</cite> [<a href="https://scholar.google.com/scholar_lookup?Hosseini,%20S.%20M.,%20Mashiri,%20F.%20&amp;%20Mirza,%20O.%20Research%20and%20developments%20on%20strength%20and%20durability%20prediction%20of%20composite%20beams%20utilising%20bolted%20shear%20connectors%20(Review).%20Eng.%20Fail.%20Anal.117,%20104790%20(2020)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR22">
+<span class="label">22.</span><cite>Suwaed, A. S. H. Removable shear connector for steel-concrete composite bridges. <strong>1</strong>, 107–123 (2018).</cite>
+</li>
+<li id="CR23">
+<span class="label">23.</span><cite>Wang, W., Zhang, X., Ding, F. &amp; Zhou, X. Finite Element Analysis on Shear Behavior of High-Strength Bolted Connectors under Inverse Push-Off Loading. (2021).</cite>
+</li>
+<li id="CR24">
+<span class="label">24.</span><cite>Csillag, F. &amp; Pavlovi, M. Push-out behaviour of demountable injected vs. blind-bolted connectors in FRP decks. <strong>270</strong>, (2021).</cite>
+</li>
+<li id="CR25">
+<span class="label">25.</span><cite>Hosseinpour, M., Zeynalian, M., Ataei, A. &amp; Daei, M. Thin-Walled structures Push-out tests on bolted shear connectors in composite cold-formed steel beams. <em>Thin-Walled Struct.</em><strong>164</strong>, 107831 (2021).</cite> [<a href="https://scholar.google.com/scholar_lookup?Hosseinpour,%20M.,%20Zeynalian,%20M.,%20Ataei,%20A.%20&amp;%20Daei,%20M.%20Thin-Walled%20structures%20Push-out%20tests%20on%20bolted%20shear%20connectors%20in%20composite%20cold-formed%20steel%20beams.%20Thin-Walled%20Struct.164,%20107831%20(2021)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR26">
+<span class="label">26.</span><cite>He, J., Suwaed, A. S. H., Vasdravellis, G. &amp; Wang, S. Behaviour and design of the ‘ lockbolt ’ demountable shear connector for sustainable steel-concrete composite structures. <em>Structures</em><strong>44</strong>, 988–1010 (2022).</cite> [<a href="https://scholar.google.com/scholar_lookup?He,%20J.,%20Suwaed,%20A.%20S.%20H.,%20Vasdravellis,%20G.%20&amp;%20Wang,%20S.%20Behaviour%20and%20design%20of%20the%20%E2%80%98%20lockbolt%20%E2%80%99%20demountable%20shear%20connector%20for%20sustainable%20steel-concrete%20composite%20structures.%20Structures44,%20988%E2%80%931010%20(2022)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR27">
+<span class="label">27.</span><cite>Luo, Y., Sun, S., Yan, J., Zhao, Y. &amp; Lam, D. Shear behavior of novel demountable bolted shear connector for prefabricated composite beam. <strong>18</strong>, 745–752 (2022).</cite>
+</li>
+<li id="CR28">
+<span class="label">28.</span><cite>Song, S. et al. Feasibility and performance of novel tapered iron bolt shear connectors in demountable composite beams. <em>J. Build. Eng.</em><strong>53</strong>, 104528 (2022).</cite> [<a href="https://scholar.google.com/scholar_lookup?Song,%20S.%20et%20al.%20Feasibility%20and%20performance%20of%20novel%20tapered%20iron%20bolt%20shear%20connectors%20in%20demountable%20composite%20beams.%20J.%20Build.%20Eng.53,%20104528%20(2022)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR29">
+<span class="label">29.</span><cite>Liu, X. et al. Bolted shear connectors in steel – concrete composite structures: shear behavior. <em>Structures</em><strong>58</strong>, 105524 (2023).</cite> [<a href="https://scholar.google.com/scholar_lookup?Liu,%20X.%20et%20al.%20Bolted%20shear%20connectors%20in%20steel%20%E2%80%93%20concrete%20composite%20structures:%20shear%20behavior.%20Structures58,%20105524%20(2023)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR30">
+<span class="label">30.</span><cite>Jakovljevi, I., Spremi, M. &amp; Markovi, Z. Shear Behaviour of Demountable Connections with Bolts and Headed Studs. 19, 341–352 (2023).</cite>
+</li>
+<li id="CR31">
+<span class="label">31.</span><cite>Fang, H. Behavior of bolted shear connectors for demountable and reusable UHPC-formed composite beams. 195–202 (2023). 10.1201/9781003323020-21</cite>
+</li>
+<li id="CR32">
+<span class="label">32.</span><cite>Du, W., Hu, Z. &amp; Zhou, Z. Analytical Study of Stud Shear Connector Behavior in Steel–UHPC Composite Structures. <em>Buildings</em> 14, (2024).</cite>
+</li>
+<li id="CR33">
+<span class="label">33.</span><cite>Zhu, J., Ibrahim, B. &amp; Farouk, A. Development of hybrid models for shear resistance prediction of grouped stud connectors in concrete using improved metaheuristic optimization techniques. <em>Structures</em><strong>50</strong>, 286–302 (2023).</cite> [<a href="https://scholar.google.com/scholar_lookup?Zhu,%20J.,%20Ibrahim,%20B.%20&amp;%20Farouk,%20A.%20Development%20of%20hybrid%20models%20for%20shear%20resistance%20prediction%20of%20grouped%20stud%20connectors%20in%20concrete%20using%20improved%20metaheuristic%20optimization%20techniques.%20Structures50,%20286%E2%80%93302%20(2023)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR34">
+<span class="label">34.</span><cite>Sun, G., Kang, J. &amp; Shi, J. Application of machine learning models and Gsa method for designing stud connectors. <em>J. Civ. Eng. Manag</em>. <strong>30</strong>, 373–390 (2024).</cite> [<a href="https://scholar.google.com/scholar_lookup?Sun,%20G.,%20Kang,%20J.%20&amp;%20Shi,%20J.%20Application%20of%20machine%20learning%20models%20and%20Gsa%20method%20for%20designing%20stud%20connectors.%20J.%20Civ.%20Eng.%20Manag.%2030,%20373%E2%80%93390%20(2024)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR35">
+<span class="label">35.</span><cite>Zhou, C., Wang, W. &amp; Zheng, Y. Data-driven shear capacity analysis of headed stud in steel-UHPC composite structures. <em>Eng. Struct.</em><strong>321</strong>, 118946 (2024).</cite> [<a href="https://scholar.google.com/scholar_lookup?Zhou,%20C.,%20Wang,%20W.%20&amp;%20Zheng,%20Y.%20Data-driven%20shear%20capacity%20analysis%20of%20headed%20stud%20in%20steel-UHPC%20composite%20structures.%20Eng.%20Struct.321,%20118946%20(2024)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR36">
+<span class="label">36.</span><cite>Liu, H., Wang, X. &amp; Liu, Y. Shear performance prediction of perfobond connector using interpretable ensemble learning on unbalanced database. <em>Eng. Struct.</em> Under revi, 119743 (2024).</cite>
+</li>
+<li id="CR37">
+<span class="label">37.</span><cite>Taffese, W. Z., Zhu, Y. &amp; Chen, G. Explainable AI based slip prediction of steel-UHPC interface connected by shear studs. <em>Expert Syst. Appl.</em><strong>259</strong>, 125293 (2025).</cite> [<a href="https://scholar.google.com/scholar_lookup?Taffese,%20W.%20Z.,%20Zhu,%20Y.%20&amp;%20Chen,%20G.%20Explainable%20AI%20based%20slip%20prediction%20of%20steel-UHPC%20interface%20connected%20by%20shear%20studs.%20Expert%20Syst.%20Appl.259,%20125293%20(2025)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR38">
+<span class="label">38.</span><cite>Kang, D. H., Roh, G. T., Shim, C. S. &amp; Lee, K. C. Fatigue life prediction for stud shear connectors based on a machine learning model. <em>Buildings</em><strong>14</strong>, 1–22 (2024).</cite> [<a href="https://scholar.google.com/scholar_lookup?Kang,%20D.%20H.,%20Roh,%20G.%20T.,%20Shim,%20C.%20S.%20&amp;%20Lee,%20K.%20C.%20Fatigue%20life%20prediction%20for%20stud%20shear%20connectors%20based%20on%20a%20machine%20learning%20model.%20Buildings14,%201%E2%80%9322%20(2024)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR39">
+<span class="label">39.</span><cite>Wang, X., Zhuang, B., Smyl, D., Zhou, H. &amp; Naser, M. Z. Machine learning for design, optimization and assessment of steel-concrete composite structures: A review. <em>Eng. Struct.</em><strong>328</strong>, 119652 (2025).</cite> [<a href="https://scholar.google.com/scholar_lookup?Wang,%20X.,%20Zhuang,%20B.,%20Smyl,%20D.,%20Zhou,%20H.%20&amp;%20Naser,%20M.%20Z.%20Machine%20learning%20for%20design,%20optimization%20and%20assessment%20of%20steel-concrete%20composite%20structures:%20A%20review.%20Eng.%20Struct.328,%20119652%20(2025)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR40">
+<span class="label">40.</span><cite>Clark, J. S. Model assessment and selection. <em>Models Ecol. Data</em>. 10.2307/j.ctv15r5dgv.9 (2020).</cite> [<a href="https://scholar.google.com/scholar_lookup?Clark,%20J.%20S.%20Model%20assessment%20and%20selection.%20Models%20Ecol.%20Data.%2010.2307/j.ctv15r5dgv.9%20(2020)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR41">
+<span class="label">41.</span><cite>Yang, X. &amp; Wen, W. Ridge and Lasso regression models for Cross-Version defect prediction. <em>IEEE Trans. Reliab.</em><strong>67</strong>, 885–896 (2018).</cite> [<a href="https://scholar.google.com/scholar_lookup?Yang,%20X.%20&amp;%20Wen,%20W.%20Ridge%20and%20Lasso%20regression%20models%20for%20Cross-Version%20defect%20prediction.%20IEEE%20Trans.%20Reliab.67,%20885%E2%80%93896%20(2018)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR42">
+<span class="label">42.</span><cite>Michaud, F., Lamas, M., Lugrís, U. &amp; Cuadrado, J. A fair and EMG-validated comparison of recruitment criteria, musculotendon models and muscle coordination strategies, for the inverse-dynamics based optimization of muscle forces during gait. <em>J. Neuroeng. Rehabil</em>. <strong>18</strong>, 199–222 (2004).</cite> [<a href="https://doi.org/10.1186/s12984-021-00806-6" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC7841909/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/33509205/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Michaud,%20F.,%20Lamas,%20M.,%20Lugr%C3%ADs,%20U.%20&amp;%20Cuadrado,%20J.%20A%20fair%20and%20EMG-validated%20comparison%20of%20recruitment%20criteria,%20musculotendon%20models%20and%20muscle%20coordination%20strategies,%20for%20the%20inverse-dynamics%20based%20optimization%20of%20muscle%20forces%20during%20gait.%20J.%20Neuroeng.%20Rehabil.%2018,%20199%E2%80%93222%20(2004)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR43">
+<span class="label">43.</span><cite>Okun, O., Nearest &amp; Neighbor <em>Featur. Sel. Ensemble Methods Bioinforma.</em> I, 21–27 (1967).</cite>
+</li>
+<li id="CR44">
+<span class="label">44.</span><cite>Chen, T. &amp; Guestrin, C. XGBoost: A scalable tree boosting system. <em>Proc. ACM SIGKDD Int. Conf. Knowl. Discov Data Min.</em><strong>13-17-Augu</strong>, 785–794 (2016).</cite> [<a href="https://scholar.google.com/scholar_lookup?Chen,%20T.%20&amp;%20Guestrin,%20C.%20XGBoost:%20A%20scalable%20tree%20boosting%20system.%20Proc.%20ACM%20SIGKDD%20Int.%20Conf.%20Knowl.%20Discov%20Data%20Min.13-17-Augu,%20785%E2%80%93794%20(2016)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR45">
+<span class="label">45.</span><cite>Shaaban, M. Machine Learning - Regression Analysis. (2024). <a href="https://github.com/M-Shaaban87/Machine-Learning---Regression-Analysis" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://github.com/M-Shaaban87/Machine-Learning---Regression-Analysis</a></cite>
+</li>
+</ul></section></section><section id="_ad93_" lang="en" class="associated-data"><h2 class="pmc_sec_title">Associated Data</h2>
+<p class="font-secondary"><em>This section collects any data citations, data availability statements, or supplementary materials included in this article.</em></p>
+<section id="_adsm93_" lang="en" class="supplementary-materials"><h3 class="pmc_sec_title">Supplementary Materials</h3>
+<section class="sm xbox font-sm" id="db_ds_supplementary-material1_reqid_"><div class="media p"><div class="caption">
+<a href="/articles/instance/12370999/bin/41598_2025_15711_MOESM1_ESM.xlsx" data-ga-action="click_feat_suppl" class="usa-link">Supplementary Material 1</a><sup> (23KB, xlsx) </sup>
+</div></div></section></section><section id="_adda93_" lang="en" class="data-availability-statement"><h3 class="pmc_sec_title">Data Availability Statement</h3>
+<p>All data generated or analyzed during this study are included in this published article as supplementary information files. In addition, any additional required data is available by the corresponding author.</p></section></section></section><footer class="p courtesy-note font-secondary font-sm text-center"><hr class="headless">
+<p>Articles from Scientific Reports are provided here courtesy of <strong>Nature Publishing Group</strong></p></footer></section></article>
+
+                      
+
+                    </main>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+<!-- Secondary navigation placeholder -->
+<div class="pmc-sidenav desktop:grid-col-4 display-flex">
+    <section class="pmc-sidenav__container" aria-label="Article resources and navigation">
+        <button type="button" class="usa-button pmc-sidenav__container__close usa-button--unstyled">
+            <img src="/static/img/usa-icons/close.svg" role="img" alt="Close" />
+        </button>
+    <div class="display-none desktop:display-block">
+       <section class="margin-top-4 desktop:margin-top-0">
+              <h2 class="margin-top-0">ACTIONS</h2>
+           <ul class="usa-list usa-list--unstyled usa-list--actions">
+               
+               <li>
+                     <a
+                             href="https://doi.org/10.1038/s41598-025-15711-4"
+                             class="usa-button usa-button--outline width-24 font-xs display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                             target="_blank"
+                             rel="noreferrer noopener"
+                             data-ga-category="actions"
+                             data-ga-action="click"
+                             data-ga-label="publisher_link_desktop"
+                     >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#launch"></use>
+                         </svg>
+                         <span class="display-inline-flex flex-justify-center flex-1 padding-right-2">View on publisher site</span>
+                     </a>
+               </li>
+               
+               
+               <li>
+                    <a
+                            href="pdf/41598_2025_Article_15711.pdf"
+                            class="usa-button usa-button--outline width-24 display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="pdf_download_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1">PDF (7.1 MB)</span>
+                    </a>
+               </li>
+               
+                
+               <li>
+                   <button role="button" class="usa-button width-24 citation-dialog-trigger display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                        aria-label="Open dialog with citation text in different styles"
+                        data-ga-category="actions"
+                        data-ga-action="open"
+                        data-ga-label="cite_desktop"
+                        data-all-citations-url="/resources/citations/12370999/"
+                        data-citation-style="nlm"
+                        data-download-format-link="/resources/citations/12370999/export/"
+                    >
+                        <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                        </svg>
+                       <span class="display-inline-flex flex-justify-center flex-1 button-label">Cite</span>
+                    </button>
+               </li>
+                
+               <li>
+
+                        <button class="usa-button width-24 collections-dialog-trigger collections-button display-inline-flex flex-align-center flex-justify-start padding-left-1 collections-button-empty"
+                              aria-label="Save article in MyNCBI collections."
+                              data-ga-category="actions"
+                              data-ga-action="click"
+                              data-ga-label="collections_button_desktop"
+                              data-collections-open-dialog-enabled="false"
+                              data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12370999%2F%3Freport%3Dclassic%23open-collections-dialog"
+                              data-in-collections="false">
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                            <span class="display-inline-flex flex-justify-center flex-1">Collections</span>
+                       </button>
+               </li>
+               <li class="pmc-permalink">
+                    <button
+                            type="button"
+                            class="usa-button width-24 display-inline-flex flex-align-center flex-justify padding-left-1 shadow-none"
+                            aria-label="Show article permalink"
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="permalink_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#share"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1 button-label">Permalink</span>
+                    </button>
+                   
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12370999/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+               </li>
+           </ul>
+       </section>
+     </div>
+
+        <section class="pmc-resources margin-top-6 desktop:margin-top-4" data-page-path="/articles/PMC12370999/">
+            <h2 class="margin-top-0">RESOURCES</h2>
+            
+                <div class="usa-accordion usa-accordion--multiselectable" data-allow-multiple>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-similar-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_similar_articles"
+                        data-ga-label="/articles/PMC12370999/"
+                        data-action-open="open_similar_articles"
+                        data-action-close="close_similar_articles"
+                        >
+                            Similar articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-similar-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/similar-article-links/40841393/"
+                            
+                    >
+                        
+                    </div>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-cited-by-other-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_cited_by"
+                        data-ga-label="/articles/PMC12370999/"
+                        data-action-open="open_cited_by"
+                        data-action-close="close_cited_by"
+                        >
+                             Cited by other articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-cited-by-other-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/cited-by-links/40841393/"
+                            
+                    >
+                          
+                    </div>
+                    
+                        <h3 class="usa-accordion__heading">
+                            <button
+                            type="button"
+                            class="usa-accordion__button"
+                            aria-expanded="false"
+                            aria-controls="resources-links-to-ncbi-databases"
+                            data-ga-category="resources_accordion"
+                            data-ga-action="open_NCBI_links"
+                            data-ga-label="/articles/PMC12370999/"
+                            data-action-open="open_NCBI_links"
+                            data-action-close="close_NCBI_link"
+                            >
+                                 Links to NCBI Databases
+                            </button>
+                        </h3>
+                        <div
+                                id="resources-links-to-ncbi-databases"
+                                class="usa-accordion__content usa-prose"
+                                data-source-url="/resources/db-links/12370999/"
+                        >
+                        </div>
+                    
+                    
+                </div>
+            
+        </section>
+
+
+        <section
+        class="usa-in-page-nav usa-in-page-nav--wide margin-top-6 desktop:margin-top-4"
+        data-title-text="On this page"
+        data-title-heading-level="h2"
+        data-scroll-offset="0"
+        data-root-margin="-10% 0px -80% 0px"
+        data-main-content-selector="main"
+        data-threshold="1"
+        hidden
+        ></section>
+    </section>
+</div>
+
+
+        
+
+<div class="overlay" role="dialog" aria-label="Citation Dialog" hidden>
+    <div class="dialog citation-dialog" aria-hidden="true">
+        <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+            <h2 class="usa-modal__heading margin-0">Cite</h2>
+             <button type="button" class="usa-button usa-button--unstyled close-overlay text-black width-auto"  tabindex="1">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+             </button>
+        </div>
+
+        
+
+<div class="citation-text-block">
+  <div class="citation-text margin-bottom-2"></div>
+  <ul class="usa-list usa-list--unstyled display-inline-flex flex-justify width-full flex-align-center">
+      <li>
+        <button
+          class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center copy-button dialog-focus"
+          data-ga-category="save_share"
+          data-ga-action="cite"
+          data-ga-label="copy"
+          tabindex="2">
+            <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+            </svg>
+            <span>Copy</span>
+        </button>
+      </li>
+      <li>
+          <a
+              href="#"
+              role="button"
+              class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center export-button"
+              data-ga-category="save_share"
+              data-ga-action="cite"
+              data-ga-label="download"
+              title="Download a file for external citation management software"
+              tabindex="3">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                </svg>
+                <span class="display-none mobile-lg:display-inline">Download .nbib</span>
+                <span class="display-inline mobile-lg:display-none">.nbib</span>
+            </a>
+      </li>
+      <li>
+          
+
+<div class="display-inline-flex flex-align-center">
+  <label class="usa-label margin-top-0">Format:</label>
+  <select aria-label="Format" class="usa-select citation-style-selector padding-1 margin-top-0 border-0 padding-right-4" tabindex="4" >
+    
+      <option data-style-url-name="ama"
+              value="AMA"
+              >
+        AMA
+      </option>
+    
+      <option data-style-url-name="apa"
+              value="APA"
+              >
+        APA
+      </option>
+    
+      <option data-style-url-name="mla"
+              value="MLA"
+              >
+        MLA
+      </option>
+    
+      <option data-style-url-name="nlm"
+              value="NLM"
+              selected="selected">
+        NLM
+      </option>
+    
+  </select>
+</div>
+      </li>
+  </ul>
+</div>
+    </div>
+</div>
+
+        <div class="overlay" role="dialog" hidden>
+  <div id="collections-action-dialog" class="dialog collections-dialog" aria-hidden="true">
+   <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+        <h2 class="usa-modal__heading margin-0">Add to Collections</h2>
+    </div>
+    <div class="collections-action-panel action-panel">
+      
+
+
+<form id="collections-action-dialog-form"
+      class="usa-form maxw-full collections-action-panel-form action-panel-content action-form action-panel-smaller-selectors"
+      data-existing-collections-url="/list-existing-collections/"
+      data-add-to-existing-collection-url="/add-to-existing-collection/"
+      data-create-and-add-to-new-collection-url="/create-and-add-to-new-collection/"
+      data-myncbi-max-collection-name-length="100"
+      data-collections-root-url="https://www.ncbi.nlm.nih.gov/myncbi/collections/">
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="KMVS7su54cVoD9WSo0k5aAzo6UFbHVvsiEon36O1jk0FSBmPz1lqUcRNZstiPeKH">
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-new"
+            class="usa-radio__input usa-radio__input--tile collections-new  margin-top-0"
+            name="collections"
+            value="new"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_new" />
+            <label class="usa-radio__label" for="collections-action-dialog-new">Create a new collection</label>
+        </div>
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-existing"
+            class="usa-radio__input usa-radio__input--tile collections-existing"
+            name="collections"
+            value="existing"
+            checked="true"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_existing" />
+            <label class="usa-radio__label" for="collections-action-dialog-existing">Add to an existing collection</label>
+        </div>
+    </fieldset>
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="action-panel-control-wrap new-collections-controls">
+           <label for="collections-action-dialog-add-to-new" class="usa-label margin-top-0">
+                Name your collection
+               <abbr title="required" class="usa-hint usa-hint--required text-no-underline">*</abbr>
+          </label>
+          <input
+            type="text"
+            name="add-to-new-collection"
+            id="collections-action-dialog-add-to-new"
+            class="usa-input collections-action-add-to-new"
+            pattern="[^&quot;&amp;=&lt;&gt;/]*" title="The following characters are not allowed in the Name field: &quot;&amp;=&lt;&gt;/"
+            maxlength=""
+            data-ga-category="collections_button"
+            data-ga-action="create_collection"
+            data-ga-label="non_favorties_collection"
+            required
+          />
+        </div>
+        <div class="action-panel-control-wrap existing-collections-controls">
+             <label for="collections-action-dialog-add-to-existing" class="usa-label margin-top-0">
+                Choose a collection
+              </label>
+              <select id="collections-action-dialog-add-to-existing"
+                      class="usa-select collections-action-add-to-existing"
+                      data-ga-category="collections_button"
+                      data-ga-action="select_collection"
+                      data-ga-label="($('.collections-action-add-to-existing').val() === 'Favorites') ? 'Favorites' : 'non_favorites_collection'">
+              </select>
+              <div class="collections-retry-load-on-error usa-input-error-message selection-validation-message">
+                Unable to load your collection due to an error<br>
+                <a href="#">Please try again</a>
+              </div>
+        </div>
+    </fieldset>
+
+    <div class="display-inline-flex">
+        <button class="usa-button margin-top-0 action-panel-submit"
+            type="submit"
+            data-loading-label="Adding..."
+            data-pinger-ignore
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="add">
+          Add
+        </button>
+        <button class="usa-button usa-button--outline margin-top-0 action-panel-cancel"
+                aria-label="Close 'Add to Collections' panel"
+                ref="linksrc=close_collections_panel"
+                data-ga-category="collections_button"
+                data-ga-action="click"
+                data-ga-label="cancel">
+          Cancel
+        </button>
+    </div>
+</form>
+    </div>
+  </div>
+</div>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+
+
+        
+    
+    
+
+<footer class="ncbi-footer ncbi-dark-background " >
+    
+        <div class="ncbi-footer__icon-section">
+            <div class="ncbi-footer__social-header">
+                Follow NCBI
+            </div>
+
+            <div class="grid-container ncbi-footer__ncbi-social-icons-container">
+                
+                    <a href="https://twitter.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="40"
+                             height="40"
+                             viewBox="0 0 40 40"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on X (formerly known as Twitter)</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.facebook.com/ncbi.nlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="16"
+                             height="29"
+                             focusable="false"
+                             aria-hidden="true"
+                             viewBox="0 0 16 29"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.8809 21.4002C3.8809 19.0932 3.8809 16.7876 3.8809 14.478C3.8809 14.2117 3.80103 14.1452 3.54278 14.1492C2.53372 14.1638 1.52334 14.1492 0.514288 14.1598C0.302626 14.1598 0.248047 14.0972 0.248047 13.8936C0.256034 12.4585 0.256034 11.0239 0.248047 9.58978C0.248047 9.37013 0.302626 9.30224 0.528931 9.3049C1.53798 9.31688 2.54837 9.3049 3.55742 9.31555C3.80103 9.31555 3.8809 9.26097 3.87957 9.00272C3.87158 8.00565 3.85428 7.00592 3.90753 6.00884C3.97142 4.83339 4.31487 3.73115 5.04437 2.78467C5.93095 1.63318 7.15699 1.09005 8.56141 0.967577C10.5582 0.79319 12.555 0.982221 14.5518 0.927641C14.7102 0.927641 14.7462 0.99287 14.7449 1.13664C14.7449 2.581 14.7449 4.02668 14.7449 5.47104C14.7449 5.67604 14.6517 5.68669 14.4946 5.68669C13.4523 5.68669 12.4113 5.68669 11.3703 5.68669C10.3506 5.68669 9.92057 6.10868 9.90593 7.13904C9.89661 7.7647 9.91525 8.39303 9.89794 9.01869C9.88995 9.26364 9.96583 9.31822 10.2015 9.31688C11.7204 9.30623 13.2393 9.31688 14.7595 9.3049C15.0257 9.3049 15.0723 9.3728 15.0444 9.62439C14.89 10.9849 14.7515 12.3467 14.6144 13.7085C14.5691 14.1571 14.5785 14.1585 14.1458 14.1585C12.8386 14.1585 11.5313 14.1665 10.2254 14.1518C9.95119 14.1518 9.89794 14.2317 9.89794 14.4899C9.90593 19.0799 9.89794 23.6752 9.91125 28.2612C9.91125 28.5674 9.8407 28.646 9.53186 28.6433C7.77866 28.6273 6.02414 28.6366 4.27094 28.634C3.82499 28.634 3.87158 28.6992 3.87158 28.22C3.87602 25.9472 3.87913 23.6739 3.8809 21.4002Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on Facebook</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.linkedin.com/company/ncbinlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="25"
+                             height="23"
+                             viewBox="0 0 26 24"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M14.6983 9.98423C15.6302 9.24808 16.5926 8.74754 17.6762 8.51991C19.673 8.09126 21.554 8.30824 23.1262 9.7526C24.2351 10.7723 24.7529 12.1115 25.0165 13.5612C25.1486 14.3363 25.2105 15.1218 25.2015 15.9081C25.2015 18.3043 25.2015 20.6898 25.2082 23.0806C25.2082 23.3468 25.1549 23.444 24.8621 23.4414C23.1297 23.4272 21.3992 23.4272 19.6704 23.4414C19.4041 23.4414 19.3429 23.3588 19.3442 23.1019C19.3535 20.5194 19.3442 17.9368 19.3442 15.3543C19.3442 14.0005 18.3258 12.9448 17.0266 12.9488C15.7273 12.9528 14.6983 14.0071 14.6983 15.361C14.6983 17.9328 14.6917 20.5047 14.6983 23.0753C14.6983 23.3708 14.6198 23.444 14.3296 23.4427C12.6185 23.4294 10.9079 23.4294 9.19779 23.4427C8.93155 23.4427 8.86099 23.3735 8.86232 23.1086C8.8783 19.7619 8.88628 16.4144 8.88628 13.066C8.88628 11.5688 8.87874 10.0708 8.86365 8.57182C8.86365 8.3575 8.90758 8.27896 9.14054 8.28029C10.9048 8.29094 12.6687 8.29094 14.4321 8.28029C14.6464 8.28029 14.6983 8.34818 14.6983 8.54653C14.6903 9.00047 14.6983 9.45441 14.6983 9.98423Z">
+                            </path>
+                            <path d="M6.55316 15.8443C6.55316 18.2564 6.55316 20.6699 6.55316 23.082C6.55316 23.3629 6.48127 23.4388 6.19906 23.4374C4.47737 23.4241 2.75568 23.4241 1.03399 23.4374C0.767751 23.4374 0.69986 23.3629 0.701191 23.1006C0.709178 18.2648 0.709178 13.4281 0.701191 8.59053C0.701191 8.34026 0.765089 8.27237 1.01669 8.2737C2.74991 8.28435 4.48048 8.28435 6.20838 8.2737C6.47462 8.2737 6.5465 8.33627 6.54517 8.6065C6.54783 11.0186 6.55316 13.4308 6.55316 15.8443Z">
+                            </path>
+                            <path d="M3.65878 0.243898C5.36804 0.243898 6.58743 1.45529 6.58743 3.1406C6.58743 4.75801 5.32145 5.95742 3.60819 5.96807C3.22177 5.97614 2.83768 5.90639 2.47877 5.76299C2.11985 5.61959 1.79344 5.40546 1.51897 5.13334C1.24449 4.86123 1.02755 4.53668 0.881058 4.17902C0.734563 3.82136 0.661505 3.43788 0.666231 3.05141C0.67555 1.42601 1.9362 0.242566 3.65878 0.243898Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on LinkedIn</span>
+                    </a>
+                
+
+                
+                    <a href="https://github.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="28"
+                             height="27"
+                             viewBox="0 0 28 28"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M16.7228 20.6334C17.5057 20.5527 18.2786 20.3944 19.0301 20.1608C21.3108 19.4193 22.5822 17.8259 22.963 15.4909C23.1228 14.5112 23.1814 13.5287 22.9883 12.5437C22.8106 11.6423 22.4013 10.8028 21.8007 10.1076C21.7526 10.0605 21.7197 10 21.7064 9.934C21.6931 9.86799 21.7 9.79952 21.7262 9.73748C22.0856 8.6206 21.9711 7.51969 21.601 6.42677C21.582 6.3497 21.5345 6.2827 21.468 6.23923C21.4016 6.19577 21.3211 6.17906 21.2429 6.19248C20.7329 6.21649 20.2313 6.33051 19.7611 6.52928C19.1103 6.7908 18.4899 7.12198 17.9104 7.51703C17.84 7.56996 17.7581 7.60551 17.6713 7.62078C17.5846 7.63605 17.4954 7.6306 17.4112 7.60489C15.2596 7.05882 13.0054 7.06203 10.8554 7.61421C10.7806 7.63586 10.7018 7.63967 10.6253 7.62534C10.5487 7.611 10.4766 7.57892 10.4148 7.53167C9.64788 7.03247 8.85171 6.58918 7.96368 6.33359C7.65781 6.24338 7.34123 6.19458 7.02239 6.18849C6.94879 6.17986 6.87462 6.19893 6.81432 6.242C6.75402 6.28507 6.71191 6.34904 6.69621 6.42145C6.32342 7.51437 6.2209 8.61527 6.56307 9.73348C6.59635 9.84264 6.64694 9.93316 6.54177 10.0516C5.47666 11.2604 5.09988 12.6834 5.19574 14.2676C5.2663 15.4244 5.46201 16.5466 6.01454 17.5769C6.84399 19.1171 8.21664 19.9119 9.85158 20.3352C10.3938 20.4706 10.9444 20.5698 11.4998 20.632C11.5384 20.7492 11.4506 20.7798 11.408 20.8291C11.1734 21.1179 10.9894 21.4441 10.8634 21.7942C10.7622 22.0458 10.8315 22.4039 10.6065 22.5516C10.263 22.7766 9.83827 22.8485 9.42421 22.8871C8.17936 23.0056 7.26471 22.4877 6.6283 21.4348C6.25552 20.8184 5.76956 20.3325 5.08523 20.0663C4.76981 19.9325 4.42139 19.8967 4.08537 19.9638C3.7898 20.029 3.73788 20.1901 3.93891 20.4111C4.03639 20.5234 4.14989 20.6207 4.27575 20.6999C4.9796 21.1318 5.51717 21.7884 5.80152 22.5636C6.37002 23.9973 7.48039 24.5697 8.93825 24.6323C9.43741 24.6575 9.93768 24.615 10.4254 24.5058C10.5892 24.4672 10.6531 24.4872 10.6517 24.6762C10.6451 25.4936 10.6637 26.3123 10.6517 27.131C10.6517 27.6635 10.1684 27.9297 9.58663 27.7393C8.17396 27.2671 6.84977 26.5631 5.66838 25.656C2.59555 23.2891 0.720966 20.1861 0.217704 16.3376C-0.357453 11.9127 0.911353 8.00824 3.98551 4.73881C6.11909 2.42656 8.99932 0.939975 12.1203 0.540191C16.5351 -0.0601815 20.4347 1.14323 23.7232 4.16373C26.2449 6.47869 27.724 9.37672 28.1048 12.7726C28.5828 17.0325 27.3686 20.7945 24.4768 23.9827C22.9762 25.6323 21.0956 26.8908 18.9982 27.6488C18.8783 27.6927 18.7585 27.738 18.636 27.7726C18.0356 27.9404 17.6189 27.6395 17.6189 27.0098C17.6189 25.7452 17.6308 24.4806 17.6295 23.2159C17.6329 22.9506 17.6128 22.6856 17.5696 22.4238C17.4325 21.6664 17.3419 21.484 16.7228 20.6334Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on GitHub</span>
+                    </a>
+                
+
+                
+                    <a href="https://ncbiinsights.ncbi.nlm.nih.gov/"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="26"
+                             height="26"
+                             viewBox="0 0 27 27"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M23.7778 26.4574C23.1354 26.3913 22.0856 26.8024 21.636 26.3087C21.212 25.8444 21.4359 24.8111 21.324 24.0347C19.9933 14.8323 14.8727 8.80132 6.09057 5.85008C4.37689 5.28406 2.58381 4.99533 0.779072 4.99481C0.202773 4.99481 -0.0229751 4.83146 0.00455514 4.21479C0.0660406 3.08627 0.0660406 1.95525 0.00455514 0.826734C-0.0413285 0.0815827 0.259669 -0.0193618 0.896534 0.00266238C6.96236 0.222904 12.3693 2.24179 16.9889 6.16209C22.9794 11.2478 26.1271 17.7688 26.4372 25.648C26.4629 26.294 26.3179 26.5271 25.6609 26.4684C25.0827 26.417 24.4991 26.4574 23.7778 26.4574Z">
+                            </path>
+                            <path d="M14.8265 26.441C14.0924 26.441 13.2371 26.6795 12.6626 26.3786C12.0092 26.0372 12.3781 25.0644 12.246 24.378C11.1154 18.5324 6.6849 14.5497 0.74755 14.1001C0.217135 14.0615 -0.0104482 13.9422 0.0134113 13.3659C0.0519536 12.1454 0.0482829 10.9213 0.0134113 9.69524C-0.00127145 9.14464 0.196946 9.03268 0.703502 9.04736C9.21217 9.27128 16.5994 16.2511 17.2804 24.7231C17.418 26.4446 17.418 26.4446 15.6579 26.4446H14.832L14.8265 26.441Z">
+                            </path>
+                            <path d="M3.58928 26.4555C2.64447 26.4618 1.73584 26.0925 1.06329 25.4289C0.39073 24.7653 0.00933763 23.8617 0.0030097 22.9169C-0.00331824 21.9721 0.365937 21.0635 1.02954 20.3909C1.69315 19.7184 2.59675 19.337 3.54156 19.3306C4.48637 19.3243 5.39499 19.6936 6.06755 20.3572C6.7401 21.0208 7.1215 21.9244 7.12782 22.8692C7.13415 23.814 6.7649 24.7226 6.10129 25.3952C5.43768 26.0677 4.53409 26.4491 3.58928 26.4555Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI RSS feed</span>
+                    </a>
+                
+            </div>
+        </div>
+    
+
+    <div data-testid="gridContainer"
+         class="grid-container ncbi-footer__container">
+        <div class="grid-row ncbi-footer__main-content-container"
+             data-testid="grid">
+            
+                <div class="ncbi-footer__column">
+                    
+                        <p class="ncbi-footer__circled-icons-heading">
+                            Connect with NLM
+                        </p>
+                    
+
+                    <div class="ncbi-footer__circled-icons-list">
+                        
+                            <a href=https://twitter.com/nlm_nih class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="32"
+                                     height="32"
+                                     viewBox="0 0 40 40"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on X (formerly known as Twitter)</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.facebook.com/nationallibraryofmedicine class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="13"
+                                     height="24"
+                                     viewBox="0 0 13 24"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M4.11371 23.1369C4.11371 23.082 4.11371 23.0294 4.11371 22.9745V12.9411H0.817305C0.6709 12.9411 0.670898 12.9411 0.670898 12.8016C0.670898 11.564 0.670898 10.3287 0.670898 9.09341C0.670898 8.97903 0.705213 8.95158 0.815017 8.95158C1.8673 8.95158 2.91959 8.95158 3.97417 8.95158H4.12057V8.83263C4.12057 7.8055 4.12057 6.7738 4.12057 5.74897C4.1264 4.92595 4.31387 4.11437 4.66959 3.37217C5.12916 2.38246 5.94651 1.60353 6.95717 1.1921C7.64827 0.905008 8.3913 0.764035 9.13953 0.778051C10.0019 0.791777 10.8644 0.830666 11.7268 0.860404C11.8869 0.860404 12.047 0.894717 12.2072 0.90158C12.2964 0.90158 12.3261 0.940469 12.3261 1.02968C12.3261 1.5421 12.3261 2.05452 12.3261 2.56465C12.3261 3.16857 12.3261 3.7725 12.3261 4.37642C12.3261 4.48165 12.2964 4.51367 12.1912 4.51138C11.5369 4.51138 10.8804 4.51138 10.2261 4.51138C9.92772 4.51814 9.63058 4.5526 9.33855 4.61433C9.08125 4.6617 8.84537 4.78881 8.66431 4.97766C8.48326 5.16652 8.3662 5.40755 8.32972 5.66661C8.28476 5.89271 8.26027 6.1224 8.25652 6.35289C8.25652 7.19014 8.25652 8.02969 8.25652 8.86923C8.25652 8.89439 8.25652 8.91955 8.25652 8.95615H12.0219C12.1797 8.95615 12.182 8.95616 12.1614 9.10714C12.0768 9.76596 11.9876 10.4248 11.9029 11.0813C11.8312 11.6319 11.7626 12.1824 11.697 12.733C11.6719 12.9434 11.6787 12.9434 11.4683 12.9434H8.26338V22.899C8.26338 22.979 8.26338 23.0591 8.26338 23.1392L4.11371 23.1369Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on Facebook</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.youtube.com/user/NLMNIH class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="21"
+                                     height="15"
+                                     viewBox="0 0 21 15"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M19.2561 1.47914C18.9016 1.15888 18.5699 0.957569 17.2271 0.834039C15.5503 0.678484 13.2787 0.655608 11.563 0.65332H9.43556C7.71987 0.65332 5.4483 0.678484 3.77151 0.834039C2.43098 0.957569 2.097 1.15888 1.74242 1.47914C0.813665 2.32097 0.619221 4.62685 0.598633 6.89384C0.598633 7.31781 0.598633 7.74101 0.598633 8.16345C0.626084 10.4121 0.827391 12.686 1.74242 13.521C2.097 13.8412 2.4287 14.0425 3.77151 14.1661C5.4483 14.3216 7.71987 14.3445 9.43556 14.3468H11.563C13.2787 14.3468 15.5503 14.3216 17.2271 14.1661C18.5676 14.0425 18.9016 13.8412 19.2561 13.521C20.1712 12.6929 20.3725 10.451 20.3999 8.22064C20.3999 7.74025 20.3999 7.25986 20.3999 6.77946C20.3725 4.54907 20.1689 2.30724 19.2561 1.47914ZM8.55942 10.5311V4.65201L13.5601 7.50005L8.55942 10.5311Z"
+                                          fill="white" />
+                                </svg>
+                                <span class="usa-sr-only">NLM on YouTube</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            
+
+            
+                <address class="ncbi-footer__address ncbi-footer__column">
+                    
+        <p>
+            <a class="usa-link usa-link--external"
+            href="https://www.google.com/maps/place/8600+Rockville+Pike,+Bethesda,+MD+20894/%4038.9959508,
+            -77.101021,17z/data%3D!3m1!4b1!4m5!3m4!1s0x89b7c95e25765ddb%3A0x19156f88b27635b8!8m2!3d38.9959508!
+            4d-77.0988323"
+            rel="noopener noreferrer" target="_blank">National Library of Medicine
+            <br/> 8600 Rockville Pike<br/> Bethesda, MD 20894</a>
+        </p>
+    
+                </address>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/web_policies.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Web Policies
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/institutes-nih/nih-office-director/office-communications-public-liaison/freedom-information-act-office" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            FOIA
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS Vulnerability Disclosure
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://support.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Help
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/accessibility.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Accessibility
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/careers/careers.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Careers
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+        </div>
+
+        
+            <div class="grid-row grid-col-12" data-testid="grid">
+                <ul class="ncbi-footer__bottom-links-list">
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NLM
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NIH
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.usa.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            USA.gov
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+    </div>
+</footer>
+
+    
+
+
+        
+        
+    
+  <script  type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/pinger/pinger.js"> </script>
+
+
+    
+        
+
+<button class="back-to-top" data-ga-category="pagination" data-ga-action="back_to_top">
+    <label>Back to Top</label>
+    <svg class="usa-icon order-0" aria-hidden="true" focusable="false" role="img">
+        <use xlink:href="/static/img/sprite.svg#arrow_upward"></use>
+    </svg>
+</button>
+    
+
+
+        
+    
+    
+    
+        
+    <script type="application/javascript">
+    window.ncbi = window.ncbi || {};
+    window.ncbi.pmc = window.ncbi.pmc || {};
+    window.ncbi.pmc.options = {
+        logLevel: 'INFO',
+        
+        staticEndpoint: '/static/',
+        
+        citeCookieName: 'pmc-cf',
+    };
+</script>
+    <script type="module" crossorigin="" src="/static/assets/base-133c6271.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/jquery/jquery-3.6.0.min.js">&#xA0;</script>
+    <script type="text/javascript">
+        jQuery.getScript("https://cdn.ncbi.nlm.nih.gov/core/alerts/alerts.js", function () {
+            galert(['div.nav_and_browser', 'div.header', '#universal_header', '.usa-banner', 'body > *:nth-child(1)'])
+        });
+    </script>
+
+
+    <script type="text/javascript">var exports = {};</script>
+     <script src="/static/CACHE/js/output.13b077bc3ffd.js"></script>
+
+    <script type="module" crossorigin="" src="/static/assets/article-44d04358.js"></script>
+    
+    
+
+    </body>
+</html>

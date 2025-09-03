@@ -6,11 +6,11 @@ from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
 # Download required tokenizer model
 nltk.download('punkt')
 
-# Add custom abbreviation types
+# Add custom abbreviation types (all lowercase for Punkt)
 punkt_param = PunktParameters()
 punkt_param.abbrev_types = set([
-    'et al', 'fig', 'dr', 'vs', 'e.g', 'i.e', 'prof', 'inc', 'ref', 'no', 'mr', 'ms',
-    'mrs', 'n.s', 'a.c', 'b.w', 'a.w', 'a.m', 'p','etc'  # 'p.' for page numbers
+    'et al', 'fig', 'dr', 'vs', 'e.g', 'i.e', 'prof', 'inc', 'ref', 'no',
+    'mr', 'ms', 'mrs', 'n.s', 'a.c', 'b.w', 'a.w', 'a.m', 'p', 'etc', 'ltd', 'co'
 ])
 tokenizer = PunktSentenceTokenizer(punkt_param)
 
@@ -33,14 +33,18 @@ def preprocess_text(text: str) -> str:
     # Numbered list items like (1).
     text = re.sub(r'\((\d+)\)\.\s+', r'(\1)__DOT__ ', text)
 
-    # Protect "et al." even before brackets or years
+    # Protect "et al."
     text = re.sub(r'\bet al\.\s*(\(|[A-Z])', r'et al__DOT__ \1', text)
 
     # Protect page citation like "p. 14)"
     text = re.sub(r'\bp\.\s*(\d+)\)', r'p__DOT__ \1)', text)
 
-    # Other abbreviations
-    text = re.sub(r'\b(et al|e\.g|i\.e|vs|Fig|Ref|No|Dr|Prof|p|etc)\.\s+', lambda m: m.group(1).replace('.', '__DOT__') + '__DOT__ ', text)
+    # Other abbreviations including ltd
+    text = re.sub(
+        r'\b(et al|e\.g|i\.e|vs|Fig|Ref|No|Dr|Prof|p|etc|Ltd|Co)\.\s+',
+        lambda m: m.group(1).replace('.', '__DOT__') + '__DOT__ ',
+        text
+    )
 
     return text
 
@@ -63,10 +67,13 @@ for filename in os.listdir(input_dir):
                 preprocessed = preprocess_text(cleaned)
                 sentences = tokenizer.tokenize(preprocessed)
                 sentences = postprocess_sentences(sentences)
+
+                # Skip sentences with less than 10 non-space chars
+                sentences = [s for s in sentences if len(s.strip()) >= 10]
                 all_sentences.extend(sentences)
 
+        # Write without trailing newline
         with open(os.path.join(output_dir, filename), 'w', encoding='utf-8') as out:
-            for sentence in all_sentences:
-                out.write(sentence.strip() + '\n')
+            out.write('\n'.join(s.strip() for s in all_sentences))
 
         print(f"✅ Extracted sentences from {filename}")

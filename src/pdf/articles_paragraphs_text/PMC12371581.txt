@@ -1,0 +1,663 @@
+Dynamic systems, defined by their continuous temporal
+evolution,
+are central to advancements in chemistry, biology, and materials science.
+Optical techniques that leverage light absorption, scattering, and
+emission are essential for characterizing structural and property
+changes in these systems. However, conventional optical toolssuch
+as UV–vis spectroscopy, fluorescence, and scattering techniquesprovide
+fragmented or incomplete insights, making it challenging to comprehensively
+understand dynamic processes and ensure reliable data interpretation.
+Herein, we introduce a charge-coupled device (CCD)-based multitrack
+linearly polarized spectrometer (MLPS) designed for simultaneous kinetic
+UV–vis, polarization-resolved scattering, and photoluminescence
+measurements. The MLPS facilitates concurrent quantification of scattering
+and fluorescence intensities and depolarizations, alongside UV–vis
+extinction, with subsecond temporal resolution. By integrating high
+temporal resolution with the ability to capture complementary spectra,
+the MLPS significantly enhances the functionality of optical spectroscopy,
+paving the way for broader applications in dynamic system analysis
+and advancing research across multiple scientific disciplines. Furthermore,
+the instrument characterization and data preprocessing methodologies
+presented here provide valuable insights for the future development
+of multitrack CCD-based spectrometers.
+
+Optical spectroscopy serves
+as a fundamental technique in chemical,
+biological, and materials research, providing crucial insights into
+material properties and their dynamic behaviors.−By exploiting
+light–matter interactions, including absorption, scattering,
+and emission, spectroscopic techniques such as UV–visible (UV–vis)
+spectrophotometry, dynamic and static light scattering, and spectrofluorometry
+have become indispensable tools across numerous scientific fields,
+including nanotechnology, materials science, environmental science,
+and biomedical diagnostics.−These methods are highly valued
+due to their nondestructive nature, coupled with high spectral and
+temporal resolution, and versatility across diverse experimental settings,
+making them essential for both fundamental research and application
+studies.
+
+Collectively, these optical techniques provide substantial
+information
+on the photophysical properties and morphological characteristics
+of materials. UV–vis absorption spectroscopy is commonly used
+to determine optical bandgaps in semiconductors and elucidate electronic
+states in organic dyes.−Dynamic light scattering (DLS), as a scattering-based
+technique, is widely used to determine particle size distributions,−since scattering intensity and depolarization are highly sensitive
+to a material’s size, shape, and aggregation state, making
+them essential for characterizing nanoparticles, colloids, and complex
+fluids, while polarized light scattering offers valuable insights
+on shape anisotropy and molecular alignment in structured materials.−Fluorescence spectroscopy is widely used for investigating quantum
+dots, fluorescent proteins, and molecular probes in imaging and sensing
+applications.−Meanwhile, fluorescence depolarization, also known
+as fluorescence anisotropy, provides insights into fluorophore rotational
+mobility (rotational diffusion rate) and excited-state lifetimes,
+information directly related to the molecular orientation, aggregation
+behavior, and environmental interactions.−While individual
+spectroscopic techniques provide valuable information, their inherent
+limitations necessitate the integration of multiple optical methods
+for a more comprehensive characterization of materials.−These approaches are effective for steady-state systems where sequential
+measurements can be applied to the same system. However, it poses
+challenges when addressing dynamic systems where the materials’
+chemical, morphological, and photophysical properties vary over time.
+
+The information deficiency with existing tools also compromises
+the reliability of the data interpretation. One prominent example
+is UV–vis spectrophotometry. While this popular tool measures
+sample UV–vis extinction, it offers no insights into the signal
+origins, absorption, scattering, or both of the latter.−A further complication is the cascading photomatter interactions
+(CPMIs), the sequential photon–matter interactions triggered
+by the same incident photon, that are ubiquitous in practical optical
+spectroscopic applications.−With the only exception of a
+small number of solutions that can be approximated as pure absorbers,
+CPMI is inherent in other types of solutions including the ones that
+can be approximated as pure scatterers, simultaneous absorbers and
+scatterers, and simultaneous absorbers and emitters and those that
+simultaneous absorb, scatter, and emit light. Example CPMIs include the absorption or rescattering of the scattered
+light and the secondary fluorescence emission triggered by absorption
+of primary fluorescence photons generated by the absorption of the
+incident light. Such CPMIs drastically complicate the analysis of
+the experimental data obtained with conventional optical tools,−often leading to ambiguous data interpretations.
+
+To overcome
+these limitations, we developed a charge-coupled device
+(CCD)-based multitrack linearly polarized spectrometer (MLPS) that
+employs free-space excitation and fiber-coupled spectral acquisition.
+By design, this system enables simultaneous acquisition of four spectra:
+a reference spectrum for monitoring the excitation intensity variation;
+a forward spectrum that detects the excitation light passing through
+the sample solutions; and two sideward linearly polarized spectra
+differing in their detection polarization directions. This integrated
+system enables concurrent quantification of the UV–vis extinction,
+polarization-resolved scattering, and fluorescence intensities and
+depolarizations, all with the same sample solutions with a subsecond
+temporal resolution.
+
+Herein, we focus on the MLPS instrument
+design and characterization,
+data preprocessing and analysis protocols, and a proof-of-concept
+demonstration of the MLPS characterization of porphyrin self-assembly,
+a dynamic system used for performance evaluation. CCD is widely utilized
+in optical spectroscopy due to its high sensitivity, broad spectral
+range and the ability to capture parallel spectral data efficiently.
+To date, the CCD has been used for multitrack UV–vis,−fluorescence,−and polarization-resolved spectroscopic analysis.−However, to the best of our knowledge,
+MLPS is the first spectroscopic tool enabling the concurrence of UV–vis
+and polarization-resolved light scattering and fluorescence measurements.
+While the CCD greatly expanded optical spectroscopy capabilities,
+it has multiple challenges that can complicate the data analysis.
+Such complications include cosmic spike interference, saturation limits due to CCD pixel well depth, and spectral
+distortion due to differences in pixel responsivities. Additional
+challenges for multitrack spectroscopic analysis include spectral
+cross-talk and wavelength mismatches among the data obtained with
+different spectral tracks.
+
+Commercial CCD-based spectrometers
+generally include built-in methods
+for cosmic spike removal. Even though these methods work effectively
+for single-pixel cosmic events, they fail when the cosmic spikes are
+so intense that they bleed to several neighboring pixels. The upper-bound-spectrum
+method is highly effective in identifying and removing cosmic spikes
+with no assumption of the pixel width of the cosmic spikes, but it
+requires multiple spectral acquisitions.−Therefore, this method is applicable
+only to steady-state samples where the sample spectral features remain
+constant during the sequential spectral acquisitions but not to dynamic
+systems. To address this issue, a new time-domain cosmic spike removal
+algorithm is developed herein in kinetic spectral acquisition (vide infra).
+
+Schematic
+representation of the spectrofluorometer-based LPRS/LPAOS
+VV and VH spectral acquisition.
+
+Despite its unique ability to provide previously unattainable
+yet
+crucial insights for materials characterization, the combined UV–vis,
+LPRS, and LPAOS techniques suffer two critical limitations. The first
+challenge is low data acquisition efficiency: acquiring a complete
+data set requires two separate instruments and three sequential spectral
+acquisitions, which can take 5 min or longer when the number of wavelength
+data points exceeds 500. Such a poor efficiency makes real-time monitoring
+in dynamic systems impractical.
+
+The second challenge is ensuring
+wavelength reproducibility across
+spectra obtained from different instruments (UV–vis spectrophotometer
+and fluorescence spectrophotometer) and under varied measurement conditions
+(LPRS/LPAOS VV and VH).−Additionally, polarization reproducibility
+presents a major concern in LPRS/LPAOS VV and VH spectral acquisitions.,Since the motorized monochromator and linear polarizer rely on stepper
+motors for precise positioning, any inaccuracies in motorized control
+can lead to misalignment in wavelength and polarization direction.
+By multitrack design, MLPS drastically improves the temporal resolution
+of the combined UV–vis and linearly polarized spectroscopic
+measurements and effectively mitigates these reproducibility issues
+because it enables the concurrent collection of UV–vis and
+linearly polarized VV/VH data under identical measurement conditions,
+eliminating inter-instrument and -measurement variations. A complete
+list of abbreviations is provided in theSupporting Information.
+
+Polystyrene
+nanoparticles (PSNPs) with a nominal diameter of 200 nm were obtained
+from Polysciences. Analytical grade anthracene, ovalene, compound
+610 (C610), and Rhodamine B (RhB) solid blocks used for quantification
+of the MLPS G-factor spectrum were purchased from Starna Scientific.
+Potassium permanganate (KMnO4) was purchased from Sigma-Aldrich.meso-Tetrakis­(4-sulfonatophenyl)­porphyrin (TSPP) (Production
+Number: A5013) was purchased from TCI America. Nanopure water (18.2
+MΩ·cm) was used in solution preparation.
+
+The self-assembly of TSPP was initiated according to the literature
+procedure. In brief, 3 mL of 6 μM
+TSPP in 0.01 M NaOH solution is placed in a quartz fluorescence cuvette
+under constant stirring (1500 rpm). TSPP assembly is initiated by
+rapidly adding 50 μL of 12 M HCl. Kinetic spectral acquisition
+begins right before HCl addition. The assembly process was monitoredin situwith 3600 kinetic MLPS measurements, each with an
+integration time of 0.5 s and a readout time of 0.15 s. As such, the
+temporal resolution is 0.65 s. Notably, for faster processes, the
+time resolution is expected to be 0.01 s by using an electron-multiplying
+CCD (EMCCD). All spectra were collected at room temperature using
+a 1 cm × 1 cm square fused quartz fluorescence cuvette (Thorlabs)
+containing 3 mL of sample.
+
+The schematic
+and photograph of the MLPS instrument are shown inFigure. This instrument comprises
+three main modules: a free-space excitation module, a sample compartment
+module, and a fiber-coupled multitrack CCD spectrometer module.
+
+(A) Schematic
+and (B) photograph of the MLPS spectrometer. BS:
+beam splitter; FC: fiber collimator; PH: pinhole; CCD: charge-coupled
+device; LP: linear polarizer; FT: forward track; RT: reference track;
+XV: sideward track with vertical polarization detection; XH: sideward
+track with horizontal polarization detection.
+
+The excitation module comprises a 300 W Xe lamp
+and a 1/8 m monochromator
+(Sciencetech TLS 72-X300) with adjustable slit width. The central
+excitation wavelength can be changed from 300 nm to 1800 nm with an
+accuracy of 0.3 nm. The output beam is collimated by a 50.8 mm diameter
+lens (Lens1) with a focal length of 100 mm (Thorlabs LA4545), descended
+by a periscope assembly (Thorlabs RS99), and further collimated with
+lens 4 to a nonpolarizing beam splitter with a transmittance/reflectance
+ratio of 90:10 (Thorlabs BS025). The transmitted portion (90%) passes
+through a linear polarizer (LP1) (Thorlabs WP25M-UB), referred to
+as the excitation polarizer hereafter, and then illuminates the sample.
+
+The polarization direction of the excitation polarizer can be manually
+rotated between horizontal (H) and vertical (V) orientations, with
+the horizontal setting used to calibrate the instrument factor, i.e.,
+the polarization-bias in the signal response or vertical (V) direction
+for the polarization-resolved scattering and fluorescence spectral
+acquisition (vide infra). The reflected portion (10%)
+of the light from the monochromator is focused on one fiber designed
+as the reference track.
+
+The sample compartment module comprises
+a Peltier-based temperature-controlled
+cuvette holder with four optical ports, allowing the temperature to
+vary from −15 to 100 °C (Quantum Northwest Luma 40) with
+0.1 °C precision. Both the temperature and stirring speed can
+be controlled and monitored with a commercial controller (Quantum
+Northwest TC 1).
+
+The fiber-coupled multitrack CCD spectrometer
+module uses a seven-leg
+fiber bundle (FiberTech Optica 7 × 200 μm high hydroxyl
+ion fiber) for the spectral acquisition. All optical fibers are arranged
+in a linear configuration at the end of the fibers connected to the
+CCD spectrometer. Only alternative vertically arranged fibers (#1,
+#3, #5, and #7) are used for data acquisition to mitigate the crosstalk
+among the spectra collected with different tracks. Besides the reference
+track used for monitoring excitation intensity variations, the other
+three fibers used for collecting the optical signal generated from
+the sample solution are designed for forward track and sideward XV
+and XH tracks, respectively. While the forward detects light along
+the propagation direction of the incident photons, the sideward tracks
+collect photons propagating sideward from the direction of the incident
+light. Sideward XV and XH tracks differ in the polarization direction
+(V or H) of the linear polarizers placed in front of their respective
+fiber coupler. X represents the direction of the excitation linear
+polarizer that can be H or V depending on the measurement needs.
+
+The photons collected with the four fiber tracks are dispersed
+with a Czerny-Turner spectrograph with a 328 mm focal length (Andor
+KYMERA-328I) and equipped with a 150
+grooves/mm grating and a blaze wavelength of 500 nm. The dispersed
+light is detected by a deep-cooled CCD camera with an image area of
+26.6 × 6.6 mm or 1024 × 256 pixels (Andor iDus 420A-BEX2-DD)
+and an operation temperature of −80 °C. When operating
+with a central wavelength at 650 nm, this CCD spectrometer has a wavelength
+coverage of 540 nm (from 380 to 920 nm) or an average of 0.52 nm/pixel.
+
+The forward and sideward XV and sideward XH tracks are arranged
+in a T-format configuration. A small pinhole (∼1.5 mm) and
+a set of absorptive neutral density filters with an optical density
+(OD) of 1.0, 3.0, and 5.0 (Thorlabs NE10B-A, NE20B-A, NE50B-A) are
+mounted in a cage filter wheel (Thorlabs CFW6/M) in front of the fiber
+port for the forward track. The pinhole is critical for (a) mitigating
+the interference of forward scattering light on UV–vis extinction
+measurements and (b) reducing the signal
+saturation of forward spectra at the excitation wavelength.
+
+The two sideward signals are collected using 50.8 mm diameter lenses
+(Lens2 and Lens3) with a focal length of 60 mm (Thorlabs LA4464) and
+then pass through a linear polarizer (Thorlabs WP25M-UB) polarized
+horizontally or vertically to the instrument plane defined by the
+incident light, the sample holder, and the CCD spectrometer. Four
+high numerical aperture (NA = 0.54) multimode fiber collimators (Thorlabs
+F950SMA-A) are used for coupling the light into the fibers.
+
+Experimental procedures and data for determination
+of the CCD pixel binning for different spectral tracks are detailed
+in theSupporting Information. A binning
+size of nine CCD-pixel rows per spectral track was employed in the
+MLPS measurements (Figure), which is determined by maximizing the spectral intensity
+of each intended track while minimizing the spectral crosstalk between
+signals collected from different optical fibers. The maximum crosstalk
+under this configuration is less than 0.2% (Figure), as evaluated with the excitation wavelength
+centered at 550 nm. This level of crosstalk is negligible for the
+applications explored in this work. Further mitigation of crosstalk
+can be achieved by reducing the spectral binning sizes, increasing
+the distance of fibers used for different spectral tracks, and utilizing
+optical fibers with smaller core diameters.
+
+The dark signal of the CCD detector
+was characterized by measuring the output signal from each pixel with
+no incident light on the detector. At an operational temperature of
+−80 °C, the measured dark current remained within 492
+to 496 counts for each spectral wavelength. This dark current is independent
+of the integration times from 0.05 to 2 s and the wavelength (Figure S1), indicating it is governed primarily
+by CCD reset bias and readout noise. To
+mitigate the interference of dark current in spectral analysis, a
+constant dark signal of 492 counts was subtracted from the raw experimental
+data prior to any data analysis.
+
+Ensuring
+high wavelength reproducibility across spectral tracks is crucial
+for achieving accurate concurrent multispectral analysis in MLPS.
+A mercury–argon light source (HG-2, Ocean Optics) is used to
+calibrate the spectrometer wavelength. Optimizing the positioning
+of the entrance end of the fiber bundle through a trial-and-error
+approach resulted in a wavelength reproducibility of ±0.5 nm
+among the MLPS spectral tracks (FigureA and B), as evaluated using
+a set of single-band wavelengths ranging from 400 to 700 nm. Such
+wavelength mismatch is smaller than the pixel wavelength resolution
+(0.52 nm/pixel), highlighting the high precision of the fiber bundle
+alignments. This level of wavelength reproducibility is sufficient
+for most intended MLPS applications, as the spectral bandwidth of
+UV–vis, scattering, and emission spectral features in photoactive
+materials are typically much broader than, for example, 10 nm. The
+high wavelength reproducibility allows the same wavelength calibration
+curve (FigureC) to
+be applied for four-track spectra, streamlining the data analysis.
+
+(A and B) Wavelength reproducibility among the
+four MLPS tracks
+evaluated with monochromatic light with central wavelengths from 400
+to 700 nm. The curves in red, blue, green, and black correspond to
+the reference, forward, sideward XV, and sideward XH tracks, respectively.
+The spectral intensity is arbitrarily scaled to facilitate the comparison.
+(C) Detected wavelength calibrations as a function of excitation wavelength.
+
+The sideward XH
+and XV tracks in MLPS are designed to detect polarization-resolved
+scattering and fluorescence intensities. The data acquired from individual
+tracks are valuable for probing the sample’s scattering and
+fluorescence intensity, and the ratio between VH vs VV enables quantification
+of the scattering and fluorescence depolarizationsP(λ) (eq). These
+two parameters are widely used in materials’ characterization,
+as they provide crucial information on molecular orientation, structural
+anisotropy, and dynamic interactions.
+
+Normalizing the signal
+responsivity of the two sideward tracks, which differ in detection
+polarizations (H or V), is needed to ensure the accuracy in calculating
+scattering and fluorescence depolarization. The signal normalization curve, MLPSG-factor spectrum,
+is defined witheqand
+experimentally quantified using the same method developed for determining
+theG-factor spectrum (eq) for spectrofluorometer-based linearly polarized
+spectroscopic measurements. Briefly,
+a set of linearly polarized fluorescence (HV and HH) spectra is acquired
+for multiple fluorescence solutions with overlapping emission wavelengths,
+which collectively cover the wavelength range for the intended application. Since excitation light is H-polarized, the intensities
+of H- and V-polarized fluorescence light detected 90 degrees relative
+to the incident beam should be theoretically the same.,,As such, any observed signal
+discrepancy between the sideward HH and HV spectra must be attributed
+to the difference in signal responsivity between the two MLPS sidetracks,
+corresponding to V and H detection polarizations, respectively.
+
+The signal responses between the MLPS HV and HH signals are very
+similar (FigureA–E), leading to a near-unity MLPSG-factor across the entire wavelength region (FigureF). In contrast, theG-factor
+value of the conventional spectrofluorometer, which utilizes free-space
+excitation and detection and has been extensively used in our previous
+linearly polarized spectroscopic measurements, varies significantly,
+ranging from 1.5 to 0.5 depending on the excitation wavelength.,,The stark difference in theG-factor spectra between the fiber-coupled MLPS instrument
+and free-space commercial spectrofluorometer is likely due to the
+depolarization effects of the multimode optical fibers used in the
+MLPS setup.,While the gratings in the spectrofluorometer’s
+detection monochromator and the MLPS CCD spectrometer likely have
+a similar polarization bias, the 2 m multimode optical fibers in the
+MLPS system effectively depolarize the light before it reaches the
+CCD spectrometer. Regardless of its underlying causes, the near-unity
+MLPSG-factor spectrum enables direct examination
+of the degree of the scattering and fluorescence depolarization or
+anisotropy.
+
+(A–E) Linearly polarized fluorescence
+(black) HV and (red)
+HH emission spectra collected using the two MLPS sidetracks. (F) MLPSG-factor spectrum.
+
+The forward track is designed for quantification of solution UV–vis
+extinction (eq). LDR
+of MLPS-based UV–vis extinction quantification was evaluated
+with two types of solutions, KMnO4as approximately pure
+absorbers (FigureA and C) and PSNPs as approximately pure
+light scatterers (FigureB and D). LDR of commercial UV–vis
+spectrophotometers is typically evaluated using only solutions that
+are pure absorbers. However, due to the inevitable interference of
+forward light scattering, the upper limit of instrument LDR in terms
+of scattering extinction is invariably lower than that in terms of
+absorption extinction, or absorbance. As an example, for the commercial UV–vis spectrophotometer
+used in this work, its upper LDR limit of the KMnO4absorbance
+is about 5, while that for PSNPs depends strongly on the particle
+sizes and becomes less than 3 for the same PSNPs (diameter 200 nm)
+used in this work. Such a drastic difference
+indicates the significance of the interference of forward scattering
+light.
+
+Forward intensity spectra of (A) KMnO4and (B) PSNP
+solution. Spectra in black are the solvent control. Correlation between
+(C) MLPS UV–vis absorbance vs KMnO4absorbance and
+(D) MLPS UV–vis scattering extinction and the theoretical scattering
+extinction. The MLPS integration time is 0.5 s, and the central excitation
+wavelength is 490 nm. The theoretical absorbance and scattering are
+deduced from measurements with a commercial UV–vis spectrophotometer.
+
+The upper LDR limit of MLPS-based UV–vis
+measurement is
+between 4 and 5 in terms of KMnO4absorbance, while that
+for PNSP scattering extinction is below 4. The fact that MLPS has
+a more-or-less similar LDR for absorption and scattering extinction
+is due to the small, ∼1.5 mm, pinhole used in the design. Without
+this pinhole, the MLPS LDR for KMnO4remains approximately
+the same, while that for the PSNP scattering extinction is reduced
+drastically to less than 0.5 (Figure S2). This observation is consistent with theoretical modeling that
+predicts that the larger the detector collection angle, the lower
+the upper limit of the UV–vis LDR for scattering solutions.
+
+The comparable LDR of pinhole-equipped
+MLPS for UV–vis absorption
+and scattering extinction is particularly critical for investigating
+the assembly and disassembly of photoactive materials. For instance,
+dissolved molecular and dispersed ultrasmall nanoparticle chromophores
+function primarily as pure absorbers. In contrast, their assembled
+states serve as both absorbers and scatterers, with the ratio of scattering
+to absorption intensity varying depending on the dynamics of assembly
+and disassembly processes. To ensure the reliability of UV–vis
+extinction measured with the current MLPS instrument, the sample design
+should be such that its kinetic UV–vis extinction remains below
+3 during the dynamic physicochemical processes where temporal variation
+of solution scattering and absorption extinction ratio is unknown.
+
+The MLPS UV–vis LDR discussed above was determined for kinetic
+studies that require a fixed short integration time (0.5 s, in this
+work). For steady-state solutions, MLPS UV–vis LDR can be extended
+by establishing the excellent linear relationship between forward
+spectral intensity and CCD integration time (Figure S3). To demonstrate this capability, KMnO4was used
+as a model absorber; the upper LDR limit for MLPS UV–vis absorbance
+was successfully extended to 5.6 by increasing the integration time
+from 0.5 s for diluted solutions to 100 s for the most concentrated
+KMnO4(Figure S4). By utilizing
+longer integration times, MLPS can significantly extend the LDR limit
+for UV–vis absorbance, making it advantageous for analyzing
+highly concentrated samples and other materials that quickly exceed
+the LDR of conventional spectroscopic instruments.
+
+A universal complication
+with CCD-based spectral acquisition is cosmic spike interference,
+which appears as random spectral peaks caused by electromagnetic radiation,
+such as γ rays originating from space.FigureA shows the as-acquired kinetic sideward
+VH spectra obtained from TSPP assembly solutions triggered by addition
+of HCl. Multiple cosmic spikes are present in the kinetic data, including
+two particularly intense ones that dominate the spectra.
+
+(A) As-acquired
+kinetic MLPS VH spectra, (B) an example of the
+time-domain cosmic spike removal, and (C) cosmic-spike-removed MLPS
+VH spectra. Insets show the spectral dips. (D) The data after cosmic
+spike removal followed by spectral dip correction.
+
+While manual identification and removal of cosmic
+spikes may be
+feasible for small data sets, it becomes challenging for large-scale
+spectral acquisitions and unsuitable for dynamic systems where spectral
+properties evolve over time. For steady-state applications, such as
+Raman imaging, where it involves multiple CCD spectra for the same
+sample, an upper-bound spectrum method can be applied for automatic
+cosmic spike identification and removal. Since the cosmic events are random in time and space (across CCD
+pixels), the cosmic spikes can be statistically identified as outliers
+in the spectral series. Once detected, the identified cosmic spike
+intensity is replaced with an upper-bound intensity estimated based
+on the statistics of the spectra taken with the same sample. However, this approach is unsuitable for dynamic
+systems, where the sample optical property changes over time.
+
+In this work, a MATLAB program (Figure S5) is developed for cosmic spike removal in the TSPP assembly kinetic
+spectra. The method is termed as time-domain cosmic spike removal,
+as it involves two assumptions for the time-course of signal intensity
+at specific wavelength pixels. The first is that the probability of
+a cosmic spike occurring at a specific pixel across three consecutive
+temporal points is negligibly small. The second assumption is that
+the spectral intensity changes in three consecutive temporal points
+can be approximated as linear. Based on these assumptions, a temporal
+signal is deemed to be a cosmic spike if its dark-current-corrected
+intensity is 25% higher than the average signal of its two adjacent
+temporal points. In this case, the spike intensity is replaced with
+the average of the neighboring temporal points. As shown inFigureB and C, this cosmic spike removal method effectively eliminates
+all detected cosmic spikes while preserving the integrity of the kinetic
+spectral data. Moreover, it takes less than 30 s to process and remove
+the cosmic spikes from all 3600 spectra.
+
+The first assumption
+is valid for most kinetic MLPS measurements,
+provided the spectral integration time is short (e.g., <10 s),
+as cosmic ray radiation is a relatively rare event. However, the validity
+of the second assumption is sample-dependent and more critically influenced
+by the temporal resolutions of the kinetic MLPS measurements. High
+temporal resolution is required for dynamic systems, where rapid changes
+in photophysical properties occur.
+
+Besides
+cosmic spikes, another artifact in as-acquired MLPS data is spectral
+dips, which refer to the lower-than-expected spectral intensity (FigureC). Unlike cosmic
+spikes, which appear randomly in time, spectral wavelength, or CCD
+pixels, spectra dips are wavelength- or pixel-specific and consistently
+occur at the same wavelength in every kinetic spectrum.
+
+Empirical
+observations indicate that the maximum dip intensity is approximately
+30 counts, and the dip pattern and intensity are independent of spectral
+integration time and the sample solution (Figure S6). These observations exclude the possibility of quantum
+efficiency between neighboring pixels. Otherwise, the dip magnitude
+would be proportional to the spectral integration time. Despite efforts
+to understand mechanisms including communication with the CCD vendor,
+the origin of these fixed-pattern and -magnitude artifacts remains
+unclear. Since the spectral dips are within the shot noise when the
+CCD signal is high (e.g., ≥10,000), they are essentially invisible
+in spectra with high intensities. For low-intensity measurements,
+such as the sidetrack MLPS spectra obtained with high temporal resolution,
+it is essential to remove the spectral dips before performing data
+analysis.
+
+A MATLAB program for wavelength-domain correction
+of the spectral
+dips is developed by the empirical observation that most spectral
+dips are separated by one or more CCD wavelength pixels (Figure S7). This software identifies the spectral
+feature as a dip if its intensity is more than 25% lower than the
+average intensity of its neighboring wavelength pixels (one on each
+side). The effectiveness of the spectral dip removal is demonstrated
+in the zoomed-in kinetic spectra shown inFigureD. Note that as the spectral dips are fixed-wavelength
+artifacts with a relatively constant temporal magnitude, the presence
+of the dips has no effect on the temporal-domain cosmic spike identification
+and removal. However, cosmic spikes can complicate the wavelength-domain
+dip correction. Therefore, cosmic spike removal should be performed
+prior to spectral dip correction to ensure reliable spectral preprocessing.
+
+The versatility and multispectral
+capabilities of the MLPS instrument are demonstrated within situmonitoring of TSPP self-assembly using two excitation
+wavelengths: 490 and 665 nm (Figure). The reference spectra for these kinetic MLPS measurements
+demonstrate excellent excitation power stability (Figure S8). These two excitation wavelengths are chosen based
+on TSPP optical properties under these excitation conditions. The
+490 nm peak in UV–vis and resonance synchronous spectra is
+a characteristic spectral feature of TSPP assembly formation, as TSPP
+assemblies exhibit strong light scattering at this wavelength.−However, the absorption and fluorescence activities of TSPP assemblies
+at this excitation wavelength have not been systematically characterized,
+especially in TSPP assembly processes. Moreover, the TSPP assembly
+exhibits UV–vis activities at 665 nm. However, the mechanistic
+origin of UV–vis extinction at this wavelengthabsorption,
+scattering, or bothremains unknown.
+
+In situkinetic MLPS characterization of the TSPP
+assembly with the excitation wavelength of (left) 490 and (right)
+665 nm. The data obtained in the reference track are shown in theSupporting Information. (A and B) Forward spectra,
+(C and D) sideward VV spectra, and (E and F) sideward VH spectra.
+The insets are the zoomed-in features in the plotted wavelength
+regions. Red, solvent; dark blue, before HCl addition; light blue
+and pink, the first and last kinetic spectra; gray, the ones taken
+in between.
+
+The MLPS data provide previously unattainable insights
+that are
+essential for evidence-based spectral data analysis. It unequivocally
+demonstrates that TSPP assemblies are simultaneous light absorbers
+and scatterers but not an ORF emitter under 490 nm excitation, while
+they concurrently absorb, scatter, and emit, all at 650 nm excitation.
+Therefore, their UV–vis extinction should be interpreted as
+the sum of absorption and scattering extinction. The absorption activities
+at 490 nm wavelength are evident by the Stokes-shifted fluorescence
+(SSF) observed in the 600 to 750 nm spectral region, while its scattering
+activity is confirmed by the strong sideward VV and VH intensities
+at 490 nm (FigureC, E). ORF activity at 490 nm is excluded
+by the absence of anti-Stokes-shifted fluorescence (ASSF) in the VV
+and VH spectra under 490 nm excitation, as ORF invariably appears
+together with ASSF and SSF.
+
+In
+contrast, at 665 nm excitation, MLPS VV and VH spectra exhibit
+ASSF, ORF, and SSF emission, confirming that the TSPP assembly is
+both a light absorber and an ORF emitter at this wavelength. The 650
+nm peak in the TSPP VV spectra indicates that TSPP is also a light
+scatterer at this wavelength (FigureD). Traditionally, ORF is often misinterpreted as a
+sample’s light scattering because both occur at the excitation
+wavelength. The data obtained with 665 nm excitation reveal that the
+ORF and scattering have comparable intensities in the VV spectra (FigureD), but the VH signal
+at the excitation wavelength is dominated by the ORF with no significant
+scattering contribution (FigureF).
+
+The kinetic MLPS data enable simultaneous
+quantification of TSPP
+UV–vis extinction at the excitation wavelengths (FigureA and B), polarization-resolved scattering (FigureC and D), and fluorescence
+emission intensities (FigureE and F). Additionally, it allows
+for the calculation of scattering and fluorescence depolarizations
+(FigureG and H) by usingeq, all with a temporal resolution of 0.65 s. Obtaining similar
+information using combined UV–vis spectrophotometric and spectrofluorometric
+measurements would require at least 5 min at each temporal point,
+showing that the MLPS spectrometer offers a more than 400-fold improvement
+in temporal resolution. While the correlation between the structural
+evolution of TSPP assemblies and the kinetics of MLPS spectral features
+requires further investigation, the proof-of-concept application presented
+here demonstrates MLPS’s potential to revolutionize optical
+spectroscopic studies of dynamic systems, where existing optical tools
+remain inadequate.
+
+Time-courses of (A and B) UV–vis extinction, (C
+and D) scattering
+VV and VH intensity, (E and F) VV and VH fluorescence emission at
+718 nm, and (G, H) the scattering and fluorescence depolarization
+deduced from the data presented inFigure.
+
+This work introduces and
+characterizes a multitrack linearly polarized
+spectrometer (MLPS), a CCD-based optical system designed for simultaneous
+kinetic UV–vis, scattering, and photoluminescence measurements
+with high temporal resolution. Unlike conventional optical spectroscopic
+tools that often deliver fragmented data, MLPS enables the concurrent
+quantification of UV–vis extinction, polarization-resolved
+scattering, and fluorescence intensities, as well as scattering and
+fluorescence depolarizations, thereby overcoming limitations in studying
+dynamic systems. By integrating fiber-coupled spectral acquisition,
+polarization-resolved detection, and a multitrack CCD sensor, MLPS
+allows for a more comprehensive and accurate spectral analysis than
+was previously possible. The MLPS system’s performance was
+evaluated through a series of benchmarking experiments, comparing
+it to commercial UV–vis spectrophotometers and spectrofluorometers.
+The results demonstrate that MLPS achieves wavelength reproducibility
+better than 0.5 nm across the 400–700 nm range, which is sufficient
+precision for most photoactive material studies. Additionally, the
+system shows near-unity responsivity between its two sideward polarization
+tracks, significantly minimizing polarization bias and enabling accurate
+scattering and fluorescence depolarization measurements. The application
+of a newly developed cosmic spike removal algorithm further enhances
+the reliability of kinetic spectral acquisitions, making the MLPS
+particularly suited for studying rapid photophysical processes. A
+key demonstration of MLPS’s capabilities involved the real-time
+monitoring of porphyrin self-assembly, where its high temporal resolution
+(subsecond) provided unprecedented insights into the structural and
+optical evolution of dynamic molecular systems. Beyond its demonstrated
+applications, the MLPS framework has the potential to significantly
+advance research in nanomaterials, biointerfaces, and photophysics,
+where precise, time-resolved optical characterization is critical.
+Future optimizations may include extending the spectral range, improving
+the temporal resolution, and integrating real-time corrections for
+spectral distortions. Overall, this study establishes MLPS as a powerful
+and versatile tool for next-generation optical spectroscopy, paving
+the way for more accurate and holistic investigations of dynamic material
+systems. Additionally, the instrument characterization and data preprocessing
+techniques presented here provide valuable insights into the development
+of future multitrack CCD-based spectrometers.
+
+The authors acknowledge the support by the NSF under
+Grant NSF 2203571. The content is solely the responsibility of the
+authors and does not necessarily represent the official views of National
+Science Foundation.
+
+The Supporting Information is
+available free of charge athttps://pubs.acs.org/doi/10.1021/acsmeasuresciau.5c00022.
+
+Rongjing
+Yan: Data acquisition, instrument performance experiments,
+data analysis, writing – review – editing.Pathum
+Wathudura: TSPP kinetic experiments, instrument troubleshooting,
+writing – review.Qiang Hao: Instrument construction,
+writing – review.Max Wamsley: Initial instrument
+setup.Willard E. Collier: Writing – review.Dongmao Zhang: Research project supervision, conceptualization,
+funding acquisition, instrument design, supervision, writing –
+original draft, review, and editing.
+
+R.Y. and
+Q.H.: Equal contribution. CRediT:Rongjing Yaninvestigation,
+software, validation, visualization, writing - original
+draft, writing - review & editing;Qiang Haoinvestigation,
+methodology, writing - original draft, writing - review & editing;Pathum Wathudurainvestigation, software;Max Wamsleyinvestigation, methodology, software;Willard E. Collierwriting - review & editing;Dongmao Zhangconceptualization,
+formal analysis, funding acquisition, investigation, methodology,
+project administration, resources, software, supervision, validation,
+visualization, writing - original draft, writing - review & editing.
+
+The
+authors
+declare no competing financial interest.

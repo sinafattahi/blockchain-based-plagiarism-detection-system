@@ -1,0 +1,211 @@
+This work presents a novel approach for high-efficiency modeling of composite halide perovskite solar cells using the Fractional Differential Quadrature (FDQ) method. The FDQ method is applied to solve the governing equations derived from continuity and Poisson equations describing charge transport in a specific perovskite structure (PCBM/CH3NH3GeI3/CuI) solar cell. Our simulations demonstrate high accuracy with an error margin of 10⁻⁸ compared to experimental data and significant computational efficiency compared to other experimental and numerical methods. A detailed parametric study investigated the influence of temperature, layer thickness, charge carrier mobilities, and bandgaps on key performance indicators, including short-circuit current (Jsc), open-circuit voltage (Voc), fill factor (FF), and power conversion efficiency (PCE). Key findings include a maximum Jsc with a 300 nm increase in HTL thickness, a 7.5% decrease in PCE with a 50 nm increase in ETL thickness. These results provide valuable insights for optimizing the design and fabrication of high-performance composite halide perovskite solar cells and demonstrate the potential of the FDQ method as a powerful tool for device modeling and optimization.
+
+The literature surrounding perovskite solar cell technology has evolved significantly over the past several years, reflecting advancements in efficiency, stability, and material composition. In the foundational work by1, the authors emphasize the exceptional properties of perovskite solar cells compared to traditional thin-film technologies, particularly through interface engineering. They highlight the importance of optimizing interfacial work functions and charge transport capabilities, while also addressing challenges such as film morphology and lead toxicity, which continue to hinder large-scale applications. Building upon these insights2, provide an integrated lifecycle assessment that underscores the remarkable efficiency of single-junction devices reaching 27%. Their review situates perovskite technology within the broader landscape of photovoltaic advancements, reinforcing the notion that perovskite solar cells are not only cost-effective but also capable of achieving high efficiencies comparable to silicon-based alternatives. This work is pivotal in establishing a more accurate representation of the current state of perovskite technology. Tang et al.3further contribute to the discourse by documenting the rapid rise in efficiency of perovskite-based solar cells, from a mere 3.8% in 2009 to 22.1% in 2016. Their analysis highlights the environmental friendliness and low-cost potential of halide perovskites, while also addressing the critical issue of stability, which remains a barrier to commercialization.
+
+In the following year, Shen et al.4discuss the evolution of tandem designs in perovskite photovoltaics, noting certified efficiencies for single-junction cells reaching 23%. Their findings illustrate the significant progress made in integrating perovskite materials with silicon, demonstrating the potential for enhanced performance through tandem configurations. Dharmadasa et al.5provide a deep analysis of the efficiency metrics of perovskite solar cells, documenting experimental efficiencies between 14–15%. They emphasize the unique physical properties of perovskite materials, which have led to substantial improvements in device performance over a short period. Nevertheless, they also caution about the ongoing challenges related to stability and toxicity. Shi et al.6identify hybrid organic-inorganic perovskite solar cells as a burgeoning area of research, highlighting their advantages in light absorption and carrier diffusion. Their review critically examines the barriers to commercialization, including stability and lead toxicity, and proposes future research directions to address these challenges.
+
+The work of Trivedi et al.7introduces advancements in the growth of high-quality single-crystal perovskite films, which are pivotal for achieving photovoltaic parameters close to theoretical limits. They emphasize the need for novel growth techniques and interface engineering to further enhance efficiency, which has already surpassed 21% for single-crystal devices. Siegrist et al.8reiterate the significance of the recent achievement of 27% efficiency in single-junction devices, reinforcing the narrative of continuous improvement in perovskite technology. Their work highlights the necessity for updated methodologies and materials to maintain this upward trajectory. Chiang et al.9delve into the optimization of dual-interface designs in all-perovskite tandem solar cells, showcasing the potential for multi-junction configurations to exceed the efficiency limits of single-junction cells. They advocate for innovative deposition methods to facilitate scalability and modularity in production. Finally, Yekra et al.10explore the promising domain of lead-free mixed halide double perovskites, presenting a novel approach to enhancing the structural stability and efficiency of solar cells. Their findings indicate that CsTiIBr demonstrates significant potential, with reported efficiencies of 13.31%, paving the way for sustainable solar energy solutions.
+
+Stoumpos et al.11are the first using halide perovskiteand noticing its structure composed of strong nonlinear optical features and greatly distorted construction. Krishnamoorthy et al.12used the perovskite materials of lead-free Ge iodide and illustrated a strong potential in the applications of photovoltaic. Many studies described that the doping metal (Ge) mixed with (Pb) gives higher efficiency (26%)13–16. Due to the instability and toxicity of lead halide perovskites17,18, germanium (Ge) is being explored as a substitute for lead and tin in perovskite solar cells, as it shares the same subgroup19,20. The transport layers of solar cell are capable of decreasing the recombination of carriers at the boundary surfaces, which make the solar cell stability and efficiency increase. Several transport layers play a vital role in enhancing the solar cells performance. Hole transport layers (HTL) and electron transport layers (ETL) are the furthermost significant layers21–23. In this research, CH3NH3Gel3are used as a faultless light absorber in perovskite solar cells inserted between PCBM as ETL and CuI as HTL.
+
+Experimentally, the performance of a halide perovskite solar cell inserted between two transport layers of electron and hole is analyzed recently by several researches. the influence of hole transport layer on halide perovskite solar cell mechanism was investigated by Kanoun et al.24. Hossain et al.25produced an efficiency about 24% using CH3NH3PbI3 based solar cells with different HTL including Spiro-OMETAD, NiO, CuI, CuSCN, and Cu2O by wxAMPS and SCAPS software. Subbiah et al.26studied the inorganic HTL for perovskite solar cell experimentally. Kirchartz et al.27introduced experimental results with respect to recombination and open-circuit voltages in lead-halide perovskites. Belayachi et al.28experimentally studied the partial substitution of lead iodide (PbI2) with the inorganic compound copper iodide (CuI) to enhance the solar cell stability. Wang et al.29used SnO2electron transport layer in perovskite solar cell and managed the band structure defects by using cobalt chloride hexahydrate (CoCl2·6H2O). They achieved an efficiency of 23.82% at gap energy of 1.54eV. Elseman al30. produced an experimental study for analysis the impact of various halides on planar perovskite solar cell performance. Bajorowiczet al.31produced experimental study to provide an insight into improving lead-free inorganic halide perovskite with stimulating optical and photo catalytic features. Haider et al.32illustrated an analytical analysis for effecting thickness of HTL on perovskite solar cell and realized 21.06% efficiency.
+
+Numerically, the performance of a halide PSCs inserted between two layers (HTL-ETL) is analyzed recently by several researches. Burgelman et al.33presented a simulation of halide perovskite solar cell using 1D-Solar Cell Capacitance Simulator software (SCAPS). Finite difference method is employed to study the properties of solar cell current and voltage by Van Reenen et al.34. Ravishankar et al.35applied method of least-squares for investigating the model of surface polarization of perovskite solar cell. As well as, they offered detailed analysis for PSCs at both states (steady/transient). Two numerical techniques (finite element/difference) were applied to solve motion of ion vacancy in PSC model by Courtier et al.36. Also, they showed that finite element scheme is best for calculating the efficiency. Finite element technique is applied to explain the modified structure of perovskite solar cell which leads to efficiency of 17.5%. Ragb et al.37,38applied differential quadrature (DQ) method with several shape functions and achieved accurate results using less grid points. Also, they achieved efficiency about 32% for perovskite solar cell.
+
+In this research, Fractional Differential Quadrature (FDQ) method is employed by using discrete singular convolution shape function with two kernels to analyze the composite halide PSC (PCBM/CH3NH3GeI3/CuI) performance. This scheme is introduced for the halide PSC to achieve higher efficiency. Then, we convert them to nonlinear algebraic system by using FDQ and block marching methods39. Also, we apply the iterative technique to overcome nonlinearity problem37,40,41. With the aid of the MATLAB program, we obtain an efficient and accurate results compared with preceding experiment and numerical studies. Subsequently, we introduce a parametric study including the effects of temperature, thickness of various layers, mobilities, and energy gaps on power conversion efficiency, open circuit voltage, fill factor, and current density of composite halide PSC.
+
+The model contains of halide perovskite CH3NH3GeI3 as absorber layer inserted between two layers. These layers are electron transport layer (ETL- PCBM) and hole transport layer (HTL-CuI)32,34–36,42–45as illustrated in Fig.1.
+
+Schematic of halide perovskite layer inserted between (ETL-PCBM) and (HTL-CuI).
+
+VTis the thermal voltage. The ion vacancy, electron, and hole diffusion coefficients of halide perovskite material are denoted by,, and, respectively.
+
+N0signs to density of ion vacancies, NEis electron dopant concentration, NHis hole dopant concentration andsigns to halide perovskite permittivity.
+
+signs to incident photon flux. Also,expresses the coefficient of absorption.
+
+whereare electron, hole lifetimes. The measurement of electron and hole lifetimes in perovskite materials is crucial in perovskite research. Photoluminescence (PL) decays and transient absorption (TA) spectroscopy are key techniques for quantifying these lifetimes46. PL methods analyze emitted light to understand carrier dynamics and defect contributions, with studies on triple-cation perovskites showing that low-repetition-rate techniques are needed to capture long PL decay times47. TA spectroscopy observes changes in absorption to study transient electron and hole states and distinguish between recombination channels. Accurate lifetime determination requires considering all mechanisms, potentially using non-adiabatic molecular dynamics (NAMD) simulations to account for defect density and recombination. Addressing challenges in experimental techniques and discrepancies in radiative recombination coefficients is vital for advancing perovskite materials for solar cells and optoelectronics.
+
+Defect density is a crucial factor affecting the optoelectronic properties and performance of perovskite materials in solar cells and LEDs. Halide ions, crystal structure, and processing conditions influence the defect landscape. Defects can trap charge carriers and reduce their mobility, while increasing the dielectric constant can mitigate defect impacts. Recent techniques like Laplace current deep level transient spectroscopy allow detailed defect state measurements. Molecular passivators can reduce defect densities and enhance device performance by minimizing non-radiative recombination. Managing defect density is essential for developing high-performance perovskite materials and their commercial adoption48. When examining a grain size (L) of approximately 300 nm, the derived surface defect density approximates 1016cm−3, aligning closely with experimental findings in the field. The critical insights collected from the analysis of defect densities in perovskite materials illuminate the necessity of controlling grain size to control defect densities, ultimately enhancing the performance of perovskite solar cells. This line of inquiry not only deepens our understanding of defect dynamics in perovskites but also informs future strategies for material optimization in photovoltaic applications.
+
+where Rland Rrare the surface recombination rates.is the Electron/Hole recombination velocity at interfaces.
+
+whereis the effective doping density for electrons,is the diffusion coefficient of electrons andexpresses the permittivity of ETL.
+
+whereis hole effective doping density andexpresses the permittivity of HTL.
+
+where the applied voltage is represented byand the built-in voltage by.
+
+are minimum conduction band and maximum valence band respectively.expresses the band of conduction andexpresses the band of valence.express Fermi level for electron and hole.
+
+By puttingin Eqs. (1,2,3,11,15), we can obtain the initial values where the previous governing equations are at steady state.
+
+Firstly, Discrete singular convolution differential quadrature (DQ) method combined with the technique of block-marching to analyze the halide perovskite CH3NH3GeI3 layer inserted between two layers (Electron transport layer- Hole transport layer) at32,34–36,42–45.
+
+whereis a kernel of singular andexpress the trial function space part.
+
+This research employed the undefinedwith its correspondingas an approach where the function is represented by a weighted linear sum of nodal values,, as described in51–54.
+
+Similarly, at this kernel, the unknownwith its correspondingis approximated by a weighted linear sum of nodal values,, as described in51–54.
+
+After this conversation, it’s shown that selection the suitable kernel, bandwidth (2 M + 1) and grid points (N) play a dynamic role in obtaining the most accuracy results.
+
+In order to solve the governing equations of the model at transient state, the block-marching technique is augmented with discrete singular convolution differential quadrature method. The time domain is distributed into some time intervals. Every block includes one intervalat z-direction from 0 to Lz.
+
+where K signs to the order of block, N is the grid point in z direction andsigns to the block time level.
+
+whereexpresses the weighting coefficient of 1stderivative with respect to time.
+
+Now, there is nonlinear algebraic system contains three Eqs. (29–31) with unknowns of (E, JE,) resolved to cultivate the values of (E, JE,) at ETL.
+
+Also, there is nonlinear algebraic system contains three Eqs. (32–34) with unknowns of (H, JH,) resolved to cultivate the values of (H, JH,) at HTL.
+
+Then, Discrete singular convolution differential quadrature (DSC-DQ) method combined with the technique of block-marching to analyze the problem at. This work delves into the realm of fractional derivatives, a mathematical concept characterized by diverse definitions. This study will focus on the Caputo fractional derivative, widely recognized as the most prevalent definition within the field.
+
+Building upon the foundation of the Riemann–Liouville fractional derivative56, Caputo introduced a novel definition for fractional derivatives. This definition, now widely recognized as the Caputo fractional derivative, is formally expressed in the following equation, as detailed by Weilbeer57.
+
+The Caputo fractional derivative, a refinement of the Riemann–Liouville approach, involves a distinct computational procedure. Unlike direct fractional differentiation, the Caputo method first applies an integer-order derivative to the function and then performs fractional-order integration. This approach offers several advantages, particularly when dealing with functions that have initial conditions involving integer-order derivatives.
+
+The notationdenotes the Caputo fractional derivative of order λ of the functionwith respect to time (t), where the integration commences at the point. This derivative provides a generalized representation of how the functionevolves over time, extending beyond the conventional concept of integer-order derivatives.
+
+When, the Caputo fractional derivative reduces to the standard integer-order derivative.
+
+Differential quadrature method is employed by using discrete singular convolution shape function to analyze the performance of a halide perovskite solar cell composed with electron and hole transport layers (PCBM/CH3NH3GeI3/CuI). The results are compared with previous experimental studies and prove high accuracy and efficiency with error of.
+
+Common materials proprities used in this model are taken from previous experimental studies32,34–36,42–45as shown in Table1.
+
+The common parameters used for a halide perovskite inserted between electron and hole transport layers.
+
+Table2indicates that the values of current density (J) matches with other previous studies with the increase in grid points (). At, the results approve the experiment32,58,59, numerical37–45, SCAPS-1D42,43, and theoretical32results, attime of performance.
+
+Current Density in Halide Perovskites: Thickness Dependence Analyzed by DSC-DQ with DLK at Varying Grid Points (N), Compared to Prior Studies.
+
+By changing the value of regularization factor () fromto, the results match with previous experiment30,32,60, numerical37–45, SCAPS-1D simulator42,43, and theoretical32studies at grid points, time of performance 8.15 s,,, and error of.
+
+Variation of current density (A/m2) using DSC-DQ Method with RSK at several band width, grid point, and regularization factor at L = 600 nm and.
+
+Current Density in Halide Perovskites: Thickness Dependence Analyzed by DSC-DQ with RSK at Varying Grid Points (N), Compared to Prior Studies.
+
+The number of blocks has been changed with time as shown in Table5to indicate the suitable number which will give high accuracy. Table5shows that the values of fill factor (FF %) and power conversion efficiency (PCE %) matches with previous experimental results atabove block numberand 8.3 s time of performance.
+
+Variation of Fill factor (FF) and efficiency (PCE) with time using DSC-DQ Method based on RSK at.
+
+where J represents solar radiation intensity and A denotes the area.
+
+Table6shows that the values of fill factor (FF %) and power conversion efficiency (PCE %) matches with previous experimental results atfor more than or equal 7 blocks and within 7.1 s of execution time. So, more time levels in the block (lead to analyze the performance and PCE of composite solar cells with more efficient and accuracy.
+
+Variation of Fill factor (FF) and efficiency (PCE) with time using DSC-DQ Method based on RSK at.
+
+Table7shows that the values of fill factor (FF %) and power conversion efficiency (PCE %) matches with previous experimental results atover number of blocksand within 7.1 s of execution time. So, reducing the fractional orders lead to analyze the performance and PCE of composite solar cells with more efficient and accuracy.Tables5,6,7indicate that block marching technique depends on choosing suitablein order to get high efficiency and accuracy results.
+
+Variation of Fill factor (FF) and efficiency (PCE) with time using DSC-DQ Method based on RSK at.
+
+Tables2,6,7proved that this method is an efficient and accurate method for analyzing the performance of halide perovskite layer composed between ETL and HTL at (number of blocks, N, 2M + 1,,and performance time = 5 s). This methodology is subsequently employed to conduct a parametric study investigating the influence of mobilities (), energy gap (), ETL, HTL, halide perovskite thicknesses (LE, LH, L), and temperatures (T) on current density (J), Fill factor (FF%) open circuit voltage (Voc) and efficiency (PCE) of a composite solar cell.
+
+Figure2show the vital role that temperature, ETL thickness, and HTL thickness play to change the current density (J) value. So, increasing the temperature leads to increase the current density as shown in Fig.2. Also, increasing HTL thickness leads to increase the current density, but increasing ETL thickness leads to decrease the current density. To get high current density, we should use low ETL thickness nearly LE= 50 nm and high HTL thickness nearly LH= 300 nm at high temperature over 500 k.
+
+Effect of temperature (T) on the current density (J) at different thicknesses of (a) electron transport layer (LE) and (b) hole transport layer (LH) for PCBM/CH3NH3GeI3/CuI solar cell at.
+
+Also, Fig.3show the vital role that temperature, ETL thickness, and HTL thickness play to change the open circuit voltage (Voc) value. So, increasing the temperature leads to decrease the open circuit voltage. Increasing HTL thickness leads to increase the open circuit voltage, but increasing ETL thickness leads to decrease the open circuit voltage. To achieve high open-circuit voltage, it is recommended to utilize a thin Electron Transport Layer (ETL) with a thickness of approximately 50 nm, coupled with a thicker Hole Transport Layer (HTL) of approximately 300 nm, while operating at a low temperature of around 250 K.
+
+Effect of temperature (T) on the open circuit voltage (Voc) at different thicknesses of (a) electron transport layer (LE) and (b) hole transport layer (LH) for PCBM/CH3NH3GeI3/CuI solar cell at.
+
+Figure4show how the temperature, ETL thickness, and HTL thickness effect on changing the Fill factor (FF %) value. So, increasing the temperature leads to decrease the Fill factor as shown in Fig.4. Also, increasing HTL thickness leads to decrease the Fill factor, but increasing ETL thickness leads to increase the Fill factor. So, to get high Fill factor value, we should use high ETL thickness nearly LE= 300 nm and low HTL thickness nearly LH= 50 nm at low temperature about 250 k.
+
+Effect of temperature (T) on the Fill factor percentage (FF%) at different thicknesses of (a) electron transport layer (LE) and (b) hole transport layer (LH) for PCBM/CH3NH3GeI3/CuI solar cell at.
+
+For Power Conversion Efficiency (PCE %) Fig.5show the effect temperature, ETL thickness, and HTL thickness on changing the Power Conversion Efficiency (PCE %) value. Increasing the temperature leads to decrease the Power Conversion Efficiency as shown in Fig.5. Also, increasing HTL thickness and ETL thickness lead to decrease the Power Conversion Efficiency. So, to get high Power Conversion Efficiency value for this composite solar cell, we should use low thickness for ETL and HTL nearly (LE = LH = 50 nm) at low temperature about 250 k.
+
+Effect of temperature (T) on the Power Conversion Efficiency (PCE %) at different thicknesses of (a) electron transport layer (LE) and (b) hole transport layer (LH) for PCBM/CH3NH3GeI3/CuI solar cell at.
+
+Figure6illustrates the critical influence of halide perovskite absorber layer thickness on key photovoltaic parameters: open-circuit voltage (Voc), fill factor (FF), current density (J), and power conversion efficiency (PCE). Analysis reveals that increasing the halide layer thickness generally leads to a decrease in open-circuit voltage and fill factor, while simultaneously increasing current density and power conversion efficiency.
+
+Effect of temperature (T) and halide perovskite layer thickness (L) on (a) the open circuit voltage (Voc), (b) the Fill factor (FF%), (c) the current density (J), and (d) the Power Conversion Efficiency (PCE %).
+
+Finally, Fig.7illustrate the influence of different mobilities and gap energies on the current density (J), the open circuit voltage (Voc), the Fill factor (FF %), and the Power Conversion Efficiency (PCE %) values. It is noticed that the increase in electron and hole mobilities lead to decrease open circuit voltage, but increase the Fill factor, the current density, and the Power Conversion Efficiency. Also, the increase in gap energy leads to increase open circuit voltage, but decrease the Fill factor, the current density, and the Power Conversion Efficiency. So, to get high Fill factor, current density and Power Conversion Efficiency, we should use high mobilities at low gap energy as shown in Fig.7, but low mobilities at high gap energy to get high open circuit voltage.
+
+Effect of mobilities () and gap energy (Egap) on (a) the current density (J), (b) the open circuit voltage (Voc), (c) the Fill factor (FF%), and (d) the Power Conversion Efficiency (PCE %).
+
+Figure8illustrates the dependence of current density variance on voltage for different ETL and HTL thicknesses, respectively. As the ETL thickness increased, a general trend of reduced variance at higher voltages was observed, suggesting improved charge transport efficiency. For instance, at 0.8 V, the variance for ETL thicknesses of 50 nm, 100 nm, and 150 nm was approximately 0.25 mA2/cm4, 0.15 mA2/cm4, and 0.10 mA2/cm4, respectively. This indicates that a thicker ETL facilitates more consistent charge extraction and reduces recombination losses.
+
+Effect of varying (a) ETL and (b) HTL thicknesses on variance of the density of current with voltage at PCBM/CH3NH3GeI3/CuI solar cell..
+
+In contrast, increasing HTL thickness showed a more complex relationship, with an optimal thickness yielding the lowest variance. At 0.8 V, HTL thicknesses of 30 nm, 60 nm, and 90 nm resulted in variances of about 0.20 mA2/cm4, 0.08 mA2/cm4, and 0.12 m3.
+
+A2/cm4, respectively. This suggests that while very thin or very thick HTLs can lead to imbalances or increased recombination, a mid-range thickness optimally supports balanced charge extraction.
+
+The analysis demonstrates that both ETL and HTL thicknesses play vital roles in determining the uniformity and efficiency of current transport in perovskite solar cells. Optimizing these thicknesses can lead to significant improvements in device stability and performance.
+
+Figure8-a: Simulated graph showing the effect of varying ETL thickness (30 nm, 50 nm, 100 nm, 150 nm, 200 nm) on current density variance with voltage (0–1.2 V). The graph shows that as ETL thickness increases, the current density variance consistently decreases across the voltage range, indicating improved charge extraction and reduced recombination with thicker ETLs.
+
+Figure8-b Simulated graph showing the effect of varying HTL thickness (20 nm, 40 nm, 60 nm, 80 nm, 100 nm) on current density variance with voltage. At 0.8 V, the variance is lowest for 60 nm, suggesting an optimal HTL thickness that balances charge mobility and recombination.
+
+Figure9presents the J-V curves of the perovskite solar cell at different temperatures for two different gap energies: (a) Egap= 1.55 eV and (b) Egap= 1.35 eV. The figure clearly shows the impact of temperature on the J-V curves. As temperature increases, both the short-circuit current (Jsc) and the open-circuit voltage (Voc) decrease. This is consistent with the expected behavior of solar cells, as higher temperatures generally lead to increased thermal losses and reduced efficiency. Comparing the two plots, we can observe the effect of gap energy on the J-V curves. The shape of the curves and the magnitude of Jsc and Voc are different for the two gap energies. This highlights the importance of tuning the gap energy to optimize solar cell performance.
+
+The impact of different temperatures on variance of the density of current with voltage at different gap energies (a)andb)..
+
+Our parametric studies (e.g., as shown in Fig.6and Table4indicate that the device performance is highly dependent on parameters such as layer thickness and material properties. So, the future work will involve using optimization algorithms, in conjunction with our FDQ simulation, to identify the optimal combination of these parameters. This could include a sensitivity analysis to determine which parameters have the most significant impact on efficiency, allowing for a more targeted optimization approach.
+
+The model can be used to explore the impact of different materials for the ETL and HTL layers, in addition to the CH3NH3GeI3 absorber, to identify configurations that maximize efficiency.
+
+Further simulations will be designed to investigate the impact of interface modifications between the layers, which can significantly affect charge transport and recombination.
+
+Fabricate devices with the optimized parameters identified through our simulations.
+
+Characterize the device performance (J-V curves, efficiency) and compare the results with our simulation predictions.
+
+Systematically vary the parameters around the optimized values to experimentally verify the sensitivity analysis.
+
+While a precise prediction of the ultimate efficiency improvement is challenging without experimental validation, we believe this combined simulation-experimental approach will lead to significant progress in optimizing perovskite solar cell performance.
+
+Like other global spectral methods, the computational cost of the FDQ method can increase significantly for problems with a large number of spatial dimensions. For very complex 3D simulations, other methods might become more efficient.
+
+Applying the FDQ method to problems with highly complex or irregular geometries can be challenging. Grid generation and implementation of boundary conditions can become more intricate compared to finite element or finite volume methods.
+
+While the FDQ method can be used for time-dependent problems, it might require careful selection of time integration schemes to ensure stability and accuracy. For certain highly transient problems, other methods might be preferred.
+
+The presence of strong singularities in the solution domain can reduce the accuracy of the FDQ method. Special techniques might be needed to handle such situations.
+
+In the context of our perovskite solar cell simulations, we acknowledge that the current study focuses on 1D simulations. Extending the FDQ method to more complex 2D or 3D device structures would require addressing the computational cost and geometry limitations. We have added a discussion of these limitations to provide a more complete picture of the method’s applicability.
+
+The paper focuses on modeling the performance of composite halide perovskite solar cells using the Fractional Differential Quadrature (FDQ) method. While the paper extensively discusses the impact of bandgap on the solar cell’s efficiency, it does not detail experimental methods for adjusting the bandgap of CH3NH3GeI3. The paper’s strength lies in its simulation and modeling, not in providing practical experimental synthesis procedures.
+
+Alloying/Mixed Halides: The most common method for bandgap engineering in perovskites is to create alloys by mixing different halides. For CH3NH3GeI3, this would involve partially substituting iodine (I) with other halides like bromine (Br) or chlorine (Cl). The resulting material would be CH₃NH₃GeI₃₋xBrxor CH₃NH₃GeI₃₋xClx, where ‘x’ represents the molar fraction of the substituted halide. Increasing ‘x’ typically leads to a wider bandgap (higher energy). This requires careful control of the precursor ratios during synthesis.
+
+Cation Engineering: Similar to halide substitution, the bandgap can be modified by partially substituting the organic cation (CH₃NH₃⁺) with other organic or inorganic cations. This approach is more complex, potentially leading to changes in crystal structure and stability besides bandgap. The choice of substitute cation and its concentration would need careful consideration.
+
+Quantum Dots: Synthesizing CH3NH3GeI3 quantum dots (QDs) allows for bandgap tunability through quantum confinement effects. The size of the QDs directly influences the bandgap; smaller QDs lead to a wider bandgap. However, this method requires specialized QD synthesis techniques.
+
+Strain Engineering: Applying strain to the CH3NH3GeI3 film could potentially alter the bandgap. This is a more advanced technique requiring careful control of substrate choice and deposition methods.
+
+Synthesis: Precisely control the synthesis of CH3NH3GeI3 with varying halide or cation compositions (or QD size, if using that method). Techniques like solution-based methods (e.g., spin-coating) or vapor deposition could be employed. Careful characterization of the resulting films is crucial using techniques like X-ray diffraction (XRD) to confirm the crystal structure and composition, and UV–Vis spectroscopy to measure the bandgap.
+
+Device Fabrication: Fabricate perovskite solar cells using the synthesized materials, incorporating the ETL (PCBM) and HTL (CuI) layers as described in the paper. Standard perovskite solar cell fabrication techniques would be used.
+
+Characterization: Measure the J-V characteristics of the fabricated devices under standard illumination conditions. Extract parameters like Jsc, Voc, FF, and PCE. Compare the experimental results with the FDQ simulation results for varying bandgaps.
+
+Further Analysis: Conduct additional characterizations like impedance spectroscopy and photoluminescence spectroscopy to gain deeper insights into charge transport and recombination processes at different bandgaps.
+
+It’s important to note that successfully modifying the bandgap while maintaining the stability and other desirable properties of the perovskite material is a significant challenge. The experimental work would require expertise in materials synthesis and characterization, as well as device fabrication techniques.
+
+To measure the amount of hysteresis in a device for a given voltage sweep method, we calculate a“hysteresis factor”. This factor is determined by taking the absolute difference between the area under the forward-scan J-V curve and the area under the reverse-scan J-V curve, then dividing that result by the area under the reverse-scan curve.
+
+Diagram showing the definition of the hysteresis factor (HF).
+
+Fractional order models may provide a more accurate description of these transport processes compared to traditional integer-order models, potentially leading to improved predictions of PCE.
+
+By incorporating fractional order derivatives into device models, researchers can gain a deeper understanding of trap state behavior and develop strategies to minimize their detrimental effects.
+
+By incorporating fractional order derivatives into stability models, researchers can gain insights into the long-term performance and degradation mechanisms of these devices.
+
+To maximize current density, it is generally beneficial to employ a thicker halide perovskite layer (approximately L = 1000 nm), a thinner Electron Transport Layer (ETL) with a thickness of around LE = 50 nm, and a thicker Hole Transport Layer (HTL) with a thickness of approximately LH = 300 nm, while operating at elevated temperatures exceeding 500 K.
+
+To maximize open-circuit voltage, it is generally advantageous to utilize a thinner halide perovskite layer (approximately L = 200 nm), a thinner Electron Transport Layer (ETL) with a thickness of around LE = 50 nm, and a thicker Hole Transport Layer (HTL) with a thickness of approximately LH = 300 nm, while operating at lower temperatures around 250 K.
+
+To maximize fill factor (FF), it is generally advantageous to utilize a thinner halide perovskite layer (approximately L = 200 nm), a thicker Electron Transport Layer (ETL) with a thickness of around LE = 300 nm, and a thinner Hole Transport Layer (HTL) with a thickness of approximately LH = 50 nm, while operating at lower temperatures around 250 K.
+
+To maximize power conversion efficiency (PCE), it is generally advantageous to employ a thicker halide perovskite layer (approximately L = 1000 nm), while simultaneously utilizing thinner Electron Transport Layers (ETL) and Hole Transport Layers (HTL), each with a thickness of around LE = LH = 50 nm. Optimal PCE is typically achieved at lower operating temperatures, around 250 K.
+
+To optimize device performance, a nuanced approach to carrier mobility is necessary. High carrier mobilities are generally desirable for enhancing fill factor (FF), current density (Jsc), and ultimately, power conversion efficiency (PCE), particularly within materials exhibiting low bandgap energies. Conversely, in materials with higher bandgap energies, lower carrier mobilities can contribute to an increase in open-circuit voltage (Voc).
+
+It is expected that this method and their results are benefit for increasing the efficiency of solar cell energy. Future research should focus on experimentally validating the predictions of this model through physical fabrication and further investigations. The development of an extended time-dependent FDQ model, rigorously incorporating ion migration and capable of simulating hysteresis, is a crucial and promising direction for our future research efforts. Moreover, fractional order models offer a promising avenue for optimizing device parameters and material selection to achieve enhanced power conversion efficiency (PCE).

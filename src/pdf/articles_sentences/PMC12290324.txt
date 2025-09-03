@@ -1,0 +1,226 @@
+Multispectral leaf canopy reflectance as measured by unmanned aerial vehicles is the result of genetic and environmental interactions driving plant physiochemical processes.
+These measures can then be used to construct relationship matrices for modeling genetic main effects.
+This type of phenotypic prediction is particularly relevant for trials with many entries, such as those used in early generation potato (Solanum tuberosum) breeding.
+We compared three methods for making predictions in our potato breeding program: first, using multispectral‐derived relationship matrices; second, using the traditional approach based on genomic derived relationships; and third, using a combination of both.
+Multispectral bands were collected at five different time points for two market classes of potato: chipping and fresh market.
+We modeled genetic main effects for yield and quality traits at each time point and all stages combined.
+Models with multispectral relationship matrices exhibited better prediction accuracy for yield and roundness than genomic only models and models featuring spectra plus genomic kernels outperformed both single‐kernel predictions in terms of accuracy for most traits.
+Time points were variably informative depending on the trait measured, however, for all traits combining across time points performed as well or better than single time point models.
+Similarly, using feature selection to limit our models to important variables did not improve prediction accuracy significantly.
+This work highlights two potential uses for spectral data in genomic prediction: first, as an alternative to genetic data and second, in combination with genetic data to increase precision of selection.
+Using multispectral drone imagery generates more accurate potato yield predictions for genomic selection.
+Prediction of yield, shape, skin color, and specific gravity is improved by combining phenomic and genomic data.
+Combining spectral data across time points generates the best predictions for all traits.
+Limiting the models to key variables does not improve prediction as compared to models including all the data.
+Cultivated potato (Solanum tuberosumL.)
+is the most consumed nongrain crop in the world (FAO,2024).
+However, breeding progress, particularly for yield, has been slow in comparison to other staple crops (Douches et al.,1996; Jansky,2009).
+This is in part due to US cultivated potato's clonal nature and its highly heterozygous (Hardigan et al.,2017; Hoopes et al.,2022; Tuttle et al.,2024) autotetraploid genome.
+Historically, potatoes have been bred using F1 crosses followed by approximately a decade of winnowing through selection to identify potential varieties (Bradshaw,2017; Jansky,2009).
+In many programs, F1 seed is generated in greenhouses and then ramped up in small seed increase plots for 2 years before there is sufficient seed for a preliminary yield trial.
+When breeders rely on traditional phenotypic selection, this results in 5–7 year breeding cycles.
+Marker‐assisted selection (MAS) can speed the breeding process (Ortiz,2020; Slater et al.,2016).
+Genetic markers applied within the first or second field year offer greater efficiency over traditional visual screening methods (Bradshaw,2017).
+While MAS can be highly efficient, its effectiveness is generally limited to traits with simple genetic architecture and few large‐effect genes, such as self‐compatibility (Clot et al.,2020; Kaiser et al.,2021), maturity (Gutaker et al.,2019; Kloosterman et al.,2013), oblong versus circular shape (Endelman et al.,2024; van Eck et al.,2022), and disease resistance (Asano & Endelman,2023; Herrera et al.,2018; Meade et al.,2020; Nie et al.,2016; Prodhomme et al.,2019).
+For complex traits genomic selection (GS) can be effective at increasing genetic gain and shortening breeding cycles (Endelman et al.,2018; Gemenet et al.,2020; Habyarimana et al.,2017; Martins et al.,2023; Slater et al.,2016; Sood et al.,2020; Stich & Van Inghelandt,2018; Yusuf et al.,2024).
+GS estimates genome‐wide marker effects for any given trait using individuals that have been both genotyped and phenotyped within a training population (Meuwissen et al.,2001).
+However, even with decreasing sequencing costs, genotyping the tens of thousands of unique genetic individuals in early generations of potato breeding programs is expensive.
+Moreover, the successful implementation of GS depends on precise and accurate quantitative phenotypes (Yusuf et al.,2024), which remains a bottleneck, especially at the early testing stages of the breeding pipeline.
+Advances in high‐throughput phenotyping (HTP) are expected to alleviate some of these challenges, enhancing the efficiency and accuracy of GS (Hickey et al.,2019; Slater et al.,2016).
+HTP can enhance morphological trait scoring in plant breeding, accelerate the phenotyping processes, and increase precision (Hickey et al.,2019; Shakoor et al.,2017).
+Image‐based phenotyping of tubers has been implemented to develop quantitative measures for quality traits, such as shape and color, in potatoes (Caraza‐Harter & Endelman,2020; Feldman et al.,2024; Miller et al.,2022; Neilson et al.,2021).
+The phenotypic data derived from these images allows for genomic prediction of quality traits (Yusuf et al.,2024).
+Advances in sensor technology, machine learning, and data analytics are further enhancing the efficiency and accuracy of HTP in plant breeding (Hickey et al.,2019).
+Both ground‐based and aerial HTP platforms have been deployed for phenotyping plants, either by directly capturing specific traits or indirectly examining phenotypic differences among plants using spectral reflectance data (Song et al.,2021).
+Aerial phenotyping offers the significant advantage of covering a wider expanse of field trials within a short timeframe.
+One such aerial platform is the unmanned aerial vehicle (UAV), which is equipped with multi‐sensor cameras capable of capturing wavelengths near and beyond the visible spectrum.
+These wavelengths reflect different physiochemical properties related to plant structure, health, and nutrient status based on canopy leaf absorption and reflectance (Alkhaled et al.,2023).
+Studies in several crops have reported significant improvements in prediction accuracy using HTP temporal data, both for direct predictions and within GS models (Abdelhakim et al.,2024; Montesinos‐López et al.,2023; Silva et al.,2022; Xu et al.,2023).
+Despite its benefits, the use of temporal HTP data presents challenges due to its large volume and high dimensionality, which can complicate interpretation and increase computational demands when used directly for prediction.
+An efficient method for GS involves using the genomic best linear unbiased prediction model, where relationship matrices constructed from marker data among individuals are used as covariance in a GS model to estimate genomic estimated breeding values (VanRaden,2008).
+This approach can be extended to incorporate multispectral data in a similar manner.
+Implementing a phenomic relationship matrix, either as a predictor or in combination with GS, improves predictions in multiple crops (Krause et al.,2019; Maggiorelli et al.,2024; Mróz et al.,2024).
+We evaluated two sets of advanced potato breeding clones in 2022 and 2023 at the Sand Plains Research Farm in Becker, MN.
+The first set included 226 unique chipping clones, while the second contained 87 unique fresh market yellow‐ and red‐skinned clones.
+In addition to clones from the University of Minnesota (UMN) breeding program, the chips set included 10 breeding clones from the University of Wisconsin Potato Breeding Program and five commonly grown varieties, namely, Atlantic (Webb et al.,1978), Superior (Rieman,1962), Lamoka (De Jong et al.,2017), Snowden, and Cascade.
+The fresh market clones include the UMN breeding program material and four commonly grown varieties, namely, Red Norland (Johansen et al.,1959), Modoc, Chieftain (Weigle et al.,1968), and Yukon Gold (Johnston & Rowberry,1981).
+Clones were evaluated in an augmented block design with row/column information and repeated checks randomly distributed across blocks for each market class and years.
+Checks were replicated at least twice within each block, while clones were replicated once or twice for both chipping and fresh market clones in each year.
+All plots contained 15 seed pieces with 30 cm in‐row spacing and 91 cm between rows.
+Using multispectral drone imagery generates more accurate potato yield predictions for genomic selection.
+Prediction of yield, shape, skin color, and specific gravity is improved by combining phenomic and genomic data.
+Combining spectral data across time points generates the best predictions for all traits.
+Limiting the models to key variables does not improve prediction as compared to models including all the data.
+We collected 2 years of phenotype data (Table1).
+Yield, specific gravity, and roundness were collected for the chips, while yield, redness, lightness, and length–width ratio (l/w) were collected for the fresh market clones.
+Yield is reported as the total plot weight for all harvested tubers in Mg ha−1.
+The yield was measured on a tuber basis and summed over plots using an AccuVision Dual View LED Grader System from Exeter.
+Specific gravity was determined by weighing a 10‐tuber sample from each plot in the air and then weighing it again when submerged in water.
+The specific gravity was then calculated by dividing the weight in air by the difference between the weight in air and the weight in water.
+Timing of drone flights and number of clones evaluated each year.
+All other traits were measured using image analysis.
+Images of samples of 10 harvested and washed tubers from each plot were taken using an Ortery Photosimilie 200 Lightbox with a Canon Rebel T6i camera following the methods from Caraza‐Harter and Endelman (2020). Trait measurement was performed using the potato image analysis R package, TubAR (Miller et al.,2022).
+Note that l/w and roundness were calculated for each tuber, and the median value was reported.
+Tuber skin color was quantified in terms of redness and lightness.
+The median tuber value for each image is used for analysis.
+Multispectral reflectance data were captured in the summers of 2022 and 2023 for five different time points using a UAV with a Sentera 6x multispectral camera and 6x thermal sensors (Sentera).
+The camera is equipped with high radiometric calibration tools for correction of lighting variation and to provide a consistent reflectance surface spanning both visible and near‐infrared spectral bands.
+Raw multispectral reflectance mean value was obtained per plot by Sentera from image preprocessing and radiometric calibration (https://support.sentera.com/portal/en/kb/articles/capturing‐your‐refelectance‐panel) for five separate color bands (red = 650 nm, green = 545 nm, blue = 445 nm, near‐infrared [NIR] = 840 nm, and RedEdge = 720 nm).
+Using the raw spectral bands, eight different vegetation indices commonly used in potatoes (Alkhaled et al.,2023) were estimated.
+Normalized difference vegetation index (Rouse et al.,1974), normalized difference red edge (Gitelson & Merzlyak,1994a), green leaf index, chlorophyll index green, green normalized difference vegetation index (Gitelson & Merzlyak,1994b), normalized difference water index (McFeeters,1994), chlorophyll index red edge (Gitelson et al.,2012), and transformed chlorophyll absorption in reflectance index/optimized soil‐adjusted vegetation index (Haboudane et al.,2010).
+Five flight dates were used each summer based on estimated average phenological growth stages translating to canopy cover at 50%, canopy cover closure, peak flowering, peak flowering/biomass, and senescence (Table1).
+The timing of phenological stage varies by genotype and market class, so an estimate was made for the whole field.
+Clones were genotyped with a combination of platforms as described in Yusuf et al. (2024). Specifically, both the SolCAP potato single nucleotide polymorphism (SNP) array (Felcher et al.,2012; Vos et al.,2015) and FlexSeq (targeted genotyping by sequencing) genotyping from LGC Rapid Genomics.
+The FlexSeq was developed using 8K markers from the SolCAP array to maintain backward compatibility with existing markers as described for the DArTag genotyping platform in Endelman et al. (2024). A total of 181 chipping clones and 57 fresh market clones were genotyped using FlexSeq, while 45 chippers and 30 fresh market clones were genotyped with the SNP array panels.
+The two genotypic datasets were merged, and the FlexSeq markers were imputed to high density (21k) using theL2Hfunction of the R package polyBreedR (Endelman et al.,2024).
+The merging and imputation of all the datasets resulted in a total of 21,531 markers for the fresh market and 21,210 for chips, which we used to carry out further analysis.
+whereyijkis the response variable for theith genotype injth row andkth column,μis the overall mean,giis the fixed effect for the genotypic response,rjis the random row effect whererj∼N(0,σr2),ckis the random column effect wherecj∼N(0,σc2), andeijkis the residual effect whereeijk∼N(0,σe2).
+wherenis the number of bands or bands plus indices included in the modelZis the scaled matrix that corresponds to the BLUEs of the multispectral band or indices andZTis the transpose ofZ.
+The BLUEs for each trait, within each market class, were used as the response to fit both a genomic linear unbiased predictor model and multispectral linear unbiased predictor model using the BGLR (P. Pérez & de los Campos,2014) package in R (R Core Team,2023).
+The genomic prediction model was used as a base model for comparison with the multispectral prediction models.
+whereEj,gi, andsijare defined in Equation (4).gEijdenotes the G×E interaction term with a multivariate normal distributiongE=(gE11,…,gE1I,…,gEIJ)T∼N[0, (gTZgGZgT)(ZEZET)σgE2], whereGis the genomic relationship matrix,ZgandZEare the incidence matrix for genomic and year effects,denotes the Hadamard product, andσgE2is the variance component of the genotype by environment interaction (Jarquín et al.,2014).
+The model trained with Equation (5), was denoted as modelG+GE.
+whereEjandsijare defined in Equation (4).wEijis the random effect of the multispectral band and or indices of genotypeiin unique yearj, which follows a joint normal distribution withwE∼N(0,WσEw2), whereWis the multispectral relationship matrix for clone‐year combination andσEw2is the multispectral variance component for the clone‐year combination.
+The model in Equation (6) was denoted as modelW.
+where all the components of Equation (7) were described in the previous models, and this model was denoted as modelG+WE.
+We evaluated the prediction performance under two types of cross‐validation of interest to potato breeding programs.
+First, we evaluated the prediction accuracy of tested lines in tested environments.
+Second, we evaluated the prediction performance of tested lines in untested environments (Alemu et al.,2024).
+For the first evaluation, we assessed model performance using prediction ability across years randomly based on a 10‐fold cross‐validation scheme repeated 10 times by splitting data into random train‐test partitions.
+Each fold was partitioned with 20% of data for testing, while the remaining 80% was for training.
+The prediction ability was evaluated as the Pearson's correlation between the predicted value and the true value for each phenotypic trait.
+For the second type of cross‐validation, we partitioned clones into years and used the year 2023 as training set and year 2022 as testing set.
+Once again, the prediction ability was measured as the Pearson's correlation between the predicted values and the true values for each phenotypic trait.
+whereYijkis the response variable corresponding to thekth mean prediction ability of theith multispectral model andjth time point.μis the overall mean,αiis the effect for the multispectral model,βjis the effect for the time point,αβijis the interaction effect between the models and the time points, andϵijkis the residual that is assumed to be normally distributed with mean 0 and varianceσ2.
+Intercorrelated variables can lead to multicollinearity in regression equations, resulting in underperformance of prediction models (Yu et al.,2015).
+Such scenarios are common for multispectral data, especially when multiple bands and indices are combined across timepoints (Galán et al.,2020).
+We therefore carried out supervised feature selection with the combined stage multispectral data for yield of chipping potatoes using the Lasso and elastic‐net regularized generalized linear models (GLMNET) machine learning algorithm to identify the most important variables contributing to prediction (Friedman et al.,2010).
+In addition to the internal feature selection in the GLMNET algorithm, we used two other known feature selection wrappers within the caret R package, selection by filtering (SF) and simulation annealing (SA).
+Each of the features selected by the algorithm and wrappers was used to fit a new model.
+The set of selected features that produced the best prediction accuracies was used to fit a GS model.
+These new models were compared to models created based on the complete set of variables without feature selection in terms of prediction ability.
+The traits measured for the chips included yield, specific gravity, and roundness, while for fresh market clones, we measured yield, redness, lightness, roundness, and l/w.
+BLUEs for each trait in both market classes were approximately normally distributed based on visual assessment ofQ–Qplots (Figure1).
+The BLUEs for the traits and the multispectral data were utilized for further analysis, with the trait BLUEs assigned as response variables.
+For the chips, broad‐sense heritability for yield was between 51% and 53%, specific gravity ranged between 64% and 66%, and roundness ranged between 27% and 77% (Figure2).
+Within the fresh market class clones, broad‐sense heritability for yield ranged from 49% to 80%, redness ranged between 58% and 78%, lightness between 79% and 84%, roundness between 69% and 81%, and l/w between 48% and 65%.
+Trait best linear unbiased estimates (BLUEs) distribution for (A) chipping clones and (B) fresh market clones.
+Broad‐sense heritability for both chipping clones and fresh market clones.
+Multispectral data showed low to moderate heritability across market clones and years.
+Heritability for bands and indices across time points within the chips clones ranged from 8% to 72%, while the fresh market clones ranged between 0% and 84% (FigureS1).
+Heritabilities were generally lower for bands and indices from the fresh market clones in 2022 (FigureS2), with blue and red bands in the earlier time points (stage 1 and stage 2) exhibiting the lowest (<1%) heritability.
+Blue and red bands also exhibited low heritability in later time points (stage 4 and stage 5) in 2023.
+We compared all the models described above for the chips.
+Models featuring only multispectral bands (Figure3) performed indistinguishably from those based on both bands and indices (FigureS3).
+The model combining genomic and multispectral data,G+WE, consistently outperformed the other models for all traits when data from all stages were combined.
+Both the models containing multispectral data,WandG+WE, outperformed the genomic only models,GandG+GE, for yield prediction at all time points and were highest at the combined stages.
+The mean prediction abilities at the combined stages forGandG+GEwere both 0.43, whileWandG+WEmodels were 0.72 and 0.74, respectively.
+In early time points, the models with genetic components,G,G+GE, andG+WE, performed better than theWonly model for specific gravity.
+However, at stage 5 (senescence) and for the combined stage, modelsG,W, andG+GEperformed similarly, although all were inferior toG+WEwith a mean prediction ability of 0.36 at stage 5 and 0.39 for the combined stages.
+Prediction ability was generally lower for roundness.
+Similar to specific gravity, genetic models for roundness prediction performed better earlier in the growing season, while multispectral prediction improved as the season went on, but the combination of the two was the most successful with a mean prediction ability of 0.22 at stage 5 and 0.21 for the combined stages.
+Comparison of models including genomic (G), genome by environment (GE), and/or multispectral (W) relationship matrices for chip traits across time points.
+Comparison is based on prediction ability in terms of Pearson's correlation of model‐predicted values to phenotypic observations across both years.
+We repeated the above analysis for the fresh market clones to investigate the efficacy of models featuring multispectral data for prediction of quality traits.
+As with the chips, we found that including only bands (Figure4) as opposed to combining bands and indices (FigureS4) did not significantly affect prediction accuracy.
+For yield and color traits, theG+WEmodel performed the best.
+As in the chips, yield was best predicted by the two models including multispectral data.
+For the combined stages, theG+WEmodel had a prediction ability of 0.63, while that of theWmodel was 0.61.
+For both, redness and lightness models, including the genomic relationship matrix, performed best, although the difference was more pronounced for lightness across all stages.
+For both traits, the combined model (G+WE) with combined stages performed best, with a prediction ability of 0.43 for redness and 0.32 for lightness.
+For roundness,Wwas the strongest model with other models performing similarly, while for l/w, all models including the genomic relationship matrix, performed similarly, whileWwas the worst.
+Overall, prediction abilities were lowest for l/w.
+Comparison of models including genomic (G), genome by environment (GE), and/or multispectral (W) relationship matrices for traits measured in fresh market clones across time points.
+Comparison is based on prediction ability in terms of Pearson's correlation of model‐predicted values to phenotypic observations across both years.
+In order to evaluate our ability to predict phenotypes in untested environments, we used years as a proxy for environment.
+We divided our data based on the year in which the data were gathered and assigned our largest dataset (2023) as the training set and our smallest (2022) as the test set.
+This analysis was only carried out in the chipping potatoes due to population size.
+Prediction ability was significant (p< 0.05) for yield and specific gravity but not roundness (Figure5; FigureS5).
+These results were consistent across time points and for all time points combined.
+Comparison of year‐specific prediction ability for models including genome (G), genome by environment (GE), and/or multispectral (W) data combined across time points for chipping clones.
+Prediction ability is the Pearson's correlation of the model prediction to the observed phenotypic value.
+Drone images were collected at five time points, determined by estimated average plant growth stage.
+We calculated relationship matrices based on each time point and all time points combined.
+We compared the prediction models based on multispectral matrices (WorG + WE) from the different stages and identified significant time points for prediction of yield and quality traits at harvest using ANOVA and mean separation using LSD.
+Time point was significant for all traits in both market classes.
+The time points that produced the best predictions varied by trait; however, the combined stage model was among the best performers for all traits in both market classes (Figure6).
+Within the chips, combined analysis of all time points was the best predictor of yield.
+However, the earliest stage predicted yield equally well for the fresh market clones.
+Combined analysis was equivalent to analysis using either of the last two time points for specific gravity.
+Time points 4 and 5 were equally effective to combined analysis for predicting roundness in chipping clones, while stage 3 (peak flowering) was the best for roundness in fresh market clones.
+The last time point was similarly effective to combined analysis for lightness, and both the first and last time points were equivalent to combined analysis for predicting redness.
+The influence of time point of spectral data collection on prediction ability for various traits in (A) chipping potatoes and (B) fresh market clones.
+The models using combined multispectral data across time points showed improved performance for most traits evaluated.
+Considering the risk of multicollinearity in multistage models (Yu et al.,2015), we evaluated the importance and contribution of each variable to our yield prediction models for the chipping germplasm using a machine learning variable importance selection algorithm and wrappers.
+Specifically, we used the GLMNET algorithm, which provides a robust approach to coefficient shrinkage and regularization of important variables (Friedman et al.,2010).
+The GLMNET internal features selection algorithm and wrappers (Table2) selected different numbers of important multispectral variables contributing to prediction models.
+Performance for prediction based on the selected variables shows the wrappers performed better than the internal GLMNET features selection (Table2).
+The variables selected from the 65 total variables were 47 for GLMNET, 26 for SA, and 46 with SF.
+Most of the selected multispectral variables overlapped across the two wrappers (TableS1).
+GLMNET Prediction accuracy in terms of Pearson's correlation (R) using selected multispectral variables.
+Abbreviations: GLMNET, elastic‐net regularized general linear models; SA, simulation annealing; SF, selection by filtering.
+Selected variables included multiple bands and indices from different time points.
+We compared a model including only the selected multispectral variables (W) and one combining genomic and selected multispectral variables (G+WE) to the genomic models (GandG+GE).
+The mean prediction ability from selected variables was 0.73 with SA wrapper and 0.75 with SF wrapper (Figure7).
+These results showed no significant improvement compared with the use of the total unselected variables with 0.74 (Figure7).
+Prediction ability for chipping clone traits across time points using subsets of the multispectral variables.
+SA, simulation annealing; SF, selection by filtering.
+Yield and quality traits exhibited moderate heritabilities consistent with previous estimates (Miller et al.,2022; Yusuf et al.,2024), indicating a strong genetic basis for improvement.
+We observed variability between years for roundness in chips and yield, l/w, and redness in fresh market clones.
+Shape is known to have a strong environmental component (Jones et al.,2021; Stefaniak et al.,2021; Yusuf et al.,2024) as does yield (Agha et al.,2024; Schmitz Carley et al.,2019; Yusuf et al.,2024), which could explain the year‐to‐year variation.
+Heritability of the multispectral bands and indices was more variable, ranging from low to moderate across different market classes and years.
+One reason for this may be that cultivated potato exhibits variation for flowering time and maturity, and so single flight time points did not catch all individuals at the same growth stage.
+Low heritability of multispectral variables has also been observed in wheat (Krause et al.,2019; Mróz et al.,2024).
+The most dramatic benefit of implementing phenomic prediction was an increase in prediction ability for yield in both market classes.
+This is consistent across time points and with previous studies in potato (Maggiorelli et al.,2024), wheat (Krause et al.,2019; Montesinos‐López et al.,2017; Mróz et al.,2024), rye (Galán et al.,2020), corn (DeSalvio et al.,2024), and soybean (Zhu et al.,2021).
+We further assessed the predictive ability of the multispectral model on traits other than yield.
+Phenomic models also outperformed genomic models for predicting roundness in later time points but were less successful in predicting skin color, l/w, or specific gravity.
+It is possible that better targeting of relevant spectral bands and indices would improve our ability to use phenomic prediction for quality traits.
+Physiochemical traits of canopy leaves, such as starch content, are known to be associated with specific wavelengths of leaf absorption (Alkhaled et al.,2023; Yang et al.,2022; Zhou et al.,2018).
+If leaf and tuber starch content are correlated, this suggests a potential strategy for the prediction of specific gravity.
+In a variety of crops, imaging spectroscopy during the growing season, particularly from the NIR spectrum, accurately predicts harvest traits (Dallinger et al.,2023; Su & Xue,2021).
+Trait prediction from spectral imagery could be a particularly powerful tool in potato breeding.
+In general, potato breeding starts with a set of F1 crosses which are evaluated visually in the first field year from single plants.
+Breeding programs plant tens of thousands of individuals and select approximately 1%.
+Genotyping at this time point is prohibitively expensive, but phenotyping with drones would not be.
+For most programs, sufficient seed for yield trials is not generated until field year 3.
+If yield could be predicted from drone imagery in year 1, it could dramatically improve early generation selection accuracy and shorten breeding cycles.
+However, this depends on the accuracy of year‐to‐year predictions from single plants in new year‐environments, and phenomic prediction across environments is generally less successful than it is within an environment (Montesinos‐López et al.,2017).
+Genomic prediction often relies on incorporating more explanatory inputs to optimize and enhance prediction accuracy.
+Several studies have explored the integration of additional inputs into GS, such as environmental covariates (Jarquín et al.,2017; Lopez‐Cruz et al.,2015), omics data (B. C. Perez et al.,2022; Ye et al.,2020), and phenomics (Galán et al.,2020; Krause et al.,2019; Montesinos‐López et al.,2017; Mróz et al.,2024; Zhu et al.,2021), including spectral information, to achieve better optimization and prediction accuracy.
+In this study, the integration of multispectral information through additional modeling of genotype by environment interactions (G×E) using spectral reflectance significantly improved genomic prediction for most of the traits considered, except for the l/w, which experienced a reduction of 7%.
+The inclusion of spectral data enhanced prediction accuracy for yield by over 30%, while improvements for other traits ranged from 3% to 11% across different market classes and time points.
+These findings suggest that multispectral information can capture additional effects not accounted for by marker effects alone, which is particularly important in clonal crops like potatoes.
+Previous studies in potato found that multispectral data were also highly predictive of maturity, foliage development, and emergence, and the only traits for which integrating multispectral with genetic data did not improve predictions were discoloration after cooking and polyphenol oxidase activity (Maggiorelli et al.,2024).
+Our findings are in strong agreement with previous studies that have utilized spectral information to improve prediction accuracy in GS, particularly for yield, using the combined relationship matrices (Galán et al.,2020; Krause et al.,2019; Maggiorelli et al.,2024; Mróz et al.,2024).
+Notably, our approach differs slightly from that previously used in potato (Maggiorelli et al.,2024) as we modeled the phenomic data as a G×E effect instead of using weighted matrices to avoid the confounding effects arising from multiple BLUPs (Krause et al.,2019; Lopez‐Cruz et al.,2015).
+Our results also align with studies employing other linear and nonlinear modeling approaches, such as partial least squares, ordinary least squares, and functional regression, to predict yield using spectral information (Montesinos‐López et al.,2023,2017).
+We collected data at five time points based on the estimated growth stage of the plants.
+In order to test if fewer drone flights would be sufficient, we evaluated the performance of phenomic prediction models at each stage.
+The results from the ANOVA highlighted the significance and effectiveness of certain time points for prediction.
+However, for all traits the combined stage performed as well or better than individual time point analysis.
+The time points that were most predictive varied by trait and market class.
+A previous study in potato using a similar approach also found that combining their three time points lead to the highest prediction accuracies (Maggiorelli et al.,2024).
+The only trait measured in both studies is yield, and our prediction accuracies for yield in both market classes (0.74 and 0.63) were slightly higher than the 0.61 reported by Maggiorelli et al. (2024). This is evidence that adding time points, especially between 30 and 61 days, the first two time points in Maggiorelli et al. (2024), improves prediction.
+We conclude that continuing to measure at all five time points is important to trait prediction, and it is possible adding additional time points would improve our models.
+It is important to note that maturity is both highly variable and highly heritable in cultivated potato (Gutaker et al.,2019; Kloosterman et al.,2013).
+At any particular flight time, different genotypes were likely at slightly different growth stages.
+Therefore, even if aboveground reflectance at a particular growth stage was the strongest predictor for a harvest phenotype, it might not be captured in this analysis, further supporting the need to measure multiple time points for accurate prediction.
+Including too many non‐predictive variables in a prediction model can reduce power and result in multicollinearity, leading to underperformance of the model (Yu et al.,2015).
+This is a known problem in multispectral data especially data combined across time points (Galán et al.,2020), as well as in GS where including only trait‐associated markers can quadruple prediction ability (Singh et al.,2023).
+Combining genomic and phenomic data across all time points exhibited the best predictive performance for yield; we tested if that performance could be improved by identifying the most crucial spectral variables and including only those variables in the model.
+Although we used multiple machine learning algorithms to define sets of predictive spectra, all subsets performed equally well to the total set.
+We have yet to reach the point of saturating the model and could potentially improve it with more spectral data.
+In this study, we have established the value of using multispectral data for both phenomic and GS in potatoes.
+By utilizing a multispectral relationship matrix, we can achieve prediction accuracy for agronomic and quality traits comparable to genomic prediction, offering a viable alternative when genetic markers are unavailable.
+Additionally, we have shown that integrating multispectral data into GS can further enhance prediction accuracy.
+We found no evidence that we were overfitting the model with too many non‐predictive variables, as our most accurate predictions resulted from combining data across time points, and feature selection made no difference.
+This work serves as a proof of concept for using multispectral data derived from UAVs.
+Our approach was implemented with advanced breeding clones, where full‐sib families are limited, and there is minimal Mendelian sampling within the population.
+It is also important to note that we only included 2 years of data from one trial site.
+While more environments would give us a better sense of patterns of variation, this is a representative experiment for a potato breeding program.
+Potato breeding tends to be seed limited, with each plant only producing ∼10 seed pieces for the next generation, resulting in multi‐year periods before multi‐location trials are possible (Agha et al.,2024).
+This long lag time can result in long slow breeding cycles and minimal genetic gain, especially for yield (Douches et al.,1996).
+Genomic and phenomic prediction approaches aim to speed this process, allowing us to make breeding decisions based on fewer years of data (Slater et al.,2016).
+While our model will be improved as we add data from future years, we were able to generate high prediction accuracies, which will be used for crossing decisions based on the 2 years of data available.
+Moving forward, we will focus on applying this concept to the screening of early‐generation clonal selections, where large number of entries require evaluation.

@@ -1,0 +1,111 @@
+Micro-seismic monitoring plays a critical role in geological disaster prediction. Current compressed sensing approaches for micro-seismic data acquisition, however, are hampered by measurement matrices with high computational complexity and inadequate reconstruction accuracy, particularly in resource-constrained sensor networks. To overcome these limitations, we propose an novel deterministic measurement matrix based on elliptic curve pseudo-random sequences. The proposed matrix offers three key advantages: (1) it requires onlyM×(N−1)addition operations. (2) it demonstrates lower mutual coherence than existing alternatives. And (3) experimental validation shows consistent performance advantages, achieving lower relative errors than Gaussian random, Chaotic, PEG, and Bernoulli matrices across both noise-free and noisy conditions. These combined improvements in computational efficiency, matrix incoherence, and reconstruction fidelity make our solution ideally suited for real-time micro-seismic monitoring in energy-limited field deployments.
+
+Micro-seismic monitoring technology [1] can monitor micro-seismic events caused by the inelastic deformations of rock masses in real time, provide early warning for the instability of rock masses, and effectively prevent disasters such as landslides, rock bursts, and fractures. It is widely used in geotechnical engineering applications such as mining [2], tunneling [3] and slope stability [4]. In the micro-seismic monitoring system, numerous micro-seismic sensors are deployed and self-organize into a Micro-Seismic Monitoring Wireless Sensor Network (MMWSN). The MMWSN holds great potential; however, it is constrained by limited energy and computational capabilities. According to traditional Nyquist sampling theory, the MMWSN needs to process and transmit a large amount of data, which poses a significant challenge. There is an urgent need to develop an efficient and simple data gathering method.
+
+Compressed Sensing (CS) [5] is a novel information gathering theory that transcends the limitations of Nyquist sampling theory. Donaho et al. [5] have demonstrated that if a signal can be sparsely represented in a certain basis, it can be observed with a high compression ratio. Distributed Compressed Sensing (DCS) [6] extends CS to accommodate multiple signals. It leverages both intra-signal and inter-signal correlations to compress data, making it particularly well-suited for MMWSN. In DCS, signals are compressed by being projected onto a certain measurement matrix in the sensor and are jointly recovered at the central node.
+
+Several studies have applied compressed sensing to micro-seismic data acquisition in MMWSNs. For instance, [7] proposed a systematic adaptive compressed sensing framework for micro-seismic monitoring, focusing on dictionary learning and adaptive recovery. Additionally, CS-based reconstruction advanced denoising techniques based on non-convex sparse optimization [8] have shown excellent performance in seismic signal processing. Segmentation-based compression methods integrating CS principles have been proposed in [9]. By tailoring the compression process to the signal sparsity characteristics and adopting enhanced recovery algorithms, these methods achieve higher accuracy and efficiency in signal transmission, contributing to extended network lifetime. However, most of these studies focus on signal recovery, while relatively few efforts have been made towards designing efficient measurement matrices for resource-constrained micro-seismic sensor networks.
+
+There are mainly two types of measurement matrices for DCS: random measurement matrices and deterministic measurement matrices. The random measurement matrix, with elements drawn from a random Gaussian distribution [10] or a Bernoulli distribution [11], satisfies the Restricted Isometry Property (RIP) [11] with high probability. However, in practical applications, the random nature of the measurement matrix necessitates its transmission from the encoder to the decoder, thereby imposing additional communication burdens. Contrary to the random measurement matrix, the deterministic measurement matrix does not change with each sample. Therefore, it can be stored in the decoder in advance, making it more practical. Inspired by the inherent randomness and the strong incoherence properties of pseudo-random sequences, researchers have proposed several deterministic measurement matrices, such as the logistic chaotic sequence matrix [12], the tent chaotic sequence matrix [13], and the Chebyshev chaotic sequence matrix [14], among others. However, all these measurement matrices exhibit high computational complexity, making them unsuitable for the computationally constrained MMWSN. Dimakis et al. [15] investigate the relationship between channel coding and compressed sensing, proving that the check matrix of the low-density parity-check code can serve as a deterministic measurement matrix. Building on this theory, Lu et al. [16] propose a simple deterministic sparse measurement matrix using the Progressive Edge Growth (PEG) method, which consists solely of two elements, “0” and “1”. However, its performance still requires improvement.
+
+In this paper, we propose a deterministic binary measurement matrix based on the elliptic curve sequence [17], which we refer to as the elliptic curve measurement matrix. Simulation results show that the elliptic curve measurement matrix exhibits lower mutual coherence and outperforms several state-of-the-art measurement matrices in MMWSN data gathering. Additionally, because the elliptic curve measurement matrix consists solely of two elements, ‘0’ and ‘1’, and requires only a minimal number of additions in the sensor, it has low computational complexity. This characteristic makes it especially suitable for MMWSNs with limited computational capacity. This paper is organized as follows: Section II reviews the MMWSN, the theory of DCS, and the theory of elliptic curve sequence. In Section III, the method for constructing a measurement matrix based on the elliptic curve sequence is proposed, and its characteristics are analyzed. In Section IV, the performance of the proposed measurement matrix is demonstrated using real micro-seismic data. Section V presents the conclusion.
+
+Generally, micro-seismic events can be understood as earthquakes with short duration, small influence range, and less energy release. Micro-seismic monitoring technology is a three-dimensional spatial monitoring technology for the micro-fracturing of rocks. It can effectively monitor the occurrence time, spatial position, and energy of the fracture point in the rock mass by utilizing the characteristics of micro-seismic signals, thereby predicting the deformation and damage of the rock.
+
+Most existing micro-seismic monitoring systems are based on wired communications, which suffer from inflexibility, high complexity in expansion, and limited monitoring range. The micro-seismic monitoring system based on wireless sensor networks can effectively resolve these issues [18]. A large number of micro-seismic sensors are deployed in the rock and self-organize into an MMWSN, which offers the advantages of low cost, easy expansion, and high reliability. MMWSN can achieve comprehensive monitoring coverage of disasters and effectively enhance the level of geological disaster forecasting.
+
+The network structure of the MMWSN is shown inFig 1. In a three-dimensional area, a large amount of sensors are arranged in uniform, random or optimal distribution. MMWSN is composed of terminal nodes, cluster-head nodes, transmission nodes, and sink nodes. Terminal nodes sense the environment and upload data to the cluster-head nodes. Cluster-head nodes aggregate the received data and transmit it to the transmission nodes. Transmission nodes simply relay data. After one or more hops, the data reach the sink node, which then uploads the data to the server for processing.
+
+Traditionally, micro-seismic signals are sampled in the terminal node according to the Nyquist sampling theorem before being transmitted to the cluster-head node. However, data gathering methods based on the Nyquist sampling theorem require a very high sampling frequency, substantial computational complexity, and significant storage space, making them unsuitable for resource-constrained MMWSNs. There is an urgent need to develop simple and efficient data gathering methods for MMWSNs. DCS represents one of the best options.
+
+DCS is an extension of CS. Before introducing the theory of DCS, let us first discuss the theory of CS.
+
+1) Compressed sensing:CS is proposed by Donaho et al. [5] It breaks the limitations of the Nyquist sampling theorem. Donaho et al. [5] proved that the information from sparse signals can be obtained with a very low sampling rate, and after being transmitted to the server, they can be perfectly reconstructed by solving an optimization problem.
+
+The prerequisite for applying CS to compress data is that the signal must be sparse. If signal𝐱∈𝐑Ncan be represented as𝐱=Ψθand there are onlyk≪Nnon-zero elements inθ, then𝐱is called a sparse signal andΨis referred to as the sparse basis.
+
+Researchers have proposed several methods for sparse representation, including the Discrete Fourier Transform (DFT) [19], wavelet transform [20], over-complete dictionaries [21] and dictionary learning [19]. In this paper, we use the Discrete Fourier Transform (DFT) to represent micro-seismic signals. The sparse basis based on DFT is defined as(1).
+
+whereΦ∈𝐑M*N(M<N)represents the measurement matrix.
+
+wherew⊂{1,2,⋯,N},|w|≤3k,𝐱can be perfectly recovered by solving the optimization problem as shown in(4).
+
+Computing the the RIP [11] of a measurement matrix is challenging. Research indicates that the mutual coherence of a sensing matrix can be used to evaluate its performance [22]. The lower the mutual coherence of a sensing matrix, the greater its data compression capability. The mutual coherence of the sensing matrix𝐀is defined asEquation (5).
+
+The structure of CS is illustrated inFig 3. Evidently, CS only utilizes intra-signal correlation for data compression, making it inefficient for data gathering in MMWSNs.
+
+2) Distributed Compressed sensing:DCS is an extended version of CS for WSN. It can utilize not only the intra-signal correlation but also the inter-signal correlation to compress data. The structure of DCS is illustrated inFig 4. In sensors, signals are compressed through separate nonlinear projections and, once transmitted to the server, are jointly recovered by utilizing both intra-signal and inter-signal correlations. Obviously, DCS is more suitable for MMWSN.
+
+We defineℜ(Θ\)as the joint support set, which comprises the indices of the non-zero rows ofΘ’s non-zero rows. Furthmore,K=|ℜ(Θ)|is defined as the joint sparsity.
+
+where𝐘is called the jointly compressed signal. The theory of DCS demonstrates that if𝐗is joint sparse, it can be recovered by solving the optimization problem presented inEquation (8).
+
+OnceΘis recovered,𝐗can be restored through an inverse sparse transformation.
+
+If a sequence has a predetermined structure, can be repeatedly generated, and possesses random characteristics, it is referred to as a pseudo-random sequence [23]. Because a pseudo-random sequence exhibits good randomness, it is widely used in spread-spectrum communication [24], multiple-access communication [25] data encryption [26], and more. There are mainly two types of pseudo-random sequences: one is based on mathematical theory, such as the elliptic curve sequence [27], the linear congruence sequence [28] and the Gordon-Mills-Welch sequence [29]; the other is based on linear feedback shift registers, such as the filter sequence [30].
+
+Denoteξ(𝐅q) as the set consisting of all the rational points onξand a point at infinity. Lettrepresent the cardinality of the setξ(𝐅q), which is referred to as the order of the elliptic curveξ. According to the Hasse’s theorem [31],tis very close toq, and it is always possible to find an elliptic curve with order (q−1−2q1/2)≤t≤(q−1+2q1/2).
+
+Researchers have proposed many fast algorithms for computing the order of elliptic curves, such as the SEA (Schoof-Elkies-Atkin) [32] algorithm, Schoof’s algorithm [33] and the satoh algorithm [34].
+
+The binary elliptic curve sequence can be constructed using the trace function [35], the discrete logarithm [31] and the Legendre symbol [17]. L. Goubin et al. [17] constructed five types of binary pseudo-random sequences using the Legendre symbol and the polynomial functions. LetG=(ul,vl)∈𝐅p×𝐅pbe thel−thrational point onξwhere1≤l≤t−1; then five types of binary sequencesS={s1,s2,⋯,st−1}can be constructed as follows.
+
+These five types of elliptic curve sequences have been proven to possess good auto-correlation and cross-correlation properties. We can always construct a binary sequence of a specified length oft−1usingequation (10)–(14). In this paper, we utilize these five types of elliptic curve sequences to construct deterministic binary measurement matrices.
+
+We construct anM×Ndeterministic bipolar measurement matrix using an elliptic curve in four steps.
+
+Chooseq,aandbthat satisfy (q−1−2q1/2)≤N+1≤(q−1+2q1/2)and4a3+27b2(modq)≠0.
+
+For each triple(q,a,b), compute the order of the elliptic curve using the SEA (Schoof-Elkies-Atkin) algorithm [32], and select those elliptic curves with an order ofN+1.
+
+Construct the elliptic curve sequenceS={s1,s2,⋯,sN}by usingequation (10)through(14).
+
+Define a mappingf(z)=1−2z, and construct a temporal matrix𝐐usingequation (15).
+
+Construct the elliptic curve measurement matrix by selecting the firstM,(1<M<N)rows from𝐐.
+
+As a pseudo-random sequence, an elliptic curve sequence possesses a 0–1 balance property. Consequently, the elements of the elliptic curve measurement matrix follow the distribution described inequation (16). As proven in [36,37], if the measurement matrixΦadheres to the distribution specified in(16), it satisfies the RIP with high probability.
+
+whereϕi,jis the element at thei−throw andj−thcolumn ofΦ. The relationship between the distribution of random symmetric signs and the Restricted Isometry Property (RIP) is summarized as follows.
+
+As described in Section II, the lower the mutual coherence of a measurement matrix, the greater its capability to acquire information. In this paper, the DFT basis is utilized as the sparse basis, and the mutual coherence of the elliptic curve measurement matrix is compared with those of the Gaussian random measurement matrix [10], the random sparse measurement matrix [38] and the chaotic measurement matrix [12].
+
+WithNfixed, we compare the mutual coherence of different measurement matrices according to the changes in the number of measurements,M. For example, an elliptic curve measurement matrix withN=255is constructed usinga=1,b=2andp=257. As shown inFig 5, the elliptic curve matrix consistently achieves lower mutual coherence than the Gaussian random matrix, the random sparse matrix, and the chaotic matrix across different values ofM. This indicates a better incoherence, which directly translates to improved reconstruction performance.
+
+To evaluate robustness, we analyze the mutual coherence of 200 elliptic curve measurement matrices, constructed using random parametersa,bandq, whereqis less than1000. The numerical experiment results show that, across all measurement numbers changing from 10 toN-5, elliptic curve measurement matrices exhibit lower mutual coherence compared to the Gaussian random matrix, the random sparse matrix, and the chaotic matrix. These results confirm that the proposed elliptic curve matrix offers stronger incoherence compared to other measurement matrices. This makes it more effective for compressed sensing in practical MMWSN scenarios.
+
+The computational complexities of different measurement matrices are shown inTable 1. The Gaussian random measurement matrix and the chaotic measurement matrix are dense, meaning that every element requires multiplication and addition during the measurement process. They exhibit the highest computational cost, making them unsuitable for resource-constrained environments such as MMWSNs.
+
+Other measurement matrices are either binary, containing only “0” and “1”, or bipolar, containing only “-1” and “1”. These matrices avoid multiplication entirely, relying solely on addition operations. Although the computational complexities of the PEG and random sparse measurement matrices are slightly lower than that of the elliptic curve measurement matrix, the difference in addition operations is negligible in practice.
+
+More importantly, unlike the PEG matrix which requires a dedicated graph-based construction process, our elliptic curve matrix is generated using a deterministic mathematical sequence with low overhead, further reducing memory and implementation complexity.
+
+From a computational standpoint, multiplication-free binary operations makes the proposed matrix a practical and energy-efficient choice, especially in embedded platforms or battery-powered wireless sensors.
+
+where𝐗is the joint micro-seismic signal and𝐗^is the recovered joint micro-seismic signal.
+
+In noiseless conditions, withN=540andK=100, the variations in the average relative errors for different measurement matrices as a function of the number of measurements are shown inFig 6. The average relative errors of all measurement matrices decrease as the number of measurements,M, increases. This is because a larger number of measurements allows the measurement matrix to capture more seismic information from the microseismic events.
+
+The results clearly show that the average relative error of the elliptic curve measurement matrix is consistently lower than that of other measurement matrices. This trend indicates that the elliptic curve matrix is more efficient in utilizing the available measurements, leading to more accurate results with fewer measurements.
+
+For example, when the number of measurements is set toM=180, the average relative error of our matrix is 0.882, compared to 1.075 for the PEG matrix, 1.012 for the Chaotic matrix, 1.020 for the Gaussian random matrix, and 1.021 for the Bernoulli matrix.
+
+Moreover, due to its sequence-based construction, the elliptic curve matrix requires fewer computations, making it more suitable for real-time implementation in MMWSNs. These advantages demonstrate the superiority of our approach in both reconstruction accuracy and practical feasibility.
+
+whereσ𝐘2is the variance of the jointly compressed signal, andσnoise2is the variance of the noise signal.
+
+WithN=540,K=100andSNR=20, the variations in the average relative errors for different measurement matrices as a function of the number of measurements are illustrated inFig 7. Although the average relative errors of all methods decrease with increasing number of measurements, our proposed matrix consistently achieves the lowest relative error.
+
+For example, whenM=200, the relative error of our method is 0.855, while the PEG method shows 1.041, the Chaotic matrix shows 0.951, the Gaussian random matrix shows 0.952 and the Bernoulli matrix shows 0.959.
+
+This clearly demonstrates the superior stability and robustness of the elliptic curve measurement matrix when dealing with noisy seismic data. The strong pseudo-random structure of the matrix help it efficiently capture signal features while being less sensitive to measurement noise.
+
+Fig 8shows the average relative errors of different measurement matrices as a function of SNR changes withN=540,K=100andM=240. As the SNR decreases, all methods suffer performance degradation, but our matrix maintains a consistently lower error curve across all SNR levels.
+
+This implies a higher resilience to noise compared to other measurement matrices. From a practical standpoint, this robust noise tolerance means that fewer measurements are required to achieve the same level of accuracy, enabling significant savings in energy consumption, memory usage, and communication cost-all critical concerns in MMWSN deployments.
+
+These results confirm that the elliptic curve measurement matrix not only surpasses traditional measurement matrices in noiseless environments but also maintains superior robustness and reconstruction performance in noisy conditions, making it a highly promising choice for real-world micro-seismic monitoring applications.
+
+A simple and efficient deterministic measurement matrix based on the elliptic curve pseudo-random sequence for micro-seismic data gathering is proposed. Initially, the theories of Micro-Seismic Monitoring Wireless Sensor Networks (MMWSN), DCS, and elliptic curve sequences are introduced. Then, the method for constructing the deterministic binary measurement matrix based on the elliptic curve sequence is presented. Furthermore, it is demonstrated that the elliptic curve measurement matrix possesses low mutual coherence and low computational complexity, which aligns with the MMWSN’s characteristic of limited resources. Simulations on real micro-seismic data verify that the proposed measurement matrix outperforms some state-of-the-art measurement matrices under noiseless and noisy conditions.
+
+Despite these promising results, our method still has some limitations. First, due to the intrinsic constraints of elliptic curve pseudo-random sequence generation, the number of columns in the measurement matrix cannot be arbitrarily large, which limits its direct applicability to signals of arbitrary length. Second, although the method shows excellent performance in the presence of Gaussian noise, further testing is needed under more complex and dynamic communication conditions. These limitations will be addressed in our future work.

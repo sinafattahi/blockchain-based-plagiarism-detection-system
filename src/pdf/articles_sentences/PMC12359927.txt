@@ -1,0 +1,156 @@
+Single-cell RNA sequencing (scRNA-seq) allows the exploration of biological heterogeneity among different cell types within tissues at a single-cell resolution.
+Cell clustering serves as a foundation for scRNA-seq data analysis and provides new insights into the heterogeneity of cells within complex tissues.
+However, the inherent features of scRNA-seq data, such as heterogeneity, sparsity, and high dimensionality, pose significant technical challenges for effective cell clustering.
+Here, we present a novel deep clustering method, scCAGN, based on an adversarial autoencoder (AAE) and a cross-attention graph convolutional network (GCN), to address the above challenges in scRNA-seq data analysis.
+Specifically, to enhance data reconstruction, scCAGN utilizes adversarial autoencoders to augment encoder capabilities.
+Graph feature representations obtained via a GCN were integrated using a dynamic information fusion mechanism, yielding enhanced feature representations.
+In addition, scCAGN combines three different loss functions to optimize clustering performance through a joint clustering approach.
+By leveraging a unique information fusion and joint mechanism, scCAGN extracts deep cell features without labeled information, thus improving cell classification efficiency.
+Our findings show that scCAGN surpasses the existing methods in clustering performance across eight typical scRNA-seq datasets, achieving a maximum Normalized Mutual Information (NMI) improvement of 11.94%, notably reaching an NMI of 0.9732 in the QS_diaphragm dataset.
+It showed an average NMI improvement of 13% across the eight benchmark datasets, surpassing the lowest-performing method.
+Further ablation and hyperparameter analyses validated the robustness of the proposed method.
+The code is available at:http://github.com/gladex/scCAGN.
+scCAGN integrates AAE and cross-attention GCN with dynamic fusion, achieving state-of-the-art scRNA-seq clustering (0.9732 NMI, 13% average gain) across eight datasets.
+Validated via ablation and hyperparameter tests, it advances label-free cell discovery and enables further multimodal integration to dissect cellular heterogeneity.
+The online version contains supplementary material available at 10.1186/s12864-025-11941-y.
+The introduction of scRNA-seq technology has enabled researchers to measure gene expression levels more precisely at the single-cell level, thereby identifying cellular heterogeneity [1,2].
+Identifying cell types plays a crucial role in revealing cellular heterogeneity and in understanding complex mechanisms [3,4].
+Previous methods for cell-type identification typically involve dimensionality reduction techniques, such as t-distributed Stochastic Neighbor Embedding (t-SNE), followed by machine learning methods like K-means clustering for clustering analysis [5].
+Several toolkits, such as Seurat [6], have been developed to facilitate rapid dimensionality reduction and cell-type identification.
+With the advancement of deep learning technologies, various deep clustering methods for scRNA-seq data have recently been proposed [7–12].
+scGNN introduces cell graphs into multiple autoencoders integrated with a GCN to learn the embeddings of the topological graph [11].
+DESC employs autoencoders to learn low-dimensional representations of data, followed by deep embedding clustering for soft assignments, ultimately optimizing cluster centers and data distributions [13].
+scDSC integrates structural information into deep clustering using a ZINB model-based autoencoder and graph neural networks [14].
+DeepCCI combines the learned cell embeddings from autoencoders and GCNs, and projects them into a shared embedding space, thereby completing cell clustering through a joint embedding approach [15].
+scDFN extracts cell information from scRNA-seq data using improved graph autoencoders, optimizing model clustering performance through information fusion and a self-supervised mechanism [16].
+Despite significant progress made by deep clustering methods in cell-type identification, certain limitations still exist [17–19].
+For instance, many autoencoder-based methods focus solely on hidden layer features and do not fully utilize the information from the decoder layer, and single hidden layer features are inadequate for fully capturing the deep relationships between cells [20,21].
+In addition, most existing methods employ simple linear superposition when integrating embedding representations from different modules, overlooking the complexity and differences in feature structures, which limit the enhancement of model performance [22,23].
+In summary, this work presents a novel self-supervised clustering approach that integrates an adversarial autoencoder and a graph convolutional network employing a cross-attention mechanism.
+First, the AAE employs a discriminator to guide the encoder in learning a more structured latent space that aligns with the distribution of real data, thereby enhancing the encoder to capture and learn embedding representations.
+Subsequently, the model employs a GCN to obtain local and global insights from the graph data.
+A multi-head attention mechanism is used to integrate these insights, enabling the model to prioritize salient features.
+Finally, dual constraints guide the model in learning a distribution with higher confidence, thereby optimizing cell-type annotation.
+The method performance was assessed by comparison with eight state-of-the-art methods using eight typical scRNA-seq datasets.
+The experimental results reveal that the proposed scCAGN achieves a higher level of clustering performance than competing methods.
+In addition, ablation studies and hyperparameter analyses further validate the robustness of the proposed method.
+During the preprocessing of the raw scRNA-seq data, we first filtered and performed quality control, keeping only genes that were expressed as non-zero in more than 1% of the cells and cells that expressed non-zero values in more than 1% of the genes.
+Subsequently, each cell type was normalized and standardized.
+Finally, the genes were ranked based on their standard deviation, and theMgenes with the highest variance were selected for subsequent analysis to reduce the influence of noise.
+Following data preprocessing, Euclidean distances between cells were computed, and cell selection was performed using the K-nearest neighbor (KNN) algorithm.
+A graph representing cell similarities was constructed and served as the input for the graph network module.
+In the absence of label information for guidance, to better leverage the intrinsic data and constraint information to analyze scRNA-seq data, we propose a novel deep clustering algorithm called scCAGN, based on AAE and a cross-attention mechanism within the GCN.
+As shown in Fig.1, the method comprises three main components: an adversarial autoencoder, cross-attention-based graph information fusion, and deep dual-constraint clustering.
+First, we used the preprocessed dataas part of adversarial autoencoder pretraining to learn the latent feature representation of the data by minimizing the reconstruction loss and adversarial loss.
+Then, the feature representations learned by the adversarial autoencoder and graph convolutional network were fused into a richer feature representation using the cross-attention mechanism.
+Finally, we designed a joint supervision mechanism that guides the model to adjust the clustering representation and optimize the clustering results by learning a soft label distribution with higher confidence.
+The AAE module aims to optimize the generative and structural properties of the embedded representation in the latent space by introducing an adversarial training mechanism.
+The AAE comprises three components: encoder, decoder, and discriminator.
+The encoder and decoder minimize data reconstruction loss, whereas the encoder and discriminator form a generative adversarial network.
+The discriminator guides the encoder to learn a more structured latent space that aligns with the distribution of the real data.
+whereD(·) denotes the discriminator’s decision result, and E[·] for the mean squared error (MSE) loss.
+wheredenotes the degree matrix of the adjacency matrix,Iis the identity diagonal matrix of adjacencyAfor each node, andZ(l−1)propagates information between nodes and updates the node representations through.
+whereφdenotes a balancing parameter to adjust the outputs of the encoder and graph convolutional network (φ =0.5);αandβare the regulating parameters for the component contribution.
+We introduced an information fusion approach via a multi-head attention mechanism to address the limitation of GCNs in capturing fixed-weight spatial relationships and to integrate different modules, concurrently focusing on and learning the most relevant input features.
+Specifically, the latent representationzof the encoder was taken as the queryQand the outputZ(l)of the GCN as the keyKand valueV.
+We calculated the attention scores betweenQandKusing scaled dot-product attention, and then performed a weighted sum of the attention scores withVto obtain the output of a single attention head, denoted asheadm.
+Finally, we concatenated the outputs of all attention heads to obtain a more enriched feature representation,Zca..
+wherekis the dimension of the key data andmthe number of attention heads in multi-head attention.,andare the weights forQ,K, andVin them-th head, respectively, whileWca.is the weight used when concatenating the attention outputs from all heads.
+The fused feature representationZca.serves as the input to the decoder.
+whereε,µ, andθare the parameters that balance the contributions of the loss function.
+To evaluate the clustering performance of scCAGN on scRNA-seq datasets, we employed the Normalized Mutual Information (NMI) and Adjusted Rand Index (ARI) as the primary metrics to assess model performance.
+NMI was used to measure the similarity between the predicted and true values, and ARI to assess the overlap between the predicted and actual clusters.
+Both measure the consistency between the predicted and true labels, with higher values indicating better clustering performance.
+Additionally, we also use the Completeness and Adjusted Mutual Information (AMI) as supplementary metrics to provide a more comprehensive assessment of model performance.
+The detailed formulae and definitions are provided in the supplement.
+In this study, scCAGN was developed using Python 3.9.20 and PyTorch 2.3.1 + cu121.
+The default number of highly variable genesMwas set to 2000, with the encoder’s hidden layer dimensions of 100, 200, and 200.
+The hidden layers in the decoder are the reverse of the encoder, and the dimensions of the latent representation are eight.
+The default value ofKfor constructing the cell graph using KNN was 10, and we employed the Adamax optimizer with a learning rate of 0.001 for training and updating the encoder.
+In the information fusion mechanism, we use a multi-head attention with 4 attention heads; in the double-constrained clustering module, the default value of the temperature parameterτis set to 0.5; in the objective loss function, the hyperparametersε,µ, andθwere empirically set to 0.0001, 0.5, and 0.5, respectively, based on established practices from analogous frameworks in the literature and preliminary experimental validation.
+scCAGN employs the ground-truth cell type count as the predefined cluster number to ensure fair benchmarking against alternative methods while mitigating performance biases arising from cluster number estimation inaccuracies.
+Meanwhile, to ensure diversity of the experimental data, we collected 10 single-cell RNA sequencing datasets from various tissues and sequencing platforms, as detailed in Table1.
+We compared scCAGN with eight advanced competing methods, including scTAG, scDFN, and DeepCCI, on eight scRNA-seq datasets to evaluate their clustering performance [24–27].
+To ensure fairness of the experiments, all methods used the default parameters or settings recommended by the authors, and the input data for each clustering method underwent the same preprocessing.
+Figure2shows the performance of nine methods on the eight scRNA-seq datasets.
+The experimental results indicated that scCAGN achieved the highest average NMI (0.8918) and ARI (0.8942) across the benchmark datasets, with an average NMI improvement of 3.5–13.5% and an average ARI improvement of 7.5–31.73%.
+Specifically, scCAGN performed the best on seven datasets; however, on the Muraro dataset, the NMI (0.8558) was lower than that of scLEGA (0.8630) and scSimGCL (0.8632) because of the presence of significant data noise, and our model was not fine-tuned separately for each dataset.
+Across the eight datasets, compared with the baseline method DeepCCI, scCAGN showed the greatest improvement in the “Qs_muscle” dataset, with NMI and ARI increasing by 11.94% and 30.33%, respectively; it achieved the highest NMI value of 0.9732 on the “QS_Diaphragm” dataset.
+In general, our method demonstrated superior performance compared to other methods.
+The distributions of the NMI and ARI values for scCAGN and the eight alternative methods across the eight datasets are shown in Fig.2b.
+The results demonstrate our model exhibits a stable performance across various datasets, further validating its superior robustness.
+Furthermore, to intuitively assess the ability of scCAGN to learn low-dimensional representations from high-dimensional data, we projected the learned embedded representations into a two-dimensional space.
+Figure3illustrates the visualization of cell clusters identified by the seven clustering methods across the two datasets, where each point represents a cell and each color denotes a different cell type.
+The results indicate the clusters obtained by our model exhibit greater compactness within individual clusters and greater dispersion between clusters, further demonstrating the superiority of clustering performance.
+To evaluate the effectiveness of the GCN module, we compared it with similar variants to assess its performance in clustering tasks.
+Specifically, within the same framework, we evaluated the impact of the GCN, Graph Attention Networks (GAT), and Graph Sample and Aggregated (GraphSAGE) embedding models on the clustering results.
+The experimental results in Fig.4(b) indicate that the performance of the GCN achieves optimal values across five different datasets, demonstrating its effectiveness in capturing local structures and adjacency information of nodes.
+In contrast, while GAT is capable of learning the relationships between nodes, the introduction of the cross-attention mechanism can lead to overfitting, thereby limiting its ability to capture and utilize local structural information, resulting in less meaningful feature representations.
+Additionally, the aggregation method employed by GraphSAGE relies on the transformation and aggregation of neighboring node features; thus, its application to datasets with significant differences in neighbor features or high-dimensional data may fail to effectively preserve the higher-order information of the graph structure.
+In summary, the GCN proved to be more effective in learning structural information from graph data, exhibiting superior clustering performance compared to other variants, which further underscores the sensitivity and adaptability of the GCN architecture to clustering outcomes.
+An ablation study across five datasets was performed to evaluate the efficacy of the model architecture and individual contributions of each module to the clustering performance of the proposed scCAGN.
+The experiments included: (1) removing the discriminator (without AAE); (2) removing the cross-attention mechanism (without CA); (3) scCAGN: (Ours, AAE + GCN + CA); (4) implementing information fusion using concatenation operation (CA replaced by Concat); and (5) implementing information fusion using multiplication operations (CA replaced by Multiply).
+The results, as depicted in Fig.5(a), demonstrate that our proposed method achieves the best performance in terms of NMI and ARI across the five datasets and various ablation experiment settings.
+Specifically, on the “Qs_Trachea” dataset, the NMI metric improved by 10.63% compared with the worst-performing ablation setup.
+As shown in Fig.5(b), our method outperforms the other approaches in terms of median values and result variability, exhibiting greater robustness.
+This further validates the stability and superiority of the proposed method in terms of the performance.
+To investigate the effectiveness of joint loss clustering and the contribution of the three loss functionsLdc,Lres, andLgto clustering performance, we performed further ablation experiments to arbitrarily permute and combine the three loss functions.
+The performance was evaluated on two real scRNA-seq datasets, Muraro and Qs_diaphragm, and the results are shown in Table2.
+The analysis results indicate that in joint loss clustering, when the double-constraint clustering lossLdcis not considered, the average values of the NMI and ARI are 0.8949 and 0.8957, respectively.
+Regardless of how other loss functions are combined for clustering, there is no significant improvement in the clustering performance.
+When the reconstruction lossLresor adversarial lossLgis not considered, the average NMI remains the same as whenLdcis not considered, whereas the average ARI increases by 1%.
+However, when the three losses were combined for clustering, the average NMI and ARI significantly improved to 0.9145 and 0.9371, respectively.
+In summary, we conclude that when clustering a model using any two loss functions in combination or a single loss function, the clustering performance is not remarkable.
+However, a combination of the three loss functions significantly improves the clustering performance.
+Therefore, the combined use of the three loss functions has a positive impact on the clustering performance of the proposed scCAGN.
+In this study, we systematically investigated the selection rationale and conducted sensitivity analyses of critical hyperparameters to strengthen the methodological interpretability and robustness of the proposed framework.
+The proposed scCAGN utilizes a multi-head attention mechanism for information integration.
+A comparative analysis across the three datasets was performed to evaluate the impact of attention head counts on clustering performance.
+The determination of feasible attention head counts is based on the dimensionality of the latent representation,z.
+Figure4(a) presents the impact of using different numbers of attention heads (0, 1, 2, 4, and 8) on the performance of scCAGN.
+The results show that whenheads= 4, scCAGN achieved optimal NMI scores across the three datasets.
+The analysis revealed that because of the high dimensionality and sparsity characteristic of scRNA-seq data, when the attention-head count is set to 0, 1, or 2, the model cannot learn the underlying relationships from multiple perspectives and fails to effectively extract feature information from high-dimensional data.
+When the attention-head count was increased to eight, the model became more complex.
+As each attention head focuses on different parts of the data features in parallel, the learned information becomes too dispersed, and it is difficult to concentrate on key features, leading to redundancy, which degrades the model performance.
+The temperature parameterτin our model regulates the sharpness of the soft clustering distributionQ, critically influencing its alignment with the target distributionPand ultimately determining clustering performance.
+A systematic grid search evaluation was performed across five benchmark datasets from diverse sequencing platforms to assessτvalues within {0.1, 0.3, 0.5, 1.0, 2.0}.
+As illustrated in Figs.6(a) and 6(b),τ =0.5 yielded optimal or near-optimal NMI and ARI scores across most datasets.
+Notably, performance exhibited minimal sensitivity to τ variations within this range, with average fluctuations limited to 4.98% (NMI) and 4.92% (ARI), confirming robust parameter stability.
+We therefore adopted τ = 0.5 as the default configuration to balance clustering accuracy and training consistency.
+Complete experimental results are documented in Supplementary Sect.
+To evaluate the robustness of the proposed method under batch variation scenarios, three benchmark datasets with explicit batch annotations—Dendritic, Retina(19), and Retina(5)—were selected.
+Each dataset was partitioned into two sub-batches (x1 and x2) to establish a cross-batch validation protocol.
+Specifically, clustering performance was assessed under both “x1→x2” (trained on x1, tested on x2) and “x2→x1” configurations to simulate typical batch distribution discrepancies.
+As illustrated in Figs.6(c) and 6(d), the scCAGN framework achieved optimal or near-optimal performance in NMI and ARI across all datasets and batch combinations, demonstrating superior cross-batch generalization capacity.
+Notably, scCAGN exhibited exceptional robustness in the Dendritic and Retina(19) datasets, outperforming all baseline methods.
+For example, in the Dendritic dataset, scCAGN surpassed the second-best model by maximum margins of 4.5% (NMI) and 8.1% (ARI) under cross-batch testing conditions.
+These results indicate that scCAGN effectively extracts discriminative expression features invariant to batch effects, maintaining stable clustering performance without requiring explicit batch correction modules.
+The framework’s inherent ability to mitigate batch-related perturbations highlights its potential for practical deployment in multi-protocol scRNA-seq studies.
+We systematically evaluated the computational efficiency of scCAGN by comparing its runtime and memory usage with multiple advanced methods across five datasets from different sequencing platforms.
+The results indicate that scCAGN exhibits moderate computational overhead compared to lightweight models, primarily due to the integration of multi-head attention mechanisms and graph convolution modules.
+While these components enhance feature representation and spatial dependency modeling, they increase computational complexity, particularly during graph construction and cross-view information fusion.
+Conversely, scCAGN demonstrates superior memory efficiency, maintaining significantly lower memory footprints across all datasets compared to existing methods.
+This trade-off between runtime and memory utilization reflects our prioritization of clustering accuracy and spatial modeling capability.
+Detailed experimental results are provided in Supplementary Sect.
+Overall, scCAGN substantially outperforms rapid algorithms like Louvain and Leiden in clustering performance while achieving better memory control than scMAE, scLEGA, and scSimGCL under comparable accuracy levels.
+Future work will focus on optimizing model architecture and inference workflows to reduce runtime while preserving spatial modeling capabilities, thereby enhancing the framework’s applicability in large-scale data analyses.
+This study proposed a new self-supervised clustering approach, named scCAGN, which leverages AAE and GCN, interconnected through cross-attention, for cell-type identification in scRNA-seq data.
+Initially, high-dimensional scRNA-seq data underwent preprocessing, encompassing the normalization and selection of highly variable genes.
+Subsequently, a discriminator, which is integrated with an encoder to constitute a generative adversarial network, is introduced.
+Latent and graph feature representations were extracted from the data using the AAE and GCN, respectively.
+The feature representations derived from the AAE and GCN were further integrated using an information fusion technique.
+The similarity between feature representations is computed in parallel using a multi-head attention mechanism, allowing for the dynamic weighting of the graph feature representation.
+This enables the model to automatically prioritize salient features during information fusion, thereby generating more meaningful representations.
+Finally, we employed a joint loss function to constrain and adjust the soft label distribution output by the encoder and optimize the clustering results.
+To evaluate the performance of the scCAGN method comprehensively, we compared it with other typical methods from various perspectives.
+The experiments demonstrated scCAGN exhibited outstanding clustering performance across eight datasets, outperforming eight state-of-the-art clustering methods designed for the scRNA-seq data.
+The ablation and hyperparameter analyses further confirmed the robustness of our approach.
+This work advances unsupervised analysis of scRNA-seq data by providing a scalable, end-to-end solution that bypasses reliance on labeled data.
+Future studies could explore multimodal integration with spatial or epigenetic data, while theoretical investigations into the interplay between adversarial training and graph attention mechanisms may further refine model interpretability.
+The analytical frameworks with enhanced interpretability will further improve the transparency and reliability of the model.
+The authors sincerely thank the editors and anonymous reviewers for their valuable time and helpful suggestions.
+BHT, YYF and XYG drafted the manuscript and performed the coding and analysis.
+BHT and YYF revised the manuscript.
+BHT led the project.
+All authors proofread and approved the final version.
+The work was supported in part by the research fund (No. B240203012) from the Key Laboratory of Maritime Intelligent Cyberspace Technology (Ministry of Education of China), Hohai University, China.

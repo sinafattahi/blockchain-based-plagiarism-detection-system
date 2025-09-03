@@ -1,0 +1,200 @@
+Rising healthcare costs have led to the adoption of value-based healthcare (VBHC), emphasizing patient outcomes and cost efficiency.
+This study evaluates VBHC in a tertiary private health group, focusing on cost-effectiveness using the median incremental cost-effectiveness ratio (ICER).
+A retrospective cohort study analyzed 1576 patients treated between 2021 and 2024 in Almoosa Health Group, Al-Ahsa, Saudi Arabia.
+Patients underwent surgeries and therapies for Anterior Cruciate Ligament (ACL) injuries, knee and hip replacements, cerebral palsy, low back pain, and multiple sclerosis (MS).
+The study applied median ICER methodology to evaluate value-based healthcare by comparing pre-and post-treatment costs with improvements in mobility, pain management, activity levels, self-care, and Functional Independence Measure (FIM) scores.
+Statistical significance was assessed through non-parametric tests, and analysis was performed in R Studio.
+Out of a total of 1576 patients, the surgeries included ACL (n= 112, 7.1%), knee replacement (n= 52, 3.3%), cerebral palsy (n= 46, 2.9%), stroke (n= 178,11.2%) hip replacement (n= 12, 0.7%), low back pain (LBP,n= 1124, 71.3%), and multiple sclerosis (MS,n= 52, 3.2%).
+The study revealed that improvements in mobility (b =–0.469,p= 0.006), pain management (b =–1.175,p= 0.024), and self-care (b =–0.33,p< 0.001) significantly reduced healthcare costs, particularly in TKR and ACL patients.
+Additionally, ICER values were positively associated with better functional outcomes in MS and stroke patients, with mobility (b = 1.027,p= 0.003) and activity (b = 1.768,p< 0.001).
+For cerebral palsy, cost change (b = 0.298,p= 0.022) was significantly linked to improved functional independence.
+Improvements in Mobility, Self-care, pain management, activity, and FIM were all associated with cost savings, with lower ICER values.
+This study represents one of the earliest investigations of its kind conducted in the Kingdom of Saudi Arabia.VBHC, assessed through median ICER methodology, effectively assessed improved outcomes while reducing costs.
+Knee and ACL therapies were the most cost-effective, while lower cost-effectiveness in CP and LBP treatments may stem from the chronic nature, variable patient responses, and high resource use.
+Improving patient selection, standardizing treatment protocols, and enhancing early intervention and care coordination can boost efficiency and outcomes.
+These findings support VBHC adoption for evidence-based resource allocation specially in KSA region.
+The surge in healthcare expenditures has prompted continuous advances in management and innovation [1], underlining the need for structures that improve care quality while regulating costs.
+Value-based healthcare (VBHC) is a method that provides the preference in delivering the best possible value for patients while guaranteeing cost efficiency in medical and healthcare facilities.
+It was introduced by Michael Porter and Elizabeth Teisberg to align reimbursement structures with quality improvement goals, ensuring healthcare organizations are incentivized to deliver high-value care [1].
+This concept has shifted the emphasis from service volume to value, highlighting the importance of improved patient outcomes and experiences while enhancing resource use.
+VBHC focuses on patient outcomes rather than service volume [2].
+Implementing VBHC faces challenges, particularly in assigning individualized values to patients with varying healthcare needs.
+This concept has been developed as a promising strategy to improve continuous improvement in patient care and cost management [2].
+From an economic perspective, value is defined by what an individual is willing to pay or sacrifice for a service [3].
+In healthcare, increasing value requires continuous improvement tailored to individual patient needs [1–5].
+As an alternative to traditional fee-for-service models, Providers treating complex, high-risk patients may face financial disadvantages due to variations in time, resources, and materials required for care [6].
+Lee [7] suggests that healthcare organizations improve data collection methods to evaluate service quality and actual care costs, making a data-driven approach essential for assessing value changes and driving technological advancements in surveillance and control [8].
+Accurate patient-level data on costs and outcomes is crucial for making informed value-based decisions [9], enabling improved patient-reported outcome measures, clinical outcomes, and cost reduction [10].
+Hospitals can classify cost drivers and develop cost-containment strategies by concentrating on health outcomes.
+Preoperative evaluations play a critical role in patient safety, involving multidisciplinary teams to evaluate organ dysfunction and stratify patient risk [11–14].
+However, the rising demand for intensive perioperative care, especially among vulnerable and elderly patients, and financial constraints have placed additional pressure on healthcare systems [15].
+This situation is further exacerbated by uncontrollable healthcare inflation, which most stakeholders recognize as a major threat to the health and economic welfare of many societies.
+The long-term sustainability of healthcare delivery depends not only on cost-containment strategies but also on shifting focus toward value-based care as a means to effectively bend the cost curve and ensure a viable future for the system [16].
+To address these challenges, VBHC provides an innovative framework for the healthcare revolution concept given by Porter’s perspective that true reform lies in maximizing value, achieving better health outcomes per dollar spent.
+His framework reinforces the shift from cost containment to value-based care as a sustainable solution [10].
+Porter and Teisberg emphasized systemic reform by redefining competition in healthcare to focus on patient outcomes [17].
+They later proposed a strategic redesign of primary care organized around patients’ needs to further enhance value [18].
+Zanotto et al. systematically reviewed real-world value-based healthcare implementations, highlighting their growing global relevance [19].
+Weinstein and Stason laid the analytical foundation by introducing cost-effectiveness analysis as a tool to measure value in health and medical decisions [20].
+A well-known economic technique, cost-effectiveness analysis (CEA), provides a structured framework to assess the costs and health outcomes of alternative strategies to measure the VBHC numerically.
+Assessing VBHC through the incremental cost-effectiveness ratio (ICER), healthcare organizations can make data-driven decisions that maximize patient benefits while retaining financial sustainability.
+Different numerical and statistical methods have been developed for CEA, and ICER has emerged as a standard measure for researchers and policy evaluators in assessing the value of healthcare interventions [21].
+This integration of economic evaluation within VBHC strengthens its potential as a transformative approach, ensuring that healthcare resources are allocated efficiently to achieve the best possible patient outcomes at an optimal cost.
+The ICER has been calculated using the mean for both cost and effectiveness measures, and other measures of central tendency have been rarely considered.
+The use of the mean is almost unanimously advocated primarily because the total cost can be directly computed from the mean, but not from alternative measures such as the median [22].
+Cost data often exhibit severe skewness, making the median a simple yet informative summary measure, as it is less sensitive to outliers or erroneous values.
+When dealing with a few exceptionally high-cost data points, the median cost provides a more realistic estimate of what an ordinary individual would expect to spend.
+Furthermore, the median is conventionally used in effectiveness analyses, such as median survival time [23].
+Given these considerations, the advantages of using the median should not be overlooked.
+Given the limited number of studies related to Value-Based Health Care (VBHC) in the Kingdom of Saudi Arabia and considering its importance in healthcare delivery, this study aimed to assess VBHC at Almoosa Health Group, a largest private healthgroup in KSA, focusing on surgeries for chronic pain, anterior cruciate ligament (ACL) injuries, knee replacement, and low back pain.
+Incorporating cost-effectiveness analysis through the median incremental cost-effectiveness ratio (ICERmedian), the study will assess and evaluate patient recovery, healthcare costs, and overall value before and after surgery, with a primary focus on VBHC.
+The study consists of the retrospective patient data obtained from Almoosa Health Group (AHG), located in Al Ahsa, Saudi Arabia, for the period of three years starting from 2021 to 2024.
+This state-of-the-art hospital provides advanced facilities in the healthcare sector.
+it spans over 100,000 square meters and offers 300 single-bed rooms.
+The AHG has expanded its services over the years, with the opening of the Almoosa Rehabilitation Center, providing well-established healthcare solutions to the community based on the principles of VBHC.
+Inclusion criteria included all patients treated at Almoosa Specialist Hospital between 2021 and 2024 who underwent surgical or therapeutic interventions for ACL injuries, knee and hip replacements, cerebral palsy, low back pain, multiple sclerosis (MS), and stroke.
+Eligible participants had complete pre- and post-treatment clinical and financial records, which were essential for evaluating changes in outcomes such as mobility, pain management, activity levels, self-care, and Functional Independence Measure (FIM) scores, as well as for calculating the incremental cost-effectiveness ratio (ICER).
+Additionally, only patients who provided informed consent and whose participation adhered to institutional ethical standards were included.
+Patients were excluded if they lacked complete data, did not receive treatment within the specified study period, failed to provide consent, or received treatments unrelated to the study’s targeted conditions.
+Data for this retrospective cohort study were collected from the electronic health records (EHR) and hospital information systems (HIS) of Almoosa Health Group between the period of 2021 and 2024.
+Patient-level data were retrieved from clinical documentation modules, billing records, surgical logs, and therapy reports.
+To enhance data quality and analytical validity, a rigorous data cleaning process was performed.
+The imputation method replaced records with missing, incomplete, or inconsistent entries in key variables (costs, outcome measures).
+All data were anonymized before analysis to ensure patient confidentiality and ethical compliance.
+The surgical procedures included anterior cruciate ligament (ACL) repair for 112 patients, knee replacement for 52 patients, stroke for 178 patients, hip replacement for 12 patients, and interventions for cerebral palsy in 46 patients.
+Additionally, 1124 patients received treatment for low back pain (LBP), while 52 patients underwent procedures related to multiple sclerosis (MS).
+Along with these surgeries, patients were given physical, occupational, pain management, and rehabilitation therapy, which are crucial for recovery and enhancing functional abilities.
+Rather than focusing solely on the amount of services provided, VBHC prioritizes outcomes such as mobility, pain management, activity level, and self-care.
+At Almoosa Health Group, all surgical and therapeutic interventions were delivered according to standardized, institutionally developed clinical pathways aligned with the principles of VBHC.
+A unified perioperative protocol was followed for primary total knee replacement (TKR), including preoperative physiotherapy assessment, standardized surgical procedures, controlled anesthesia protocols, and structured postoperative rehabilitation.
+Revision TKR cases were excluded to maintain treatment uniformity.
+The study also considers that patients with conditions such as low back pain were included only if they met eligibility criteria for non-surgical or surgical interventions within a standardized VBHC-aligned rehabilitation protocol.
+This protocol includes structured assessments by the pain management team, imaging-based stratification, and tiered physical therapy interventions.
+While some clinical heterogeneity remains unavoidable, the use of these standardized care pathways across Almoosa Health Group helps minimize variation and allows for valid cost-effectiveness comparisons.
+The study consisted of variables and outcomes to measure the impact of surgeries and therapies on patients' recovery while considering the cost paid.
+The study variables included mobility, pain management, activity levels, self-care, and accessibility.
+Mobility was assessed based on whether patients had no “problems walking”, “had some issues”, or “were confined to bed”.
+Activity levels were assessed by asking whether patients had no problems performing their usual activities, had some issues, or were unable to perform them.
+Self-care was evaluated based on whether patients experienced no issues with tasks such as washing and dressing, had some problems, or were unable to perform these tasks.
+The three metrics (Mobility, Activity, Self-Care) have been directly derived from the EQ-5D-3L questionnaire, a standardized instrument for assessing health-related quality of life [24].
+Pain management was measured using a scale from 0 to 10, where patients indicated their average pain over the last seven days, where “0” means having no pain at all and “10” is the worst pain imaginable [25].
+The Functional Independence Measure (FIM) was also used, ranging from 1 (complete dependence) to 7 (complete independence), to assess self-care tasks, transfer tasks, locomotion, communication, and social cognition.
+These tasks included eating, grooming, bathing, dressing, toileting, transfers (bed-to-chair, toilet, tub, or shower), walking or wheelchair use, stairs, comprehension, expression, social interaction, problem-solving, and memory [26].
+Additionally, accessibility was considered by checking whether patients had an appointment in the outpatient department (OPD) within 2 days of referral.
+If theΔCostis negative (cost reduction), this indicates that the surgery led to savings in costs.
+Continuous variables, including pain management, self-care, activity levels, and Functional Independence Measure (FIM) scores, were analyzed using mean and standard deviation (SD).
+Wilcoxon-Signed Rank test was applied to evaluate the difference among improvement measures from pre-treatment to post-treatment.
+The incremental cost-effectiveness ratio (ICER) was used to measure VBHC cost-effectiveness, with median ICER values indicating cost savings.
+To ensure data integrity and minimize bias, records with missing or incomplete data were replaced by the median and mean imputation method.
+This step was essential for the accurate computation of outcome measures and the incremental cost-effectiveness ratio (ICER).
+Only complete cases were retained to maintain methodological rigor and uphold the validity of the value-based healthcare assessment.
+All the analysis and visualization were performed in R Studio.
+Statistical significance was set atp< 0.05.
+There were a total of 1576 patients at Almoosa Health Group who underwent surgeries and therapies designed to enhance patient outcomes.
+The surgical procedures included anterior cruciate ligament (ACL) repair for 112 patients, knee replacement for 52 patients, stroke for 178 patients, hip replacement for 12 patients, and interventions for cerebral palsy in 46 patients.
+Additionally, 1124 patients received treatment for low back pain (LBP), while 52 patients underwent procedures related to multiple sclerosis (MS).
+The average age of patients undergoing knee replacement is 64.23 years ±5.59 shows that a portion of younger adults, likely those with hip-related conditions like osteoarthritis or trauma, are receiving this treatment.
+Although this age group is less common compared to older patients, it still represents a significant subgroup of individuals who may be facing early-stage degenerative conditions or other factors requiring hip replacement surgery.
+Patients receiving hip replacement are younger, with an average age of 37.83 ±SD = 26.69.
+Those treated for ACL are younger with an average age of 29.96 years ±SD.
+The stroke group has an average age of 61.28 years (SD = 13.29), with a gender distribution of 83 females (46.6%) and 95 males (53.4%).
+In contrast, cerebral palsy patients are much younger, with an average age is just 6.35 years (SD = 3.23), representing a much younger population.
+This condition is typically diagnosed in childhood and can require ongoing therapies into adulthood, and a nearly balanced gender split of 24 females (52.2%) and 22 males (47.8%) [Table1].
+The outcomes of the study revealed several significant predictors across different health conditions concerning cost changes, ICER, and quality-of-life indicators.
+The study observed TKR showed improvements in mobility (b =–0.469, p = 0.006), pain management (b =–1.175, p = 0.024), self-care (b =–0.33, p < 0.001), and activity (b =–0.972, p < 0.001) and it was associated with reduced costs.
+In Hip Replacement cases, similar effects were observed where mobility (b =–0.820, p = 0.004), pain management (b =–1.175, p = 0.024), and self-care (b =–0.972, p < 0.001) significantly decreased costs.
+In ACL patients, improved mobility (b =–0.820, p = 0.004), pain management (b =–1.175, p = 0.024), and self-care (b =–0.972, p < 0.001) reduced costs.
+For Multiple Sclerosis (MS), age positively predicted better self-care outcomes (b = 0.762, p = 0.007), and increases in cost changes were associated with higher self-care (b = 0.298, p = 0.022).
+In Low Back Pain patients, gender and age were significant factors influencing mobility and pain management (p < 0.01), while cost change significantly reduced self-care (b = -3.368, p < 0.001) and activity (b =–0.184, p = 0.049).
+The study showed that among stroke patients, age was positively associated with better scores in mobility, self-care, and activity (p < 0.001), whereas cost change negatively affected all four domains (p < 0.001).
+ICER was associated with better mobility (b = 0.00004025, p < 0.001), self-care (b = 0.00003688, p < 0.001), and activity (b = 0.00003666, p < 0.001).
+The study observed that for Cerebral Palsy (CP) patients, both age (b = 0.437, p = 0.008) and cost change (b = 0.298, p = 0.022) were positively associated with higher FIM scores, while ICER was significantly reduced with increasing FIM (b = -0.350, p = 0.015) [Table2].
+The study observed improvements across all measures, with each parameter showing an improved and significant difference between pre-and post-procedure assessments.
+Specifically, pain management scores significantly decreased from 6.02 ± 1.42 before the procedure to 0.28 ± 0.84 after, indicating substantial relief.
+Self-care also improved, as reflected by a reduction in the score from 1.78 ± 0.65 to 1.06 ± 0.27.
+The activity levels, which were measured at 2.52 ± 0.50 before the procedure, decreased significantly to 1.09 ± 0.30 after, suggesting enhanced mobility or engagement in physical tasks post-treatment.
+The FIM, which assessed overall functional independence, showed an exceptional improvement, increasing from 53.94 ± 13.66 before the procedure to 99.53 ± 14.82 after, further reflecting the successful impact of the procedure.
+In all cases, the p-values were ≤ 0.0001, showing that the differences observed were statistically significant, providing strong evidence about the positive effects of the procedure on these health outcomes [Table3].
+The results from the treatment outcomes across various therapies showed that for knee replacement, improvements in mobility, pain management, self-care, and activity suggest a comprehensive positive impact on patients' quality of life(p < 0.001).
+Similarly, hip replacement also showed similar outcomes, demonstrating effective pain relief and functional restoration, particularly in mobility and self-care ( p < 0.001).
+ACL injury treatments also resulted in notable gains in all evaluated areas, with significant improvements in mobility, pain management, and activity, while the decrease in FIM scores shows patient independence after treatment (p < 0.001).
+Stroke rehabilitation treatments showed considerable improvements in all functional areas, reflecting the potential for recovery and the positive influence of therapy on mobility, self-care, and overall independence (p < 0.001).
+For MS patients, therapy has also led to notable improvements in functional outcomes, strengthening the role of targeted treatments in managing symptoms and enhancing quality of life.
+While the Cerebral Palsy group showed significant improvements in FIM (p < 0.001) [Table4, Fig.1].
+In VBHC, the incremental cost-effectiveness ratio (ICER) is a critical measure of how effectively healthcare interventions utilize resources relative to improving patient outcomes.
+It is calculated as the ratio of the difference in costs between two competing strategies, such as the pre-and post-treatment phases, to the difference in their effectiveness.
+In our study, effectiveness using various indicators, including mobility, activity levels, pain management, self-care and FIM scoreswere measured.
+Traditionally, cost and effectiveness are measured using means, and the ICER is often calculated through this approach.
+However, the use of means can be problematic, especially when outliers skew the data.
+Some researchers address this by applying a log transformation to the data, which helps make the distribution more symmetrical and manageable for cost-effectiveness analysis.
+Normality tests were conducted on the cost before and after variables using both the Kolmogorov-Smirnov (KS) test and the Shapiro-Wilk test which showed that both costs before and after payment by patients deviate from normality with statistics of 0.614 (p< 0.001) and 0.616 (p< 0.001), respectively.
+These results indicate that the data do not follow a normal distribution and are subject to outliers, as depicted in [Fig.2].
+Given the significant deviations from normality and the presence of outliers, using mean-based methods to calculate ICER may not be appropriate and may be misleading.
+The mean is sensitive to outliers and extreme values, which can distort the results.
+To mitigate these issues, our study employed the median-based ICER approach proposed by [3], which is more robust and reliable.
+Outliers and extreme values have less influence the median, making it a more appropriate measure for analyzing cost-effectiveness in real-world healthcare data, where such extremes are common.
+Focusing on the median ensures that the ICER calculation remains accurate and reliable, even in the presence of non-normality and outliers in the data.
+Therefore, it is recommended to base the ICER calculation on the median rather than the mean, ensuring a more robust and realistic measure of cost-effectiveness in this context.
+It has the following mathematical expression for calculation.
+Here2= cost after surgery,1= cost before surgery,2= effectiveness of clinical outcomes after surgery, and1= effectiveness of clinical outcomes before surgery.
+In VBHC, the primary objective is to maximize patient outcomes while ensuring that healthcare resources are used efficiently.
+The study demonstrated that for each outcome, the negative ICER values indicate these interventions are highly cost-effective.
+Specifically, improvements in Mobility and Self-care correspond to cost savings of 1,170 per unit of effectiveness, meaning these outcomes are achieved while reducing expenses.
+Similarly, improvements in Pain Management and Activity result in cost savings of 234 and 585 per unit of effectiveness, respectively.
+Additionally, the FIM outcome showed a negative ICER value of 24.38, indicating that functional independence improved while patients incurred lower costs [Table5].
+The study observed that treatments such as knee replacement, hip replacement, and anterior cruciate ligament (ACL) reconstruction consistently demonstrated strong value-based healthcare outcomes by achieving significant health improvements while reducing overall treatment costs.
+Knee replacement therapy showed median ICERs of − 2,280for mobility, self-care, and activity outcomes, and − 325for pain management.
+These figures indicate that knee replacement substantially enhances patient function and comfort while delivering cost savings, thereby optimizing healthcare resource utilization.
+Similarly, hip replacement exhibited median ICERs of − 977for mobility, self-care, and activity, and − 139.57for pain management, confirming its role in providing effective clinical benefits alongside economic efficiency.
+This demonstrates that hip replacement therapy successfully balances improved patient outcomes with responsible healthcare spending.
+The study indicated that ACL reconstruction achieved the most significant value, with median ICERs of −3,916 for mobility, self-care, and activity, and − 558 for pain management.
+These findings highlight ACL treatment as a remarkably cost-effective intervention that maximizes health gains while minimizing costs, supporting its prioritization within value-based healthcare frameworks.
+Stroke rehabilitation also demonstrated considerable value, with median ICERs of −2,384 for mobility, self-care, and activity, and − 340.57 for pain management.
+These results emphasize the capacity of stroke therapy to significantly enhance patient function and quality of life alongside efficient cost management.
+Furthermore, the study observed that multiple sclerosis (MS) treatments provided consistent improvements across mobility, self-care, activity, and pain management domains, reflected in median ICERs ranging from − 2,939.50 to −419.93.
+This reinforces the potential of MS therapies to deliver meaningful clinical benefits cost-effectively.
+Similarly, treatments for low back pain exhibited positive value-based outcomes, with median ICERs of −720.50 for mobility, self-care, and activity, and − 102.93 for pain management.
+These findings support the economic and clinical effectiveness of low back pain management strategies in enhancing patient well-being.
+Finally, interventions for cerebral palsy demonstrated cost-effective improvements in functional independence, with a median ICER of −24.44 for the Functional Independence Measure (FIM), reflecting enhanced patient outcomes while effectively managing healthcare expenditures [Table6; Fig.3].
+A probabilistic sensitivity analysis was conducted using a Monte Carlo simulation (N= 100000) in R. For each treatment-outcome pair, ICER values were simulated from a normal distribution defined by the reported mean and 95% CI, with the SD derived from the interval width.
+Ten thousand simulations were performed for each comparison to assess the variability and uncertainty in the ICER estimates.
+Sensitivity was further illustrated using a forest plot (also known as blobbograms) based on the width of confidence intervals to identify the parameters with the greatest impact.
+The sensitivity analysis across various interventions indicated that most treatments demonstrated strong and consistent cost-effectiveness, with confidence intervals for key outcomes not including zero, particularly for knee replacement, ACL surgery, stroke rehabilitation, and low back pain.
+Treatments like cerebral palsy also showed favorable cost-effectiveness in functional improvement.
+However, some uncertainty remains in hip replacement and multiple sclerosis outcomes which may be improved and narrowed after further data collection and evidence [Fig.4].
+This study is among the first of its kind in the KAS region, which provided strong empirical evidence supporting the cost-effectiveness of value-based healthcare (VBHC) across a range of surgical and therapeutic interventions.
+Utilizing median-based incremental cost-effectiveness ratios (ICERs), which provide robustness against outliers and non-normal cost distributions, the analysis revealed that procedures like ACL reconstruction and knee replacement delivered the highest value, maximizing functional gains while significantly reducing treatment costs.
+These results align with previous studies showing that early surgical intervention for ACL injuries leads to better long-term functional outcomes and reduced rehabilitation costs [27].
+Similarly, knee replacement exhibited strong cost-effectiveness, reinforcing existing literature that highlights its ability to restore mobility and reduce long-term disability expenses [28].
+Our study showed that stroke rehabilitation yielded significant improvements in mobility (ICER: −2,384) and self-care, supporting prior research that structured post-stroke therapy reduces long-term care dependency and hospitalization costs [29].
+The negative ICERs observed in this study suggest that VBHC models can simultaneously enhance recovery and reduce the financial burden on the healthcare system, consistent with findings from the AVERT trial [30].
+In our study, interventions for low back pain demonstrated moderate ICERs, indicating reasonable cost-effectiveness.
+This finding aligns with previous research that identified effective, promising, or emerging solutions offering better value and new directions in care delivery [31].
+In contrast, interventions for cerebral palsy and multiple sclerosis showed gains in FIM scores, but the moderate improvement of ICER ranges suggests that these treatment pathways may benefit from further refinement and standardization.
+Hip replacement, in particular, exhibited both cost-saving and cost-incurring outcomes, a result consistent with studies indicating that CP and MS require long-term, resource-intensive care [32].
+The outcomes of this study reinforce the VBHC concept, which emphasizes aligning healthcare delivery with patient outcomes rather than service volume [1,3].
+Our findings support this principle, demonstrating that several interventions not only improve mobility, pain management, and self-care but also cost-effectively achieve these outcomes.
+The negative ICER values observed across key interventions underscore that these treatments are both clinically effective and economically efficient, meeting the core objectives of VBHC.
+The use of median-based ICERs in our analysis addresses an important limitation of traditional mean-based calculations, which are often skewed by outliers.
+This approach, as recommended by previous researchers [33], offers a more reliable measure of cost-effectiveness, especially in real-world healthcare settings where data variability is common.
+Traditional mean-based ICERs can be distorted by extreme values, leading to misleading conclusions [34].
+The application of median-based ICERs provided quite accurate assessment, particularly in real-world settings with high cost variability and skewness in the cost data.
+Furthermore, probabilistic sensitivity analysis confirmed the robustness of ICER estimates, particularly for knee replacement, ACL reconstruction, stroke rehabilitation, and low back pain treatments, where 95% CI excluded zero.
+By employing this method, the study provides a more accurate and reliable estimate of cost-effectiveness, ensuring that the value-based approach.
+VBHC, assessed through ICERmedian, efficiently measured the outcomes while analyzing the reduced cost paid by the patients resulting in an enhancement in VBHC in Almoosa specialist hospital, one of the biggest healthcare groups in KSA.
+The study showed that Knee and ACL therapies/treatments were the most cost-effective, while CP and low back pain treatments also showed cost effectiveness.
+These findings support VBHC adoption for evidence-based resource allocation, which can help understand the application of this concept in future surgeries, considering the cost-effective analysis.
+Although this study demonstrated strong short-term cost-effectiveness, its validity can be further strengthened through long-term follow-up and application to other surgical procedures to confirm sustained cost savings and patient outcome improvements.
+Serving as a benchmark, this methodology can provide a valuable framework for researchers and hospitals in the region to expand value-based healthcare assessments and enhance the visualization of their healthcare systems based on value addition.
+This study has limitations that should be acknowledged.
+This study is limited by its single-center design, which may restrict the generalizability of the findings to other settings or populations.
+The absence of external benchmarking using international standards such as WHO or NICE cost-effectiveness thresholds, QALY-based evaluations, or comparisons with large healthcare databases (e.g., NHS) further limits the broader applicability of the results.
+Another limitation was observed due to the span of time.
+The predominance of low back pain cases (83% of the sample) was observed, which may skew results.
+This study did not compare the results with other interventions as it was not scope of the study; however and it may limit contextualizing effectiveness.
+However, the study approach maintained internal validity by conducting condition-specific analyses while aligning with VBHC’s system-level emphasis on value.
+However, future studies could enhance granularity with disease-specific tools like the EDSS for MS. Moreover, incorporating disease-specific tools in future studies could improve accuracy while building on our solid foundational approach.
+Future studies incorporating multi-center data and global economic evaluation frameworks would enhance the external validity and comparability of the findings.
+This study provides a clear framework for evaluating cost-effectiveness using real patient outcomes, which other regions, especially those following similar surgical and therapeutic procedures, can readily adapt to their local healthcare settings.
+By applying this approach, healthcare providers can identify the most value-added treatments, optimize resource allocation, and improve patient care while controlling costs.
+We acknowledge Almoosa Health Group for their support.

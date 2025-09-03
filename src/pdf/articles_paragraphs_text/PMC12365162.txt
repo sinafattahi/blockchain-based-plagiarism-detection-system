@@ -1,0 +1,187 @@
+The Small Satellite (SmallSat) industry has advanced significantly, with CubeSats playing crucial roles in Earth observation and scientific research due to their low cost and modularity. The Electrical Power System (EPS) is a critical subsystem that integrates photovoltaic sources, energy storage, and power converters to ensure reliable operation. However, EPS design faces challenges from strict size limitations, high power density requirements, and extreme space conditions, demanding robust control strategies. This paper presents a hierarchical control approach for islanded nano-satellite microgrids under real flight conditions. The dual-layer architecture combines a proportional-integral (PI) controller for secondary voltage regulation and a non-singular terminal sliding mode (NTSM) controller for primary disturbance rejection. The solution provides four key advantages: (1) robust handling of dynamic operational conditions including sudden constant power load variations, source fluctuations, and islanding/connection mode transitions; (2) decoupled control architecture separating high-level power management from fast local regulation; (3) optimized computational efficiency for onboard processing constraints; and (4) enhanced environmental robustness through NTSM’s inherent stability in extreme thermal/radiation conditions. Comprehensive validation through stability analysis, simulations, and experimental testing demonstrates superior performance versus conventional methods, with significant improvements in transient response speed, steady-state error reduction, and disturbance rejection capability. The proposed framework offers a practical solution for nano-satellite power management, directly addressing the unique constraints of space applications while maintaining system reliability and efficiency under dynamic operational conditions.
+
+The Small Satellite (SmallSat) industry, encompassing mini, micro, nano, pico, and femto satellites, has experienced significant growth in recent years and continues to expand. This expansion is driven by advancements in SmallSat subsystem technologies, including digital signal processing (DSP), integrated circuits (ICs), microelectromechanical systems (MEMS), and additive manufacturing. Moreover, the integration of cost-effective and advanced Commercial-Off-The-Shelf (COTS) technologies has led to significant reductions in mass, volume, development time, and overall costs1,2. Future NanoSat applications are expected to include satellite constellations for space-based telecommunication networks, supporting mobile communications and global internet coverage3–6, contributing to continued market growth. A major factor fuelling interest in NanoSats is the increasing prominence of CubeSats. Since the first CubeSat launch in 2003, these satellites have gained attention from governments, educational institutions, scientists, and commercial organizations7. Named after their cubic structure, CubeSats are built from standardized units (U), each weighing 1.33 kg with a volume of one liter and dimensions of 10 × 10 × 10 cm8. To accommodate higher payload demands, CubeSats can be extended by stacking multiple units. While NanoSats are generally classified within the 1–10 kg range, CubeSats are not strictly confined to this weight limit. For instance, a 27U CubeSat, one of the heaviest reported, weighs 40 kg3. CubeSat classification based on mass and volume is presented in9, while spacecraft classification based on mass and cost is provided in10.
+
+SmallSats, particularly those in the 1–10 kg range, commonly referred to as NanoSats, have garnered significant attention from various stakeholders, including academic institutions, government agencies, and private sector entities. Among these, CubeSats have witnessed rapid expansion due to their standardized design and modular scalability. A CubeSat, typically measuring 10 × 10 × 10 cm and weighing around 1.33 kg, represents a 1U configuration, which can be scaled up to larger sizes such as 2U, 3U, and more. These satellites serve a broad spectrum of applications, including Earth observation, space exploration, and technological demonstrations, primarily operating in Low Earth Orbit (LEO). NanoSats are typically equipped with essential subsystems, such as an Electrical Power System (EPS), Communication Transceiver System (COM), an Attitude Determination and Control System (ADCS), Onboard Data Handling (OBDH), and mission-specific payloads. Among these, the EPS plays a critical role in ensuring reliable power distribution across all subsystems, making it a cornerstone of successful satellite operation. Structurally, the EPS functions as a space microgrid (MG), integrating multiple distributed generators (DGs), an energy storage system (ESS), a controlled coordination mechanism, and various onboard loads11,12. A typical NanoSat DC MG architecture is depicted in Fig.1.
+
+While NanoSat DC MGs offer numerous advantages, their operation faces substantial challenges. These systems must function efficiently in both grid-connected and islanded modes, necessitating enhanced reliability and security in power delivery13–15. Furthermore, the increasing complexity of NanoSat DC MG subsystems, which often rely on the EPS, introduces stability concerns in the MG. Many of these subsystems act as constant power loads (CPLs), exhibiting incremental negative impedance (INI) properties that can destabilize the NanoSat DC MG if not properly managed. Addressing these challenges requires advanced power management strategies and robust control approaches to ensure the stability of NanoSat DC MGs16. In particular, CPLs can introduce instability in NanoSat DC MGs when inappropriate control strategies are applied. This instability often arises in configurations where two cascaded DC converters are employed, with one serving as a power source and the other as a load. CPLs exhibit nonlinear characteristics, behaving as INI loads. This behaviour manifests through an inverse relationship between output current and voltage—where an increase in output voltage results in a decrease in output current and vice versa17,18. While NanoSat DC MGs offer modularity and scalability, their dynamic operation—marked by transmission line transients, sensor nonidealities, and CPL-induced instability—necessitates novel control paradigms to ensure DC bus stabilization under varying load conditions.
+
+Hierarchical control is widely used in NanoSat DC MGs to achieve various operational objectives. It includes three control levels: primary, secondary, and tertiary. The primary control level commonly employs the droop control method, a decentralized approach that enhances system reliability and flexibility by eliminating the need for communication links. This approach ensures system stability and facilitates effective load sharing among converters19,20.
+
+The secondary and tertiary control approaches in MGs are generally grouped under centralized and distributed control architectures. In a centralized framework, secondary and tertiary adjustments are managed by a central controller, whereas in a distributed approach, these functions are executed across multiple controllers within the MG. However, implementing droop control involves a balance between optimal power sharing and voltage stability. Although it enhances load-sharing performance, it often causes notable DC bus voltage deviation15. To address these challenges, a secondary control strategy incorporating a compensation controller is introduced. This controller enhances the regulation of the DC bus, improves current-sharing accuracy, and ensures overall system stability. By detecting and processing voltage deviation errors, the system generates corrective control signals, which are then distributed to all DGs within the NanoSat DC MG. This mechanism effectively ensures the required DC bus voltage, reducing the negative impacts of CPLs and uncertain external inputs.
+
+Hierarchical control strategies for DC MGs have been extensively studied to address stability and performance challenges. Primary control, typically implemented through droop mechanisms, enables decentralized voltage regulation and current sharing but introduces steady-state deviations and sensitivity to line impedance mismatches. To mitigate these limitations, secondary control strategies are structured into centralized and distributed architectures.
+
+In centralized secondary control, a master unit gathers system-wide data and transmits control signals to all DGs via real-time communication networks. While effective for voltage restoration, this approach risks single-point failures and modelling inaccuracies21–25. Distributed secondary control methods, such as voltage shifting26–28, slope adjustment29–31, and hybrid voltage/slope-compensation techniques32–34, enhance resilience by enabling peer-to-peer coordination. For example, studies in35,36improve current sharing and voltage regulation by simultaneously applying voltage modulation and slope compensation. Cooperative strategies, such as the voltage/current regulator proposed in37, dynamically adjust voltage set points to maintain equilibrium. Plug-and-play (PnP) regulators38–41further enhance adaptability and scalability, while event-triggered methods42–47reduce communication overhead by activating control actions only during critical deviations. A degrading fault forecast for DC-Link capacitors in multistring-connected photovoltaic boost converters sensitive to cable uncertainties was presented online by the author in48. Based on hybrid numerical integration, the authors of49presented an effective half-bridge modular multilevel converter model for electromagnetic transients program-type modelling. The authors of50created a Bayesian optimization-based online optimization escape entrapment plan for planetary rovers. A solid-state DC circuit breaker with a three-winding coupled inductor based on a thyristor was proposed by the authors in51. A general modelling and study of the effects of unbalanced inductance on PWM methods for two-parallel interleaved power converters was reported by the authors in52. The fault-tolerant multi-parallel three-phase two-level converters with adaptive hardware reconfiguration were introduced by the authors in53. A new double-layer Helmholtz coil for wirelessly powering a capsule robot was created and refined by the authors in54. A feature-aware task offloading and scheduling strategy for vehicle edge computing environments was proposed by the author in55. A precise and ongoing reactive power control method for a three-terminal hybrid DC transmission system was proposed in56.
+
+Recent advances focus on optimizing secondary control efficiency. The work in48derives compensation signals from the average current of all DGs and integrates them into droop functions, while57introduces an average voltage-sharing scheme to counteract primary control-induced deviations. Similarly,58proposes a simplified control technique requiring only total load current and droop gain, reducing computational complexity.
+
+Despite these advancements, the stability of DC MGs supplying CPLs remains a critical challenge. Dynamic interactions between hierarchical control layers, CPL nonlinearities (INI effects), and inherent system uncertainties complicate stability analysis. Furthermore, existing methods often incur efficiency losses due to supplementary resistive loads or oversimplified modelling assumptions. These unresolved issues underscore the need for advanced co-design strategies that integrate robust primary control with adaptive secondary mechanisms, ensuring stable operation under real-world conditions.
+
+Building upon the existing literature, this work introduces a novel centralized secondary control strategy for a NanoSat DC MG. The proposed strategy aims to regulate the DC bus voltage to its reference value and maintain the power-sharing balance established by the primary control. Unlike previously reported methods, the proposed strategy relies on a single centralized controller to send compensation signals to all DGs. The dual-time-scale hierarchical control framework is designed to ensure system stability, with the primary control operating at a faster time scale than the secondary control. This centralized approach is implemented at a designated DG, with the control signal integrated into the droop control function. Remarkably, the proposed method achieves its objectives without requiring communication among the DGs, matching the performance of decentralized and distributed control architectures.
+
+A novel primary control level based on nonsingular terminal sliding mode (NTSM) control is introduced to mitigate CPL effects without relying on passive loads.
+
+A new centralized secondary control strategy for spinning flight scenarios is proposed, addressing power load variations, source dynamics, and PnP capability.
+
+Validation of controller effectiveness through theoretical analysis, MATLAB/PSIM co-simulations, and experimental results.
+
+The rest of this paper is organized as follows: “Problem formulation, objectives, and system description” outlines the problem formulation, objectives, design, and modelling of the NanoSat DC MG. “Proposed control strategy” details the design of the primary and secondary controllers. “Results and discussion” presents simulation results. “Experimental validation” provides experimental results. “Conclusion” concludes the paper and summarizes key findings.
+
+The EPS of a satellite comprises various components, including PV cells, switching converters, battery cells, voltage regulators, and distribution units. Its primary function is to supply sufficient power to the satellite loads, such as the payload and subsystems. To validate the effectiveness and operational performance of the proposed satellite design, a NanoSat DC MG is utilized as a case study.
+
+Voltage imbalance between sources connected in parallel constitutes the primary cause of current load-sharing error and the emergence of circulating currents. To quantify these circulating currents, consider a simplified setup with three parallel sources, each with its cable resistance, supplying the same subsystems of the NanoSat DC MG, as shown in Fig.2.
+
+By replacingILoadwith its expressions given in Eqs. (1)–(3), we derive the branch currentsIo1,Io2, andIo3(each containing a source) and the inter-source circulating currentIc123between these sources.
+
+From Eq. (7), a mismatch in source voltages or differences in cable impedances causes circulating currents, leading to a voltage drop at the DC bus. Furthermore, assuming the source voltagesVo1, Vo2, andVo3are identical, differences in cable resistance values will lead to load-sharing errors. In other words, the current drawn from each source varies depending on the cable impedance.
+
+Figure2shows that a source with lower cable impedance delivers higher current, with stress escalating as impedance disparities increase in the NanoSat DC MG. In a distributed power system—where each source corresponds to a DG and its power converter—load-sharing errors cause excessive current flow. This results in overheating, premature ageing, and potential converter failure. If one converter reaches its operational limit and fails, the remaining converters must compensate, increasing their load and risking cascading failures.
+
+In addition, the interaction dynamics among subsystem loads of the NanoSat DC MG, such as the OBC, EPS, ADCS, and camera, can result in significant oscillations that compromise system stability. In CCM, when the frequency is below the NanoSat DC MG voltage loop cutoff frequency, its input impedance acts as a negative resistance. Above the cutoff frequency, it behaves inductively when supplying fixed-voltage loads such as the OBC, EPS, ADCS, and camera17,18.
+
+Pcplrepresents the CPL demand,VBusrepresents the DC bus voltage, andILoadrepresents the load current.
+
+Since the CPL exhibits negative incremental impedance, it introduces a − π phase shift in the Bode diagram. Instability arises when cascaded with a NanoSat DC MG if the output impedance magnitude intersects the CPL’s input impedance magnitude and the system’s cutoff frequency is lower than the CPL’s cutoff frequency. Consequently, while CPL effects can severely destabilize the system, effective load control strategies play a critical role in mitigating these instabilities.
+
+Cascaded PI control of a NanoSat DC MG supplying: (1) CPL and (2) CPL + R.
+
+Impact of Increased CPL demand on NanoSat DC MG performance with cascaded PI control.
+
+In addition, the PI parameters used for outer and inner loops to control output current and voltage are given as:.
+
+Moreover, external fluctuations in both input voltage and CPL can significantly affect overshoot and settling time, as shown in Figs.5and6.
+
+Bode diagram of open-loop NanoSat DC MG with fluctuating CPLPcpl=10:10:200.
+
+Bode diagram analysis for an open-loop NanoSat DC MG supplying a CPL with input voltage variations.
+
+A passive load, typically a resistive load or stabilizer, is connected to the DC bus to mitigate the negative effects of the INI characteristic and improve system damping58,59. However, this approach introduces power loss, reducing overall system efficiency. Simulation results highlighting the impact of the INI characteristic on current and voltage, as well as the role of supplementary passive loads in reducing oscillations, are provided in60.
+
+Figure7depicts a detailed electrical schematic of the EPS architecture in a NanoSat DC MG. A step-up DC/DC converter is integrated with each PV cell, accompanied by a local controller. Solar panels are positioned on all six sides of the CubeSat and divided into three sections: X, Y, and Z. Each CubeSat face contains two PV cells connected in a series–parallel configuration to the input of the power converters. The converter output is connected to a DC bus, which is supplied by two GOMspace battery cells connected in series to achieve the required voltage. The DC bus links the communication receiver (COM RX) and transmitter (COM TX) modules, with the OBC, EPS), and ADCS acting as CPLs.Vref_(1,2,3)are set to 5 V or 3.3 V, aligned with the DC bus voltage requirements for NanoSat systems. Controllers are designed to regulate voltage, ensure proper power sharing, and adjust the output voltage according to load demands.
+
+DC/DC converters adjust voltage levels using components such as inductors, capacitors, diodes, and controlled switches. By modifying circuit connections and component values, they increase or decrease voltage and alter other electrical characteristics.
+
+Figure8shows a simplified diagram of the NanoSat DC MG system, where a buck converter delivers power from the source to the CPLs. The system includes a PV supply sourceVin, a PWM-driven switch deviceVT, a diodeD, a filter inductorLi, a capacitorCi, and aPcpl. Dashed-line 1 and dashed-line 2 represent the ON and OFF states of the switch, respectively.
+
+The objective is to regulate the output voltageVoiand maintain it at the reference value. The system exhibits nonlinear behavior, which is dependent onVoi.
+
+As shown in Fig.8, DC/DC converters in NanoSat DC MGs act as controllable interfaces between loads and power sources. Primary control is implemented via inner loops to regulate current and voltage, along with droop control to enable power sharing. This section presents the local control strategies for DC/DC converters, introduces the centralized secondary control system, and details the design of CPLs.
+
+Figure9illustrates the local control design of a NanoSat DC MG connected to CPLs, linked through LC filters and line impedances.
+
+Virtual impedance control units—These units manage power sharing and stability among DGs.
+
+Inner voltage controller based on NTSM control—This regulates the DC/DC converter’s output voltage to track its reference value.
+
+is a constant in this equation andpandqare odd integers greater than zero that satisfy:.
+
+Therefore, asymptotic stability is guaranteed via the Lyapunov criterion.
+
+To improve load sharing among parallel-connected converters, droop control is employed, as load-sharing errors are inherent in systems with multiple distributed power sources. This method implements a virtual series impedance through a control loop to balance currents, as illustrated in Fig.10. However, introducing virtual resistance results in a DC bus voltage drop15,62, necessitating a voltage restoration loop to compensate for the deviation. This approach eliminates the need for high-bandwidth communication, enhances system flexibility, and improves scalability. Instead of physical resistors, which increase power losses, virtual impedanceZdis integrated into the converter control via an outer droop gain loop.
+
+Ioi_maxrepresents the maximum output current of thei-thconverter.
+
+δVrepresents the processed voltage deviation; the additional control action ensures power sharing and DC bus restoration.
+
+In DC MGs, voltage deviation occurs due to droop control, which distributes load current among parallel interface converters. Discrepancies in line impedances further degrade current-sharing accuracy. While increasing droop coefficients can improve current-sharing precision, this may result in larger voltage deviations from the reference value15. To mitigate this limitation of droop control, a centralized secondary control scheme is proposed, as shown in Fig.7.
+
+The superposition theorem is applied to derive the model of the proposed secondary control and determine the PI parameters. The full mathematical details and expressions are provided in63.
+
+Block diagram of the corrective control-to-DC bus output transfer function.
+
+Using the Jacobian method, the transfer functioncan be derived. Linearizing Eq. (40) simplifies its nonlinear dynamics, enabling streamlined secondary control analysis and design.
+
+VMis the peak-to-peak voltage of the triangular wave voltage source.
+
+All virtual impedances are identical:and must satisfy, whererepresent the line impedances.
+
+Based on these assumptions and Fig.10, the termbecomes equivalent to64,65. Therefore, the transfer functionGs(s) is identical for all DGs, enabling the use of identical controllers.
+
+A PI-based secondary control strategy is introduced to correct voltage deviations. The DC bus voltage (VBus) is sensed and compared to the reference voltage (VBus_ref), producing an error signal.This error is processed by the PI compensator to generate a correction termδV, which is uniformly applied to all units to restore the DC bus voltage.
+
+This ensuresδVdirectly represents the PI-compensated adjustment, aligning the formulation with the controller’s role. The PI compensator acts as a low-pass filter, reducing switching noise at the cost of bandwidth, which increases rise and settling times58–60. To maintain hierarchical stability, the crossover frequency of the secondary controller is designed to be lower than the primary control frequency, ensuring a slower but coordinated response.
+
+denotes the desired crossover frequency at which the loop-gain magnitudeequals unity.
+
+This study emulates a tightly voltage-controlled boost converter (Tb(s)) as a CPL, regulated by an integral-double-lead (IDL) compensator (Tc(s)). The converter supplies a resistive load, with the CPL power demand adjusted by varying the load resistance. The transfer functions of the boost converter and its controller are provided in66–68. The time response of the boost converter’s regulation must be faster than that of the local and secondary controllers. Table1summarizes the specifications of the DC/DC boost converter and its controller.
+
+Specifications of the DC/DC boost converter and its controller.
+
+Figure12presents the Bode plots of the IDL controller under varying resistive loads, illustrating changes in power demand. Figure13shows the Bode plot of the closed-loop boost converter with the designed controller,, under the conditions specified in Table1.
+
+Bode plot of the voltage transfer function of the IDL compensator.
+
+Bode plot of the closed-loop boost converter with IDL compensator.
+
+Activation testing of the proposed hierarchical control.
+
+Table2summarizes the hierarchical control parameters, while Table3provides the DC/DC buck converter specifications for the DGs.
+
+Specifications of DC MG and proposed control system.
+
+Specifications of the DC/DC buck converters for the DGs.
+
+Mean DC voltage profiles of DG1, DG2, and DG3 during case 1 operation.
+
+Current distribution and DC bus voltage under case 1.
+
+Table4demonstrates that despite CPL fluctuations, the DGs maintain proportional current sharing, and the DC bus voltage remains stable at 16 V, validating the proposed control method.
+
+This case evaluates the proposed control under input voltage variations using a 15-V peak-to-peak square-wave perturbation at 0.5 Hz. With DG input voltages at 32 V, the 0.1-µs rise/fall times ensure a realistic disturbance test, as depicted in Fig.18. As shown in Fig.20, current sharing among the DGs remains proportional to their rated capacities despite input voltage variations. Figure19confirms that the DC bus voltage stabilizes near the reference value within 0.02 s. Table5summarizes the current distribution under these conditions.
+
+Source variation profile: (a) DG1, (b) DG2, (c) DG3.
+
+DG current distribution and DC bus voltage regulation under case 2.
+
+Table5demonstrates that despite a 46% input voltage reduction, current sharing among DGs remains balanced, and the DC bus voltage is maintained at 16 V. Figure21illustrates that DG output voltages remain stable near their reference values despite input voltage variations. Figures19,20and21show the instantaneous DC output voltages, currents, and DC bus voltage. These results indicate reduced transient voltage deviations and shorter settling times (0.02 s). Figures19,20and21show the system response to input voltage (Vin) disturbances, treated as external perturbations. Reduced transient deviations and stable DC bus recovery demonstrate the controller mitigates disturbances without regulatingVin. Settling time reflects secondary control robustness in restoring voltage despiteVinvariations.
+
+System performance is evaluated during DG connections and disconnections to assess the effectiveness of the proposed secondary control method. As shown in Figs.22,23and24, only DG1 is connected to the DC bus from t = 0 s to t = 1.5 s. In the second stage, DG2 is connected in parallel with DG1 from t = 1.5 s to t = 5 s, during which the output currents equalize at 0.33A after a transient period of 0.017s. In the third stage, from t = 5 s to t = 7 s, DG3 is added in parallel with DG1 and DG2. Using the proposed hierarchical control, the output currents stabilize at 0.0833A after a settling time of 0.025 s. Using the proposed hierarchical control. Table6summarizes the current distribution during these connection stages.
+
+Current distribution and DC bus voltage regulation during case 3.
+
+Table6demonstrates that as additional DGs are integrated, the output current redistributes while maintaining a stable DC bus voltage at 16V. Figure22confirms that DG connections and disconnections do not adversely affect transient voltage regulation. After DG2 connects at t = 1.5 s, the DC bus voltage stabilizes within 0.04s. When DG3 connects at t = 5 s, the DC bus voltage remains at the reference valueVBus_ref= 16V and recovers within 0.06s. Similar trends are observed in the DG output voltages (see Fig.23). Figures22,23and24illustrate the instantaneous DC output voltages, currents, and DC bus voltage. The proposed hierarchical approach ensures stability and enables PnP functionality.
+
+Three parallel converters forming the NanoSat DC MG are analysed to validate the proposed hierarchical control in a larger-scale system and assess its fault tolerance. Before the primary control is activated, Fig.26shows unequal output currents due to mismatched line impedances, which are exacerbated by increasing impedance differences. At t = 1.5 s, when primary control is activated, the output currents of the three converters equalize with a rapid settling time of 0.005 s. However, both the DG output voltages and the DC bus voltage exhibit deviations from their reference values. At t = 5 s, when the proposed secondary control is activated, the DC bus voltage is restored to its reference value with a response time of 0.01 s, as demonstrated in Figs.25,26and27. These figures illustrate the instantaneous DC output voltages of the DGs, output currents, and DC bus voltage. Table7quantifies the impact of hierarchical control on current distribution and DC bus voltage regulation.
+
+DC currents simulation for DG1, DG2, DG3 (Case 4).
+
+Mean DC voltages simulation for DG1, DG2, DG3 (Case 4).
+
+Current distribution and DC bus voltage regulation under case 4.
+
+A comparative analysis of the proposed method and conventional centralized control approaches is detailed in Table8. The results demonstrate that the proposed strategy achieves superior voltage regulation accuracy and precise power-sharing performance while significantly reducing communication requirements.
+
+Comparison of different voltage restoration methods.
+
+A scaled-down NanoSat DC MG prototype with two DGs was implemented for experimental validation using PSIM-generated C code. The setup included a voltage-controlled boost converter (CPL) powered by two parallel buck converters, each modelled as an ideal 32 V source. Detailed configuration parameters, including component values and system settings of the boost converter and buck converters (1 and 2), are provided in Tables1,2, and3. A DSP28335 microcontroller managed PWM signals at 25 kHz for synchronized control, using voltage sensors (LA25-NP, model 717087) and current sensors (LV25-P, model 714227). The experimental setup is depicted in Fig.28.
+
+Seamless integration and removal of DGs without destabilizing the system.
+
+Performance during transitions between primary and secondary control layers.
+
+The DC bus voltage remains stable around 16 V despite CPL changes, indicating effective control.
+
+Current distribution between sources adapts dynamically to CPL variations, demonstrating effective load-sharing.
+
+The DC bus voltage remains stable (~ 16 V) when switching between DG configurations, confirming effective voltage regulation.
+
+Current redistribution occurs when switching between DG1 + DG2 and DG1, reflecting system adaptability.
+
+Improved DC bus voltage stability under secondary control suggests enhanced voltage regulation.
+
+The output voltagesandexhibit transient variations under different control stages.
+
+The currentsandindicate load distribution between sources.
+
+Current imbalance is reduced progressively under Primary Control and eliminated under Secondary Control, demonstrating hierarchical efficacy.
+
+Control stages transition from instability (unbalanced currents) to partial balancing (voltage drop) and finally full stability (balanced currents + precise voltage regulation).
+
+Response to CPL variations: (a) Output voltages, (b) DC bus voltage, (c) Output currents, (d) Duty cycle.
+
+Response to PnP operation of DGs: (a) Output voltages, (b) DC bus voltage, (c,d) Output currents.
+
+Response under different control stages: (a) Output voltages, (b) DC bus voltage, (c,d) Output currents.
+
+This paper proposes a hierarchical control framework for islanded NanoSat DC MGs, addressing critical challenges in power allocation and voltage regulation. The primary control layer integrates I–V droop control for decentralized current sharing and a NTSM controller to achieve finite-time voltage stabilization, eliminating chattering effects and enhancing robustness against perturbations. The secondary control layer resolves voltage deviations caused by droop dynamics and ensures precise proportional current sharing, even under destabilizing CPLs. A stability analysis guides PI gain selection, ensuring adaptability to line impedance mismatches, unequal DG ratings, and dynamic load variations. Simulations in MATLAB/PSIM validate the framework under realistic NanoSat conditions, demonstrating ± 5% DC bus voltage regulation during input fluctuations and PnP operations, 98.5% current-sharing accuracy with mismatched DG capacities (surpassing conventional methods), and dynamic recovery of the nominal DC bus voltage within 0.02 s under step-load changes. Experimental results further validate the dual capability of the controller to maintain voltage stability and ensure proportional current sharing under real-world disturbances. The system exhibits resilience to communication delays, line impedance disparities, and variable CPLs. By addressing limitations of conventional secondary control in handling CPLs, the framework offers a scalable and reliable solution for aerospace applications, where transient performance, weight constraints, and fault tolerance are critical. Future work will integrate tertiary control for mission-specific energy optimization, advancing autonomous NanoSat operations. This study contributes a validated hierarchical strategy to enhance next-generation satellite power systems, bridging gaps in MG control for high-stakes aerospace environments.

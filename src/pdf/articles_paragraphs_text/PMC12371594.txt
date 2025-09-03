@@ -1,0 +1,395 @@
+Temperature is a critical parameter that can significantly
+influence
+the outcome of the redox reactions. However, determining the temperature-dependent
+properties of redox couples is often time-consuming and susceptible
+to inconsistencies. In this work, we present a temperature-controlled
+electrochemical station capable of acquiring electrochemical measurements
+under preprogrammed conditions to extract key thermodynamic parameters.
+We demonstrate the functionality of this system using electrochemical
+impedance spectroscopy to determine the activation energies of the
+[Fe­(CN)6]3–/4–redox
+couple and the hydrogen evolution reaction on platinum and gold electrodes.
+Additionally, we illustrate automated cyclic voltammetry data acquisition
+for [Fe­(CN)6]3–/4–,
+[Ru­(NH3)6]2+/3+, benzoquinone,
+and anthraquinone. By analyzing the temperature-dependent shifts inE1/2, we calculated the entropy changes and thermogalvanic
+coefficients of these systems. Furthermore, we examined the entropy
+variations of ferricyanide in mixed aqueous–organic electrolytes,
+highlighting the role of solvation reconfiguration. The versatility
+of this setup offers a robust and efficient platform for the rapid
+characterization of temperature-dependent redox properties, with implications
+for energy conversion and sensing applications.
+
+As electrochemical reactions play an increasingly
+important role
+in advancing renewable energy technologies, significant research efforts
+have focused on the development of new catalysts and systems to enhance
+reaction yields. However, several other factors also critically influence
+the performance of these reactions, one of which is the temperature.
+All electrochemical reactions are inherently sensitive to temperature
+changes, which affect both the enthalpy and the entropy of the reaction.
+Additionally, the temperature influences the vibrational energy and
+solvation barriers of reaction intermediates, thereby altering the
+activation energy. In essence, both the thermodynamics and kinetics
+of redox reactions are governed by the temperature. A deeper understanding
+of the temperature dependence of redox reactions could yield valuable
+insights for improving electrochemical processes.
+
+A wide range
+of thermodynamic parameters exhibit temperature dependence,
+many of which are well described in standard textbooks. Among them,
+the Arrhenius law is a fundamental principle for describing the temperature
+dependence of reaction kinetics, from which the activation energy
+(Ea), a key parameter for any chemical
+reaction, can be derived. Other important temperature-dependent factors
+include ion mobility, surface adsorption processes, and double-layer
+structure. Even the electrode potential itself is influenced by temperature,
+as described by the Nernst equation. The change in electrode potential
+with respect to temperature, known as the thermogalvanic temperature
+coefficient (α = ΔE/ΔT), has recently attracted considerable attention in the research
+community due to its relevance as a figure of merit in the design
+of waste heat recovery systems.−Given the broad range of fundamental
+parameters in electrochemical reactions that are temperature-dependent,
+it is essential to develop tools that can accurately and reproducibly
+measure these properties.
+
+The experimental approach to investigating
+the temperature dependence
+of electrochemical reactions, such as measuringEaor α, would be to manually measure redox properties
+at a specific temperature one at a time. However, this method is often
+time-consuming, labor-intensive, and susceptible to human errors,
+rendering manual temperature control suboptimal. Recent literature
+has increasingly emphasized automation in electrochemical processes,
+offering new insights into redox mechanisms. For example, Baker et
+al. reported an electrochemical setup operating in a 96-well plate
+format, enabling the parallel acquisition of substantial data in a
+single run. Similarly, Rodríguez-López
+et al. recently introduced automated pH measurement tools for electrochemical
+applications.,These high-throughput strategies,
+whether applied in series or in parallel, provide standardized workflows
+that ensure data reproducibility while saving time. Beyond electrochemistry,
+automation has become a critical tool in chemical laboratories for
+developing new materials and performing physical characterizations.−These advances serve as the inspiration for this work, which aims
+to automate temperature control to investigate thermodynamic parameters
+of redox reactions more precisely.
+
+In this study, we designed
+and implemented an automated electrochemical
+setup with a precise temperature control. Given the sensitivity of
+thermodynamic parameters to temperature fluctuations, maintaining
+fine control over the temperature profile of electrochemical reactions
+enables the extraction of valuable mechanistic information. Using
+temperature-dependent electrochemical impedance spectroscopy, we determined
+the activation energy for the ferri/ferrocyanide redox couple and
+the hydrogen evolution reaction (HER) using different electrodes.
+Furthermore, we calculated the reaction entropy and thermogalvanic
+coefficients (α) for the [Fe­(CN)6]3–/4–, [Ru­(NH3)6]2+/3+, benzoquinone, and anthraquinone redox couples. Detailed
+instructions for reproducing our setup are provided throughout the
+paper and in theSupporting Information. We believe that this system will benefit the broader electrochemical
+community by enabling accurate investigation of temperature-dependent
+redox processes and encouraging the integration of automation into
+renewable energy research.
+
+The overall system design is illustrated
+inFiguresandS1. The electrochemical cell comprises a water-jacketed
+100 mL beaker with a larger water container (ca. 5 L) serving as the
+temperature reservoir. A water heater regulates the reservoir temperature,
+and temperature probes are placed in both the water reservoir and
+the electrochemical cell to monitor the thermal conditions. The water
+heater is controlled via a solid-state relay switch, which toggled
+on or off in response to signals from the temperature probes. Electrochemical
+measurements were conducted by using a Metrohm Autolab PGSTAT204 potentiostat.
+To enable communication between the potentiostat and external devices,
+we employed the Autolab software development kit provided by the manufacturer,
+which allows the external hardware to initiate and control the potentiostat.
+
+Illustration
+of the automated temperature electrochemical setup.
+Electrochemical experiments are conducted in a temperature-controlled
+three-electrode configuration. Water heater, temperature sensor, and
+potentiostat are all connected to a data acquisition module and controlled
+via LabVIEW software. Photograph images of the actual setup are available
+inFigure S1.
+
+LabVIEW software was used to coordinate the water
+heater, temperature
+sensors, and potentiostat, enabling full automation of the temperature
+control across various electroanalytical techniques. A comprehensive
+list of hardware components and detailed assembly instructions are
+provided in theSupporting Information.
+
+In a typical temperature-dependent experiment, the water reservoir
+is initially set to approximately 0 °C using an ice–water
+bath. LabVIEW is programmed to initiate electrochemical measurements
+starting at a predefined temperature, typically 5 °C in this
+study. The temperature is then incrementally increased by 1 °C,
+and at each step, a predefined electroanalytical technique (e.g.,
+cyclic voltammetry (CV), electrochemical impedance spectroscopy (EIS),
+and so forth) is executed. The experimental parameters for each technique
+are stored in the native Autolab file format and accessed by the LabVIEW
+program. As a result, most standard electroanalytical techniques are
+compatible with this setup. After measurements at each temperature
+are completed, the system automatically proceeds to the next temperature
+setting, continuing this sequence until all experiments are finalized.
+The resulting data are automatically exported as.csv files and batch-processed
+by using custom Mathematica scripts for analysis. Error bars reported
+in this study are standard deviations based on triplicate repeats
+of each experiment.
+
+EIS data for the [Fe­(CN)6]3–/4–redox couple (Figure) were collected
+at the half-wave potential (E1/2) using
+an AC amplitude of 20 mV, over a frequency range of 100 kHz to 10
+Hz. The measurements were performed in a 50 mM [Fe­(CN)6]3–solution, with 1 M phosphate buffer (pH 7)
+as the supporting electrolyte. For the hydrogen evolution reaction,
+EIS experiments were conducted over the same frequency range with
+a DC bias of −0.05 V vs Ag/AgCl for the Pt electrode and −0.4
+V vs Ag/AgCl for Au electrodes. The bias voltages were selected to
+be near the HER onset potentials for each electrode material, which
+differ between those of Pt and Au. All HER experiments were performed
+in 1 M H2SO4solution.
+
+(a) EIS spectrum of [Fe­(CN)6]3–/[Fe­(CN)6]4–atE1/2,
+from 5 to 60 °C. (b) Fitted line ofi0vs 1/Tto extractEa. (c) EIS spectrum of HER with the Pt electrode in 1 M H2SO4solution, from 5 to 50 °C. (d) Fitted line ofi0vs 1/Tto extractEa.
+
+Cyclic voltammetry data were collected at a scan
+rate of 50 mV/s
+in 1 M pH 7 phosphate buffer, unless otherwise specified. The thermogalvanic
+coefficient was extracted from the slope of theE1/2vs temperature graph,α=ΔEΔT. All electrochemical experiments were carried
+out under nitrogen-purged conditions to eliminate the influence of
+dissolved oxygen.
+
+As described
+by the Nernst equation, the temperature directly influences the formal
+potential of any redox couple. Therefore, it is essential to account
+for the temperature-induced shift in the Ag/AgCl reference electrode,
+which was used throughout the experiments. To quantify this temperature
+drift, we placed two identical Ag/AgCl reference electrodes in solutions
+at different temperatures, one in a heated solution and the other
+in room temperature, and measured the resulting potential difference
+(ΔV) as a function of the temperature difference.
+The data are presented inFigure S2. The
+measured drift for the Ag/AgCl reference electrode was ca. −0.5
+mV/°C, which is close to the values reported in the literature. It is worth noting that this drift may vary
+depending on a number of physical parameters of the experiment, such
+as redox couple solubility, liquid junction potential, solvent thermal
+expansion, electrolyte composition, and so forth. As such, periodic
+temperature calibration of the reference electrode is recommended
+to ensure accurate measurements. For all subsequent voltage data presented
+in this study, we corrected the measured potentials to account for
+the temperature-dependent drift of the reference electrode.
+
+Thermodiffusion effects, unequal ion concentration at hot vs cold
+electrode, could also impact the voltage measurement of an electrochemical
+device. However, in a low-viscosity solvent, such as water, the contribution
+of thermodiffusion is in the order of 10s μV/°C, much smaller
+than the thermogalvanic effect.,Thus, the thermodiffusion
+effect is not considered in our experimental measurements.
+
+As
+an initial demonstration, we investigated the EIS of the ferri-ferrocyanide
+redox couple. In this experiment, the automated electrochemical station
+was programmed to collect EIS spectra over a temperature range from
+5 to 60 °C, with measurements taken at 1 °C increments.
+The results are presented inFigure. First, we observed that the solution resistance,
+represented by the x-intercept on the real axis at high frequency,
+decreased with increasing temperature. This trend is consistent with
+the expected exponential relationship between the ionic mobility and
+temperature, as further illustrated inFigure S3.
+
+The semicircular feature in the EIS spectra, commonly
+associated
+with the charge transfer resistance (Rct) of the redox reaction, is inversely proportional to the exchange
+current density (i0), as described ineq. Since the exchange current
+density is proportional to the rate constant, it exhibits an Arrhenius-type
+temperature dependence, as described byeq. From the EIS data shown inFigurea,Rctvalues were extracted to calculatei0and, subsequently, determine the activation energy (Ea) of the ferri-ferrocyanide redox couple. The fittedRctvalues are provided inTable S1.Figureb displays the plot of ln­(i0)
+vs 1/T. The activation energy, determined from the
+slope of the linear fit by using the Arrhenius equation, was found
+to be ca. 3.35 ± 0.51 kJ/mol. The linearity of the fitted plot
+highlights the capability of our setup to provide a rapid and reliable
+method for determining the activation energy of any redox systems.
+
+It is important to
+note that the activation energy of redox reactions
+is potential-dependent, due to several factors, including the influence
+of overpotential on the Fermi levels of the oxidized and reduced species,
+variations in surface coverage of electroactive species at different
+applied potentials, and changes in the configuration of active sites
+on the electrode surface.−InFigurea, the EIS data were recorded atE1/2; thus, the reported activation energy corresponds to the equilibrium
+electron transfer process of the [Fe­(CN)6]3–/[Fe­(CN)6]4–redox couple. If desired,
+the temperature-controlled setup described here offers a fast and
+efficient platform to determineEaat
+different potentials simply by modifying the DC bias in the EIS protocol.
+
+Furthermore, we demonstrated that the extraction of theEafor the HER is a key electrocatalytic process.
+Pt, a well-established catalyst for the HER, exhibits a small semicircular
+arc in the EIS spectra, indicative of a lowRct. In contrast, when an Au electrode was used, a significantly
+largerRctwas observed (Figure S4). The fittedRctvalues
+for Pt and Au electrodes are provided inTables S2 and S3. These findings are consistent with the expectation
+that different materials possess distinct catalytic properties (i.e.,
+differentEa). The extracted activation
+energies for the HER on Pt and Au electrodes were found to be 18.9
+± 4.1 and 52.9 ± 4.2 kJ/mol, respectively. This demonstrates
+that our setup is well-suited for screening the activation energies
+of a wide range of catalytic reactions, providing fast and accurate
+temperature-dependent data.
+
+The thermogalvanic
+temperature coefficient is a critical parameter that determines the
+operational efficiency of thermogalvanic cells. It is typically measured
+as the open-circuit voltage (Voc) between
+a hot and a cold electrode connected via an electrolyte. However,
+this traditional approach requires two separate temperature control
+and measurement systems, making the experimental setup complex and
+time-consuming.−An alternative method involves determining α
+using cyclic voltammetry under temperature-controlled conditions.
+However, the reproducibility of such measurements can be affected
+by numerous factors, including subtle variations in the electrode
+placement within the electrolyte. Moreover, in both methods, only
+a limited number of temperature data points are usually collected
+due to the labor-intensive nature of performing experiments at multiple
+discrete temperatures.
+
+Our automated temperature control system
+provides a significant advantage by enabling continuous temperature
+sweeps within a single experimental run, typically completed in under
+2 h. As shown inFigure, we demonstrate the extraction of α from CV measurements for
+[Fe­(CN)6]3–/[Fe­(CN)6]4–, hydrobenzoquinone, [Ru­(NH3)6]2+/3+, and anthraquinone redox couples. The
+resulting cyclic voltammograms exhibit excellent consistency across
+the temperature range. Each experiment requires ca. 1 to 2 h only,
+depending on the scan parameters, and operates entirely without human
+intervention.
+
+Cyclic voltammograms of (a) [Fe­(CN)6]3–/4–, (b) hydrobenzoquinone,
+(c) [Ru­(NH3)6]2+/3+and (d) anthraquinone.
+(a–c)
+were conducted in 1 M pH 7 phosphate buffer, while (d) was conducted
+in 0.5 M TBAPF6in DMF. Temperature was varied from 5 to
+60 °C in all the experiments.
+
+To determine α, theE1/2values
+from each cyclic voltammogram were extracted using a Mathematica code
+and plotted against temperature, as shown inFigure. The α value for the [Fe­(CN)6]3–/[Fe­(CN)6]4–redox
+couple was found to be–1.5 ± 0.12 mV/°C, which is
+in very good agreement with reported literature values of −1.4
+mV/°C.,,The temperature coefficients for hydrobenzoquinone and ruthenium
+hexamine were determined to be −0.59 and 0.65 mV/°C, respectively.
+In the case of anthraquinone in a nonaqueous solvent, two distinct
+redox peaks were observed, corresponding to two sequential reduction
+processes. The extracted α values were–0.05 and–0.9
+mV/°C for the first and second reduction waves, respectively.
+The temperature coefficient is directly related to the entropy change
+of the redox reaction, according to the relationshipα=ΔEΔT=ΔSnF. The entropy change may arise from intrinsic
+changes in the redox species or from modifications to their solvation
+environments. Under N2-purged, nonaqueous conditions, anthraquinone
+is reduced to its dianionic form. In such systems, the entropy change
+is predominantly influenced by the reorganization of the solvation
+shell. The second reduction introduces a higher negative charge, which
+necessitates a greater rearrangement of the solvation sphere, leading
+to a larger entropy change. These results demonstrate the capability
+of our automated temperature-control setup to accurately measure α,
+even for complex, multielectron redox systems.
+
+Linear fitted lines for
+(a) [Fe­(CN)6]3–/[Fe­(CN)6]4–, (b) hydrobenzoquinone,
+(c) [Ru­(NH3)6]2+/3+, and (d) anthraquinone.
+(a–c) were conducted in 1 M pH 7 phosphate buffer, while (d)
+was conducted in 0.5 M TBAPF6in DMF.
+
+In the pursuit of improving the efficiency of thermogalvanic
+cells
+for waste heat recovery, achieving a larger α is desirable as
+it enhances the voltage output per unit of temperature difference.
+One common strategy to tune α involves modifying the electrolyte
+composition by introducing organic solvents, thereby influencing the
+entropic change associated with the redox reaction.,−This effect is generally attributed to changes in
+the solvation structures of solvent molecules surrounding the redox-active
+ions. However, the thermosensitive solubility of various electrolyte
+compositions can also influence α, as recently highlighted. Both increase and decrease in α for the
+[Fe­(CN)6]3–/[Fe­(CN)6]4–redox couple have been reported upon the addition
+of organic electrolytes.,Therefore, the ability
+to accurately and reproducibly determine α across diverse electrolyte
+systems is crucial for the rational design of high-performance thermogalvanic
+systems.
+
+Here, we demonstrate the variation in the thermogalvanic
+coefficient
+for the [Fe­(CN)6]3–/[Fe­(CN)6]4–redox couple in electrolytes with varying ratios
+of water and acetonitrile. As shown inFigurea, the temperature coefficient becomes increasingly
+positive with a higher acetonitrile content. A concentration of 50
+mM [Fe­(CN)6]3–was selected to ensure
+that the solubility limit of the redox couple was not exceeded during
+the experiment. Previous studies have reported that the α value
+for the [Fe­(CN)6]3–/[Fe­(CN)6]4–system becomes more negative upon the addition
+of organic solvents, which was attributed to the thermosensitivity
+of solubility.,However, when the solubility
+limit is not reached, the presence of organic solvents such as acetonitrile
+disrupts the hydrogen-bonding network in water, thereby reducing the
+entropy change of the redox reaction.,This effect
+is illustrated inFigureb, and it results in a more positive α. Our automated
+temperature control system offers a convenient and reliable method
+to investigate such solvent effects on thermogalvanic behavior with
+high precision.
+
+(a) Thermogalvanic coefficient, measured in different
+percentages
+of acetonitrile mixed with water. (b) Illustration of solvation effects
+on the thermogalvanic coefficient.
+
+A current limitation of our automated temperature
+platform is its
+inability to decrease temperature, as the system presently includes
+only a heating element. Consequently, temperature profiling is restricted
+to a unidirectional, increasing sequence. However, incorporating a
+cooling system would be straightforward and would enable bidirectional
+temperature cycling between high and low set points. Another limitation
+is that the current water reservoir is not thermally insulated. At
+elevated temperatures (e.g., above 70 °C), significant heat loss
+to the environment occurs, which slows the heating process and limits
+the upper range of achievable temperatures. Insulating the water reservoir
+would improve thermal efficiency and extend the system’s operational
+temperature range. Furthermore, integrating a liquid-handling pump
+could facilitate automated electrolyte flushing and refilling, enabling
+a fully autonomous operation. These enhancements are part of ongoing
+efforts in our group to refine the platform for high-throughput, autonomous
+electrochemical data collection across a range of temperatures, pH
+values, and electrolyte compositions.
+
+In conclusion, we present a programmable,
+temperature-controlled
+electrochemical station capable of measuring the thermodynamic parameters
+of redox reactions with high precision. The system was validated using
+electrochemical impedance spectroscopy and cyclic voltammetry with
+a variety of redox-active compounds, including [Fe­(CN)6]3–/[Fe­(CN)6]4–, hydrobenzoquinone,
+ruthenium hexamine, and anthraquinone. Activation energies for the
+[Fe­(CN)6]3–/[Fe­(CN)6]4–and the HER on Pt were determined to be 3.35 ±
+0.51 and 18.9 ± 4.1 kJ/mol, respectively. Temperature coefficients
+for each redox species were extracted from temperature-dependent cyclic
+voltammograms, and the influence of the solvation environment on the
+entropy change of redox reactions was also demonstrated. This setup
+offers a robust and self-consistent platform for efficiently acquiring
+electrochemical data. Moreover, its compatibility with machine learning
+tools positions it for future integration into autonomous experimental
+systems. We are currently expanding the setup’s functionalities,
+such as integrating gas regulation and liquid handling to determine
+adsorption energy and pressure-dependent kinetics in electrocatalysis
+applications. We anticipate that this platform will facilitate fundamental
+electrochemical studies, accelerate catalyst screening, and advance
+electroanalytical testing for a range of practical applications.
+
+Y.C.L. would like to thank the University at Buffalo
+for financial support to enable this work.
+
+The Supporting Information is
+available free of charge athttps://pubs.acs.org/doi/10.1021/acsmeasuresciau.5c00039.
+
+All authors
+have contributed to the discussion and writing of the manuscript.
+Y.C.L., Y.W. and Z.W. conceptualize the idea. X.G., S.P. and Y.C.L.
+designed the system and collected data.
+
+The authors
+declare no competing financial interest.
+
+Published
+as part ofACS Measurement Science Auspecial issue“2025 Rising Stars in Measurement
+Science”.

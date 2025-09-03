@@ -1,0 +1,2703 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+    <head >
+
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+        
+
+        
+        
+  <link rel="stylesheet" href="/static/assets/style-8258669d.css" />
+<script type="module" crossorigin="" src="/static/assets/base_style-f4a99799.js"></script>
+
+  <link rel="stylesheet" href="/static/assets/style-ef962842.css" />
+<link rel="stylesheet" href="/static/assets/style-3ade8b5c.css" />
+<script type="module" crossorigin="" src="/static/assets/article_style-d757a0dd.js"></script>
+
+  
+  
+    <style>
+  
+  
+  @media screen and (min-width: 64em) {
+    div.pmc-wm {
+      background: repeat-y;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='350' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-.02' y='0' width='1.05' height='1' id='c'%3E%3CfeFlood flood-color='%23FFF'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3Ctext id='b' font-family='Helvetica' font-size='11pt' style='opacity:1;fill:%23005ea2;stroke:none;text-anchor:middle' x='175' y='14'%3E%3C/text%3E%3Cpath id='a' style='fill:%23005ea2' d='M0 8h350v3H0z'/%3E%3C/defs%3E%3Cuse xlink:href='%23a' transform='rotate(90 10 10)'/%3E%3Cuse xlink:href='%23b' transform='rotate(90 10 10)' filter='url(%23c)'/%3E%3C/svg%3E");
+      padding-left: 3rem;
+    }
+  }
+</style>
+
+  
+
+
+
+        
+            <link rel="apple-touch-icon"
+                  sizes="180x180"
+                  href="/static/img/favicons/apple-touch-icon.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="48x48"
+                  href="/static/img/favicons/favicon-48x48.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="/static/img/favicons/favicon-32x32.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="/static/img/favicons/favicon-16x16.png" />
+            <link rel="manifest" href="/static/img/favicons/site.webmanifest" />
+            <link rel="mask-icon"
+                  href="/static/img/favicons/safari-pinned-tab.svg"
+                  color="#0071bc" />
+            <meta name="msapplication-config"
+                  content="/static/img/favicons/browserconfig.xml" />
+            <meta name="theme-color" content="#ffffff" />
+        
+
+        <title>
+            Can LLMs effectively assist medical coding? Evaluating GPT performance on DRG and targeted clinical tasks - PMC
+        </title>
+
+        
+        
+  
+  <!-- Logging params: Pinger defaults -->
+<meta name="ncbi_app" content="cloudpmc-viewer" />
+<meta name="ncbi_db" content="pmc" />
+<meta name="ncbi_phid" content="D2E4B9ED8AF40E5305B9ED002A1DE96C.m_1" />
+<meta name="ncbi_pinger_stat_url" content="https://pmc.ncbi.nlm.nih.gov/stat" />
+<!-- Logging params: Pinger custom -->
+<meta name="ncbi_pdid" content="article" />
+  
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+
+    
+        <link rel="preconnect" href="https://cdn.ncbi.nlm.nih.gov" />
+    
+
+    <!-- Include USWDS Init Script -->
+    <script src="/static/assets/uswds-init.js"></script>
+
+
+    <meta name="ncbi_domain" content="bmcmidm">
+<meta name="ncbi_type" content="fulltext">
+<meta name="ncbi_pcid" content="journal">
+<meta name="ncbi_feature" content="associated_data">
+<link rel="canonical" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12362839/">
+<meta name="robots" content="INDEX,NOFOLLOW,NOARCHIVE">
+<meta name="citation_journal_title" content="BMC Medical Informatics and Decision Making">
+<meta name="citation_title" content="Can LLMs effectively assist medical coding? Evaluating GPT performance on DRG and targeted clinical tasks">
+<meta name="citation_author" content="Yeli Feng">
+<meta name="citation_author_institution" content="Amplify Health Asia, 21 Collyer Quay, Singapore, 049320 Singapore">
+<meta name="citation_publication_date" content="2025 Aug 19">
+<meta name="citation_volume" content="25">
+<meta name="citation_firstpage" content="312">
+<meta name="citation_doi" content="10.1186/s12911-025-03151-z">
+<meta name="citation_pmid" content="40830470">
+<meta name="citation_abstract_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12362839/">
+<meta name="citation_fulltext_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12362839/">
+<meta name="citation_pdf_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12362839/pdf/12911_2025_Article_3151.pdf">
+<meta name="description" content="Large language Models (LLM) have demonstrated near human-level performance in medical domain, from summarizing clinical notes and passing medical licensing examinations, to predictive tasks such as disease diagnoses and treatment recommendations. ...">
+<meta name="og:title" content="Can LLMs effectively assist medical coding? Evaluating GPT performance on DRG and targeted clinical tasks">
+<meta name="og:type" content="article">
+<meta name="og:site_name" content="PubMed Central (PMC)">
+<meta name="og:description" content="Large language Models (LLM) have demonstrated near human-level performance in medical domain, from summarizing clinical notes and passing medical licensing examinations, to predictive tasks such as disease diagnoses and treatment recommendations. ...">
+<meta name="og:url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12362839/">
+<meta name="og:image" content="https://cdn.ncbi.nlm.nih.gov/pmc/cms/images/pmc-card-share.jpg?_=0">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ncbi">
+    
+    
+
+    </head>
+    <body >
+        
+    <a class="usa-skipnav " href="#main-content">
+      Skip to main content
+    </a>
+
+
+        
+            
+
+<section class="usa-banner " aria-label="Official website of the United States government" >
+    <div class="usa-accordion">
+        <header class="usa-banner__header">
+            <div class="usa-banner__inner">
+                <div class="grid-col-auto">
+                    <img aria-hidden="true"
+                         class="usa-banner__header-flag"
+                         src="/static/img/us_flag.svg"
+                         alt="" />
+                </div>
+
+                <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+                    <p class="usa-banner__header-text">
+                        An official website of the United States government
+                    </p>
+                    <span class="usa-banner__header-action">Here's how you know</span>
+                </div>
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-accordion__button usa-banner__button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    aria-expanded="false"
+    aria-controls="gov-banner-default"
+    
+    data-testid="storybook-django-banner"
+    
+    >
+    
+        
+
+        
+                    <span class="usa-banner__button-text">Here's how you know</span>
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </div>
+        </header>
+
+        <div class="usa-banner__content usa-accordion__content"
+             id="gov-banner-default"
+             hidden>
+            <div class="grid-row grid-gap-lg">
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-dot-gov.svg"
+                         alt=""
+                         aria-hidden="true" />
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Official websites use .gov</strong>
+                            <br />
+                            A
+                            <strong>.gov</strong> website belongs to an official
+                            government organization in the United States.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-https.svg"
+                         alt=""
+                         aria-hidden="true" />
+
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Secure .gov websites use HTTPS</strong>
+                            <br />
+                            A <strong>lock</strong> (
+                            <span class="icon-lock">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     width="52"
+                                     height="64"
+                                     viewBox="0 0 52 64"
+                                     class="usa-banner__lock-image"
+                                     role="graphics-symbol"
+                                     aria-labelledby="banner-lock-description"
+                                     focusable="false">
+                                    <title id="banner-lock-title">Lock</title>
+                                    <desc id="banner-lock-description">
+                                    Locked padlock icon
+                                    </desc>
+                                    <path fill="#000000"
+                                          fill-rule="evenodd"
+                                          d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+                                </svg>
+</span>) or <strong>https://</strong> means you've safely
+                                connected to the .gov website. Share sensitive
+                                information only on official, secure websites.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        
+
+        
+    
+    
+    
+
+<div class="usa-overlay">
+</div>
+
+
+
+<header class="usa-header usa-header--extended usa-header--wide" data-header data-testid="header"    >
+    <div class="ncbi-header">
+        <div class="ncbi-header__container">
+            <a class="ncbi-header__logo-container"
+               href="https://www.ncbi.nlm.nih.gov/">
+                <img alt="NCBI home page"
+                     class="ncbi-header__logo-image"
+                     src="/static/img/ncbi-logos/nih-nlm-ncbi--white.svg"
+                     width="410"
+                     height="100" />
+            </a>
+
+            <!-- Mobile menu hamburger button -->
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-menu-btn ncbi-header__hamburger-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Show menu"
+    data-testid="navMenuButton"
+    
+    >
+    
+        
+
+        
+                <svg aria-hidden="true"
+                     class="ncbi-hamburger-icon"
+                     fill="none"
+                     focusable="false"
+                     height="21"
+                     viewBox="0 0 31 21"
+                     width="31"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd"
+                          d="M0.125 20.75H30.875V17.3333H0.125V20.75ZM0.125 12.2083H30.875V8.79167H0.125V12.2083ZM0.125 0.25V3.66667H30.875V0.25H0.125Z"
+                          fill="#F1F1F1"
+                          fill-rule="evenodd" />
+                </svg>
+            
+
+        
+    
+        
+            </button>
+        
+
+
+
+            
+                <!-- Desktop buttons-->
+                <div class="ncbi-header__desktop-buttons">
+                    
+                        <!-- Desktop search button -->
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button
+           "
+    aria-expanded="false"
+    aria-controls="search-field-desktop-navigation"
+    aria-label="Show search overlay"
+    data-testid="toggleSearchPanelButton"
+    data-toggle-search-panel-button
+    >
+    
+        
+
+        
+                            
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#search" />
+    </svg>
+
+
+                            Search
+                        
+
+        
+    
+        
+            </button>
+        
+
+
+                    
+
+                    <!-- Desktop login dropdown -->
+                    
+                        <div class="ncbi-header__login-dropdown">
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button ncbi-header__login-dropdown-button
+           "
+    aria-expanded="false"
+    aria-controls="login-dropdown-menu"
+    aria-label="Show login menu"
+    data-testid="toggleLoginMenuDropdown"
+    data-desktop-login-button
+    >
+    
+        
+
+        
+                                
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#person" />
+    </svg>
+
+
+
+                                <span data-login-dropdown-text>Log in</span>
+
+                                <!-- Dropdown icon pointing up -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-less ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-up-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_less" />
+    </svg>
+
+
+
+                                <!-- Dropdown icon pointing down -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-more ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-down-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_more" />
+    </svg>
+
+
+                            
+
+        
+    
+        
+            </button>
+        
+
+
+
+                            <!-- Login dropdown menu -->
+                            <ul class="usa-nav__submenu ncbi-header__login-dropdown-menu"
+                                id="login-dropdown-menu"
+                                data-desktop-login-menu-dropdown
+                                hidden>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                <li class="usa-nav__submenu-item">
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--outline ncbi-header__login-dropdown-logout-button
+           "
+    
+    
+    
+    data-testid="desktopLogoutButton"
+    data-desktop-logout-button
+    >
+    
+        
+
+        Log out
+
+        
+    
+        
+            </button>
+        
+
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                </div>
+            
+        </div>
+    </div>
+
+    <!-- Search panel -->
+    
+        <div class="ncbi-search-panel ncbi--show-only-at-desktop"
+             data-header-search-panel
+             hidden>
+            <div class="ncbi-search-panel__container">
+                <form action="https://www.ncbi.nlm.nih.gov/search/all/"
+                      
+                      autocomplete="off"
+                      class="usa-search usa-search--big ncbi-search-panel__form"
+                      data-testid="desktop-navigation-search-form"
+                      method="GET"
+                      role="search">
+                    <label class="usa-sr-only" for="search-field-desktop-navigation">
+                        Search…
+                    </label>
+                    <input class="usa-input"
+                           id="search-field-desktop-navigation"
+                           name="term"
+                           
+                               placeholder="Search NCBI"
+                           
+                           type="search"
+                           value="" />
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                        <span class="usa-search__submit-text">
+                            Search NCBI
+                        </span>
+                    
+
+        
+    
+        
+            </button>
+        
+
+
+                </form>
+
+                
+            </div>
+        </div>
+    
+
+    <nav aria-label="Primary navigation" class="usa-nav">
+        <p class="usa-sr-only" id="primary-navigation-sr-only-title">
+            Primary site navigation
+        </p>
+
+        <!-- Mobile menu close button -->
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-nav__close ncbi-nav__close-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Close navigation menu"
+    data-testid="navCloseButton"
+    
+    >
+    
+        
+
+        
+            <img src="/static/img/usa-icons/close.svg" alt="Close" />
+        
+
+        
+    
+        
+            </button>
+        
+
+
+
+        
+            <!-- Mobile search component -->
+            <form class="usa-search usa-search--small ncbi--hide-at-desktop margin-top-6"
+                  action="https://www.ncbi.nlm.nih.gov/search/all/"
+                  
+                  autocomplete="off"
+                  data-testid="mobile-navigation-search-form"
+                  method="GET"
+                  role="search">
+                <label class="usa-sr-only" for="search-field-mobile-navigation">
+                    Search
+                </label>
+
+                <input class="usa-input"
+                       id="search-field-mobile-navigation"
+                       type="search"
+                       
+                           placeholder="Search NCBI"
+                       
+                       name="term" />
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                    <!-- This SVG should be kept inline and not replaced with a link to the icon as otherwise it will render in the wrong color -->
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0E2LjQ3MSA2LjQ3MSAwIDAgMCAxNiA5LjUgNi41IDYuNSAwIDEgMCA5LjUgMTZjMS42MSAwIDMuMDktLjU5IDQuMjMtMS41N2wuMjcuMjh2Ljc5bDUgNC45OUwyMC40OSAxOWwtNC45OS01em0tNiAwQzcuMDEgMTQgNSAxMS45OSA1IDkuNVM3LjAxIDUgOS41IDUgMTQgNy4wMSAxNCA5LjUgMTEuOTkgMTQgOS41IDE0eiIvPjwvc3ZnPg=="
+                         class="usa-search__submit-icon"
+                         alt="Search" />
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </form>
+
+            
+        
+
+        <!-- Primary navigation menu items -->
+        <!-- This usa-nav__inner wrapper is required to correctly style the navigation items on Desktop -->
+        
+
+        
+            <div class="ncbi-nav__mobile-login-menu ncbi--hide-at-desktop"
+                 data-mobile-login-menu
+                 hidden>
+                <p class="ncbi-nav__mobile-login-menu-status">
+                    Logged in as:
+                    <strong class="ncbi-nav__mobile-login-menu-email"
+                            data-mobile-login-email-text></strong>
+                </p>
+                <ul class="usa-nav__primary usa-accordion">
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           ncbi-nav__mobile-login-button ncbi--hide-at-desktop
+           "
+    
+    
+    
+    data-testid="mobileLoginButton"
+    data-mobile-login-button
+    >
+    
+        
+
+        Log in
+
+        
+    
+        
+            </button>
+        
+
+
+    </nav>
+</header>
+
+    
+    
+        
+
+<section class="pmc-header pmc-header--basic" aria-label="PMC Header with search box">
+    <div class="pmc-nav-container">
+        <div class="pmc-header__bar">
+           <div class="pmc-header__logo">
+               <a href="/" title="Home" aria-label="PMC Home"></a>
+           </div>
+            <button
+                    type="button"
+                    class="usa-button usa-button--unstyled pmc-header__search__button"
+                    aria-label="Open search"
+                    data-ga-category="search"
+                    data-ga-action="PMC"
+                    data-ga-label="pmc_search_panel_mobile"
+            >
+                <svg class="usa-icon width-4 height-4 pmc-icon__open" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#search"></use>
+                </svg>
+                <svg class="usa-icon width-4 height-4 pmc-icon__close" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="pmc-header__search">
+            
+
+
+<form class="usa-search usa-search--extra usa-search--article-right-column  pmc-header__search__form" id="pmc-search-form" autocomplete="off" role="search">
+<label class="usa-sr-only" for="pmc-search">Search PMC Full-Text Archive</label>
+<span class="autoComplete_wrapper flex-1">
+<input class="usa-input width-full maxw-none" required="required" placeholder="Search PMC Full-Text Archive" id="pmc-search"  type="search" name="term" data-autocomplete-url="https://pmc.ncbi.nlm.nih.gov/autocomp/search/autocomp/"/>
+</span>
+<button
+class="usa-button"
+type="submit"
+formaction="https://www.ncbi.nlm.nih.gov/pmc/"
+data-ga-category="search"
+data-ga-action="PMC"
+data-ga-label="PMC_search_button"
+>
+<span class="usa-search__submit-text">Search in PMC</span>
+<img
+src="/static/img/usa-icons-bg/search--white.svg"
+class="usa-search__submit-icon"
+alt="Search"
+/>
+</button>
+</form>
+            <div class="display-flex flex-column tablet:flex-row tablet:flex-justify flex-justify-center flex-align-center width-full desktop:maxw-44">
+                <ul class="pmc-header__search__menu">
+                    <li>
+                        
+                            <a class="usa-link" href="/journals/" data-ga-action="featured_link" data-ga-label="journal list">
+                                Journal List
+                            </a>
+                        
+                    </li>
+                    <li>
+                        
+                            <a class="usa-link" href="/about/userguide/" data-ga-action="featured_link"
+                            data-ga-label="user guide">
+                                User Guide
+                            </a>
+                        
+                    </li>
+                </ul>
+                
+                    <button form="pmc-search-form" formaction="https://pmc.ncbi.nlm.nih.gov/search/" type="submit" class="usa-button usa-button--unstyled hover:text-no-underline text-no-underline width-auto margin-top-1 tablet:margin-top-0">
+     <span class="bg-green-label padding-05 text-white">New</span><span class="text-underline text-primary">Try this search in PMC Beta Search</span>
+</button>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+
+
+        
+        
+
+       
+  <div class="usa-section padding-top-0 desktop:padding-top-6 pmc-article-section" data-article-db="pmc" data-article-id="12362839">
+
+    
+
+   
+
+
+
+<div class="grid-container pmc-actions-bar" aria-label="Actions bar" role="complementary">
+    <div class="grid-row">
+        <div class="grid-col-fill display-flex">
+             <div class="display-flex">
+                <ul class="usa-list usa-list--unstyled usa-list--horizontal">
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <button
+                                type="button"
+                                class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                                aria-label="Open resources"
+                                data-extra-class="is-visible-resources"
+                                data-ga-category="resources_accordion"
+                                data-ga-action="click"
+                                data-ga-label="mobile_icon"
+                        >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#more_vert"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <a
+                                href="https://doi.org/10.1186/s12911-025-03151-z"
+                                class="usa-link display-flex usa-tooltip"
+                                role="button"
+                                target="_blank"
+                                rel="noreferrer noopener"
+                                title="View on publisher site"
+                                data-position="bottom"
+                                aria-label="View on publisher site"
+                                data-ga-category="actions"
+                                data-ga-action="click"
+                                data-ga-label="publisher_link_mobile"
+                        >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#launch"></use>
+                                </svg>
+                        </a>
+                    </li>
+                    
+                    
+                        <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                             <a
+                                     href="pdf/12911_2025_Article_3151.pdf"
+                                     class="usa-link display-flex usa-tooltip"
+                                     role="button"
+                                     title="Download PDF"
+                                     data-position="bottom"
+                                     aria-label="Download PDF"
+                                     data-ga-category="actions"
+                                     data-ga-action="click"
+                                     data-ga-label="pdf_download_mobile"
+                             >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button
+                            class="usa-button usa-button--unstyled  usa-tooltip collections-dialog-trigger collections-button display-flex collections-button-empty"
+                            title="Add to Collections"
+                            data-position="bottom"
+                            aria-label="Save article in MyNCBI collections."
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="collections_button_mobile"
+                            data-collections-open-dialog-enabled="false"
+                            data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12362839%2F%3Freport%3Dclassic%23open-collections-dialog"
+                            data-in-collections="false"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button role="button" class="usa-button usa-button--unstyled usa-tooltip citation-dialog-trigger display-flex"
+                            aria-label="Open dialog with citation text in different styles"
+                            title="Cite"
+                            data-position="bottom"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="cite_mobile"
+                            data-all-citations-url="/resources/citations/12362839/"
+                            data-citation-style="nlm"
+                            data-download-format-link="/resources/citations/12362839/export/"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="pmc-permalink display-flex" >
+                         <button
+                                 type="button"
+                                 title="Permalink"
+                                 data-position="bottom"
+                                 class="usa-button usa-button--unstyled display-flex usa-tooltip"
+                                 aria-label="Show article permalink"
+                                 aria-expanded="false"
+                                 aria-haspopup="true"
+                                 data-ga-category="actions"
+                                 data-ga-action="open"
+                                 data-ga-label="permalink_mobile"
+                         >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#share"></use>
+                            </svg>
+                        </button>
+                        
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12362839/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+                    </li>
+                </ul>
+            </div>
+            <button
+                    type="button"
+                    class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                    aria-label="Open article navigation"
+                    data-extra-class="is-visible-in-page"
+                    data-ga-category="actions"
+                    data-ga-action="open"
+                    data-ga-label="article_nav_mobile"
+            >
+                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#list"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+    <div class="grid-container desktop:padding-left-6">
+      <div id="article-container" class="grid-row grid-gap">
+        <div class="grid-col-12 desktop:grid-col-8 order-2 pmc-layout__content">
+            <div class="grid-container padding-left-0 padding-right-0">
+                <div class="grid-row desktop:margin-left-neg-6">
+                    <div class="grid-col-12">
+                        <div class="pmc-layout__disclaimer" role="complementary" aria-label="Disclaimer note">
+    As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,
+    the contents by NLM or the National Institutes of Health.<br/>
+    Learn more:
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="Disclaimer" data-ga-label="New disclaimer box" href="/about/disclaimer/">PMC Disclaimer</a>
+    |
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="PMC Copyright Notice" data-ga-label="New disclaimer box" href="/about/copyright/">
+        PMC Copyright Notice
+    </a>
+</div>
+                    </div>
+                </div>
+                <div class="grid-row pmc-wm desktop:margin-left-neg-6">
+                    <!-- Main content -->
+                    <main
+                      id="main-content"
+                      class="usa-layout-docs__main usa-layout-docs grid-col-12 pmc-layout pmc-prose padding-0"
+                    >
+
+                      
+                        <section class="pmc-journal-banner text-center line-height-none" aria-label="Journal banner"><img src="https://cdn.ncbi.nlm.nih.gov/pmc/banners/logo-bmcmidm.png" alt="BMC Medical Informatics and Decision Making logo" usemap="#pmc-banner-imagemap" width="500" height="75"><map name="pmc-banner-imagemap"><area alt="Link to BMC Medical Informatics and Decision Making" title="Link to BMC Medical Informatics and Decision Making" shape="default" href="https://bmcmedinformdecismak.biomedcentral.com/" target="_blank" rel="noopener noreferrer"></map></section><article lang="en"><section aria-label="Article citation and metadata"><section class="pmc-layout__citation font-secondary font-xs"><div>
+<div class="display-inline-block"><button type="button" class="cursor-pointer text-no-underline bg-transparent border-0 padding-0 text-left margin-0 text-normal text-primary" aria-controls="journal_context_menu">BMC Med Inform Decis Mak</button></div>. 2025 Aug 19;25:312. doi: <a href="https://doi.org/10.1186/s12911-025-03151-z" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">10.1186/s12911-025-03151-z</a>
+</div>
+<nav id="journal_context_menu" hidden="hidden"><ul class="menu-list font-family-ui" role="menu">
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/pmc/?term=%22BMC%20Med%20Inform%20Decis%20Mak%22%5Bjour%5D" class="usa-link" role="menuitem">Search in PMC</a></li>
+<li role="presentation"><a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22BMC%20Med%20Inform%20Decis%20Mak%22%5Bjour%5D" lang="en" class="usa-link" role="menuitem">Search in PubMed</a></li>
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/nlmcatalog?term=%22BMC%20Med%20Inform%20Decis%20Mak%22%5BTitle%20Abbreviation%5D" class="usa-link" role="menuitem">View in NLM Catalog</a></li>
+<li role="presentation"><a href="?term=%22BMC%20Med%20Inform%20Decis%20Mak%22%5Bjour%5D" class="usa-link" role="menuitem" data-add-to-search="true">Add to search</a></li>
+</ul></nav></section><section class="front-matter"><div class="ameta p font-secondary font-xs">
+<hgroup><h1>Can LLMs effectively assist medical coding? Evaluating GPT performance on DRG and targeted clinical tasks</h1></hgroup><div class="cg p">
+<a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Feng%20Y%22%5BAuthor%5D" class="usa-link" aria-describedby="id1"><span class="name western">Yeli Feng</span></a><div hidden="hidden" id="id1">
+<h3><span class="name western">Yeli Feng</span></h3>
+<div class="p">
+<sup>1</sup>Amplify Health Asia, 21 Collyer Quay, Singapore, 049320 Singapore</div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Feng%20Y%22%5BAuthor%5D" class="usa-link"><span class="name western">Yeli Feng</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>✉</sup>
+</div>
+<ul class="d-buttons inline-list">
+<li><button class="d-button" aria-controls="aip_a" aria-expanded="false">Author information</button></li>
+<li><button class="d-button" aria-controls="anp_a" aria-expanded="false">Article notes</button></li>
+<li><button class="d-button" aria-controls="clp_a" aria-expanded="false">Copyright and License information</button></li>
+</ul>
+<div class="d-panels font-secondary-light">
+<div id="aip_a" class="d-panel p" style="display: none">
+<div class="p" id="Aff1">
+<sup>1</sup>Amplify Health Asia, 21 Collyer Quay, Singapore, 049320 Singapore</div>
+<div class="author-notes p"><div class="fn" id="_fncrsp93pmc__">
+<sup>✉</sup><p class="display-inline">Corresponding author.</p>
+</div></div>
+</div>
+<div id="anp_a" class="d-panel p" style="display: none"><div class="notes p"><section id="historyarticle-meta1" class="history"><p>Received 2025 Jan 19; Accepted 2025 Aug 11; Collection date 2025.</p></section></div></div>
+<div id="clp_a" class="d-panel p" style="display: none">
+<div>© The Author(s) 2025</div>
+<p><strong>Open Access</strong> This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modified the licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">http://creativecommons.org/licenses/by-nc-nd/4.0/</a>.</p>
+<div class="p"><a href="/about/copyright/" class="usa-link">PMC Copyright notice</a></div>
+</div>
+</div>
+<div>PMCID: PMC12362839  PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/40830470/" class="usa-link">40830470</a>
+</div>
+</div></section></section><section aria-label="Article content"><section class="body main-article-body"><section class="abstract" id="Abs1"><h2>Abstract</h2>
+<section id="sec1"><h3 class="pmc_sec_title">Background</h3>
+<p id="Par1">Large language Models (LLM) have demonstrated near human-level performance in medical domain, from summarizing clinical notes and passing medical licensing examinations, to predictive tasks such as disease diagnoses and treatment recommendations. However, currently there is little research on their efficacy for medical coding, a pivotal component in health informatics, clinical trials, and reimbursement management. This study proposes a prompt framework and investigates its effectiveness for medical coding.</p></section><section id="sec2"><h3 class="pmc_sec_title">Methods</h3>
+<p id="Par2">First, a prompt-based learning framework is proposed. This framework aims to improve the performance of GPT for complex medical coding tasks by augmenting it with specific prior knowledge, utilizing techniques such as meta prompt, many-shot learning, and dynamic in-context learning. Then its effectiveness is evaluated with three different medical coding tasks. Finally, ablation studies are presented to validate and analyze the contribution of each module in the proposed prompt framework.</p></section><section id="sec3"><h3 class="pmc_sec_title">Results</h3>
+<p id="Par3">For the MIMIC-IV dataset, the prediction accuracies of top-1 and top-5 for the 30 most frequent MS-DRG codes are 68.1% and 90.0%, respectively. The clinical trial criteria coding task results in a macro-F1 score of 68.4 on the CHIP-CTC test dataset in Chinese. Both results are comparable to the best methods in comparison that training deep leaning models or fine-tuning LLMs.</p></section><section id="sec4"><h3 class="pmc_sec_title">Conclusions</h3>
+<p id="Par4">This study demonstrates that for targeted coding tasks, DRG and other simplified scenarios, off-the-shelf GPT models guided by carefully designed prompts can achieve performance comparable to state-of-the-art methods. While current GPT models serve as helpful assistants to human coding specialists,they are not yet equipped to fully replace expert judgment. Importantly, the recent and drastic decline of the cost of deploying large language models makes their integration into medical coding workflows increasingly feasible. As these models continue to evolve, their potential to provide reliable support for DRG coding task is likely to grow rapidly over time.</p></section><section id="sec5"><h3 class="pmc_sec_title">Trial registration</h3>
+<p id="Par5">Not applicable.</p></section><section id="kwd-group1" lang="en" class="kwd-group"><p><strong>Keywords:</strong> Many-shot in-context learning, Meta prompt, GPT-4o, Medical coding, Diagnostic-related groups</p></section></section><section id="Sec1"><h2 class="pmc_sec_title">Introduction</h2>
+<p id="Par6">Since OpenAI released ChatGPT two years ago [<a href="#CR1" class="usa-link" aria-describedby="CR1">1</a>], the world’s leading artificial intelligence (AI) research powerhouses have been relentlessly pushing the state of the art (SOTA) in large language models (LLM). For example, Google introduced Gemini [<a href="#CR2" class="usa-link" aria-describedby="CR2">2</a>], Meta released open source LLaMA [<a href="#CR3" class="usa-link" aria-describedby="CR3">3</a>], and many more. Taking advantage of this mega wave, applied AI research based on commercial, proprietary or open source LLM has flourished in many application domains, from biology, medicine, education, and software engineering to content creation and customer services.</p>
+<p id="Par7">In the medical and healthcare domain, the research literature has shown ChatGPT to be very effective in comprehending English as well as non-English medical documents. GPT-4 achieved scores above the passing level in Korean Pharmacist Licensing Examinations [<a href="#CR4" class="usa-link" aria-describedby="CR4">4</a>]. Subsequently, the enhanced version GPT-4o significantly outperformed average medical students in the United States Medical Licensing Examination [<a href="#CR5" class="usa-link" aria-describedby="CR5">5</a>]. Luo et al. proposed BrainGPT [<a href="#CR6" class="usa-link" aria-describedby="CR6">6</a>] and showed that enhanced LLM exceeded human neuroscience experts in behavioral prediction tasks that require neuroscience knowledge. In a systematic review of ChatGPT in health care applications [<a href="#CR7" class="usa-link" aria-describedby="CR7">7</a>], Wang et al. concluded that conversational LLMs perform well in summarizing health-related texts and answering general medical knowledge questions.</p>
+<section id="Sec2"><h3 class="pmc_sec_title">The role of AI in medical coding</h3>
+<p id="Par8">The potential of LLM in improving accuracy or explainability in the automation of medical coding is also being investigated. Medical coding is a process of translating electronic health records (EHRs) containing free text descriptions about disease diagnoses, procedures, etc. to alphanumeric codes. They are crucial for effective health informatics management [<a href="#CR8" class="usa-link" aria-describedby="CR8">8</a>], financial reimbursement [<a href="#CR9" class="usa-link" aria-describedby="CR9">9</a>], and clinical trials [<a href="#CR10" class="usa-link" aria-describedby="CR10">10</a>], as well as for retrospective analysis of trends in patient population, allocation of resources, and clinical research. Manual coding is labor intensive, time consuming and error prone, which leads to a great deal of research exploring the potential of natural language processing and deep learning techniques to automate this process [<a href="#CR11" class="usa-link" aria-describedby="CR11">11</a>].</p>
+<p id="Par9">Using clinical text notes in the MIMIC-III dataset [<a href="#CR12" class="usa-link" aria-describedby="CR12">12</a>] to predict international classification of diseases (ICD) codes has been one of the most studied coding tasks. In [<a href="#CR13" class="usa-link" aria-describedby="CR13">13</a>], Hu et al. proposed SWAM, an ICD code prediction model based on a convolutional neural network (CNN). JLAN is a bidirectional long-short-term memory (Bi-LSTM) model proposed by Li et al. [<a href="#CR14" class="usa-link" aria-describedby="CR14">14</a>]. Using a Transformer-based pre-trained language model BioBERT [<a href="#CR15" class="usa-link" aria-describedby="CR15">15</a>] as the backbone, Huang et al. proposed PLM-ICD to tackle the challenges of the task at hand, including long input text and a large prediction label space [<a href="#CR16" class="usa-link" aria-describedby="CR16">16</a>]. In macro-F1 score, the prediction performance of the most frequent 50 ICD codes in the MIMIC-III dataset reached 0.603 and 0.615 by SWAM and PLM-ICD respectively, and further enhanced to 0.665 by JLAN.</p>
+<p id="Par10">Another frequently studied task is to predict Diagnostic Related Groups (DRG), a coding system used to classify hospital cases into groups based on the diagnosis, treatment, and risk of mortality of the patient. Liu et al. trained a long LSTM model over discharge summaries in the MIMIC-III dataset which resulted in a macro-F1 score of 0.041 in predicting all DRG codes [<a href="#CR17" class="usa-link" aria-describedby="CR17">17</a>]. The DRGCoder proposed by [<a href="#CR18" class="usa-link" aria-describedby="CR18">18</a>] leveraged the domain specific pre-trained Transformer ClinicalBERT [<a href="#CR19" class="usa-link" aria-describedby="CR19">19</a>] for the same task and reported a macro-F1 score of 0.101 over all DRG codes.</p>
+<p id="Par11">The vanilla BERT model and many of its variants have also been adopted as a backbone network for classifying clinical trial eligibility criteria, where deep expertise is often required for coding. In [<a href="#CR20" class="usa-link" aria-describedby="CR20">20</a>], RoBERTa-large [<a href="#CR21" class="usa-link" aria-describedby="CR21">21</a>] achieved a macro-F1 score of 0.709 to predict an institutional coding schema of 44 categories, where real clinical trial registration data collected from the Chinese Clinical Trial Registry were used. In [<a href="#CR22" class="usa-link" aria-describedby="CR22">22</a>], Feng et al. exploited the sentence-T5 [<a href="#CR23" class="usa-link" aria-describedby="CR23">23</a>] as a semantic feature generator to encode clinical text.</p></section><section id="Sec3"><h3 class="pmc_sec_title">Development in the LLM era</h3>
+<p id="Par12">Since the release of GPT, its potential for medical coding has been also explored. In [<a href="#CR24" class="usa-link" aria-describedby="CR24">24</a>], the free version ChatGPT 2023 was used to encode ICD-10 in more than 150 clinical cases selected from technical books. The authors concluded that ChatGPT can assist but does not replace medical coders. Mustafa et al. conducted a study to predict ICD-10 codes from discharge summaries [<a href="#CR25" class="usa-link" aria-describedby="CR25">25</a>] and found that later version ChatGPT 4 could enhance clinical coding accuracy, though humans still performed better overall. Using leading LLMs including GPT, Claude, Gemini, and Llama, Simmons et al. [<a href="#CR26" class="usa-link" aria-describedby="CR26">26</a>] conducted a large scale investigation with patient notes from the American Health Information Management Association. GPT-4 achieved the highest 15.2% agreement with human coders. The authors concluded that the LLM under evaluation performed poorly in extracting ICD-10 codes from hospital notes. Using Azure OpenAI GPT-3.5, Falis et al. [<a href="#CR27" class="usa-link" aria-describedby="CR27">27</a>] conducted a similar investigation and reported a macro-F1 score of 14.76 on the MIMIC-IV [<a href="#CR28" class="usa-link" aria-describedby="CR28">28</a>] test dataset. The authors reached the conclusion along the same line that GPT-3.5 with basic prompting alone is insufficient for ICD-10 coding.</p>
+<p id="Par13">Instead of relying on basic prompting barely, Wang et al. fine-tuned the Llama model [<a href="#CR3" class="usa-link" aria-describedby="CR3">3</a>] with hospital discharge summaries from the MIMIC-IV dataset for DRG prediction. The authors reported that their DRG-LLaMA [<a href="#CR29" class="usa-link" aria-describedby="CR29">29</a>] achieved a macro-F1 score of 0.327 on all DRGs, surpassing previous leading models in DRG prediction, including ClinicalBERT. In addition to fine-tuning LLM to improve performance on specific tasks, prompt-based learning is another paradigm from which many new techniques are emerging, from few-shot learning, in-context learning, and prompt ensemble to prompt template learning, and many [<a href="#CR30" class="usa-link" aria-describedby="CR30">30</a>].</p></section><section id="Sec4"><h3 class="pmc_sec_title">Techniques improving LLM performance in general domain</h3>
+<p id="Par14">When the context window size of LLMs increases rapidly, for example, from 2048 tokens in GPT-3.5 to 8192 tokens in GPT-4, complex tasks can benefit from scaling up the number of in-context examples in a prompt. With Gemini 1.5 Pro supporting up to 1 million token lengths, Agarwal et al. investigated the impact of example numbers on 11 different types of text generation and prediction tasks [<a href="#CR31" class="usa-link" aria-describedby="CR31">31</a>]. The authors introduced a many-shot in-context regime and reported that when prompting with example numbers several hundreds to thousands of shots, large performance jumps occurred, especially on complex reasoning tasks.</p>
+<p id="Par15">In prompt-based learning, the design of prompts can greatly affect task performance. Many prompt engineering methods have been proposed to overcome the suboptimal nature of hand-crafted task prompts. In [<a href="#CR32" class="usa-link" aria-describedby="CR32">32</a>], Gao et al. proposed a pipeline that automates prompt template generation and optimization. The authors reported that their methods outperformed the manual prompt by 11% on average in text classification tasks. Promptbreeder [<a href="#CR33" class="usa-link" aria-describedby="CR33">33</a>] introduced an optimization workflow that iteratively mutates task prompts and evaluates their fitness on a training dataset. Hou et al. argued that the starting point of searching for optimal task prompts matters. The authors proposed metaprompting [<a href="#CR34" class="usa-link" aria-describedby="CR34">34</a>], a task-agnostic framework to learn general meta-knowledge from specific task domains for a better initial task prompt.</p></section><section id="Sec5"><h3 class="pmc_sec_title">Aim of the study</h3>
+<p id="Par16">In most medical coding prediction works, GPT-3.5 or GPT-4 was utilized for performance evaluation. Whereas GPT-4o [<a href="#CR35" class="usa-link" aria-describedby="CR35">35</a>] released in mid-2024 has a context window of 128,000 tokens, 14 times larger than that of GPT-4 and 62 times larger than that of GPT-3.5. This drastic increase in token numbers supports the design of much larger and more sophisticated prompts to improve performance on complex tasks. This study proposes a prompt framework for medical coding tasks and uses GPT-4o to evaluate its performance for medical coding tasks over English and Chinese text.</p></section></section><section id="Sec6"><h2 class="pmc_sec_title">Methods</h2>
+<p id="Par17">Every medical code schema, be it an international or institutional standard, is a taxonomy system that comprises definitions of each category in the system and guidelines on how to assign which category to a given text note. In the paradigm of training a model for a specific task [<a href="#CR14" class="usa-link" aria-describedby="CR14">14</a>–<a href="#CR22" class="usa-link" aria-describedby="CR22">22</a>], the quality and amount of annotated text notes used to train the prediction model greatly impact task performance. Task specific knowledge such as taxonomy is not exploited. Inspired by the latest developments in prompt techniques [<a href="#CR33" class="usa-link" aria-describedby="CR33">33</a>–<a href="#CR35" class="usa-link" aria-describedby="CR35">35</a>], this paper proposes a prompt framework specifically designed for medical coding tasks. The rest of this section first presents the proposal and then discusses its application to three coding tasks and the corresponding prompt design.</p>
+<section id="Sec7"><h3 class="pmc_sec_title">Prompt framework</h3>
+<p id="Par18">As shown in Fig. <a href="#Fig1" class="usa-link">1</a>, in addition to an input text and task instruction, a medical coding prompt consists of system knowledge and many examples of learning. The system knowledge has two components: task context that provides an overview of the task and related medical terminologies; and guidelines that aim to improve text classification accuracy. For each task, guidelines are learned one time using a meta prompt to extract common patterns from text and code pairs of the corresponding train datasets. As the size of a training dataset is too large to fit in one context window, the guidelines are learned batch by batch and then summarized into a single set. The guideline learning components are shown in green color boxes in Fig. <a href="#Fig1" class="usa-link">1</a>. GPT-4o understands more than 50 different languages. For non-English input text, the meta prompt first translates them into English and then learns guideline from translated text.</p>
+<figure class="fig xbox font-sm" id="Fig1"><h4 class="obj_head">Fig. 1.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12362839_12911_2025_3151_Fig1_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/643c/12362839/2c6b76744c26/12911_2025_3151_Fig1_HTML.jpg" loading="lazy" id="d33e326" height="363" width="798" alt="Fig. 1"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Framework of medical coding task prompt</p></figcaption></figure><p id="Par19">In [<a href="#CR31" class="usa-link" aria-describedby="CR31">31</a>], Agarwal et al. experimentally showed that prompting a task with several hundreds to thousands of input and output examples for LLM to learn can significantly improve performance. The proposed prompt framework adopts this many-shot regime. But instead of randomly drawing hundreds of examples from a training dataset, a dynamic in-context retriever is designed. For each task, the texts in their training dataset are vectorized at one time using a small sentence-embedding LLM. At testing time, an input text is vectorized and then a batch of semantically most similar training examples and corresponding answers are retrieved to form the many-shot in-context learning examples as shown in the task prompt box in Fig. <a href="#Fig1" class="usa-link">1</a>.</p>
+<p id="Par20">We hypothesize that instead of only increasing the absolute number of learning examples, the more relevant the learning examples to a test input, the more helpful to LLM performing the task. In the subsequent Sects. <a href="#Sec13" class="usa-link">3</a> and <a href="#Sec17" class="usa-link">4</a>, it is experimentally validated. The next sections discuss the application of the above proposed prompt framework to three medical coding tasks.</p></section><section id="Sec8"><h3 class="pmc_sec_title">Meta prompt design</h3>
+<section id="Sec9"><h4 class="pmc_sec_title">Task 1: Semantic coding</h4>
+<p id="Par21">This task is to categorize a pair of disease-related questions as similar or different. Similar means both questions asked about the same disease-related issues. The question pairs are in Chinese, see Table <a href="#Tab1" class="usa-link">1</a> for examples of original questions in Chinese and their English translation, where CHIP-STS is a dataset from the Chinese Biomedical Language Understanding Evaluation (CBLUE) benchmark [<a href="#CR36" class="usa-link" aria-describedby="CR36">36</a>].</p>
+<section class="tw xbox font-sm" id="Tab1"><h5 class="obj_head">Table 1.</h5>
+<div class="caption p"><p>Examples of CHIP-STS data and task guidelines learned</p></div>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12362839_12911_2025_3151_Tab1_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/643c/12362839/a22910bcf3ca/12911_2025_3151_Tab1_HTML.jpg" loading="lazy" id="d33e361" height="454" width="669" alt="graphic file with name 12911_2025_3151_Tab1_HTML.jpg"></a></p>
+<div class="p text-right font-secondary"><a href="table/Tab1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></section><p id="Par22">Applying a meta prompt that includes an instruction to translate all original questions from Chinese to English, a total of 20 classification guidelines are learned from 16,000 training samples in the CHIP-STS dataset. See a few guideline examples Table <a href="#Tab1" class="usa-link">1</a>.</p></section><section id="Sec10"><h4 class="pmc_sec_title">Task 2: Clinical trial criteria coding</h4>
+<p id="Par23">This task consists of categorizing a short Chinese sentence into 1 of 44 categories of clinical trial criteria. The dataset used here is CHIP-CTC from the CBLUE benchmark, where all text data is from the Chinese Clinical Trial Registry. One challenge of the dataset is that the number of samples in each category is drastically different. As shown in Fig. <a href="#Fig2" class="usa-link">2</a>, the categories Disease and Therapy or Surgery constitute more than 40% of the total samples, and about half of the 44 categories have samples of less than 1% of the total samples.</p>
+<figure class="fig xbox font-sm" id="Fig2"><h5 class="obj_head">Fig. 2.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12362839_12911_2025_3151_Fig2_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/643c/12362839/1e25a2eefb7f/12911_2025_3151_Fig2_HTML.jpg" loading="lazy" id="d33e380" height="335" width="708" alt="Fig. 2"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>CHIP-CTC dataset sample frequencies by code categories</p></figcaption></figure><p id="Par24">For this task, there are a total of 22,962 training samples in the CHIP-CTC dataset. For each category, the corresponding training examples are selected from the training set for a meta prompt to learn a classification guideline. A total of 44 guidelines. See a couple of examples in Table <a href="#Tab2" class="usa-link">2</a>.</p>
+<section class="tw xbox font-sm" id="Tab2"><h5 class="obj_head">Table 2.</h5>
+<div class="caption p"><p>Examples of guidelines learned by meta prompt</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1">Category</th>
+<th align="left" colspan="1" rowspan="1">Classification Guideline Learned</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">Smoking Status</td>
+<td align="left" colspan="1" rowspan="1">To determine if a text belongs to the ‘Smoking Status’ category, look for keywords and phrases related to smoking habits, history, or cessation. Common indicators include references to smoking frequency (e.g., ‘daily smoking’, ‘more than 5 cigarettes’), time frames (e.g., ‘past 3 months’, ‘within 6 months’), smoking cessation (e.g., ‘quit smoking’, ‘on-smoker’), and smoking history (e.g., ‘smoking history’, ‘pack years’). The context often involves clinical trials, medical assessments, or health evaluations. Texts may also mention nicotine products or smoking restrictions during study periods. If a text includes these elements, it likely pertains to smoking status.</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="1">Neoplasm Status</td>
+<td align="center" colspan="1" rowspan="1">To determine if a text belongs to the ‘Neoplasm Status’ category, look for keywords and phrases related to the presence, size, stage, or spread of tumors. Common indicators include terms like ‘tumor’, ‘eoplasm’, ‘metastasis’, ‘stage’, ‘diameter’, ‘invasion’, and specific staging notations such as ‘T’, ‘N’, ‘M’ (e.g., T3N1M0). The context often involves descriptions of tumor characteristics, such as size measurements (e.g., ‘<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq1"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/643c/12362839/10d523d2befc/d33e412.gif" loading="lazy" id="d33e412" alt="Inline graphic"></span>3 cm’), stages (e.g., ‘stage IIIB’), or spread to other organs (e.g., ‘liver metastasis’). Additionally, references to clinical assessments, imaging results, or pathological findings that describe the status or progression of a neoplasm are strong indicators of this category.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></section></section><section id="Sec11"><h4 class="pmc_sec_title">Task 3: MS-DRG coding</h4>
+<p id="Par25">This task consists of predicting MS-DRG codes from hospital discharge summaries. There are more than 700 unique MS-DRG codes [<a href="#CR37" class="usa-link" aria-describedby="CR37">37</a>]. Each DRG code describes a set of patient attributes, including the primary diagnosis, specific secondary diagnoses, procedures, sex, and discharge status. The discharge status tells whether the patient was discharged alive or not, with or without major complications and comorbid conditions. We follow the dataset preparation schema in DRG-LLaMA [<a href="#CR29" class="usa-link" aria-describedby="CR29">29</a>] to randomly divide the MIMIC-IV dataset into 90% for training and 10% for evaluation.</p>
+<p id="Par26">In this study, we evaluate the most frequent 30 DRGs. DRG is an international standard where each DRG code has a definition serving as a manual for code mapping. These definitions are short phrases given in [<a href="#CR37" class="usa-link" aria-describedby="CR37">37</a>]. See a couple of definitions in Table <a href="#Tab3" class="usa-link">3</a>. Instead of learning the classification guidelines from the task training set, the meta prompt of this task translates each DRG definition into more comprehensible cohesive short paragraphs, as shown in Table <a href="#Tab3" class="usa-link">3</a>.</p>
+<section class="tw xbox font-sm" id="Tab3"><h5 class="obj_head">Table 3.</h5>
+<div class="caption p"><p>Examples of MS-DRG definition and corresponding guidelines learned</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1">MS-DRG</th>
+<th align="left" colspan="1" rowspan="1">Definition</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">392</td>
+<td align="left" colspan="1" rowspan="1">Esophagitis, gastroenteritis and miscellaneous digestive disorders without MCC</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">871</td>
+<td align="left" colspan="1" rowspan="1">Septicemia or severe sepsis without MV <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq2"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/643c/12362839/10d523d2befc/d33e465.gif" loading="lazy" id="d33e465" alt="Inline graphic"></span>96 hours with MCC</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">853</td>
+<td align="left" colspan="1" rowspan="1">Infectious and parasitic diseases with O.R. procedure with MCC</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">394</td>
+<td align="left" colspan="1" rowspan="1">Other digestive system diagnoses with CC</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"><strong>MS-DRG</strong></td>
+<td align="left" colspan="1" rowspan="1"><strong>Classification Guideline Learned</strong></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">392</td>
+<td align="left" colspan="1" rowspan="1">Assign to DRG 392 for cases of esophagitis, gastroenteritis, or other digestive disorders without major complications or comorbidities (MCC). The patient should have milder symptoms and require standard treatment without intensive care.</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">871</td>
+<td align="left" colspan="1" rowspan="1">This DRG code applies to patients with septicemia or severe sepsis who do not require mechanical ventilation for more than 96 hours but have major complications or comorbidities (MCC).</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">853</td>
+<td align="left" colspan="1" rowspan="1">Assign DRG 853 to cases involving infectious or parasitic diseases that required an operating room (O.R.) procedure and are accompanied by major complications or comorbidities (MCC). Look for severe infections necessitating surgical intervention and significant additional health issues.</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">394</td>
+<td align="left" colspan="1" rowspan="1">Select DRG 394 for other digestive system diagnoses with a complication or comorbidity (CC). The patient should have moderate symptoms that require additional care but not as intensive as MCC.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab3/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></section></section></section><section id="Sec12"><h3 class="pmc_sec_title">Many-shot dynamic in-context retriever</h3>
+<p id="Par27">In natural language processing (NLP), vector embedding is a technique that transforms words, phrases, or texts into numerical vectors so that quantitative metrics can be used for analysis. Since sentence-BERT [<a href="#CR38" class="usa-link" aria-describedby="CR38">38</a>] set a new SOTA on a range of NLP tasks, many small LLMs have been made available on Hugging Face. In this study, we curated two small LLMs for text embedding functionality in the retriever module.</p>
+<p id="Par28">The text data in tasks 1 and 2 are Chinese, so CoSENT [<a href="#CR39" class="usa-link" aria-describedby="CR39">39</a>] trained with Chinese corpora is used to generate embedding vectors from Chinese sentences and question pairs from respective datasets. At testing time, each input in its original language is first transformed into an embedding vector, and then the cosine similarity is used to find <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq3"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/643c/12362839/bbad77991156/d33e522.gif" loading="lazy" id="d33e522" alt="Inline graphic"></span> the most similar examples from the corresponding training set. The discharge summaries in task 3 are in English and on average much longer, so sentence-T5-large [<a href="#CR23" class="usa-link" aria-describedby="CR23">23</a>] model is chosen to embed text.</p>
+<p id="Par29"><span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq4"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/643c/12362839/bbad77991156/d33e532.gif" loading="lazy" id="d33e532" alt="Inline graphic"></span> refers to the number of many-shot learning examples as shown in the task prompt box in Fig. <a href="#Fig1" class="usa-link">1</a>. In Section <a href="#Sec13" class="usa-link">3</a>, optimal value of <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq5"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/643c/12362839/bbad77991156/d33e544.gif" loading="lazy" id="d33e544" alt="Inline graphic"></span> for each task and other aspects of the evaluation setup will be discussed.</p></section></section><section id="Sec13"><h2 class="pmc_sec_title">Results</h2>
+<section id="Sec14"><h3 class="pmc_sec_title">Technical setup</h3>
+<p id="Par30">For evaluating the performance of the prompt framework applied to these coding tasks, the GPT-4o 2024–08–01 preview version of the Azure OpenAI service was used. Azure OpenAI service is one of the three online GPT and similar services that are recommended for the responsible use of the MIMIC dataset [<a href="#CR40" class="usa-link" aria-describedby="CR40">40</a>].</p>
+<p id="Par31">Following related work, the macro-F1 and accuracy metrics are used for performance assessment in this study. A macro-F1 score is an average over F1 scores of each unique code, and gives a sense of effectiveness on minority classes in tasks 2 and 3, where data are extremely imbalanced. On the other hand, on average over an entire testing dataset, a micro F1 score reports a performance potentially skewed towards majority classes. In multiclass classification tasks, micro F1 is equivalent to accuracy.</p>
+<p id="Par32">For each task, samples of many-shot prompt are available at <a href="https://tinyurl.com/mfc5w5p9" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://tinyurl.com/mfc5w5p9</a> for reference.</p></section><section id="Sec15"><h3 class="pmc_sec_title">Performance of tasks 1 and 2</h3>
+<p id="Par33">The CHIP datasets have training, development, and testing datasets, where true class labels are available only in training and validation sets. The training sets are used to learn classification guidelines for respective tasks. GPT-4o has a context window size of 128,000 tokens, it can support hundreds if not a thousand learning examples in the task prompt.</p>
+<p id="Par34">To find the optimal many-shot size for each task, a part of development sets, sample id 1–1000 in task 1 and sample id 1–500 in task 2, were used for grid searching. Considering the high latency and high cost of the Azure OpenAI service, we use a subset to determine the optimal hyperparameters in all tasks.</p>
+<p id="Par35">As shown in Fig. <a href="#Fig3" class="usa-link">3</a>, when the number of shots increases, the performance increases significantly in both tasks. In task 1, the best macro-F1 score reaches 0.7909 when the number of shots is equal to 40, and the best result in task 2 is 0.8274 when the number of shots is equal to 20. When the size of many-shot continues to grow, task 2 performance quickly degrades and task 1 performance also gradually drops.</p>
+<figure class="fig xbox font-sm" id="Fig3"><h4 class="obj_head">Fig. 3.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12362839_12911_2025_3151_Fig3_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/643c/12362839/e7945b1aac1c/12911_2025_3151_Fig3_HTML.jpg" loading="lazy" id="d33e584" height="220" width="785" alt="Fig. 3"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig3/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Comparison of prediction performance by many-shot size</p></figcaption></figure><p id="Par36">The STS and CTC test set has 10,000 and 10,193 samples, respectively. Performance of tasks 1 and 2 are evaluated on the CBLUE benchmark platform with complete test sets. In Table <a href="#Tab4" class="usa-link">4</a>, the results of our method are compared with the results of the leading methods reported in [<a href="#CR36" class="usa-link" aria-describedby="CR36">36</a>], where BERT networks with various improvements were trained with Chinese corpora. Task 1 predicts whether a given question pair is semantic similar or not. Existing supervised model training approaches outperform our prompt-based learning method. Compared to task 1, task 2 is more complex, where a given sentence is classified into 1 of 44 categories. Our prompt-based learning method performs on par with existing supervised model training approaches and is even better than ALBERT-xxlarge.</p>
+<section class="tw xbox font-sm" id="Tab4"><h4 class="obj_head">Table 4.</h4>
+<div class="caption p"><p>Performance macro-F1 score on CBLUE benchmark</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1">Task</th>
+<th align="left" colspan="1" rowspan="1">MacBERT-large</th>
+<th align="left" colspan="1" rowspan="1">RoBERTa-large</th>
+<th align="left" colspan="1" rowspan="1">ZEN</th>
+<th align="left" colspan="1" rowspan="1">ALBERT-xxlarge</th>
+<th align="left" colspan="1" rowspan="1">Ours</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">Task 1 (STS test)</td>
+<td align="left" colspan="1" rowspan="1">0.856</td>
+<td align="left" colspan="1" rowspan="1">0.847</td>
+<td align="left" colspan="1" rowspan="1">0.835</td>
+<td align="left" colspan="1" rowspan="1">0.848</td>
+<td align="left" colspan="1" rowspan="1">0.797</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Task 2 (CTC test)</td>
+<td align="left" colspan="1" rowspan="1">0.686</td>
+<td align="left" colspan="1" rowspan="1">0.709</td>
+<td align="left" colspan="1" rowspan="1">0.686</td>
+<td align="left" colspan="1" rowspan="1">0.669</td>
+<td align="left" colspan="1" rowspan="1">0.684</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab4/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></section><p id="Par37">To find out whether the classification guidelines learned by the meta prompts, as shown in Table <a href="#Tab1" class="usa-link">1</a> and <a href="#Tab2" class="usa-link">2</a> are helpful in improving the prediction performance, we remove the guidelines from the task prompts and run the experiments again, but with smaller evaluation sets as labeled in Fig. <a href="#Fig3" class="usa-link">3</a>, namely ablation study sets. Compared to the best results shown in Fig. <a href="#Fig3" class="usa-link">3</a>, without guidelines, the macro-F1 score on the CTC ablation set is 0.771, decreases by 0.056, and the macro-F1 score on the STS ablation set is 0.761, decreases by 0.03. Therefore, the guidelines are helpful for the performance of tasks 2 and 1.</p>
+<p id="Par38">The dynamic in-context in Sect. “<a href="#Sec12" class="usa-link">Many-shot Dynamic In-Context Retriever</a>” means that the many-shot learning examples in the task prompt are semantically most similar to a test input. To measure its effect, in ablation studies, the learning examples are randomly drawn from a task’s training dataset, that is, without correlation wit a test input. The results of the experiment reveal that this proposal is extremely helpful for task 2. Without being able to learn from examples semantically similar to test inputs, the macro-F1 score over ablation set drops from 0.827 to 0.675, as high as 0.152. However, both ways give the same performance in Task 1. One possible reason could be task 1 being relatively simple.</p></section><section id="Sec16"><h3 class="pmc_sec_title">Performance of task 3</h3>
+<p id="Par39">The most frequent 30 DRGs in the MIMIC-IV test set has 7665 samples, which form the test set of Task 3. The sample frequency is shown in the top plot of Fig. <a href="#Fig4" class="usa-link">4</a>. The length of a discharge summary is much longer than the input data in the previous two tasks. The maximum many-shot size used for evaluation is 80, the maximum number that is supported by GPT-4o.</p>
+<figure class="fig xbox font-sm" id="Fig4"><h4 class="obj_head">Fig. 4.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12362839_12911_2025_3151_Fig4_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/643c/12362839/6914548d9a6b/12911_2025_3151_Fig4_HTML.jpg" loading="lazy" id="d33e678" height="398" width="661" alt="Fig. 4"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig4/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>MIMIC-IV sample frequencies by MS-DRGs and prediction performance</p></figcaption></figure><p id="Par40">To quantify the impact of many-shot size on DRG coding performance, 100 random samples were drawn from the test set for evaluation, that is, the ablation set. At 30 shots, the macro-F1 score for the 30 most frequent DRG codes is 0.735. Increasing the shot size to 80 improves the performance to 0.770. Note that, due to the limited sample size, these results cover only a portion of the 30 target codes.</p>
+<p id="Par41">In Table <a href="#Tab5" class="usa-link">5</a>, the result of our method over the complete test set is compared with related works on MIMIC datasets, where IV is an updated version of III. Both CAML and DRG-LLaMA are supervised model training methods. Their difference is that in the CAML method, CNN features are pooled using the attention mechanism for each class. In the latter method, an LLaMA model is fine-tuned for the task.</p>
+<section class="tw xbox font-sm" id="Tab5"><h4 class="obj_head">Table 5.</h4>
+<div class="caption p"><p>Prediction performance of most frequent 30 MS-DRGs</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1">Method</th>
+<th align="left" colspan="1" rowspan="1">Dataset</th>
+<th align="left" colspan="1" rowspan="1">Macro-F1</th>
+<th align="left" colspan="1" rowspan="1">Accuracy</th>
+<th align="left" colspan="1" rowspan="1">Top-5 Accuracy</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">CAML [<a href="#CR17" class="usa-link" aria-describedby="CR17">17</a>]</td>
+<td align="left" colspan="1" rowspan="1">MIMIC-III</td>
+<td align="left" colspan="1" rowspan="1">0.395</td>
+<td align="left" colspan="1" rowspan="1">0.502<sup>1</sup>
+</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">DRG-LLaMA-7B [<a href="#CR29" class="usa-link" aria-describedby="CR29">29</a>]</td>
+<td align="left" colspan="1" rowspan="1">MIMIC-IV</td>
+<td align="left" colspan="1" rowspan="1">0.737</td>
+<td align="left" colspan="1" rowspan="1">0.694</td>
+<td align="left" colspan="1" rowspan="1">0.941</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Ours</td>
+<td align="left" colspan="1" rowspan="1">MIMIC-IV</td>
+<td align="left" colspan="1" rowspan="1">0.621</td>
+<td align="left" colspan="1" rowspan="1">0.681</td>
+<td align="left" colspan="1" rowspan="1">0.900</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab5/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<div class="tw-foot p"><div class="fn" id="_fn_p51"><p>In CAML, result was reported in micro-F1 score, equivalent to accuracy</p></div></div></section><p id="Par42">We can see that the SOTA LLM exhibits a clear superiority over CNN. DRG-LLaMA outperforms CAML by 0.192 in the accuracy term. When considering the performance of minority classes as shown in the upper part of Fig. <a href="#Fig4" class="usa-link">4</a>, DRG-LLaMA outperforms with a macro-F1 score of 0.342. Our prompt-based learning method also outperforms CAML at a similar level and is on par with DRG-LLaMA, when measured in terms of accuracy. Top-5 accuracy means that for each test input, five DRG codes are predicted, respectively.</p>
+<p id="Par43">Measured in macro-F1, DRG-LLaMA surpasses our method. In Fig. <a href="#Fig4" class="usa-link">4</a>, the performance of each DRG code is plotted in the order of their sample frequency. We can see that there is a weak positive correlation between code prediction performance and the corresponding sample frequency. The bottom performing code predictions clutter at the below 1% frequency region.</p>
+<p id="Par44">Often, prediction performance of codes with more samples will be better than codes with fewer samples. However, the prediction scores sorted by sample frequency in Fig. <a href="#Fig4" class="usa-link">4</a> do not exhibit such a pattern. For example, the macro-F1 score of DRG code 27, one of the 3 least frequent DRG codes, is higher than 0.9. DRG code 27 is of surgical type. Another type is medical. Of the 30 most frequent DRG codes, 6 belong to surgical type and the rest are medical type. When average macro-F1 scores are derived by DRG type, it reveals that performance of most surgical codes is much better with an average macro-F1 score of 0.805. The average of the medical type of DRG is 0.575, while the overall macro-F1 is 0.621 as shown in Table <a href="#Tab5" class="usa-link">5</a>.</p>
+<p id="Par45">In terms of the efficacy of task guidelines, task 3 is highly benefited compared to the efficacy analysis on tasks 1 and 2. Without the meta-prompt-learning classification guidelines as shown in Table <a href="#Tab3" class="usa-link">3</a>, macro-F1 score on the ablation set is 0.427, a collapse of as large as 0.343.</p>
+<p id="Par46">Task 3 also benefits tremendously from the dynamic in-context method. when in-context examples are replaced by random examples, the macro-F1 score over the ablation set decreases to 0.584, a degradation of 0.186.</p>
+<p id="Par47">The results of these ablation studies indicate that the more complex the task, the more helpful both the task guidelines and dynamic in-context learning are.</p></section></section><section id="Sec17"><h2 class="pmc_sec_title">Discussion</h2>
+<p id="Par48">The above section provides an overview of the overall performance of the proposed prompt framework applied to three different medical coding tasks, from relatively simple semantic coding to more complex clinical trial criteria and MS-DRG coding tasks, as well as ablation studies on the efficacy of the proposed prompt meta-prompt design and dynamic in-context learning. We also investigated whether the same version GPT-4o mini performs on par or better and found that GPT-4o gives better results than GPT-4o mini. For example, on the CTC ablation set, GPT-4o mini produces a result of 0.033 lower than GPT-4o in macro-F1 term.</p>
+<p id="Par49">How will earlier version GPT perform on these tasks? Older models came with a much smaller context window, as discussed in Sect. “<a href="#Sec4" class="usa-link">Techniques Improving LLM Performance in General Domain</a>”. With GPT-3.5 and GPT-4 supporting a maximum of 2048 and 8192 tokens, both cannot accommodate the number of prompt tokens required for the DRG task. However, it can meet the token requirements of the other 2 tasks, as shown in Table <a href="#Tab6" class="usa-link">6</a>. Performance with GPT-4 in the macro-F1 score is 0.822 and 0.742 in the ablation set of tasks 1 and 2, respectively. As shown in Fig. <a href="#Fig3" class="usa-link">3</a>, when using GPT-4o, the macro-F1 score of task 1 is 0.791, a 0.031 decrease in performance; and 0.827 in task 2, a performance increase of 0.085 compared to older GPT-4. One takeaway from this comparison can be that for simple tasks, the older version GPT model will suffice, whereas a more complex task will benefit from the new GPT model.</p>
+<section class="tw xbox font-sm" id="Tab6"><h3 class="obj_head">Table 6.</h3>
+<div class="caption p"><p>GPT-4o cost estimation per 100 codes prediction</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1"></th>
+<th align="left" colspan="1" rowspan="1">Task1 (STS)</th>
+<th align="left" colspan="1" rowspan="1">Task2 (CTC)</th>
+<th align="left" colspan="1" rowspan="1">Task3 (DRG)</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">Input/Output Tokens</td>
+<td align="left" colspan="1" rowspan="1">53,400/2,000</td>
+<td align="left" colspan="1" rowspan="1">117,900/3,000</td>
+<td align="left" colspan="1" rowspan="1">6,605,400/2,100</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Realtime API</td>
+<td align="left" colspan="1" rowspan="1">$0.15</td>
+<td align="left" colspan="1" rowspan="1">$0.32</td>
+<td align="left" colspan="1" rowspan="1">$16.53</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Batch API</td>
+<td align="left" colspan="1" rowspan="1">$0.08</td>
+<td align="left" colspan="1" rowspan="1">$0.16</td>
+<td align="left" colspan="1" rowspan="1">$8.27</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab6/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></section><p id="Par50">The remainder of this section discusses the cost and limitation of the proposed method from a practitioner’s lens.</p>
+<section id="Sec18"><h3 class="pmc_sec_title">Computational cost of prompt scaling</h3>
+<p id="Par51">Many-shots prompting substantially increase the number of tokens submitted to GPT models, directly increasing computational costs. For practitioners, the trade-off between performance and cost is one of the important aspects that influence the choice of methodology, specifically between use GPT or to train or fine-tune a much smaller model such as Sentence-T5 in a supervised manner. LLMs avoid annotation expenses, but scaling up learning shots erodes this advantage. In contrast, supervised approaches require high-quality clinical annotations, a substantial and recurrent operational burden.</p>
+<p id="Par52">Although the costs of the latter approach vary between different organizations, we estimate the cost of the proposed method for the tasks evaluated in the previous section. This enables a systematic comparison of inference expenses across. According to OpenAI’s published pricing<a href="#Fn1" class="usa-link">1</a> (as of [30 June 2025]), GPT-4o realtime API charges USD $2.5 for per million input tokens and USD$10.0 for per million output tokens. Table <a href="#Tab6" class="usa-link">6</a> lists the tokens consumed by each task evaluated in Sect. <a href="#Sec13" class="usa-link">3</a> to predict per 100 codes and the corresponding API cost.</p>
+<p id="Par54">OpenAI also offer an asynchronous batch API option, which reduces the cost by 50%. It costs USD $8.27 to code 100 DRG diagnoses. By providing a mechanism to filter out low-confidence (and likely incorrect) predictions, the proposed method can significantly reduce annotation costs and project time, particularly given the high expense of human annotation labor.</p></section><section id="Sec19"><h3 class="pmc_sec_title">Limitation</h3>
+<p id="Par55">In tasks 1 and 2 when the size of the many-shot reaches a point, as shown in Fig. <a href="#Fig3" class="usa-link">3</a>, the performance of the task is penalized when the many-shot size continues to increase. In task 3, as the input data are much larger, GPT-4o supports up to 80 shots in the task prompt used. However, an ablation study with a many-shot size of 30 results in a 0.035 decrease in macro-F1 score over its ablation set. This suggests that there is a potential that the performance of DRG code prediction could benefit from using an LLM that supports a larger context window size.</p></section></section><section id="Sec20"><h2 class="pmc_sec_title">Conclusions</h2>
+<p id="Par56">This study proposes a language-agnostic prompt framework to predict medical codes with LLM. This framework exploits the latest techniques developed in the prompt-based learning field to improve the performance of prompt-based learning in complex tasks, including meta prompt, many-shot, and dynamic in-context learning. The framework implementation combines the commercial Azure OpenAI GPT-4o service with small open-source LLMs. Subsequently, the effectiveness of this framework is evaluated using different tasks in the context of institutional and standard coding schema. Ablation studies show the key proposals, extracting task specific knowledge into classification guidelines and multi-many dynamic in-context learning are effective, and drastically lift the performance of complex tasks. Compared to related works that take a supervised model training approach, our prompt-based learning framework gives comparative performance on two complex coding tasks but underperforms on relatively simple semantic coding tasks. With the rapid advancement of LLMs, the size of their context window will increase rapidly. The proposed prompt framework has the potential to further enhance DRG code prediction performance.</p></section><section id="ack1" class="ack"><h2 class="pmc_sec_title">Acknowledgements</h2>
+<p>This research is supported by Amplify Health Asia.</p></section><section id="notes1"><h2 class="pmc_sec_title">Author contributions</h2>
+<p>All authors contributed to study conceptualization, data collection and analysis, and manuscript writing. All authors read and approved the final manuscript.</p></section><section id="notes2"><h2 class="pmc_sec_title">Funding</h2>
+<p>This research is supported by Amplify Health Asia.</p></section><section id="notes3"><h2 class="pmc_sec_title">Data availability</h2>
+<p>Publicly available datasets were analyzed in this study. These data can be found here: <a href="https://tianchi.aliyun.com/dataset/145741" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://tianchi.aliyun.com/dataset/145741</a>, and <a href="https://physionet.org/content/mimic-iv-note/2.2/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://physionet.org/content/mimic-iv-note/2.2/</a>.</p></section><section id="notes4"><h2 class="pmc_sec_title">Declarations</h2>
+<section id="FPar441"><h3 class="pmc_sec_title">Ethics approval and consent to participate</h3>
+<p id="Par57">Not applicable.</p></section><section id="FPar122"><h3 class="pmc_sec_title">Consent for publication</h3>
+<p id="Par58">Not applicable.</p></section><section id="FPar133"><h3 class="pmc_sec_title">Competing of interests</h3>
+<p id="Par59">The authors declare that they have no competing interests.</p></section></section><section id="fn-group1" class="fn-group"><h2 class="pmc_sec_title">Footnotes</h2>
+<div class="fn-group p font-secondary-light font-sm">
+<div class="fn p" id="Fn1">
+<sup>1</sup><p class="display-inline" id="Par53">OpenAI API Pricing: <a href="https://platform.openai.com/docs/pricing" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://platform.openai.com/docs/pricing</a></p>
+</div>
+<div class="fn p" id="fn2">
+<p><strong>Publisher’s Note</strong></p>
+<p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</div>
+</div></section><section id="Bib1" class="ref-list"><h2 class="pmc_sec_title">References</h2>
+<section id="Bib1_sec2"><ul class="ref-list font-sm" style="list-style-type:none">
+<li id="CR1">
+<span class="label">1.</span><cite>OpenAI: Chatgpt-release notes. 30 Nov 2022. <a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://help.openai.com/en/articles/6825453-chatgpt-release-notes</a>. Accessed 15 Dec 2024.</cite>
+</li>
+<li id="CR2">
+<span class="label">2.</span><cite>Google: Introducing gemini: Our largest and most capable ai model. 06 Dec 2023. <a href="https://blog.google/technology/ai/google-gemini-ai/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://blog.google/technology/ai/google-gemini-ai/</a> Accessed 15 Dec 2024.</cite>
+</li>
+<li id="CR3">
+<span class="label">3.</span><cite>Meta AI. Introducing LLaMA: A foundational 65-billion-parameter large language model. 16 Mar 2023. <a href="https://ai.facebook.com/blog/large-language-model-llama-meta-ai/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://ai.facebook.com/blog/large-language-model-llama-meta-ai/</a>. Accessed 15 Dec 2024.</cite>
+</li>
+<li id="CR4">
+<span class="label">4.</span><cite>Kyung JH, Kim E. Performance of gpt-3.5 and gpt-4 on the Korean pharmacist licensing examination: comparison study. JMIR Med Educ. 2024;10(e57451). 10.2196/57451.</cite> [<a href="https://doi.org/10.2196/57451" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11633516/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39630413/" class="usa-link">PubMed</a>]</li>
+<li id="CR5">
+<span class="label">5.</span><cite>Bicknell BT, BD, et al. Chatgpt-4 omni performance in usmle disciplines and clinical skills: comparative analysis. JMIR Med Educ. 2024;10:e63430. 10.2196/63430.</cite> [<a href="https://doi.org/10.2196/63430" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11611793/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39504445/" class="usa-link">PubMed</a>]</li>
+<li id="CR6">
+<span class="label">6.</span><cite>Xiaoliang Lou, AR, et al. Large language models surpass human experts in predicting neuroscience results. Nat Hum Behav. 2024. 10.1038/s41562-024-02046-9.</cite> [<a href="https://doi.org/10.1038/s41562-024-02046-9" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11860209/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39604572/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Xiaoliang%20Lou,%20AR,%20et%20al.%20Large%20language%20models%20surpass%20human%20experts%20in%20predicting%20neuroscience%20results.%20Nat%20Hum%20Behav.%202024.%2010.1038/s41562-024-02046-9." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR7">
+<span class="label">7.</span><cite>Leyao Wang, ZW, et al. Conversational large language models in health care: Systematic review. J Med Internet Res. 2024;26:e22769. 10.2196/22769.</cite> [<a href="https://doi.org/10.2196/22769" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11582494/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39509695/" class="usa-link">PubMed</a>]</li>
+<li id="CR8">
+<span class="label">8.</span><cite>Shepheard J. Clinical coding and the quality and integrity of health data. Health Inf Manag. 2020;49:3–4. 10.1177/1833358319874008.
+</cite> [<a href="https://doi.org/10.1177/1833358319874008" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/31510815/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Shepheard%20J.%20Clinical%20coding%20and%20the%20quality%20and%20integrity%20of%20health%20data.%20Health%20Inf%20Manag.%202020;49:3%E2%80%934.%2010.1177/1833358319874008." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR9">
+<span class="label">9.</span><cite>Drabiak K, Wolfson J. What should health care organizations do to reduce billing fraud and abuse? AMA J Ethics. 2020;22(3):221–231. 10.1001/amajethics.2020.221.</cite> [<a href="https://doi.org/10.1001/amajethics.2020.221" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/32220269/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Drabiak%20K,%20Wolfson%20J.%20What%20should%20health%20care%20organizations%20do%20to%20reduce%20billing%20fraud%20and%20abuse?%20AMA%20J%20Ethics.%202020;22(3):221%E2%80%93231.%2010.1001/amajethics.2020.221." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR10">
+<span class="label">10.</span><cite>Babre D. Medical coding in clinical trials. Perspect Clin Res. 2010;1(1):29–32. 10.1001/amajethics.2020.221.</cite> [<a href="/articles/PMC3149405/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/21829779/" class="usa-link">PubMed</a>]</li>
+<li id="CR11">
+<span class="label">11.</span><cite>Shaoxiong Ji, XL, et al. A unified review of deep learning for automated medical coding. ACM Comput Surv. 2024;55(12):1–41. 10.1145/3664615.</cite> [<a href="https://scholar.google.com/scholar_lookup?Shaoxiong%20Ji,%20XL,%20et%20al.%20A%20unified%20review%20of%20deep%20learning%20for%20automated%20medical%20coding.%20ACM%20Comput%20Surv.%202024;55(12):1%E2%80%9341.%2010.1145/3664615." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR12">
+<span class="label">12.</span><cite>Alistair EW, Johnson TJP, et al. Mimic-iii, a freely accessible critical care database. Sci Data. 2016;3:160035. 10.1038/sdata.2016.35.</cite> [<a href="https://doi.org/10.1038/sdata.2016.35" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC4878278/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/27219127/" class="usa-link">PubMed</a>]</li>
+<li id="CR13">
+<span class="label">13.</span><cite>Shuyuan Hu, FT, et al. An explainable cnn approach for medical codes prediction from clinical text. BMC Med Inf Decis Mak. 2021;21:256. 10.1186/s12911-021-01615-6.</cite> [<a href="https://doi.org/10.1186/s12911-021-01615-6" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8596896/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/34789241/" class="usa-link">PubMed</a>]</li>
+<li id="CR14">
+<span class="label">14.</span><cite>Xingwang Li YZ, et al. JLAN: Medical code prediction via joint learning attention networks and denoising mechanism. BMC Bioinf. 2021;21(1):590. 10.1186/s12859-021-04520-x.</cite> [<a href="https://doi.org/10.1186/s12859-021-04520-x" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8667397/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/34903164/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Xingwang%20Li%20YZ,%20et%20al.%20JLAN:%20Medical%20code%20prediction%20via%20joint%20learning%20attention%20networks%20and%20denoising%20mechanism.%20BMC%20Bioinf.%202021;21(1):590.%2010.1186/s12859-021-04520-x." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR15">
+<span class="label">15.</span><cite>Jinhyuk Lee WY, et al. Biobert: A pre-trained biomedical language representation model for biomedical text mining. Bioinformatics. 2020;36(4):1234–1240. 10.1093/bioinformatics/btz682.
+</cite> [<a href="https://doi.org/10.1093/bioinformatics/btz682" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC7703786/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/31501885/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Jinhyuk%20Lee%20WY,%20et%20al.%20Biobert:%20A%20pre-trained%20biomedical%20language%20representation%20model%20for%20biomedical%20text%20mining.%20Bioinformatics.%202020;36(4):1234%E2%80%931240.%2010.1093/bioinformatics/btz682." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR16">
+<span class="label">16.</span><cite>Chao-Wei Huang, S-CT, et al. PLM-ICD: Automatic icd coding with pretrained language models. Proceedings of the 4th Clinical Natural Language Processing Workshop. Seattle, WA: 2022 pages 10–20. 10.18653/v1/2022.clinicalnlp-1.2.</cite>
+</li>
+<li id="CR17">
+<span class="label">17.</span><cite>Jinghui Liu, DC, et al. Early prediction of diagnostic-related groups and estimation of hospital cost by processing clinical notes. NPJ Digit Med. 2021;4(103). 10.1038/s41746-021-00474-9.</cite> [<a href="https://doi.org/10.1038/s41746-021-00474-9" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8249417/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/34211109/" class="usa-link">PubMed</a>]</li>
+<li id="CR18">
+<span class="label">18.</span><cite>Daniel Hajialigol, DK, et al. DRGCODER: Explainable clinical coding for the early prediction of diagnostic-related groups. Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing: system demonstrations. Singapore: Association for Computational Linguistics. 2023:373–80. 10.18653/v1/2023.emnlp-demo.34.</cite>
+</li>
+<li id="CR19">
+<span class="label">19.</span><cite>Emily Alsentzer, JM, et al. Publicly available clinical bert embeddings. Proceedings of the 2nd clinical natural language processing workshop. Minneapolis, Minnesota: USA. Association for Computational Linguistics. 2019;72–78. 10.18653/v1/W19-1909.</cite>
+</li>
+<li id="CR20">
+<span class="label">20.</span><cite>Brett R, South VCW, et al. Real-world use of an artificial intelligence-supported solution for coding of adverse events in clinical trials. Appl Cliical Trials. 2022. <a href="https://www.appliedclinicaltrialsonline.com/view/real-world-use-of-an-artificial-intelligence-supported-solution-for-coding-of-adverse-events-in-clinical-trials" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://www.appliedclinicaltrialsonline.com/view/real-world-use-of-an-artificial-intelligence-supported-solution-for-coding-of-adverse-events-in-clinical-trials</a>. </cite>
+</li>
+<li id="CR21">
+<span class="label">21.</span><cite>Yinhan Liu, MO, et al. RoBERTa: a robustly optimized bert pretraining approach. 2019. Preprint at <a href="https://arxiv.org/abs/1907.11692" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/1907.11692</a></cite>
+</li>
+<li id="CR22">
+<span class="label">22.</span><cite>Feng Y. Semantic textual similarity analysis of clinical text in the era of llm. 2024 IEEE Conference on Artificial Intelligence (CAI). 2024:1284–89. 10.1109/CAI59869.2024.00227.</cite>
+</li>
+<li id="CR23">
+<span class="label">23.</span><cite>Jianmo Ni GHA, et al. Sentence-T5: scalable sentence encoders from pre-trained text-to-text models. In: findings of the association for computational linguistics, Dublin, Ireland. 2022. 10.18653/v1/2022.findings-acl.146.</cite> [<a href="https://scholar.google.com/scholar_lookup?Jianmo%20Ni%20GHA,%20et%20al.%20Sentence-T5:%20scalable%20sentence%20encoders%20from%20pre-trained%20text-to-text%20models.%20In:%20findings%20of%20the%20association%20for%20computational%20linguistics,%20Dublin,%20Ireland.%202022.%2010.18653/v1/2022.findings-acl.146." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR24">
+<span class="label">24.</span><cite>Nascimento Teixeira B, Leitão, et al. Can chatgpt support clinical coding using the icd-10-cm/pcs? Informatics. 2024;1(4):84. 10.3390/informatics11040084.</cite> [<a href="https://scholar.google.com/scholar_lookup?Nascimento%20Teixeira%20B,%20Leit%C3%A3o,%20et%20al.%20Can%20chatgpt%20support%20clinical%20coding%20using%20the%20icd-10-cm/pcs?%20Informatics.%202024;1(4):84.%2010.3390/informatics11040084." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR25">
+<span class="label">25.</span><cite>Mustafa A, Naseem U, Azghadi MR. Large language models vs human for classifying clinical documents. Int J Multiling Medical Informatics. 2025;195:105800. 10.1016/j.ijmedinf.2025.105800.</cite> [<a href="https://doi.org/10.1016/j.ijmedinf.2025.105800" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39848078/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Mustafa%20A,%20Naseem%20U,%20Azghadi%20MR.%20Large%20language%20models%20vs%20human%20for%20classifying%20clinical%20documents.%20Int%20J%20Multiling%20Medical%20Informatics.%202025;195:105800.%2010.1016/j.ijmedinf.2025.105800." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR26">
+<span class="label">26.</span><cite>Ashley Simmons KT, Leitão, et al. Extracting international classification of diseases codes from clinical documentation using large language models. Appl Clin Inf. 2024. 10.1055/a-2491-3872.</cite> [<a href="https://doi.org/10.1055/a-2491-3872" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC12020521/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39608761/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Ashley%20Simmons%20KT,%20Leit%C3%A3o,%20et%20al.%20Extracting%20international%20classification%20of%20diseases%20codes%20from%20clinical%20documentation%20using%20large%20language%20models.%20Appl%20Clin%20Inf.%202024.%2010.1055/a-2491-3872." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR27">
+<span class="label">27.</span><cite>Matúš Falis APG, et al. Can gpt-3.5 generate and code discharge summaries? J Am Med Inf Assoc. 2024;31(10):2284–2293. 10.1093/jamia/ocae132.</cite> [<a href="https://doi.org/10.1093/jamia/ocae132" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11413433/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39271171/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Mat%C3%BA%C5%A1%20Falis%20APG,%20et%20al.%20Can%20gpt-3.5%20generate%20and%20code%20discharge%20summaries?%20J%20Am%20Med%20Inf%20Assoc.%202024;31(10):2284%E2%80%932293.%2010.1093/jamia/ocae132." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR28">
+<span class="label">28.</span><cite>Johnson AE, LB, et al. Mimic-iv, a freely accessible electronic health record dataset. Sci Data. 2023;10. 10.1038/s41597-022-01899-x.</cite> [<a href="https://doi.org/10.1038/s41597-022-01899-x" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC9810617/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/36596836/" class="usa-link">PubMed</a>]</li>
+<li id="CR29">
+<span class="label">29.</span><cite>Hanyin Wang, CG, et al. DRG-LLaMA: tuning llama model to predict diagnosis-related group for hospitalized patients. NPJ Digit Med. 2024;7(16). 10.1038/s41746-023-00989-3.</cite> [<a href="https://doi.org/10.1038/s41746-023-00989-3" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC10803802/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/38253711/" class="usa-link">PubMed</a>]</li>
+<li id="CR30">
+<span class="label">30.</span><cite>Pengfei Liu, WY, et al. A systematic survey of prompting methods in natural language processing. ACM Comput Surv. 2023;55(9):1–15. 10.1145/3560815.</cite> [<a href="https://scholar.google.com/scholar_lookup?Pengfei%20Liu,%20WY,%20et%20al.%20A%20systematic%20survey%20of%20prompting%20methods%20in%20natural%20language%20processing.%20ACM%20Comput%20Surv.%202023;55(9):1%E2%80%9315.%2010.1145/3560815." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR31">
+<span class="label">31.</span><cite>Rishabh Agarwal, AS, et al. Many-shot in-context learning. Preprint at 2024. <a href="https://arxiv.org/abs/2404.11018" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2404.11018</a>.</cite>
+</li>
+<li id="CR32">
+<span class="label">32.</span><cite>Gao Tianyu, AF, et al. Making pre-trained language models better few-shot learners. Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers). 2021:3816–30. Association for Computational Linguistics, Online 10.18653/v1/2021.acl-long.295.</cite>
+</li>
+<li id="CR33">
+<span class="label">33.</span><cite>Fernando Chrisantha, BD, et al. Promptbreeder: self-referential self-improvement via prompt evolution. Proceedings of the 41st International Conference on Machine Learning. 2024:13481–544. <a href="https://proceedings.mlr.press/v235/fernando24a.html" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://proceedings.mlr.press/v235/fernando24a.html</a>.</cite>
+</li>
+<li id="CR34">
+<span class="label">34.</span><cite>Hou Yutai, DH, et al. Metaprompting: Learning to learn better prompts. Proceedings of the 29th international conference on computational linguistics pages 3251–62. International Committee on Computational Linguistics, Republic of Korea (2022). <a href="https://aclanthology.org/2022.coling-1.287" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://aclanthology.org/2022.coling-1.287</a>.</cite>
+</li>
+<li id="CR35">
+<span class="label">35.</span><cite>Microsoft: Introducing GPT-4o: Introducing gpt-4o: Openai’s new flagship multimodal model now in preview on Azure. chatgpt-release notes. 13 May 2024 <a href="https://azure.microsoft.com/en-us/blog/introducing-gpt-4o-openais-new-flagship-multimodal-model-now-in-preview-on-azure/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://azure.microsoft.com/en-us/blog/introducing-gpt-4o-openais-new-flagship-multimodal-model-now-in-preview-on-azure/</a>. Accessed 15 Dec 2024.</cite>
+</li>
+<li id="CR36">
+<span class="label">36.</span><cite>Ningyu Zhang, MC, et al. CBLUE: a Chinese biomedical language understanding evaluation benchmark. Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). Dublin, Ireland: association for Computational Linguistics; 2022 p 7888–915). 10.18653/v1/2022.acl-long.544.</cite> [<a href="https://doi.org/10.18653/v1/2024.acl-long.199" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC12007664/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/40255468/" class="usa-link">PubMed</a>]</li>
+<li id="CR37">
+<span class="label">37.</span><cite>Medicare C, Services M. CD-10-CM/PCS MS-DRG V34.0 definitions manuals. CMS. <a href="https://www.cms.gov/ICD10M/version34-fullcode-cms/fullcode_cms/P0001.html" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://www.cms.gov/ICD10M/version34-fullcode-cms/fullcode_cms/P0001.html</a>. Accessed 15 Dec 2024.</cite>
+</li>
+<li id="CR38">
+<span class="label">38.</span><cite>Reimers N, Gurevych I. Sentence-bert: sentence embeddings using siamese bert-networks. 2019. Preprint at <a href="https://arxiv.org/abs/1908.10084" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/1908.10084</a></cite>
+</li>
+<li id="CR39">
+<span class="label">39.</span><cite>Xu M. text2vec: a tool for text to vector. 2022. <a href="https://github.com/shibing624/te" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://github.com/shibing624/te</a>.</cite>
+</li>
+<li id="CR40">
+<span class="label">40.</span><cite>PhysioNet: Responsible use of mimic data with online services like GPT. 2024. 2023. <a href="https://physionet.org/news/post/gpt-responsible-use" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://physionet.org/news/post/gpt-responsible-use</a>. Accessed 15 Dec 2024.</cite>
+</li>
+</ul></section></section><section id="_ad93_" lang="en" class="associated-data"><h2 class="pmc_sec_title">Associated Data</h2>
+<p class="font-secondary"><em>This section collects any data citations, data availability statements, or supplementary materials included in this article.</em></p>
+<section id="_adda93_" lang="en" class="data-availability-statement"><h3 class="pmc_sec_title">Data Availability Statement</h3>
+<p>Publicly available datasets were analyzed in this study. These data can be found here: <a href="https://tianchi.aliyun.com/dataset/145741" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://tianchi.aliyun.com/dataset/145741</a>, and <a href="https://physionet.org/content/mimic-iv-note/2.2/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://physionet.org/content/mimic-iv-note/2.2/</a>.</p></section></section></section><footer class="p courtesy-note font-secondary font-sm text-center"><hr class="headless">
+<p>Articles from BMC Medical Informatics and Decision Making are provided here courtesy of <strong>BMC</strong></p></footer></section></article>
+
+                      
+
+                    </main>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+<!-- Secondary navigation placeholder -->
+<div class="pmc-sidenav desktop:grid-col-4 display-flex">
+    <section class="pmc-sidenav__container" aria-label="Article resources and navigation">
+        <button type="button" class="usa-button pmc-sidenav__container__close usa-button--unstyled">
+            <img src="/static/img/usa-icons/close.svg" role="img" alt="Close" />
+        </button>
+    <div class="display-none desktop:display-block">
+       <section class="margin-top-4 desktop:margin-top-0">
+              <h2 class="margin-top-0">ACTIONS</h2>
+           <ul class="usa-list usa-list--unstyled usa-list--actions">
+               
+               <li>
+                     <a
+                             href="https://doi.org/10.1186/s12911-025-03151-z"
+                             class="usa-button usa-button--outline width-24 font-xs display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                             target="_blank"
+                             rel="noreferrer noopener"
+                             data-ga-category="actions"
+                             data-ga-action="click"
+                             data-ga-label="publisher_link_desktop"
+                     >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#launch"></use>
+                         </svg>
+                         <span class="display-inline-flex flex-justify-center flex-1 padding-right-2">View on publisher site</span>
+                     </a>
+               </li>
+               
+               
+               <li>
+                    <a
+                            href="pdf/12911_2025_Article_3151.pdf"
+                            class="usa-button usa-button--outline width-24 display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="pdf_download_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1">PDF (1.7 MB)</span>
+                    </a>
+               </li>
+               
+                
+               <li>
+                   <button role="button" class="usa-button width-24 citation-dialog-trigger display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                        aria-label="Open dialog with citation text in different styles"
+                        data-ga-category="actions"
+                        data-ga-action="open"
+                        data-ga-label="cite_desktop"
+                        data-all-citations-url="/resources/citations/12362839/"
+                        data-citation-style="nlm"
+                        data-download-format-link="/resources/citations/12362839/export/"
+                    >
+                        <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                        </svg>
+                       <span class="display-inline-flex flex-justify-center flex-1 button-label">Cite</span>
+                    </button>
+               </li>
+                
+               <li>
+
+                        <button class="usa-button width-24 collections-dialog-trigger collections-button display-inline-flex flex-align-center flex-justify-start padding-left-1 collections-button-empty"
+                              aria-label="Save article in MyNCBI collections."
+                              data-ga-category="actions"
+                              data-ga-action="click"
+                              data-ga-label="collections_button_desktop"
+                              data-collections-open-dialog-enabled="false"
+                              data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12362839%2F%3Freport%3Dclassic%23open-collections-dialog"
+                              data-in-collections="false">
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                            <span class="display-inline-flex flex-justify-center flex-1">Collections</span>
+                       </button>
+               </li>
+               <li class="pmc-permalink">
+                    <button
+                            type="button"
+                            class="usa-button width-24 display-inline-flex flex-align-center flex-justify padding-left-1 shadow-none"
+                            aria-label="Show article permalink"
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="permalink_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#share"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1 button-label">Permalink</span>
+                    </button>
+                   
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12362839/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+               </li>
+           </ul>
+       </section>
+     </div>
+
+        <section class="pmc-resources margin-top-6 desktop:margin-top-4" data-page-path="/articles/PMC12362839/">
+            <h2 class="margin-top-0">RESOURCES</h2>
+            
+                <div class="usa-accordion usa-accordion--multiselectable" data-allow-multiple>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-similar-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_similar_articles"
+                        data-ga-label="/articles/PMC12362839/"
+                        data-action-open="open_similar_articles"
+                        data-action-close="close_similar_articles"
+                        >
+                            Similar articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-similar-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/similar-article-links/40830470/"
+                            
+                    >
+                        
+                    </div>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-cited-by-other-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_cited_by"
+                        data-ga-label="/articles/PMC12362839/"
+                        data-action-open="open_cited_by"
+                        data-action-close="close_cited_by"
+                        >
+                             Cited by other articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-cited-by-other-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/cited-by-links/40830470/"
+                            
+                    >
+                          
+                    </div>
+                    
+                        <h3 class="usa-accordion__heading">
+                            <button
+                            type="button"
+                            class="usa-accordion__button"
+                            aria-expanded="false"
+                            aria-controls="resources-links-to-ncbi-databases"
+                            data-ga-category="resources_accordion"
+                            data-ga-action="open_NCBI_links"
+                            data-ga-label="/articles/PMC12362839/"
+                            data-action-open="open_NCBI_links"
+                            data-action-close="close_NCBI_link"
+                            >
+                                 Links to NCBI Databases
+                            </button>
+                        </h3>
+                        <div
+                                id="resources-links-to-ncbi-databases"
+                                class="usa-accordion__content usa-prose"
+                                data-source-url="/resources/db-links/12362839/"
+                        >
+                        </div>
+                    
+                    
+                </div>
+            
+        </section>
+
+
+        <section
+        class="usa-in-page-nav usa-in-page-nav--wide margin-top-6 desktop:margin-top-4"
+        data-title-text="On this page"
+        data-title-heading-level="h2"
+        data-scroll-offset="0"
+        data-root-margin="-10% 0px -80% 0px"
+        data-main-content-selector="main"
+        data-threshold="1"
+        hidden
+        ></section>
+    </section>
+</div>
+
+
+        
+
+<div class="overlay" role="dialog" aria-label="Citation Dialog" hidden>
+    <div class="dialog citation-dialog" aria-hidden="true">
+        <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+            <h2 class="usa-modal__heading margin-0">Cite</h2>
+             <button type="button" class="usa-button usa-button--unstyled close-overlay text-black width-auto"  tabindex="1">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+             </button>
+        </div>
+
+        
+
+<div class="citation-text-block">
+  <div class="citation-text margin-bottom-2"></div>
+  <ul class="usa-list usa-list--unstyled display-inline-flex flex-justify width-full flex-align-center">
+      <li>
+        <button
+          class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center copy-button dialog-focus"
+          data-ga-category="save_share"
+          data-ga-action="cite"
+          data-ga-label="copy"
+          tabindex="2">
+            <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+            </svg>
+            <span>Copy</span>
+        </button>
+      </li>
+      <li>
+          <a
+              href="#"
+              role="button"
+              class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center export-button"
+              data-ga-category="save_share"
+              data-ga-action="cite"
+              data-ga-label="download"
+              title="Download a file for external citation management software"
+              tabindex="3">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                </svg>
+                <span class="display-none mobile-lg:display-inline">Download .nbib</span>
+                <span class="display-inline mobile-lg:display-none">.nbib</span>
+            </a>
+      </li>
+      <li>
+          
+
+<div class="display-inline-flex flex-align-center">
+  <label class="usa-label margin-top-0">Format:</label>
+  <select aria-label="Format" class="usa-select citation-style-selector padding-1 margin-top-0 border-0 padding-right-4" tabindex="4" >
+    
+      <option data-style-url-name="ama"
+              value="AMA"
+              >
+        AMA
+      </option>
+    
+      <option data-style-url-name="apa"
+              value="APA"
+              >
+        APA
+      </option>
+    
+      <option data-style-url-name="mla"
+              value="MLA"
+              >
+        MLA
+      </option>
+    
+      <option data-style-url-name="nlm"
+              value="NLM"
+              selected="selected">
+        NLM
+      </option>
+    
+  </select>
+</div>
+      </li>
+  </ul>
+</div>
+    </div>
+</div>
+
+        <div class="overlay" role="dialog" hidden>
+  <div id="collections-action-dialog" class="dialog collections-dialog" aria-hidden="true">
+   <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+        <h2 class="usa-modal__heading margin-0">Add to Collections</h2>
+    </div>
+    <div class="collections-action-panel action-panel">
+      
+
+
+<form id="collections-action-dialog-form"
+      class="usa-form maxw-full collections-action-panel-form action-panel-content action-form action-panel-smaller-selectors"
+      data-existing-collections-url="/list-existing-collections/"
+      data-add-to-existing-collection-url="/add-to-existing-collection/"
+      data-create-and-add-to-new-collection-url="/create-and-add-to-new-collection/"
+      data-myncbi-max-collection-name-length="100"
+      data-collections-root-url="https://www.ncbi.nlm.nih.gov/myncbi/collections/">
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="mDg7bpndahjiH4mMxMtymBCz4BLBLfO7eQOxaxCvKgFVEOXJW5kjMHAKbEukmiYz">
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-new"
+            class="usa-radio__input usa-radio__input--tile collections-new  margin-top-0"
+            name="collections"
+            value="new"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_new" />
+            <label class="usa-radio__label" for="collections-action-dialog-new">Create a new collection</label>
+        </div>
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-existing"
+            class="usa-radio__input usa-radio__input--tile collections-existing"
+            name="collections"
+            value="existing"
+            checked="true"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_existing" />
+            <label class="usa-radio__label" for="collections-action-dialog-existing">Add to an existing collection</label>
+        </div>
+    </fieldset>
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="action-panel-control-wrap new-collections-controls">
+           <label for="collections-action-dialog-add-to-new" class="usa-label margin-top-0">
+                Name your collection
+               <abbr title="required" class="usa-hint usa-hint--required text-no-underline">*</abbr>
+          </label>
+          <input
+            type="text"
+            name="add-to-new-collection"
+            id="collections-action-dialog-add-to-new"
+            class="usa-input collections-action-add-to-new"
+            pattern="[^&quot;&amp;=&lt;&gt;/]*" title="The following characters are not allowed in the Name field: &quot;&amp;=&lt;&gt;/"
+            maxlength=""
+            data-ga-category="collections_button"
+            data-ga-action="create_collection"
+            data-ga-label="non_favorties_collection"
+            required
+          />
+        </div>
+        <div class="action-panel-control-wrap existing-collections-controls">
+             <label for="collections-action-dialog-add-to-existing" class="usa-label margin-top-0">
+                Choose a collection
+              </label>
+              <select id="collections-action-dialog-add-to-existing"
+                      class="usa-select collections-action-add-to-existing"
+                      data-ga-category="collections_button"
+                      data-ga-action="select_collection"
+                      data-ga-label="($('.collections-action-add-to-existing').val() === 'Favorites') ? 'Favorites' : 'non_favorites_collection'">
+              </select>
+              <div class="collections-retry-load-on-error usa-input-error-message selection-validation-message">
+                Unable to load your collection due to an error<br>
+                <a href="#">Please try again</a>
+              </div>
+        </div>
+    </fieldset>
+
+    <div class="display-inline-flex">
+        <button class="usa-button margin-top-0 action-panel-submit"
+            type="submit"
+            data-loading-label="Adding..."
+            data-pinger-ignore
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="add">
+          Add
+        </button>
+        <button class="usa-button usa-button--outline margin-top-0 action-panel-cancel"
+                aria-label="Close 'Add to Collections' panel"
+                ref="linksrc=close_collections_panel"
+                data-ga-category="collections_button"
+                data-ga-action="click"
+                data-ga-label="cancel">
+          Cancel
+        </button>
+    </div>
+</form>
+    </div>
+  </div>
+</div>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+
+
+        
+    
+    
+
+<footer class="ncbi-footer ncbi-dark-background " >
+    
+        <div class="ncbi-footer__icon-section">
+            <div class="ncbi-footer__social-header">
+                Follow NCBI
+            </div>
+
+            <div class="grid-container ncbi-footer__ncbi-social-icons-container">
+                
+                    <a href="https://twitter.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="40"
+                             height="40"
+                             viewBox="0 0 40 40"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on X (formerly known as Twitter)</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.facebook.com/ncbi.nlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="16"
+                             height="29"
+                             focusable="false"
+                             aria-hidden="true"
+                             viewBox="0 0 16 29"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.8809 21.4002C3.8809 19.0932 3.8809 16.7876 3.8809 14.478C3.8809 14.2117 3.80103 14.1452 3.54278 14.1492C2.53372 14.1638 1.52334 14.1492 0.514288 14.1598C0.302626 14.1598 0.248047 14.0972 0.248047 13.8936C0.256034 12.4585 0.256034 11.0239 0.248047 9.58978C0.248047 9.37013 0.302626 9.30224 0.528931 9.3049C1.53798 9.31688 2.54837 9.3049 3.55742 9.31555C3.80103 9.31555 3.8809 9.26097 3.87957 9.00272C3.87158 8.00565 3.85428 7.00592 3.90753 6.00884C3.97142 4.83339 4.31487 3.73115 5.04437 2.78467C5.93095 1.63318 7.15699 1.09005 8.56141 0.967577C10.5582 0.79319 12.555 0.982221 14.5518 0.927641C14.7102 0.927641 14.7462 0.99287 14.7449 1.13664C14.7449 2.581 14.7449 4.02668 14.7449 5.47104C14.7449 5.67604 14.6517 5.68669 14.4946 5.68669C13.4523 5.68669 12.4113 5.68669 11.3703 5.68669C10.3506 5.68669 9.92057 6.10868 9.90593 7.13904C9.89661 7.7647 9.91525 8.39303 9.89794 9.01869C9.88995 9.26364 9.96583 9.31822 10.2015 9.31688C11.7204 9.30623 13.2393 9.31688 14.7595 9.3049C15.0257 9.3049 15.0723 9.3728 15.0444 9.62439C14.89 10.9849 14.7515 12.3467 14.6144 13.7085C14.5691 14.1571 14.5785 14.1585 14.1458 14.1585C12.8386 14.1585 11.5313 14.1665 10.2254 14.1518C9.95119 14.1518 9.89794 14.2317 9.89794 14.4899C9.90593 19.0799 9.89794 23.6752 9.91125 28.2612C9.91125 28.5674 9.8407 28.646 9.53186 28.6433C7.77866 28.6273 6.02414 28.6366 4.27094 28.634C3.82499 28.634 3.87158 28.6992 3.87158 28.22C3.87602 25.9472 3.87913 23.6739 3.8809 21.4002Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on Facebook</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.linkedin.com/company/ncbinlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="25"
+                             height="23"
+                             viewBox="0 0 26 24"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M14.6983 9.98423C15.6302 9.24808 16.5926 8.74754 17.6762 8.51991C19.673 8.09126 21.554 8.30824 23.1262 9.7526C24.2351 10.7723 24.7529 12.1115 25.0165 13.5612C25.1486 14.3363 25.2105 15.1218 25.2015 15.9081C25.2015 18.3043 25.2015 20.6898 25.2082 23.0806C25.2082 23.3468 25.1549 23.444 24.8621 23.4414C23.1297 23.4272 21.3992 23.4272 19.6704 23.4414C19.4041 23.4414 19.3429 23.3588 19.3442 23.1019C19.3535 20.5194 19.3442 17.9368 19.3442 15.3543C19.3442 14.0005 18.3258 12.9448 17.0266 12.9488C15.7273 12.9528 14.6983 14.0071 14.6983 15.361C14.6983 17.9328 14.6917 20.5047 14.6983 23.0753C14.6983 23.3708 14.6198 23.444 14.3296 23.4427C12.6185 23.4294 10.9079 23.4294 9.19779 23.4427C8.93155 23.4427 8.86099 23.3735 8.86232 23.1086C8.8783 19.7619 8.88628 16.4144 8.88628 13.066C8.88628 11.5688 8.87874 10.0708 8.86365 8.57182C8.86365 8.3575 8.90758 8.27896 9.14054 8.28029C10.9048 8.29094 12.6687 8.29094 14.4321 8.28029C14.6464 8.28029 14.6983 8.34818 14.6983 8.54653C14.6903 9.00047 14.6983 9.45441 14.6983 9.98423Z">
+                            </path>
+                            <path d="M6.55316 15.8443C6.55316 18.2564 6.55316 20.6699 6.55316 23.082C6.55316 23.3629 6.48127 23.4388 6.19906 23.4374C4.47737 23.4241 2.75568 23.4241 1.03399 23.4374C0.767751 23.4374 0.69986 23.3629 0.701191 23.1006C0.709178 18.2648 0.709178 13.4281 0.701191 8.59053C0.701191 8.34026 0.765089 8.27237 1.01669 8.2737C2.74991 8.28435 4.48048 8.28435 6.20838 8.2737C6.47462 8.2737 6.5465 8.33627 6.54517 8.6065C6.54783 11.0186 6.55316 13.4308 6.55316 15.8443Z">
+                            </path>
+                            <path d="M3.65878 0.243898C5.36804 0.243898 6.58743 1.45529 6.58743 3.1406C6.58743 4.75801 5.32145 5.95742 3.60819 5.96807C3.22177 5.97614 2.83768 5.90639 2.47877 5.76299C2.11985 5.61959 1.79344 5.40546 1.51897 5.13334C1.24449 4.86123 1.02755 4.53668 0.881058 4.17902C0.734563 3.82136 0.661505 3.43788 0.666231 3.05141C0.67555 1.42601 1.9362 0.242566 3.65878 0.243898Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on LinkedIn</span>
+                    </a>
+                
+
+                
+                    <a href="https://github.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="28"
+                             height="27"
+                             viewBox="0 0 28 28"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M16.7228 20.6334C17.5057 20.5527 18.2786 20.3944 19.0301 20.1608C21.3108 19.4193 22.5822 17.8259 22.963 15.4909C23.1228 14.5112 23.1814 13.5287 22.9883 12.5437C22.8106 11.6423 22.4013 10.8028 21.8007 10.1076C21.7526 10.0605 21.7197 10 21.7064 9.934C21.6931 9.86799 21.7 9.79952 21.7262 9.73748C22.0856 8.6206 21.9711 7.51969 21.601 6.42677C21.582 6.3497 21.5345 6.2827 21.468 6.23923C21.4016 6.19577 21.3211 6.17906 21.2429 6.19248C20.7329 6.21649 20.2313 6.33051 19.7611 6.52928C19.1103 6.7908 18.4899 7.12198 17.9104 7.51703C17.84 7.56996 17.7581 7.60551 17.6713 7.62078C17.5846 7.63605 17.4954 7.6306 17.4112 7.60489C15.2596 7.05882 13.0054 7.06203 10.8554 7.61421C10.7806 7.63586 10.7018 7.63967 10.6253 7.62534C10.5487 7.611 10.4766 7.57892 10.4148 7.53167C9.64788 7.03247 8.85171 6.58918 7.96368 6.33359C7.65781 6.24338 7.34123 6.19458 7.02239 6.18849C6.94879 6.17986 6.87462 6.19893 6.81432 6.242C6.75402 6.28507 6.71191 6.34904 6.69621 6.42145C6.32342 7.51437 6.2209 8.61527 6.56307 9.73348C6.59635 9.84264 6.64694 9.93316 6.54177 10.0516C5.47666 11.2604 5.09988 12.6834 5.19574 14.2676C5.2663 15.4244 5.46201 16.5466 6.01454 17.5769C6.84399 19.1171 8.21664 19.9119 9.85158 20.3352C10.3938 20.4706 10.9444 20.5698 11.4998 20.632C11.5384 20.7492 11.4506 20.7798 11.408 20.8291C11.1734 21.1179 10.9894 21.4441 10.8634 21.7942C10.7622 22.0458 10.8315 22.4039 10.6065 22.5516C10.263 22.7766 9.83827 22.8485 9.42421 22.8871C8.17936 23.0056 7.26471 22.4877 6.6283 21.4348C6.25552 20.8184 5.76956 20.3325 5.08523 20.0663C4.76981 19.9325 4.42139 19.8967 4.08537 19.9638C3.7898 20.029 3.73788 20.1901 3.93891 20.4111C4.03639 20.5234 4.14989 20.6207 4.27575 20.6999C4.9796 21.1318 5.51717 21.7884 5.80152 22.5636C6.37002 23.9973 7.48039 24.5697 8.93825 24.6323C9.43741 24.6575 9.93768 24.615 10.4254 24.5058C10.5892 24.4672 10.6531 24.4872 10.6517 24.6762C10.6451 25.4936 10.6637 26.3123 10.6517 27.131C10.6517 27.6635 10.1684 27.9297 9.58663 27.7393C8.17396 27.2671 6.84977 26.5631 5.66838 25.656C2.59555 23.2891 0.720966 20.1861 0.217704 16.3376C-0.357453 11.9127 0.911353 8.00824 3.98551 4.73881C6.11909 2.42656 8.99932 0.939975 12.1203 0.540191C16.5351 -0.0601815 20.4347 1.14323 23.7232 4.16373C26.2449 6.47869 27.724 9.37672 28.1048 12.7726C28.5828 17.0325 27.3686 20.7945 24.4768 23.9827C22.9762 25.6323 21.0956 26.8908 18.9982 27.6488C18.8783 27.6927 18.7585 27.738 18.636 27.7726C18.0356 27.9404 17.6189 27.6395 17.6189 27.0098C17.6189 25.7452 17.6308 24.4806 17.6295 23.2159C17.6329 22.9506 17.6128 22.6856 17.5696 22.4238C17.4325 21.6664 17.3419 21.484 16.7228 20.6334Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on GitHub</span>
+                    </a>
+                
+
+                
+                    <a href="https://ncbiinsights.ncbi.nlm.nih.gov/"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="26"
+                             height="26"
+                             viewBox="0 0 27 27"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M23.7778 26.4574C23.1354 26.3913 22.0856 26.8024 21.636 26.3087C21.212 25.8444 21.4359 24.8111 21.324 24.0347C19.9933 14.8323 14.8727 8.80132 6.09057 5.85008C4.37689 5.28406 2.58381 4.99533 0.779072 4.99481C0.202773 4.99481 -0.0229751 4.83146 0.00455514 4.21479C0.0660406 3.08627 0.0660406 1.95525 0.00455514 0.826734C-0.0413285 0.0815827 0.259669 -0.0193618 0.896534 0.00266238C6.96236 0.222904 12.3693 2.24179 16.9889 6.16209C22.9794 11.2478 26.1271 17.7688 26.4372 25.648C26.4629 26.294 26.3179 26.5271 25.6609 26.4684C25.0827 26.417 24.4991 26.4574 23.7778 26.4574Z">
+                            </path>
+                            <path d="M14.8265 26.441C14.0924 26.441 13.2371 26.6795 12.6626 26.3786C12.0092 26.0372 12.3781 25.0644 12.246 24.378C11.1154 18.5324 6.6849 14.5497 0.74755 14.1001C0.217135 14.0615 -0.0104482 13.9422 0.0134113 13.3659C0.0519536 12.1454 0.0482829 10.9213 0.0134113 9.69524C-0.00127145 9.14464 0.196946 9.03268 0.703502 9.04736C9.21217 9.27128 16.5994 16.2511 17.2804 24.7231C17.418 26.4446 17.418 26.4446 15.6579 26.4446H14.832L14.8265 26.441Z">
+                            </path>
+                            <path d="M3.58928 26.4555C2.64447 26.4618 1.73584 26.0925 1.06329 25.4289C0.39073 24.7653 0.00933763 23.8617 0.0030097 22.9169C-0.00331824 21.9721 0.365937 21.0635 1.02954 20.3909C1.69315 19.7184 2.59675 19.337 3.54156 19.3306C4.48637 19.3243 5.39499 19.6936 6.06755 20.3572C6.7401 21.0208 7.1215 21.9244 7.12782 22.8692C7.13415 23.814 6.7649 24.7226 6.10129 25.3952C5.43768 26.0677 4.53409 26.4491 3.58928 26.4555Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI RSS feed</span>
+                    </a>
+                
+            </div>
+        </div>
+    
+
+    <div data-testid="gridContainer"
+         class="grid-container ncbi-footer__container">
+        <div class="grid-row ncbi-footer__main-content-container"
+             data-testid="grid">
+            
+                <div class="ncbi-footer__column">
+                    
+                        <p class="ncbi-footer__circled-icons-heading">
+                            Connect with NLM
+                        </p>
+                    
+
+                    <div class="ncbi-footer__circled-icons-list">
+                        
+                            <a href=https://twitter.com/nlm_nih class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="32"
+                                     height="32"
+                                     viewBox="0 0 40 40"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on X (formerly known as Twitter)</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.facebook.com/nationallibraryofmedicine class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="13"
+                                     height="24"
+                                     viewBox="0 0 13 24"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M4.11371 23.1369C4.11371 23.082 4.11371 23.0294 4.11371 22.9745V12.9411H0.817305C0.6709 12.9411 0.670898 12.9411 0.670898 12.8016C0.670898 11.564 0.670898 10.3287 0.670898 9.09341C0.670898 8.97903 0.705213 8.95158 0.815017 8.95158C1.8673 8.95158 2.91959 8.95158 3.97417 8.95158H4.12057V8.83263C4.12057 7.8055 4.12057 6.7738 4.12057 5.74897C4.1264 4.92595 4.31387 4.11437 4.66959 3.37217C5.12916 2.38246 5.94651 1.60353 6.95717 1.1921C7.64827 0.905008 8.3913 0.764035 9.13953 0.778051C10.0019 0.791777 10.8644 0.830666 11.7268 0.860404C11.8869 0.860404 12.047 0.894717 12.2072 0.90158C12.2964 0.90158 12.3261 0.940469 12.3261 1.02968C12.3261 1.5421 12.3261 2.05452 12.3261 2.56465C12.3261 3.16857 12.3261 3.7725 12.3261 4.37642C12.3261 4.48165 12.2964 4.51367 12.1912 4.51138C11.5369 4.51138 10.8804 4.51138 10.2261 4.51138C9.92772 4.51814 9.63058 4.5526 9.33855 4.61433C9.08125 4.6617 8.84537 4.78881 8.66431 4.97766C8.48326 5.16652 8.3662 5.40755 8.32972 5.66661C8.28476 5.89271 8.26027 6.1224 8.25652 6.35289C8.25652 7.19014 8.25652 8.02969 8.25652 8.86923C8.25652 8.89439 8.25652 8.91955 8.25652 8.95615H12.0219C12.1797 8.95615 12.182 8.95616 12.1614 9.10714C12.0768 9.76596 11.9876 10.4248 11.9029 11.0813C11.8312 11.6319 11.7626 12.1824 11.697 12.733C11.6719 12.9434 11.6787 12.9434 11.4683 12.9434H8.26338V22.899C8.26338 22.979 8.26338 23.0591 8.26338 23.1392L4.11371 23.1369Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on Facebook</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.youtube.com/user/NLMNIH class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="21"
+                                     height="15"
+                                     viewBox="0 0 21 15"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M19.2561 1.47914C18.9016 1.15888 18.5699 0.957569 17.2271 0.834039C15.5503 0.678484 13.2787 0.655608 11.563 0.65332H9.43556C7.71987 0.65332 5.4483 0.678484 3.77151 0.834039C2.43098 0.957569 2.097 1.15888 1.74242 1.47914C0.813665 2.32097 0.619221 4.62685 0.598633 6.89384C0.598633 7.31781 0.598633 7.74101 0.598633 8.16345C0.626084 10.4121 0.827391 12.686 1.74242 13.521C2.097 13.8412 2.4287 14.0425 3.77151 14.1661C5.4483 14.3216 7.71987 14.3445 9.43556 14.3468H11.563C13.2787 14.3468 15.5503 14.3216 17.2271 14.1661C18.5676 14.0425 18.9016 13.8412 19.2561 13.521C20.1712 12.6929 20.3725 10.451 20.3999 8.22064C20.3999 7.74025 20.3999 7.25986 20.3999 6.77946C20.3725 4.54907 20.1689 2.30724 19.2561 1.47914ZM8.55942 10.5311V4.65201L13.5601 7.50005L8.55942 10.5311Z"
+                                          fill="white" />
+                                </svg>
+                                <span class="usa-sr-only">NLM on YouTube</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            
+
+            
+                <address class="ncbi-footer__address ncbi-footer__column">
+                    
+        <p>
+            <a class="usa-link usa-link--external"
+            href="https://www.google.com/maps/place/8600+Rockville+Pike,+Bethesda,+MD+20894/%4038.9959508,
+            -77.101021,17z/data%3D!3m1!4b1!4m5!3m4!1s0x89b7c95e25765ddb%3A0x19156f88b27635b8!8m2!3d38.9959508!
+            4d-77.0988323"
+            rel="noopener noreferrer" target="_blank">National Library of Medicine
+            <br/> 8600 Rockville Pike<br/> Bethesda, MD 20894</a>
+        </p>
+    
+                </address>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/web_policies.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Web Policies
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/institutes-nih/nih-office-director/office-communications-public-liaison/freedom-information-act-office" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            FOIA
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS Vulnerability Disclosure
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://support.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Help
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/accessibility.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Accessibility
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/careers/careers.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Careers
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+        </div>
+
+        
+            <div class="grid-row grid-col-12" data-testid="grid">
+                <ul class="ncbi-footer__bottom-links-list">
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NLM
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NIH
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.usa.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            USA.gov
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+    </div>
+</footer>
+
+    
+
+
+        
+        
+    
+  <script  type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/pinger/pinger.js"> </script>
+
+
+    
+        
+
+<button class="back-to-top" data-ga-category="pagination" data-ga-action="back_to_top">
+    <label>Back to Top</label>
+    <svg class="usa-icon order-0" aria-hidden="true" focusable="false" role="img">
+        <use xlink:href="/static/img/sprite.svg#arrow_upward"></use>
+    </svg>
+</button>
+    
+
+
+        
+    
+    
+    
+        
+    <script type="application/javascript">
+    window.ncbi = window.ncbi || {};
+    window.ncbi.pmc = window.ncbi.pmc || {};
+    window.ncbi.pmc.options = {
+        logLevel: 'INFO',
+        
+        staticEndpoint: '/static/',
+        
+        citeCookieName: 'pmc-cf',
+    };
+</script>
+    <script type="module" crossorigin="" src="/static/assets/base-133c6271.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/jquery/jquery-3.6.0.min.js">&#xA0;</script>
+    <script type="text/javascript">
+        jQuery.getScript("https://cdn.ncbi.nlm.nih.gov/core/alerts/alerts.js", function () {
+            galert(['div.nav_and_browser', 'div.header', '#universal_header', '.usa-banner', 'body > *:nth-child(1)'])
+        });
+    </script>
+
+
+    <script type="text/javascript">var exports = {};</script>
+     <script src="/static/CACHE/js/output.13b077bc3ffd.js"></script>
+
+    <script type="module" crossorigin="" src="/static/assets/article-44d04358.js"></script>
+    
+    
+
+    </body>
+</html>

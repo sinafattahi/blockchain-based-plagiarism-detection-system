@@ -1,0 +1,225 @@
+Inference of molecules with desired activities/properties is one of the key and challenging issues in cheminformatics and bioinformatics. For that purpose, our research group has recently developed a state-of-the-art framework mol-infer for molecular inference. This framework first constructs a prediction function for a fixed property using machine learning models, which is then simulated by mixed-integer linear programming to infer desired molecules. The accuracy of the framework heavily relies on the representation power of the descriptors. In this study, we highlight a typical class of non-isomorphic chemical graphs with reasonably different property values that cannot be distinguished by the standard “two-layered (2L) model" of mol-infer. To address this distinguishability problem of the 2L model, we propose a novel family of descriptors, namedcycle-configuration (CC), which captures the notion of ortho/meta/para patterns that appear in aromatic rings, which was impossible in the framework so far. Extensive computational experiments show that with the new descriptors, we can construct prediction functions with similar or better performance for all 44 tested chemical properties, including 27 regression datasets and 17 classification datasets comparing with our previous studies, confirming the effectiveness of the CC descriptors. For inference, we also provide a system of linear constraints to formulate the CC descriptors as linear constraints. We demonstrate that a chemical graph with up to 50 non-hydrogen vertices can be inferred within a practical time frame.
+
+This study proposes a new family of descriptors,cycle-configuration(CC), for the molecular inference framework mol-infer. Computational experiments demonstrate that incorporating CC descriptors into the 2L model (2L+CC model) can improve the performance of a prediction function in many cases. We also provide an MILP formulation that can infer chemical graphs with up to 50 non-hydrogen atoms within a few minutes.
+
+The problem of inferring molecules that are expected to attain desired activities/properties is one of the fundamental challenges in cheminformatics and bioinformatics. This problem is commonly studied under the name ofquantitative structure activity/property relationship(QSAR/QSPR) andinverse quantitative structure activity/property relationship(inverse QSAR/QSPR). QSAR/QSPR modeling aims to predict chemical activities/property values based on molecular structures [1,2], while inverse QSAR/QSPR modeling focuses on inferring molecular structures that exhibit specific chemical activities/property values [3–6]. In this study, we focus on inverse QSAR/QSPR modeling of low molecular weight organic compounds, which has applications in drug discovery [5,7] and material science [8]. With the recent rapid progress of machine learning (ML), there have been developed a lot of inverse QSAR/QSPR models [9,10], most of which are deep learning-based generative models; e.g., variational autoencoders [11–14], generative adversarial networks [15–17], invertible flow models [18–20], diffusion models [21,22], and more recently, transformer architectures [23–26].
+
+However, despite the impressive success achieved by these generative approaches, two important aspects–optimality and exactness–are generally not guaranteed [27], where we mean by optimality the preciseness of a solution to attain the desired activities/properties; and by exactness the guarantee of a solution as a valid molecule. Besides, it is challenging to exploit domain knowledge in these deep learning-based methods, which may limit their practical utility in real-world molecular design tasks.
+
+To address this difficulty, our research group has developed a new framework for molecular inference that is based on mixed integer linear programming (MILP) and ML. This framework, which we call mol-infer, achieves optimality and exactness, and enables practitioners to exploit domain knowledge to some extent. LetGdenote the set of all possible chemical graphs. The process of mol-infer is summarized as follows.
+
+Stage 1:Determine the target chemical propertyπand collect a data setDπ⊆Gof chemical graphs such that the observed valuea(C)for the chemical propertyπis available for all chemical graphsC∈Dπ.
+
+Stage 2:Design a set of descriptors to obtain a feature functionf:G→RKthat converts a chemical graphC∈Dπinto aK-dimensional real feature vectorf(C)∈RK, whereKis the number of descriptors.
+
+Stage 3:Construct a prediction functionη:RK→Rfrom the data setf(Dπ)≜{f(C)∣C∈Dπ}of feature vectors, whereη(C)is used to estimate the property valuea(C)of a chemical graphC.
+
+Stage 4:Determine two real numbersy_∗,y¯∗(y_∗≤y¯∗)as lower/upper bounds on the target value and a setσof rules (called aspecification) on chemical graphs. LetGσ⊆Gdenote the set of all chemical graphs that satisfyσ. Formulate the problem of constructing a chemical graphC†as MILP whose constraints includeC1andC2to ensure(C1)y_∗≤η(f(C†))≤y¯∗and(C2)C†∈Gσ. Solve the MILP to obtainC†. If the MILP is infeasible, then it is indicated that no suchC†exist.
+
+See Fig.1for an illustration of the mol-infer framework.
+
+Regarded as a method of inverse QSAR/QSPR, the highlight of mol-infer is Stage 4 that solves the inverse problem by MILP, which is the original contribution of this framework. ForC1, the process of computing the feature vectorf(C)for a chemical graphCand the process of computing the prediction valueη(x)of a feature vectorx=f(C)must be represented by linear inequalities of real and/or integer variables. It is shown that artificial neural network [28], linear regression [29] and decision tree [30] can be used asη. We will discuss how to designffor this purpose in the next paragraph. ForC2, in our early studies, we could deal with only limited classes of chemical graphs; e.g., trees [31,32], rank-1 graphs [33] and rank-2 graphs [34]. Shi et al.’stwo-layered(2L)model[35] admits us to inferanychemical graph, where users are required to design an abstract structure ofC†as a part of the specificationσ. Stage 5 is not within the scope of this paper, thus the detail is omitted. Furthermore, mol-infer is applied to the inference of polymers [36].
+
+Let us describe how we design the feature functionfin Stage 2. The descriptors should be informative since they have a great influence on prediction performance in Stage 3 and thus on the quality of chemical graphs that we finally obtain as a result of Stages 4 and 5; if the prediction functionηis not accurate enough, then we could not expect the inferred graphs to have desired property. On the other hand, as mentioned above, the process of computing descriptor values should be represented by a set of linear inequalities. It is hard to include descriptors of complicated concepts. There is a trade-off between informativity and simplicity in the design of descriptors.
+
+Due to these reasons, mol-infer employs graph-theoretic descriptors that capture local information of chemical graphs and that are somewhat similar to typical fingerprints. Letf2Lbe a feature function in the 2L model, the standard model in mol-infer. The 2L model has a weak point that there are distinct chemical graphsC1,C2for whichf2L(C1)=f2L(C2)holds buta(C1)anda(C2)are much different. See Sect. ''Motivation'' for the details. This issue comes from that the descriptors of the 2L model cannot capture how edges are connected to cycles. Such a phenomenon can be problematic because it will substantially degrade the predictive performance of the constructed prediction function. As a result, the quality of the chemical graphs generated in Stage 4 is also adversely affected, since it depends heavily on the accuracy of the prediction function built in Stage 3. Thus, addressing this weak point is very important for improving the overall performance and reliability of our framework.
+
+In this study, aiming at overcoming the above weak point in the 2L model, we propose a novel set of descriptors, namedcycle-configurations(CC). CC can specify how exterior parts (called “fringe-trees”) are attached to a cycle, by which meta/para patterns in an aromatic ring are distinguishable. Let us denote byfCCa feature function that consists of CC descriptors.
+
+We call the 2L model with CC descriptors the2L+CC model. In the 2L+CC model, we use the feature functionf:G→RKsuch thatf(C):=(f2L(C),fCC(C))for a chemical graphC(i.e., concatenation of two feature vectorsf2L(C)andfCC(C)).
+
+Computational experiments show that, by using the 2L+CC model, we can construct prediction functions of similar or better performance for all of the27+17=44tested chemical properties, in comparison with the 2L model, where 27 data sets are for regression and 17 data sets are for binary classification. We also provide an MILP formulation for the 2L+CC model that asks for a chemical graph with desired properties. We show that a chemical graph with up to 50 non-hydrogen vertices can be inferred in a couple of minutes. This is considered the state-of-the-art result.
+
+The paper is organized as follows. We make preparations and review the 2L model in Sect. “Preliminaries''. In Sect. “Cycle-Configurations'', we describe further background of CC and provide its formal definition. In Sect. “MILP Formulation for 2L+CC Model'', we describe the idea of the MILP for the 2L+CC model. We present computational results in Sect. “Results and Discussion'' and conclude the paper in Sect. “Conclusions''. Some details are explained in Appendix. A preprint version of this work appeared in arXiv [37], and a preliminary version of this work was presented as a short paper in the proceedings of the 2024 IEEE International Conference on Bioinformatics and Biomedicine (BIBM) [38]. This work substantially extends the previous work by including additional experimental results on classification data sets, more results on the inference tasks, and a detailed MILP formulation for molecular inference, none of which were presented in the original short paper.
+
+LetR,R+,ZandZ+denote the sets of reals, non-negative reals, integers, and non-negative integers, respectively. Forp,q∈Z, let us denote[p,q]:={p,p+1,⋯,q}. For a vector (or a sequence)x∈Rpandj∈[1,p], we denote byx(j) thej-th entry ofx. We denote|x|:=p.
+
+LetAbe a finite set. To encode elements inAby integers, we may assume a bijectionσ:A→[1,|A|]implicitly. Fora∈A, we represent the coded integerσ(a)by[a]Aor simply [a] ifAis clear from the context.
+
+For an undirected graphG, we denote byV(G) andE(G) the sets of vertices and edges, respectively. ForV′⊆V(G)(resp.,E′⊆E(G)), we denote byG-V′(resp.,G-E′) the subgraph ofGthat is obtained by removing the vertices inV′along with the incident edges (resp., removing the edges inE′). WhenV′={v}(resp.,E′={e}), we writeG-{v}asG-v(resp.,G-{e}asG-e).
+
+AcycleCin a graphGis a subgraph ofGsuch thatV(C)={u1,u2,⋯,uℓ}andE(C)={u1u2,⋯,uℓ-1uℓ,uℓu1}. We callCchordlessif there is no edge inE(G)\E(C)that joins vertices inV(C). The length of a cycleCis denoted bylen(C)(i.e.,len(C)=|V(C)|=|E(C)|=ℓ). When the length isℓ, we callCanℓ-cycle.
+
+A graph isrootedif it has a designated vertex, called aroot. For a graphGpossibly with a root, aleaf-vertexis a non-root vertex with degree 1. We call the edge that is incident to a leaf-vertex aleaf-edge. We denote byVleaf(G)andEleaf(G)the sets of leaf-vertices and leaf-edges inG, respectively. Fori∈Z+, we define the graphGito be the subgraph ofGthat is obtained by deleting the set of leaf-verticesitimes, that is,G0:=G; andGi+1:=Gi-Vleaf(Gi). We define theheightht(v)of a vertexv∈Vleaf(Gi)to bei. Note that the height may not be defined for all vertices.
+
+We employ the modeling of chemical compounds that was introduced by Zhu et al. [29].
+
+Let us represent chemical elements by H (hydrogen), C (carbon), O (oxygen), N (nitrogen) and so on. To distinguish a chemical element a with multiple valences such as S (sulfur), we denote a with a valenceiby a(i), where we omit the suffix (i) for a chemical element with a unique valence. LetΛbe a set of chemical elements; e.g.,Λ={H,C,O,N,P,S(2),S(4),S(6)}. We represent the valence ofa∈Λby a functionval:Λ→[1,6]; e.g.,val(H)=1,val(C)=4,val(O)=2,val(P)=5,val(S(2))=2andval(S(6))=6. We denote the mass ofa∈Λbymass∗(a).
+
+We represent a chemical compound by achemical graphthat is defined to beC=(H,α,β)consisting of a simple, connected undirected graphHand functionsα:V(H)→Λandβ:E(H)→[1,3]. The set of atoms and the set of bonds in the compound correspond to the vertex setV(H) and the edge setE(H), respectively. The chemical element assigned tov∈V(H)is represented byα(v)and the bond-multiplicity between two adjacent verticesu,v∈V(H)is represented byβ(e)of the edgee=uv∈E(H). We denote the mass ofHbymass∗(H):=∑v∈V(H)mass∗(α(v)).
+
+LetC=(H,α,β)be a chemical graph. For a vertexu∈V(H), we denote byβC(u)the sum of bond-multiplicities of edges incident tou; i.e.,βC(u):=∑uv∈E(H)β(uv). We denote bydegC(u)the number of vertices adjacent touinC. Fora∈Λ, we denote byVa(C)the set of vertices inv∈V(H)such thatα(v)=ainC. We define thehydrogen-suppressed chemical graph ofC, denoted by⟨C⟩, to be the graph that is obtained by removing all vertices inVH(C)fromH.
+
+Two chemical graphsCi=(Hi,αi,βi),i=1,2are calledisomorphicif they admit an isomorphism, i.e., a bijectionϕ:V(H1)→V(H2)such that “uv∈E(H1),α1(u)=a,α1(v)=b,β1(uv)=m”⇔“ϕ(u)ϕ(v)∈E(H2),α2(ϕ(u))=a,α2(ϕ(v))=b,β2(ϕ(u)ϕ(v))=m”. Furthermore, whenHiis a rooted graph such thatri∈V(Hi)is the root,i=1,2,C1andC2are calledrooted-isomorphicif they admit an isomorphism such thatϕ(r1)=r2.
+
+We review the 2L model that was introduced by Shi et al. [35] for completeness.
+
+LetC=(H,α,β)be a chemical graph andρ≥1be an integer, which we call abranch-parameter, where we useρ=2as the standard value. In the 2L model, the hydrogen-suppressed chemical graph⟨C⟩is partitioned into “interior” and “exterior” parts as follows. We call a vertexv∈V(⟨C⟩)anexterior-vertexifht(v)<ρ, and an edgee∈E(⟨C⟩)anexterior-edgeifeis incident to an exterior-vertex. LetVex(C)andEex(C)denote the sets of exterior-vertices and exterior-edges, respectively. DefineVint(C):=V(⟨C⟩)\Vex(C)andEint(C):=E(⟨C⟩)\Eex(C). We call a vertex inVint(C)aninterior-vertexand an edge inEint(C)aninterior-edge. We define theinteriorCintofCto be the subgraph(Vint(C),Eint(C)).
+
+The setEex(C)of exterior-edges forms a collection of connected graphs such that each is a treeTrooted at an interior vertexv∈V(T). LetTex(⟨C⟩)denote the family of such chemical rooted trees in⟨C⟩. For each interior-vertexu∈Vint(C), letTu∈Tex(⟨C⟩)denote the chemical tree rooted atu, whereTumay consist only of the vertexu. We define thefringe-tree ofu, denoted byC[u], to be the chemical rooted tree that is obtained by putting back hydrogens toTuthat are originally attached inC.
+
+For a feature functionf2Lin the 2L model (Stage 2), there are two types of descriptors: static ones and enumerative ones. There are 14 static descriptors such as the number of non-hydrogen atoms and the number of interior vertices. The enumerative descriptors mainly consist of the frequency of local patterns that appear in a chemical graphC=(H,α,β). Examples of such local patterns include “fringe-configurations”, “adjacency-configurations” and “edge-configurations”. We collect enumerative descriptors from a given data setDπ.
+
+Letu∈Vint(C)be an interior-vertex. Thefringe-configuration of uis the chemical treeC[u]that is rooted atu. Let us denote byF(Dπ)the set of all fringe trees that appear in the data setDπ. For eachψ∈F(Dπ), we introduce a descriptor that evaluates the number of interior-verticesu∈Vint(C)such thatC[u]is rooted-isomorphic toψ.
+
+For an interior-edgee=uv∈Eint(C), letα(u)=a,deg⟨C⟩(u)=d,α(v)=b,deg⟨C⟩(v)=d′andβ(e)=m. Theadjacency-configuration of e(resp.,edge-configuration ofe) is defined to be the tuple(a,b,m)(resp.,(ad,bd′,m)). Let us denote byΓac(Dπ)(resp.,Γec(Dπ)) the set of all adjacency-configurations (resp., edge-configurations) in the data setDπ. For each tupleγac∈Γac(Dπ)(resp.,γec∈Γec(Dπ)), we introduce a descriptor that evaluates the number of interior-edgese∈Eint(C)such that the adjacency-configuration (resp., edge-configuration) is equal toγac(resp.,γec).
+
+See AppendixAfor a full description of descriptors in the 2L model.
+
+Lower/upper bounds on the number of various parameters inC†; e.g., chemical elements, double/triple bonds, and fringe/edge/adjacency-configurations.
+
+The MILP formulates the process of constructing a chemical graphC†as follows. First, we decide the interior ofC†by “expanding” the seed graphGC; e.g., subdividing an edge and attaching a new path to a vertex. Second, regarding all vertices in the expanded seed graph as the interior-vertices ofC†, we assign a fringe tree inFto every vertex to make the exterior ofC†. Finally, we assign bond-multiplicities to the interior-edges so that all constraints inσare satisfied. We can regardGσin Sect. ''Introduction'' as the set of all chemical graphs that can be constructed in this way. See the preprint of [29] for details of MILP in the 2L model.
+
+In this section, we propose a new type of descriptors for the 2L model, named cycle-configurations (CC).
+
+Let us point out a weak point of the 2L model precisely. There are chemical graphs that are not isomorphic to each other but are converted into an identical feature vector. See Fig.2for an example. Three chemical graphsC0(catechol),C1(resorcinol) andC2(hydroquinone) are shown, whereC0is the ortho-isomer,C1is the meta-isomer andC2is the para-isomer.
+
+We can confirm thatf2L(C1)=f2L(C2)holds by observing the descriptors one by one. For fringe-configuration, both chemical graphs contain fourψ1and twoψ2as fringe-trees in common. For edge-configuration, they contain one(C2,C2,1); one(C2,C2,2); two(C2,C3,1)and two(C2,C3,2)in common. In this way, one sees that the two chemical graphs take the same values for the other descriptors (see AppendixA). We also see thatf2L(C0)≠f2L(C1)andf2L(C0)≠f2L(C2)hold sinceC0contains one(C2,C2,1); two(C2,C2,2); two(C2,C3,1)and one(C3,C3,2)for its edge-configurations, which are different from those ofC1andC2. In summary, although the descriptors of the 2L model can distinguish ortho patterns of an aromatic ring from meta/para patterns, they fail to distinguish meta and para patterns.
+
+Although the two chemical graphsC1andC2are converted into an identical feature vector, they may have different properties from each other. For example, Tox21 [39] is a collection of data sets for binary classification (i.e.,a(C)∈{0,1}forC∈Dπ). In AhR data set, the two chemical graphsC1andC2in Fig.2satisfyf2L(C1)=f2L(C2)althougha(C1)=0anda(C2)=1hold. It is desirable to convert as many such pairs into distinct feature vectors as possible.
+
+We define a new descriptor, cycle-configuration, in order to convert chemical graphs likeC1andC2in Fig.2into distinct feature vectors. LetR={a1,a2,⋯,ak}be a set of distinct real numbers. Fora∈R, we definerankR(a):=iifais thei-th smallest inR. For example, whenR={3,2,5,9}, we haverankR(3)=2,rankR(2)=1,rankR(5)=3, andrankR(9)=4.
+
+Suppose that a chemical graphCis given. LetCbe a chordless cycle inCsuch thatV(C)={u1,u2,⋯,uℓ}andE(C)={u1u2,u2u3,⋯,uℓ-1uℓ,uℓu1}. Forui∈V(C), we defineμi:=mass∗(C[ui]). LetRdenote the set of distinct numbers inμ1,μ2,⋯,μℓ. We defineξ(C)to be the smallest sequence(rankR(μ1),rankR(μ2),⋯,rankR(μℓ))with respect to the lexicographic order among all possible cyclic permutations (including reversal) of(u1,u2,⋯,uℓ), where there are2ℓpermutations possible. We define thecycle-configuration of Cto beξ(C).
+
+Let us see Fig.2for example. Supposemass∗(H)=1,mass∗(C)=12andmass∗(O)=16. For the two fringe-treesψ1andψ2in the figure, we havemass∗(ψ1)=12+1=13andmass∗(ψ2)=12+16+1=29. Let us denote the unique (chordless) 6-cycle inCibyCi,i=1,2. The set of distinct numbers that appear as the mass of a fringe-tree isR={13,29}for both chordless cycles, whererankR(13)=1andrankR(29)=2. One readily sees thatξ(C1)=ξ1:=(1,1,1,2,1,2)andξ(C2)=ξ2:=(1,1,2,1,1,2).
+
+dcpi∘(C),i=[ξ∗],ξ∗∈Ξ(Dπ): the number of chordless cyclesCinCsuch thatξ(C)=ξ∗.
+
+See Fig.2again. SupposeΞ(Dπ)={ξ1,ξ2,ξ3,ξ4}forξ3:=(1,1,2,3)andξ4:=(1,1,1,1,2). ThenfCC(C1)=(1,0,0,0)andfCC(C2)=(0,1,0,0)hold, by which we havef(C1)=(f2L(C1),fCC(C1))≠(f2L(C2),fCC(C2))=f(C2).
+
+In our implementation, asDπmay contain too many CC descriptors, we use only CC descriptors whose lengths are in the range[cmin,cmax], wherecminandcmaxare positive constants(cmin≤cmax). We will setcmin:=4andcmax:=6since, in most of chemical compounds in conventional databases, the chemical graph is acyclic or contain only chordless cycles whose lengths are within [4, 6]. See Table1. For example, in PubChem, among 92,509,596 molecules that are feasible in the 2L-model, 83,520,760 molecules (90%) satisfy this condition.
+
+Let us consider an MILP formulation for inferring a chemical graph in the 2L+CC model. Similarly to the 2L model, the constraints of the MILP consist of(C1)y_∗≤η(f(C†))≤y¯∗and(C2)C†∈Gσ, whereC†denotes a chemical graph to be inferred and is represented by real/integer variables. We can use any prediction functionηinC1if its computational process can be represented by a set of linear inequalities. For example, artificial neural network [28], linear regression [29] and decision tree [30] can be used to constructη. In this section, we overview how we formulateC2as MILP. See AppendixBfor the precise formulation of the MILP that includes how we represent the computational process of the feature functionfby a set of linear inequalities.
+
+The basic idea ofC2is similar to the 2L model (see Sect. ''Specification for MILP''); we represent byC2the computational process of expanding an abstract form of the chemical graph to a concrete chemical graph. We introduce a new type of abstract form, which we call a “seed tree”, since it is hard to deal with CC descriptors by a seed graph of the 2L model.
+
+Aseed treeis a tupleT=(T;V∘,E∘)of an unrooted treeT,V∘⊆V(T)andE∘⊆{uv∈E(T)∣u,v∈V∘}. We call a node inV∘aring nodeand an edge inE∘aring edge, whereas a node inV(T)\V∘is anon-ring node, and an edge inE(T)\E∘is anon-ring edge. For a nodeu∈V(T), we denote byE∘(u)andE¯∘(u)the sets of all ring edges and of all non-ring edges incident tou, respectively. A demonstration of obtaining a specific molecule from a seed tree is given in Fig.3.
+
+We formulate byC2the following process of constructing a chemical graphC†:=CT=(GT,α,β).
+
+The expanded graph is used as the interior ofGT. For the exterior, fringe-trees are assigned to all nodes in the expanded graph, and to the interior-edges, bond-multiplicities are assigned.
+
+In this example,u1is assignedξ3;u2andu3are assignedξ5;u4is assignedξ4; andu5is assignedξ6, whereξ1andξ2are assigned to no ring nodes. As shown in Fig.3(b), all ring nodes are expanded to chordless 6-cycles,C1toC5, where6=|ξ3|=|ξ4|=|ξ5|=|ξ6|. We can confirm that the CCs of the five corresponding chordless cycles in Fig.3(c) are precisely ones that are assigned above. For example, inC4, there are four distinct fringe-trees whose molecular formulas are N,CH2, CO,CH3N, where we denote them byψ1,ψ2,ψ3,ψ4, respectively. We havemass∗(ψ1)=14,mass∗(ψ2)=12+2=14,mass∗(ψ3)=12+16=28andmass∗(ψ4)=12+3+14=29, wheremass∗(ψ1)=mass∗(ψ2)=14, and henceξ(C4)=(1,1,1,1,2,3)=ξ4holds.
+
+A pair of two chordless cycles that share exactly one pointv.
+
+A set of more than two chordless cycles that share one vertex or edge in common.
+
+To inferC†that contains at least one of the above structures, one needs to make use of non-ring nodes/edges appropriately in the design of a seed tree. We note that, however, such chemical compounds are rather minor in conventional databases. See Table1again. For example, in PubChem, among 83,520,760 molecules that are acyclic or contain only chordless cycles whose lengths are within [4, 6], 80,842,345 molecules (96%) contain neither (i) nor (ii).
+
+Table2shows a description of the specificationσin the 2L+CC model. Besides the seed tree, the specification includes availability of chemical elements/configurations, lower/upper bounds on their numbers. One of the key strengths of the 2L+CC model is its ability to incorporate domain-specific chemical knowledge into the molecular inference process. First, the CC descriptors are available to capture important ring structural patterns, such as meta/para/ortho patterns on aromatic rings. By specifying the available configurations and imposing lower/upper bounds on their numbers as part of the specificationσ, the framework allows the users to permit, restrict, or control the presence of specific structural motifs. Second, the modeling flexibility of the 2L+CC framework permits domain knowledge to be integrated through the design of the seed tree and the associated constraints in MILP formulations. For instance, users can define a benzene ring by including a ring node with all available CCs of length six in the seed tree and constraining which edges in the cycle are assigned as double bonds or single bonds. They can be easily implemented through additional linear constraints, and we regard this as a promising extension for future work. These features make the framework adaptable to chemically intuitive and commonly encountered molecular substructures.
+
+In this section, we describe experimental results on Stages 3 (ML) and 4 (MILP) in mol-infer. All experiments are conducted on a PC that carries Apple Silicon M1 CPU (3.2GHz) and 8GB main memory. All source codes are written in Python 3.12 with a machine learning library scikit-learn of version 1.5.0. The source codes and results are available athttps://github.com/ku-dml/mol-infer/tree/master/2LCC.
+
+We collected data sets for27+17=44chemical properties that are shown in Table3and Table4.
+
+In 27 of the data sets, the property valuea(C)of a chemical graphCis a real number, and hence the ML task of these 27 data sets in Stage 3 is regression. QM9 properties taken from [40] (i.e.,Alpha,Cv,Gap,Homo,Lumo,muandU0) share the same data set in common. This original data set contains more than1.3×105molecules and we use a subset of103molecules that are randomly selected.
+
+In the other 17 data sets that derived from Tox21 collection [39], the property valuea(C)of a chemical graphCis either negative or positive. Therefore, Stage 3 for these data sets is a binary classification task.
+
+From the original data set, we exclude molecules that are not feasible in the 2L model (e.g., the chemical graph is not connected). Furthermore, we decide the setΛof available chemical elements for each propertyπ, by which chemical graphs that contain rare chemical elements are eliminated.
+
+Details of columns in Table3and Table4are described as follows.
+
+Λ1={C(2),C(3),C(4),C(5),O,N(1),N(2),N(3),F};Λ2={C,O,N,S(2),S(6),Cl};Λ3={C,O};Λ4={C,O,N};Λ5={C(2),C(3),C(4),O,N(2),N(3),S(2),S(4)S(6),Cl};Λ6={C,O,N,S(2),S(4),S(6),Cl}; andΛ7={C,O,Si}.Λ8={C,N(2),N(3),N(4),O(1),O(2),O(3)},Λ9={C,N(3),N(4),O(1),O(2)}.
+
+n_andn¯: the minimum and maximum values of the number of non-hydrogen atoms inC∈Dπ.
+
+|Dπ|: the number of chemical graphs in the data set.
+
+K2LandKCC: the number of 2L and CC descriptors extracted fromDπ, respectively.
+
+For each propertyπ, we convert the data setDπinto the setf(Dπ)of numerical vectors by using a feature functionf:G→RK. Forf, we usef=f2Landf=f2L+CC, wheref2L+CCis a feature function such thatf2L+CC(C)=(f2L(C),fCC(C)). The purpose of the comparison is to show that CC descriptors can extract useful information for ML. The numberKCCof CC descriptors is at most 70% of the numberK2Lof 2L descriptors for all data sets, as shown in Table3and Table4.
+
+whereTP~(η,r)≜|{C∈Dt∣a(C)=1,η(C)≥r}|andTN~(η,r)≜|{C∈Dt∣a(C)=0,η(C)≤r}|. When it holds thatθ≤η(C), we regard the property class ofCas positive.
+
+We show the results in Table5and Table6. We may say that we can construct a good prediction function for many data sets; for the regression data sets, in 19 (resp., 11) out of the 27 data sets,R2over 0.8 (resp., 0.9) is achieved. We observe that, for some data sets, there is a learning model that is not suitable. For example, LLR and ANN perform poorly forVp, regardless of feature functions. Notably, ANN performs extremely poorly, yielding anR2value of -100, indicating its ineffectiveness for this data set. In contrast, DT and RF are relatively good. For the classification data sets, we can see that the performance is rather good, in 13 (resp., 5) out of the 17 data sets since BACC score over 0.7 (resp., 0.8) is achieved.
+
+Let us compare two feature functionsf2Landf2L+CCfor regression task and classification task respectively. For each propertyπ, an underlined value indicates the maximum over the 8 values (=2 feature functions by 4 learning models). For regression task, the maximum is achieved for only 5 properties whenf=f2L, whereas it is up to 26 properties whenf=f2L+CC. For classification task, the maximum is achieved for 1 properties whenf=f2L, whereas it is up to 16 properties whenf=f2L+CC. In both Table5and Table6, bold-face (resp., *) indicates anR2value or a BACC value that is larger at least by 0.02 (resp., 0.05) than theR2value or a BACC value achieved by the other feature function and the same learning model. For example, forAt, theR2value 0.401 forf2L+CCand RF is bold since it is larger than 0.379 forf2Land RF by0.401-0.379=0.022>0.02. In Table5, a bold value (resp., *) appears only twice (resp., nowhere) whenf=f2L, whereas it appears 41 (resp., 21) times whenf=f2L+CC. In Table6, a bold value (resp., *) appears nowhere (resp., nowhere) whenf=f2L, whereas it appears 24 (resp., 10) times whenf=f2L+CC.
+
+We conclude that, in the 2L model, the learning performance of a prediction function can be improved by introducing CC descriptors.
+
+whereθis the classification threshold. For the other constraints, see AppendixB.
+
+In regression data sets, we take up two propertiesKowandOptR, for which LLR achievesR2over 0.9. In classification data sets, we take up two propertiesAhRandAR_LBD, for which LLR achieves BACC score over 0.8. We consider 10 specifications that have seed trees non-isomorphic to each other, where 9 out of the 10 seed trees are shown in Fig.4. These seed trees are introduced to observe how computation time changes with respect to the number of nodes; the number of ring edges; and the tree structure. The last seed tree is the one in Fig.3(a). We denote this seed tree byT5∗. In each of the 10 specifications, we set other parameters (see Table2) than the seed tree sufficiently large to the extent of the data setDπ. For example, we setFu:=F(Dπ)for everyu∈T, that is, all fringe trees that appear inDπare available tou.
+
+We solve the MILP by utilizing CPLEX [52] version 22.1.1.0. We summarize statistics in Tables7,8,910. The meanings of columns in the tables are described as follows.
+
+#V and #C: the number of variables and constraints in MILP, respectively.
+
+IP time: the computation time (in seconds) taken to solve the MILP.
+
+n(G†): the number of non-hydrogen atoms in the inferred chemical graphG†.
+
+η(f(G†)): an estimated property value ofG†given by the prediction functionηand the feature vectorf(G†), wheref=f2L+CC.
+
+We highlight the practical efficiency of our MILP formulation with CC descriptors, as shown in Tables7to10. Across a range of seed trees and properties, chemical graphs with up to 50 non-hydrogen atoms were inferred within a practical time—most of the formulations were solved in less than one minute, a few were solved in about five minutes and only one was solved in around 18 min. There is a tendency such that computation time is longer when there are more #V/#C (i.e., the numbers of variables/constraints in MILP) with some exceptions. For example, forKow, the case ofT4b,2takes 38.4 s, which is much more than the cases where there are six ring nodes. Concerning #V/#C, the more the ring nodes, the more they become. The #V/#C are equal between seed trees if they have the same numbers of ring nodes/edges; e.g., #V/#C are equal betweenT4aandT4b,0. These results indicate that adding CC descriptors does not lead to too much computational overhead in practice.
+
+We also show some of the inferred chemical graphs in Fig.5. As expected, ring nodes in the seed trees are expanded to cycles in the chemical graphs. We acknowledge that some of the inferred graphs seem unstable and hard to synthesize (e.g., 4-cycles or ionized elements). This is a common issue in molecular inference studies [53]. We can prevent MILP from using such structures by setting specifications appropriately. Addressing this issue is left as future work.
+
+In this paper, we proposed a new family of descriptors, cycle-configurations, that can be used in the standard 2L model of mol-infer. We introduced the definition in Sect. '“Cycle-Configurations'' and described how we deal with them in the MILP in Sect. “MILP Formulation for 2L+CC Model''. Then in Sect. “Results and Discussion'', we demonstrated that the performance of a prediction function is improved in many cases when we introduce CC descriptors. We also showed that a chemical graph with up to 50 non-hydrogen atoms can be inferred in a practical time.
+
+The 2L+CC model can be extended further in the similar way as the 2L model. Specifically, we can enumerate isomers of the inferred graph by dynamic programming [54] or generate “close” compounds in the sense of property values by a grid neighborhood approach [55]. Note that the constraintC1of the MILP can contain multiple prediction functions for multiple properties, as is done in [29], where we have included a single property in this paper for simplicity. Besides, we may apply the 2L+CC model to inference of polymers [36]. These are left for future work.
+
+Associated with the two functionsαandβin a chemical graphC=(H,α,β), we introduce functionsac:V(E)→(Λ\{H})×(Λ\{H})×[1,3],cs:V(E)→(Λ\{H})×[1,4]andec:V(E)→((Λ\{H})×[1,4])×((Λ\{H})×[1,4])×[1,3]in the following.
+
+To represent a feature of the exterior ofC, a chemical rooted tree inT(C)is called afringe-configurationofC.
+
+as a set of possible adjacency-configurations for leaf-edges.
+
+To represent a feature of an interior-vertexv∈Vint(C)such thatα(v)=aanddeg⟨C⟩(v)=d(i.e., the number of non-hydrogen atoms adjacent tovisd) in a chemical graphC=(H,α,β), we use a pair(a,d)∈(Λ\{H})×[1,4], which we call thechemical symbolcs(v)of the vertexv. We treat(a,d)as a single symbolad, and defineΛdgto be the set of all chemical symbolsμ=ad∈(Λ\{H})×[1,4].
+
+We define a method for featuring interior-edges as follows. Lete=uv∈Eint(C)be an interior-edgee=uv∈Eint(C)such thatα(u)=a,α(v)=bandβ(e)=min a chemical graphC=(H,α,β). To feature this edgee, we use a tuple(a,b,m)∈(Λ\{H})×(Λ\{H})×[1,3], which we call theadjacency-configurationac(e)of the edgee. We introduce a total order < over the elements inΛto distinguish between(a,b,m)and(b,a,m)(a≠b)notationally. For a tupleν=(a,b,m), letν¯denote the tuple(b,a,m).
+
+Lete=uv∈Eint(C)be an interior-edgee=uv∈Eint(C)such thatcs(u)=μ,cs(v)=μ′andβ(e)=min a chemical graphC=(H,α,β). To feature this edgee, we use a tuple(μ,μ′,m)∈Λdg×Λdg×[1,3], which we call theedge-configurationec(e)of the edgee.
+
+We introduce a total order < over the elements inΛdgto distinguish between(μ,μ′,m)and(μ′,μ,m)(μ≠μ′)notationally. For a tupleγ=(μ,μ′,m), letγ¯denote the tuple(μ′,μ,m).
+
+Letπbe a chemical property for which we will construct a prediction functionηfrom a feature vectorf(C)of a chemical graphCto a predicted valuey∈Rfor the chemical property ofC.
+
+We first choose a setΛof chemical elements and then collect a data setDπof chemical compoundsCwhose chemical elements belong toΛ, where we regardDπas a set of chemical graphsCthat represent the chemical compoundsCinDπ. To define the interior/exterior of chemical graphsC∈Dπ, we next choose a branch-parameterρ, where we recommendρ=2.
+
+LetΛint(Dπ)⊆Λ(resp.,Λex(Dπ)⊆Λ) denote the set of chemical elements used in the setVint(C)of interior-vertices (resp., the setVex(C)of exterior-vertices) ofCover all chemical graphsC∈Dπ, andΓint(Dπ)denote the set of edge-configurations used in the setEint(C)of interior-edges inCover all chemical graphsC∈Dπ. LetF(Dπ)denote the set of chemical rooted treesψr-isomorphic to a chemical rooted tree inT(C)over all chemical graphsC∈Dπ, where possibly a chemical rooted treeψ∈F(Dπ)consists of a single chemical elementa∈Λ\{H}.
+
+We define an integer encoding of a finite setAof elements to be a bijectionπ:A→[1,|A|], where we denote by [A] the set [1, |A|] of integers. Introduce an integer coding of each of the setsΛint(Dπ),Λex(Dπ),Γint(Dπ)andF(Dπ). Let[a]int(resp.,[a]ex) denote the coded integer of an elementa∈Λint(Dπ)(resp.,a∈Λex(Dπ)),[γ]denote the coded integer of an elementγinΓint(Dπ)and[ψ]denote an elementψinF(Dπ).
+
+Over 99% of chemical compoundsCwith up to 100 non-hydrogen atoms in PubChem have degree at most 4 in the hydrogen-suppressed graph⟨C⟩[56]. We assume that a chemical graphCtreated in this paper satisfiesdeg⟨C⟩(v)≤4in the hydrogen-suppressed graph⟨C⟩.
+
+In our model, we use an integermass∗(a)=⌊10·mass(a)⌋, for eacha∈Λ.
+
+For a chemical propertyπ, we define a setDπ(1)of descriptors of a chemical graphC=(H,α,β)∈Dπto be the following non-negative valuesdcpi(C),i∈[1,K2L], whereK2L=14+|Λint(Dπ)|+|Λex(Dπ)|+|Γint(Dπ)|+|F(Dπ)|+|Γaclf|.
+
+dcp1(C): the number|V(H)|-|VH|of non-hydrogen atoms inC.
+
+dcp2(C): the rank ofC(i.e., the minimum number of edges to be removed to make the graph acyclic).
+
+dcp3(C): the number|Vint(C)|of interior-vertices inC.
+
+dcpi(C),i=4+d,d∈[1,4]: the numberdgdH¯(C)of non-hydrogen verticesv∈V(H)\VHof degreedeg⟨C⟩(v)=din the hydrogen-suppressed chemical graph⟨C⟩.
+
+dcpi(C),i=8+d,d∈[1,4]: the numberdgdint(C)of interior-vertices of interior-degreedegCint(v)=din the interiorCint=(Vint(C),Eint(C))ofC.
+
+dcpi(C),i=12+m,m∈[2,3]: the numberbdmint(C)of interior-edges with bond multiplicityminC; i.e.,bdmint(C)≜|{e∈Eint(C)∣β(e)=m}|.
+
+dcpi(C),i=14+[a]int,a∈Λint(Dπ): the frequencynaaint(C)=|Va(C)∩Vint(C)|of chemical elementain the setVint(C)of interior-vertices inC.
+
+dcpi(C),i=14+|Λint(Dπ)|+[a]ex,a∈Λex(Dπ): the frequencynaaex(C)=|Va(C)∩Vex(C)|of chemical elementain the setVex(C)of exterior-vertices inC.
+
+dcpi(C),i=14+|Λint(Dπ)|+|Λex(Dπ)|+[γ],γ∈Γint(Dπ): the frequencyecγ(C)of edge-configurationγin the setEint(C)of interior-edges inC.
+
+dcpi(C),i=14+|Λint(Dπ)|+|Λex(Dπ)|+|Γint(Dπ)|+[ψ],ψ∈F(Dπ): the frequencyfcψ(C)of fringe-configurationψin the set ofρ-fringe-trees inC.
+
+dcpi(C),i=14+|Λint(Dπ)|+|Λex(Dπ)|+|Γint(Dπ)|+|F(Dπ)|+[ν],ν∈Γaclf: the frequencyacνlf(C)of adjacency-configurationνin the set of leaf-edges in⟨C⟩.
+
+and we regarducmax+1=u1for convenience. The vertices and edges that form the cycle are chosen according to|ξ|, whereξis the cycle-configuration assigned tou. Specifically, verticesu1,u2,⋯,u|ξ|and edgesu1u2,⋯,u|ξ|-1u|ξ|,u|ξ|u1are chosen.
+
+A positive constantM1∈R+that represents a sufficiently large number.
+
+Integer variablescc([ξ]),ξ∈ΞT, cycle-configurations.
+
+For a leaf-edgeuv∈E(GT)withdegGT(u)=1, we define theadjacency-configurationofuvto be an ordered tuple(α(u),α(v),β(uv)).
+
+Here, for an adjacency-configurationγ=(a,b,m), we denoteγ¯:=(b,a,m). The setΓacintis supposed to satisfyγ∈Γacint⇒γ¯∈Γacint.
+
+Here, for an edge-configurationτ=(ad,bd′,m), we denoteτ¯:=(bd′,ad,m). The setΓecintis supposed to satisfyτ∈Γecint⇒τ¯∈Γecint.

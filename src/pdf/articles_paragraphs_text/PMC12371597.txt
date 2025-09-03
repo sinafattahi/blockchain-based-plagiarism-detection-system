@@ -1,0 +1,448 @@
+Extracellular vesicles
+(EVs) are nanosized particles that are associated
+with various physiological and pathological functions. They play a
+key role in intercell communication and are used as transport vehicles
+for various cell components. In human milk, EVs are believed to be
+important for the development of acquired immunity. State-of-the-art
+analysis methods are not able to provide label-free chemical information
+at the single-vesicle level. We introduce a protocol to profile the
+structure and composition of individual EVs with the help of atomic
+force microscopy infrared spectroscopy (AFM-IR), a nanoscale chemical
+imaging technique. The protocol includes the immobilization of EVs
+onto a silicon surface functionalized with anti-CD9 antibodies via
+microcontact printing. AFM-IR measurements of immobilized EVs provide
+size information and mid-infrared spectra at subvesicle spatial resolution.
+The received spectra compare favorably to bulk reference spectra.
+A key part of our protocol is a technique to acquire spectral information
+about a large number of EVs through hyperspectral imaging combined
+with image processing to correct for image drift and select individual
+vesicles.
+
+It has been previously shown that atomic force microscopy
+infrared
+(AFM-IR) is capable of acquiring mid-IR spectra of individual EVs
+and can thus provide label-free chemical information at the single
+EV level. AFM-IR is a hyphenation technique
+of atomic force microscopy and infrared spectroscopy, which enables
+the acquisition of infrared spectra at nanoscale (≈20 nm) spatial
+resolution, i.e., far below the diffraction limit of optical mid-IR
+microscopy.,In AFM-IR, the sample is placed
+in a scanning probe microscope and illuminated with a pulsed, tunable
+infrared light. Parts of the sample that absorb the incident radiation
+will heat and expand. The transient thermal expansion induces oscillations
+in the cantilever. It has been shown that the amplitude of these oscillations
+is proportional to local infrared absorption. This work goes beyond the demonstration of feasibility of AFM-IR
+EV analysis by Kim et al. in three key
+steps: (1) by using tapping mode AFM-IR instead of contact mode, fragile
+vesicles can be measured repeatedly, (2)
+by performing hyperspectral imaging rather than single-point spectroscopy,
+a large number of vesicles can be analyzed in a time efficient manner
+and spectral information can be localized within vesicles, and (3)
+through selective immobilization of EVs instead of drop-casting from
+solution.
+
+The immobilization is based on microcontact-printed
+anti-CD9 antibodies
+on a silicon substrate. These antibodies capture EVs, which are known
+to present CD9 antigens on their surface. This step removes the coffee ring effect that is typically seen
+in drop-casting deposition techniques, which leads to crowding of
+vesicles at the edge of the droplet and thus makes it hard to find
+isolated EVs in the AFM image. Furthermore, affinity capture allows
+us to wash away vesicles and other particles in the solution that
+do not express the CD9 antigen, relaxing the requirement for EV purification
+before deposition. A schematic representation of the microcontact-printed
+anti-CD9 antibody immobilization method is illustrated inFigure.
+
+Schematic depiction of
+EV capturing and analysis. EVs are captured
+on a functionalized Si surface through antibody–antigen interaction.
+EVs are measured using an AFM-IR system in the top-illumination geometry.
+
+Due to the very high spatial resolution of AFM
+(nanometer scale),
+small ambient temperature changes and piezo actuator creep, among
+others, introduce noticeable image translation and distortion. This
+thermal drift describes the unwanted movement of the AFM cantilever
+tip relative to the sample due to the AFM components reacting to changes
+of temperature. Strategies to reduce
+thermal drift are hardware improvements, scanning algorithms, or image
+reconstruction algorithms. For instance,
+a thermal drift-corrected cantilever, where a high-resolution silicon probe is attached to a soft silicon
+nitride (SiN) cantilever, is used to minimize temperature fluctuations.
+Alternatively, a thermostatic control system is applied to maintain
+a stable temperature. Additionally to
+these hardware solutions, techniques such as local circular scanning
+(LCS), where local scans are used to
+accurately measure the amount of drift to adjust the AFM tip, or cross-diagonal
+scanning combined with adaptive filtering, can be used. Another feasible strategy would be to divide the AFM
+image into multiple sections and perform local scans to compensate
+for the drift. In the scope of this article,
+we apply an approach based on scale-invariant feature transform (SIFT)
+to topography images to correct the drift in AFM-IR images. This is
+a key enabling step in using AFM-IR for hyperspectral imaging.
+
+This study was
+conducted in accordance with the Declaration of Helsinki,
+and the protocol was approved by the Ethics Committee for Biomedical
+Research of the Health Research Institute La Fe (Valencia, Spain;
+approval number 2019–289–1). A volunteer donor was enrolled
+at the Human Milk Bank of the University and Polytechnic Hospital
+La Fe (Valencia, Spain) after signing an informed consent form. HM
+was collected following the instructions of the hospital staff using
+an electric breast milk pump. A 25 mL HM aliquot from full expression
+was set aside and immediately centrifuged twice at 3000gfor 10 min at room temperature for cream, cell, and platelet removal.
+The defatted milk was transferred to a dry tube. Tubes were placed
+in a freezer at −80 °C for storage. HMEVs were isolated
+as described elsewhere by a multistep ultracentrifugation protocol. Here, the defatted milk was again centrifuged
+at 3000gfor 10 min to remove remaining milk fat
+and milk fat globules. The supernatant was then transferred into a
+25 mL polycarbonate bottle for ultracentrifugation. After ultracentrifugation
+at 30,000 rpm for 2h at 4 °C, the HMEVs were retrieved as a pellet.
+In the final pellet, total protein (BCA-assay) and particle count
+(nanoparticle tracking analysis (NTA)) were determined. The protein
+concentration was 4.73 μg μL–1, and
+the number of particles was 6.49 × 108± 0.376
+× 108mL–1with a particle size
+of 209.7 nm ± 7 nm. In the end, the pellet was reconstituted
+in 200 μL of phosphate-buffered saline (PBS) and stored at −80
+°C until analysis.
+
+The preparation
+of substrates followed the protocol by Lindner et al. and Schütz et al. Briefly,
+silicon substrates (CrysTec, thickness 0.525 mm,
+specific resistance >3000 Ωcm Orientation (100)) were plasma
+cleaned and then covered by 100 μL of AnteoBindBiosensor liquid
+for 45 min. The AnteoBind liquid was then cast off, and the substrate
+was rinsed with 5 mL of Milli-Q water using a pipet. AnteoBind forms
+a thin (a few nanometers) film on the silicon substrate which is able
+to immobilize proteins through coordination bonds. Next, 30 μL of a 20 μg mL–1Anti-CD9 solution (Sigma-Aldrich, Anti-CD9 antibody produced in
+rabbit, 1 μg mL–1in buffered aqueous solution)
+was incubated onto a PDMS-stamp. The PDMS-stamp had 3 μm circles
+spaced 3 μm apart in a 0.25 cm2area for microcontact
+printing. The stamp was rinsed with 2 mL of Milli-Q water using a
+pipet, dried with pressurized air, and then placed onto the prepared
+silicon substrate for 15 min. After removal of the stamp and further
+rinsing with 5 mL Milli-Q water, the pattern was backfilled with 100
+μL 20 μg mL–1bovine serum albumin (BSA)
+in PBS.
+
+A stick-on incubation
+chamber (Grace Bio-Laboratories, FlexWellIncubation Chambers, 3.5
+mL × 3.5 mL Wells, 1.8 mL Depth 25 mL × 75 mL OD, Black
+Silicone - Adhesive One Side) was placed on the silicon substrate.
+50 μL of the EV sample solutions, diluted in PBS at a ratio
+of 1:10, were pipetted into these chambers. The substrates, including
+the EV solution, were incubated for 24 h at around 7 °C. Then,
+the incubation chambers were removed, and the substrates were rinsed
+with approximately 5 mL of Milli-Q water using a pipet and air-dried
+before the AFM-IR measurement.
+
+AFM-IR measurements
+were performed using a commercial AFM-IR system (nano-IR 3s, Bruker)
+coupled to an external cavity quantum cascade laser (EC-QCL) array
+(MIRcat-QT, Daylight Solutions). The measured spectra covered a range
+from 910 to 1950 cm–1at a spectral resolution of
+1 cm–1. The cantilevers used were gold-coated and
+had a nominal first free resonance at 300 ± 100 kHz and a spring
+constant between 20 and 75 N m–1(Tap300GB-G, BudgetSensors).
+AFM-IR measurements were carried out in tapping mode. The cantilever was driven at its second resonance frequency
+(f2= 1500 kHz), and the AFM-IR signal
+was demodulated at the first resonance frequency (f1≈ 250 kHz) with a digital lock-in amplifier (MFLI,
+Zurich Instruments). The laser source worked on a duty cycle of up
+to 20% and emitted laser pulses up to 500 mW. The laser power was
+adjusted between 14.75 and 100% of the original power with metal mesh
+attenuators. The whole instrument was purged with dry air generated
+by an adsorbent dry air generator. Spectra were collected in triplicates
+using a power of up to 63.65%. AFM-IR imaging was done measuring 1000
+horizontal and 512 vertical lines for an image size between 1.5 μm
+× 1.5 μm to 2.6 μm × 2.6 μm using a scan
+rate of 0.15 Hz, a laser attenuation of 63.65%, a set point of 6.3
+V, and a driving strength of 1.21%.
+
+To counteract the
+lateral drift and distortion between single-wavelength AFM-IR images,
+image alignment was employed. Since AFM-IR provides a topography image
+together with each infrared absorption image, we can use the sample
+topography for alignment: SIFT was used to detect similar features
+in the topography images to align the infrared absorption images accordingly
+in a subsequent step. SIFT recognizes features even when they are
+shifted, scaled, or rotated and thus
+allows to also correct for rotation and skew of images.
+
+Recorded AFM-IR
+spectra were averaged by location and smoothed using an Eiler’s
+smoother. To correct for sample drift
+during acquisition, a topography image was recorded after every third
+spectrum. These images were then used to correct the images using
+the same alignment procedure as described inSection. This scheme works only
+if the thermal drift is small compared to the resolution of AFM-IR
+within the time it takes to record spectra and reference images (Figure S1). Within the acquisition time of 10
+s for one spectrum, a drift of less than 5 nm is expected.
+
+A supervised classification
+algorithm was used to distinguish substrate (background) and sample
+pixels in the chemical images. Tapping mode phase information and
+height information were recorded with each AFM-IR image. Training
+sets of pixels belonging to either substrate or EVs were selected
+manually. These pixels were used to establish a linear discriminant
+analysis (LDA) classifier. This classifier was then used to identify
+the background and EV pixels for further analysis. Non-negative matrix
+factorization (NMF) was applied to EV pixels in combined absorption
+images to find trends in the chemical composition of EVs.
+
+All
+of the data processing steps were performed using Python version 3.10.6.
+SIFT was used in the implementation of scikit-image version 0.22.0,
+and LDA and NMF were used in the implementation of scikit-learn version
+1.3.1.
+
+A common strategy
+in AFM-IR analysis of a new sample type is to
+first identify the structure and areas of interest via topography
+imaging and then collect a few exploratory AFM-IR point spectra at
+selected locations. Here, we first scanned a 5 μm × 5 μm
+area containing a 3 μm diameter anti-CD9 functionalized circle.
+A large EV (diameter ≈ 300 nm) was selected, and point spectra
+were collected. These spectra were found to exhibit the same absorption
+bands as reference spectra from bulk EVs collected by Ramos et al. (seeFigurea). The spectra are dominated by the 1737 cm–1band, which is associated with the saturated CO stretch
+vibration of lipids.,Bonds located at 1392 and 1451
+cm–1are associated with CH2bending
+of lipidic acyl chains and COO- symmetric stretch, respectively.,The 1392 cm–1band maximum is slightly shifted
+from the 1402 cm–1position described by Ramos-Garcia
+et al., but this shift is negligible
+compared to the overall width of the band. The most important bands
+for the characterization of EVs are the bands associated with the
+amide I vibration, originating from the CO of the protein-peptide
+backbone, and amide II, which is dominated
+by the N–H bending vibrations of the peptide groups and the
+C–N stretching vibrations. In
+this case, we can see small broad bands around 1646 cm–1and around 1542 cm–1, which can be associated
+with amide I and amide II, respectively.,The relative intensities of the CO and amide I and II bands
+differ markedly from those observed in the bulk spectra. We interpret
+this as an effect of laser focusing and pointing present in AFM-IR.
+Specifically, the normalization of the AFM-IR signal is done via the
+total laser intensity, while the AFM-IR amplitude is proportional
+to the local intensity and thus depends on the size and position of
+the laser spot at different wavelengths. This effect can also be observed
+at 1520 and 1685 cm–1, where the baseline shows
+a jump because the instrument switches from one laser chip to another.
+It should also be pointed out that the analyzed vesicle here has a
+height of around 25 nm, and the lipid bilayer has a thickness of 5
+to 8 nm. Thus, while the depth sensitivity
+of AFM-IR has recently been described, the thickness is small enough that spectra represent a full vesicle
+not just the outer layers.
+
+Point spectra at different locations within
+an EV. Mean cluster
+AFM-IR spectra of EVs (a) compared well to a bulk FTIR spectrum of
+EVs (red). AFM-IR spectra are all averages of three spectra taken
+at the same location and smoothed using an Eiler’s smoother
+(seeS2). Color of spectra (seeS2) corresponds to the color of the approximate
+sampling position markers in the AFM topography image (b).
+
+A summary of band assignments is provided inTable. In general, a large
+difference
+in relative
+intensities was found at different locations (seeFiguresa andS2), indicating that a single vesicle shows a high compositional
+heterogeneity at the spatial resolution of AFM-IR. It should be noted
+that the substrate did not show a significant AFM-IR signal beyond
+a single band at 1260 cm–1, which can be assigned
+to (Si) vibrations of the substrate or cantilever (seeFigure S3).
+
+The chemical heterogeneity within a single
+EV was also apparent
+in AFM-IR images (seeFigure) recorded at wavenumbers corresponding to a series of absorption
+bands of intense spectral features inFigurea: 1392, 1542, 1620, 1646, and 1737 cm–1. Here, the intensity distributions differ depending
+on the absorption band. It should be noted that while large trends
+within the signal distributions exist, some of the strongly absorbing
+areas are only a few tens of nanometers in size. It should be noted
+that the AFM-IR signal amplitude is affected by the stiffness of the
+mechanical contact and other factors, such as whether the cantilever is driven at the center of the resonance
+or slightly off resonance. The tapping
+phase and tapping IR phase images corresponding to the chemical images
+inFigure(seeFigure S4) show that the phase changes across
+the large vesicle, indicating a change in mechanical contact stiffness
+and/or resonance frequency of the cantilever. Thus, even though the
+signal at the upper side of the vesicle is lower than at the lower
+side, this does not indicate a change in absorption. A similar ”half-moon
+effect” has also been observed in spherical structures by other
+researchers.
+
+Raw AFM-IR maps of EVs
+taken at (a) 1392 cm–1, (b) 1620 cm–1, (c) 1646 cm–1, and (d) 1737 cm–1. The images show high location
+dependence of the AFM-IR signal within the EV, marked by the arrows,
+and large differences in distribution at different wavenumbers. The
+corresponding topography image is found inFigureb.
+
+This chemical heterogeneity poses a problem when
+using single-point
+spectra for the characterization of chemical differences between different
+EVs: in order to accurately capture the composition of a single EV,
+a spectral grid at the spatial resolution of AFM-IR, i.e., 10 to 20
+nm, would be required. This not only would make the analysis of a
+single EV forbiddingly cumbersome but would also cause issues of positioning
+errors: as AFM exhibits a slow thermal drift in position (typically
+in the range of nanometers per minute), taking a larger number of
+single spectra leads to increasing uncertainty of the actual position.
+This can be partially overcome by taking a topography image after
+every few spectra to correct for this drift as described above at
+the cost of increasing acquisition time.
+
+Therefore, in this
+work, we collected high-pixel resolution AFM-IR
+images at a series of selected wavelengths (or ”marker bands”).
+For brevity’s sake, we refer to the fast scanning direction
+as ”x” and the slow scanning direction
+as ”y”. Furthermore,ywas along the direction of the cantilever, andxwas orthogonal to it. The topography channel of each image is then
+used to determine the drift between images and correct for it using
+SIFT. Results of this process are shown inFigure, and the full results are shown inS5.
+
+Three markers chosen on the topography reference
+image (a) and
+the compared topography image (b). The SIFT algorithm was used to
+determine the drift between the images, and the images were overlaid
+in part (c). All of the markers from parts (a, b) were projected on
+the overlaid image (c), and the difference can be observed. We found
+a maximum difference of ± 12.9 nm inxand ±
+9.3 nm iny.
+
+The performance of SIFT alignment of AFM-IR images
+was evaluated
+by manually determining the pixel coordinates of distinctive features
+on images and their offsets between images before and after correction.
+The SIFT algorithm was able to correct the drift with a maximum error
+of ± 12.9 nm in thexdirection and ± 9.3
+nm in theydirection.Tableshows the difference in the positions for
+points before and after the SIFT correction.
+
+Once the full set of images has been
+recorded and drift-corrected,
+the AFM-IR images are stacked to generate a single hypermap data set,
+which can be evaluated using a range of chemometric techniques. In
+this work, the image size was chosen such that a larger number (here
+≈30) of EVs was covered within a single image, parallelizing
+the analysis (seeFigure). By setting up the AFM-IR instrument to automatically collect
+a series of images (i.e., one per marker band), this process can be
+carried out without user interaction after the initial setup.Figureshows a topographic
+overview of the scanned area.
+
+(a) Loading plot of the NMF analysis and the corresponding
+mean
+AFM-IR spectrum. (b) Score plot of the identified pixels.
+
+Topography image of the area, where the AFM-IR
+images were taken
+from.
+
+NMF is used in exploratory data
+analysis to identify patterns by
+dimensionality reduction. In the case of spectroscopy, NMF can be
+thought of as decomposing the matrix of all sample spectraV(with one spectrum per row) into a product of two matricesV=W H, wherebyHcontains row-wise
+spectra of ”pure” components andWcontains
+row-wise contributions of said components to each experimental spectrum.
+The number of components for NMF was selected by using principal component
+analysis (PCA). The first four principal components (PCs) explained
+99% of the total variance (seeFigure S6); hence, four PCs were used for NMF (seeFigure). When mapping the contributions of the components onto the
+pixels, they largely showed smooth changes, which is a good indication
+that they correspond to the changes in the AFM-IR signal rather than
+noise. It should also be noted that the data is normalized to the
+band of 1260 cm–1before performing NMF; thus, the
+before-mentioned effect on the IR images should not have a big effect
+on the analysis.
+
+The loading values (Figure) describe the relationship between the components
+and the
+AFM-IR signals. A higher value indicates that this wavenumber contributes
+more to the score of the corresponding NMF component. In the zeroth
+component (blue), high values can be seen at 1392 and 1737 cm–1. This component likely corresponds to the EV membrane,
+as it is distributed evenly across the EV surface area. Additionally,
+it is known that the membrane consists of a lipid bilayer. This is
+further supported, as the value at 1737 cm–1, which
+is assigned to the saturated CO stretch, is relatively high.
+The highest value at 1392 cm–1is likely showing
+contributions from lipids and proteins, strengthening the idea that
+this component describes the lipid bilayer. The first component (orange)
+shows a high value of 1737 cm–1. This component
+likely corresponds to the membrane, as it is evenly distributed across
+EVs with a few hotspots. Additionally, the small contribution from
+1620 cm–1also shows some protein in these areas.
+The second component (green) shows high values at the amide I band
+and a small value at the 1737 cm–1band. This component
+can be used to identify the location of proteins within individual
+EVs. Again, some areas in the score plot have a higher value, so it
+is possible to identify the ”hotspots” of content in
+the vesicles. Additionally, these hotspots point toward α-helix
+or disordered protein structure. The third component (red) shows high
+values at 1392, 1542, and 1620 cm–1, whereas the
+signal at 1646 and 1737 cm–1cannot be observed.
+The component has a small contribution to almost all pixels inside
+of EVs and some small areas where a much higher value is observed.
+These could point toward protein cargo that has aggregated due to
+the desiccation of the EVs on the substrate. It should also be noted
+that the value at 1620 cm–1points toward the β-sheet
+protein structure.,To view if a trend can be observed
+in the composition of vesicles, we studied the relationship between
+vesicle composition and mean NMF contribution per vesicle (seeFigure S7a). There is no apparent trend or relationship
+for size and NMFs for vesicles <60 nm diameter/radius. For larger
+vesicles, a relationship between size and NMF may exist, but for practical
+reasons, only a few such large vesicles appear in the data set. The
+NMFs appear to follow a unimodal distribution with few outliers (seeFigure S7b).
+
+In this work, we demonstrated
+chemical analysis of individual EVs
+using AFM-IR in a way that allows chemical characterization at the
+nanoscale. We implemented a new protocol to obtain label-free chemical
+information from single EVs. We were able to immobilize EVs on an
+AFM-IR compatible substrate via anti-CD9 antibodies and were able
+to analyze them via the implementation of machine learning algorithms.
+Single EVs could be described separately, and the high heterogeneity
+within a single vesicle and within a whole sample set was determined.
+In comparison to other works, this protocol only needs very few wavenumbers
+to work but is still able to provide a comprehensive picture of the
+sample without requiring user input to select measurement spots for
+spectra. This enables a faster analysis of the EV samples without
+cherry-picking. This work shows that for heterogeneous nanoscale samples,
+only through hyperspectral imaging and image registration can a full
+picture of the distribution of components be acquired by AFM-IR.
+
+The authors would like to acknowledge the financial
+support
+received from the European Union’s Horizon 2020 research and
+innovation programme (grant agreement: 818110). N.H. and G.R. would
+like to acknowledge Tumor-LN-oC (grant agreement no. 953234). The
+financial support by the Austrian Federal Ministry for Labour and
+Economy and the National Foundation for Research, Technology and Development
+and the Christian Doppler Research Association is gratefully acknowledged.
+This work was supported by the Instituto de Salud Carlos III (ISCIII),
+Spain, and cofunded by the European Union [grant numbers CP21II/00003
+and PI23/00202]; the Counseling of Innovation, Universities, Science
+and Digital Society, Generalitat Valenciana, Spain [grant number CIAICO/2022/233],
+and grant CNS2022-135398 funded by MCIN/AEI/10.13039/501100011033
+and, as appropriate, by ”European Union NextGenerationEU/PRTR”.
+B.L. and G.R. acknowledge funding from the Austrian Science Fund (FWF)
+[doi.org/10.55776/COE7]. The authors acknowledge TU Wien Bibliothek
+for financial support through its Open Access Funding Programme. The
+table of content graphic andFigurewere prepared using the Blender software (https://www.blender.org) and
+the Molecular Nodes plugin (10.5281/zenodo.14873613). Protein structures used in these graphics were taken from RCSB
+PDB (https://www.rcsb.org/) with RCSB PDB IDs 1IGT and 4F5S.
+
+The data underlying
+this study are openly available in Zenodo at DOI: 10.5281/zenodo.14514540.
+
+The Supporting Information
+is available free of charge athttps://pubs.acs.org/doi/10.1021/acsmeasuresciau.5c00001.
+
+CRediT:Nikolaus Hondldata curation, formal analysis,
+investigation,
+methodology, software, validation, visualization, writing - original
+draft;Lena Neubauerinvestigation, validation, writing
+- review & editing;Victoria Ramos-Garciainvestigation,
+methodology, writing - review & editing;Julia Kuligowskiconceptualization, resources, writing - review & editing;Marina Bisharamethodology, writing - review & editing;Eva Sevcsikmethodology, resources, writing - review &
+editing;Bernhard Lendlfunding acquisition, resources,
+supervision, writing - review & editing;Georg Ramerconceptualization, data curation, formal analysis, funding acquisition,
+project administration, software, supervision, writing - review &
+editing.
+
+The
+authors declare no
+competing financial interest.

@@ -313,7 +313,7 @@
 
 //     setLoading(true);
 //     try {
-//       const response = await fetch(`/1-paragraph-paraphrasing/${fileName}`);
+//       const response = await fetch(`/articles/${fileName}`);
 //       if (!response.ok) {
 //         throw new Error("File not found");
 //       }
@@ -447,7 +447,9 @@ function App() {
     try {
       for (let i = 0; i < articleList.length; i++) {
         const fileName = i + randomNumber;
-        const response = await fetch(`/1-paragraph-paraphrasing/${articleList[i]}`);
+        const response = await fetch(
+          `/articles/${articleList[i]}`
+        );
         if (!response.ok) {
           console.error(`Error fetching article ${fileName}: File not found`);
           continue;
@@ -504,7 +506,7 @@ function App() {
   useEffect(() => {
     async function fetchArticleList() {
       try {
-        const response = await fetch("/1-paragraph-paraphrasing/list.json");
+        const response = await fetch("/articles/list.json");
         const data = await response.json();
         setArticleList(data);
       } catch (err) {

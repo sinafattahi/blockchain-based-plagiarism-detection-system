@@ -1,0 +1,2793 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+    <head >
+
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+        
+
+        
+        
+  <link rel="stylesheet" href="/static/assets/style-8258669d.css" />
+<script type="module" crossorigin="" src="/static/assets/base_style-f4a99799.js"></script>
+
+  <link rel="stylesheet" href="/static/assets/style-ef962842.css" />
+<link rel="stylesheet" href="/static/assets/style-3ade8b5c.css" />
+<script type="module" crossorigin="" src="/static/assets/article_style-d757a0dd.js"></script>
+
+  
+  
+    <style>
+  
+  
+  @media screen and (min-width: 64em) {
+    div.pmc-wm {
+      background: repeat-y;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='350' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-.02' y='0' width='1.05' height='1' id='c'%3E%3CfeFlood flood-color='%23FFF'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3Ctext id='b' font-family='Helvetica' font-size='11pt' style='opacity:1;fill:%23005ea2;stroke:none;text-anchor:middle' x='175' y='14'%3E%3C/text%3E%3Cpath id='a' style='fill:%23005ea2' d='M0 8h350v3H0z'/%3E%3C/defs%3E%3Cuse xlink:href='%23a' transform='rotate(90 10 10)'/%3E%3Cuse xlink:href='%23b' transform='rotate(90 10 10)' filter='url(%23c)'/%3E%3C/svg%3E");
+      padding-left: 3rem;
+    }
+  }
+</style>
+
+  
+
+
+
+        
+            <link rel="apple-touch-icon"
+                  sizes="180x180"
+                  href="/static/img/favicons/apple-touch-icon.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="48x48"
+                  href="/static/img/favicons/favicon-48x48.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="/static/img/favicons/favicon-32x32.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="/static/img/favicons/favicon-16x16.png" />
+            <link rel="manifest" href="/static/img/favicons/site.webmanifest" />
+            <link rel="mask-icon"
+                  href="/static/img/favicons/safari-pinned-tab.svg"
+                  color="#0071bc" />
+            <meta name="msapplication-config"
+                  content="/static/img/favicons/browserconfig.xml" />
+            <meta name="theme-color" content="#ffffff" />
+        
+
+        <title>
+            Estimating area under the curve from graph-derived summary data: a systematic comparison of standard and Monte Carlo approaches - PMC
+        </title>
+
+        
+        
+  
+  <!-- Logging params: Pinger defaults -->
+<meta name="ncbi_app" content="cloudpmc-viewer" />
+<meta name="ncbi_db" content="pmc" />
+<meta name="ncbi_phid" content="AE532E428AF21CA3052E4200191D3E4A.m_1" />
+<meta name="ncbi_pinger_stat_url" content="https://pmc.ncbi.nlm.nih.gov/stat" />
+<!-- Logging params: Pinger custom -->
+<meta name="ncbi_pdid" content="article" />
+  
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+
+    
+        <link rel="preconnect" href="https://cdn.ncbi.nlm.nih.gov" />
+    
+
+    <!-- Include USWDS Init Script -->
+    <script src="/static/assets/uswds-init.js"></script>
+
+
+    <meta name="ncbi_domain" content="bmcmrm">
+<meta name="ncbi_type" content="fulltext">
+<meta name="ncbi_pcid" content="journal">
+<meta name="ncbi_feature" content="associated_data">
+<link rel="canonical" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12372245/">
+<meta name="robots" content="INDEX,NOFOLLOW,NOARCHIVE">
+<meta name="citation_journal_title" content="BMC Medical Research Methodology">
+<meta name="citation_title" content="Estimating area under the curve from graph-derived summary data: a systematic comparison of standard and Monte Carlo approaches">
+<meta name="citation_author" content="Sean Titensor">
+<meta name="citation_author_institution" content="Department of Physics and Astronomy, Brigham Young University, Provo, UT 84602 USA">
+<meta name="citation_author" content="Joshua Ebbert">
+<meta name="citation_author_institution" content="Department of Physics and Astronomy, Brigham Young University, Provo, UT 84602 USA">
+<meta name="citation_author" content="Karen Della Corte">
+<meta name="citation_author_institution" content="Department of Nutrition, Dietetics, and Food Science, Brigham Young University, Provo, UT 84602 USA">
+<meta name="citation_author" content="Dennis Della Corte">
+<meta name="citation_author_institution" content="Department of Physics and Astronomy, Brigham Young University, Provo, UT 84602 USA">
+<meta name="citation_publication_date" content="2025 Aug 22">
+<meta name="citation_volume" content="25">
+<meta name="citation_firstpage" content="197">
+<meta name="citation_doi" content="10.1186/s12874-025-02645-8">
+<meta name="citation_pmid" content="40846904">
+<meta name="citation_abstract_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12372245/">
+<meta name="citation_fulltext_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12372245/">
+<meta name="citation_pdf_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12372245/pdf/12874_2025_Article_2645.pdf">
+<meta name="description" content="Response curves are widely used in biomedical literature to summarize time-dependent outcomes, yet raw data are not always available in published reports. Meta-analysts must frequently extract means and standard errors from figures and estimate ...">
+<meta name="og:title" content="Estimating area under the curve from graph-derived summary data: a systematic comparison of standard and Monte Carlo approaches">
+<meta name="og:type" content="article">
+<meta name="og:site_name" content="PubMed Central (PMC)">
+<meta name="og:description" content="Response curves are widely used in biomedical literature to summarize time-dependent outcomes, yet raw data are not always available in published reports. Meta-analysts must frequently extract means and standard errors from figures and estimate ...">
+<meta name="og:url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12372245/">
+<meta name="og:image" content="https://cdn.ncbi.nlm.nih.gov/pmc/cms/images/pmc-card-share.jpg?_=0">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ncbi">
+    
+    
+
+    </head>
+    <body >
+        
+    <a class="usa-skipnav " href="#main-content">
+      Skip to main content
+    </a>
+
+
+        
+            
+
+<section class="usa-banner " aria-label="Official website of the United States government" >
+    <div class="usa-accordion">
+        <header class="usa-banner__header">
+            <div class="usa-banner__inner">
+                <div class="grid-col-auto">
+                    <img aria-hidden="true"
+                         class="usa-banner__header-flag"
+                         src="/static/img/us_flag.svg"
+                         alt="" />
+                </div>
+
+                <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+                    <p class="usa-banner__header-text">
+                        An official website of the United States government
+                    </p>
+                    <span class="usa-banner__header-action">Here's how you know</span>
+                </div>
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-accordion__button usa-banner__button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    aria-expanded="false"
+    aria-controls="gov-banner-default"
+    
+    data-testid="storybook-django-banner"
+    
+    >
+    
+        
+
+        
+                    <span class="usa-banner__button-text">Here's how you know</span>
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </div>
+        </header>
+
+        <div class="usa-banner__content usa-accordion__content"
+             id="gov-banner-default"
+             hidden>
+            <div class="grid-row grid-gap-lg">
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-dot-gov.svg"
+                         alt=""
+                         aria-hidden="true" />
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Official websites use .gov</strong>
+                            <br />
+                            A
+                            <strong>.gov</strong> website belongs to an official
+                            government organization in the United States.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-https.svg"
+                         alt=""
+                         aria-hidden="true" />
+
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Secure .gov websites use HTTPS</strong>
+                            <br />
+                            A <strong>lock</strong> (
+                            <span class="icon-lock">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     width="52"
+                                     height="64"
+                                     viewBox="0 0 52 64"
+                                     class="usa-banner__lock-image"
+                                     role="graphics-symbol"
+                                     aria-labelledby="banner-lock-description"
+                                     focusable="false">
+                                    <title id="banner-lock-title">Lock</title>
+                                    <desc id="banner-lock-description">
+                                    Locked padlock icon
+                                    </desc>
+                                    <path fill="#000000"
+                                          fill-rule="evenodd"
+                                          d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+                                </svg>
+</span>) or <strong>https://</strong> means you've safely
+                                connected to the .gov website. Share sensitive
+                                information only on official, secure websites.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        
+
+        
+    
+    
+    
+
+<div class="usa-overlay">
+</div>
+
+
+
+<header class="usa-header usa-header--extended usa-header--wide" data-header data-testid="header"    >
+    <div class="ncbi-header">
+        <div class="ncbi-header__container">
+            <a class="ncbi-header__logo-container"
+               href="https://www.ncbi.nlm.nih.gov/">
+                <img alt="NCBI home page"
+                     class="ncbi-header__logo-image"
+                     src="/static/img/ncbi-logos/nih-nlm-ncbi--white.svg"
+                     width="410"
+                     height="100" />
+            </a>
+
+            <!-- Mobile menu hamburger button -->
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-menu-btn ncbi-header__hamburger-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Show menu"
+    data-testid="navMenuButton"
+    
+    >
+    
+        
+
+        
+                <svg aria-hidden="true"
+                     class="ncbi-hamburger-icon"
+                     fill="none"
+                     focusable="false"
+                     height="21"
+                     viewBox="0 0 31 21"
+                     width="31"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd"
+                          d="M0.125 20.75H30.875V17.3333H0.125V20.75ZM0.125 12.2083H30.875V8.79167H0.125V12.2083ZM0.125 0.25V3.66667H30.875V0.25H0.125Z"
+                          fill="#F1F1F1"
+                          fill-rule="evenodd" />
+                </svg>
+            
+
+        
+    
+        
+            </button>
+        
+
+
+
+            
+                <!-- Desktop buttons-->
+                <div class="ncbi-header__desktop-buttons">
+                    
+                        <!-- Desktop search button -->
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button
+           "
+    aria-expanded="false"
+    aria-controls="search-field-desktop-navigation"
+    aria-label="Show search overlay"
+    data-testid="toggleSearchPanelButton"
+    data-toggle-search-panel-button
+    >
+    
+        
+
+        
+                            
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#search" />
+    </svg>
+
+
+                            Search
+                        
+
+        
+    
+        
+            </button>
+        
+
+
+                    
+
+                    <!-- Desktop login dropdown -->
+                    
+                        <div class="ncbi-header__login-dropdown">
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button ncbi-header__login-dropdown-button
+           "
+    aria-expanded="false"
+    aria-controls="login-dropdown-menu"
+    aria-label="Show login menu"
+    data-testid="toggleLoginMenuDropdown"
+    data-desktop-login-button
+    >
+    
+        
+
+        
+                                
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#person" />
+    </svg>
+
+
+
+                                <span data-login-dropdown-text>Log in</span>
+
+                                <!-- Dropdown icon pointing up -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-less ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-up-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_less" />
+    </svg>
+
+
+
+                                <!-- Dropdown icon pointing down -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-more ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-down-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_more" />
+    </svg>
+
+
+                            
+
+        
+    
+        
+            </button>
+        
+
+
+
+                            <!-- Login dropdown menu -->
+                            <ul class="usa-nav__submenu ncbi-header__login-dropdown-menu"
+                                id="login-dropdown-menu"
+                                data-desktop-login-menu-dropdown
+                                hidden>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                <li class="usa-nav__submenu-item">
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--outline ncbi-header__login-dropdown-logout-button
+           "
+    
+    
+    
+    data-testid="desktopLogoutButton"
+    data-desktop-logout-button
+    >
+    
+        
+
+        Log out
+
+        
+    
+        
+            </button>
+        
+
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                </div>
+            
+        </div>
+    </div>
+
+    <!-- Search panel -->
+    
+        <div class="ncbi-search-panel ncbi--show-only-at-desktop"
+             data-header-search-panel
+             hidden>
+            <div class="ncbi-search-panel__container">
+                <form action="https://www.ncbi.nlm.nih.gov/search/all/"
+                      
+                      autocomplete="off"
+                      class="usa-search usa-search--big ncbi-search-panel__form"
+                      data-testid="desktop-navigation-search-form"
+                      method="GET"
+                      role="search">
+                    <label class="usa-sr-only" for="search-field-desktop-navigation">
+                        Search…
+                    </label>
+                    <input class="usa-input"
+                           id="search-field-desktop-navigation"
+                           name="term"
+                           
+                               placeholder="Search NCBI"
+                           
+                           type="search"
+                           value="" />
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                        <span class="usa-search__submit-text">
+                            Search NCBI
+                        </span>
+                    
+
+        
+    
+        
+            </button>
+        
+
+
+                </form>
+
+                
+            </div>
+        </div>
+    
+
+    <nav aria-label="Primary navigation" class="usa-nav">
+        <p class="usa-sr-only" id="primary-navigation-sr-only-title">
+            Primary site navigation
+        </p>
+
+        <!-- Mobile menu close button -->
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-nav__close ncbi-nav__close-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Close navigation menu"
+    data-testid="navCloseButton"
+    
+    >
+    
+        
+
+        
+            <img src="/static/img/usa-icons/close.svg" alt="Close" />
+        
+
+        
+    
+        
+            </button>
+        
+
+
+
+        
+            <!-- Mobile search component -->
+            <form class="usa-search usa-search--small ncbi--hide-at-desktop margin-top-6"
+                  action="https://www.ncbi.nlm.nih.gov/search/all/"
+                  
+                  autocomplete="off"
+                  data-testid="mobile-navigation-search-form"
+                  method="GET"
+                  role="search">
+                <label class="usa-sr-only" for="search-field-mobile-navigation">
+                    Search
+                </label>
+
+                <input class="usa-input"
+                       id="search-field-mobile-navigation"
+                       type="search"
+                       
+                           placeholder="Search NCBI"
+                       
+                       name="term" />
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                    <!-- This SVG should be kept inline and not replaced with a link to the icon as otherwise it will render in the wrong color -->
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0E2LjQ3MSA2LjQ3MSAwIDAgMCAxNiA5LjUgNi41IDYuNSAwIDEgMCA5LjUgMTZjMS42MSAwIDMuMDktLjU5IDQuMjMtMS41N2wuMjcuMjh2Ljc5bDUgNC45OUwyMC40OSAxOWwtNC45OS01em0tNiAwQzcuMDEgMTQgNSAxMS45OSA1IDkuNVM3LjAxIDUgOS41IDUgMTQgNy4wMSAxNCA5LjUgMTEuOTkgMTQgOS41IDE0eiIvPjwvc3ZnPg=="
+                         class="usa-search__submit-icon"
+                         alt="Search" />
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </form>
+
+            
+        
+
+        <!-- Primary navigation menu items -->
+        <!-- This usa-nav__inner wrapper is required to correctly style the navigation items on Desktop -->
+        
+
+        
+            <div class="ncbi-nav__mobile-login-menu ncbi--hide-at-desktop"
+                 data-mobile-login-menu
+                 hidden>
+                <p class="ncbi-nav__mobile-login-menu-status">
+                    Logged in as:
+                    <strong class="ncbi-nav__mobile-login-menu-email"
+                            data-mobile-login-email-text></strong>
+                </p>
+                <ul class="usa-nav__primary usa-accordion">
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           ncbi-nav__mobile-login-button ncbi--hide-at-desktop
+           "
+    
+    
+    
+    data-testid="mobileLoginButton"
+    data-mobile-login-button
+    >
+    
+        
+
+        Log in
+
+        
+    
+        
+            </button>
+        
+
+
+    </nav>
+</header>
+
+    
+    
+        
+
+<section class="pmc-header pmc-header--basic" aria-label="PMC Header with search box">
+    <div class="pmc-nav-container">
+        <div class="pmc-header__bar">
+           <div class="pmc-header__logo">
+               <a href="/" title="Home" aria-label="PMC Home"></a>
+           </div>
+            <button
+                    type="button"
+                    class="usa-button usa-button--unstyled pmc-header__search__button"
+                    aria-label="Open search"
+                    data-ga-category="search"
+                    data-ga-action="PMC"
+                    data-ga-label="pmc_search_panel_mobile"
+            >
+                <svg class="usa-icon width-4 height-4 pmc-icon__open" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#search"></use>
+                </svg>
+                <svg class="usa-icon width-4 height-4 pmc-icon__close" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="pmc-header__search">
+            
+
+
+<form class="usa-search usa-search--extra usa-search--article-right-column  pmc-header__search__form" id="pmc-search-form" autocomplete="off" role="search">
+<label class="usa-sr-only" for="pmc-search">Search PMC Full-Text Archive</label>
+<span class="autoComplete_wrapper flex-1">
+<input class="usa-input width-full maxw-none" required="required" placeholder="Search PMC Full-Text Archive" id="pmc-search"  type="search" name="term" data-autocomplete-url="https://pmc.ncbi.nlm.nih.gov/autocomp/search/autocomp/"/>
+</span>
+<button
+class="usa-button"
+type="submit"
+formaction="https://www.ncbi.nlm.nih.gov/pmc/"
+data-ga-category="search"
+data-ga-action="PMC"
+data-ga-label="PMC_search_button"
+>
+<span class="usa-search__submit-text">Search in PMC</span>
+<img
+src="/static/img/usa-icons-bg/search--white.svg"
+class="usa-search__submit-icon"
+alt="Search"
+/>
+</button>
+</form>
+            <div class="display-flex flex-column tablet:flex-row tablet:flex-justify flex-justify-center flex-align-center width-full desktop:maxw-44">
+                <ul class="pmc-header__search__menu">
+                    <li>
+                        
+                            <a class="usa-link" href="/journals/" data-ga-action="featured_link" data-ga-label="journal list">
+                                Journal List
+                            </a>
+                        
+                    </li>
+                    <li>
+                        
+                            <a class="usa-link" href="/about/userguide/" data-ga-action="featured_link"
+                            data-ga-label="user guide">
+                                User Guide
+                            </a>
+                        
+                    </li>
+                </ul>
+                
+                    <button form="pmc-search-form" formaction="https://pmc.ncbi.nlm.nih.gov/search/" type="submit" class="usa-button usa-button--unstyled hover:text-no-underline text-no-underline width-auto margin-top-1 tablet:margin-top-0">
+     <span class="bg-green-label padding-05 text-white">New</span><span class="text-underline text-primary">Try this search in PMC Beta Search</span>
+</button>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+
+
+        
+        
+
+       
+  <div class="usa-section padding-top-0 desktop:padding-top-6 pmc-article-section" data-article-db="pmc" data-article-id="12372245">
+
+    
+
+   
+
+
+
+<div class="grid-container pmc-actions-bar" aria-label="Actions bar" role="complementary">
+    <div class="grid-row">
+        <div class="grid-col-fill display-flex">
+             <div class="display-flex">
+                <ul class="usa-list usa-list--unstyled usa-list--horizontal">
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <button
+                                type="button"
+                                class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                                aria-label="Open resources"
+                                data-extra-class="is-visible-resources"
+                                data-ga-category="resources_accordion"
+                                data-ga-action="click"
+                                data-ga-label="mobile_icon"
+                        >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#more_vert"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <a
+                                href="https://doi.org/10.1186/s12874-025-02645-8"
+                                class="usa-link display-flex usa-tooltip"
+                                role="button"
+                                target="_blank"
+                                rel="noreferrer noopener"
+                                title="View on publisher site"
+                                data-position="bottom"
+                                aria-label="View on publisher site"
+                                data-ga-category="actions"
+                                data-ga-action="click"
+                                data-ga-label="publisher_link_mobile"
+                        >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#launch"></use>
+                                </svg>
+                        </a>
+                    </li>
+                    
+                    
+                        <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                             <a
+                                     href="pdf/12874_2025_Article_2645.pdf"
+                                     class="usa-link display-flex usa-tooltip"
+                                     role="button"
+                                     title="Download PDF"
+                                     data-position="bottom"
+                                     aria-label="Download PDF"
+                                     data-ga-category="actions"
+                                     data-ga-action="click"
+                                     data-ga-label="pdf_download_mobile"
+                             >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button
+                            class="usa-button usa-button--unstyled  usa-tooltip collections-dialog-trigger collections-button display-flex collections-button-empty"
+                            title="Add to Collections"
+                            data-position="bottom"
+                            aria-label="Save article in MyNCBI collections."
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="collections_button_mobile"
+                            data-collections-open-dialog-enabled="false"
+                            data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12372245%2F%3Freport%3Dclassic%23open-collections-dialog"
+                            data-in-collections="false"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button role="button" class="usa-button usa-button--unstyled usa-tooltip citation-dialog-trigger display-flex"
+                            aria-label="Open dialog with citation text in different styles"
+                            title="Cite"
+                            data-position="bottom"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="cite_mobile"
+                            data-all-citations-url="/resources/citations/12372245/"
+                            data-citation-style="nlm"
+                            data-download-format-link="/resources/citations/12372245/export/"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="pmc-permalink display-flex" >
+                         <button
+                                 type="button"
+                                 title="Permalink"
+                                 data-position="bottom"
+                                 class="usa-button usa-button--unstyled display-flex usa-tooltip"
+                                 aria-label="Show article permalink"
+                                 aria-expanded="false"
+                                 aria-haspopup="true"
+                                 data-ga-category="actions"
+                                 data-ga-action="open"
+                                 data-ga-label="permalink_mobile"
+                         >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#share"></use>
+                            </svg>
+                        </button>
+                        
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12372245/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+                    </li>
+                </ul>
+            </div>
+            <button
+                    type="button"
+                    class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                    aria-label="Open article navigation"
+                    data-extra-class="is-visible-in-page"
+                    data-ga-category="actions"
+                    data-ga-action="open"
+                    data-ga-label="article_nav_mobile"
+            >
+                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#list"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+    <div class="grid-container desktop:padding-left-6">
+      <div id="article-container" class="grid-row grid-gap">
+        <div class="grid-col-12 desktop:grid-col-8 order-2 pmc-layout__content">
+            <div class="grid-container padding-left-0 padding-right-0">
+                <div class="grid-row desktop:margin-left-neg-6">
+                    <div class="grid-col-12">
+                        <div class="pmc-layout__disclaimer" role="complementary" aria-label="Disclaimer note">
+    As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,
+    the contents by NLM or the National Institutes of Health.<br/>
+    Learn more:
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="Disclaimer" data-ga-label="New disclaimer box" href="/about/disclaimer/">PMC Disclaimer</a>
+    |
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="PMC Copyright Notice" data-ga-label="New disclaimer box" href="/about/copyright/">
+        PMC Copyright Notice
+    </a>
+</div>
+                    </div>
+                </div>
+                <div class="grid-row pmc-wm desktop:margin-left-neg-6">
+                    <!-- Main content -->
+                    <main
+                      id="main-content"
+                      class="usa-layout-docs__main usa-layout-docs grid-col-12 pmc-layout pmc-prose padding-0"
+                    >
+
+                      
+                        <section class="pmc-journal-banner text-center line-height-none" aria-label="Journal banner"><img src="https://cdn.ncbi.nlm.nih.gov/pmc/banners/logo-bmcmrm.png" alt="BMC Medical Research Methodology logo" usemap="#pmc-banner-imagemap" width="500" height="75"><map name="pmc-banner-imagemap"><area alt="Link to BMC Medical Research Methodology" title="Link to BMC Medical Research Methodology" shape="default" href="https://bmcmedresmethodol.biomedcentral.com/" target="_blank" rel="noopener noreferrer"></map></section><article lang="en"><section aria-label="Article citation and metadata"><section class="pmc-layout__citation font-secondary font-xs"><div>
+<div class="display-inline-block"><button type="button" class="cursor-pointer text-no-underline bg-transparent border-0 padding-0 text-left margin-0 text-normal text-primary" aria-controls="journal_context_menu">BMC Med Res Methodol</button></div>. 2025 Aug 22;25:197. doi: <a href="https://doi.org/10.1186/s12874-025-02645-8" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">10.1186/s12874-025-02645-8</a>
+</div>
+<nav id="journal_context_menu" hidden="hidden"><ul class="menu-list font-family-ui" role="menu">
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/pmc/?term=%22BMC%20Med%20Res%20Methodol%22%5Bjour%5D" class="usa-link" role="menuitem">Search in PMC</a></li>
+<li role="presentation"><a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22BMC%20Med%20Res%20Methodol%22%5Bjour%5D" lang="en" class="usa-link" role="menuitem">Search in PubMed</a></li>
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/nlmcatalog?term=%22BMC%20Med%20Res%20Methodol%22%5BTitle%20Abbreviation%5D" class="usa-link" role="menuitem">View in NLM Catalog</a></li>
+<li role="presentation"><a href="?term=%22BMC%20Med%20Res%20Methodol%22%5Bjour%5D" class="usa-link" role="menuitem" data-add-to-search="true">Add to search</a></li>
+</ul></nav></section><section class="front-matter"><div class="ameta p font-secondary font-xs">
+<hgroup><h1>Estimating area under the curve from graph-derived summary data: a systematic comparison of standard and Monte Carlo approaches</h1></hgroup><div class="cg p">
+<a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Titensor%20S%22%5BAuthor%5D" class="usa-link" aria-describedby="id1"><span class="name western">Sean Titensor</span></a><div hidden="hidden" id="id1">
+<h3><span class="name western">Sean Titensor</span></h3>
+<div class="p">
+<sup>1</sup>Department of Physics and Astronomy, Brigham Young University, Provo, UT 84602 USA </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Titensor%20S%22%5BAuthor%5D" class="usa-link"><span class="name western">Sean Titensor</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>#</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Ebbert%20J%22%5BAuthor%5D" class="usa-link" aria-describedby="id2"><span class="name western">Joshua Ebbert</span></a><div hidden="hidden" id="id2">
+<h3><span class="name western">Joshua Ebbert</span></h3>
+<div class="p">
+<sup>1</sup>Department of Physics and Astronomy, Brigham Young University, Provo, UT 84602 USA </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Ebbert%20J%22%5BAuthor%5D" class="usa-link"><span class="name western">Joshua Ebbert</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>#</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Corte%20KD%22%5BAuthor%5D" class="usa-link" aria-describedby="id3"><span class="name western">Karen Della Corte</span></a><div hidden="hidden" id="id3">
+<h3><span class="name western">Karen Della Corte</span></h3>
+<div class="p">
+<sup>2</sup>Department of Nutrition, Dietetics, and Food Science, Brigham Young University, Provo, UT 84602 USA </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Corte%20KD%22%5BAuthor%5D" class="usa-link"><span class="name western">Karen Della Corte</span></a>
+</div>
+</div>
+<sup>2</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Corte%20DD%22%5BAuthor%5D" class="usa-link" aria-describedby="id4"><span class="name western">Dennis Della Corte</span></a><div hidden="hidden" id="id4">
+<h3><span class="name western">Dennis Della Corte</span></h3>
+<div class="p">
+<sup>1</sup>Department of Physics and Astronomy, Brigham Young University, Provo, UT 84602 USA </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Corte%20DD%22%5BAuthor%5D" class="usa-link"><span class="name western">Dennis Della Corte</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>✉</sup>
+</div>
+<ul class="d-buttons inline-list">
+<li><button class="d-button" aria-controls="aip_a" aria-expanded="false">Author information</button></li>
+<li><button class="d-button" aria-controls="anp_a" aria-expanded="false">Article notes</button></li>
+<li><button class="d-button" aria-controls="clp_a" aria-expanded="false">Copyright and License information</button></li>
+</ul>
+<div class="d-panels font-secondary-light">
+<div id="aip_a" class="d-panel p" style="display: none">
+<div class="p" id="Aff1">
+<sup>1</sup>Department of Physics and Astronomy, Brigham Young University, Provo, UT 84602 USA </div>
+<div id="Aff2">
+<sup>2</sup>Department of Nutrition, Dietetics, and Food Science, Brigham Young University, Provo, UT 84602 USA </div>
+<div class="author-notes p">
+<div class="fn" id="_fncrsp93pmc__">
+<sup>✉</sup><p class="display-inline">Corresponding author.</p>
+</div>
+<div class="fn" id="_eqcntrb93pmc__">
+<sup>#</sup><p class="display-inline">Contributed equally.</p>
+</div>
+</div>
+</div>
+<div id="anp_a" class="d-panel p" style="display: none"><div class="notes p"><section id="historyarticle-meta1" class="history"><p>Received 2025 May 12; Accepted 2025 Jul 14; Collection date 2025.</p></section></div></div>
+<div id="clp_a" class="d-panel p" style="display: none">
+<div>© The Author(s) 2025</div>
+<p><strong>Open Access</strong> This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modified the licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">http://creativecommons.org/licenses/by-nc-nd/4.0/</a>.</p>
+<div class="p"><a href="/about/copyright/" class="usa-link">PMC Copyright notice</a></div>
+</div>
+</div>
+<div>PMCID: PMC12372245  PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/40846904/" class="usa-link">40846904</a>
+</div>
+</div></section></section><section aria-label="Article content"><section class="body main-article-body"><section class="abstract" id="Abs1"><h2>Abstract</h2>
+<section id="sec1"><h3 class="pmc_sec_title">Background</h3>
+<p id="Par1">Response curves are widely used in biomedical literature to summarize time-dependent outcomes, yet raw data are not always available in published reports. Meta-analysts must frequently extract means and standard errors from figures and estimate outcome measures like the area under the curve (AUC) without access to participant-level data. No standardized method exists for calculating AUC or propagating error under these constraints.</p></section><section id="sec2"><h3 class="pmc_sec_title">Methods</h3>
+<p id="Par2">We evaluate two methods for estimating AUC from figure-derived data: (1) a trapezoidal integration approach with extrema variance propagation, and (2) a Monte Carlo method that samples plausible response curves and integrates over their posterior distribution. We generated 3,920 synthetic datasets from seven functional response types commonly found in glycemic response and pharmacokinetic research, varying the number of timepoints (4–10) and participants (5–40). All response curves were normalized to a true AUC of 1.0.</p></section><section id="sec3"><h3 class="pmc_sec_title">Results</h3>
+<p id="Par3">The standard method consistently underestimated the true AUC, especially in curves with skewed or long-tailed structures. Monte Carlo method produced near-unbiased estimates with tighter alignment to the known AUC across all settings. Increasing the number of datapoints and participants improved performance for both methods, but the Monte Carlo approach retained robustness even under sparse conditions.</p></section><section id="sec4"><h3 class="pmc_sec_title">Conclusion</h3>
+<p id="Par4">This is the first large-scale benchmarking of AUC estimation accuracy from graphically extracted data. The Monte Carlo method outperforms standard approaches in both accuracy and uncertainty quantification. We recommend its adoption in meta-analytic contexts where only figure-derived data are available and advocate for improved data sharing practices in primary publications.</p></section><section id="kwd-group1" lang="en" class="kwd-group"><p><strong>Keywords:</strong> Area under the curve (AUC), Monte Carlo, Meta-analysis methods, Synthetic data simulation, Time-dependent outcomes, Figure data extraction, Trapezoidal integration, Error propagation</p></section></section><section id="Sec1"><h2 class="pmc_sec_title">Background</h2>
+<p id="Par9">Graphically summarized response curves are a common feature in experimental biomedical literature, particularly in glycemic response studies [<a href="#CR1" class="usa-link" aria-describedby="CR1">1</a>–<a href="#CR3" class="usa-link" aria-describedby="CR3">3</a>], pharmacokinetics/pharmacodynamics [<a href="#CR4" class="usa-link" aria-describedby="CR4">4</a>–<a href="#CR6" class="usa-link" aria-describedby="CR6">6</a>], toxicology [<a href="#CR7" class="usa-link" aria-describedby="CR7">7</a>], analytical chemistry [<a href="#CR8" class="usa-link" aria-describedby="CR8">8</a>], and comparative clinical studies [<a href="#CR9" class="usa-link" aria-describedby="CR9">9</a>]. These curves often present the temporal evolution of a biological signal across a small sample population, with group-level means and error bars reported at discrete time points. In the absence of raw participant-level data, researchers—especially those conducting meta-analyses—frequently rely on these figures and reported effect measures as the only available representation of a study’s time-dependent outcomes [<a href="#CR10" class="usa-link" aria-describedby="CR10">10</a>–<a href="#CR14" class="usa-link" aria-describedby="CR14">14</a>].</p>
+<p id="Par10">In many of these applications, area under the curve (AUC) or incremental AUC (iAUC) is the key outcome metric used to compare experimental groups [<a href="#CR9" class="usa-link" aria-describedby="CR9">9</a>, <a href="#CR15" class="usa-link" aria-describedby="CR15">15</a>–<a href="#CR25" class="usa-link" aria-describedby="CR25">25</a>]. While primary study authors have access to participant-level time series and can compute individual AUCs followed by statistical comparison, secondary users of figure-based data are limited to estimating the AUC from extracted summary values. This creates a methodological challenge: how to best approximate AUC and its uncertainty from digitized plots that typically report only group means and either standard deviations (SD) or standard errors of the mean (SEM), across an arbitrary and often sparse number of timepoints.</p>
+<p id="Par11">While tools such as PlotDigitizer have been widely adopted for extracting values from images, there is no accepted statistical protocol for computing AUC or propagating its uncertainty under these conditions [<a href="#CR26" class="usa-link" aria-describedby="CR26">26</a>, <a href="#CR27" class="usa-link" aria-describedby="CR27">27</a>]. The Cochrane Handbook and related training materials acknowledge this gap, noting that no standard method is available for deriving AUC from extracted graphical data [<a href="#CR28" class="usa-link" aria-describedby="CR28">28</a>]. Despite this, numerous meta-analyses cite the use of “standard formulas” to estimate AUC from digitized points, often without elaboration or error propagation detail [<a href="#CR29" class="usa-link" aria-describedby="CR29">29</a>]. This lack of transparency could have significant implications for the reproducibility and validity of quantitative syntheses.</p>
+<p id="Par12">In this work, we conduct a systematic investigation of this problem. First, we evaluate a commonly used “standard method” that applies the trapezoidal rule to the extracted means, using simple bound-based estimates for error approximation. Second, we propose and test a novel Monte Carlo approach that simulates a posterior distribution over possible AUCs given the extracted means and error bars. This method uses curve-wise sampling of synthetic individual-level responses, fitting interpolated splines to the sampled points, and integrating over the resulting distributions.</p>
+<p id="Par13">To evaluate both approaches, we create a synthetic library of response curves derived from seven well-established functional forms used in biomedical modeling. We vary the number of datapoints and number of participants across thousands of combinations, each normalized to a true AUC of 1.0. This setup allows us to measure bias and variance for both methods under controlled conditions, providing the first large-scale quantitative assessment of AUC estimation reliability from figure-derived data.</p></section><section id="Sec2"><h2 class="pmc_sec_title">Methods</h2>
+<section id="Sec3"><h3 class="pmc_sec_title">Overview</h3>
+<p id="Par14">This study systematically evaluates the accuracy of two approaches for estimating the area under the curve from digitized figure data: (1) a standard trapezoidal rule method with basic error propagation and (2) a Monte Carlo method using spline-based interpolation. The evaluation is conducted on a large synthetic dataset spanning diverse response curve shapes, varying participant sample sizes, and varying numbers of timepoints per curve.</p></section><section id="Sec4"><h3 class="pmc_sec_title">Synthetic response curve generation</h3>
+<p id="Par15">To simulate figure-derived data, we first constructed a model zoo of seven biologically plausible response functions commonly used in glycemic response modeling and pharmacokinetics: (1) skewed Gaussian (2), biexponential or dual exponential decay (3), Gamma distribution (4), Log-normal distribution (5), Weibull distribution (6), Bateman function (absorption-elimination), and (7) inverse Gaussian.</p>
+<p id="Par16">For each model, default parameter ranges were defined based on prior literature and empirical usage. We generated 10 parameterized variations per model by uniform random sampling within specified parameter bounds. Each function was evaluated on a high-resolution time grid (x ∈ [0, 200], 1000 points), then normalized to a total AUC of 1.0 using the trapezoidal rule.</p>
+<p id="Par17">To simulate experiment-like conditions, we computed the “support” region for each response curve by identifying the interval between the x-values at which the cumulative integral of the response first exceeded 1% and 99% of the total area under the curve. We then selected a fixed number of grid points within this region, ensuring representative sampling while mimicking practical experimental designs.</p></section><section id="Sec5"><h3 class="pmc_sec_title">Experimental design and data simulation</h3>
+<p id="Par18">Each synthetic response curve was used as a generative model to produce a large collection of study-like datasets, enabling systematic evaluation of AUC estimation methods across a wide range of experimental scenarios. To reflect the variability of typical real-world studies, we independently varied two key experimental parameters: the number of participants and the number of reported timepoints per curve. Simulated cohort sizes ranged from 5 to 40 in increments of five, capturing both small and moderately powered study designs. For each cohort size, we considered temporal sampling schemes consisting of 4 to 10 equally spaced timepoints, mimicking the sparse reporting frequency often encountered in published figures.</p>
+<p id="Par19">To maintain plausibility, timepoints were not sampled across the full curve domain but were instead restricted to the active support region of each response function, defined as the interval between the x-values where the cumulative integral first exceeded 1% and 99% of the total area under the curve. This ensured that sampling focused on the most informative portion of the trajectory while excluding low-signal tails. Within this interval, the true underlying response was evaluated at the specified number of timepoints to create a noise-free reference trajectory.</p>
+<p id="Par20">Simulated participant-level measurements were generated at each timepoint by adding Gaussian noise to the reference value at each timepoint. The noise model assumed heteroscedasticity: the standard deviation of the noise was proportional to the local signal magnitude, specifically 20% of the true value at each sampled point. This approach captured realistic intra-cohort variability and preserved signal-dependent noise characteristics commonly observed in physiological data.</p>
+<p id="Par21">Across these noisy, simulated individual measurements at each timepoint, we then calculated group-level summary statistic values of mean and standard deviation. These aggregate statistics represented the digitized figure data typically available in secondary analyses. In total, this resulted in 3,920 digitized study-like curves, each annotated with its ground truth (AUC = 1.0).</p></section><section id="Sec6"><h3 class="pmc_sec_title">Standard AUC estimation method</h3>
+<p id="Par22">The standard method approximates the AUC by applying the trapezoidal rule directly to the group-level means. To estimate uncertainty, AUC bounds were estimated by computing the trapezoidal rule on the mean ± standard deviation at each timepoint. The resulting range gives a comprehensive view of the estimated AUC by accounting for variability.</p>
+<p id="Par23">Given a vector of timepoints <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq1"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/cc1b/12372245/7bf0d5184837/d33e294.gif" loading="lazy" id="d33e294" alt="Inline graphic"></span> and the corresponding group-level means <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq2"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/cc1b/12372245/86a00d781b93/d33e300.gif" loading="lazy" id="d33e300" alt="Inline graphic"></span>, the area under the curve (AUC) is estimated using the trapezoidal rule:</p>
+<table class="disp-formula p" id="Equa"><tr><td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/cc1b/12372245/b326a997e5fb/d33e306.gif" loading="lazy" id="d33e306" alt="graphic file with name d33e306.gif"></td></tr></table>
+<p id="Par24">To approximate confidence bounds, we use the group-level standard deviations <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq3"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/cc1b/12372245/f25d6324af38/d33e313.gif" loading="lazy" id="d33e313" alt="Inline graphic"></span> to define upper and lower curves:</p>
+<table class="disp-formula p" id="Equb"><tr><td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/cc1b/12372245/3be2a70c97bd/d33e319.gif" loading="lazy" id="d33e319" alt="graphic file with name d33e319.gif"></td></tr></table>
+<p id="Par25">Integrate to produce AUC upper and lower bounds:</p>
+<table class="disp-formula p" id="Equc"><tr><td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/cc1b/12372245/6f344e538beb/d33e326.gif" loading="lazy" id="d33e326" alt="graphic file with name d33e326.gif"></td></tr></table>
+<p id="Par26">This yields an interval <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq4"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/cc1b/12372245/ef22616f3cf1/d33e333.gif" loading="lazy" id="d33e333" alt="Inline graphic"></span>, which we report as an approximate confidence range.</p></section><section id="Sec7"><h3 class="pmc_sec_title">Monte Carlo AUC estimation</h3>
+<p id="Par27">To improve on the standard approach, we implemented a simulation-based Monte Carlo method. For each digitized curve, the following steps were applied:</p>
+<p id="Par28">At each timepoint, we sampled 1,000 synthetic observations from a distribution defined by the group mean and standard deviation, generating an equal number of artificial response curves to capture variability at each timepoint. For each of the 1,000 generated sets of synthetic observations across timepoints, a univariate cubic spline was fitted. The AUC of each interpolated curve was then calculated using the trapezoidal rule. While explicit methods for integrating cubic splines exist, we opted for numerical integration using numpy.trapz due to its simplicity, robustness, and computational efficiency. The final AUC distribution was summarized by its mean and standard deviation.</p>
+<p id="Par29">Our simulation-based Monte Carlo approach captures uncertainty by repeatedly sampling from the posterior predictive distribution implied by the mean and standard deviation at each timepoint.</p>
+<p id="Par30">Let <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq5"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/cc1b/12372245/d43515ebd20f/d33e349.gif" loading="lazy" id="d33e349" alt="Inline graphic"></span> denote the <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq6"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/cc1b/12372245/a086866e2160/d33e355.gif" loading="lazy" id="d33e355" alt="Inline graphic"></span>th sample of synthetic response values.</p>
+<p id="Par31">For each draw <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq7"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/cc1b/12372245/8c408a4da839/d33e363.gif" loading="lazy" id="d33e363" alt="Inline graphic"></span>:</p>
+<ol class="list" style="list-style-type:decimal">
+<li><p id="Par33">Fit a smooth interpolating spline <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq8"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/cc1b/12372245/ca78edd00d0f/d33e377.gif" loading="lazy" id="d33e377" alt="Inline graphic"></span> through the sampled values<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq9"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/cc1b/12372245/5e084bfd113c/d33e383.gif" loading="lazy" id="d33e383" alt="Inline graphic"></span>.</p></li>
+<li><p id="Par34">Evaluate the spline at a dense grid <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq10"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/cc1b/12372245/b9d25b38f4a6/d33e394.gif" loading="lazy" id="d33e394" alt="Inline graphic"></span> over the time range.</p></li>
+<li><p id="Par35">Compute the AUC of the interpolated curve using the trapezoidal rule:</p></li>
+</ol>
+<table class="disp-formula p" id="Equd"><tr><td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/cc1b/12372245/e9e109bd5f6f/d33e406.gif" loading="lazy" id="d33e406" alt="graphic file with name d33e406.gif"></td></tr></table>
+<p id="Par36">The final AUC estimate is then summarized as the posterior mean and standard deviation:</p>
+<table class="disp-formula p" id="Eque"><tr><td class="formula"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/cc1b/12372245/53c07015027a/d33e414.gif" loading="lazy" id="d33e414" alt="graphic file with name d33e414.gif"></td></tr></table>
+<p id="Par37">Pseudo code that can be readily implemented in python, R, or other analysis software is given below:</p>
+<ul class="list" style="list-style-type:disc">
+<li><p id="Par38"><em>Initialize an empty list to store AUC estimates.</em></p></li>
+<li><div class="p" id="Par39">
+<em>Repeat the following steps n times (default n = 1000)</em>:<ul class="list" style="list-style-type:disc">
+<li><div class="p" id="Par40"><em>Draw a new set of response values by sampling from a normal distribution centered at each timepoint’s mean with the corresponding standard deviation.</em></div></li>
+<li><div class="p" id="Par41"><em>Fit a smooth interpolating spline through the sampled values over the original timepoints.</em></div></li>
+<li><div class="p" id="Par42">
+<em>Generate a fine-resolution time grid (e.g.</em>,<em> 1000 points) spanning the original time range.</em>
+</div></li>
+<li><div class="p" id="Par43"><em>Evaluate the interpolated curve on this fine grid.</em></div></li>
+<li><div class="p" id="Par44">
+<em>Calculate the area under the interpolated curve using numerical integration (e.g.</em>,<em> trapezoidal rule).</em>
+</div></li>
+<li><div class="p" id="Par45"><em>Store the calculated AUC.</em></div></li>
+</ul>
+</div></li>
+<li><p id="Par46"><em>Return the mean and standard deviation of the simulated AUCs as the final estimate and its uncertainty.</em></p></li>
+</ul>
+<p id="Par47">This method captures both within-point uncertainty and the effect of interpolation, propagating error through the integration step to yield a full posterior distribution of plausible AUC values.</p></section><section id="Sec8"><h3 class="pmc_sec_title">Simulation performance evaluation</h3>
+<p id="Par48">To evaluate the accuracy and precision of each AUC estimation method under simulation conditions, we computed a set of standard performance metrics as recommended by Morris et al. [<a href="#CR30" class="usa-link" aria-describedby="CR30">30</a>]. This included bias, defined as the average deviation of the estimated AUC values from the known true values; empirical standard error (SE), defined as the standard deviation of the estimates across simulation replicates; and root mean squared error (RMSE), defined as the square root of the mean squared deviation between estimated and true values. Coverage was also assessed, defined as the proportion of simulation replicates in which the 95% confidence interval for a given estimate contained the true value. For Monte Carlo method that yielded posterior distributions, the 95% highest density interval (HDI) was used to assess coverage, where applicable. All performance metrics were computed using custom Python functions developed for this study.</p></section><section id="Sec9"><h3 class="pmc_sec_title">Example application</h3>
+<p id="Par49">To validate the utility of our approach on real published data, we extracted glycemic response curves for 10 g allulose and 10 g fructose intakes from Fig. <a href="#Fig1" class="usa-link">1</a> of reference [<a href="#CR31" class="usa-link" aria-describedby="CR31">31</a>] using <em>PlotDigitizer</em>. Mean response values and their associated standard deviations were obtained at each reported timepoint. Both the standard trapezoidal method with basic error propagation and the Monte Carlo-based approach were applied to these extracted summary statistics to estimate the AUC for each curve.</p>
+<figure class="fig xbox font-sm" id="Fig1"><h4 class="obj_head">Fig. 1.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12372245_12874_2025_2645_Fig1_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/cc1b/12372245/f6514833cabf/12874_2025_2645_Fig1_HTML.jpg" loading="lazy" id="d33e498" height="534" width="708" alt="Fig. 1"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Reproduction of response curves from [<a href="#CR31" class="usa-link" aria-describedby="CR31">31</a>]. AUC differences between a fructose response and allulose response in plasma glucose need to be estimated</p></figcaption></figure></section></section><section id="Sec10"><h2 class="pmc_sec_title">Results</h2>
+<p id="Par50">As a proof-of-concept application, we evaluated the AUC of digitized glycemic response curves for allulose and fructose (Fig. <a href="#Fig1" class="usa-link">1</a> [<a href="#CR31" class="usa-link" aria-describedby="CR31">31</a>]). Table <a href="#Tab1" class="usa-link">1</a> summarizes the estimated differences in AUC between the two interventions. The standard method yielded a difference of 31.41 ± 43.28 mmol/L·min, while the Monte Carlo method estimated a difference of 34.98 ± 21.83 mmol/L·min. Unlike the standard approach, which relies on simplified bound approximations or restrictive analytic formulas like Bailer’s, the Monte Carlo procedure offers a flexible framework capable of accommodating complex time-response profiles and distributional assumptions. Here, the narrower uncertainty bounds obtained with the Monte Carlo approach suggest improved precision and potential for increased statistical sensitivity, despite being derived from the same digitized data.</p>
+<section class="tw xbox font-sm" id="Tab1"><h3 class="obj_head">Table 1.</h3>
+<div class="caption p"><p>Approximation ofAUC for example extraction. All values in mmol/l · min</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1"></th>
+<th align="left" colspan="1" rowspan="1">Standard AUC Mean</th>
+<th align="left" colspan="1" rowspan="1">Standard AUC Confidence Range</th>
+<th align="left" colspan="1" rowspan="1">Monte Carlo AUC Mean</th>
+<th align="left" colspan="1" rowspan="1">Monte Carlo AUC Std</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">Allulose</td>
+<td align="left" colspan="1" rowspan="1">226.37</td>
+<td align="left" colspan="1" rowspan="1">27.30</td>
+<td align="left" colspan="1" rowspan="1">244.51</td>
+<td align="left" colspan="1" rowspan="1">13.86</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Fructose</td>
+<td align="left" colspan="1" rowspan="1">257.79</td>
+<td align="left" colspan="1" rowspan="1">33.59</td>
+<td align="left" colspan="1" rowspan="1">278.48</td>
+<td align="left" colspan="1" rowspan="1">16.55</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></section><p id="Par52">To comprehensively benchmark both AUC estimation methods, we generated a testbed of representative response curves based on seven widely used mathematical models. For each model, 10 random parameterizations were sampled, yielding a total of 70 distinct, normalized ground truth response curves (see Fig. <a href="#Fig2" class="usa-link">2</a>). These curves served as reference functions for the synthetic simulation of digitized study data. As described in the Methods section, synthetic observations were generated by sampling from distributions with 20% relative uncertainty, across varying combinations of participant numbers and data point densities. This resulted in a total of 3,920 simulated response curves, systematically spanning realistic conditions encountered in small-scale experimental studies.</p>
+<figure class="fig xbox font-sm" id="Fig2"><h3 class="obj_head">Fig. 2.</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12372245_12874_2025_2645_Fig2_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/cc1b/12372245/8f4478837f64/12874_2025_2645_Fig2_HTML.jpg" loading="lazy" id="d33e577" height="926" width="708" alt="Fig. 2"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>R<em>e</em>presentative response curves from each of the seven functional types used to generate synthetic datasets. Each panel shows 10 parameterizations per curve type, normalized to a true AUC of 1.0 and plotted on a common x-axis (t ∈ [0, 200]). These span a wide range of biological response shapes, from symmetric and peaked to skewed and long-tailed</p></figcaption></figure><p id="Par54">We next applied both AUC estimation methods to all 3,920 synthetic response curves, each normalized to an AUC of 1.0 for consistent evaluation. Figure <a href="#Fig3" class="usa-link">3</a> summarizes the performance of the standard and Monte Carlo methods across diverse functional forms, sample sizes, and timepoint resolutions.</p>
+<figure class="fig xbox font-sm" id="Fig3"><h3 class="obj_head">Fig. 3.</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12372245_12874_2025_2645_Fig3_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/cc1b/12372245/a9ae1817e560/12874_2025_2645_Fig3_HTML.jpg" loading="lazy" id="d33e590" height="992" width="646" alt="Fig. 3"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig3/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Comparison of AUC estimates from the standard method and the Monte Carlo method. Mean AUC estimates are shown with 95% confidence intervals for each method, stratified by number of participants and timepoints. Dashed line indicates the true AUC = 1.0</p></figcaption></figure><p id="Par55">The Monte Carlo method consistently produced AUC estimates with higher fidelity to the true value, exhibiting distributions that were symmetric and tightly centered around 1.0. In contrast, the standard trapezoidal method showed a tendency to underestimate the AUC, particularly for response curves with strong asymmetry, rapid early peaks, or long-tailed decays.</p>
+<p id="Par56">Importantly, the Monte Carlo estimates were not only more accurate but also yielded error distributions with well-calibrated variance. These distributions were generally more symmetric and better aligned with the known ground truth. The standard method, despite producing narrower intervals in some cases, often missed the true value due to its systematic bias and limited error modeling.</p>
+<section id="Sec11"><h3 class="pmc_sec_title">Functional type performance</h3>
+<p id="Par57">Performance varied systematically by response curve type (Table <a href="#Tab2" class="usa-link">2</a>). The Monte Carlo method consistently produced AUC estimates that were more accurate and symmetric around the true value (AUC = 1.0), with reduced bias across all curve families.</p>
+<section class="tw xbox font-sm" id="Tab2"><h4 class="obj_head">Table 2.</h4>
+<div class="caption p"><p>Summary statistics across all simulations by curve type. For each of the seven functional response types, this table reports the average AUC estimates and standard deviations, for both the standard and Monte Carlo methods</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1">Curve Type</th>
+<th align="left" colspan="3" rowspan="1">Standard</th>
+<th align="left" colspan="3" rowspan="1">Monte Carlo</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">Bias</td>
+<td align="left" colspan="1" rowspan="1">RMSE</td>
+<td align="left" colspan="1" rowspan="1">Coverage (%)</td>
+<td align="left" colspan="1" rowspan="1">Bias</td>
+<td align="left" colspan="1" rowspan="1">RMSE</td>
+<td align="left" colspan="1" rowspan="1">Coverage (%)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"><em>Bateman</em></td>
+<td align="left" colspan="1" rowspan="1">−0.194</td>
+<td align="left" colspan="1" rowspan="1">0.227</td>
+<td align="left" colspan="1" rowspan="1">75.7</td>
+<td align="left" colspan="1" rowspan="1">−<strong>0.124</strong>
+</td>
+<td align="left" colspan="1" rowspan="1"><strong>0.172</strong></td>
+<td align="left" colspan="1" rowspan="1"><strong>82.1</strong></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"><em>Biexponential</em></td>
+<td align="left" colspan="1" rowspan="1">−0.130</td>
+<td align="left" colspan="1" rowspan="1">0.160</td>
+<td align="left" colspan="1" rowspan="1">91.6</td>
+<td align="left" colspan="1" rowspan="1"><strong>−0.079</strong></td>
+<td align="left" colspan="1" rowspan="1"><strong>0.115</strong></td>
+<td align="left" colspan="1" rowspan="1"><strong>92.3</strong></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"><em>Gamma</em></td>
+<td align="left" colspan="1" rowspan="1">−0.082</td>
+<td align="left" colspan="1" rowspan="1">0.132</td>
+<td align="left" colspan="1" rowspan="1">92.7</td>
+<td align="left" colspan="1" rowspan="1"><strong>−0.029</strong></td>
+<td align="left" colspan="1" rowspan="1"><strong>0.094</strong></td>
+<td align="left" colspan="1" rowspan="1"><strong>94.3</strong></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"><em>Inverse Gaussian</em></td>
+<td align="left" colspan="1" rowspan="1">−0.024</td>
+<td align="left" colspan="1" rowspan="1">0.050</td>
+<td align="left" colspan="1" rowspan="1"><strong>100.0</strong></td>
+<td align="left" colspan="1" rowspan="1"><strong>0.006</strong></td>
+<td align="left" colspan="1" rowspan="1"><strong>0.036</strong></td>
+<td align="left" colspan="1" rowspan="1">99.8</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"><em>Lognormal</em></td>
+<td align="left" colspan="1" rowspan="1">−0.098</td>
+<td align="left" colspan="1" rowspan="1">0.176</td>
+<td align="left" colspan="1" rowspan="1">87.9</td>
+<td align="left" colspan="1" rowspan="1"><strong>−0.022</strong></td>
+<td align="left" colspan="1" rowspan="1"><strong>0.144</strong></td>
+<td align="left" colspan="1" rowspan="1"><strong>90.2</strong></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"><em>Skewed Gaussian</em></td>
+<td align="left" colspan="1" rowspan="1">−0.020</td>
+<td align="left" colspan="1" rowspan="1">0.040</td>
+<td align="left" colspan="1" rowspan="1"><strong>100.0</strong></td>
+<td align="left" colspan="1" rowspan="1"><strong>0.006</strong></td>
+<td align="left" colspan="1" rowspan="1"><strong>0.033</strong></td>
+<td align="left" colspan="1" rowspan="1"><strong>100.0</strong></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"><em>Weibull</em></td>
+<td align="left" colspan="1" rowspan="1"><strong>−0.006</strong></td>
+<td align="left" colspan="1" rowspan="1"><strong>0.030</strong></td>
+<td align="left" colspan="1" rowspan="1"><strong>100.0</strong></td>
+<td align="left" colspan="1" rowspan="1">0.007</td>
+<td align="left" colspan="1" rowspan="1">0.050</td>
+<td align="left" colspan="1" rowspan="1"><strong>100.0</strong></td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<div class="tw-foot p"><div class="fn" id="_fn_p59"><p>Bold values indicate the best performing method for each curve type and metric (lowest bias and RMSE, highest coverage)</p></div></div></section><p id="Par58">The largest discrepancies were observed for complex or long-tailed functions such as the Bateman and biexponential models. Here, the standard method significantly underestimated the AUC (means: 0.80 and 0.83, respectively), while the Monte Carlo method yielded improved estimates (0.88 and 0.89) with identical or lower variance. Similar improvements were seen for gamma and lognormal functions, both of which exhibit moderate skew and variability.</p>
+<p id="Par59">Performance was highest on smoother, symmetric curves. For inverse Gaussian, skewed Gaussian, and Weibull models, both methods achieved estimates near the true AUC, but the Monte Carlo method was more tightly centered and less variable. Notably, skewed Gaussian and inverse Gaussian curves reached Monte Carlo means of 1.01 and 1.00, respectively, demonstrating robustness even under asymmetric conditions.</p>
+<p id="Par60">These results underscore the Monte Carlo method’s reliability across diverse curve morphologies, especially when digitized data is sparse or the functional form introduces skew, peaks, or tail complexity.</p></section><section id="Sec12"><h3 class="pmc_sec_title">Comparative performance of statistical methods</h3>
+<p id="Par61">The Monte Carlo method provides superior performance across multiple statistical criteria when compared to standard approach. The Monte Carlo implementation achieved the lowest RMSE values for the majority of probability distributions examined, including skewed Gaussian (0.033), gamma (0.094), lognormal (0.144), and inverse Gaussian (0.036) distributions. This superior precision indicates that Monte Carlo methods provide more accurate parameter estimates across diverse distributional contexts.</p>
+<p id="Par62">Bias performance further supports the superiority of the Monte Carlo approach. The method demonstrated substantially lower absolute bias compared to standard methods for several key distributions, most notably the gamma distribution (−0.029 vs. −0.082), lognormal distribution (−0.022 vs. −0.098), and Bateman distribution (−0.124 vs. −0.194). These improvements in bias reduction suggest that Monte Carlo sampling provides more unbiased parameter estimation, particularly for complex probability distributions where analytical solutions may be suboptimal.</p>
+<p id="Par63">Coverage probability analysis reveals that the Monte Carlo method maintains excellent reliability in uncertainty quantification. The method achieved perfect coverage (100%) for both skewed Gaussian and Weibull distributions, while demonstrating superior coverage compared to standard methods across multiple distributions including biexponential (92.3% vs. 91.6%), gamma (94.3% vs. 92.7%), lognormal (90.2% vs. 87.9%), and Bateman (82.1% vs. 75.7%) distributions. This consistent improvement in coverage probability indicates that Monte Carlo confidence intervals provide more reliable uncertainty bounds.</p></section><section id="Sec13"><h3 class="pmc_sec_title">Effect of sample size and resolution</h3>
+<p id="Par64">Both methods showed improved performance with increasing numbers of participants, reflected in reduced bias and narrower uncertainty estimates. However, the Monte Carlo method exhibited greater sensitivity to sample size increases, yielding rapid convergence toward the true AUC value.</p>
+<p id="Par65">Across all tested configurations, the standard method remained consistently biased, with mean AUC estimates plateauing around 0.90 regardless of participant count. In contrast, the Monte Carlo estimates steadily approached the ground truth, with mean values stabilizing around 0.95 and progressively tighter posterior distributions. Notably, with as few as 25 participants, the Monte Carlo method achieved near-zero bias across all curve types, while maintaining standard deviations lower than or equal to those of the standard approach.</p>
+<p id="Par66">These findings suggest that the Monte Carlo method not only provides better point estimates, but also scales more favorably with data quantity, making it particularly well-suited for meta-analyses using digitized summary data from modestly sized studies.</p></section><section id="Sec14"><h3 class="pmc_sec_title">Effect of timepoint resolution</h3>
+<p id="Par67">The number of digitized timepoints (grid points) had a pronounced effect on the accuracy and reliability of both AUC estimation methods. As shown in Table <a href="#Tab3" class="usa-link">3</a>, increasing the number of extracted timepoints from 4 to 10 systematically improved the performance of both the standard and Monte Carlo methods, with the Monte Carlo approach demonstrating superior convergence characteristics across all metrics.</p>
+<section class="tw xbox font-sm" id="Tab3"><h4 class="obj_head">Table 3.</h4>
+<div class="caption p"><p>Performance comparison of standard and Monte Carlo AUC Estimation methods across different timepoint resolutions</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead>
+<tr>
+<th align="left" rowspan="2" colspan="1">Grid Points</th>
+<th align="left" colspan="3" rowspan="1">Monte Carlo Method</th>
+<th align="left" colspan="3" rowspan="1">Standard Method</th>
+</tr>
+<tr>
+<th align="left" colspan="1" rowspan="1">Bias</th>
+<th align="left" colspan="1" rowspan="1">RMSE</th>
+<th align="left" colspan="1" rowspan="1">Coverage (%)</th>
+<th align="left" colspan="1" rowspan="1">Bias</th>
+<th align="left" colspan="1" rowspan="1">RMSE</th>
+<th align="left" colspan="1" rowspan="1">Coverage (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">4</td>
+<td align="left" colspan="1" rowspan="1">−0.112</td>
+<td align="left" colspan="1" rowspan="1">0.221</td>
+<td align="left" colspan="1" rowspan="1">68.9</td>
+<td align="left" colspan="1" rowspan="1">−0.186</td>
+<td align="left" colspan="1" rowspan="1">0.253</td>
+<td align="left" colspan="1" rowspan="1">67.7</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">5</td>
+<td align="left" colspan="1" rowspan="1">−0.048</td>
+<td align="left" colspan="1" rowspan="1">0.116</td>
+<td align="left" colspan="1" rowspan="1">92.0</td>
+<td align="left" colspan="1" rowspan="1">−0.117</td>
+<td align="left" colspan="1" rowspan="1">0.171</td>
+<td align="left" colspan="1" rowspan="1">85.0</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">6</td>
+<td align="left" colspan="1" rowspan="1">−0.031</td>
+<td align="left" colspan="1" rowspan="1">0.083</td>
+<td align="left" colspan="1" rowspan="1">98.2</td>
+<td align="left" colspan="1" rowspan="1">−0.082</td>
+<td align="left" colspan="1" rowspan="1">0.125</td>
+<td align="left" colspan="1" rowspan="1">95.5</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">7</td>
+<td align="left" colspan="1" rowspan="1">−0.015</td>
+<td align="left" colspan="1" rowspan="1">0.056</td>
+<td align="left" colspan="1" rowspan="1">99.8</td>
+<td align="left" colspan="1" rowspan="1">−0.057</td>
+<td align="left" colspan="1" rowspan="1">0.092</td>
+<td align="left" colspan="1" rowspan="1">99.8</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">8</td>
+<td align="left" colspan="1" rowspan="1">−0.010</td>
+<td align="left" colspan="1" rowspan="1">0.042</td>
+<td align="left" colspan="1" rowspan="1">99.8</td>
+<td align="left" colspan="1" rowspan="1">−0.044</td>
+<td align="left" colspan="1" rowspan="1">0.072</td>
+<td align="left" colspan="1" rowspan="1">99.8</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">9</td>
+<td align="left" colspan="1" rowspan="1">−0.006</td>
+<td align="left" colspan="1" rowspan="1">0.033</td>
+<td align="left" colspan="1" rowspan="1">100.0</td>
+<td align="left" colspan="1" rowspan="1">−0.033</td>
+<td align="left" colspan="1" rowspan="1">0.057</td>
+<td align="left" colspan="1" rowspan="1">100.0</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">10</td>
+<td align="left" colspan="1" rowspan="1">−0.005</td>
+<td align="center" colspan="1" rowspan="1">0.030</td>
+<td align="left" colspan="1" rowspan="1">100.0</td>
+<td align="left" colspan="1" rowspan="1">−0.028</td>
+<td align="left" colspan="1" rowspan="1">0.049</td>
+<td align="left" colspan="1" rowspan="1">100.0</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab3/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<div class="tw-foot p"><div class="fn" id="_fn_p71"><p>For each number of grid points, this table reports the bias, root mean square error (RMSE), and coverage probability for both methods across all simulations. Coverage probability represents the percentage of confidence intervals that contained the true AUC value</p></div></div></section><p id="Par68">The Monte Carlo method consistently outperformed the standard method in terms of bias reduction, precision, and coverage probability. At low resolution (4 points), the Monte Carlo method exhibited substantially lower bias (−0.11 vs. −0.19) and better root mean square error (RMSE) (0.22 vs. 0.25) compared to the standard method. As the number of timepoints increased, the Monte Carlo method achieved near-optimal performance more rapidly, with bias approaching zero and RMSE declining to 0.03 by 10 points. Notably, the Monte Carlo method achieved 100% coverage probability at 9–10 timepoints, indicating reliable confidence interval estimation.</p>
+<p id="Par69">In contrast, the standard method showed more gradual improvement with increasing resolution. While bias and RMSE decreased with additional timepoints, the method required more points to achieve comparable performance. The coverage probability for the standard method improved from 67.7% at 4 points to 100% at 7–10 points but consistently lagged the Monte Carlo approach at lower resolutions.</p>
+<p id="Par70">These findings underscore the Monte Carlo approach’s superior ability to extract meaningful information from sparse digitized curves, making it a more reliable and robust tool in situations where graphical data is coarse or incomplete. The method’s superior performance at low resolutions is particularly valuable for practical applications where high-resolution digitization may not be feasible.</p></section></section><section id="Sec15"><h2 class="pmc_sec_title">Conclusion</h2>
+<p id="Par71">We conducted the first large-scale, systematic evaluation of methods for estimating area under the curve (AUC) from figure-derived response data—a common challenge in meta-analysis where individual-level data is often inaccessible. Using a diverse set of 3920 synthetic response curves across seven realistic pharmacokinetic and nutritional models, we benchmarked the performance of standard trapezoidal integration with propagated error against a newly proposed Monte Carlo method.</p>
+<p id="Par72">Our results show that the standard method consistently underestimates AUC, particularly for skewed, peaked, or long-tailed functions, and performs poorly when only a small number of timepoints are available. In contrast, the Monte Carlo approach achieved nearly unbiased estimates across all curve types, with tighter distributions centered around the true AUC—even at low resolution or sample sizes. This advantage was especially pronounced when the number of participants or extracted timepoints was limited, where the standard method’s bias remained high.</p>
+<p id="Par73">Additionally, we applied both methods to a real-world glycemic response dataset, demonstrating that the Monte Carlo approach yielded more statistically informative differences and narrower uncertainty bounds than the standard method. These findings support the practical superiority of simulation-based AUC estimation from digitized figures.</p>
+<p id="Par74">Based on our findings, we recommend that meta-analysts adopt simulation-based approaches—such as the Monte Carlo method—when estimating AUC from figure-derived data, due to their superior accuracy and uncertainty handling. Primary researchers should not limit reporting to graphical summaries but also provide tabulated AUC values and their associated uncertainty estimates. Finally, journals should encourage, and where possible require, the sharing of full time-resolved datasets to support transparent, reproducible, and high-precision meta-analytic research.</p></section><section id="ack1" class="ack"><h2 class="pmc_sec_title">Acknowledgements</h2>
+<p>Not applicable.</p></section><section id="glossary1" class="glossary"><h2 class="pmc_sec_title">Abbreviations</h2>
+<dl class="def-list">
+<dt>AUC</dt>
+<dd><p id="Par5">Area under the curve</p></dd>
+<dt>iAUC</dt>
+<dd><p id="Par6">Incremental area under the curve</p></dd>
+<dt>SD</dt>
+<dd><p id="Par7">Standard deviation</p></dd>
+<dt>SEM</dt>
+<dd><p id="Par8">Standard errors of the mean</p></dd>
+</dl></section><section id="notes1"><h2 class="pmc_sec_title">Authors’ contributions</h2>
+<p>DDC conceived the study, provided the funding and supervision; ST, JE, DDC conducted the statistical analysis; KDC provided supervision; all authors contributed to the final manuscript writing and editing.</p></section><section id="notes2"><h2 class="pmc_sec_title">Funding</h2>
+<p>This study received no external funding support.</p></section><section id="notes3"><h2 class="pmc_sec_title">Data availability</h2>
+<p>The datasets used and analyzed are available from the corresponding author upon request. A git repository of the codebase is made available under MIT license here: <a href="https://github.com/dellacortelab/auc_public" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://github.com/dellacortelab/auc_public</a>.</p></section><section id="notes4"><h2 class="pmc_sec_title">Declarations</h2>
+<section id="FPar1"><h3 class="pmc_sec_title">Ethics approval and consent to participate</h3>
+<p id="Par75">Not applicable.</p></section><section id="FPar2"><h3 class="pmc_sec_title">Consent for publication</h3>
+<p id="Par76">Not applicable.</p></section><section id="FPar3"><h3 class="pmc_sec_title">Competing interests</h3>
+<p id="Par77">The authors declare no competing interests.</p></section></section><section id="fn-group1" class="fn-group"><h2 class="pmc_sec_title">Footnotes</h2>
+<div class="fn-group p font-secondary-light font-sm">
+<div class="fn p" id="fn1">
+<p><strong>Publisher’s Note</strong></p>
+<p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</div>
+<div class="fn p" id="fn2"><p>Sean Titensor and Joshua Ebbert contributed equally to this work.</p></div>
+</div></section><section id="Bib1" class="ref-list"><h2 class="pmc_sec_title">References</h2>
+<section id="Bib1_sec2"><ul class="ref-list font-sm" style="list-style-type:none">
+<li id="CR1">
+<span class="label">1.</span><cite>Kim JY, Michaliszyn SF, Nasr A, Lee S, Tfayli H, Hannon T, et al. The shape of the glucose response curve during an oral glucose tolerance test heralds biomarkers of type 2 diabetes risk in obese youth. Diabetes Care. 2016;39(8):1431–9.
+</cite> [<a href="https://doi.org/10.2337/dc16-0352" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC4955931/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/27293201/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Kim%20JY,%20Michaliszyn%20SF,%20Nasr%20A,%20Lee%20S,%20Tfayli%20H,%20Hannon%20T,%20et%20al.%20The%20shape%20of%20the%20glucose%20response%20curve%20during%20an%20oral%20glucose%20tolerance%20test%20heralds%20biomarkers%20of%20type%202%20diabetes%20risk%20in%20obese%20youth.%20Diabetes%20Care.%202016;39(8):1431%E2%80%939." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR2">
+<span class="label">2.</span><cite>Hulman A, Witte DR, Vistisen D, Balkau B, Dekker JM, Herder C, et al. Pathophysiological characteristics underlying different glucose response curves: a latent class trajectory analysis from the prospective EGIR-RISC study. Diabetes Care. 2018;41(8):1740–8.
+</cite> [<a href="https://doi.org/10.2337/dc18-0279" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/29853473/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Hulman%20A,%20Witte%20DR,%20Vistisen%20D,%20Balkau%20B,%20Dekker%20JM,%20Herder%20C,%20et%20al.%20Pathophysiological%20characteristics%20underlying%20different%20glucose%20response%20curves:%20a%20latent%20class%20trajectory%20analysis%20from%20the%20prospective%20EGIR-RISC%20study.%20Diabetes%20Care.%202018;41(8):1740%E2%80%938." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR3">
+<span class="label">3.</span><cite>Arslanian SA, El Ghormli L, Kim JY, Tjaden AH, Barengolts E, Caprio S, et al. OGTT glucose response curves, insulin sensitivity, and β-cell function in RISE: comparison between youth and adults at randomization and in response to interventions to preserve β-cell function. Diabetes Care. 2021;44(3):817–25.
+</cite> [<a href="https://doi.org/10.2337/dc20-2134" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC7896250/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/33436401/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Arslanian%20SA,%20El%20Ghormli%20L,%20Kim%20JY,%20Tjaden%20AH,%20Barengolts%20E,%20Caprio%20S,%20et%20al.%20OGTT%20glucose%20response%20curves,%20insulin%20sensitivity,%20and%20%CE%B2-cell%20function%20in%20RISE:%20comparison%20between%20youth%20and%20adults%20at%20randomization%20and%20in%20response%20to%20interventions%20to%20preserve%20%CE%B2-cell%20function.%20Diabetes%20Care.%202021;44(3):817%E2%80%9325." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR4">
+<span class="label">4.</span><cite>Gabrielsson J, Andersson R, Jirstrand M, Hjorth S. Dose-response-time data analysis: an underexploited trinity. Pharmacol Rev. 2019;71(1):89–122.
+</cite> [<a href="https://doi.org/10.1124/pr.118.015750" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/30587536/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Gabrielsson%20J,%20Andersson%20R,%20Jirstrand%20M,%20Hjorth%20S.%20Dose-response-time%20data%20analysis:%20an%20underexploited%20trinity.%20Pharmacol%20Rev.%202019;71(1):89%E2%80%93122." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR5">
+<span class="label">5.</span><cite>Gadagkar SR, Call GB. Computational tools for fitting the hill equation to dose-response curves. J Pharmacol Toxicol Methods. 2015;71:68–76.
+</cite> [<a href="https://doi.org/10.1016/j.vascn.2014.08.006" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/25157754/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Gadagkar%20SR,%20Call%20GB.%20Computational%20tools%20for%20fitting%20the%20hill%20equation%20to%20dose-response%20curves.%20J%20Pharmacol%20Toxicol%20Methods.%202015;71:68%E2%80%9376." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR6">
+<span class="label">6.</span><cite>Xing Z, Eckhardt J, Vaidya AS, Cutler SR. Biocurve analyzer: a web-based Shiny app for analyzing biological response curves. Plant Methods. 2025;21(1):55.
+</cite> [<a href="https://doi.org/10.1186/s13007-025-01372-x" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC12036208/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/40289147/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Xing%20Z,%20Eckhardt%20J,%20Vaidya%20AS,%20Cutler%20SR.%20Biocurve%20analyzer:%20a%20web-based%20Shiny%20app%20for%20analyzing%20biological%20response%20curves.%20Plant%20Methods.%202025;21(1):55." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR7">
+<span class="label">7.</span><cite>Kappenberg F, Brecklinghaus T, Albrecht W, Blum J, van der Wurp C, Leist M, et al. Handling deviating control values in concentration-response curves. Arch Toxicol. 2020;94(11):3787–98.
+</cite> [<a href="https://doi.org/10.1007/s00204-020-02913-0" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC7603474/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/32965549/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Kappenberg%20F,%20Brecklinghaus%20T,%20Albrecht%20W,%20Blum%20J,%20van%20der%20Wurp%20C,%20Leist%20M,%20et%20al.%20Handling%20deviating%20control%20values%20in%20concentration-response%20curves.%20Arch%20Toxicol.%202020;94(11):3787%E2%80%9398." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR8">
+<span class="label">8.</span><cite>van den Brink PJ, den Besten PJ, bij de Vaate A, ter Braak CJF. Principal response curves technique for the analysis of multivariate biomonitoring time series. Environ Monit Assess. 2009;152(1):271–81.
+</cite> [<a href="https://doi.org/10.1007/s10661-008-0314-6" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/18484186/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?van%20den%20Brink%20PJ,%20den%20Besten%20PJ,%20bij%20de%20Vaate%20A,%20ter%20Braak%20CJF.%20Principal%20response%20curves%20technique%20for%20the%20analysis%20of%20multivariate%20biomonitoring%20time%20series.%20Environ%20Monit%20Assess.%202009;152(1):271%E2%80%9381." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR9">
+<span class="label">9.</span><cite>Huang B, Tian L, McCaw ZR, Luo X, Talukder E, Rothenberg M, et al. Analysis of response data for assessing treatment effects in comparative clinical studies. Ann Intern Med. 2020;173(5):368–74.
+</cite> [<a href="https://doi.org/10.7326/M20-0104" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC7773521/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/32628533/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Huang%20B,%20Tian%20L,%20McCaw%20ZR,%20Luo%20X,%20Talukder%20E,%20Rothenberg%20M,%20et%20al.%20Analysis%20of%20response%20data%20for%20assessing%20treatment%20effects%20in%20comparative%20clinical%20studies.%20Ann%20Intern%20Med.%202020;173(5):368%E2%80%9374." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR10">
+<span class="label">10.</span><cite>McGrath S, Zhao X, Steele R, Thombs BD, Benedetti A. Estimating the sample mean and standard deviation from commonly reported quantiles in meta-analysis. Stat Methods Med Res. 2020;29(9):2520–37.
+</cite> [<a href="https://doi.org/10.1177/0962280219889080" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC7390706/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/32292115/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?McGrath%20S,%20Zhao%20X,%20Steele%20R,%20Thombs%20BD,%20Benedetti%20A.%20Estimating%20the%20sample%20mean%20and%20standard%20deviation%20from%20commonly%20reported%20quantiles%20in%20meta-analysis.%20Stat%20Methods%20Med%20Res.%202020;29(9):2520%E2%80%9337." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR11">
+<span class="label">11.</span><cite>Tudur Smith C, Marcucci M, Nolan SJ, Iorio A, Sudell M, Riley R, et al. Individual participant data meta-analyses compared with meta-analyses based on aggregate data. Cochrane Database Syst Rev. 2016;9(9):Mr000007.
+</cite> [<a href="https://doi.org/10.1002/14651858.MR000007.pub3" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC7125394/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/27595791/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Tudur%20Smith%20C,%20Marcucci%20M,%20Nolan%20SJ,%20Iorio%20A,%20Sudell%20M,%20Riley%20R,%20et%20al.%20Individual%20participant%20data%20meta-analyses%20compared%20with%20meta-analyses%20based%20on%20aggregate%20data.%20Cochrane%20Database%20Syst%20Rev.%202016;9(9):Mr000007." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR12">
+<span class="label">12.</span><cite>Tierney JF, Fisher DJ, Burdett S, Stewart LA, Parmar MKB. Comparison of aggregate and individual participant data approaches to meta-analysis of randomised trials: an observational study. PLoS Med. 2020;17(1):e1003019.
+</cite> [<a href="https://doi.org/10.1371/journal.pmed.1003019" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC6993967/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/32004320/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Tierney%20JF,%20Fisher%20DJ,%20Burdett%20S,%20Stewart%20LA,%20Parmar%20MKB.%20Comparison%20of%20aggregate%20and%20individual%20participant%20data%20approaches%20to%20meta-analysis%20of%20randomised%20trials:%20an%20observational%20study.%20PLoS%20Med.%202020;17(1):e1003019." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR13">
+<span class="label">13.</span><cite>Kovalchik SA. Survey finds that most meta-analysts do not attempt to collect individual patient data. J Clin Epidemiol. 2012;65(12):1296–9.
+</cite> [<a href="https://doi.org/10.1016/j.jclinepi.2012.07.010" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC3478473/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/22981246/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Kovalchik%20SA.%20Survey%20finds%20that%20most%20meta-analysts%20do%20not%20attempt%20to%20collect%20individual%20patient%20data.%20J%20Clin%20Epidemiol.%202012;65(12):1296%E2%80%939." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR14">
+<span class="label">14.</span><cite>Cooper H, Patall EA. The relative benefits of meta-analysis conducted with individual participant data versus aggregated data. Psychol Methods. 2009;14(2):165–76.
+</cite> [<a href="https://doi.org/10.1037/a0015565" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/19485627/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Cooper%20H,%20Patall%20EA.%20The%20relative%20benefits%20of%20meta-analysis%20conducted%20with%20individual%20participant%20data%20versus%20aggregated%20data.%20Psychol%20Methods.%202009;14(2):165%E2%80%9376." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR15">
+<span class="label">15.</span><cite>Walter SD. The partial area under the summary ROC curve. Stat Med. 2005;24(13):2025–40.
+</cite> [<a href="https://doi.org/10.1002/sim.2103" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/15900606/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Walter%20SD.%20The%20partial%20area%20under%20the%20summary%20ROC%20curve.%20Stat%20Med.%202005;24(13):2025%E2%80%9340." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR16">
+<span class="label">16.</span><cite>Pham B, Cranney A, Boers M, Verhoeven AC, Wells G, Tugwell P. Validity of area-under-the-curve analysis to summarize effect in rheumatoid arthritis clinical trials. J Rheumatol. 1999;26(3):712–6.
+</cite> [<a href="https://pubmed.ncbi.nlm.nih.gov/10090188/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Pham%20B,%20Cranney%20A,%20Boers%20M,%20Verhoeven%20AC,%20Wells%20G,%20Tugwell%20P.%20Validity%20of%20area-under-the-curve%20analysis%20to%20summarize%20effect%20in%20rheumatoid%20arthritis%20clinical%20trials.%20J%20Rheumatol.%201999;26(3):712%E2%80%936." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR17">
+<span class="label">17.</span><cite>Schiff M. A rationale for the use of summary measurements for the assessment of the effects of rheumatoid arthritis therapies. Clin Ther. 2003;25(3):993–1001.
+</cite> [<a href="https://doi.org/10.1016/s0149-2918(03)80119-4" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/12852713/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Schiff%20M.%20A%20rationale%20for%20the%20use%20of%20summary%20measurements%20for%20the%20assessment%20of%20the%20effects%20of%20rheumatoid%20arthritis%20therapies.%20Clin%20Ther.%202003;25(3):993%E2%80%931001." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR18">
+<span class="label">18.</span><cite>Carusone SC, Goldsmith CH, Smieja M, Loeb M. Summary measures were a useful alternative for analyzing therapeutic clinical trial data. J Clin Epidemiol. 2006;59(4):387–92.
+</cite> [<a href="https://doi.org/10.1016/j.jclinepi.2005.05.009" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/16549261/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Carusone%20SC,%20Goldsmith%20CH,%20Smieja%20M,%20Loeb%20M.%20Summary%20measures%20were%20a%20useful%20alternative%20for%20analyzing%20therapeutic%20clinical%20trial%20data.%20J%20Clin%20Epidemiol.%202006;59(4):387%E2%80%9392." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR19">
+<span class="label">19.</span><cite>Scheff JD, Almon RR, Dubois DC, Jusko WJ, Androulakis IP. Assessment of pharmacologic area under the curve when baselines are variable. Pharm Res. 2011;28(5):1081–9.
+</cite> [<a href="https://doi.org/10.1007/s11095-010-0363-8" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC3152796/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/21234658/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Scheff%20JD,%20Almon%20RR,%20Dubois%20DC,%20Jusko%20WJ,%20Androulakis%20IP.%20Assessment%20of%20pharmacologic%20area%20under%20the%20curve%20when%20baselines%20are%20variable.%20Pharm%20Res.%202011;28(5):1081%E2%80%939." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR20">
+<span class="label">20.</span><cite>Lydick E, Epstein RS, Himmelberger D, White CJ. Area under the curve: a metric for patient subjective responses in episodic diseases. Qual Life Res. 1995;4(1):41–5.
+</cite> [<a href="https://doi.org/10.1007/BF00434382" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/7711690/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Lydick%20E,%20Epstein%20RS,%20Himmelberger%20D,%20White%20CJ.%20Area%20under%20the%20curve:%20a%20metric%20for%20patient%20subjective%20responses%20in%20episodic%20diseases.%20Qual%20Life%20Res.%201995;4(1):41%E2%80%935." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR21">
+<span class="label">21.</span><cite>Neoptolemos JP, Stocken DD, Friess H, Bassi C, Dunn JA, Hickey H, et al. A randomized trial of chemoradiotherapy and chemotherapy after resection of pancreatic cancer. N Engl J Med. 2004;350(12):1200–10.
+</cite> [<a href="https://doi.org/10.1056/NEJMoa032295" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/15028824/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Neoptolemos%20JP,%20Stocken%20DD,%20Friess%20H,%20Bassi%20C,%20Dunn%20JA,%20Hickey%20H,%20et%20al.%20A%20randomized%20trial%20of%20chemoradiotherapy%20and%20chemotherapy%20after%20resection%20of%20pancreatic%20cancer.%20N%20Engl%20J%20Med.%202004;350(12):1200%E2%80%9310." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR22">
+<span class="label">22.</span><cite>Schleyer E, Kühn S, Rührs H, Unterhalt M, Kaufmann CC, Kern W, et al. Oral Idarubicin pharmacokinetics–correlation of trough level with Idarubicin area under curve. Leukemia. 1996;10(4):707–12.
+</cite> [<a href="https://pubmed.ncbi.nlm.nih.gov/8618451/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Schleyer%20E,%20K%C3%BChn%20S,%20R%C3%BChrs%20H,%20Unterhalt%20M,%20Kaufmann%20CC,%20Kern%20W,%20et%20al.%20Oral%20Idarubicin%20pharmacokinetics%E2%80%93correlation%20of%20trough%20level%20with%20Idarubicin%20area%20under%20curve.%20Leukemia.%201996;10(4):707%E2%80%9312." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR23">
+<span class="label">23.</span><cite>Duh MS, Lefebvre P, Fastenau J, Piech CT, Waltzman RJ. Assessing the clinical benefits of erythropoietic agents using area under the hemoglobin change curve. Oncologist. 2005;10(6):438–48.
+</cite> [<a href="https://doi.org/10.1634/theoncologist.10-6-438" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/15967837/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Duh%20MS,%20Lefebvre%20P,%20Fastenau%20J,%20Piech%20CT,%20Waltzman%20RJ.%20Assessing%20the%20clinical%20benefits%20of%20erythropoietic%20agents%20using%20area%20under%20the%20hemoglobin%20change%20curve.%20Oncologist.%202005;10(6):438%E2%80%9348." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR24">
+<span class="label">24.</span><cite>Cole SR, Napravnik S, Mugavero MJ, Lau B, Eron JJ Jr., Saag MS. Copy-years viremia as a measure of cumulative human immunodeficiency virus viral burden. Am J Epidemiol. 2010;171(2):198–205.
+</cite> [<a href="https://doi.org/10.1093/aje/kwp347" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC2878100/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/20007202/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Cole%20SR,%20Napravnik%20S,%20Mugavero%20MJ,%20Lau%20B,%20Eron%20JJ%20Jr.,%20Saag%20MS.%20Copy-years%20viremia%20as%20a%20measure%20of%20cumulative%20human%20immunodeficiency%20virus%20viral%20burden.%20Am%20J%20Epidemiol.%202010;171(2):198%E2%80%93205." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR25">
+<span class="label">25.</span><cite>Calfee DP, Peng AW, Cass LM, Lobo M, Hayden FG. Safety and efficacy of intravenous zanamivir in preventing experimental human influenza A virus infection. Antimicrob Agents Chemother. 1999;43(7):1616–20.
+</cite> [<a href="https://doi.org/10.1128/aac.43.7.1616" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC89333/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/10390212/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Calfee%20DP,%20Peng%20AW,%20Cass%20LM,%20Lobo%20M,%20Hayden%20FG.%20Safety%20and%20efficacy%20of%20intravenous%20zanamivir%20in%20preventing%20experimental%20human%20influenza%20A%20virus%20infection.%20Antimicrob%20Agents%20Chemother.%201999;43(7):1616%E2%80%9320." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR26">
+<span class="label">26.</span><cite>Aydin O, Yassikaya MY. Validity and reliability analysis of the plotdigitizer software program for data extraction from single-case graphs. Perspect Behav Sci. 2022;45(1):239–57.
+</cite> [<a href="https://doi.org/10.1007/s40614-021-00284-0" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8894524/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/35342869/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Aydin%20O,%20Yassikaya%20MY.%20Validity%20and%20reliability%20analysis%20of%20the%20plotdigitizer%20software%20program%20for%20data%20extraction%20from%20single-case%20graphs.%20Perspect%20Behav%20Sci.%202022;45(1):239%E2%80%9357." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR27">
+<span class="label">27.</span><cite>Drevon D, Fursa SR, Malcolm AL. Intercoder reliability and validity of webplotdigitizer in extracting graphed data. Behav Modif. 2017;41(2):323–39.
+</cite> [<a href="https://doi.org/10.1177/0145445516673998" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/27760807/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Drevon%20D,%20Fursa%20SR,%20Malcolm%20AL.%20Intercoder%20reliability%20and%20validity%20of%20webplotdigitizer%20in%20extracting%20graphed%20data.%20Behav%20Modif.%202017;41(2):323%E2%80%9339." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR28">
+<span class="label">28.</span><cite>Higgins JPTJ, Chandler J, Cumpston M, Li T, Page MJ, Welch VA, editors. (s). Cochrane Handbook for Systematic Reviews of Interventions Version 6.5 (updated August 2024). Cochrane, 2024.</cite>
+</li>
+<li id="CR29">
+<span class="label">29.</span><cite>Vucic K, Jelicic Kadic A, Puljak L. Survey of Cochrane protocols found methods for data extraction from figures not mentioned or unclear. J Clin Epidemiol. 2015;68(10):1161–4.
+</cite> [<a href="https://doi.org/10.1016/j.jclinepi.2014.11.016" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/25577327/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Vucic%20K,%20Jelicic%20Kadic%20A,%20Puljak%20L.%20Survey%20of%20Cochrane%20protocols%20found%20methods%20for%20data%20extraction%20from%20figures%20not%20mentioned%20or%20unclear.%20J%20Clin%20Epidemiol.%202015;68(10):1161%E2%80%934." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR30">
+<span class="label">30.</span><cite>Morris TP, White IR, Crowther MJ. Using simulation studies to evaluate statistical methods. Stat Med. 2019;38(11):2074–102.
+</cite> [<a href="https://doi.org/10.1002/sim.8086" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC6492164/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/30652356/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Morris%20TP,%20White%20IR,%20Crowther%20MJ.%20Using%20simulation%20studies%20to%20evaluate%20statistical%20methods.%20Stat%20Med.%202019;38(11):2074%E2%80%93102." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR31">
+<span class="label">31.</span><cite>Braunstein CR, Noronha JC, Glenn AJ, Viguiliouk E, Noseworthy R, Khan TA, et al. A double-blind, randomized controlled, acute feeding equivalence trial of small, catalytic doses of Fructose and allulose on postprandial blood glucose metabolism in healthy participants: the Fructose and allulose catalytic effects (FACE) trial. Nutrients. 2018;10(6):750.
+</cite> [<a href="https://doi.org/10.3390/nu10060750" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC6024645/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/29890724/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Braunstein%20CR,%20Noronha%20JC,%20Glenn%20AJ,%20Viguiliouk%20E,%20Noseworthy%20R,%20Khan%20TA,%20et%20al.%20A%20double-blind,%20randomized%20controlled,%20acute%20feeding%20equivalence%20trial%20of%20small,%20catalytic%20doses%20of%20Fructose%20and%20allulose%20on%20postprandial%20blood%20glucose%20metabolism%20in%20healthy%20participants:%20the%20Fructose%20and%20allulose%20catalytic%20effects%20(FACE)%20trial.%20Nutrients.%202018;10(6):750." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+</ul></section></section><section id="_ad93_" lang="en" class="associated-data"><h2 class="pmc_sec_title">Associated Data</h2>
+<p class="font-secondary"><em>This section collects any data citations, data availability statements, or supplementary materials included in this article.</em></p>
+<section id="_adda93_" lang="en" class="data-availability-statement"><h3 class="pmc_sec_title">Data Availability Statement</h3>
+<p>The datasets used and analyzed are available from the corresponding author upon request. A git repository of the codebase is made available under MIT license here: <a href="https://github.com/dellacortelab/auc_public" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://github.com/dellacortelab/auc_public</a>.</p></section></section></section><footer class="p courtesy-note font-secondary font-sm text-center"><hr class="headless">
+<p>Articles from BMC Medical Research Methodology are provided here courtesy of <strong>BMC</strong></p></footer></section></article>
+
+                      
+
+                    </main>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+<!-- Secondary navigation placeholder -->
+<div class="pmc-sidenav desktop:grid-col-4 display-flex">
+    <section class="pmc-sidenav__container" aria-label="Article resources and navigation">
+        <button type="button" class="usa-button pmc-sidenav__container__close usa-button--unstyled">
+            <img src="/static/img/usa-icons/close.svg" role="img" alt="Close" />
+        </button>
+    <div class="display-none desktop:display-block">
+       <section class="margin-top-4 desktop:margin-top-0">
+              <h2 class="margin-top-0">ACTIONS</h2>
+           <ul class="usa-list usa-list--unstyled usa-list--actions">
+               
+               <li>
+                     <a
+                             href="https://doi.org/10.1186/s12874-025-02645-8"
+                             class="usa-button usa-button--outline width-24 font-xs display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                             target="_blank"
+                             rel="noreferrer noopener"
+                             data-ga-category="actions"
+                             data-ga-action="click"
+                             data-ga-label="publisher_link_desktop"
+                     >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#launch"></use>
+                         </svg>
+                         <span class="display-inline-flex flex-justify-center flex-1 padding-right-2">View on publisher site</span>
+                     </a>
+               </li>
+               
+               
+               <li>
+                    <a
+                            href="pdf/12874_2025_Article_2645.pdf"
+                            class="usa-button usa-button--outline width-24 display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="pdf_download_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1">PDF (1.7 MB)</span>
+                    </a>
+               </li>
+               
+                
+               <li>
+                   <button role="button" class="usa-button width-24 citation-dialog-trigger display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                        aria-label="Open dialog with citation text in different styles"
+                        data-ga-category="actions"
+                        data-ga-action="open"
+                        data-ga-label="cite_desktop"
+                        data-all-citations-url="/resources/citations/12372245/"
+                        data-citation-style="nlm"
+                        data-download-format-link="/resources/citations/12372245/export/"
+                    >
+                        <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                        </svg>
+                       <span class="display-inline-flex flex-justify-center flex-1 button-label">Cite</span>
+                    </button>
+               </li>
+                
+               <li>
+
+                        <button class="usa-button width-24 collections-dialog-trigger collections-button display-inline-flex flex-align-center flex-justify-start padding-left-1 collections-button-empty"
+                              aria-label="Save article in MyNCBI collections."
+                              data-ga-category="actions"
+                              data-ga-action="click"
+                              data-ga-label="collections_button_desktop"
+                              data-collections-open-dialog-enabled="false"
+                              data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12372245%2F%3Freport%3Dclassic%23open-collections-dialog"
+                              data-in-collections="false">
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                            <span class="display-inline-flex flex-justify-center flex-1">Collections</span>
+                       </button>
+               </li>
+               <li class="pmc-permalink">
+                    <button
+                            type="button"
+                            class="usa-button width-24 display-inline-flex flex-align-center flex-justify padding-left-1 shadow-none"
+                            aria-label="Show article permalink"
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="permalink_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#share"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1 button-label">Permalink</span>
+                    </button>
+                   
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12372245/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+               </li>
+           </ul>
+       </section>
+     </div>
+
+        <section class="pmc-resources margin-top-6 desktop:margin-top-4" data-page-path="/articles/PMC12372245/">
+            <h2 class="margin-top-0">RESOURCES</h2>
+            
+                <div class="usa-accordion usa-accordion--multiselectable" data-allow-multiple>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-similar-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_similar_articles"
+                        data-ga-label="/articles/PMC12372245/"
+                        data-action-open="open_similar_articles"
+                        data-action-close="close_similar_articles"
+                        >
+                            Similar articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-similar-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/similar-article-links/40846904/"
+                            
+                    >
+                        
+                    </div>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-cited-by-other-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_cited_by"
+                        data-ga-label="/articles/PMC12372245/"
+                        data-action-open="open_cited_by"
+                        data-action-close="close_cited_by"
+                        >
+                             Cited by other articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-cited-by-other-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/cited-by-links/40846904/"
+                            
+                    >
+                          
+                    </div>
+                    
+                        <h3 class="usa-accordion__heading">
+                            <button
+                            type="button"
+                            class="usa-accordion__button"
+                            aria-expanded="false"
+                            aria-controls="resources-links-to-ncbi-databases"
+                            data-ga-category="resources_accordion"
+                            data-ga-action="open_NCBI_links"
+                            data-ga-label="/articles/PMC12372245/"
+                            data-action-open="open_NCBI_links"
+                            data-action-close="close_NCBI_link"
+                            >
+                                 Links to NCBI Databases
+                            </button>
+                        </h3>
+                        <div
+                                id="resources-links-to-ncbi-databases"
+                                class="usa-accordion__content usa-prose"
+                                data-source-url="/resources/db-links/12372245/"
+                        >
+                        </div>
+                    
+                    
+                </div>
+            
+        </section>
+
+
+        <section
+        class="usa-in-page-nav usa-in-page-nav--wide margin-top-6 desktop:margin-top-4"
+        data-title-text="On this page"
+        data-title-heading-level="h2"
+        data-scroll-offset="0"
+        data-root-margin="-10% 0px -80% 0px"
+        data-main-content-selector="main"
+        data-threshold="1"
+        hidden
+        ></section>
+    </section>
+</div>
+
+
+        
+
+<div class="overlay" role="dialog" aria-label="Citation Dialog" hidden>
+    <div class="dialog citation-dialog" aria-hidden="true">
+        <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+            <h2 class="usa-modal__heading margin-0">Cite</h2>
+             <button type="button" class="usa-button usa-button--unstyled close-overlay text-black width-auto"  tabindex="1">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+             </button>
+        </div>
+
+        
+
+<div class="citation-text-block">
+  <div class="citation-text margin-bottom-2"></div>
+  <ul class="usa-list usa-list--unstyled display-inline-flex flex-justify width-full flex-align-center">
+      <li>
+        <button
+          class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center copy-button dialog-focus"
+          data-ga-category="save_share"
+          data-ga-action="cite"
+          data-ga-label="copy"
+          tabindex="2">
+            <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+            </svg>
+            <span>Copy</span>
+        </button>
+      </li>
+      <li>
+          <a
+              href="#"
+              role="button"
+              class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center export-button"
+              data-ga-category="save_share"
+              data-ga-action="cite"
+              data-ga-label="download"
+              title="Download a file for external citation management software"
+              tabindex="3">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                </svg>
+                <span class="display-none mobile-lg:display-inline">Download .nbib</span>
+                <span class="display-inline mobile-lg:display-none">.nbib</span>
+            </a>
+      </li>
+      <li>
+          
+
+<div class="display-inline-flex flex-align-center">
+  <label class="usa-label margin-top-0">Format:</label>
+  <select aria-label="Format" class="usa-select citation-style-selector padding-1 margin-top-0 border-0 padding-right-4" tabindex="4" >
+    
+      <option data-style-url-name="ama"
+              value="AMA"
+              >
+        AMA
+      </option>
+    
+      <option data-style-url-name="apa"
+              value="APA"
+              >
+        APA
+      </option>
+    
+      <option data-style-url-name="mla"
+              value="MLA"
+              >
+        MLA
+      </option>
+    
+      <option data-style-url-name="nlm"
+              value="NLM"
+              selected="selected">
+        NLM
+      </option>
+    
+  </select>
+</div>
+      </li>
+  </ul>
+</div>
+    </div>
+</div>
+
+        <div class="overlay" role="dialog" hidden>
+  <div id="collections-action-dialog" class="dialog collections-dialog" aria-hidden="true">
+   <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+        <h2 class="usa-modal__heading margin-0">Add to Collections</h2>
+    </div>
+    <div class="collections-action-panel action-panel">
+      
+
+
+<form id="collections-action-dialog-form"
+      class="usa-form maxw-full collections-action-panel-form action-panel-content action-form action-panel-smaller-selectors"
+      data-existing-collections-url="/list-existing-collections/"
+      data-add-to-existing-collection-url="/add-to-existing-collection/"
+      data-create-and-add-to-new-collection-url="/create-and-add-to-new-collection/"
+      data-myncbi-max-collection-name-length="100"
+      data-collections-root-url="https://www.ncbi.nlm.nih.gov/myncbi/collections/">
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="upsmuVkDpR7tpr7VEnZTJwHvNYunqnjUW0ZhuszXdZwNrK8Kt60zdU7EiUbjWhMQ">
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-new"
+            class="usa-radio__input usa-radio__input--tile collections-new  margin-top-0"
+            name="collections"
+            value="new"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_new" />
+            <label class="usa-radio__label" for="collections-action-dialog-new">Create a new collection</label>
+        </div>
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-existing"
+            class="usa-radio__input usa-radio__input--tile collections-existing"
+            name="collections"
+            value="existing"
+            checked="true"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_existing" />
+            <label class="usa-radio__label" for="collections-action-dialog-existing">Add to an existing collection</label>
+        </div>
+    </fieldset>
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="action-panel-control-wrap new-collections-controls">
+           <label for="collections-action-dialog-add-to-new" class="usa-label margin-top-0">
+                Name your collection
+               <abbr title="required" class="usa-hint usa-hint--required text-no-underline">*</abbr>
+          </label>
+          <input
+            type="text"
+            name="add-to-new-collection"
+            id="collections-action-dialog-add-to-new"
+            class="usa-input collections-action-add-to-new"
+            pattern="[^&quot;&amp;=&lt;&gt;/]*" title="The following characters are not allowed in the Name field: &quot;&amp;=&lt;&gt;/"
+            maxlength=""
+            data-ga-category="collections_button"
+            data-ga-action="create_collection"
+            data-ga-label="non_favorties_collection"
+            required
+          />
+        </div>
+        <div class="action-panel-control-wrap existing-collections-controls">
+             <label for="collections-action-dialog-add-to-existing" class="usa-label margin-top-0">
+                Choose a collection
+              </label>
+              <select id="collections-action-dialog-add-to-existing"
+                      class="usa-select collections-action-add-to-existing"
+                      data-ga-category="collections_button"
+                      data-ga-action="select_collection"
+                      data-ga-label="($('.collections-action-add-to-existing').val() === 'Favorites') ? 'Favorites' : 'non_favorites_collection'">
+              </select>
+              <div class="collections-retry-load-on-error usa-input-error-message selection-validation-message">
+                Unable to load your collection due to an error<br>
+                <a href="#">Please try again</a>
+              </div>
+        </div>
+    </fieldset>
+
+    <div class="display-inline-flex">
+        <button class="usa-button margin-top-0 action-panel-submit"
+            type="submit"
+            data-loading-label="Adding..."
+            data-pinger-ignore
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="add">
+          Add
+        </button>
+        <button class="usa-button usa-button--outline margin-top-0 action-panel-cancel"
+                aria-label="Close 'Add to Collections' panel"
+                ref="linksrc=close_collections_panel"
+                data-ga-category="collections_button"
+                data-ga-action="click"
+                data-ga-label="cancel">
+          Cancel
+        </button>
+    </div>
+</form>
+    </div>
+  </div>
+</div>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+
+
+        
+    
+    
+
+<footer class="ncbi-footer ncbi-dark-background " >
+    
+        <div class="ncbi-footer__icon-section">
+            <div class="ncbi-footer__social-header">
+                Follow NCBI
+            </div>
+
+            <div class="grid-container ncbi-footer__ncbi-social-icons-container">
+                
+                    <a href="https://twitter.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="40"
+                             height="40"
+                             viewBox="0 0 40 40"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on X (formerly known as Twitter)</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.facebook.com/ncbi.nlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="16"
+                             height="29"
+                             focusable="false"
+                             aria-hidden="true"
+                             viewBox="0 0 16 29"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.8809 21.4002C3.8809 19.0932 3.8809 16.7876 3.8809 14.478C3.8809 14.2117 3.80103 14.1452 3.54278 14.1492C2.53372 14.1638 1.52334 14.1492 0.514288 14.1598C0.302626 14.1598 0.248047 14.0972 0.248047 13.8936C0.256034 12.4585 0.256034 11.0239 0.248047 9.58978C0.248047 9.37013 0.302626 9.30224 0.528931 9.3049C1.53798 9.31688 2.54837 9.3049 3.55742 9.31555C3.80103 9.31555 3.8809 9.26097 3.87957 9.00272C3.87158 8.00565 3.85428 7.00592 3.90753 6.00884C3.97142 4.83339 4.31487 3.73115 5.04437 2.78467C5.93095 1.63318 7.15699 1.09005 8.56141 0.967577C10.5582 0.79319 12.555 0.982221 14.5518 0.927641C14.7102 0.927641 14.7462 0.99287 14.7449 1.13664C14.7449 2.581 14.7449 4.02668 14.7449 5.47104C14.7449 5.67604 14.6517 5.68669 14.4946 5.68669C13.4523 5.68669 12.4113 5.68669 11.3703 5.68669C10.3506 5.68669 9.92057 6.10868 9.90593 7.13904C9.89661 7.7647 9.91525 8.39303 9.89794 9.01869C9.88995 9.26364 9.96583 9.31822 10.2015 9.31688C11.7204 9.30623 13.2393 9.31688 14.7595 9.3049C15.0257 9.3049 15.0723 9.3728 15.0444 9.62439C14.89 10.9849 14.7515 12.3467 14.6144 13.7085C14.5691 14.1571 14.5785 14.1585 14.1458 14.1585C12.8386 14.1585 11.5313 14.1665 10.2254 14.1518C9.95119 14.1518 9.89794 14.2317 9.89794 14.4899C9.90593 19.0799 9.89794 23.6752 9.91125 28.2612C9.91125 28.5674 9.8407 28.646 9.53186 28.6433C7.77866 28.6273 6.02414 28.6366 4.27094 28.634C3.82499 28.634 3.87158 28.6992 3.87158 28.22C3.87602 25.9472 3.87913 23.6739 3.8809 21.4002Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on Facebook</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.linkedin.com/company/ncbinlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="25"
+                             height="23"
+                             viewBox="0 0 26 24"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M14.6983 9.98423C15.6302 9.24808 16.5926 8.74754 17.6762 8.51991C19.673 8.09126 21.554 8.30824 23.1262 9.7526C24.2351 10.7723 24.7529 12.1115 25.0165 13.5612C25.1486 14.3363 25.2105 15.1218 25.2015 15.9081C25.2015 18.3043 25.2015 20.6898 25.2082 23.0806C25.2082 23.3468 25.1549 23.444 24.8621 23.4414C23.1297 23.4272 21.3992 23.4272 19.6704 23.4414C19.4041 23.4414 19.3429 23.3588 19.3442 23.1019C19.3535 20.5194 19.3442 17.9368 19.3442 15.3543C19.3442 14.0005 18.3258 12.9448 17.0266 12.9488C15.7273 12.9528 14.6983 14.0071 14.6983 15.361C14.6983 17.9328 14.6917 20.5047 14.6983 23.0753C14.6983 23.3708 14.6198 23.444 14.3296 23.4427C12.6185 23.4294 10.9079 23.4294 9.19779 23.4427C8.93155 23.4427 8.86099 23.3735 8.86232 23.1086C8.8783 19.7619 8.88628 16.4144 8.88628 13.066C8.88628 11.5688 8.87874 10.0708 8.86365 8.57182C8.86365 8.3575 8.90758 8.27896 9.14054 8.28029C10.9048 8.29094 12.6687 8.29094 14.4321 8.28029C14.6464 8.28029 14.6983 8.34818 14.6983 8.54653C14.6903 9.00047 14.6983 9.45441 14.6983 9.98423Z">
+                            </path>
+                            <path d="M6.55316 15.8443C6.55316 18.2564 6.55316 20.6699 6.55316 23.082C6.55316 23.3629 6.48127 23.4388 6.19906 23.4374C4.47737 23.4241 2.75568 23.4241 1.03399 23.4374C0.767751 23.4374 0.69986 23.3629 0.701191 23.1006C0.709178 18.2648 0.709178 13.4281 0.701191 8.59053C0.701191 8.34026 0.765089 8.27237 1.01669 8.2737C2.74991 8.28435 4.48048 8.28435 6.20838 8.2737C6.47462 8.2737 6.5465 8.33627 6.54517 8.6065C6.54783 11.0186 6.55316 13.4308 6.55316 15.8443Z">
+                            </path>
+                            <path d="M3.65878 0.243898C5.36804 0.243898 6.58743 1.45529 6.58743 3.1406C6.58743 4.75801 5.32145 5.95742 3.60819 5.96807C3.22177 5.97614 2.83768 5.90639 2.47877 5.76299C2.11985 5.61959 1.79344 5.40546 1.51897 5.13334C1.24449 4.86123 1.02755 4.53668 0.881058 4.17902C0.734563 3.82136 0.661505 3.43788 0.666231 3.05141C0.67555 1.42601 1.9362 0.242566 3.65878 0.243898Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on LinkedIn</span>
+                    </a>
+                
+
+                
+                    <a href="https://github.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="28"
+                             height="27"
+                             viewBox="0 0 28 28"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M16.7228 20.6334C17.5057 20.5527 18.2786 20.3944 19.0301 20.1608C21.3108 19.4193 22.5822 17.8259 22.963 15.4909C23.1228 14.5112 23.1814 13.5287 22.9883 12.5437C22.8106 11.6423 22.4013 10.8028 21.8007 10.1076C21.7526 10.0605 21.7197 10 21.7064 9.934C21.6931 9.86799 21.7 9.79952 21.7262 9.73748C22.0856 8.6206 21.9711 7.51969 21.601 6.42677C21.582 6.3497 21.5345 6.2827 21.468 6.23923C21.4016 6.19577 21.3211 6.17906 21.2429 6.19248C20.7329 6.21649 20.2313 6.33051 19.7611 6.52928C19.1103 6.7908 18.4899 7.12198 17.9104 7.51703C17.84 7.56996 17.7581 7.60551 17.6713 7.62078C17.5846 7.63605 17.4954 7.6306 17.4112 7.60489C15.2596 7.05882 13.0054 7.06203 10.8554 7.61421C10.7806 7.63586 10.7018 7.63967 10.6253 7.62534C10.5487 7.611 10.4766 7.57892 10.4148 7.53167C9.64788 7.03247 8.85171 6.58918 7.96368 6.33359C7.65781 6.24338 7.34123 6.19458 7.02239 6.18849C6.94879 6.17986 6.87462 6.19893 6.81432 6.242C6.75402 6.28507 6.71191 6.34904 6.69621 6.42145C6.32342 7.51437 6.2209 8.61527 6.56307 9.73348C6.59635 9.84264 6.64694 9.93316 6.54177 10.0516C5.47666 11.2604 5.09988 12.6834 5.19574 14.2676C5.2663 15.4244 5.46201 16.5466 6.01454 17.5769C6.84399 19.1171 8.21664 19.9119 9.85158 20.3352C10.3938 20.4706 10.9444 20.5698 11.4998 20.632C11.5384 20.7492 11.4506 20.7798 11.408 20.8291C11.1734 21.1179 10.9894 21.4441 10.8634 21.7942C10.7622 22.0458 10.8315 22.4039 10.6065 22.5516C10.263 22.7766 9.83827 22.8485 9.42421 22.8871C8.17936 23.0056 7.26471 22.4877 6.6283 21.4348C6.25552 20.8184 5.76956 20.3325 5.08523 20.0663C4.76981 19.9325 4.42139 19.8967 4.08537 19.9638C3.7898 20.029 3.73788 20.1901 3.93891 20.4111C4.03639 20.5234 4.14989 20.6207 4.27575 20.6999C4.9796 21.1318 5.51717 21.7884 5.80152 22.5636C6.37002 23.9973 7.48039 24.5697 8.93825 24.6323C9.43741 24.6575 9.93768 24.615 10.4254 24.5058C10.5892 24.4672 10.6531 24.4872 10.6517 24.6762C10.6451 25.4936 10.6637 26.3123 10.6517 27.131C10.6517 27.6635 10.1684 27.9297 9.58663 27.7393C8.17396 27.2671 6.84977 26.5631 5.66838 25.656C2.59555 23.2891 0.720966 20.1861 0.217704 16.3376C-0.357453 11.9127 0.911353 8.00824 3.98551 4.73881C6.11909 2.42656 8.99932 0.939975 12.1203 0.540191C16.5351 -0.0601815 20.4347 1.14323 23.7232 4.16373C26.2449 6.47869 27.724 9.37672 28.1048 12.7726C28.5828 17.0325 27.3686 20.7945 24.4768 23.9827C22.9762 25.6323 21.0956 26.8908 18.9982 27.6488C18.8783 27.6927 18.7585 27.738 18.636 27.7726C18.0356 27.9404 17.6189 27.6395 17.6189 27.0098C17.6189 25.7452 17.6308 24.4806 17.6295 23.2159C17.6329 22.9506 17.6128 22.6856 17.5696 22.4238C17.4325 21.6664 17.3419 21.484 16.7228 20.6334Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on GitHub</span>
+                    </a>
+                
+
+                
+                    <a href="https://ncbiinsights.ncbi.nlm.nih.gov/"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="26"
+                             height="26"
+                             viewBox="0 0 27 27"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M23.7778 26.4574C23.1354 26.3913 22.0856 26.8024 21.636 26.3087C21.212 25.8444 21.4359 24.8111 21.324 24.0347C19.9933 14.8323 14.8727 8.80132 6.09057 5.85008C4.37689 5.28406 2.58381 4.99533 0.779072 4.99481C0.202773 4.99481 -0.0229751 4.83146 0.00455514 4.21479C0.0660406 3.08627 0.0660406 1.95525 0.00455514 0.826734C-0.0413285 0.0815827 0.259669 -0.0193618 0.896534 0.00266238C6.96236 0.222904 12.3693 2.24179 16.9889 6.16209C22.9794 11.2478 26.1271 17.7688 26.4372 25.648C26.4629 26.294 26.3179 26.5271 25.6609 26.4684C25.0827 26.417 24.4991 26.4574 23.7778 26.4574Z">
+                            </path>
+                            <path d="M14.8265 26.441C14.0924 26.441 13.2371 26.6795 12.6626 26.3786C12.0092 26.0372 12.3781 25.0644 12.246 24.378C11.1154 18.5324 6.6849 14.5497 0.74755 14.1001C0.217135 14.0615 -0.0104482 13.9422 0.0134113 13.3659C0.0519536 12.1454 0.0482829 10.9213 0.0134113 9.69524C-0.00127145 9.14464 0.196946 9.03268 0.703502 9.04736C9.21217 9.27128 16.5994 16.2511 17.2804 24.7231C17.418 26.4446 17.418 26.4446 15.6579 26.4446H14.832L14.8265 26.441Z">
+                            </path>
+                            <path d="M3.58928 26.4555C2.64447 26.4618 1.73584 26.0925 1.06329 25.4289C0.39073 24.7653 0.00933763 23.8617 0.0030097 22.9169C-0.00331824 21.9721 0.365937 21.0635 1.02954 20.3909C1.69315 19.7184 2.59675 19.337 3.54156 19.3306C4.48637 19.3243 5.39499 19.6936 6.06755 20.3572C6.7401 21.0208 7.1215 21.9244 7.12782 22.8692C7.13415 23.814 6.7649 24.7226 6.10129 25.3952C5.43768 26.0677 4.53409 26.4491 3.58928 26.4555Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI RSS feed</span>
+                    </a>
+                
+            </div>
+        </div>
+    
+
+    <div data-testid="gridContainer"
+         class="grid-container ncbi-footer__container">
+        <div class="grid-row ncbi-footer__main-content-container"
+             data-testid="grid">
+            
+                <div class="ncbi-footer__column">
+                    
+                        <p class="ncbi-footer__circled-icons-heading">
+                            Connect with NLM
+                        </p>
+                    
+
+                    <div class="ncbi-footer__circled-icons-list">
+                        
+                            <a href=https://twitter.com/nlm_nih class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="32"
+                                     height="32"
+                                     viewBox="0 0 40 40"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on X (formerly known as Twitter)</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.facebook.com/nationallibraryofmedicine class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="13"
+                                     height="24"
+                                     viewBox="0 0 13 24"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M4.11371 23.1369C4.11371 23.082 4.11371 23.0294 4.11371 22.9745V12.9411H0.817305C0.6709 12.9411 0.670898 12.9411 0.670898 12.8016C0.670898 11.564 0.670898 10.3287 0.670898 9.09341C0.670898 8.97903 0.705213 8.95158 0.815017 8.95158C1.8673 8.95158 2.91959 8.95158 3.97417 8.95158H4.12057V8.83263C4.12057 7.8055 4.12057 6.7738 4.12057 5.74897C4.1264 4.92595 4.31387 4.11437 4.66959 3.37217C5.12916 2.38246 5.94651 1.60353 6.95717 1.1921C7.64827 0.905008 8.3913 0.764035 9.13953 0.778051C10.0019 0.791777 10.8644 0.830666 11.7268 0.860404C11.8869 0.860404 12.047 0.894717 12.2072 0.90158C12.2964 0.90158 12.3261 0.940469 12.3261 1.02968C12.3261 1.5421 12.3261 2.05452 12.3261 2.56465C12.3261 3.16857 12.3261 3.7725 12.3261 4.37642C12.3261 4.48165 12.2964 4.51367 12.1912 4.51138C11.5369 4.51138 10.8804 4.51138 10.2261 4.51138C9.92772 4.51814 9.63058 4.5526 9.33855 4.61433C9.08125 4.6617 8.84537 4.78881 8.66431 4.97766C8.48326 5.16652 8.3662 5.40755 8.32972 5.66661C8.28476 5.89271 8.26027 6.1224 8.25652 6.35289C8.25652 7.19014 8.25652 8.02969 8.25652 8.86923C8.25652 8.89439 8.25652 8.91955 8.25652 8.95615H12.0219C12.1797 8.95615 12.182 8.95616 12.1614 9.10714C12.0768 9.76596 11.9876 10.4248 11.9029 11.0813C11.8312 11.6319 11.7626 12.1824 11.697 12.733C11.6719 12.9434 11.6787 12.9434 11.4683 12.9434H8.26338V22.899C8.26338 22.979 8.26338 23.0591 8.26338 23.1392L4.11371 23.1369Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on Facebook</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.youtube.com/user/NLMNIH class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="21"
+                                     height="15"
+                                     viewBox="0 0 21 15"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M19.2561 1.47914C18.9016 1.15888 18.5699 0.957569 17.2271 0.834039C15.5503 0.678484 13.2787 0.655608 11.563 0.65332H9.43556C7.71987 0.65332 5.4483 0.678484 3.77151 0.834039C2.43098 0.957569 2.097 1.15888 1.74242 1.47914C0.813665 2.32097 0.619221 4.62685 0.598633 6.89384C0.598633 7.31781 0.598633 7.74101 0.598633 8.16345C0.626084 10.4121 0.827391 12.686 1.74242 13.521C2.097 13.8412 2.4287 14.0425 3.77151 14.1661C5.4483 14.3216 7.71987 14.3445 9.43556 14.3468H11.563C13.2787 14.3468 15.5503 14.3216 17.2271 14.1661C18.5676 14.0425 18.9016 13.8412 19.2561 13.521C20.1712 12.6929 20.3725 10.451 20.3999 8.22064C20.3999 7.74025 20.3999 7.25986 20.3999 6.77946C20.3725 4.54907 20.1689 2.30724 19.2561 1.47914ZM8.55942 10.5311V4.65201L13.5601 7.50005L8.55942 10.5311Z"
+                                          fill="white" />
+                                </svg>
+                                <span class="usa-sr-only">NLM on YouTube</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            
+
+            
+                <address class="ncbi-footer__address ncbi-footer__column">
+                    
+        <p>
+            <a class="usa-link usa-link--external"
+            href="https://www.google.com/maps/place/8600+Rockville+Pike,+Bethesda,+MD+20894/%4038.9959508,
+            -77.101021,17z/data%3D!3m1!4b1!4m5!3m4!1s0x89b7c95e25765ddb%3A0x19156f88b27635b8!8m2!3d38.9959508!
+            4d-77.0988323"
+            rel="noopener noreferrer" target="_blank">National Library of Medicine
+            <br/> 8600 Rockville Pike<br/> Bethesda, MD 20894</a>
+        </p>
+    
+                </address>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/web_policies.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Web Policies
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/institutes-nih/nih-office-director/office-communications-public-liaison/freedom-information-act-office" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            FOIA
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS Vulnerability Disclosure
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://support.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Help
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/accessibility.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Accessibility
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/careers/careers.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Careers
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+        </div>
+
+        
+            <div class="grid-row grid-col-12" data-testid="grid">
+                <ul class="ncbi-footer__bottom-links-list">
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NLM
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NIH
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.usa.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            USA.gov
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+    </div>
+</footer>
+
+    
+
+
+        
+        
+    
+  <script  type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/pinger/pinger.js"> </script>
+
+
+    
+        
+
+<button class="back-to-top" data-ga-category="pagination" data-ga-action="back_to_top">
+    <label>Back to Top</label>
+    <svg class="usa-icon order-0" aria-hidden="true" focusable="false" role="img">
+        <use xlink:href="/static/img/sprite.svg#arrow_upward"></use>
+    </svg>
+</button>
+    
+
+
+        
+    
+    
+    
+        
+    <script type="application/javascript">
+    window.ncbi = window.ncbi || {};
+    window.ncbi.pmc = window.ncbi.pmc || {};
+    window.ncbi.pmc.options = {
+        logLevel: 'INFO',
+        
+        staticEndpoint: '/static/',
+        
+        citeCookieName: 'pmc-cf',
+    };
+</script>
+    <script type="module" crossorigin="" src="/static/assets/base-133c6271.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/jquery/jquery-3.6.0.min.js">&#xA0;</script>
+    <script type="text/javascript">
+        jQuery.getScript("https://cdn.ncbi.nlm.nih.gov/core/alerts/alerts.js", function () {
+            galert(['div.nav_and_browser', 'div.header', '#universal_header', '.usa-banner', 'body > *:nth-child(1)'])
+        });
+    </script>
+
+
+    <script type="text/javascript">var exports = {};</script>
+     <script src="/static/CACHE/js/output.13b077bc3ffd.js"></script>
+
+    <script type="module" crossorigin="" src="/static/assets/article-44d04358.js"></script>
+    
+    
+
+    </body>
+</html>

@@ -1,0 +1,346 @@
+Enzyme production is crucial for biorefinery applications and the valorization of agricultural residues.
+However, real-time monitoring of pH and temperature in enzyme-producing solid-state fermentation (SSF) is generally regarded as challenging due to the system’s complexity, with previous studies relying primarily on sacrificial sampling for pH measurements.
+This study integrates real-time monitoring of pH and temperature with systematic nutrient medium optimization to enhance the SSF enzyme production of α-galactosidase, invertase, pectinase, xylanase, and cellulase byAspergillus nigerNRRL 322 using soybean hulls as the sole carbon source.
+By capturing dynamic shifts in pH and temperature throughout fermentation, this approach provided important insights into cell growth dynamics, metabolic transitions, and their direct correlations with enzyme production profiles.
+Comparative analysis of different nutrient media, including nitrogen sources, macronutrient concentrations, and medium strengths, revealed that nitrogen supplementation and balanced macronutrient levels are critical for maximizing enzyme yields.
+Notably, pH fluctuations were strongly linked to enzyme activity trends, with pectinase and xylanase exhibiting distinct declines after reaching peak levels.
+The ability to monitor pH and temperature in real time enabled precise optimization of harvest timing for specific enzyme compositions tailored to different industrial applications.
+These findings establish real-time pH and temperature tracking as a valuable tool for improving SSF process control, paving the way for more efficient and economically viable enzyme production in sustainable biorefineries.
+Enzymatic processes are leading the transition towards a sustainable bio-based economy [1].
+The enzymatic treatment of biomass from agricultural resources is critical for advancing biorefinery applications [2].
+However, enzymes, as the central component of these processes, represent a major cost factor [3].
+Consequently, producing higher enzyme titers at reduced costs is essential to improving the economic viability of enzymatic processes [4].
+This is particularly important in biorefineries, where multiple enzymes are typically required to hydrolyze diverse carbohydrates present in biomass [5].
+Traditionally, individual enzymes or enzyme groups (e.g., cellulase, a complex of synergistic enzymes that hydrolyze cellulosic biomass) are produced separately using distinct feedstocks and are then combined into enzyme cocktails for specific biomass hydrolysis.
+However, this multi-step approach significantly increases the cost of biorefinery operations [6].
+Producing an enzyme mixture through a single fermentation process with one microbial species, while adjusting the composition to suit various agro-industrial products, offers a more economical solution [7].
+Soybean contains complex carbohydrates, primarily polysaccharides and oligosaccharides, which reduce the value of soybean products due to their poor digestibility and their tendency to cause flatulence in monogastric animals [8].
+Enzymatic hydrolysis of these carbohydrates can resolve these issues, enhancing the nutritional value of soybean products while generating significant quantities of monomeric sugars as readily fermentable feedstocks for biorefineries.
+Hydrolyzing soybean carbohydrates requires multiple enzyme activities, including α-galactosidase, invertase, pectinase, xylanase, and cellulase [7,9].
+Economically, the production of these enzyme mixtures in a single fermentation is strongly favored.
+Previous studies have shown thatAspergillus nigerNRRL 322 effectively produces such enzyme mixtures when grown on soybean hulls as the sole carbon source and inducer [10].
+Enzyme mixtures for soybean material processing have been successfully produced using submerged fermentation, with subsequent efforts improving enzyme titers and productivity through advanced control mechanisms like pH gradient regulation [7,11–13].
+While submerged fermentation (SmF) can achieve high enzyme titers under optimized conditions, solid-state fermentation (SSF) has been reported to yield higher enzyme titers and productivities for certain fungal enzymes, particularly when using agro-industrial residues as substrates [14].
+However, the production of enzyme mixtures from soybean hulls using SSF remains underexplored.
+SSF presents unique challenges for real-time monitoring of critical parameters such as pH and temperature, due to the physical and chemical nature of the system.
+Unlike submerged fermentation, SSF operates in low-moisture environments with complex, heterogeneous solid substrates, making it uncertain to rely on signals from conventional probes or obtain representative samples.
+Recent work has included exploration of non-invasive or model-based alternatives: Jiang et al. demonstrated the feasibility of using Fourier-transform near-infrared (FT-NIR) spectroscopy combined with genetic algorithms and synergy interval partial least-squares (GA-siPLS) for rapid pH determination in SSF of wheat straw [15].
+González-Figueredo et al. developed a model-based temperature tracking system for SSF reactors that used sparse temperature measurements and dynamic system modeling to compensate for delays and spatial heterogeneity [16].
+Their results showed that even with limited sensor input, control algorithms could enhance process stability and improve the accuracy of temperature monitoring.
+This highlights the need for robust sensor integration and validation strategies and motivates our real-time monitoring approach in this study.
+This study aims to advance the understanding of soybean carbohydrate-degrading enzyme production in SSF through a dual approach: (1) nutrient medium optimization to improve enzyme yields, and (2) real-time monitoring of temperature and pH profiles to reveal dynamics of culture growth and enzyme production.
+Together, these strategies aim to facilitate the production of enzyme mixtures with adjustable compositions tailored for processing various soybean products.
+Producing fungal enzymes in SSF requires carefully designed nutrient compositions, including carbon, nitrogen, and other essential nutrients to support cell growth and gene induction for the expression of multiple enzyme activities [17].
+In this study, the type and concentration of nitrogen and other macronutrients were systematically varied relative to the carbon source (soybean hulls) to evaluate their effects on carbohydrase enzyme production.
+Soybean hulls contain 9–14% protein [18] but the accessibility and utilization rate of this protein by fungal cells remain unclear.
+Therefore, different concentrations of ammonium sulfate (NH4)2SO4, urea, and their mixtures were supplemented in this study to examine their effects on enzyme production.
+Magnesium, calcium, phosphorus, potassium, chlorine, and sulfur were studied as other macronutrients.
+Previous research has investigated the effects of nutrient media on the production of individual enzymes in SSF.
+For example, Pal and Khanum [19] optimized xylanase production usingAspergillus nigerDFR-5, while Desai and Iyer [20] studied nutrient composition for xylanase production byA.
+nigerDX-23.
+Liu et al. [21] optimized media for α-galactosidase production byAspergillus foetidus, and Balumahendra et al. [22] evaluated media forActinoplanes utahensis.
+Sandhu et al. [23] evaluated the nutrient medium for cellulase production byA.
+nigerHN-1.
+For pectinase production, Ahmed et al. [24] optimized the medium forA.
+niger(ATCC 1640) while Shet et al. [25] studied media forAspergillus cervinusARS2.
+Balasubramaniem et al. [26] investigated nutrient media for invertase production byA.
+nigerin SSF and submerged fermentation.
+However, to the best of our knowledge, no studies have explored the impact of nutrient media on the activity composition of five carbohydrase groups produced simultaneously in a single SSF process.
+Furthermore, for production of enzyme mixtures with multiple activities, the different activities may be produced at different stages of cultivation, as previously demonstrated in submerged fermentation [12,13].
+Identifying the optimal harvest time for SSF to achieve a specific enzyme activity composition is critical for maximizing application-specific effectiveness.
+To address this gap, this study was designed to monitor the real-time pH and temperature profiles during SSF and correlate these with the production profiles of relevant carbohydrase enzymes.
+The hypothesis was that significant correlations exist between enzyme activity profiles and pH or temperature dynamics, enabling optimal harvest decisions based on these parameters.
+Notably, there are no previous reports on the relationship between enzyme production profiles and real-time temperature and pH profiles in SSF.
+Aspergillus niger(NRRL 322) was obtained from the United States Department of Agriculture (USDA) Agricultural Research Service (ARS) Culture Collection and was maintained on 40 g/L potato dextrose agar (PDA).
+For inoculation, spore suspension was prepared by adding 20 mL of a sterile 1% Tween 80 solution to a fully sporulated PDA plate (8.5 cm in diameter).
+Spores were enumerated using a hemocytometer, and the suspension was adjusted to a concentration of 9.8 × 107to 1.1 × 108spores/mL to ensure consistent inoculum density across all experiments.
+Soybean hull was provided by Houdek (Brookings, SD).
+(NH4)2SO4, KH2PO4, 3,5-dinitrosalicylic acid (DNS), NaOH, glucose, K2SO4, CuSO4·5H2O, selenium powders, and concentrated H2SO4were purchased from Fisher Scientific (Waltham, MA).
+MgSO4·7H2O, MnSO4·4H2O, ZnSO4·7H2O, CoCl2·2H2O, FeSO4·7H2O, CaCl2·2H2O, urea,p-nitrophenyl α-D-galactopyranoside,p-nitrophenol, xylose, galacturonic acid, Whatman grade 1 filter paper (pore size: 11 μm), sodium potassium tartrate, citrus pectin, beechwood xylan, citric acid, sodium citrate dihydrate, and HPLC-grade water were purchased from Sigma–Aldrich (St.
+Louis, MO).
+400 mL The Pyrex beakers used for SSF were bought from Amazon.
+Enzyme extraction from the SSF mixture was carried out in an incubator shaker (Thermo Scientific MaxQ 5000 Incubating/Refrigerating floor shaker, Ashville, NC).
+One basket-type centrifugal filtration machine (IEC, Chattanooga, TN) and one centrifuge (Thermo Scientific Sorvall Legend X1R, Waltham, MA) were used to separate the solid and enzyme extract.
+Another centrifuge separator (5415D, Eppendorf, Hamburg, Germany) was used to clarify samples for analysis.
+For carbohydrase activity measurements, a UV/vis spectrophotometer (UV-1601, Shimadzu Corporation, Columbia, MD) was used to measure the sample absorbance, and a water bath (Boekel Grant, ORS 200, Feasterville, PA) was used to incubate the reaction mixture at 50 °C.
+For protease assay, the Pierce Fluorescent Protease Assay Kit (Thermo Scientific, Number 23266/23267) and a multimode microplate reader (Infinite 200 PRO, TECAN) were used.
+All SSF experiments were made with soybean hull as the sole carbon source and inducer for the expression of genes encoding carbohydrase enzymes.
+Large soybean hull particles (size > 3.5 mm) were used, to create higher bed voids for better oxygen and heat transfers and minimize clustering of particles [27–30].
+Each SSF was grown with 10 g soybean hull and 15 mL liquid (non-C-source) nutrient medium (Table1) in a 400 mL (3” diameter and 3.5” height) beaker covered by aluminum foil, which, after autoclaving and cooling, was inoculated with 1 mL of theA.
+nigerspore suspension.
+Soybean hulls occupied about 40% of the beaker height.
+The soybean hull to nutrient medium ratio (10 g to 15 mL) was preselected to ensure complete wetting of soybean hulls with the liquid nutrient but without excess free liquid to fill the voids between particles and hinder the gas and heat transfers.
+The nutrient medium compositions are given in Table1.
+The composition given in Column M1 was modified from the Mandels and Weber medium [31].
+Similar media had been used previously in submerged fermentations for producing carbohydrase enzymes byTrichoderma reesei[32] andA.
+niger[12,13].
+In those media for submerged fermentation, three N-sources, i.e., (NH4)2SO4, urea, and proteose peptone were used, making up 54%, 26%, and 20% of total nitrogen, respectively.
+In this study, the expensive proteose peptone was excluded from the SSF medium, because our previous study with submerged fermentation showed that replacing proteose peptone with proportionally increased (NH4)2SO4and urea did not cause lower enzyme production (unpublished results).
+When used in the SSF, the small volume (only 15 mL) of this medium was found to provide insufficient amounts of non-C nutrients to support substantial consumption of carbohydrates in soybean hull (more description in the Results and Discussion section).
+Therefore, different nutrient supplementations, as given in Columns M2-M6, were designed and studied as described in later sections.
+Unless specified otherwise for individual studies, triplicate beakers of SSF were prepared for each studied SSF system, and the inoculated beakers were kept unmixed at ambient conditions, about 25 °C and 50% relative humidity, for cell growth and enzyme production for 120 h before being processed for enzyme collection.
+* Trace elements were prepared in a concentrated solution, and 1 mL/L of this solution provided 5 mg/L FeSO4·7H2O, 1.6 mg/L MnSO4·4H2O, 2 mg/L CoCl2·2H2O, and 1.4 mg/L ZnSO4·7H2O.
+For enzyme activity measurement, the entire SSF content was extracted with a 0.067 M sodium citrate buffer (pH 4.8) at the ratio of 6 mL buffer per g (initial) soybean hull.
+The mixture was mixed for 1 h in an orbital shaker operating at 250 rpm and 30 °C and then filtered using the basket-type centrifugal-filtration separator at 5000 RPM.
+The filtrate collected was further clarified at 9300×g RCF using another centrifuge (Thermo Scientific Sorvall Legend X1R, Waltham, MA) to remove residual fine solids.
+The clarified enzyme extract was then stored at -20 °C for later analysis of their enzyme activities.
+Average activities and standard deviations of α-galactosidase, invertase, pectinase, xylanase, cellulase, and protease measured from triplicate systems were reported in the Results and Discussion section.
+To determine the statistical significance of different factors on enzyme production, Tukey comparisons were done with a 95% confidence level to obtain thepvalues.
+An initial experiment was done to compare the effect of extraction buffer strength, between 0.067 and 0.333 M. The extracts were compared for enzyme activities, molecular size distribution (by size exclusion chromatography SEC) and protein concentrations (by the Total Kjeldahl Nitrogen TKN method [33]).
+The methods used are described in the later Analytical methods section.
+As described in the Results and Discussion section, the enzyme activities extracted by the two citrate buffers were comparable or slightly higher with the diluter buffer, which was therefore used in all subsequent experiments.
+This standardized extraction condition was chosen to recover the multi-enzyme mixture for direct application without separating individual components.
+While extractability and stability may differ among enzymes, our prior study on temperature effects [34] demonstrated that activity loss was minimal for all five carbohydrases during 1 h exposure even at temperatures higher than the 30 °C used for enzyme extraction here, including the more labile pectinase and xylanase.
+The M1 medium in Table1was optimized previously for submergedA.
+nigerfermentation in shake flasks for production of carbohydrases [35].
+However, in the shake flask study, that medium provided a total of 0.271 g/L N for the 25 g/L soybean hull used as the C substrate, corresponding to a N-to-hull mass ratio of about 1.1:100.
+Using the same medium (M1) in SSF gave a much lower N-to-hull ratio of about 0.04:100, possibly causing N limitation.
+To avoid this, the M2 medium was designed to have the same higher N-to-hull ratio of 1.1:100, by increasing the (NH4)2SO4and urea concentrations in the 15 mL nutrient medium added to the 10 g soybean hull particles.
+Other non-N nutrients were kept at the same concentrations as in the M1 medium.
+Soybean hull contains 9–14% protein [18], and about 16% of the protein is N [36].
+Without knowing what percentage of this N in soybean hull could be consumed by the fungus, the N content in soybean hull was not considered in the above N-source concentration adjustment.
+Phosphorus (P), potassium (K), magnesium (Mg), calcium (Ca), sulfur (S), and chlorine (Cl) are also essential macronutrients for microbial growth [37].
+After increasing the N-source concentration in M2, the possibility was considered that one or more of these mineral nutrients were limited.
+So, their concentrations were raised in the M3 medium (Table1) in proportion to the N concentration, guided by the following approximate ratios in microbial biomass [38]: N:P = 5:1, N: (K or S) = 10:1, and N: (Ca, Cl, or Mg) = 20:1.
+K and P came from the same source KH2PO4.
+The KH2PO4concentration used in M3 was chosen to give N:P = 5:1, which provided K in excess.
+Similarly, S and Mg were from the same source MgSO4·7H2O.
+The concentration was chosen to provide N:S = 10:1, with Mg in excess.
+The resulting medium composition is given in the M3 column of Table1.
+The designs of the above media were all based on the N-to-hull ratio optimized for submerged fermentation.
+To evaluate whether that basis was also optimal for enzyme production in SSF, two additional media M4 and M5 were included in the study.
+In the M4 medium, concentrations of all non-C nutrients were lowered by 20% (i.e., 80% medium strength), compared to the concentrations in the M3 medium.
+On the other hand, the M5 medium had doubled concentrations of all non-C nutrients (i.e., 200% medium strength).
+While the M1 – M5 media had both (NH4)2SO4and urea as the N sources, the effect of using only (NH4)2SO4as the N source on enzyme production was further considered.
+In the M6 medium, the (NH4)2SO4concentration was increased to keep the total N concentration the same as that in the M3 medium, as given in Table1.
+To investigate whether the time profiles of temperature and/or pH could serve as indicators of fungal growth stages and metabolic transitions during SSF, correlations between these parameters and enzyme activities were examined.
+Temperature increases were considered indicative of metabolic heat generated during active growth, while rising pH was interpreted as a possible shift to endogenous metabolism due to depletion of assimilable external substrates.
+SSF experiments were conducted as described in Sect.
+2.2, except that 2 mL (instead of 1 mL) of the spore suspension collected from PDA culture were inoculated to each system.
+The nutrient medium used was the M6 medium given in Table1.
+Two batches of SSF experiments were done for this study.
+The first batch was done before the methods for real-time monitoring were established.
+The batch included 12 SSF beakers.
+Two beakers were sacrificed each day for measurements of SSF pH and enzyme activities (after extraction).
+The initial medium pH was 6.
+The pH of sacrificed SSF was measured after adding 20 mL deionized water to the SSF mixture and mixed for 5 min.
+The second batch of SSF experiments were done with real-time pH and temperature monitoring.
+This batch included 20 beakers of SSF.
+Two beakers were used to generate the pH and temperature profiles, which were continuously monitored (once per minute) for 7 days with, respectively, a pH probe (InPro3250i, Mettler Toledo, OH) and a thermocouple using the BioCommand microprocessor and software (originally used for the New Brunswick Scientific BioFlo 110 fermentor).
+The other 18 SSF beakers were designed as triplicate sacrificial systems, with 3 beakers being sacrificed for enzyme extraction after each day (from 1 to 6 days).
+For both batches, the SSF beakers were kept in a chamber with temperature and relative humidity set at 25 °C and 100%, except for the two beakers for pH and temperature monitoring.
+These latter systems were placed on a lab bench, at 23.5 ± 1 °C and 46% relative humidity, because the online monitoring equipment could not be accommodated in the chamber.
+The enzymes produced by these SSF beakers were extracted as described in Sect.
+The activities of α-galactosidase, invertase, pectinase, xylanase, cellulase, and protease in the produced enzyme mixture were measured.
+The averages and standard deviations were reported for samples from triplicate SSF fermentations and triplicate analyses of each sample.
+The carbohydrase activity is expressed in U/mL enzyme extract.
+One unit (U) is the activity that produces 1 µmol target product per min.
+The target products analyzed werep-nitrophenol for α-galactosidase and reducing sugar for invertase, pectinase, xylanase, and cellulase.
+Protease is reported in BAEE U/mL, where 1 BAEE U corresponds to the activity that hydrolyzes 1 µmol benzoyl-L-arginine ethyl ester (BAEE) per min.
+α-Galactosidase activity was measured following the method modified by Li et al. [10] from the method reported by Kumar et al. [39].
+The substrate solution was 0.333 g/Lp-nitrophenyl-α-D-galactopyranoside in 0.1 M sodium citrate buffer at pH 4.8.
+900 µL of the substrate solution was added with or without 100 µL sample, the latter being the blank control.
+All thus prepared vials were incubated for 10 min at 50 °C and then added with 2 mL of 0.5 M sodium carbonate at pH 9.8 to stop the reaction.
+100 µL of the sample was next added to the blank and used as the reference in subsequent absorbance measurements.
+Finally, all sample-containing systems were measured for absorbance at 405 nm, and the results were converted to enzyme activities using the calibration equation developed with purep-nitrophenol standards.
+Invertase activity was measured using the method of Li et al. [10], modified from that of Uma et al. [40].
+The substrate solution was 5 g/L sucrose in 0.1 M pH 4.8 sodium citrate buffer.
+The blank and sample-containing systems were prepared and incubated as described for the α-galactosidase assay, except for the longer 20 min incubation time.
+After incubation, 3 mL of a DNS solution (10 g/L 3,5 dinitrosalicylic acid, 16 g/L NaOH, and 300 g/L sodium potassium tartrate) was added to stop the reaction.
+100 µL of the sample was added to the blank.
+The tubes containing the sample and blank were heated in boiling water for 10 min and then diluted to 25 mL with deionized water.
+Absorbance was measured at 540 nm and used to calculate the enzyme activity using the calibration equation developed with pure glucose standards.
+For measuring the Invertase activity in the solid produced in SSF, 0.01 g of solid broth was added to the enzyme sample and blank instead of 100 µL enzyme sample.
+All the steps were followed similarly to calculate the enzyme contribution in the solid.
+Then the contribution of enzymes in the solid and liquid extract were combined to find the activity in the whole solid broth and was reported as U/g mixture.
+Pectinase, xylanase, and cellulase activities were measured by the methods of Li et al. [41], Bailey et al. [42], and Ghose [43], respectively.
+The procedures were similar to that for the invertase assay except for the substrate, incubation time, and calibration standards used.
+For pectinase, the substrate was 5 g/L citrus pectin in 0.1 M pH 4.8 sodium citrate buffer, the incubation time was 30 min, and the calibration standards were prepared with galacturonic acid.
+For xylanase, the substrate was 10 g/L beechwood xylan in 0.05 M pH 5.3 sodium citrate buffer, the incubation time was 5 min, and the calibration curve was generated using standards prepared with xylan.
+For cellulase, the substrate was a rolled strip (6 × 1 cm) of Whatman 1 filter paper in 1.4 mL 0.05 M pH 4.8 sodium citrate buffer, the incubation time was 60 min, and the calibration curve was generated using glucose solutions.
+Protease activity was measured following the protocol reported by Li et al. [10].
+Fluorescein thiocarbamoyl casein (FTC-casein) was used as the protein substrate and N-tosyl-L-phenylalanine chloromethyl ketone treated trypsin (TPCK trypsin) was the reference protease for calibration.
+2.5 mg FTC-casein was dissolved in 500 µL ultrapure water.
+20 µL of this 5 g/L stock solution was then mixed with 10 mL 0.05 M sodium citrate buffer (pH 4.8) to make the substrate solution for assay.
+50 µL of the substrate solution was added with a 20 µL enzyme sample (or a TPCK trypsin standard) to a 96-well black plate (Greiner Bio-One, Number 655076), mixed, and then kept at room temperature for reaction for 20 min.
+The reaction mixture was next added with 200 µL of 1 M Tris-HCl (pH 9.0).
+Fluorescence was measured using a multimode microplate reader at excitation and emission wavelengths of 485 and 538 nm, respectively.
+A calibration curve of fluorescence changes versus TPCK trypsin concentrations was generated by the same procedure for standards of 0–50 mg/L TPCK trypsin.
+The fluorescence change generated by the enzyme sample was converted to the equivalent TPCK trypsin concentration, and subsequently to BAEEU/mL by multiplying the factor of 16,273.
+SEC profiles were obtained using a high-performance liquid chromatography (HPLC) system (LC1100, Agilent Technologies, Santa Clara, CA) with a refractive index detector (RID).
+Columns used were two identical Agilent PL aquagel-OH aqueous SEC columns (Part No.: PL1120-6520, dimension: 300 × 7.5 mm, MW range: 100-20000 Da) connected in series, with a 50 × 7.5 mm guard column of 5 μm pore size.
+The columns were maintained at 40 °C, and the RID detector was maintained at 35 °C.
+HPLC-grade water was used as the mobile phase at a flowrate of 0.5 mL/min.
+The analysis was done for enzyme extracts and mixtures of pure carbohydrates (e.g., 14 g/L each of stachyose, sucrose, glucose, galactose, and fructose), after filtration by 0.22 μm polyvinylidene fluoride (PVDF) syringe filters (Tisch Scientific, Cleves, OH).
+The sample injection volume was 25 µL, and the analysis runtime was 60 min.
+whereN= 0.1358 (i.e., the normality of titrating H2SO4) and V = acid volume (ml) used to titrate the sample (i.e., H3BO3with absorbed NH3) – acid volume (ml) used to titrate the H3BO3control (without absorbed NH3).
+Figure1compares the SEC chromatograms for the extracts obtained by extracting the same SSF mixture (mixture A in Fig.2) with 0.067 and 0.333 M citrate buffers.
+The chromatogram for a mixture of carbohydrate standards, containing 14 g/L each of stachyose, sucrose, glucose, galactose, and fructose, is also given in Fig.1.
+The mixture of carbohydrate standards gave two peaks, with monosaccharides and sucrose making up the peak of longer retention times (RTs, about 37–43 min) and stachyose (a tetrasaccharide) making up the peak of shorter RTs (about 35–37 min).
+For the enzyme extracts, peaks were also seen in the RT range of about 37–43 min, corresponding to the residual monosaccharides extracted from the SSF mixture (confirmed by the HPLC carbohydrate analysis, chromatogram not shown).
+These peaks were essentially the same for the extracts with both buffers of 0.067 and 0.333 M, which is reasonable because these different buffer strengths should not affect the solubilities of small carbohydrates.
+Besides these peaks, the enzyme extracts also gave broad peaks in shorter RTs (18–32 and 18–35 min, respectively, for the extracts with 0.067 and 0.333 M buffers) confirming the presence of larger oligomeric and polymeric compounds.
+The two buffers gave almost the same peaks in the RT range of about 18–30 min, but the stronger buffer gave much larger and additional peaks in the RT range of 30–35 min.
+SEC chromatograms were also measured and compared for the two extracts from another SSF mixture (mixture B in Fig.2).
+They are not shown in Fig.1to keep the chromatograms more distinguishable.
+Nonetheless, the features described above are completely reproducible in the chromatograms not shown.
+Despite some clear differences in the chromatograms, the protein-N concentrations measured by the TKN method showed no differences in the two extracts with 0.067 and 0.333 M buffers; both buffer extracts from SSF mixture A had 16.4 (± 0.2) g/L protein, and both extracts from SSF mixture B had 14.9 (± 0.1) g/L protein.
+Further, the measured enzyme activities, as shown in Fig.2, were largely comparable, with the 0.067 M buffer generally extracting slightly higher cellulase and pectinase activities than the 0.333 M buffer.
+These results of protein and enzyme analyses indicated that the additional materials extracted by the stronger buffer were not proteinaceous, and they did not contribute to the desired carbohydrase activities.
+Accordingly, 0.067 M citrate buffer was used in all subsequent SSF enzyme extraction.
+For comparison, literature reported various buffer types, strengths, and pH values for extracting enzymes produced by SSF, although almost all for a single enzyme or enzyme group.
+For example, for α-galactosidase extraction, Kotwal et al. [44], Liu et al. [45] used citrate-phosphate (McIlvaine) buffers – the first two groups with 0.02 and 0.1 M, respectively, at pH 5.0, the last at pH 7 with a unspecified concentration; while Shankar and Mulimani [46] used 0.2 M sodium acetate buffer at pH 4.8.
+To extract invertase, Balasubramaniem et al. [26] used 0.05 M sodium acetate buffer at pH 5.
+For pectinase extraction, Silva et al. [47] used distilled water, and Kashyap et al. [48] used 0.01 M Tris–HCl buffer at pH 8.0.
+Lever et al. [49] used deionized water to extract cellulase.
+For xylanase extraction, Kamble and Jadhav [50] used 0.05 M phosphate buffer at pH 8.0, Pandya and Gupte [51] used 0.05 M sodium citrate buffer at pH 5.0.
+In this study, the sodium citrate buffer at pH 4.8 was used because this buffer at 0.05 or 0.1 M was also used in all carbohydrase assays, and the pH 4.8 was found to be optimal for enzymatic hydrolysis of soybean carbohydrates while minimizing protein dissolution [52–54].
+The concentration used, i.e., 0.067 M, was within the range of buffer concentration reported in the literature.
+The enzyme productions after 120 h of SSF with M1, M2, and M3 media are compared in Fig.3(A).
+From the results with the M1 and M2 media, the increase in N-source concentration clearly increased all but invertase activities: α-Galactosidase increased from 0.85 ± 0.13 to 5.28 ± 1.65 U/mL extract (p= 0.014), pectinase from 1.04 ± 0.07 to 1.90 ± 0.02 U/mL (p= 0.002), xylanase from 3.55 ± 2.49 to 25.07 ± 7.39 U/mL (p= 0.003), and cellulase from 0.16 ± 0.01 to 0.39 ± 0.07 U/mL (p =0.002).
+For invertase, the increase from 0.49 ± 0.13 to 0.77 ± 0.24 U/mL was statistically insignificant (p= 0.75).
+With the M1 medium, only 0.0004 g N was available per g soybean hull.
+This increased to 0.0108 g N/(g hull) in the M2 medium.
+N is essential for cell growth and enzyme synthesis [55].
+Insufficient N in the M1 medium would stop cell growth and enzyme synthesis earlier in the SSF.
+Supplementing other non-N mineral nutrients in the M3 medium further increased the production of α-galactosidase, invertase, and pectinase substantially, but not xylanase or cellulase.
+Compared to the enzyme production with the M2 medium, the α-galactosidase activity increased from 5.28 ± 1.65 to 13.17 ± 1.50 U/mL (p= 0.001), invertase increased from 0.77 ± 0.24 to 3.25 ± 0.76 U/mL (p= 0.001), and pectinase increased from 1.90 ± 0.02 to 3.71 ± 0.27 U/mL (p= 0.000); on the other hand, xylanase decreased, statistically insignificantly, from 25.07 ± 7.39 to 15.40 ± 2.24 U/mL (p= 0.09), and cellulase decreased from 0.39 ± 0.07 to 0.25 ± 0.04 U/mL (p= 0.02).
+The substantial increases in α-galactosidase, invertase, and pectinase production suggested that cell growth in the SSF with M2 medium might be limited by certain non-N mineral nutrients and was improved by the supplementation in M3.
+But it is unknown why the supplementation did not translate to higher xylanase and cellulase production.
+Having insufficient or excess nutrients might both be non-ideal for fungal cell growth and metabolite production [37].
+The M4 and M5 media were designed to investigate if the M3 medium had the ideal medium strength of all non-C nutrients forA.
+nigergrowth and enzyme production in SSF.
+If the medium strength of M3 was designated as 1X, the M4 and M5 media had 0.8X and 2X strengths, respectively.
+The enzyme activities produced with these 3 medium strengths after 120 h of SSF are compared in Fig.3(B).
+With the increase from 0.8X to 1X, the invertase and cellulase production increased (p= 0.04 and 0.01, respectively), xylanase production decreased (p= 0.05), while α-galactosidase and pectinase production did not have statistically significant differences (p= 0.69 and 0.67, respectively).
+With the further increase from 1X to 2X, pectinase production increased (p= 0.005), cellulase production decreased (p= 0.002), while α-galactosidase, invertase, and xylanase production showed no statistically significant differences (p= 0.15, 0.38, and 0.79, respectively).
+The results did not conclude on a clearly best medium strength among 0.8X, 1X, and 2X for all measured enzyme activities.
+Therefore, the M3 medium with 1X strength was used in subsequent experiments.
+Different nitrogenous compounds may have different effects on enzyme production.
+Ammonium-containing salts are commonly used as N sources for fungal cultures [54].
+Urea is also often used because of its ready availability, low cost, and high N content per unit mass [56].
+In Fig.3(C), enzyme production was compared between the SSF using the M3 medium with combined (NH4)2SO4and urea as N sources and the SSF using the M6 medium with only (NH4)2SO4as the N source.
+The results showed that α-galactosidase, pectinase, and cellulase production did not differ significantly with the two media (p= 0.19, 0.24, and 0.10, respectively), but invertase production preferred the M3 medium with both (NH4)2SO4and urea (p= 0.03) while xylanase production favored the M6 medium without urea (p= 0.03).
+Figure4shows the daily profiles of pH and carbohydrases (cellulase, pectinase, xylanase, sucrase, and α-galactosidase) obtained in 12 beakers of SSF (i.e., the first batch described in Sect.
+2.4), with two sacrificial beakers each day.
+The pH profile provided valuable insights on cell metabolism and the cultivation stage of SSF.
+According to cell metabolism, pH can decrease initially along cell growth due to consumption of basic NH3(mainly for protein synthesis) and production of organic acids (as metabolic byproducts), and pH can later rise when cells experience carbon- and energy-source limitation and transition to NH3-releasing endogenous metabolism for maintaining survival by consuming their own cellular materials, particularly protein.
+So, the pH profile in Fig.4revealed that cells had sufficient assimilable nutrients to support cell growth during the first (about) 2–3 days.
+After 3 days, while some cells could still be growing, an increasing majority of cells experienced energy-source limitation and switched to perform endogenous metabolism, causing pH to rise.
+Plausibly, the energy-source limitation is caused by an insufficient generation rate of monomeric sugars from hydrolysis of soyhull carbohydrate, compared to the sugar consumption rate by cells.
+Whether a stationary phase existed or not during the period of similar pH values (after 2–3 days) could not be differentiated without more frequent pH measurements.
+If a stationary phase existed, it would mean the N-source (or another growth-essential non-carbon source) was depleted to stop cell growth while the energy source was still available (and, thus, endogenous metabolism did not occur yet).
+If there was no stationary phase, the energy-source limitation occurred at some point between 2 and 3 days, without depletion of growth-essential non-carbon sources.
+Pectinase activity was found to peak after 3 days when pH was near the lowest, followed by a pectinase decline (Fig.4).
+This suggested that pectin was the first polysaccharide in soyhull to run out, causing slower pectinase production (which required pectin as inducing substrate) than pectinase degradation (by protease, presumably to use the degraded pectinase as nutrients).
+Xylanase also showed an increase-then-decrease profile, but xylanase production peaked about one day later than pectinase production, suggesting xylan, the inducing substrate for xylanase, lasted longer than pectin in the SSF.
+On the other hand, invertase, cellulase, and α-galactosidase did not show clear degradation after most cells had entered the endogenous metabolism (Fig.4), suggesting that these enzymes were stabler (against degradation) than pectinase and xylanase.
+Invertase and cellulase were actively produced only during the first 2 days when cell growth and pH decrease were fast, while α-galactosidase was actively produced during the period of 1–3 days.
+It is also important to note the delayed production of xylanase and α-galactosidase, which was negligible in the first day, compared to the already significant production of pectinase, invertase, and cellulase.
+Figure5(A) shows the representative real-time pH and temperature profiles monitored in two separate batches of SSF.
+pH did not change significantly initially.
+During that period, the temperature also just started to rise gradually.
+Reasonably, this was the period when spores germinated, and cells just started to grow.
+This period lasted for different lengths of time for the fermentations made at different ambient temperatures, about 24 h at 22.6 °C and about 17 h at 24.5 °C.
+Afterwards, temperature increased rapidly, indicating active cell growth to expand cell population and release more metabolic heat.
+During this active cell growth phase, pH also changed rapidly, with, interestingly, an increase-then-decrease profile.
+The pH increase suggested an early consumption of protein in soyhull as substrate, releasing basic NH3to the medium.
+After the easily accessible protein was consumed, cells relied mainly (if not solely) on the soyhull carbohydrate as carbon source and the (NH4)2SO4as nitrogen source.
+The associated organic acid production and NH3consumption caused the pH to drop sharply.
+Following the active cell growth phase, the pH-decrease and temperature-increase slowed and then remained relatively constant for a period, corresponding to the deceleration and stationary phases of cell growth in the SSF.
+The temperature plateau, lasting about 10–14 h in the two different SSFs, was longer than the period of relatively flat pH basin (about 5 h).
+This was reasonable because temperature would increase only when the heat generation rate was higher than the rate of heat dissipation to the cooler surrounding atmosphere; so, temperature could plateau (with a minimal decline) through the deceleration phase (at least a portion) and the stationary phase.
+On the other hand, pH would continue to decrease (with slower rates) during the deceleration phase and remain constant only during the stationary phase.
+More importantly, the relatively long deceleration phase and brief stationary phase suggested that the SSF was not limited by N-source availability from the M6 medium; instead, the slowdown of cell growth was due to the decreasing availability of monomeric sugars from the balance of their generation rates from more easily hydrolyzable carbohydrates and their consumption rates by cell metabolism.
+After the brief stationary phase, temperature started to decline faster, and pH started to increase.
+The latter indicated the occurrence of endogenous metabolism when cells consumed intracellular protein for maintenance energy and released NH3.
+Visual inspection showed there was still soyhull biomass remaining so the occurrence of endogenous metabolism meant that the generation rate of monomeric sugars from carbohydrate hydrolysis could no longer match the consumption rate by cells.
+Figures5B and C show the production profiles of different enzyme activities, including protease, pectinase, cellulase, xylanase, α-galactosidase, and invertase, in correlation with the pH profile for the SSF made at an ambient temperature of 22.6 °C.
+Protease production was low before 48 h but increased steadily afterwards.
+The finding correlated well with the increasing pH resulting from endogenous protein consumption.
+On the other hand, pectinase production started early with the activity peaking near the onset of endogenous metabolism (about 65 h), which then started to decline presumably due to degradation.
+For invertase, the phase of fast production also appeared to stop after the SSF reached beyond the stationary phase.
+The cellulase production profile was similar but seemed to be able to be produced at much slower rates after the SSF entered the endogenous phase.
+Production of α-galactosidase and xylanase started later, after 24 h, presumably because the inducers for their synthesis were generated later from pectin hydrolysis by pectinase, as reported earlier for submerged fermentation ofA.
+niger[12,13].
+Both were then rapidly produced during 24–48 h. Afterwards, xylanase production significantly slowed while α-galactosidase production continued up to about 120 h. The enzyme production profiles in this SSF were largely consistent with the profiles shown in Fig.4for another SSF batch.
+This study addressed two interrelated aspects of SSF enzyme production: the novel application of real-time monitoring and the essential foundation of nutrient optimization.
+Both are critical for achieving high-yield, tailored enzyme mixtures.
+pH is a critical parameter influencing cell growth, enzyme production, and overall microbial activities.
+The production of non-constitutive enzymes also depends on the availability of inducers.
+In submergedA.
+nigerfermentation for carbohydrases production using soybean hull as the carbon substrate, pectinase production began early and exhibited an optimal pH above 6 [12].
+The optimal pH for α-galactosidase and invertase was lower, around 5 [7].
+Notably, α-galactosidase production commenced approximately 24 h after the onset of pectinase production, likely because its inducer originated from pectin degradation by pectinase [12].
+A similar 24-h delay was observed in xylanase production during submerged fermentation [10].
+Cellulase and xylanase production favored an even lower pH range of 4.0–5.0.
+In SSF, the temporal pH profiles are influenced by various factors, including microbial activity, substrate composition, and fermentation conditions.
+The pH profiles, in turn, affect cell growth and enzyme production.
+In this study, SSF conditions, including ambient temperature and humidity, were maintained at about 25 °C and 50% relative humidity, while the initial water content of SSF mixture was set at 40% (w/w), optimized through preliminary experiments (unpublished results).
+All SSFs used the same quantity of large soybean hull pieces as the carbon substrate.
+The effects of varying levels of other macronutrients were analyzed using media M1, M2, and M3.
+Increasing the N source from M1 to M2 enhanced the production of all carbohydrases (Fig.3), though the increase in invertase production was not statistically significant.
+This suggests that the low N level in M1 limited cell growth and enzyme production, overshadowing any potential pH effects associated with N supplementation.
+Further increasing non-N (and non-C) macronutrients from M2 to M3 significantly enhanced α-galactosidase, invertase, and pectinase production but had little effect on xylanase and cellulase (Fig.3).
+Among the evaluated carbohydrase enzymes, xylanase and cellulase had the lowest optimal pH (4–5).
+It remains unclear whether the increased phosphate concentration in M3 (6.3 g/L compared to 2.0 g/L in M2) buffered the pH decrease during cell growth, thereby preventing an increase in xylanase and cellulase production as observed in other carbohydrases.
+A further investigation compared M3 and M6 media, which had the same N concentration, but M3 included both (NH4)2SO4and urea as N sources while M6 contained only (NH4)2SO4(Table1).
+Unlike (NH4)2SO4, urea utilization does not acidify the medium [56].
+Consequently, SSF with M6 was expected to exhibit a faster and more pronounced pH drop, potentially negatively impacting cell growth.
+This likely contributed to the lower production of invertase and cellulase (but not the others) in SSF with M6 (Fig.3).
+As shown in Fig.4, compared to other carbohydrases, invertase and cellulase production was more growth-associated, diminishing once growth ceased (as indicated by the reach of the lowest pH).
+A significant contribution of this study was the real-time monitoring of pH and temperature profiles during SSF.
+Real-time pH measurement in SSF was generally thought to be very challenging due to the use of solid substrate with low water content, system heterogeneity, and the lack of suitable online measurement techniques [57,58].
+Few studies have reported temporal pH profiles for SSF.
+Ofuya et al. documented pH changes in SSF for gari (a staple West African food) production from cassava [59].
+Saelee reported pH profiles for SSFs producing mannanase, cellulase, and xylanase from palm kernel meal usingAspergillus wentiiTISTR 3075,A.
+niger,Aspergillus oryzae,Trichoderma reeseiTISTR 3080, andPenicilliumsp [60].
+Lee and Ra reported the pH changes during SSFs ofA.
+oryzaealong with the production of amylase, protease, and β-glucan using pretreated hulled barley as the substrate [61].
+All these studies relied on daily sampling for pH measurement rather than real-time monitoring.
+In this study, the online-monitored pH profiles aligned closely with those obtained from daily sacrificial SSF samples (Figs.4and5).
+The consistency between online-monitored and sacrificial profiles, despite slight differences in ambient conditions, suggests that the monitoring sensor data were reasonably representative of the overall batch behavior under the study’s controlled conditions.
+Furthermore, pH and temperature profiles correlated well, providing valuable insights into cell growth and metabolism during SSF (Fig.5).
+Active cell growth was associated with temperature increase (due to metabolic heat release) and pH increase (from consumption of protein in soybean hull) and then decrease (from NH3consumption and organic acid production).
+As growth slowed, temperature plateaued and pH decline decelerated.
+Upon entering the stationary phase, temperature decreased slightly from the plateau level while pH remained near its lowest level.
+Increased endogenous metabolism led to a temperature drop from the plateau and a pH rise due to NH3release from intracellular protein consumption.
+While this study successfully applied probe-based real-time monitoring, several limitations of this approach in SSF systems must be acknowledged.
+Due to the heterogeneous distribution of moisture, biomass, and metabolic activity, the localized measurement from an inserted probe may not fully represent conditions across the substrate bed.
+Sensor readings can be sensitive to variations in contact pressure, local microbial density, and substrate compaction.
+Additionally, the low water activity of SSF matrices may lead to poor probe-substrate contact, complicating reliable data acquisition.
+Non-invasive alternatives such as FT-NIR spectroscopy have shown promise in estimating pH indirectly under SSF conditions [15], while model-based control strategies have been proposed to track and regulate temperature profiles effectively using limited sensor inputs [16].
+Furthermore, long-term monitoring may be affected by biofouling or sensor drift, highlighting the need for robust calibration and validation protocols.
+These limitations underscore the need for sensor optimization, validation, and potentially multi-point or indirect monitoring systems, especially as SSF scales up beyond lab-scale beaker systems.
+Despite these constraints, the ability to continuously track temperature and pH in real time provided valuable insights into growth and metabolic transitions and demonstrated the feasibility of integrating such monitoring into more complex SSF systems.
+The correlation between enzyme production profiles and pH (and temperature) profiles in SSF, which was reproducible across different SSF systems (Figs.4and5), has practical significance for determining optimal harvest times to achieve desired enzyme compositions for specific applications.
+Different carbohydrase compositions are required for various soybean material processing applications.
+For instance, upgrading soybean molasses into value-added fermentation feedstock primarily requires α-galactosidase and invertase to hydrolyze its high content of stachyose, raffinose, and sucrose into monomeric sugars [62,63], with protease presence being inconsequential or beneficial.
+Enzyme production for this application should be harvested approximately two days after the pH rises due to endogenous metabolism (Figs.4and5).
+Conversely, enzymatic processing of cracked soybean particles [64] and soybean flour/meal [9,53] requires minimizing protease while maximizing pectinase production.
+Protease minimization prevents soy protein degradation, while maximizing pectinase is essential since it is the limiting activity in SSF-produced enzymes fromA.
+niger(unpublished results).
+This is not surprising, as pectin is the predominant component of the middle lamella, which surrounds and binds adjacent cotyledon cells, and constitutes the primary cell wall structure [65,66].
+To achieve optimal enzyme composition for these applications, SSF should be harvested at the lowest pH, before any substantial pH rise due to endogenous metabolism (Figs.4and5).
+This study provides valuable insights into optimizing SSF harvest timing based on pH and temperature profiles, offering a novel approach that has not been previously reported in the literature.
+While this study focused on enzyme production byA.
+nigerusing soybean hulls as the substrate, the principles behind real-time pH and temperature monitoring are expected to be broadly applicable to other SSF systems.
+Temperature generally reflects microbial metabolic activity, and pH shifts can indicate metabolic transitions, such as the onset of endogenous protein degradation when exogenous carbon sources become limiting.
+However, the specific profiles and their correlation with enzyme production may vary depending on substrate characteristics (e.g., C: N ratio) and microbial physiology.
+For example, in different microorganisms, production of specific enzymes may be growth-associated, non-growth-associated, or a combination of both, and may be regulated by different inducers.
+These factors can lead to distinct dynamic patterns.
+Therefore, while the monitoring approach is broadly generalizable, interpretation of the resulting data must be tailored to each specific system.
+Scalability of SSF processes remains a significant challenge, primarily due to limitations in heat dissipation, oxygen transfer, and moisture distribution within the solid matrix.
+As fermentation scale increases, metabolic heat generated by dense fungal biomass can lead to thermal gradients and localized overheating, which negatively impact microbial viability and enzyme productivity.
+Additionally, the absence of active mixing makes it difficult to achieve uniform substrate utilization.
+Strategies to address these issues include forced aeration, multi-tray or rotating drum bioreactors, and the integration of internal cooling coils or jacketed systems for better thermal control [67,68].
+Computational fluid dynamics (CFD) modeling and sensor-based process monitoring may also support scale-up by providing predictive control and localized data feedback.
+While this study was conducted at lab scale, the insights gained from real-time monitoring are expected to inform future efforts to optimize and control larger-scale SSF systems.
+This study demonstrated that combining nutrient medium optimization with real-time pH and temperature monitoring enables enhanced and more controlled production of soybean carbohydrate-degrading enzymes via solid-state fermentation (SSF) usingAspergillus nigerand soybean hulls as the substrate.
+While the systematic optimization of nitrogen sources, macronutrient levels, and medium strength was essential for achieving high enzyme yields, particularly for α-galactosidase, invertase, and pectinase, the novel contribution of this work lies in the successful real-time tracking of pH and temperature within the SSF environment.
+These real-time profiles revealed key insights into cell growth dynamics, metabolic phases, and their correlations with production profiles of different enzyme activities.
+Notably, pectinase and xylanase activities declined after reaching maximal production, implying lower stability and higher sensitivity to availability of inducing substrates.
+On the other hand, α-galactosidase, invertase, and cellulase exhibited greater stability post-production.
+The ability to correlate SSF’s pH and temperature profiles with production of multiple enzyme activities offers a practical approach for determining optimal harvest times, enabling production of tailored enzyme mixtures for specific applications.
+This work underscores the potential of SSF as an economical and sustainable method for enzyme production, providing valuable knowledge for future advancements in biocatalysis and biorefinery technologies.
+This study was supported by research grants from the United Soybean Board (Projects 25-106-D-B-1-B and 24-106-D-B-2-A).

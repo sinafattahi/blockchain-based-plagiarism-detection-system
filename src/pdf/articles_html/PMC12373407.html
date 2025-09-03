@@ -1,0 +1,3281 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+    <head >
+
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+        
+
+        
+        
+  <link rel="stylesheet" href="/static/assets/style-8258669d.css" />
+<script type="module" crossorigin="" src="/static/assets/base_style-f4a99799.js"></script>
+
+  <link rel="stylesheet" href="/static/assets/style-ef962842.css" />
+<link rel="stylesheet" href="/static/assets/style-3ade8b5c.css" />
+<script type="module" crossorigin="" src="/static/assets/article_style-d757a0dd.js"></script>
+
+  
+  
+    <style>
+  
+  
+  @media screen and (min-width: 64em) {
+    div.pmc-wm {
+      background: repeat-y;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='350' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-.02' y='0' width='1.05' height='1' id='c'%3E%3CfeFlood flood-color='%23FFF'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3Ctext id='b' font-family='Helvetica' font-size='11pt' style='opacity:1;fill:%23005ea2;stroke:none;text-anchor:middle' x='175' y='14'%3E%3C/text%3E%3Cpath id='a' style='fill:%23005ea2' d='M0 8h350v3H0z'/%3E%3C/defs%3E%3Cuse xlink:href='%23a' transform='rotate(90 10 10)'/%3E%3Cuse xlink:href='%23b' transform='rotate(90 10 10)' filter='url(%23c)'/%3E%3C/svg%3E");
+      padding-left: 3rem;
+    }
+  }
+</style>
+
+  
+
+
+
+        
+            <link rel="apple-touch-icon"
+                  sizes="180x180"
+                  href="/static/img/favicons/apple-touch-icon.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="48x48"
+                  href="/static/img/favicons/favicon-48x48.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="/static/img/favicons/favicon-32x32.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="/static/img/favicons/favicon-16x16.png" />
+            <link rel="manifest" href="/static/img/favicons/site.webmanifest" />
+            <link rel="mask-icon"
+                  href="/static/img/favicons/safari-pinned-tab.svg"
+                  color="#0071bc" />
+            <meta name="msapplication-config"
+                  content="/static/img/favicons/browserconfig.xml" />
+            <meta name="theme-color" content="#ffffff" />
+        
+
+        <title>
+            Deep Learning–Based Early Warning Systems in Hospitalized Patients at Risk of Code Blue Events and Length of Stay: Retrospective Real-World Implementation Study - PMC
+        </title>
+
+        
+        
+  
+  <!-- Logging params: Pinger defaults -->
+<meta name="ncbi_app" content="cloudpmc-viewer" />
+<meta name="ncbi_db" content="pmc" />
+<meta name="ncbi_phid" content="D2E4A0EC8AF1CA9305A0EC00315BA505.m_1" />
+<meta name="ncbi_pinger_stat_url" content="https://pmc.ncbi.nlm.nih.gov/stat" />
+<!-- Logging params: Pinger custom -->
+<meta name="ncbi_pdid" content="article" />
+  
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+
+    
+        <link rel="preconnect" href="https://cdn.ncbi.nlm.nih.gov" />
+    
+
+    <!-- Include USWDS Init Script -->
+    <script src="/static/assets/uswds-init.js"></script>
+
+
+    <meta name="ncbi_domain" content="medinform">
+<meta name="ncbi_type" content="fulltext">
+<meta name="ncbi_pcid" content="journal">
+<link rel="canonical" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12373407/">
+<meta name="robots" content="INDEX,NOFOLLOW,NOARCHIVE">
+<meta name="citation_journal_title" content="JMIR Medical Informatics">
+<meta name="citation_title" content="Deep Learning–Based Early Warning Systems in Hospitalized Patients at Risk of Code Blue Events and Length of Stay: Retrospective Real-World Implementation Study">
+<meta name="citation_author" content="Ji-hyun Kim">
+<meta name="citation_author_institution" content="AITRICS Corp, 218 Teheran-ro, Gangnam-gu, Seoul, 06221, Republic of Korea, 82 025695507, 82 025695508">
+<meta name="citation_author" content="Eun Young Cho">
+<meta name="citation_author_institution" content="AITRICS Corp, 218 Teheran-ro, Gangnam-gu, Seoul, 06221, Republic of Korea, 82 025695507, 82 025695508">
+<meta name="citation_author" content="Yuhyun Choi">
+<meta name="citation_author_institution" content="AITRICS Corp, 218 Teheran-ro, Gangnam-gu, Seoul, 06221, Republic of Korea, 82 025695507, 82 025695508">
+<meta name="citation_author" content="Joo-Yun Won">
+<meta name="citation_author_institution" content="AITRICS Corp, 218 Teheran-ro, Gangnam-gu, Seoul, 06221, Republic of Korea, 82 025695507, 82 025695508">
+<meta name="citation_author" content="Se Hee Cheon">
+<meta name="citation_author_institution" content="Department of Medical Management, Presbyterian Medical Center, Jeonju, Republic of Korea">
+<meta name="citation_author" content="Young Ae Kim">
+<meta name="citation_author_institution" content="Department of Computing Information, Presbyterian Medical Center, Jeonju, Republic of Korea">
+<meta name="citation_author" content="Ki-byung Lee">
+<meta name="citation_author_institution" content="AITRICS Corp, 218 Teheran-ro, Gangnam-gu, Seoul, 06221, Republic of Korea, 82 025695507, 82 025695508">
+<meta name="citation_author_institution" content="Department of Internal Medicine, Chuncheon Sacred Heart Hospital, Chuncheon, Republic of Korea">
+<meta name="citation_author" content="Kwang Joon Kim">
+<meta name="citation_author_institution" content="AITRICS Corp, 218 Teheran-ro, Gangnam-gu, Seoul, 06221, Republic of Korea, 82 025695507, 82 025695508">
+<meta name="citation_author_institution" content="Department of Internal Medicine, Yonsei University College of Medicine, Seoul, Republic of Korea">
+<meta name="citation_author" content="Ho Gwan Kim">
+<meta name="citation_author_institution" content="Department of Emergency Medicine, Presbyterian Medical Center, Jeonju, Republic of Korea">
+<meta name="citation_author" content="Taeyong Sim">
+<meta name="citation_author_institution" content="AITRICS Corp, 218 Teheran-ro, Gangnam-gu, Seoul, 06221, Republic of Korea, 82 025695507, 82 025695508">
+<meta name="citation_publication_date" content="2025 Aug 22">
+<meta name="citation_volume" content="13">
+<meta name="citation_firstpage" content="e72232">
+<meta name="citation_doi" content="10.2196/72232">
+<meta name="citation_pmid" content="40845828">
+<meta name="citation_abstract_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12373407/">
+<meta name="citation_fulltext_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12373407/">
+<meta name="description" content="In hospitals, Code Blue is an emergency that refers to a patient requiring immediate resuscitation. Over 85% of patients with cardiopulmonary arrest exhibit abnormal vital sign trends prior to the event. Continuous monitoring and accurate ...">
+<meta name="og:title" content="Deep Learning–Based Early Warning Systems in Hospitalized Patients at Risk of Code Blue Events and Length of Stay: Retrospective Real-World Implementation Study">
+<meta name="og:type" content="article">
+<meta name="og:site_name" content="PubMed Central (PMC)">
+<meta name="og:description" content="In hospitals, Code Blue is an emergency that refers to a patient requiring immediate resuscitation. Over 85% of patients with cardiopulmonary arrest exhibit abnormal vital sign trends prior to the event. Continuous monitoring and accurate ...">
+<meta name="og:url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12373407/">
+<meta name="og:image" content="https://cdn.ncbi.nlm.nih.gov/pmc/cms/images/pmc-card-share.jpg?_=0">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ncbi">
+    
+    
+
+    </head>
+    <body >
+        
+    <a class="usa-skipnav " href="#main-content">
+      Skip to main content
+    </a>
+
+
+        
+            
+
+<section class="usa-banner " aria-label="Official website of the United States government" >
+    <div class="usa-accordion">
+        <header class="usa-banner__header">
+            <div class="usa-banner__inner">
+                <div class="grid-col-auto">
+                    <img aria-hidden="true"
+                         class="usa-banner__header-flag"
+                         src="/static/img/us_flag.svg"
+                         alt="" />
+                </div>
+
+                <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+                    <p class="usa-banner__header-text">
+                        An official website of the United States government
+                    </p>
+                    <span class="usa-banner__header-action">Here's how you know</span>
+                </div>
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-accordion__button usa-banner__button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    aria-expanded="false"
+    aria-controls="gov-banner-default"
+    
+    data-testid="storybook-django-banner"
+    
+    >
+    
+        
+
+        
+                    <span class="usa-banner__button-text">Here's how you know</span>
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </div>
+        </header>
+
+        <div class="usa-banner__content usa-accordion__content"
+             id="gov-banner-default"
+             hidden>
+            <div class="grid-row grid-gap-lg">
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-dot-gov.svg"
+                         alt=""
+                         aria-hidden="true" />
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Official websites use .gov</strong>
+                            <br />
+                            A
+                            <strong>.gov</strong> website belongs to an official
+                            government organization in the United States.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-https.svg"
+                         alt=""
+                         aria-hidden="true" />
+
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Secure .gov websites use HTTPS</strong>
+                            <br />
+                            A <strong>lock</strong> (
+                            <span class="icon-lock">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     width="52"
+                                     height="64"
+                                     viewBox="0 0 52 64"
+                                     class="usa-banner__lock-image"
+                                     role="graphics-symbol"
+                                     aria-labelledby="banner-lock-description"
+                                     focusable="false">
+                                    <title id="banner-lock-title">Lock</title>
+                                    <desc id="banner-lock-description">
+                                    Locked padlock icon
+                                    </desc>
+                                    <path fill="#000000"
+                                          fill-rule="evenodd"
+                                          d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+                                </svg>
+</span>) or <strong>https://</strong> means you've safely
+                                connected to the .gov website. Share sensitive
+                                information only on official, secure websites.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        
+
+        
+    
+    
+    
+
+<div class="usa-overlay">
+</div>
+
+
+
+<header class="usa-header usa-header--extended usa-header--wide" data-header data-testid="header"    >
+    <div class="ncbi-header">
+        <div class="ncbi-header__container">
+            <a class="ncbi-header__logo-container"
+               href="https://www.ncbi.nlm.nih.gov/">
+                <img alt="NCBI home page"
+                     class="ncbi-header__logo-image"
+                     src="/static/img/ncbi-logos/nih-nlm-ncbi--white.svg"
+                     width="410"
+                     height="100" />
+            </a>
+
+            <!-- Mobile menu hamburger button -->
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-menu-btn ncbi-header__hamburger-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Show menu"
+    data-testid="navMenuButton"
+    
+    >
+    
+        
+
+        
+                <svg aria-hidden="true"
+                     class="ncbi-hamburger-icon"
+                     fill="none"
+                     focusable="false"
+                     height="21"
+                     viewBox="0 0 31 21"
+                     width="31"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd"
+                          d="M0.125 20.75H30.875V17.3333H0.125V20.75ZM0.125 12.2083H30.875V8.79167H0.125V12.2083ZM0.125 0.25V3.66667H30.875V0.25H0.125Z"
+                          fill="#F1F1F1"
+                          fill-rule="evenodd" />
+                </svg>
+            
+
+        
+    
+        
+            </button>
+        
+
+
+
+            
+                <!-- Desktop buttons-->
+                <div class="ncbi-header__desktop-buttons">
+                    
+                        <!-- Desktop search button -->
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button
+           "
+    aria-expanded="false"
+    aria-controls="search-field-desktop-navigation"
+    aria-label="Show search overlay"
+    data-testid="toggleSearchPanelButton"
+    data-toggle-search-panel-button
+    >
+    
+        
+
+        
+                            
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#search" />
+    </svg>
+
+
+                            Search
+                        
+
+        
+    
+        
+            </button>
+        
+
+
+                    
+
+                    <!-- Desktop login dropdown -->
+                    
+                        <div class="ncbi-header__login-dropdown">
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button ncbi-header__login-dropdown-button
+           "
+    aria-expanded="false"
+    aria-controls="login-dropdown-menu"
+    aria-label="Show login menu"
+    data-testid="toggleLoginMenuDropdown"
+    data-desktop-login-button
+    >
+    
+        
+
+        
+                                
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#person" />
+    </svg>
+
+
+
+                                <span data-login-dropdown-text>Log in</span>
+
+                                <!-- Dropdown icon pointing up -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-less ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-up-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_less" />
+    </svg>
+
+
+
+                                <!-- Dropdown icon pointing down -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-more ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-down-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_more" />
+    </svg>
+
+
+                            
+
+        
+    
+        
+            </button>
+        
+
+
+
+                            <!-- Login dropdown menu -->
+                            <ul class="usa-nav__submenu ncbi-header__login-dropdown-menu"
+                                id="login-dropdown-menu"
+                                data-desktop-login-menu-dropdown
+                                hidden>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                <li class="usa-nav__submenu-item">
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--outline ncbi-header__login-dropdown-logout-button
+           "
+    
+    
+    
+    data-testid="desktopLogoutButton"
+    data-desktop-logout-button
+    >
+    
+        
+
+        Log out
+
+        
+    
+        
+            </button>
+        
+
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                </div>
+            
+        </div>
+    </div>
+
+    <!-- Search panel -->
+    
+        <div class="ncbi-search-panel ncbi--show-only-at-desktop"
+             data-header-search-panel
+             hidden>
+            <div class="ncbi-search-panel__container">
+                <form action="https://www.ncbi.nlm.nih.gov/search/all/"
+                      
+                      autocomplete="off"
+                      class="usa-search usa-search--big ncbi-search-panel__form"
+                      data-testid="desktop-navigation-search-form"
+                      method="GET"
+                      role="search">
+                    <label class="usa-sr-only" for="search-field-desktop-navigation">
+                        Search…
+                    </label>
+                    <input class="usa-input"
+                           id="search-field-desktop-navigation"
+                           name="term"
+                           
+                               placeholder="Search NCBI"
+                           
+                           type="search"
+                           value="" />
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                        <span class="usa-search__submit-text">
+                            Search NCBI
+                        </span>
+                    
+
+        
+    
+        
+            </button>
+        
+
+
+                </form>
+
+                
+            </div>
+        </div>
+    
+
+    <nav aria-label="Primary navigation" class="usa-nav">
+        <p class="usa-sr-only" id="primary-navigation-sr-only-title">
+            Primary site navigation
+        </p>
+
+        <!-- Mobile menu close button -->
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-nav__close ncbi-nav__close-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Close navigation menu"
+    data-testid="navCloseButton"
+    
+    >
+    
+        
+
+        
+            <img src="/static/img/usa-icons/close.svg" alt="Close" />
+        
+
+        
+    
+        
+            </button>
+        
+
+
+
+        
+            <!-- Mobile search component -->
+            <form class="usa-search usa-search--small ncbi--hide-at-desktop margin-top-6"
+                  action="https://www.ncbi.nlm.nih.gov/search/all/"
+                  
+                  autocomplete="off"
+                  data-testid="mobile-navigation-search-form"
+                  method="GET"
+                  role="search">
+                <label class="usa-sr-only" for="search-field-mobile-navigation">
+                    Search
+                </label>
+
+                <input class="usa-input"
+                       id="search-field-mobile-navigation"
+                       type="search"
+                       
+                           placeholder="Search NCBI"
+                       
+                       name="term" />
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                    <!-- This SVG should be kept inline and not replaced with a link to the icon as otherwise it will render in the wrong color -->
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0E2LjQ3MSA2LjQ3MSAwIDAgMCAxNiA5LjUgNi41IDYuNSAwIDEgMCA5LjUgMTZjMS42MSAwIDMuMDktLjU5IDQuMjMtMS41N2wuMjcuMjh2Ljc5bDUgNC45OUwyMC40OSAxOWwtNC45OS01em0tNiAwQzcuMDEgMTQgNSAxMS45OSA1IDkuNVM3LjAxIDUgOS41IDUgMTQgNy4wMSAxNCA5LjUgMTEuOTkgMTQgOS41IDE0eiIvPjwvc3ZnPg=="
+                         class="usa-search__submit-icon"
+                         alt="Search" />
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </form>
+
+            
+        
+
+        <!-- Primary navigation menu items -->
+        <!-- This usa-nav__inner wrapper is required to correctly style the navigation items on Desktop -->
+        
+
+        
+            <div class="ncbi-nav__mobile-login-menu ncbi--hide-at-desktop"
+                 data-mobile-login-menu
+                 hidden>
+                <p class="ncbi-nav__mobile-login-menu-status">
+                    Logged in as:
+                    <strong class="ncbi-nav__mobile-login-menu-email"
+                            data-mobile-login-email-text></strong>
+                </p>
+                <ul class="usa-nav__primary usa-accordion">
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           ncbi-nav__mobile-login-button ncbi--hide-at-desktop
+           "
+    
+    
+    
+    data-testid="mobileLoginButton"
+    data-mobile-login-button
+    >
+    
+        
+
+        Log in
+
+        
+    
+        
+            </button>
+        
+
+
+    </nav>
+</header>
+
+    
+    
+        
+
+<section class="pmc-header pmc-header--basic" aria-label="PMC Header with search box">
+    <div class="pmc-nav-container">
+        <div class="pmc-header__bar">
+           <div class="pmc-header__logo">
+               <a href="/" title="Home" aria-label="PMC Home"></a>
+           </div>
+            <button
+                    type="button"
+                    class="usa-button usa-button--unstyled pmc-header__search__button"
+                    aria-label="Open search"
+                    data-ga-category="search"
+                    data-ga-action="PMC"
+                    data-ga-label="pmc_search_panel_mobile"
+            >
+                <svg class="usa-icon width-4 height-4 pmc-icon__open" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#search"></use>
+                </svg>
+                <svg class="usa-icon width-4 height-4 pmc-icon__close" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="pmc-header__search">
+            
+
+
+<form class="usa-search usa-search--extra usa-search--article-right-column  pmc-header__search__form" id="pmc-search-form" autocomplete="off" role="search">
+<label class="usa-sr-only" for="pmc-search">Search PMC Full-Text Archive</label>
+<span class="autoComplete_wrapper flex-1">
+<input class="usa-input width-full maxw-none" required="required" placeholder="Search PMC Full-Text Archive" id="pmc-search"  type="search" name="term" data-autocomplete-url="https://pmc.ncbi.nlm.nih.gov/autocomp/search/autocomp/"/>
+</span>
+<button
+class="usa-button"
+type="submit"
+formaction="https://www.ncbi.nlm.nih.gov/pmc/"
+data-ga-category="search"
+data-ga-action="PMC"
+data-ga-label="PMC_search_button"
+>
+<span class="usa-search__submit-text">Search in PMC</span>
+<img
+src="/static/img/usa-icons-bg/search--white.svg"
+class="usa-search__submit-icon"
+alt="Search"
+/>
+</button>
+</form>
+            <div class="display-flex flex-column tablet:flex-row tablet:flex-justify flex-justify-center flex-align-center width-full desktop:maxw-44">
+                <ul class="pmc-header__search__menu">
+                    <li>
+                        
+                            <a class="usa-link" href="/journals/" data-ga-action="featured_link" data-ga-label="journal list">
+                                Journal List
+                            </a>
+                        
+                    </li>
+                    <li>
+                        
+                            <a class="usa-link" href="/about/userguide/" data-ga-action="featured_link"
+                            data-ga-label="user guide">
+                                User Guide
+                            </a>
+                        
+                    </li>
+                </ul>
+                
+                    <button form="pmc-search-form" formaction="https://pmc.ncbi.nlm.nih.gov/search/" type="submit" class="usa-button usa-button--unstyled hover:text-no-underline text-no-underline width-auto margin-top-1 tablet:margin-top-0">
+     <span class="bg-green-label padding-05 text-white">New</span><span class="text-underline text-primary">Try this search in PMC Beta Search</span>
+</button>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+
+
+        
+        
+
+       
+  <div class="usa-section padding-top-0 desktop:padding-top-6 pmc-article-section" data-article-db="pmc" data-article-id="12373407">
+
+    
+
+   
+
+
+
+<div class="grid-container pmc-actions-bar" aria-label="Actions bar" role="complementary">
+    <div class="grid-row">
+        <div class="grid-col-fill display-flex">
+             <div class="display-flex">
+                <ul class="usa-list usa-list--unstyled usa-list--horizontal">
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <button
+                                type="button"
+                                class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                                aria-label="Open resources"
+                                data-extra-class="is-visible-resources"
+                                data-ga-category="resources_accordion"
+                                data-ga-action="click"
+                                data-ga-label="mobile_icon"
+                        >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#more_vert"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <a
+                                href="https://doi.org/10.2196/72232"
+                                class="usa-link display-flex usa-tooltip"
+                                role="button"
+                                target="_blank"
+                                rel="noreferrer noopener"
+                                title="View on publisher site"
+                                data-position="bottom"
+                                aria-label="View on publisher site"
+                                data-ga-category="actions"
+                                data-ga-action="click"
+                                data-ga-label="publisher_link_mobile"
+                        >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#launch"></use>
+                                </svg>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button
+                            class="usa-button usa-button--unstyled  usa-tooltip collections-dialog-trigger collections-button display-flex collections-button-empty"
+                            title="Add to Collections"
+                            data-position="bottom"
+                            aria-label="Save article in MyNCBI collections."
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="collections_button_mobile"
+                            data-collections-open-dialog-enabled="false"
+                            data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12373407%2F%3Freport%3Dclassic%23open-collections-dialog"
+                            data-in-collections="false"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button role="button" class="usa-button usa-button--unstyled usa-tooltip citation-dialog-trigger display-flex"
+                            aria-label="Open dialog with citation text in different styles"
+                            title="Cite"
+                            data-position="bottom"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="cite_mobile"
+                            data-all-citations-url="/resources/citations/12373407/"
+                            data-citation-style="nlm"
+                            data-download-format-link="/resources/citations/12373407/export/"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="pmc-permalink display-flex" >
+                         <button
+                                 type="button"
+                                 title="Permalink"
+                                 data-position="bottom"
+                                 class="usa-button usa-button--unstyled display-flex usa-tooltip"
+                                 aria-label="Show article permalink"
+                                 aria-expanded="false"
+                                 aria-haspopup="true"
+                                 data-ga-category="actions"
+                                 data-ga-action="open"
+                                 data-ga-label="permalink_mobile"
+                         >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#share"></use>
+                            </svg>
+                        </button>
+                        
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12373407/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+                    </li>
+                </ul>
+            </div>
+            <button
+                    type="button"
+                    class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                    aria-label="Open article navigation"
+                    data-extra-class="is-visible-in-page"
+                    data-ga-category="actions"
+                    data-ga-action="open"
+                    data-ga-label="article_nav_mobile"
+            >
+                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#list"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+    <div class="grid-container desktop:padding-left-6">
+      <div id="article-container" class="grid-row grid-gap">
+        <div class="grid-col-12 desktop:grid-col-8 order-2 pmc-layout__content">
+            <div class="grid-container padding-left-0 padding-right-0">
+                <div class="grid-row desktop:margin-left-neg-6">
+                    <div class="grid-col-12">
+                        <div class="pmc-layout__disclaimer" role="complementary" aria-label="Disclaimer note">
+    As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,
+    the contents by NLM or the National Institutes of Health.<br/>
+    Learn more:
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="Disclaimer" data-ga-label="New disclaimer box" href="/about/disclaimer/">PMC Disclaimer</a>
+    |
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="PMC Copyright Notice" data-ga-label="New disclaimer box" href="/about/copyright/">
+        PMC Copyright Notice
+    </a>
+</div>
+                    </div>
+                </div>
+                <div class="grid-row pmc-wm desktop:margin-left-neg-6">
+                    <!-- Main content -->
+                    <main
+                      id="main-content"
+                      class="usa-layout-docs__main usa-layout-docs grid-col-12 pmc-layout pmc-prose padding-0"
+                    >
+
+                      
+                        <section class="pmc-journal-banner text-center line-height-none" aria-label="Journal banner"><img src="https://cdn.ncbi.nlm.nih.gov/pmc/banners/logo-medinform.png" alt="JMIR Medical Informatics logo" usemap="#pmc-banner-imagemap" width="500" height="75"><map name="pmc-banner-imagemap"><area alt="Link to JMIR Medical Informatics" title="Link to JMIR Medical Informatics" shape="default" href="https://doi.org/10.2196/72232" target="_blank" rel="noopener noreferrer"></map></section><article lang="en"><section aria-label="Article citation and metadata"><section class="pmc-layout__citation font-secondary font-xs"><div>
+<div class="display-inline-block"><button type="button" class="cursor-pointer text-no-underline bg-transparent border-0 padding-0 text-left margin-0 text-normal text-primary" aria-controls="journal_context_menu">JMIR Med Inform</button></div>. 2025 Aug 22;13:e72232. doi: <a href="https://doi.org/10.2196/72232" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">10.2196/72232</a>
+</div>
+<nav id="journal_context_menu" hidden="hidden"><ul class="menu-list font-family-ui" role="menu">
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/pmc/?term=%22JMIR%20Med%20Inform%22%5Bjour%5D" class="usa-link" role="menuitem">Search in PMC</a></li>
+<li role="presentation"><a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22JMIR%20Med%20Inform%22%5Bjour%5D" lang="en" class="usa-link" role="menuitem">Search in PubMed</a></li>
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/nlmcatalog?term=%22JMIR%20Med%20Inform%22%5BTitle%20Abbreviation%5D" class="usa-link" role="menuitem">View in NLM Catalog</a></li>
+<li role="presentation"><a href="?term=%22JMIR%20Med%20Inform%22%5Bjour%5D" class="usa-link" role="menuitem" data-add-to-search="true">Add to search</a></li>
+</ul></nav></section><section class="front-matter"><div class="ameta p font-secondary font-xs">
+<hgroup><h1>Deep Learning–Based Early Warning Systems in Hospitalized Patients at Risk of Code Blue Events and Length of Stay: Retrospective Real-World Implementation Study</h1></hgroup><div class="cg p">
+<a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Kim%20JH%22%5BAuthor%5D" class="usa-link" aria-describedby="id1"><span class="name western">Ji-hyun Kim</span></a><div hidden="hidden" id="id1">
+<h3>
+<span class="name western">Ji-hyun Kim</span>, <span class="degrees">PhD</span>
+</h3>
+<div class="p">
+<sup>1</sup>AITRICS Corp, 218 Teheran-ro, Gangnam-gu, Seoul, 06221, Republic of Korea, 82 025695507, 82 025695508</div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Kim%20JH%22%5BAuthor%5D" class="usa-link"><span class="name western">Ji-hyun Kim</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>*</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Cho%20EY%22%5BAuthor%5D" class="usa-link" aria-describedby="id2"><span class="name western">Eun Young Cho</span></a><div hidden="hidden" id="id2">
+<h3>
+<span class="name western">Eun Young Cho</span>, <span class="degrees">PhD</span>
+</h3>
+<div class="p">
+<sup>1</sup>AITRICS Corp, 218 Teheran-ro, Gangnam-gu, Seoul, 06221, Republic of Korea, 82 025695507, 82 025695508</div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Cho%20EY%22%5BAuthor%5D" class="usa-link"><span class="name western">Eun Young Cho</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>*</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Choi%20Y%22%5BAuthor%5D" class="usa-link" aria-describedby="id3"><span class="name western">Yuhyun Choi</span></a><div hidden="hidden" id="id3">
+<h3>
+<span class="name western">Yuhyun Choi</span>, <span class="degrees">RN</span>
+</h3>
+<div class="p">
+<sup>1</sup>AITRICS Corp, 218 Teheran-ro, Gangnam-gu, Seoul, 06221, Republic of Korea, 82 025695507, 82 025695508</div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Choi%20Y%22%5BAuthor%5D" class="usa-link"><span class="name western">Yuhyun Choi</span></a>
+</div>
+</div>
+<sup>1</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Won%20JY%22%5BAuthor%5D" class="usa-link" aria-describedby="id4"><span class="name western">Joo-Yun Won</span></a><div hidden="hidden" id="id4">
+<h3>
+<span class="name western">Joo-Yun Won</span>, <span class="degrees">PhD</span>
+</h3>
+<div class="p">
+<sup>1</sup>AITRICS Corp, 218 Teheran-ro, Gangnam-gu, Seoul, 06221, Republic of Korea, 82 025695507, 82 025695508</div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Won%20JY%22%5BAuthor%5D" class="usa-link"><span class="name western">Joo-Yun Won</span></a>
+</div>
+</div>
+<sup>1</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Cheon%20SH%22%5BAuthor%5D" class="usa-link" aria-describedby="id5"><span class="name western">Se Hee Cheon</span></a><div hidden="hidden" id="id5">
+<h3>
+<span class="name western">Se Hee Cheon</span>, <span class="degrees">RN</span>
+</h3>
+<div class="p">
+<sup>2</sup>Department of Medical Management, Presbyterian Medical Center, Jeonju, Republic of Korea</div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Cheon%20SH%22%5BAuthor%5D" class="usa-link"><span class="name western">Se Hee Cheon</span></a>
+</div>
+</div>
+<sup>2</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Kim%20YA%22%5BAuthor%5D" class="usa-link" aria-describedby="id6"><span class="name western">Young Ae Kim</span></a><div hidden="hidden" id="id6">
+<h3>
+<span class="name western">Young Ae Kim</span>, <span class="degrees">BSc</span>
+</h3>
+<div class="p">
+<sup>3</sup>Department of Computing Information, Presbyterian Medical Center, Jeonju, Republic of Korea</div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Kim%20YA%22%5BAuthor%5D" class="usa-link"><span class="name western">Young Ae Kim</span></a>
+</div>
+</div>
+<sup>3</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Lee%20KB%22%5BAuthor%5D" class="usa-link" aria-describedby="id7"><span class="name western">Ki-byung Lee</span></a><div hidden="hidden" id="id7">
+<h3>
+<span class="name western">Ki-byung Lee</span>, <span class="degrees">MD</span>
+</h3>
+<div class="p">
+<sup>1</sup>AITRICS Corp, 218 Teheran-ro, Gangnam-gu, Seoul, 06221, Republic of Korea, 82 025695507, 82 025695508</div>
+<div class="p">
+<sup>4</sup>Department of Internal Medicine, Chuncheon Sacred Heart Hospital, Chuncheon, Republic of Korea</div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Lee%20KB%22%5BAuthor%5D" class="usa-link"><span class="name western">Ki-byung Lee</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>4</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Kim%20KJ%22%5BAuthor%5D" class="usa-link" aria-describedby="id8"><span class="name western">Kwang Joon Kim</span></a><div hidden="hidden" id="id8">
+<h3>
+<span class="name western">Kwang Joon Kim</span>, <span class="degrees">MD</span>
+</h3>
+<div class="p">
+<sup>1</sup>AITRICS Corp, 218 Teheran-ro, Gangnam-gu, Seoul, 06221, Republic of Korea, 82 025695507, 82 025695508</div>
+<div class="p">
+<sup>5</sup>Department of Internal Medicine, Yonsei University College of Medicine, Seoul, Republic of Korea</div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Kim%20KJ%22%5BAuthor%5D" class="usa-link"><span class="name western">Kwang Joon Kim</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>5</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Kim%20HG%22%5BAuthor%5D" class="usa-link" aria-describedby="id9"><span class="name western">Ho Gwan Kim</span></a><div hidden="hidden" id="id9">
+<h3>
+<span class="name western">Ho Gwan Kim</span>, <span class="degrees">MD</span>
+</h3>
+<div class="p">
+<sup>6</sup>Department of Emergency Medicine, Presbyterian Medical Center, Jeonju, Republic of Korea</div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Kim%20HG%22%5BAuthor%5D" class="usa-link"><span class="name western">Ho Gwan Kim</span></a>
+</div>
+</div>
+<sup>6,</sup><sup>*</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Sim%20T%22%5BAuthor%5D" class="usa-link" aria-describedby="id10"><span class="name western">Taeyong Sim</span></a><div hidden="hidden" id="id10">
+<h3>
+<span class="name western">Taeyong Sim</span>, <span class="degrees">MD</span>
+</h3>
+<div class="p">
+<sup>1</sup>AITRICS Corp, 218 Teheran-ro, Gangnam-gu, Seoul, 06221, Republic of Korea, 82 025695507, 82 025695508</div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Sim%20T%22%5BAuthor%5D" class="usa-link"><span class="name western">Taeyong Sim</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>✉,</sup><sup>*</sup>
+</div>
+<div class="cg p">Editor: <span class="name western">Arriel Benis</span>
+</div>
+<ul class="d-buttons inline-list">
+<li><button class="d-button" aria-controls="aip_a" aria-expanded="false">Author information</button></li>
+<li><button class="d-button" aria-controls="anp_a" aria-expanded="false">Article notes</button></li>
+<li><button class="d-button" aria-controls="clp_a" aria-expanded="false">Copyright and License information</button></li>
+</ul>
+<div class="d-panels font-secondary-light">
+<div id="aip_a" class="d-panel p" style="display: none">
+<div class="p" id="aff1">
+<sup>1</sup>AITRICS Corp, 218 Teheran-ro, Gangnam-gu, Seoul, 06221, Republic of Korea, 82 025695507, 82 025695508</div>
+<div id="aff2">
+<sup>2</sup>Department of Medical Management, Presbyterian Medical Center, Jeonju, Republic of Korea</div>
+<div id="aff3">
+<sup>3</sup>Department of Computing Information, Presbyterian Medical Center, Jeonju, Republic of Korea</div>
+<div id="aff4">
+<sup>4</sup>Department of Internal Medicine, Chuncheon Sacred Heart Hospital, Chuncheon, Republic of Korea</div>
+<div id="aff5">
+<sup>5</sup>Department of Internal Medicine, Yonsei University College of Medicine, Seoul, Republic of Korea</div>
+<div id="aff6">
+<sup>6</sup>Department of Emergency Medicine, Presbyterian Medical Center, Jeonju, Republic of Korea</div>
+<div class="author-notes p">
+<div class="fn" id="equal-contrib1">
+<sup>*</sup><p class="display-inline">these authors contributed equally</p>
+</div>
+<div class="fn" id="cor1">
+<sup>✉</sup><p class="display-inline">Taeyong Sim, MD, AITRICS Corp, 218 Teheran-ro, Gangnam-gu, Seoul, 06221, Republic of Korea, 82 025695507, 82 025695508; <span>tae@aitrics.com</span></p>
+</div>
+</div>
+</div>
+<div id="anp_a" class="d-panel p" style="display: none"><div class="notes p"><section id="historyarticle-meta1" class="history"><p>Received 2025 Feb 12; Revised 2025 Jun 5; Accepted 2025 Jun 24; Collection date 2025.</p></section></div></div>
+<div id="clp_a" class="d-panel p" style="display: none">
+<div>Copyright © Ji-hyun Kim, Eun Young Cho, Yuhyun Choi, Joo-Yun Won, Se Hee Cheon, Young Ae Kim, Ki-byung Lee, Kwang Joon Kim, Ho Gwan Kim, Taeyong Sim. Originally published in JMIR Medical Informatics (https://medinform.jmir.org)</div>
+<p>This is an open-access article distributed under the terms of the Creative Commons Attribution License (<a href="https://creativecommons.org/licenses/by/4.0/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://creativecommons.org/licenses/by/4.0/</a>), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work, first published in JMIR Medical Informatics, is properly cited. The complete bibliographic information, a link to the original publication on <a href="https://medinform.jmir.org/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://medinform.jmir.org/</a>, as well as this copyright and license information must be included.</p>
+<div class="p"><a href="/about/copyright/" class="usa-link">PMC Copyright notice</a></div>
+</div>
+</div>
+<div>PMCID: PMC12373407  PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/40845828/" class="usa-link">40845828</a>
+</div>
+</div></section></section><section aria-label="Article content"><section class="body main-article-body"><section class="abstract" id="abstract1"><h2>Abstract</h2>
+<section id="sec1"><h3 class="pmc_sec_title">Background</h3>
+<p>In hospitals, Code Blue is an emergency that refers to a patient requiring immediate resuscitation. Over 85% of patients with cardiopulmonary arrest exhibit abnormal vital sign trends prior to the event. Continuous monitoring and accurate interpretation of clinical data through artificial intelligence (AI) models can contribute to preventing critical events.</p></section><section id="sec2"><h3 class="pmc_sec_title">Objective</h3>
+<p>This study aims to evaluate changes in clinical outcomes following the use of VitalCare (Major Adverse Event Score and Mortality Score), which is an AI-based early warning system, and to validate the performance of the algorithm.</p></section><section id="sec3"><h3 class="pmc_sec_title">Methods</h3>
+<p>A retrospective analysis was conducted by extracting electronic health record data, using a total of 30,785 inpatient cases from general wards and intensive care units. A comparative analysis was performed by setting a 3-month period before and after the system implementation. For clinical evaluation, we measured the incidence rates of Code Blue and adverse events, the proportion of prolonged hospitalization, and the frequency of early interventions. The area under the receiver operating characteristic curve (AUROC) was calculated to assess the performance of the algorithm.</p></section><section id="sec4"><h3 class="pmc_sec_title">Results</h3>
+<p>This study demonstrated that, following the implementation of VitalCare, there was a 24.97% reduction in major events such as Code Blue (<em>P</em>=.004) and the proportion of prolonged hospitalization in general wards (<em>P</em>&lt;.05), along with a significant increase in the rate of early interventions. The model performance exhibited superior outcomes compared with traditional scoring systems, with a Major Adverse Event Score AUROC of 0.865 (95% CI 0.857‐0.873) and Mortality Score AUROC of 0.937 (95% CI 0.931‐0.944).</p></section><section id="sec5"><h3 class="pmc_sec_title">Conclusions</h3>
+<p>A well-developed AI-based model that provides high predictive power can contribute to the prevention of major in-hospital events by providing early predictive information to clinicians. Additionally, it plays a crucial role in effectively addressing unmet needs and challenges in terms of human resources and practical procedures.</p></section></section><section id="s1"><h2 class="pmc_sec_title">Introduction</h2>
+<p>Code Blue is an emergency code used in hospital settings to indicate a patient experiencing cardiopulmonary arrest (CA), necessitating immediate resuscitative intervention [<a href="#R1" class="usa-link" aria-describedby="R1">1</a>]. This represents a critical and resource-intensive process in which health care providers must respond promptly and initiate action as soon as Code Blue is activated. Despite intensive and concerted efforts by medical staff, the survival rate of patients who experience a Code Blue event remains below 20% [<a href="#R1" class="usa-link" aria-describedby="R1">1</a>,<a href="#R2" class="usa-link" aria-describedby="R2">2</a>]. It is not only directly associated with a poor prognosis and high mortality rate of patients, but also contributes significantly to their economic burden.</p>
+<p>Nevertheless, the early identification and prediction of CA or clinical deterioration can be achieved through a comprehensive analysis of patients’ vital signs and blood test results. A previous study demonstrated that over 85% of patients who experience in-hospital CA exhibit abnormal vital signs 6 to 24 hours before adverse events (AEs) [<a href="#R3" class="usa-link" aria-describedby="R3">3</a>]. Implementing timely interventions based on these predictions may help delay or prevent mortality. The effective management of Code Blue events depends on the timeliness and quality of interventions [<a href="#R4" class="usa-link" aria-describedby="R4">4</a>]. In this context, artificial intelligence (AI)–based early warning systems (EWSs) can facilitate preparedness and support timely intervention by providing advanced alerts. The ability to predict the risk of critical AEs in advance enables hospitals to allocate the necessary resources and establish timely medical treatment plans proactively [<a href="#R1" class="usa-link" aria-describedby="R1">1</a>,<a href="#R5" class="usa-link" aria-describedby="R5">5</a>].</p>
+<p>Numerous studies have demonstrated the positive outcomes of using AI-EWS, underscoring the value of continuous patient monitoring for the early detection of critical events [<a href="#R6" class="usa-link" aria-describedby="R6">6-9</a>]. However, most AI-EWS studies have predominantly focused on developing models that predict individual clinical events, such as CA or death, thereby providing limited information. To enhance the early detection of patient deterioration, training algorithms with broadly defined indications are essential. Accordingly, we developed a multilabel algorithm that is designed to recognize the deterioration of patient conditions, including unplanned ward-to-intensive care unit (ICU) transfer (UIT), cardiopulmonary resuscitation, and mortality.</p>
+<p>Despite advancements in AI-EWSs, insufficient evidence is available regarding their clinical utility when they are implemented in real-world hospital settings, particularly in terms of reducing in-hospital Code Blue events. Comprehensive validation across multiple domains is essential for the successful implementation and integration of AI-EWS technologies in clinical practice. Therefore, the primary objective of this study was to evaluate the effectiveness of applying an AI-EWS on clinical outcomes, including Code Blue events in hospitals, prolonged length of stay (pLOS), and the frequency of ordering new codes, such as early interventions or assessments for AEs, compared with a silent period using real-world electronic medical record (EMR) data. The secondary objective was to assess the performance in a hospital environment with different characteristics from those of the development data to verify the generalization of the model.</p></section><section id="s2"><h2 class="pmc_sec_title">Methods</h2>
+<section id="s2-1"><h3 class="pmc_sec_title">Study Design and Participants</h3>
+<p>This retrospective study was conducted at the Presbyterian Medical Center in the Republic of Korea, where a rapid response system (RRS) had not yet been established. Instead, the condition of each patient was monitored by an assigned registered nurse for potential clinical deterioration. In March 2023, the hospital introduced an AI solution named VitalCare (VC) for continuous patient monitoring in the general ward (GW) and ICU to predict patient deterioration. The study population consisted of patients aged 19 years and older who were admitted to the GW or ICU over a 17-month period from December 2022 to May 2024. A “silent period” was designated from December 2022 to February 2023 to establish control settings, during which health care providers did not use VC. Excluding the first 1-month adaptation period following the introduction of the system, data from April 2023 to May 2024 were set as the “entire alert period.” We classified and analyzed the intervention period into two categories. To control for seasonal bias, the alert period was defined as the winter months between December 2023 and February 2024 to match the control period, which was also confined to the winter months. Winter was associated with a higher incidence of AEs and mortality. Therefore, this study was designed to focus on comparative analyses specific to winter. To evaluate the overall trend in Code Blue occurrences, a comparative analysis was conducted using 5 years of event data. This analysis compared the 4-year average before the implementation of VC with data from the first year after implementation.</p></section><section id="s2-2"><h3 class="pmc_sec_title">Ethical Considerations</h3>
+<p>The Institutional Review Board of the Presbyterian Medical Center approved this study on December 12, 2023, and waived the requirement for informed consent given the specific nature of the retrospective study (2023-12-051). This study was conducted in accordance with the principles of the 1975 Declaration of Helsinki. To protect the privacy of participants, all data were anonymized during extraction from the hospital’s EMR system and used solely for analysis purposes. As this was a retrospective study, no compensation was provided to participants.</p></section><section id="s2-3"><h3 class="pmc_sec_title">Algorithm Description</h3>
+<p>The VC algorithm is a deep-learning-based model that uses a bidirectional long short-term memory architecture as a binary classifier to predict the occurrence of major AEs (positive or negative) in GW inpatients. It comprises VC-Major Adverse Event Score (MAES) and VC-Mortality Score (MORS), both of which have been approved by the Korean Ministry of Food and Drug Safety. The VC-MAES is designed to comprehensively predict 3 key events, namely, UIT, death, or cardiopulmonary resuscitation, within the GW. In contrast, the VC-MORS is designed to provide a score that could predict death in patients who are admitted to the ICU. ICU transfers within 3 hours of surgery completion or 12 hours of procedure initiation were considered as planned ICU transfers and were excluded from the outcome analyses. The VC-MAES was trained using data from 334,185 hospitalizations of 209,825 adult patients between 2013 and 2017 at Yonsei Severance Hospital, which is a 2454-bed tertiary academic medical center in Seoul, Republic of Korea. The VC-MORS was trained using data from 21,186 hospitalizations of 19,570 adult patients who were admitted to the ICU between 2013 and 2017 at the same hospital. The dataset encompasses more than 35 surgical and medical specialties. The details of the model architecture were the same as those described in a previous study, with slight modifications [<a href="#R10" class="usa-link" aria-describedby="R10">10</a>].</p>
+<p>The model primarily uses 5 vital signs—systolic and diastolic blood pressure, heart rate, respiratory rate, and body temperature—along with age to generate risk scores ranging from 0 to 100. Higher scores indicate an increased risk of target events occurring within the next 6 hours. When available, the model also incorporates optional variables, including oxygen saturation (SpO<sub>2</sub>), mental status (Glasgow Coma Scale), total bilirubin, lactate, creatinine, platelet count, pH, sodium, potassium, hematocrit, white blood cell count, bicarbonate, and C-reactive protein. These inputs are updated whenever new data are recorded in the EMR system to ensure that the score reflects the patient’s most recent condition. Given that these optional parameters are infrequently measured, missing values are imputed using the last observation carried forward method, where the most recent available value is used. If no prior values are available, normal reference values are assigned for score computation [<a href="#R11" class="usa-link" aria-describedby="R11">11</a>].</p></section><section id="s2-4"><h3 class="pmc_sec_title">Practical Setting</h3>
+<p>We integrated the hospital network’s EMR system with the pretrained VC algorithm, which was deployed to another institution without any retraining or recalibration, thereby enabling validation using real-world data from hospitalized patients. The system was configured to allow VC access across all GWs and ICUs. Health care providers reviewed single parameters, such as vital signs, laboratory data, and VC prediction scores, for all hospitalized patients via the VC web platform. The VC web platform presents a trend graph of score changes over time, alarm history, and single-parameter history (<a href="#F1" class="usa-link">Figure 1</a>). It was displayed continuously, allowing the health care providers to access it at any time, and clinicians used the information provided by the VC as a reference during clinical decision-making.</p>
+<figure class="fig xbox font-sm" id="F1"><h4 class="obj_head">Figure 1.  Web interface of VitalCare.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/553d/12373407/c8fc3db068e7/medinform-v13-e72232-g001.jpg" loading="lazy" height="243" width="800" alt="Figure 1."></p>
+<div class="p text-right font-secondary"><a href="figure/F1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></figure></section><section id="s2-5"><h3 class="pmc_sec_title">Clinical Evaluation</h3>
+<p>We analyzed clinical variables such as the in-hospital Code Blue incidence rate, AE (death and UIT cases) incidence rate, proportion of long-term hospitalization during each period, and frequency of early interventions to evaluate the clinical effectiveness following the implementation of VC.</p>
+<p>We investigated the annual number of Code Blue events from 2019 to 2023 and calculated the incidence rate relative to the total number of hospitalized patients, excluding those with documented “Do Not Resuscitate” status. The silent period was represented by the average values from 2019 to 2022. The pLOS was defined as the 75th percentile of the total length of stay in the study population [<a href="#R12" class="usa-link" aria-describedby="R12">12</a>,<a href="#R13" class="usa-link" aria-describedby="R13">13</a>]. Based on this criterion, patients who were admitted to the GW for 9 days or more and those who were admitted to the ICU for 4 days or more were classified as having a prolonged hospital stay. The proportion of patients meeting these criteria was subsequently calculated to evaluate the prevalence of prolonged hospital stay within the cohort.</p>
+<p>Given the varying total number of hospital admissions across different periods, the incidence rate of AEs was calculated per 1000 admissions. The number of interventions or evaluations performed within 2 hours of the first alarm activation was calculated to analyze the frequency of early interventions. For this analysis, intervention and evaluation items were compared using prescription codes, such as new oxygenation or change orders, laboratory tests, and any new code orders.</p></section><section id="s2-6"><h3 class="pmc_sec_title">Performance Evaluation</h3>
+<p>The overall accuracy of the scores was determined by calculating the area under the receiver operating characteristic curve (AUROC) and area under the precision-recall curve (AUPRC) based on whether a target event occurred within 6 hours of the predicted scores. The bootstrap method was used to compare the AUROC and AUPRC with the National Early Warning Score (NEWS), Modified Early Warning Score (MEWS), Sequential Organ Failure Assessment (SOFA), and Acute Physiology and Chronic Health Evaluation II (APACHE II). Given the extensive use of NEWS, MEWS, and SOFA in studies worldwide to predict cardiac arrest or clinical deterioration, these scores were also used as comparators in this study [<a href="#R1" class="usa-link" aria-describedby="R1">1</a>,<a href="#R2" class="usa-link" aria-describedby="R2">2</a>,<a href="#R14" class="usa-link" aria-describedby="R14">14</a>,<a href="#R15" class="usa-link" aria-describedby="R15">15</a>]. NEWS and MEWS were calculated using current values of systolic blood pressure, heart rate, respiratory rate, body temperature, mental status, SpO<sub>2</sub>, and the fraction of inspired oxygen (FiO<sub>2</sub>) recorded in the EMR within 1 hour before the prediction point. The SOFA score was calculated using the worst recorded values in the EMR within 24 hours following ICU admission. As the APACHE II score is specifically used to predict the mortality risk of acutely ill patients within 24 hours of ICU admission [<a href="#R16" class="usa-link" aria-describedby="R16">16</a>], the AUROC and AUPRC were calculated based on whether death occurred during the ICU stay.</p></section><section id="s2-7"><h3 class="pmc_sec_title">Statistical Analysis</h3>
+<p>Demographic characteristics during the silent and alert periods were compared using chi-square tests for categorical variables. For continuous variables, normality was assessed using the Shapiro-Wilk test and histogram inspection, which noted that large sample sizes may cause the test to reject normality due to high sensitivity. Normally distributed variables were compared using independent 2-tailed <em>t</em> tests, and nonnormally distributed variables were compared using the Mann-Whitney <em>U</em> test (2-tailed).</p>
+<p>To evaluate predictive performance, 95% CIs for the AUROC were estimated using the bootstrap method with 1000 resamples. DeLong’s test was used for statistical comparison of AUROC values, while a bootstrap-based test with 1000 resamples was applied for AUPRC.</p>
+<p>Sensitivity, specificity, positive predictive value, and negative predictive value were calculated to evaluate the performance of the scores, using predefined thresholds corresponding to moderate and high alarm levels. Proportions were compared using the 2-sample proportion test, applying either 1- or 2-tailed approaches as appropriate. One-tailed tests were used to compare AE rates when a directional effect was prespecified, whereas 2-tailed tests were applied when no prior direction was assumed.</p>
+<p>All statistical analyses were performed using Python (version 3.12.9; Python Software Foundation), with statistical significance defined as <em>P</em>&lt;.05, applied uniformly across 1- and 2-tailed tests. The analyses used the MLstatkit and scikit-learn libraries.</p></section></section><section id="s3"><h2 class="pmc_sec_title">Results</h2>
+<section id="s3-1"><h3 class="pmc_sec_title">Overview</h3>
+<p>This study initially included 32,750 admissions from 24,187 patients. After applying the exclusion criteria, 30 admissions involving patients aged younger than 19 years of age were excluded, resulting in 32,720 admissions being included in the study dataset, which was used for performance evaluation. Considering the adaptation period, 1935 admissions were excluded from the study. The final dataset consisted of 5375 admissions during the silent period, 25,410 admissions during the alert period, and 5780 admissions during the seasonally matched alert period. There were 3576 ICU admissions, of which 2 were younger than 19 years of age and were excluded, leaving 3574 admissions for the VC-MORS performance evaluation. After excluding 214 admissions during the adaptation period, 3360 admissions remained, including 647 admissions during the silent period, 2713 admissions during the entire alert period, and 597 admissions during the seasonally matched alert period (<a href="#F2" class="usa-link">Figure 2</a>).</p>
+<figure class="fig xbox font-sm" id="F2"><h4 class="obj_head">Figure 2. Flowchart of admission selection.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/553d/12373407/aafa2e601c76/medinform-v13-e72232-g002.jpg" loading="lazy" height="612" width="777" alt="Figure 2."></p>
+<div class="p text-right font-secondary"><a href="figure/F2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></figure></section><section id="s3-2"><h3 class="pmc_sec_title">Baseline Characteristics</h3>
+<p>We compared baseline characteristics of patients admitted during the silent and alert periods, including vital signs, laboratory values, and the Charlson comorbidity index, which was calculated according to previously published methods [<a href="#R17" class="usa-link" aria-describedby="R17">17</a>,<a href="#R18" class="usa-link" aria-describedby="R18">18</a>]. While statistically significant differences were observed in pulse rate, respiratory rate, SpO<sub>2</sub>, bilirubin, sodium, NEWS, MEWS, Charlson Comorbidity Index, and other baseline characteristics were similar (<a href="#T1" class="usa-link">Table 1</a>). These findings indicate that patient baseline characteristics were largely similar between the 2 periods.</p>
+<section class="tw xbox font-sm" id="T1"><h4 class="obj_head">Table 1.  Characteristics of patients across hospitalizations.</h4>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th colspan="2" valign="bottom" rowspan="1">Variables</th>
+<th valign="bottom" rowspan="1" colspan="1">Overall (n=11,155)</th>
+<th valign="bottom" rowspan="1" colspan="1">Silent period (n=5375)</th>
+<th valign="bottom" rowspan="1" colspan="1">Season-matched alert period (n=5780)</th>
+<th valign="bottom" rowspan="1" colspan="1">Missing, n (%)</th>
+<th valign="bottom" rowspan="1" colspan="1">
+<em>P</em> value</th>
+</tr></thead>
+<tbody>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1">Age (years), median (IQR)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">67.0 (55.0-77.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">67.0 (55.0-77.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">67.0 (55.0-77.0)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">0 (0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.90</td>
+</tr>
+<tr>
+<td colspan="5" valign="top" rowspan="1">Sex, n (%)</td>
+<td valign="top" rowspan="1" colspan="1"></td>
+<td valign="top" align="center" rowspan="1" colspan="1">.19</td>
+</tr>
+<tr>
+<td align="left" valign="top" colspan="2" rowspan="1">
+<br> Female</td>
+<td align="left" valign="top" rowspan="1" colspan="1">5632 (50.5)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">2679 (49.8)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">2953 (51.1)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">0 (0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1"></td>
+</tr>
+<tr>
+<td colspan="2" valign="top" rowspan="1"> Male</td>
+<td align="left" valign="top" rowspan="1" colspan="1">5523 (49.5)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">2696 (50.2)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">2827 (48.9)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">0 (0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1"></td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1">BMI (kg/m<sup>2</sup>), mean (SD)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">24.3 (4.1)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">24.3 (4.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">24.3 (4.2)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">1787 (16.02)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.58</td>
+</tr>
+<tr><td colspan="7" align="left" valign="top" rowspan="1">Vital signs</td></tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> Diastolic blood pressure (mm Hg), mean (SD)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">76.7 (12.1)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">76.9 (12.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">76.6 (12.2)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">4 (0.04)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.27</td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> Pulse (beats per min), mean (SD)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">79.4 (14.7)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">79.1 (14.7)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">79.8 (14.7)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">4 (0.04)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.01</td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> Respiratory rate (breaths per min), median (IQR)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">20.0 (18.0-20.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">20.0 (19.0-20.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">20.0 (18.0-20.0)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">4 (0.04)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">&lt;.001</td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> Systolic blood pressure (mm Hg), mean (SD)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">127.4 (20.1)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">127.7 (20.4)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">127.1 (19.9)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">4 (0.04)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.13</td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> SpO<sub>2</sub> (%), median (IQR)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">97.0 (96.0-98.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">97.0 (96.0-98.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">97.0 (96.0-98.0)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">2634 (23.61)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.03</td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> Temperature (°C), mean (SD)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">36.8 (0.4)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">36.8 (0.4)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">36.8 (0.4)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">6 (0.05)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.18</td>
+</tr>
+<tr><td colspan="7" align="left" valign="top" rowspan="1">Laboratory values</td></tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> Bilirubin (mg/dL), median (IQR)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">0.5 (0.4-0.8)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">0.5 (0.4-0.8)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">0.5 (0.4-0.8)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">2928 (26.25)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">&lt;.001</td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> Creatinine (mg/dL), median (IQR)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">0.8 (0.6-1.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">0.8 (0.6-1.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">0.8 (0.6-1.0)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">2362 (21.17)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.15</td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> C-reactive protein (mg/dL), median (IQR)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">0.7 (0.1-3.9)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">0.6 (0.1-3.7)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">0.7 (0.1-4.2)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">3605 (32.32)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.24</td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> HCO<sub>3</sub> (mmol/L), mean (SD)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">24.4 (5.7)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">24.6 (5.5)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">24.3 (5.8)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">9437 (84.60)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.21</td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> Hematocrit (%), mean (SD)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">35.7 (6.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">35.6 (6.1)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">35.7 (6.0)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">1719 (15.41)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.21</td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> Lactate (mmol/L), median (IQR)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">2.0 (1.2-4.3)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">2.2 (1.3-4.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">1.9 (1.1-4.3)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">10,890 (97.62)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.51</td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> PCO<sub>2</sub> (mm Hg), mean (SD)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">38.3 (10.2)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">38.4 (10.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">38.2 (10.3)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">9437 (84.60)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.69</td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> pH, mean (SD)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">7.4 (0.1)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">7.4 (0.1)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">7.4 (0.1)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">9437 (84.60)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.17</td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> Platelets (10<sup>3</sup>/µL), mean (SD)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">218.9 (80.6)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">218.7 (81.5)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">219.0 (79.7)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">1719 (15.41)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.87</td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> PO<sub>2</sub> (mm Hg), median (IQR)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">92.0 (78.0-113.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">91.0 (78.0-114.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">93.0 (78.0-112.0)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">9437 (84.60)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.85</td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> Potassium (mEq/L), mean (SD)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">4.1 (0.6)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">4.0 (0.6)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">4.1 (0.6)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">2732 (24.49)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.01</td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> Sodium (mEq/L), median (IQR)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">141.0 (138.0-142.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">141.0 (139.0-142.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">140.0 (138.0-142.0)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">2728 (24.46)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.001</td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> White blood cell count (10<sup>3</sup>/µL), median (IQR)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">7.0 (5.5-9.2)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">6.9 (5.5-9.2)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">7.0 (5.5-9.3)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">1719 (15.41)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.41</td>
+</tr>
+<tr><td colspan="7" align="left" valign="top" rowspan="1">Baseline scores, median (IQR)</td></tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> NEWS<a href="#T1_FN3" class="usa-link"><sup>a</sup></a>
+</td>
+<td align="left" valign="top" rowspan="1" colspan="1">3.0 (3.0-4.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">3.0 (3.0-4.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">4.0 (3.0-5.0)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">549 (4.92)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">&lt;.001</td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> MEWS<a href="#T1_FN4" class="usa-link"><sup>b</sup></a>
+</td>
+<td align="left" valign="top" rowspan="1" colspan="1">1.0 (1.0-1.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">1.0 (1.0-1.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">1.0 (1.0-1.0)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">549 (4.92)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.05</td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> APACHE II<a href="#T1_FN2" class="usa-link"><sup>c</sup></a>
+</td>
+<td align="left" valign="top" rowspan="1" colspan="1">13.0 (9.0-18.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">13.0 (9.0-18.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">13.0 (10.0-18.0)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">9911 (88.85)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.23</td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" rowspan="1"> CCI<a href="#T1_FN6" class="usa-link"><sup>d</sup></a> (comorbidity)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">3.0 (2.0-5.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">3.0 (2.0-5.0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">3.0 (2.0-5.0)</td>
+<td valign="top" align="center" rowspan="1" colspan="1">0 (0)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.58</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/T1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<div class="tw-foot p">
+<div class="fn" id="T1_FN3">
+<sup>a</sup><p class="display-inline">NEWS: National Early Warning Score</p>
+</div>
+<div class="fn" id="T1_FN4">
+<sup>b</sup><p class="display-inline">MEWS: Modified Early Warning Score</p>
+</div>
+<div class="fn" id="T1_FN2">
+<sup>c</sup><p class="display-inline">APACHE II: Acute Physiology and Chronic Health Evaluation II</p>
+</div>
+<div class="fn" id="T1_FN6">
+<sup>d</sup><p class="display-inline">CCI: Charlson Comorbidity Index</p>
+</div>
+</div></section></section><section id="s3-3"><h3 class="pmc_sec_title">Reduction in Code Blue and AEs</h3>
+<p>The incidence of Code Blue was expected to decrease in 2023 compared to the 4-year average between 2019 and 2022. Since the implementation of the VC system in 2023, the hospital’s Code Blue incidence rate (per 1000) has decreased by 24.97%, from 10.57 to 7.93 (<em>P</em>=.004). As shown in <a href="#T2" class="usa-link">Table 2</a>, even year-by-year comparisons during the pre-VC period show that the incidence was lower after the introduction of VC.</p>
+<section class="tw xbox font-sm" id="T2"><h4 class="obj_head">Table 2. Code blue trends before and after VC<a href="#T2_FN2" class="usa-link"><sup>a</sup></a> implementation.</h4>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th valign="bottom" rowspan="1" colspan="1">Year</th>
+<th valign="bottom" rowspan="1" colspan="1">Number of hospitalized patients<a href="#T2_FN1" class="usa-link"><sup>b</sup></a>
+</th>
+<th valign="bottom" rowspan="1" colspan="1">Number of Code Blue events</th>
+<th valign="bottom" rowspan="1" colspan="1">Code Blue period incidence rate (per 1000)</th>
+</tr></thead>
+<tbody>
+<tr><td colspan="4" align="left" valign="top" rowspan="1">Before VC implementation</td></tr>
+<tr>
+<td align="left" valign="top" rowspan="1" colspan="1"> 2019</td>
+<td align="left" valign="top" rowspan="1" colspan="1">22,262</td>
+<td align="left" valign="top" rowspan="1" colspan="1">262</td>
+<td align="left" valign="top" rowspan="1" colspan="1">11.69</td>
+</tr>
+<tr>
+<td align="left" valign="top" rowspan="1" colspan="1"> 2020</td>
+<td align="left" valign="top" rowspan="1" colspan="1">21,726</td>
+<td align="left" valign="top" rowspan="1" colspan="1">229</td>
+<td align="left" valign="top" rowspan="1" colspan="1">10.34</td>
+</tr>
+<tr>
+<td align="left" valign="top" rowspan="1" colspan="1"> 2021</td>
+<td align="left" valign="top" rowspan="1" colspan="1">22,087</td>
+<td align="left" valign="top" rowspan="1" colspan="1">210</td>
+<td align="left" valign="top" rowspan="1" colspan="1">9.32</td>
+</tr>
+<tr>
+<td align="left" valign="top" rowspan="1" colspan="1"> 2022</td>
+<td align="left" valign="top" rowspan="1" colspan="1">21,381</td>
+<td align="left" valign="top" rowspan="1" colspan="1">223</td>
+<td align="left" valign="top" rowspan="1" colspan="1">10.19</td>
+</tr>
+<tr>
+<td align="left" valign="top" rowspan="1" colspan="1"> Average</td>
+<td align="left" valign="top" rowspan="1" colspan="1">21,864</td>
+<td align="left" valign="top" rowspan="1" colspan="1">231</td>
+<td align="left" valign="top" rowspan="1" colspan="1">10.57</td>
+</tr>
+<tr><td colspan="4" align="left" valign="top" rowspan="1">After VC implementation</td></tr>
+<tr>
+<td align="left" valign="top" rowspan="1" colspan="1"> 2023</td>
+<td align="left" valign="top" rowspan="1" colspan="1">21,061</td>
+<td align="left" valign="top" rowspan="1" colspan="1">167</td>
+<td align="left" valign="top" rowspan="1" colspan="1">7.93</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/T2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<div class="tw-foot p">
+<div class="fn" id="T2_FN2">
+<sup>a</sup><p class="display-inline">VC: VitalCare</p>
+</div>
+<div class="fn" id="T2_FN1">
+<sup>b</sup><p class="display-inline">Excluding DNR (Do Not Resuscitate) patients.</p>
+</div>
+</div></section><p>Moreover, we compared the rates of UIT and in-hospital mortality across three intervals: the silent (pre-VC) period, the season-matched period, and the entire study period. The baseline UIT event rate during the silent period was 69.40 events per 1000 admissions, which significantly decreased to 60.73 (<em>P</em>=.03) in the season-matched period and 62.37 (<em>P</em>=.03) in the entire study period. For in-hospital mortality, the baseline rate was 19.72 deaths per 1000 admissions, decreasing to 16.78 (<em>P</em>=.12) during the season-matched period and further to 15.87 (<em>P</em>=.02) during the entire period (<a href="#T3" class="usa-link">Table 3</a>).</p>
+<section class="tw xbox font-sm" id="T3"><h4 class="obj_head">Table 3. Number of adverse events by period.</h4>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th valign="top" rowspan="1" colspan="1"></th>
+<th valign="top" rowspan="1" colspan="1">UIT<a href="#T3_FN1" class="usa-link"><sup>a</sup></a>
+</th>
+<th valign="top" rowspan="1" colspan="1">
+<em>P</em> value</th>
+<th valign="top" rowspan="1" colspan="1">Mortality</th>
+<th valign="top" rowspan="1" colspan="1">
+<em>P</em> value</th>
+</tr></thead>
+<tbody>
+<tr>
+<td valign="top" rowspan="1" colspan="1">Silent period</td>
+<td valign="top" align="center" rowspan="1" colspan="1">69.40</td>
+<td valign="top" align="center" rowspan="1" colspan="1">—<a href="#T3_FN2" class="usa-link"><sup>b</sup></a>
+</td>
+<td valign="top" align="center" rowspan="1" colspan="1">19.72</td>
+<td valign="top" rowspan="1" colspan="1">—</td>
+</tr>
+<tr>
+<td valign="top" rowspan="1" colspan="1">Season-matched alert period</td>
+<td valign="top" align="center" rowspan="1" colspan="1">60.73</td>
+<td valign="top" align="center" rowspan="1" colspan="1">.03</td>
+<td valign="top" align="center" rowspan="1" colspan="1">16.78</td>
+<td valign="top" align="center" rowspan="1" colspan="1">.12</td>
+</tr>
+<tr>
+<td valign="top" rowspan="1" colspan="1">Entire alert period</td>
+<td valign="top" align="center" rowspan="1" colspan="1">62.37</td>
+<td valign="top" align="center" rowspan="1" colspan="1">.03</td>
+<td valign="top" align="center" rowspan="1" colspan="1">15.87</td>
+<td valign="top" align="center" rowspan="1" colspan="1">.02</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/T3/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<div class="tw-foot p">
+<div class="fn" id="T3_FN1">
+<sup>a</sup><p class="display-inline">UIT: unplanned ward-to-intensive care unit transfer.</p>
+</div>
+<div class="fn" id="T3_FN2">
+<sup>b</sup><p class="display-inline">Not applicable.</p>
+</div>
+</div></section></section><section id="s3-4"><h3 class="pmc_sec_title">Clinical Outcomes</h3>
+<p>The pLOS rate in the GW decreased significantly following VC implementation. No significant difference in the pLOS rate was observed before and after the implementation of the VC system in the ICU (<a href="#T4" class="usa-link">Table 4</a>).</p>
+<section class="tw xbox font-sm" id="T4"><h4 class="obj_head">Table 4. Comparison of length of stay between periods.</h4>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead>
+<tr>
+<th rowspan="2" valign="bottom" colspan="1"></th>
+<th colspan="2" valign="bottom" rowspan="1">General wards (n=30,785 admissions)</th>
+<th colspan="2" valign="bottom" rowspan="1">Intensive care units (n=4013 transfers)</th>
+</tr>
+<tr>
+<th valign="bottom" rowspan="1" colspan="1">Proportion of pLOS<a href="#T4_FN1" class="usa-link"><sup>a</sup></a> (LOS ≥9 days), %</th>
+<th valign="bottom" rowspan="1" colspan="1">
+<em>P</em> value</th>
+<th valign="bottom" rowspan="1" colspan="1">Proportion of pLOS (LOS ≥4 days), %</th>
+<th valign="bottom" rowspan="1" colspan="1">
+<em>P</em> value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top" rowspan="1" colspan="1">Silent period</td>
+<td align="left" valign="top" rowspan="1" colspan="1">26.85</td>
+<td align="left" valign="top" rowspan="1" colspan="1">—<a href="#T4_FN2" class="usa-link"><sup>b</sup></a>
+</td>
+<td align="left" valign="top" rowspan="1" colspan="1">28.91</td>
+<td align="left" valign="top" rowspan="1" colspan="1">—</td>
+</tr>
+<tr>
+<td align="left" valign="top" rowspan="1" colspan="1">Season-matched alert period</td>
+<td align="left" valign="top" rowspan="1" colspan="1">24.65</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.01</td>
+<td align="left" valign="top" rowspan="1" colspan="1">30.96</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.39</td>
+</tr>
+<tr>
+<td align="left" valign="top" rowspan="1" colspan="1">Entire alert period</td>
+<td align="left" valign="top" rowspan="1" colspan="1">25.46</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.03</td>
+<td align="left" valign="top" rowspan="1" colspan="1">28.54</td>
+<td align="left" valign="top" rowspan="1" colspan="1">.84</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/T4/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<div class="tw-foot p">
+<div class="fn" id="T4_FN1">
+<sup>a</sup><p class="display-inline">pLOS: prolonged length of stay</p>
+</div>
+<div class="fn" id="T4_FN2">
+<sup>b</sup><p class="display-inline">Not applicable.</p>
+</div>
+</div></section><p>As shown in <a href="#T5" class="usa-link">Tables5 </a><a href="#T6" class="usa-link"> 6</a>, significantly more early interventions such as oxygenation, laboratory tests, and new code orders occurred following the activation of both moderate (VC-MAES=30) and high (VC-MAES=50) alarms. However, in the ICU, significant earlier interventions were observed only following a moderate VC-MORS alarm (VC-MORS=20), particularly with the ordering of laboratory tests, such as that for lactate.</p>
+<section class="tw xbox font-sm" id="T5"><h4 class="obj_head">Table 5. Early interventions measure for the first VC<a href="#T5_FN2" class="usa-link"><sup>a</sup></a> alarm in general wards.</h4>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th valign="top" rowspan="1" colspan="1">Intervention</th>
+<th valign="top" rowspan="1" colspan="1">Silent period</th>
+<th valign="top" rowspan="1" colspan="1">Season-matched alert period</th>
+<th valign="top" rowspan="1" colspan="1">
+<em>P</em> value</th>
+<th valign="top" rowspan="1" colspan="1">Entire alert period</th>
+<th valign="top" rowspan="1" colspan="1">
+<em>P</em> value</th>
+</tr></thead>
+<tbody>
+<tr>
+<td valign="top" rowspan="1" colspan="1">Moderate alarm<a href="#T5_FN1" class="usa-link"><sup>b</sup></a> (%), n</td>
+<td valign="top" align="left" rowspan="1" colspan="1">557</td>
+<td valign="top" align="left" rowspan="1" colspan="1">541</td>
+<td valign="top" align="left" rowspan="1" colspan="1"></td>
+<td valign="top" align="left" rowspan="1" colspan="1">2291</td>
+<td valign="top" align="left" rowspan="1" colspan="1"></td>
+</tr>
+<tr>
+<td valign="top" rowspan="1" colspan="1"> New oxygenation ordered</td>
+<td valign="top" align="left" rowspan="1" colspan="1">3.94</td>
+<td valign="top" align="left" rowspan="1" colspan="1">9.43</td>
+<td valign="top" align="left" rowspan="1" colspan="1">&lt;.001</td>
+<td valign="top" align="left" rowspan="1" colspan="1">9.60</td>
+<td valign="top" align="left" rowspan="1" colspan="1">&lt;.001</td>
+</tr>
+<tr>
+<td valign="top" rowspan="1" colspan="1"> Laboratory tests ordered</td>
+<td valign="top" align="left" rowspan="1" colspan="1">10.05</td>
+<td valign="top" align="left" rowspan="1" colspan="1">13.86</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.05</td>
+<td valign="top" align="left" rowspan="1" colspan="1">13.84</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.01</td>
+</tr>
+<tr>
+<td valign="top" rowspan="1" colspan="1"> New code ordered</td>
+<td valign="top" align="left" rowspan="1" colspan="1">24.42</td>
+<td valign="top" align="left" rowspan="1" colspan="1">30.87</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.02</td>
+<td valign="top" align="left" rowspan="1" colspan="1">31.25</td>
+<td valign="top" align="left" rowspan="1" colspan="1">&lt;.001</td>
+</tr>
+<tr>
+<td valign="top" rowspan="1" colspan="1">High alarm<a href="#T5_FN3" class="usa-link"><sup>c</sup></a> (%), n</td>
+<td valign="top" align="left" rowspan="1" colspan="1">212</td>
+<td valign="top" align="left" rowspan="1" colspan="1">215</td>
+<td valign="top" align="left" rowspan="1" colspan="1"></td>
+<td valign="top" align="left" rowspan="1" colspan="1">870</td>
+<td valign="top" align="left" rowspan="1" colspan="1"></td>
+</tr>
+<tr>
+<td valign="top" rowspan="1" colspan="1"> New oxygenation ordered</td>
+<td valign="top" align="left" rowspan="1" colspan="1">3.77</td>
+<td valign="top" align="left" rowspan="1" colspan="1">17.67</td>
+<td valign="top" align="left" rowspan="1" colspan="1">&lt;.001</td>
+<td valign="top" align="left" rowspan="1" colspan="1">13.10</td>
+<td valign="top" align="left" rowspan="1" colspan="1">&lt;.001</td>
+</tr>
+<tr>
+<td valign="top" rowspan="1" colspan="1"> Laboratory tests ordered</td>
+<td valign="top" align="left" rowspan="1" colspan="1">12.26</td>
+<td valign="top" align="left" rowspan="1" colspan="1">21.86</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.01</td>
+<td valign="top" align="left" rowspan="1" colspan="1">19.43</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.01</td>
+</tr>
+<tr>
+<td valign="top" rowspan="1" colspan="1"> New code ordered</td>
+<td valign="top" align="left" rowspan="1" colspan="1">35.85</td>
+<td valign="top" align="left" rowspan="1" colspan="1">47.44</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.02</td>
+<td valign="top" align="left" rowspan="1" colspan="1">42.76</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.07</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/T5/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<div class="tw-foot p">
+<div class="fn" id="T5_FN2">
+<sup>a</sup><p class="display-inline">VC: VitalCare.</p>
+</div>
+<div class="fn" id="T5_FN1">
+<sup>b</sup><p class="display-inline">VC-MAES=30.</p>
+</div>
+<div class="fn" id="T5_FN3">
+<sup>c</sup><p class="display-inline">VC-MAES=50.</p>
+</div>
+</div></section><section class="tw xbox font-sm" id="T6"><h4 class="obj_head">Table 6. Early interventions measure for the first VC<a href="#T6_FN1" class="usa-link"><sup>a</sup></a> alarm in intensive care units.</h4>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th valign="top" rowspan="1" colspan="1">Intervention</th>
+<th valign="top" rowspan="1" colspan="1">Silent period</th>
+<th valign="top" rowspan="1" colspan="1">Season-matched alert period</th>
+<th valign="top" rowspan="1" colspan="1">
+<em>P</em> value</th>
+<th valign="top" rowspan="1" colspan="1">Entire alert period</th>
+<th valign="top" rowspan="1" colspan="1">
+<em>P</em> value</th>
+</tr></thead>
+<tbody>
+<tr>
+<td valign="top" rowspan="1" colspan="1">Moderate alarm<a href="#T6_FN2" class="usa-link"><sup>b</sup></a> (%), n</td>
+<td valign="top" align="left" rowspan="1" colspan="1">152</td>
+<td valign="top" align="left" rowspan="1" colspan="1">141</td>
+<td valign="top" align="left" rowspan="1" colspan="1"></td>
+<td valign="top" align="left" rowspan="1" colspan="1">638</td>
+<td valign="top" align="left" rowspan="1" colspan="1"></td>
+</tr>
+<tr>
+<td valign="top" rowspan="1" colspan="1"> New oxygenation ordered</td>
+<td valign="top" align="left" rowspan="1" colspan="1">12.50</td>
+<td valign="top" align="left" rowspan="1" colspan="1">17.02</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.28</td>
+<td valign="top" align="left" rowspan="1" colspan="1">16.14</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.29</td>
+</tr>
+<tr>
+<td valign="top" rowspan="1" colspan="1"> Laboratory tests ordered</td>
+<td valign="top" align="left" rowspan="1" colspan="1">24.34</td>
+<td valign="top" align="left" rowspan="1" colspan="1">35.46</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.04</td>
+<td valign="top" align="left" rowspan="1" colspan="1">37.15</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.002</td>
+</tr>
+<tr>
+<td valign="top" rowspan="1" colspan="1"> Lactate ordered</td>
+<td valign="top" align="left" rowspan="1" colspan="1">2.63</td>
+<td valign="top" align="left" rowspan="1" colspan="1">9.93</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.01</td>
+<td valign="top" align="left" rowspan="1" colspan="1">7.68</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.01</td>
+</tr>
+<tr>
+<td valign="top" rowspan="1" colspan="1"> New code ordered</td>
+<td valign="top" align="left" rowspan="1" colspan="1">55.26</td>
+<td valign="top" align="left" rowspan="1" colspan="1">63.83</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.14</td>
+<td valign="top" align="left" rowspan="1" colspan="1">62.85</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.09</td>
+</tr>
+<tr>
+<td valign="top" rowspan="1" colspan="1">High alarm<a href="#T6_FN3" class="usa-link"><sup>c</sup></a> (%), n</td>
+<td valign="top" align="left" rowspan="1" colspan="1">51</td>
+<td valign="top" align="left" rowspan="1" colspan="1">47</td>
+<td valign="top" align="left" rowspan="1" colspan="1"></td>
+<td valign="top" align="left" rowspan="1" colspan="1">214</td>
+<td valign="top" align="left" rowspan="1" colspan="1"></td>
+</tr>
+<tr>
+<td valign="top" rowspan="1" colspan="1"> New oxygenation ordered</td>
+<td valign="top" align="left" rowspan="1" colspan="1">5.88</td>
+<td valign="top" align="left" rowspan="1" colspan="1">14.89</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.17</td>
+<td valign="top" align="left" rowspan="1" colspan="1">9.35</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.60</td>
+</tr>
+<tr>
+<td valign="top" rowspan="1" colspan="1"> Laboratory tests ordered</td>
+<td valign="top" align="left" rowspan="1" colspan="1">27.45</td>
+<td valign="top" align="left" rowspan="1" colspan="1">36.17</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.36</td>
+<td valign="top" align="left" rowspan="1" colspan="1">28.04</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.99</td>
+</tr>
+<tr>
+<td valign="top" rowspan="1" colspan="1"> Lactate ordered</td>
+<td valign="top" align="left" rowspan="1" colspan="1">1.96</td>
+<td valign="top" align="left" rowspan="1" colspan="1">6.38</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.35</td>
+<td valign="top" align="left" rowspan="1" colspan="1">6.54</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.31</td>
+</tr>
+<tr>
+<td valign="top" rowspan="1" colspan="1"> New code ordered</td>
+<td valign="top" align="left" rowspan="1" colspan="1">72.55</td>
+<td valign="top" align="left" rowspan="1" colspan="1">72.34</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.98</td>
+<td valign="top" align="left" rowspan="1" colspan="1">67.29</td>
+<td valign="top" align="left" rowspan="1" colspan="1">.51</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/T6/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<div class="tw-foot p">
+<div class="fn" id="T6_FN1">
+<sup>a</sup><p class="display-inline">VC: VitalCare.</p>
+</div>
+<div class="fn" id="T6_FN2">
+<sup>b</sup><p class="display-inline">VC-MORS=20.</p>
+</div>
+<div class="fn" id="T6_FN3">
+<sup>c</sup><p class="display-inline">VC-MORS=80.</p>
+</div>
+</div></section></section><section id="s3-5"><h3 class="pmc_sec_title">Model Performance Compared With Traditional Scoring System</h3>
+<p>VC-MAES and VC-MORS outperformed conventional EWS in both AUROC and AUPRC. VC-MAES achieved an AUROC of 0.865 (95% CI 0.857-0.873) and an AUPRC of 0.088 (95% CI 0.080‐0.098), which were significantly higher than those of NEWS (AUROC=0.804; AUPRC = 0.018) and MEWS (AUROC=0.772; AUPRC=0.020).</p>
+<p>Similarly, VC-MORS showed strong predictive performance for 6-hour mortality, with an AUROC of 0.937 (95% CI 0.931‐0.944) and an AUPRC of 0.098 (95% CI 0.087-0.109), which outperformed SOFA (AUROC=0.754; AUPRC=0.011). APACHE II, calculated once within 24 hours of ICU admission, showed an AUROC of 0.814 and an AUPRC of 0.259 for predicting ICU mortality (<a href="#T7" class="usa-link">Table 7</a>).</p>
+<section class="tw xbox font-sm" id="T7"><h4 class="obj_head">Table 7. Performance comparison by AUROC<a href="#T7_FN1" class="usa-link"><sup>a</sup></a> and AUPRC<a href="#T7_FN2" class="usa-link"><sup>b</sup></a>.</h4>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" valign="top" rowspan="1" colspan="1">Score</th>
+<th align="left" valign="top" rowspan="1" colspan="1">AUROC (bootstrap 95% CI)</th>
+<th align="left" valign="top" rowspan="1" colspan="1">AUPRC (bootstrap 95% CI)</th>
+</tr></thead>
+<tbody>
+<tr><td colspan="3" valign="top" rowspan="1">General wards</td></tr>
+<tr>
+<td align="left" valign="top" rowspan="1" colspan="1"> VC<a href="#T7_FN3" class="usa-link"><sup>c</sup></a>-MAES<a href="#T7_FN4" class="usa-link"><sup>d</sup></a>
+</td>
+<td align="left" valign="top" rowspan="1" colspan="1">0.865 (0.857‐0.873)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">0.088 (0.080‐0.098)</td>
+</tr>
+<tr>
+<td align="left" valign="top" rowspan="1" colspan="1"> NEWS<a href="#T7_FN5" class="usa-link"><sup>e</sup></a>
+</td>
+<td align="left" valign="top" rowspan="1" colspan="1">0.804 (0.797‐0.811)<a href="#T7_FN6" class="usa-link"><sup>f</sup></a>
+</td>
+<td align="left" valign="top" rowspan="1" colspan="1">0.018 (0.015‐0.021)<a href="#T7_FN7" class="usa-link"><sup>g</sup></a>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" rowspan="1" colspan="1"> MEWS<a href="#T7_FN8" class="usa-link"><sup>h</sup></a>
+</td>
+<td align="left" valign="top" rowspan="1" colspan="1">0.772 (0.764-0.780)<a href="#T7_FN6" class="usa-link"><sup>f</sup></a>
+</td>
+<td align="left" valign="top" rowspan="1" colspan="1">0.020 (0.015‐0.025)<a href="#T7_FN7" class="usa-link"><sup>g</sup></a>
+</td>
+</tr>
+<tr><td colspan="3" align="left" valign="top" rowspan="1">Intensive care units</td></tr>
+<tr>
+<td align="left" valign="top" rowspan="1" colspan="1"> VC-MORS<a href="#T7_FN9" class="usa-link"><sup>i</sup></a>
+</td>
+<td align="left" valign="top" rowspan="1" colspan="1">0.937 (0.931‐0.944)</td>
+<td align="left" valign="top" rowspan="1" colspan="1">0.098 (0.087‐0.109)</td>
+</tr>
+<tr>
+<td align="left" valign="top" rowspan="1" colspan="1"> SOFA<a href="#T7_FN10" class="usa-link"><sup>j</sup></a>
+</td>
+<td align="left" valign="top" rowspan="1" colspan="1">0.754 (0.742-0.765)<a href="#T7_FN6" class="usa-link"><sup>f</sup></a>
+</td>
+<td align="left" valign="top" rowspan="1" colspan="1">0.011 (0.010‐0.012)<a href="#T7_FN7" class="usa-link"><sup>g</sup></a>
+</td>
+</tr>
+<tr>
+<td valign="top" rowspan="1" colspan="1"> APACHE II<a href="#T7_FN11" class="usa-link"><sup>k</sup></a>
+</td>
+<td valign="top" rowspan="1" colspan="1">0.814 (0.787‐0.840)</td>
+<td valign="top" rowspan="1" colspan="1">0.259 (0.215‐0.307)</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/T7/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<div class="tw-foot p">
+<div class="fn" id="T7_FN1">
+<sup>a</sup><p class="display-inline">AUROC: area under the receiver operating characteristic curve.</p>
+</div>
+<div class="fn" id="T7_FN2">
+<sup>b</sup><p class="display-inline">AUPRC: area under the precision-recall curve.</p>
+</div>
+<div class="fn" id="T7_FN3">
+<sup>c</sup><p class="display-inline">VC: VitalCare.</p>
+</div>
+<div class="fn" id="T7_FN4">
+<sup>d</sup><p class="display-inline">MAES: Major Adverse Event Score.</p>
+</div>
+<div class="fn" id="T7_FN5">
+<sup>e</sup><p class="display-inline">NEWS: National Early Warning Score.</p>
+</div>
+<div class="fn" id="T7_FN6">
+<sup>f</sup><p class="display-inline"><em>P</em>&lt;.001; Delong test.</p>
+</div>
+<div class="fn" id="T7_FN7">
+<sup>g</sup><p class="display-inline"><em>P</em>&lt;.001; bootstrap-based test.</p>
+</div>
+<div class="fn" id="T7_FN8">
+<sup>h</sup><p class="display-inline">MEWS: Modified Early Warning Score.</p>
+</div>
+<div class="fn" id="T7_FN9">
+<sup>i</sup><p class="display-inline">MORS: Mortality Score.</p>
+</div>
+<div class="fn" id="T7_FN10">
+<sup>j</sup><p class="display-inline">SOFA: Sequential Organ Failure Assessment.</p>
+</div>
+<div class="fn" id="T7_FN11">
+<sup>k</sup><p class="display-inline">APACHE II: Acute Physiology and Chronic Health Evaluation II.</p>
+</div>
+</div></section></section></section><section id="s4"><h2 class="pmc_sec_title">Discussion</h2>
+<section id="s4-1"><h3 class="pmc_sec_title">Principal Findings</h3>
+<p>We retrospectively collected the EMR data of hospitalized patients and compared the pre- and postintervention clinical outcomes to evaluate the effectiveness of VC. The results demonstrated that VC use was associated with high predictive performance and a significant reduction in Code Blue events. Specifically, VC-MAES exhibited a reduced pLOS and a lower number of AEs compared with the silent period, along with an increased frequency of early interventions.</p></section><section id="s4-2"><h3 class="pmc_sec_title">Bridging the Afferent Limb With AI-EWS</h3>
+<p>Globally, the importance of RRS as a means of preventing AEs has been increasingly emphasized. However, rescue failures may occur even in environments where RRSs are implemented owing to challenges in the afferent limb [<a href="#R19" class="usa-link" aria-describedby="R19">19</a>]. The afferent limb refers to the “recognition” phase, encompassing processes such as monitoring, identification, and triggering a response [<a href="#R20" class="usa-link" aria-describedby="R20">20</a>]. VC supports automated monitoring, aids in the detection of early high-risk patients, and offers potential solutions for delaying and preventing Code Blue events [<a href="#R1" class="usa-link" aria-describedby="R1">1</a>]. In this regard, it can be used systematically and efficiently in environments where an RRS is already established. Conversely, it can maximize the potential impact by addressing unmet needs, even in hospitals where the RRS is not organized or is understaffed.</p></section><section id="s4-3"><h3 class="pmc_sec_title">Optimizing Care With Predictive Monitoring</h3>
+<p>In practical settings, the initial assessment and recognition of a patient’s condition are typically performed by nursing staff. Subsequently, the attending physician is notified of the patient’s condition to facilitate decision-making regarding diagnosis and treatment. Vital signs and laboratory tests are also intermittently monitored, making the automatic interpretation and screening of time-series data a critical clinical requirement. As AEs often occur abruptly, such sequential processes can serve as barriers to timely intervention. VC can address this challenge by providing predictive alerts before the occurrence of AEs. This study confirmed a short-term decrease in UIT and death cases, which was found to have led to a significant long-term reduction in Code Blue events.</p>
+<p>VC provides the opportunity to assess a patient’s condition (eg, laboratory tests, blood culture, and imaging) proactively or report it to the attending physician early, enabling the preparation of the necessary resources in advance. Accordingly, our findings suggest that VC implementation leads to notable clinical improvements, including increased early intervention and reduced AEs. Prior studies have indicated that several patients who ultimately experience CA remain in the GW for extended periods before being transferred to the ICU (or are never transferred at all), which negatively affects their survival rates. Consequently, these studies asserted that AI-based EWSs have the potential to reduce in-hospital mortality [<a href="#R15" class="usa-link" aria-describedby="R15">15</a>,<a href="#R21" class="usa-link" aria-describedby="R21">21-23</a>,<a href="#R22" class="usa-link" aria-describedby="R22">undefined</a>,<a href="#R23" class="usa-link" aria-describedby="R23">undefined</a>].</p>
+<p>We conducted a subgroup analysis of the frequency of early interventions and observed a more significant increase in the GW following VC use (<a href="#T5" class="usa-link">Table 5</a>). It is well established that early intervention improves patient outcomes [<a href="#R24" class="usa-link" aria-describedby="R24">24-26</a>]. The occurrence of any intervention or evaluation within 2 hours of the initial risk prediction of VC can be interpreted as an indication that the clinician agreed with this information and suspected patient deterioration. VC can detect AEs more quickly than traditional scoring systems, thereby offering the benefit of securing opportunities for early recognition and treatment, and potentially preventing AEs in the GW, where closed observation may not be as rigorous. Conversely, as patients in the ICU were already under real-time close observation by medical staff, there was no change in the intervention rate within 2 hours of the first elevation. Similarly, a trend was observed in which the difference in intervention rates diminished as the patient severity increased. These results were predictable and reasonable. Based on these findings, we propose that the use of VC-MORS in the ICU is more beneficial for real-time patient monitoring, enabling the early prediction of critical events with high predictive power, rather than offering new information that could lead to additional prescriptions.</p>
+<p>In conclusion, VC serves as a clinical decision-supporting system that provides supplementary information for health care providers rather than functioning as an independent diagnostic tool. Ultimately, the clinical judgment of health care professionals remains the final determinant in decision-making. The successful integration and adaptation of AI-EWS into clinical practice suggest the potential for clinical decision-supporting systems to be used more extensively. Various research will be needed to achieve this. We believe that the synergy between the enhancement of health care professionals’ ability to use predictive information and the advancement of AI-EWS could yield significant outcomes for patients and clinical settings.</p>
+<p>This study demonstrates the effectiveness of AI-based EWS in a community hospital without an RRS; however, its applicability to institutions in resource-limited settings requires further consideration. The adoption and integration of health AI can vary significantly across countries, depending on geopolitical and socioeconomic development [<a href="#R27" class="usa-link" aria-describedby="R27">27</a>,<a href="#R28" class="usa-link" aria-describedby="R28">28</a>]. Consequently, several challenges may arise in rural hospitals or institutions with limited digital infrastructure [<a href="#R29" class="usa-link" aria-describedby="R29">29</a>]. These include the absence of real-time EMR systems, poor clinical data quality, limited clinician training in AI tools, and variability in clinical workflows and institutional acceptance. While simplified models may offer a feasible alternative, future research should explore implementation strategies for lightweight AI-EWS systems and scalable integration approaches in community-based and resource-limited settings.</p></section><section id="s4-4"><h3 class="pmc_sec_title">Limitations</h3>
+<p>This study has several limitations. First, the control period was relatively short owing to constraints in data extraction following the computerized system upgrade period at our institution. A comparative analysis was conducted within a given period using the same computerized system. Second, the effect of VC on patient prognosis following discharge was not investigated. Third, although this was a real-time EWS validation study, it did not evaluate interaction variables between AI-based EWS and the clinician, such as alarm fatigue. Given that real-time EWS operates as a continuous monitoring system, some degree of alert fatigue may perhaps be unavoidable. While adjusting thresholds—such as lowering sensitivity—may mitigate excessive alerts, it may also increase the risk of missing critical events. Future research will focus on assessing the effectiveness of clinician-AI interactions through the AI-based EWS and their influence on discharge outcomes and postdischarge prognosis.</p></section><section id="s4-5"><h3 class="pmc_sec_title">Conclusions</h3>
+<p>A well-designed and validated AI-based EWS, such as VC, can effectively reduce major in-hospital AEs by enabling early detection and intervention. By supporting clinical decision-making without replacing professional judgment, this study demonstrates the potential of AI-EWS to enhance patient outcomes and optimize resource utilization in hospital settings.</p></section></section><section id="notes1"><h3>Abbreviations</h3>
+<dl class="def-list">
+<dt>AE</dt>
+<dd><p>adverse event</p></dd>
+<dt>AI</dt>
+<dd><p>artificial intelligence</p></dd>
+<dt>APACHE II</dt>
+<dd><p>Acute Physiology and Chronic Health Evaluation II</p></dd>
+<dt>AUPRC</dt>
+<dd><p>area under the precision-recall curve</p></dd>
+<dt>AUROC</dt>
+<dd><p>area under the receiver operating characteristic curve</p></dd>
+<dt>CA</dt>
+<dd><p>cardiopulmonary arrest</p></dd>
+<dt>EMR</dt>
+<dd><p>electronic medical record</p></dd>
+<dt>EWS</dt>
+<dd><p>early warning system</p></dd>
+<dt>GW</dt>
+<dd><p>general ward</p></dd>
+<dt>ICU</dt>
+<dd><p>intensive care unit</p></dd>
+<dt>MAES</dt>
+<dd><p>Major Adverse Event Score</p></dd>
+<dt>MEWS</dt>
+<dd><p>Modified Early Warning Score</p></dd>
+<dt>NEWS</dt>
+<dd><p>National Early Warning Score</p></dd>
+<dt>pLOS</dt>
+<dd><p>prolonged length of stay</p></dd>
+<dt>RRS</dt>
+<dd><p>rapid response system</p></dd>
+<dt>SOFA</dt>
+<dd><p>Sequential Organ Failure Assessment</p></dd>
+<dt>UIT</dt>
+<dd><p>unplanned ward-to-intensive care unit transfer</p></dd>
+<dt>VC</dt>
+<dd><p>VitalCare</p></dd>
+</dl></section><section id="fn-group1" class="fn-group"><h2 class="pmc_sec_title">Footnotes</h2>
+<div class="fn-group p font-secondary-light font-sm">
+<div class="fn p" id="fn29"><p><strong>Data Availability:</strong> The datasets analyzed during this study comprise deidentified data stored in the cloud-based storage system of the Presbyterian Medical Center and are not publicly available as they contain protected patient medical information and are restricted for disclosure outside the hospital.</p></div>
+<div class="fn p" id="fn30"><p><strong>Conflicts of Interest:</strong> None declared.</p></div>
+</div></section><section id="ref-list1" class="ref-list"><h2 class="pmc_sec_title">References</h2>
+<section id="ref-list1_sec2"><ul class="ref-list font-sm" style="list-style-type:none">
+<li id="R1">
+<span class="label">1.</span><cite>Somanchi S, Adhikari S, Lin A, Eneva E, Ghani R. Early prediction of cardiac arrest (Code Blue) using electronic medical records. Proceedings of the 21st ACM SIGKDD International Conference on Knowledge Discovery and Data Mining; Aug 10-13, 2015; Sydney, Australia.  Presented at. doi.</cite> [<a href="https://doi.org/10.1145/2783258.2788588" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://scholar.google.com/scholar_lookup?Somanchi%20S,%20Adhikari%20S,%20Lin%20A,%20Eneva%20E,%20Ghani%20R.%20Early%20prediction%20of%20cardiac%20arrest%20(Code%20Blue)%20using%20electronic%20medical%20records.%20Proceedings%20of%20the%2021st%20ACM%20SIGKDD%20International%20Conference%20on%20Knowledge%20Discovery%20and%20Data%20Mining;%20Aug%2010-13,%202015;%20Sydney,%20Australia.%20Presented%20at.%20doi." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R2">
+<span class="label">2.</span><cite>Churpek MM, Yuen TC, Huber MT, Park SY, Hall JB, Edelson DP. Predicting cardiac arrest on the wards: a nested case-control study. Chest. 2012 May;141(5):1170–1176. doi: 10.1378/chest.11-1301. doi. Medline.</cite> [<a href="https://doi.org/10.1378/chest.11-1301" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC3342781/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/22052772/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Chest&amp;title=Predicting%20cardiac%20arrest%20on%20the%20wards:%20a%20nested%20case-control%20study&amp;author=MM%20Churpek&amp;author=TC%20Yuen&amp;author=MT%20Huber&amp;author=SY%20Park&amp;author=JB%20Hall&amp;volume=141&amp;issue=5&amp;publication_year=2012&amp;pages=1170-1176&amp;pmid=22052772&amp;doi=10.1378/chest.11-1301&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R3">
+<span class="label">3.</span><cite>DeVita MA, Bellomo R, Hillman K, et al.  Findings of the first consensus conference on medical emergency teams*. Crit Care Med. 2006 Sep;34(9):2463–2478. doi: 10.1097/01.CCM.0000235743.38172.6E. doi.</cite> [<a href="https://doi.org/10.1097/01.CCM.0000235743.38172.6E" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/16878033/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Crit%20Care%20Med&amp;title=Findings%20of%20the%20first%20consensus%20conference%20on%20medical%20emergency%20teams*&amp;author=MA%20DeVita&amp;author=R%20Bellomo&amp;author=K%20Hillman&amp;volume=34&amp;issue=9&amp;publication_year=2006&amp;pages=2463-2478&amp;pmid=16878033&amp;doi=10.1097/01.CCM.0000235743.38172.6E&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R4">
+<span class="label">4.</span><cite>Jackson JE, Grugan AS. Code blue: do you know what to do? Nursing (Auckl) 2015 May;45(5):34–39. doi: 10.1097/01.NURSE.0000463651.10166.db. doi. Medline.</cite> [<a href="https://doi.org/10.1097/01.NURSE.0000463651.10166.db" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/25807449/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Nursing%20(Auckl)&amp;title=Code%20blue:%20do%20you%20know%20what%20to%20do?&amp;author=JE%20Jackson&amp;author=AS%20Grugan&amp;volume=45&amp;issue=5&amp;publication_year=2015&amp;pages=34-39&amp;pmid=25807449&amp;doi=10.1097/01.NURSE.0000463651.10166.db&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R5">
+<span class="label">5.</span><cite>Saab A, Abi Khalil C, Jammal M, Saikali M, Lamy JB. Early prediction of all-cause clinical deterioration in general wards patients: development and validation of a biomarker-based machine learning model derived from rapid response team activations. J Patient Saf. 2022;18(6):578–586. doi: 10.1097/PTS.0000000000001069. doi.</cite> [<a href="https://doi.org/10.1097/PTS.0000000000001069" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/35985042/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=J%20Patient%20Saf&amp;title=Early%20prediction%20of%20all-cause%20clinical%20deterioration%20in%20general%20wards%20patients:%20development%20and%20validation%20of%20a%20biomarker-based%20machine%20learning%20model%20derived%20from%20rapid%20response%20team%20activations&amp;author=A%20Saab&amp;author=C%20Abi%20Khalil&amp;author=M%20Jammal&amp;author=M%20Saikali&amp;author=JB%20Lamy&amp;volume=18&amp;issue=6&amp;publication_year=2022&amp;pages=578-586&amp;pmid=35985042&amp;doi=10.1097/PTS.0000000000001069&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R6">
+<span class="label">6.</span><cite>Adams R, Henry KE, Sridharan A, et al.  Prospective, multi-site study of patient outcomes after implementation of the TREWS machine learning-based early warning system for sepsis. Nat Med. 2022 Jul;28(7):1455–1460. doi: 10.1038/s41591-022-01894-0. doi.</cite> [<a href="https://doi.org/10.1038/s41591-022-01894-0" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/35864252/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Nat%20Med&amp;title=Prospective,%20multi-site%20study%20of%20patient%20outcomes%20after%20implementation%20of%20the%20TREWS%20machine%20learning-based%20early%20warning%20system%20for%20sepsis&amp;author=R%20Adams&amp;author=KE%20Henry&amp;author=A%20Sridharan&amp;volume=28&amp;issue=7&amp;publication_year=2022&amp;pages=1455-1460&amp;pmid=35864252&amp;doi=10.1038/s41591-022-01894-0&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R7">
+<span class="label">7.</span><cite>Edelson DP, Churpek MM, Carey KA, et al.  Early warning scores with and without artificial intelligence. JAMA Netw Open. 2024 Oct 1;7(10):e2438986.  doi: 10.1001/jamanetworkopen.2024.38986. doi. Medline.</cite> [<a href="https://doi.org/10.1001/jamanetworkopen.2024.38986" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11544488/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39405061/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=JAMA%20Netw%20Open&amp;title=Early%20warning%20scores%20with%20and%20without%20artificial%20intelligence&amp;author=DP%20Edelson&amp;author=MM%20Churpek&amp;author=KA%20Carey&amp;volume=7&amp;issue=10&amp;publication_year=2024&amp;pages=e2438986&amp;pmid=39405061&amp;doi=10.1001/jamanetworkopen.2024.38986&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R8">
+<span class="label">8.</span><cite>Rossetti SC, Dykes PC, Knaplund C, et al.  Real-time surveillance system for patient deterioration: a pragmatic cluster-randomized controlled trial. Nat Med. 2025 Jun;31(6):1895–1902. doi: 10.1038/s41591-025-03609-7. doi.</cite> [<a href="https://doi.org/10.1038/s41591-025-03609-7" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/40175738/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Nat%20Med&amp;title=Real-time%20surveillance%20system%20for%20patient%20deterioration:%20a%20pragmatic%20cluster-randomized%20controlled%20trial&amp;author=SC%20Rossetti&amp;author=PC%20Dykes&amp;author=C%20Knaplund&amp;volume=31&amp;issue=6&amp;publication_year=2025&amp;pages=1895-1902&amp;pmid=40175738&amp;doi=10.1038/s41591-025-03609-7&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R9">
+<span class="label">9.</span><cite>Verma AA, Stukel TA, Colacci M, et al.  Clinical evaluation of a machine learning-based early warning system for patient deterioration. CMAJ. 2024 Sep 15;196(30):E1027–E1037. doi: 10.1503/cmaj.240132. doi. Medline.</cite> [<a href="https://doi.org/10.1503/cmaj.240132" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11412734/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39284602/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=CMAJ&amp;title=Clinical%20evaluation%20of%20a%20machine%20learning-based%20early%20warning%20system%20for%20patient%20deterioration&amp;author=AA%20Verma&amp;author=TA%20Stukel&amp;author=M%20Colacci&amp;volume=196&amp;issue=30&amp;publication_year=2024&amp;pages=E1027-E1037&amp;pmid=39284602&amp;doi=10.1503/cmaj.240132&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R10">
+<span class="label">10.</span><cite>Sung M, Hahn S, Han CH, et al.  Event prediction model considering time and input error using electronic medical records in the intensive care unit: retrospective study. JMIR Med Inform. 2021 Nov 4;9(11):e26426.  doi: 10.2196/26426. doi. Medline.</cite> [<a href="https://doi.org/10.2196/26426" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8603167/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/34734837/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=JMIR%20Med%20Inform&amp;title=Event%20prediction%20model%20considering%20time%20and%20input%20error%20using%20electronic%20medical%20records%20in%20the%20intensive%20care%20unit:%20retrospective%20study&amp;author=M%20Sung&amp;author=S%20Hahn&amp;author=CH%20Han&amp;volume=9&amp;issue=11&amp;publication_year=2021&amp;pages=e26426&amp;pmid=34734837&amp;doi=10.2196/26426&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R11">
+<span class="label">11.</span><cite>Sim T, Hahn S, Kim KJ, et al.  Preserving informative presence: how missing data and imputation strategies affect the performance of an AI-based early warning score. J Clin Med. 2025 Mar 24;14(7):40217663. doi: 10.3390/jcm14072213. doi. Medline.</cite> [<a href="https://doi.org/10.3390/jcm14072213" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11989256/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/40217663/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=J%20Clin%20Med&amp;title=Preserving%20informative%20presence:%20how%20missing%20data%20and%20imputation%20strategies%20affect%20the%20performance%20of%20an%20AI-based%20early%20warning%20score&amp;author=T%20Sim&amp;author=S%20Hahn&amp;author=KJ%20Kim&amp;volume=14&amp;issue=7&amp;publication_year=2025&amp;pages=40217663&amp;pmid=40217663&amp;doi=10.3390/jcm14072213&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R12">
+<span class="label">12.</span><cite>Chen Y, Scholten A, Chomsky-Higgins K, et al.  Risk factors associated with perioperative complications and prolonged length of stay after laparoscopic adrenalectomy. JAMA Surg. 2018 Nov 1;153(11):1036–1041. doi: 10.1001/jamasurg.2018.2648. doi. Medline.</cite> [<a href="https://doi.org/10.1001/jamasurg.2018.2648" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC6584328/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/30090934/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=JAMA%20Surg&amp;title=Risk%20factors%20associated%20with%20perioperative%20complications%20and%20prolonged%20length%20of%20stay%20after%20laparoscopic%20adrenalectomy&amp;author=Y%20Chen&amp;author=A%20Scholten&amp;author=K%20Chomsky-Higgins&amp;volume=153&amp;issue=11&amp;publication_year=2018&amp;pages=1036-1041&amp;pmid=30090934&amp;doi=10.1001/jamasurg.2018.2648&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R13">
+<span class="label">13.</span><cite>Patel K, Diaz MJ, Taneja K, et al.  Predictors of inpatient admission likelihood and prolonged length of stay among cerebrovascular disease patients: a nationwide emergency department sample analysis. J Stroke Cerebrovasc Dis. 2023 Mar;32(3):106983. doi: 10.1016/j.jstrokecerebrovasdis.2023.106983. doi.</cite> [<a href="https://doi.org/10.1016/j.jstrokecerebrovasdis.2023.106983" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/36641949/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=J%20Stroke%20Cerebrovasc%20Dis&amp;title=Predictors%20of%20inpatient%20admission%20likelihood%20and%20prolonged%20length%20of%20stay%20among%20cerebrovascular%20disease%20patients:%20a%20nationwide%20emergency%20department%20sample%20analysis&amp;author=K%20Patel&amp;author=MJ%20Diaz&amp;author=K%20Taneja&amp;volume=32&amp;issue=3&amp;publication_year=2023&amp;pages=106983&amp;pmid=36641949&amp;doi=10.1016/j.jstrokecerebrovasdis.2023.106983&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R14">
+<span class="label">14.</span><cite>López-Izquierdo R, Brio-Ibañez PD, Martín-Rodríguez F, et al.  Role of qSOFA and SOFA scoring systems for predicting in-hospital risk of deterioration in the emergency department. Int J Environ Res Public Health. 2020 Nov 12;17(22):8367.  doi: 10.3390/ijerph17228367. doi. Medline.</cite> [<a href="https://doi.org/10.3390/ijerph17228367" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC7698163/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/33198151/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Int%20J%20Environ%20Res%20Public%20Health&amp;title=Role%20of%20qSOFA%20and%20SOFA%20scoring%20systems%20for%20predicting%20in-hospital%20risk%20of%20deterioration%20in%20the%20emergency%20department&amp;author=R%20L%C3%B3pez-Izquierdo&amp;author=PD%20Brio-Iba%C3%B1ez&amp;author=F%20Mart%C3%ADn-Rodr%C3%ADguez&amp;volume=17&amp;issue=22&amp;publication_year=2020&amp;pages=8367&amp;pmid=33198151&amp;doi=10.3390/ijerph17228367&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R15">
+<span class="label">15.</span><cite>Knaus WA, Draper EA, Wagner DP, Zimmerman JE. APACHE II: a severity of disease classification system. Crit Care Med. 1985 Oct;13(10):818–829. Medline.</cite> [<a href="https://pubmed.ncbi.nlm.nih.gov/3928249/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Crit%20Care%20Med&amp;title=APACHE%20II:%20a%20severity%20of%20disease%20classification%20system&amp;author=WA%20Knaus&amp;author=EA%20Draper&amp;author=DP%20Wagner&amp;author=JE%20Zimmerman&amp;volume=13&amp;issue=10&amp;publication_year=1985&amp;pages=818-829&amp;pmid=3928249&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R16">
+<span class="label">16.</span><cite>Charlson ME, Pompei P, Ales KL, MacKenzie CR. A new method of classifying prognostic comorbidity in longitudinal studies: development and validation. J Chronic Dis. 1987 Jan;40(5):373–383. doi: 10.1016/0021-9681(87)90171-8. doi.</cite> [<a href="https://doi.org/10.1016/0021-9681(87)90171-8" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/3558716/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=J%20Chronic%20Dis&amp;title=A%20new%20method%20of%20classifying%20prognostic%20comorbidity%20in%20longitudinal%20studies:%20development%20and%20validation&amp;author=ME%20Charlson&amp;author=P%20Pompei&amp;author=KL%20Ales&amp;author=CR%20MacKenzie&amp;volume=40&amp;issue=5&amp;publication_year=1987&amp;pages=373-383&amp;pmid=3558716&amp;doi=10.1016/0021-9681(87)90171-8&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R17">
+<span class="label">17.</span><cite>Quan H, Sundararajan V, Halfon P, et al.  Coding algorithms for defining comorbidities in ICD-9-CM and ICD-10 administrative data. Med Care. 2005 Nov;43(11):1130–1139. doi: 10.1097/01.mlr.0000182534.19832.83. doi.</cite> [<a href="https://doi.org/10.1097/01.mlr.0000182534.19832.83" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/16224307/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Med%20Care&amp;title=Coding%20algorithms%20for%20defining%20comorbidities%20in%20ICD-9-CM%20and%20ICD-10%20administrative%20data&amp;author=H%20Quan&amp;author=V%20Sundararajan&amp;author=P%20Halfon&amp;volume=43&amp;issue=11&amp;publication_year=2005&amp;pages=1130-1139&amp;pmid=16224307&amp;doi=10.1097/01.mlr.0000182534.19832.83&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R18">
+<span class="label">18.</span><cite>Silber JH, Williams SV, Krakauer H, Schwartz JS. Hospital and patient characteristics associated with death after surgery. A study of adverse occurrence and failure to rescue. Med Care. 1992 Jul;30(7):615–629. doi: 10.1097/00005650-199207000-00004. doi. Medline.</cite> [<a href="https://doi.org/10.1097/00005650-199207000-00004" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/1614231/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Med%20Care&amp;title=Hospital%20and%20patient%20characteristics%20associated%20with%20death%20after%20surgery.%20A%20study%20of%20adverse%20occurrence%20and%20failure%20to%20rescue&amp;author=JH%20Silber&amp;author=SV%20Williams&amp;author=H%20Krakauer&amp;author=JS%20Schwartz&amp;volume=30&amp;issue=7&amp;publication_year=1992&amp;pages=615-629&amp;pmid=1614231&amp;doi=10.1097/00005650-199207000-00004&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R19">
+<span class="label">19.</span><cite>DeVita MA, Smith GB, Adam SK, et al.  “Identifying the hospitalised patient in crisis”—a consensus conference on the afferent limb of rapid response systems. Resuscitation. 2010 Apr;81(4):375–382. doi: 10.1016/j.resuscitation.2009.12.008. doi.</cite> [<a href="https://doi.org/10.1016/j.resuscitation.2009.12.008" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/20149516/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Resuscitation&amp;title=%E2%80%9CIdentifying%20the%20hospitalised%20patient%20in%20crisis%E2%80%9D%E2%80%94a%20consensus%20conference%20on%20the%20afferent%20limb%20of%20rapid%20response%20systems&amp;author=MA%20DeVita&amp;author=GB%20Smith&amp;author=SK%20Adam&amp;volume=81&amp;issue=4&amp;publication_year=2010&amp;pages=375-382&amp;pmid=20149516&amp;doi=10.1016/j.resuscitation.2009.12.008&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R20">
+<span class="label">20.</span><cite>Churpek MM, Yuen TC, Winslow C, et al.  Multicenter development and validation of a risk stratification tool for ward patients. Am J Respir Crit Care Med. 2014 Sep 15;190(6):649–655. doi: 10.1164/rccm.201406-1022OC. doi. Medline.</cite> [<a href="https://doi.org/10.1164/rccm.201406-1022OC" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC4214112/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/25089847/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Am%20J%20Respir%20Crit%20Care%20Med&amp;title=Multicenter%20development%20and%20validation%20of%20a%20risk%20stratification%20tool%20for%20ward%20patients&amp;author=MM%20Churpek&amp;author=TC%20Yuen&amp;author=C%20Winslow&amp;volume=190&amp;issue=6&amp;publication_year=2014&amp;pages=649-655&amp;pmid=25089847&amp;doi=10.1164/rccm.201406-1022OC&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R21">
+<span class="label">21.</span><cite>Girotra S, Nallamothu BK, Spertus JA, et al.  Trends in survival after in-hospital cardiac arrest. N Engl J Med. 2012 Nov 15;367(20):1912–1920. doi: 10.1056/NEJMoa1109148. doi. Medline.</cite> [<a href="https://doi.org/10.1056/NEJMoa1109148" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC3517894/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/23150959/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=N%20Engl%20J%20Med&amp;title=Trends%20in%20survival%20after%20in-hospital%20cardiac%20arrest&amp;author=S%20Girotra&amp;author=BK%20Nallamothu&amp;author=JA%20Spertus&amp;volume=367&amp;issue=20&amp;publication_year=2012&amp;pages=1912-1920&amp;pmid=23150959&amp;doi=10.1056/NEJMoa1109148&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R22">
+<span class="label">22.</span><cite>Young MP, Gooder VJ, McBride K, James B, Fisher ES. Inpatient transfers to the intensive care unit: delays are associated with increased mortality and morbidity. J Gen Intern Med. 2003 Feb;18(2):77–83. doi: 10.1046/j.1525-1497.2003.20441.x. doi. Medline.</cite> [<a href="https://doi.org/10.1046/j.1525-1497.2003.20441.x" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC1494814/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/12542581/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=J%20Gen%20Intern%20Med&amp;title=Inpatient%20transfers%20to%20the%20intensive%20care%20unit:%20delays%20are%20associated%20with%20increased%20mortality%20and%20morbidity&amp;author=MP%20Young&amp;author=VJ%20Gooder&amp;author=K%20McBride&amp;author=B%20James&amp;author=ES%20Fisher&amp;volume=18&amp;issue=2&amp;publication_year=2003&amp;pages=77-83&amp;pmid=12542581&amp;doi=10.1046/j.1525-1497.2003.20441.x&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R23">
+<span class="label">23.</span><cite>Winslow CJ, Edelson DP, Churpek MM, et al.  The impact of a machine learning early warning score on hospital mortality: a multicenter clinical intervention trial. Crit Care Med. 2022;50(9):1339–1347. doi: 10.1097/CCM.0000000000005492. doi.</cite> [<a href="https://doi.org/10.1097/CCM.0000000000005492" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/35452010/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Crit%20Care%20Med&amp;title=The%20impact%20of%20a%20machine%20learning%20early%20warning%20score%20on%20hospital%20mortality:%20a%20multicenter%20clinical%20intervention%20trial&amp;author=CJ%20Winslow&amp;author=DP%20Edelson&amp;author=MM%20Churpek&amp;volume=50&amp;issue=9&amp;publication_year=2022&amp;pages=1339-1347&amp;pmid=35452010&amp;doi=10.1097/CCM.0000000000005492&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R24">
+<span class="label">24.</span><cite>Boersma E, Maas AC, Deckers JW, Simoons ML. Early thrombolytic treatment in acute myocardial infarction: reappraisal of the golden hour. The Lancet. 1996 Sep;348(9030):771–775. doi: 10.1016/S0140-6736(96)02514-7. doi.</cite> [<a href="https://doi.org/10.1016/S0140-6736(96)02514-7" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/8813982/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=The%20Lancet&amp;title=Early%20thrombolytic%20treatment%20in%20acute%20myocardial%20infarction:%20reappraisal%20of%20the%20golden%20hour&amp;author=E%20Boersma&amp;author=AC%20Maas&amp;author=JW%20Deckers&amp;author=ML%20Simoons&amp;volume=348&amp;issue=9030&amp;publication_year=1996&amp;pages=771-775&amp;pmid=8813982&amp;doi=10.1016/S0140-6736(96)02514-7&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R25">
+<span class="label">25.</span><cite>Plant P, Owen J, Elliott M. Early use of non-invasive ventilation for acute exacerbations of chronic obstructive pulmonary disease on general respiratory wards: a multicentre randomised controlled trial. The Lancet. 2000 Jun;355(9219):1931–1935. doi: 10.1016/S0140-6736(00)02323-0. doi.</cite> [<a href="https://doi.org/10.1016/S0140-6736(00)02323-0" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/10859037/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=The%20Lancet&amp;title=Early%20use%20of%20non-invasive%20ventilation%20for%20acute%20exacerbations%20of%20chronic%20obstructive%20pulmonary%20disease%20on%20general%20respiratory%20wards:%20a%20multicentre%20randomised%20controlled%20trial&amp;author=P%20Plant&amp;author=J%20Owen&amp;author=M%20Elliott&amp;volume=355&amp;issue=9219&amp;publication_year=2000&amp;pages=1931-1935&amp;pmid=10859037&amp;doi=10.1016/S0140-6736(00)02323-0&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R26">
+<span class="label">26.</span><cite>Rivers E, Nguyen B, Havstad S, et al.  Early goal-directed therapy in the treatment of severe sepsis and septic shock. N Engl J Med. 2001 Nov 8;345(19):1368–1377. doi: 10.1056/NEJMoa010307. doi.</cite> [<a href="https://doi.org/10.1056/NEJMoa010307" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/11794169/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=N%20Engl%20J%20Med&amp;title=Early%20goal-directed%20therapy%20in%20the%20treatment%20of%20severe%20sepsis%20and%20septic%20shock&amp;author=E%20Rivers&amp;author=B%20Nguyen&amp;author=S%20Havstad&amp;volume=345&amp;issue=19&amp;publication_year=2001&amp;pages=1368-1377&amp;pmid=11794169&amp;doi=10.1056/NEJMoa010307&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R27">
+<span class="label">27.</span><cite>Croissant A, Lorenz P.  Comparative Politics of Southeast Asia An Introduction into Government and Politics. Springer; 2018. </cite> [<a href="https://scholar.google.com/scholar_lookup?title=Comparative%20Politics%20of%20Southeast%20Asia%20An%20Introduction%20into%20Government%20and%20Politics&amp;author=A%20Croissant&amp;author=P%20Lorenz&amp;publication_year=2018&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R28">
+<span class="label">28.</span><cite>Mishori R.  Digital Health, AI and Generative AI in Healthcare: A Concise, Practical Guide for Clinicians. Springer Nature; 2025. Artificial intelligence technology in healthcare and the digital divide; pp. 139–147. doi.</cite> [<a href="https://doi.org/10.1007/978-3-031-83526-1_11" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://scholar.google.com/scholar_lookup?title=Digital%20Health,%20AI%20and%20Generative%20AI%20in%20Healthcare:%20A%20Concise,%20Practical%20Guide%20for%20Clinicians&amp;author=R%20Mishori&amp;publication_year=2025&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="R29">
+<span class="label">29.</span><cite>Lamem MFH, Sahid MI, Ahmed A. Artificial intelligence for access to primary healthcare in rural settings. J Med Surg Public Health. 2025 Apr;5:100173. doi: 10.1016/j.glmedi.2024.100173. doi.</cite> [<a href="https://doi.org/10.1016/j.glmedi.2024.100173" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=J%20Med%20Surg%20Public%20Health&amp;title=Artificial%20intelligence%20for%20access%20to%20primary%20healthcare%20in%20rural%20settings&amp;author=MFH%20Lamem&amp;author=MI%20Sahid&amp;author=A%20Ahmed&amp;volume=5&amp;publication_year=2025&amp;pages=100173&amp;doi=10.1016/j.glmedi.2024.100173&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+</ul></section></section></section><footer class="p courtesy-note font-secondary font-sm text-center"><hr class="headless">
+<p>Articles from JMIR Medical Informatics are provided here courtesy of <strong>JMIR Publications Inc.</strong></p></footer></section></article>
+
+                      
+
+                    </main>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+<!-- Secondary navigation placeholder -->
+<div class="pmc-sidenav desktop:grid-col-4 display-flex">
+    <section class="pmc-sidenav__container" aria-label="Article resources and navigation">
+        <button type="button" class="usa-button pmc-sidenav__container__close usa-button--unstyled">
+            <img src="/static/img/usa-icons/close.svg" role="img" alt="Close" />
+        </button>
+    <div class="display-none desktop:display-block">
+       <section class="margin-top-4 desktop:margin-top-0">
+              <h2 class="margin-top-0">ACTIONS</h2>
+           <ul class="usa-list usa-list--unstyled usa-list--actions">
+               
+               <li>
+                     <a
+                             href="https://doi.org/10.2196/72232"
+                             class="usa-button usa-button--outline width-24 font-xs display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                             target="_blank"
+                             rel="noreferrer noopener"
+                             data-ga-category="actions"
+                             data-ga-action="click"
+                             data-ga-label="publisher_link_desktop"
+                     >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#launch"></use>
+                         </svg>
+                         <span class="display-inline-flex flex-justify-center flex-1 padding-right-2">View on publisher site</span>
+                     </a>
+               </li>
+               
+               
+                
+               <li>
+                   <button role="button" class="usa-button width-24 citation-dialog-trigger display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                        aria-label="Open dialog with citation text in different styles"
+                        data-ga-category="actions"
+                        data-ga-action="open"
+                        data-ga-label="cite_desktop"
+                        data-all-citations-url="/resources/citations/12373407/"
+                        data-citation-style="nlm"
+                        data-download-format-link="/resources/citations/12373407/export/"
+                    >
+                        <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                        </svg>
+                       <span class="display-inline-flex flex-justify-center flex-1 button-label">Cite</span>
+                    </button>
+               </li>
+                
+               <li>
+
+                        <button class="usa-button width-24 collections-dialog-trigger collections-button display-inline-flex flex-align-center flex-justify-start padding-left-1 collections-button-empty"
+                              aria-label="Save article in MyNCBI collections."
+                              data-ga-category="actions"
+                              data-ga-action="click"
+                              data-ga-label="collections_button_desktop"
+                              data-collections-open-dialog-enabled="false"
+                              data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12373407%2F%3Freport%3Dclassic%23open-collections-dialog"
+                              data-in-collections="false">
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                            <span class="display-inline-flex flex-justify-center flex-1">Collections</span>
+                       </button>
+               </li>
+               <li class="pmc-permalink">
+                    <button
+                            type="button"
+                            class="usa-button width-24 display-inline-flex flex-align-center flex-justify padding-left-1 shadow-none"
+                            aria-label="Show article permalink"
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="permalink_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#share"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1 button-label">Permalink</span>
+                    </button>
+                   
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12373407/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+               </li>
+           </ul>
+       </section>
+     </div>
+
+        <section class="pmc-resources margin-top-6 desktop:margin-top-4" data-page-path="/articles/PMC12373407/">
+            <h2 class="margin-top-0">RESOURCES</h2>
+            
+                <div class="usa-accordion usa-accordion--multiselectable" data-allow-multiple>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-similar-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_similar_articles"
+                        data-ga-label="/articles/PMC12373407/"
+                        data-action-open="open_similar_articles"
+                        data-action-close="close_similar_articles"
+                        >
+                            Similar articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-similar-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/similar-article-links/40845828/"
+                            
+                    >
+                        
+                    </div>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-cited-by-other-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_cited_by"
+                        data-ga-label="/articles/PMC12373407/"
+                        data-action-open="open_cited_by"
+                        data-action-close="close_cited_by"
+                        >
+                             Cited by other articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-cited-by-other-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/cited-by-links/40845828/"
+                            
+                    >
+                          
+                    </div>
+                    
+                        <h3 class="usa-accordion__heading">
+                            <button
+                            type="button"
+                            class="usa-accordion__button"
+                            aria-expanded="false"
+                            aria-controls="resources-links-to-ncbi-databases"
+                            data-ga-category="resources_accordion"
+                            data-ga-action="open_NCBI_links"
+                            data-ga-label="/articles/PMC12373407/"
+                            data-action-open="open_NCBI_links"
+                            data-action-close="close_NCBI_link"
+                            >
+                                 Links to NCBI Databases
+                            </button>
+                        </h3>
+                        <div
+                                id="resources-links-to-ncbi-databases"
+                                class="usa-accordion__content usa-prose"
+                                data-source-url="/resources/db-links/12373407/"
+                        >
+                        </div>
+                    
+                    
+                </div>
+            
+        </section>
+
+
+        <section
+        class="usa-in-page-nav usa-in-page-nav--wide margin-top-6 desktop:margin-top-4"
+        data-title-text="On this page"
+        data-title-heading-level="h2"
+        data-scroll-offset="0"
+        data-root-margin="-10% 0px -80% 0px"
+        data-main-content-selector="main"
+        data-threshold="1"
+        hidden
+        ></section>
+    </section>
+</div>
+
+
+        
+
+<div class="overlay" role="dialog" aria-label="Citation Dialog" hidden>
+    <div class="dialog citation-dialog" aria-hidden="true">
+        <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+            <h2 class="usa-modal__heading margin-0">Cite</h2>
+             <button type="button" class="usa-button usa-button--unstyled close-overlay text-black width-auto"  tabindex="1">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+             </button>
+        </div>
+
+        
+
+<div class="citation-text-block">
+  <div class="citation-text margin-bottom-2"></div>
+  <ul class="usa-list usa-list--unstyled display-inline-flex flex-justify width-full flex-align-center">
+      <li>
+        <button
+          class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center copy-button dialog-focus"
+          data-ga-category="save_share"
+          data-ga-action="cite"
+          data-ga-label="copy"
+          tabindex="2">
+            <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+            </svg>
+            <span>Copy</span>
+        </button>
+      </li>
+      <li>
+          <a
+              href="#"
+              role="button"
+              class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center export-button"
+              data-ga-category="save_share"
+              data-ga-action="cite"
+              data-ga-label="download"
+              title="Download a file for external citation management software"
+              tabindex="3">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                </svg>
+                <span class="display-none mobile-lg:display-inline">Download .nbib</span>
+                <span class="display-inline mobile-lg:display-none">.nbib</span>
+            </a>
+      </li>
+      <li>
+          
+
+<div class="display-inline-flex flex-align-center">
+  <label class="usa-label margin-top-0">Format:</label>
+  <select aria-label="Format" class="usa-select citation-style-selector padding-1 margin-top-0 border-0 padding-right-4" tabindex="4" >
+    
+      <option data-style-url-name="ama"
+              value="AMA"
+              >
+        AMA
+      </option>
+    
+      <option data-style-url-name="apa"
+              value="APA"
+              >
+        APA
+      </option>
+    
+      <option data-style-url-name="mla"
+              value="MLA"
+              >
+        MLA
+      </option>
+    
+      <option data-style-url-name="nlm"
+              value="NLM"
+              selected="selected">
+        NLM
+      </option>
+    
+  </select>
+</div>
+      </li>
+  </ul>
+</div>
+    </div>
+</div>
+
+        <div class="overlay" role="dialog" hidden>
+  <div id="collections-action-dialog" class="dialog collections-dialog" aria-hidden="true">
+   <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+        <h2 class="usa-modal__heading margin-0">Add to Collections</h2>
+    </div>
+    <div class="collections-action-panel action-panel">
+      
+
+
+<form id="collections-action-dialog-form"
+      class="usa-form maxw-full collections-action-panel-form action-panel-content action-form action-panel-smaller-selectors"
+      data-existing-collections-url="/list-existing-collections/"
+      data-add-to-existing-collection-url="/add-to-existing-collection/"
+      data-create-and-add-to-new-collection-url="/create-and-add-to-new-collection/"
+      data-myncbi-max-collection-name-length="100"
+      data-collections-root-url="https://www.ncbi.nlm.nih.gov/myncbi/collections/">
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="0ageLsm0RWh4ZD8LiwmlJjdalG0XWvT6n5DjCkvGi8DgQNXWmKPNzcURItbGQlFJ">
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-new"
+            class="usa-radio__input usa-radio__input--tile collections-new  margin-top-0"
+            name="collections"
+            value="new"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_new" />
+            <label class="usa-radio__label" for="collections-action-dialog-new">Create a new collection</label>
+        </div>
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-existing"
+            class="usa-radio__input usa-radio__input--tile collections-existing"
+            name="collections"
+            value="existing"
+            checked="true"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_existing" />
+            <label class="usa-radio__label" for="collections-action-dialog-existing">Add to an existing collection</label>
+        </div>
+    </fieldset>
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="action-panel-control-wrap new-collections-controls">
+           <label for="collections-action-dialog-add-to-new" class="usa-label margin-top-0">
+                Name your collection
+               <abbr title="required" class="usa-hint usa-hint--required text-no-underline">*</abbr>
+          </label>
+          <input
+            type="text"
+            name="add-to-new-collection"
+            id="collections-action-dialog-add-to-new"
+            class="usa-input collections-action-add-to-new"
+            pattern="[^&quot;&amp;=&lt;&gt;/]*" title="The following characters are not allowed in the Name field: &quot;&amp;=&lt;&gt;/"
+            maxlength=""
+            data-ga-category="collections_button"
+            data-ga-action="create_collection"
+            data-ga-label="non_favorties_collection"
+            required
+          />
+        </div>
+        <div class="action-panel-control-wrap existing-collections-controls">
+             <label for="collections-action-dialog-add-to-existing" class="usa-label margin-top-0">
+                Choose a collection
+              </label>
+              <select id="collections-action-dialog-add-to-existing"
+                      class="usa-select collections-action-add-to-existing"
+                      data-ga-category="collections_button"
+                      data-ga-action="select_collection"
+                      data-ga-label="($('.collections-action-add-to-existing').val() === 'Favorites') ? 'Favorites' : 'non_favorites_collection'">
+              </select>
+              <div class="collections-retry-load-on-error usa-input-error-message selection-validation-message">
+                Unable to load your collection due to an error<br>
+                <a href="#">Please try again</a>
+              </div>
+        </div>
+    </fieldset>
+
+    <div class="display-inline-flex">
+        <button class="usa-button margin-top-0 action-panel-submit"
+            type="submit"
+            data-loading-label="Adding..."
+            data-pinger-ignore
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="add">
+          Add
+        </button>
+        <button class="usa-button usa-button--outline margin-top-0 action-panel-cancel"
+                aria-label="Close 'Add to Collections' panel"
+                ref="linksrc=close_collections_panel"
+                data-ga-category="collections_button"
+                data-ga-action="click"
+                data-ga-label="cancel">
+          Cancel
+        </button>
+    </div>
+</form>
+    </div>
+  </div>
+</div>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+
+
+        
+    
+    
+
+<footer class="ncbi-footer ncbi-dark-background " >
+    
+        <div class="ncbi-footer__icon-section">
+            <div class="ncbi-footer__social-header">
+                Follow NCBI
+            </div>
+
+            <div class="grid-container ncbi-footer__ncbi-social-icons-container">
+                
+                    <a href="https://twitter.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="40"
+                             height="40"
+                             viewBox="0 0 40 40"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on X (formerly known as Twitter)</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.facebook.com/ncbi.nlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="16"
+                             height="29"
+                             focusable="false"
+                             aria-hidden="true"
+                             viewBox="0 0 16 29"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.8809 21.4002C3.8809 19.0932 3.8809 16.7876 3.8809 14.478C3.8809 14.2117 3.80103 14.1452 3.54278 14.1492C2.53372 14.1638 1.52334 14.1492 0.514288 14.1598C0.302626 14.1598 0.248047 14.0972 0.248047 13.8936C0.256034 12.4585 0.256034 11.0239 0.248047 9.58978C0.248047 9.37013 0.302626 9.30224 0.528931 9.3049C1.53798 9.31688 2.54837 9.3049 3.55742 9.31555C3.80103 9.31555 3.8809 9.26097 3.87957 9.00272C3.87158 8.00565 3.85428 7.00592 3.90753 6.00884C3.97142 4.83339 4.31487 3.73115 5.04437 2.78467C5.93095 1.63318 7.15699 1.09005 8.56141 0.967577C10.5582 0.79319 12.555 0.982221 14.5518 0.927641C14.7102 0.927641 14.7462 0.99287 14.7449 1.13664C14.7449 2.581 14.7449 4.02668 14.7449 5.47104C14.7449 5.67604 14.6517 5.68669 14.4946 5.68669C13.4523 5.68669 12.4113 5.68669 11.3703 5.68669C10.3506 5.68669 9.92057 6.10868 9.90593 7.13904C9.89661 7.7647 9.91525 8.39303 9.89794 9.01869C9.88995 9.26364 9.96583 9.31822 10.2015 9.31688C11.7204 9.30623 13.2393 9.31688 14.7595 9.3049C15.0257 9.3049 15.0723 9.3728 15.0444 9.62439C14.89 10.9849 14.7515 12.3467 14.6144 13.7085C14.5691 14.1571 14.5785 14.1585 14.1458 14.1585C12.8386 14.1585 11.5313 14.1665 10.2254 14.1518C9.95119 14.1518 9.89794 14.2317 9.89794 14.4899C9.90593 19.0799 9.89794 23.6752 9.91125 28.2612C9.91125 28.5674 9.8407 28.646 9.53186 28.6433C7.77866 28.6273 6.02414 28.6366 4.27094 28.634C3.82499 28.634 3.87158 28.6992 3.87158 28.22C3.87602 25.9472 3.87913 23.6739 3.8809 21.4002Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on Facebook</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.linkedin.com/company/ncbinlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="25"
+                             height="23"
+                             viewBox="0 0 26 24"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M14.6983 9.98423C15.6302 9.24808 16.5926 8.74754 17.6762 8.51991C19.673 8.09126 21.554 8.30824 23.1262 9.7526C24.2351 10.7723 24.7529 12.1115 25.0165 13.5612C25.1486 14.3363 25.2105 15.1218 25.2015 15.9081C25.2015 18.3043 25.2015 20.6898 25.2082 23.0806C25.2082 23.3468 25.1549 23.444 24.8621 23.4414C23.1297 23.4272 21.3992 23.4272 19.6704 23.4414C19.4041 23.4414 19.3429 23.3588 19.3442 23.1019C19.3535 20.5194 19.3442 17.9368 19.3442 15.3543C19.3442 14.0005 18.3258 12.9448 17.0266 12.9488C15.7273 12.9528 14.6983 14.0071 14.6983 15.361C14.6983 17.9328 14.6917 20.5047 14.6983 23.0753C14.6983 23.3708 14.6198 23.444 14.3296 23.4427C12.6185 23.4294 10.9079 23.4294 9.19779 23.4427C8.93155 23.4427 8.86099 23.3735 8.86232 23.1086C8.8783 19.7619 8.88628 16.4144 8.88628 13.066C8.88628 11.5688 8.87874 10.0708 8.86365 8.57182C8.86365 8.3575 8.90758 8.27896 9.14054 8.28029C10.9048 8.29094 12.6687 8.29094 14.4321 8.28029C14.6464 8.28029 14.6983 8.34818 14.6983 8.54653C14.6903 9.00047 14.6983 9.45441 14.6983 9.98423Z">
+                            </path>
+                            <path d="M6.55316 15.8443C6.55316 18.2564 6.55316 20.6699 6.55316 23.082C6.55316 23.3629 6.48127 23.4388 6.19906 23.4374C4.47737 23.4241 2.75568 23.4241 1.03399 23.4374C0.767751 23.4374 0.69986 23.3629 0.701191 23.1006C0.709178 18.2648 0.709178 13.4281 0.701191 8.59053C0.701191 8.34026 0.765089 8.27237 1.01669 8.2737C2.74991 8.28435 4.48048 8.28435 6.20838 8.2737C6.47462 8.2737 6.5465 8.33627 6.54517 8.6065C6.54783 11.0186 6.55316 13.4308 6.55316 15.8443Z">
+                            </path>
+                            <path d="M3.65878 0.243898C5.36804 0.243898 6.58743 1.45529 6.58743 3.1406C6.58743 4.75801 5.32145 5.95742 3.60819 5.96807C3.22177 5.97614 2.83768 5.90639 2.47877 5.76299C2.11985 5.61959 1.79344 5.40546 1.51897 5.13334C1.24449 4.86123 1.02755 4.53668 0.881058 4.17902C0.734563 3.82136 0.661505 3.43788 0.666231 3.05141C0.67555 1.42601 1.9362 0.242566 3.65878 0.243898Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on LinkedIn</span>
+                    </a>
+                
+
+                
+                    <a href="https://github.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="28"
+                             height="27"
+                             viewBox="0 0 28 28"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M16.7228 20.6334C17.5057 20.5527 18.2786 20.3944 19.0301 20.1608C21.3108 19.4193 22.5822 17.8259 22.963 15.4909C23.1228 14.5112 23.1814 13.5287 22.9883 12.5437C22.8106 11.6423 22.4013 10.8028 21.8007 10.1076C21.7526 10.0605 21.7197 10 21.7064 9.934C21.6931 9.86799 21.7 9.79952 21.7262 9.73748C22.0856 8.6206 21.9711 7.51969 21.601 6.42677C21.582 6.3497 21.5345 6.2827 21.468 6.23923C21.4016 6.19577 21.3211 6.17906 21.2429 6.19248C20.7329 6.21649 20.2313 6.33051 19.7611 6.52928C19.1103 6.7908 18.4899 7.12198 17.9104 7.51703C17.84 7.56996 17.7581 7.60551 17.6713 7.62078C17.5846 7.63605 17.4954 7.6306 17.4112 7.60489C15.2596 7.05882 13.0054 7.06203 10.8554 7.61421C10.7806 7.63586 10.7018 7.63967 10.6253 7.62534C10.5487 7.611 10.4766 7.57892 10.4148 7.53167C9.64788 7.03247 8.85171 6.58918 7.96368 6.33359C7.65781 6.24338 7.34123 6.19458 7.02239 6.18849C6.94879 6.17986 6.87462 6.19893 6.81432 6.242C6.75402 6.28507 6.71191 6.34904 6.69621 6.42145C6.32342 7.51437 6.2209 8.61527 6.56307 9.73348C6.59635 9.84264 6.64694 9.93316 6.54177 10.0516C5.47666 11.2604 5.09988 12.6834 5.19574 14.2676C5.2663 15.4244 5.46201 16.5466 6.01454 17.5769C6.84399 19.1171 8.21664 19.9119 9.85158 20.3352C10.3938 20.4706 10.9444 20.5698 11.4998 20.632C11.5384 20.7492 11.4506 20.7798 11.408 20.8291C11.1734 21.1179 10.9894 21.4441 10.8634 21.7942C10.7622 22.0458 10.8315 22.4039 10.6065 22.5516C10.263 22.7766 9.83827 22.8485 9.42421 22.8871C8.17936 23.0056 7.26471 22.4877 6.6283 21.4348C6.25552 20.8184 5.76956 20.3325 5.08523 20.0663C4.76981 19.9325 4.42139 19.8967 4.08537 19.9638C3.7898 20.029 3.73788 20.1901 3.93891 20.4111C4.03639 20.5234 4.14989 20.6207 4.27575 20.6999C4.9796 21.1318 5.51717 21.7884 5.80152 22.5636C6.37002 23.9973 7.48039 24.5697 8.93825 24.6323C9.43741 24.6575 9.93768 24.615 10.4254 24.5058C10.5892 24.4672 10.6531 24.4872 10.6517 24.6762C10.6451 25.4936 10.6637 26.3123 10.6517 27.131C10.6517 27.6635 10.1684 27.9297 9.58663 27.7393C8.17396 27.2671 6.84977 26.5631 5.66838 25.656C2.59555 23.2891 0.720966 20.1861 0.217704 16.3376C-0.357453 11.9127 0.911353 8.00824 3.98551 4.73881C6.11909 2.42656 8.99932 0.939975 12.1203 0.540191C16.5351 -0.0601815 20.4347 1.14323 23.7232 4.16373C26.2449 6.47869 27.724 9.37672 28.1048 12.7726C28.5828 17.0325 27.3686 20.7945 24.4768 23.9827C22.9762 25.6323 21.0956 26.8908 18.9982 27.6488C18.8783 27.6927 18.7585 27.738 18.636 27.7726C18.0356 27.9404 17.6189 27.6395 17.6189 27.0098C17.6189 25.7452 17.6308 24.4806 17.6295 23.2159C17.6329 22.9506 17.6128 22.6856 17.5696 22.4238C17.4325 21.6664 17.3419 21.484 16.7228 20.6334Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on GitHub</span>
+                    </a>
+                
+
+                
+                    <a href="https://ncbiinsights.ncbi.nlm.nih.gov/"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="26"
+                             height="26"
+                             viewBox="0 0 27 27"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M23.7778 26.4574C23.1354 26.3913 22.0856 26.8024 21.636 26.3087C21.212 25.8444 21.4359 24.8111 21.324 24.0347C19.9933 14.8323 14.8727 8.80132 6.09057 5.85008C4.37689 5.28406 2.58381 4.99533 0.779072 4.99481C0.202773 4.99481 -0.0229751 4.83146 0.00455514 4.21479C0.0660406 3.08627 0.0660406 1.95525 0.00455514 0.826734C-0.0413285 0.0815827 0.259669 -0.0193618 0.896534 0.00266238C6.96236 0.222904 12.3693 2.24179 16.9889 6.16209C22.9794 11.2478 26.1271 17.7688 26.4372 25.648C26.4629 26.294 26.3179 26.5271 25.6609 26.4684C25.0827 26.417 24.4991 26.4574 23.7778 26.4574Z">
+                            </path>
+                            <path d="M14.8265 26.441C14.0924 26.441 13.2371 26.6795 12.6626 26.3786C12.0092 26.0372 12.3781 25.0644 12.246 24.378C11.1154 18.5324 6.6849 14.5497 0.74755 14.1001C0.217135 14.0615 -0.0104482 13.9422 0.0134113 13.3659C0.0519536 12.1454 0.0482829 10.9213 0.0134113 9.69524C-0.00127145 9.14464 0.196946 9.03268 0.703502 9.04736C9.21217 9.27128 16.5994 16.2511 17.2804 24.7231C17.418 26.4446 17.418 26.4446 15.6579 26.4446H14.832L14.8265 26.441Z">
+                            </path>
+                            <path d="M3.58928 26.4555C2.64447 26.4618 1.73584 26.0925 1.06329 25.4289C0.39073 24.7653 0.00933763 23.8617 0.0030097 22.9169C-0.00331824 21.9721 0.365937 21.0635 1.02954 20.3909C1.69315 19.7184 2.59675 19.337 3.54156 19.3306C4.48637 19.3243 5.39499 19.6936 6.06755 20.3572C6.7401 21.0208 7.1215 21.9244 7.12782 22.8692C7.13415 23.814 6.7649 24.7226 6.10129 25.3952C5.43768 26.0677 4.53409 26.4491 3.58928 26.4555Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI RSS feed</span>
+                    </a>
+                
+            </div>
+        </div>
+    
+
+    <div data-testid="gridContainer"
+         class="grid-container ncbi-footer__container">
+        <div class="grid-row ncbi-footer__main-content-container"
+             data-testid="grid">
+            
+                <div class="ncbi-footer__column">
+                    
+                        <p class="ncbi-footer__circled-icons-heading">
+                            Connect with NLM
+                        </p>
+                    
+
+                    <div class="ncbi-footer__circled-icons-list">
+                        
+                            <a href=https://twitter.com/nlm_nih class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="32"
+                                     height="32"
+                                     viewBox="0 0 40 40"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on X (formerly known as Twitter)</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.facebook.com/nationallibraryofmedicine class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="13"
+                                     height="24"
+                                     viewBox="0 0 13 24"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M4.11371 23.1369C4.11371 23.082 4.11371 23.0294 4.11371 22.9745V12.9411H0.817305C0.6709 12.9411 0.670898 12.9411 0.670898 12.8016C0.670898 11.564 0.670898 10.3287 0.670898 9.09341C0.670898 8.97903 0.705213 8.95158 0.815017 8.95158C1.8673 8.95158 2.91959 8.95158 3.97417 8.95158H4.12057V8.83263C4.12057 7.8055 4.12057 6.7738 4.12057 5.74897C4.1264 4.92595 4.31387 4.11437 4.66959 3.37217C5.12916 2.38246 5.94651 1.60353 6.95717 1.1921C7.64827 0.905008 8.3913 0.764035 9.13953 0.778051C10.0019 0.791777 10.8644 0.830666 11.7268 0.860404C11.8869 0.860404 12.047 0.894717 12.2072 0.90158C12.2964 0.90158 12.3261 0.940469 12.3261 1.02968C12.3261 1.5421 12.3261 2.05452 12.3261 2.56465C12.3261 3.16857 12.3261 3.7725 12.3261 4.37642C12.3261 4.48165 12.2964 4.51367 12.1912 4.51138C11.5369 4.51138 10.8804 4.51138 10.2261 4.51138C9.92772 4.51814 9.63058 4.5526 9.33855 4.61433C9.08125 4.6617 8.84537 4.78881 8.66431 4.97766C8.48326 5.16652 8.3662 5.40755 8.32972 5.66661C8.28476 5.89271 8.26027 6.1224 8.25652 6.35289C8.25652 7.19014 8.25652 8.02969 8.25652 8.86923C8.25652 8.89439 8.25652 8.91955 8.25652 8.95615H12.0219C12.1797 8.95615 12.182 8.95616 12.1614 9.10714C12.0768 9.76596 11.9876 10.4248 11.9029 11.0813C11.8312 11.6319 11.7626 12.1824 11.697 12.733C11.6719 12.9434 11.6787 12.9434 11.4683 12.9434H8.26338V22.899C8.26338 22.979 8.26338 23.0591 8.26338 23.1392L4.11371 23.1369Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on Facebook</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.youtube.com/user/NLMNIH class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="21"
+                                     height="15"
+                                     viewBox="0 0 21 15"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M19.2561 1.47914C18.9016 1.15888 18.5699 0.957569 17.2271 0.834039C15.5503 0.678484 13.2787 0.655608 11.563 0.65332H9.43556C7.71987 0.65332 5.4483 0.678484 3.77151 0.834039C2.43098 0.957569 2.097 1.15888 1.74242 1.47914C0.813665 2.32097 0.619221 4.62685 0.598633 6.89384C0.598633 7.31781 0.598633 7.74101 0.598633 8.16345C0.626084 10.4121 0.827391 12.686 1.74242 13.521C2.097 13.8412 2.4287 14.0425 3.77151 14.1661C5.4483 14.3216 7.71987 14.3445 9.43556 14.3468H11.563C13.2787 14.3468 15.5503 14.3216 17.2271 14.1661C18.5676 14.0425 18.9016 13.8412 19.2561 13.521C20.1712 12.6929 20.3725 10.451 20.3999 8.22064C20.3999 7.74025 20.3999 7.25986 20.3999 6.77946C20.3725 4.54907 20.1689 2.30724 19.2561 1.47914ZM8.55942 10.5311V4.65201L13.5601 7.50005L8.55942 10.5311Z"
+                                          fill="white" />
+                                </svg>
+                                <span class="usa-sr-only">NLM on YouTube</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            
+
+            
+                <address class="ncbi-footer__address ncbi-footer__column">
+                    
+        <p>
+            <a class="usa-link usa-link--external"
+            href="https://www.google.com/maps/place/8600+Rockville+Pike,+Bethesda,+MD+20894/%4038.9959508,
+            -77.101021,17z/data%3D!3m1!4b1!4m5!3m4!1s0x89b7c95e25765ddb%3A0x19156f88b27635b8!8m2!3d38.9959508!
+            4d-77.0988323"
+            rel="noopener noreferrer" target="_blank">National Library of Medicine
+            <br/> 8600 Rockville Pike<br/> Bethesda, MD 20894</a>
+        </p>
+    
+                </address>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/web_policies.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Web Policies
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/institutes-nih/nih-office-director/office-communications-public-liaison/freedom-information-act-office" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            FOIA
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS Vulnerability Disclosure
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://support.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Help
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/accessibility.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Accessibility
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/careers/careers.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Careers
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+        </div>
+
+        
+            <div class="grid-row grid-col-12" data-testid="grid">
+                <ul class="ncbi-footer__bottom-links-list">
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NLM
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NIH
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.usa.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            USA.gov
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+    </div>
+</footer>
+
+    
+
+
+        
+        
+    
+  <script  type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/pinger/pinger.js"> </script>
+
+
+    
+        
+
+<button class="back-to-top" data-ga-category="pagination" data-ga-action="back_to_top">
+    <label>Back to Top</label>
+    <svg class="usa-icon order-0" aria-hidden="true" focusable="false" role="img">
+        <use xlink:href="/static/img/sprite.svg#arrow_upward"></use>
+    </svg>
+</button>
+    
+
+
+        
+    
+    
+    
+        
+    <script type="application/javascript">
+    window.ncbi = window.ncbi || {};
+    window.ncbi.pmc = window.ncbi.pmc || {};
+    window.ncbi.pmc.options = {
+        logLevel: 'INFO',
+        
+        staticEndpoint: '/static/',
+        
+        citeCookieName: 'pmc-cf',
+    };
+</script>
+    <script type="module" crossorigin="" src="/static/assets/base-133c6271.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/jquery/jquery-3.6.0.min.js">&#xA0;</script>
+    <script type="text/javascript">
+        jQuery.getScript("https://cdn.ncbi.nlm.nih.gov/core/alerts/alerts.js", function () {
+            galert(['div.nav_and_browser', 'div.header', '#universal_header', '.usa-banner', 'body > *:nth-child(1)'])
+        });
+    </script>
+
+
+    <script type="text/javascript">var exports = {};</script>
+     <script src="/static/CACHE/js/output.13b077bc3ffd.js"></script>
+
+    <script type="module" crossorigin="" src="/static/assets/article-44d04358.js"></script>
+    
+    
+
+    </body>
+</html>

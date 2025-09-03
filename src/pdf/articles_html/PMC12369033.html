@@ -1,0 +1,2996 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+    <head >
+
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+        
+
+        
+        
+  <link rel="stylesheet" href="/static/assets/style-8258669d.css" />
+<script type="module" crossorigin="" src="/static/assets/base_style-f4a99799.js"></script>
+
+  <link rel="stylesheet" href="/static/assets/style-ef962842.css" />
+<link rel="stylesheet" href="/static/assets/style-3ade8b5c.css" />
+<script type="module" crossorigin="" src="/static/assets/article_style-d757a0dd.js"></script>
+
+  
+  
+    <style>
+  
+  
+  @media screen and (min-width: 64em) {
+    div.pmc-wm {
+      background: repeat-y;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='350' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-.02' y='0' width='1.05' height='1' id='c'%3E%3CfeFlood flood-color='%23FFF'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3Ctext id='b' font-family='Helvetica' font-size='11pt' style='opacity:1;fill:%23005ea2;stroke:none;text-anchor:middle' x='175' y='14'%3E%3C/text%3E%3Cpath id='a' style='fill:%23005ea2' d='M0 8h350v3H0z'/%3E%3C/defs%3E%3Cuse xlink:href='%23a' transform='rotate(90 10 10)'/%3E%3Cuse xlink:href='%23b' transform='rotate(90 10 10)' filter='url(%23c)'/%3E%3C/svg%3E");
+      padding-left: 3rem;
+    }
+  }
+</style>
+
+  
+
+
+
+        
+            <link rel="apple-touch-icon"
+                  sizes="180x180"
+                  href="/static/img/favicons/apple-touch-icon.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="48x48"
+                  href="/static/img/favicons/favicon-48x48.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="/static/img/favicons/favicon-32x32.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="/static/img/favicons/favicon-16x16.png" />
+            <link rel="manifest" href="/static/img/favicons/site.webmanifest" />
+            <link rel="mask-icon"
+                  href="/static/img/favicons/safari-pinned-tab.svg"
+                  color="#0071bc" />
+            <meta name="msapplication-config"
+                  content="/static/img/favicons/browserconfig.xml" />
+            <meta name="theme-color" content="#ffffff" />
+        
+
+        <title>
+            Machine learning and SHAP values explain the association between social determinants of health and post-stroke depression - PMC
+        </title>
+
+        
+        
+  
+  <!-- Logging params: Pinger defaults -->
+<meta name="ncbi_app" content="cloudpmc-viewer" />
+<meta name="ncbi_db" content="pmc" />
+<meta name="ncbi_phid" content="152538AF8AF1EB530538AF006324A523.m_1" />
+<meta name="ncbi_pinger_stat_url" content="https://pmc.ncbi.nlm.nih.gov/stat" />
+<!-- Logging params: Pinger custom -->
+<meta name="ncbi_pdid" content="article" />
+  
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+
+    
+        <link rel="preconnect" href="https://cdn.ncbi.nlm.nih.gov" />
+    
+
+    <!-- Include USWDS Init Script -->
+    <script src="/static/assets/uswds-init.js"></script>
+
+
+    <meta name="ncbi_domain" content="bmcph">
+<meta name="ncbi_type" content="fulltext">
+<meta name="ncbi_pcid" content="journal">
+<meta name="ncbi_feature" content="associated_data">
+<link rel="canonical" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12369033/">
+<meta name="robots" content="INDEX,NOFOLLOW,NOARCHIVE">
+<meta name="citation_journal_title" content="BMC Public Health">
+<meta name="citation_title" content="Machine learning and SHAP values explain the association between social determinants of health and post-stroke depression">
+<meta name="citation_author" content="Zhiwei Song">
+<meta name="citation_author_institution" content="Shengli Clinical Medical College of Fujian Medical University, Department of Neurology, Fuzhou University Affiliated Provincial Hospital, Fujian Key Laboratory of Medical Analysis, Fujian Academy of Medical Sciences, Fuzhou, Fujian China">
+<meta name="citation_author" content="Jilin Weng">
+<meta name="citation_author_institution" content="Department of Neurology, Wuyishan City Hospital, Wuyi Hospital Affiliated To Fujian Provincial Hospital, Fuzhou, Fujian China">
+<meta name="citation_author" content="Yupeng Han">
+<meta name="citation_author_institution" content="Department of Anesthesiology, Shengli Clinical Medical College of Fujian Medical University, Fuzhou University Affiliated Provincial Hospital, Fuzhou, Fujian China">
+<meta name="citation_author" content="Wangyu Li">
+<meta name="citation_author_institution" content="Department of Painology, the First Affiliated Hospital of Fujian Medical University, Fuzhou, Fujian China">
+<meta name="citation_author" content="Yiya Xu">
+<meta name="citation_author_institution" content="Shengli Clinical Medical College of Fujian Medical University, Department of Neurology, Fuzhou University Affiliated Provincial Hospital, Fujian Key Laboratory of Medical Analysis, Fujian Academy of Medical Sciences, Fuzhou, Fujian China">
+<meta name="citation_author" content="Yingchao He">
+<meta name="citation_author_institution" content="Shengli Clinical Medical College of Fujian Medical University, Department of Neurology, Fuzhou University Affiliated Provincial Hospital, Fujian Key Laboratory of Medical Analysis, Fujian Academy of Medical Sciences, Fuzhou, Fujian China">
+<meta name="citation_author" content="Yinzhou Wang">
+<meta name="citation_author_institution" content="Fujian Key Laboratory of Medical Analysis, Fujian Academy of Medical Sciences, Shengli Clinical Medical College of Fujian Medical University, Department of Neurology, Fuzhou University Affiliated Provincial Hospital, Fuzhou, Fujian China">
+<meta name="citation_publication_date" content="2025 Aug 21">
+<meta name="citation_volume" content="25">
+<meta name="citation_firstpage" content="2868">
+<meta name="citation_doi" content="10.1186/s12889-025-24220-y">
+<meta name="citation_pmid" content="40841950">
+<meta name="citation_abstract_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12369033/">
+<meta name="citation_fulltext_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12369033/">
+<meta name="citation_pdf_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12369033/pdf/12889_2025_Article_24220.pdf">
+<meta name="description" content="To create and verify a machine learning model that integrates social determinants of health (SDoH) for assessing post-stroke depression (PSD) and examining the association between SDoH and disease outcomes. Data were acquired from the National ...">
+<meta name="og:title" content="Machine learning and SHAP values explain the association between social determinants of health and post-stroke depression">
+<meta name="og:type" content="article">
+<meta name="og:site_name" content="PubMed Central (PMC)">
+<meta name="og:description" content="To create and verify a machine learning model that integrates social determinants of health (SDoH) for assessing post-stroke depression (PSD) and examining the association between SDoH and disease outcomes. Data were acquired from the National ...">
+<meta name="og:url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12369033/">
+<meta name="og:image" content="https://cdn.ncbi.nlm.nih.gov/pmc/cms/images/pmc-card-share.jpg?_=0">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ncbi">
+    
+    
+
+    </head>
+    <body >
+        
+    <a class="usa-skipnav " href="#main-content">
+      Skip to main content
+    </a>
+
+
+        
+            
+
+<section class="usa-banner " aria-label="Official website of the United States government" >
+    <div class="usa-accordion">
+        <header class="usa-banner__header">
+            <div class="usa-banner__inner">
+                <div class="grid-col-auto">
+                    <img aria-hidden="true"
+                         class="usa-banner__header-flag"
+                         src="/static/img/us_flag.svg"
+                         alt="" />
+                </div>
+
+                <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+                    <p class="usa-banner__header-text">
+                        An official website of the United States government
+                    </p>
+                    <span class="usa-banner__header-action">Here's how you know</span>
+                </div>
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-accordion__button usa-banner__button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    aria-expanded="false"
+    aria-controls="gov-banner-default"
+    
+    data-testid="storybook-django-banner"
+    
+    >
+    
+        
+
+        
+                    <span class="usa-banner__button-text">Here's how you know</span>
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </div>
+        </header>
+
+        <div class="usa-banner__content usa-accordion__content"
+             id="gov-banner-default"
+             hidden>
+            <div class="grid-row grid-gap-lg">
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-dot-gov.svg"
+                         alt=""
+                         aria-hidden="true" />
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Official websites use .gov</strong>
+                            <br />
+                            A
+                            <strong>.gov</strong> website belongs to an official
+                            government organization in the United States.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-https.svg"
+                         alt=""
+                         aria-hidden="true" />
+
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Secure .gov websites use HTTPS</strong>
+                            <br />
+                            A <strong>lock</strong> (
+                            <span class="icon-lock">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     width="52"
+                                     height="64"
+                                     viewBox="0 0 52 64"
+                                     class="usa-banner__lock-image"
+                                     role="graphics-symbol"
+                                     aria-labelledby="banner-lock-description"
+                                     focusable="false">
+                                    <title id="banner-lock-title">Lock</title>
+                                    <desc id="banner-lock-description">
+                                    Locked padlock icon
+                                    </desc>
+                                    <path fill="#000000"
+                                          fill-rule="evenodd"
+                                          d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+                                </svg>
+</span>) or <strong>https://</strong> means you've safely
+                                connected to the .gov website. Share sensitive
+                                information only on official, secure websites.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        
+
+        
+    
+    
+    
+
+<div class="usa-overlay">
+</div>
+
+
+
+<header class="usa-header usa-header--extended usa-header--wide" data-header data-testid="header"    >
+    <div class="ncbi-header">
+        <div class="ncbi-header__container">
+            <a class="ncbi-header__logo-container"
+               href="https://www.ncbi.nlm.nih.gov/">
+                <img alt="NCBI home page"
+                     class="ncbi-header__logo-image"
+                     src="/static/img/ncbi-logos/nih-nlm-ncbi--white.svg"
+                     width="410"
+                     height="100" />
+            </a>
+
+            <!-- Mobile menu hamburger button -->
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-menu-btn ncbi-header__hamburger-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Show menu"
+    data-testid="navMenuButton"
+    
+    >
+    
+        
+
+        
+                <svg aria-hidden="true"
+                     class="ncbi-hamburger-icon"
+                     fill="none"
+                     focusable="false"
+                     height="21"
+                     viewBox="0 0 31 21"
+                     width="31"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd"
+                          d="M0.125 20.75H30.875V17.3333H0.125V20.75ZM0.125 12.2083H30.875V8.79167H0.125V12.2083ZM0.125 0.25V3.66667H30.875V0.25H0.125Z"
+                          fill="#F1F1F1"
+                          fill-rule="evenodd" />
+                </svg>
+            
+
+        
+    
+        
+            </button>
+        
+
+
+
+            
+                <!-- Desktop buttons-->
+                <div class="ncbi-header__desktop-buttons">
+                    
+                        <!-- Desktop search button -->
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button
+           "
+    aria-expanded="false"
+    aria-controls="search-field-desktop-navigation"
+    aria-label="Show search overlay"
+    data-testid="toggleSearchPanelButton"
+    data-toggle-search-panel-button
+    >
+    
+        
+
+        
+                            
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#search" />
+    </svg>
+
+
+                            Search
+                        
+
+        
+    
+        
+            </button>
+        
+
+
+                    
+
+                    <!-- Desktop login dropdown -->
+                    
+                        <div class="ncbi-header__login-dropdown">
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button ncbi-header__login-dropdown-button
+           "
+    aria-expanded="false"
+    aria-controls="login-dropdown-menu"
+    aria-label="Show login menu"
+    data-testid="toggleLoginMenuDropdown"
+    data-desktop-login-button
+    >
+    
+        
+
+        
+                                
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#person" />
+    </svg>
+
+
+
+                                <span data-login-dropdown-text>Log in</span>
+
+                                <!-- Dropdown icon pointing up -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-less ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-up-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_less" />
+    </svg>
+
+
+
+                                <!-- Dropdown icon pointing down -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-more ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-down-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_more" />
+    </svg>
+
+
+                            
+
+        
+    
+        
+            </button>
+        
+
+
+
+                            <!-- Login dropdown menu -->
+                            <ul class="usa-nav__submenu ncbi-header__login-dropdown-menu"
+                                id="login-dropdown-menu"
+                                data-desktop-login-menu-dropdown
+                                hidden>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                <li class="usa-nav__submenu-item">
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--outline ncbi-header__login-dropdown-logout-button
+           "
+    
+    
+    
+    data-testid="desktopLogoutButton"
+    data-desktop-logout-button
+    >
+    
+        
+
+        Log out
+
+        
+    
+        
+            </button>
+        
+
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                </div>
+            
+        </div>
+    </div>
+
+    <!-- Search panel -->
+    
+        <div class="ncbi-search-panel ncbi--show-only-at-desktop"
+             data-header-search-panel
+             hidden>
+            <div class="ncbi-search-panel__container">
+                <form action="https://www.ncbi.nlm.nih.gov/search/all/"
+                      
+                      autocomplete="off"
+                      class="usa-search usa-search--big ncbi-search-panel__form"
+                      data-testid="desktop-navigation-search-form"
+                      method="GET"
+                      role="search">
+                    <label class="usa-sr-only" for="search-field-desktop-navigation">
+                        Search…
+                    </label>
+                    <input class="usa-input"
+                           id="search-field-desktop-navigation"
+                           name="term"
+                           
+                               placeholder="Search NCBI"
+                           
+                           type="search"
+                           value="" />
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                        <span class="usa-search__submit-text">
+                            Search NCBI
+                        </span>
+                    
+
+        
+    
+        
+            </button>
+        
+
+
+                </form>
+
+                
+            </div>
+        </div>
+    
+
+    <nav aria-label="Primary navigation" class="usa-nav">
+        <p class="usa-sr-only" id="primary-navigation-sr-only-title">
+            Primary site navigation
+        </p>
+
+        <!-- Mobile menu close button -->
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-nav__close ncbi-nav__close-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Close navigation menu"
+    data-testid="navCloseButton"
+    
+    >
+    
+        
+
+        
+            <img src="/static/img/usa-icons/close.svg" alt="Close" />
+        
+
+        
+    
+        
+            </button>
+        
+
+
+
+        
+            <!-- Mobile search component -->
+            <form class="usa-search usa-search--small ncbi--hide-at-desktop margin-top-6"
+                  action="https://www.ncbi.nlm.nih.gov/search/all/"
+                  
+                  autocomplete="off"
+                  data-testid="mobile-navigation-search-form"
+                  method="GET"
+                  role="search">
+                <label class="usa-sr-only" for="search-field-mobile-navigation">
+                    Search
+                </label>
+
+                <input class="usa-input"
+                       id="search-field-mobile-navigation"
+                       type="search"
+                       
+                           placeholder="Search NCBI"
+                       
+                       name="term" />
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                    <!-- This SVG should be kept inline and not replaced with a link to the icon as otherwise it will render in the wrong color -->
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0E2LjQ3MSA2LjQ3MSAwIDAgMCAxNiA5LjUgNi41IDYuNSAwIDEgMCA5LjUgMTZjMS42MSAwIDMuMDktLjU5IDQuMjMtMS41N2wuMjcuMjh2Ljc5bDUgNC45OUwyMC40OSAxOWwtNC45OS01em0tNiAwQzcuMDEgMTQgNSAxMS45OSA1IDkuNVM3LjAxIDUgOS41IDUgMTQgNy4wMSAxNCA5LjUgMTEuOTkgMTQgOS41IDE0eiIvPjwvc3ZnPg=="
+                         class="usa-search__submit-icon"
+                         alt="Search" />
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </form>
+
+            
+        
+
+        <!-- Primary navigation menu items -->
+        <!-- This usa-nav__inner wrapper is required to correctly style the navigation items on Desktop -->
+        
+
+        
+            <div class="ncbi-nav__mobile-login-menu ncbi--hide-at-desktop"
+                 data-mobile-login-menu
+                 hidden>
+                <p class="ncbi-nav__mobile-login-menu-status">
+                    Logged in as:
+                    <strong class="ncbi-nav__mobile-login-menu-email"
+                            data-mobile-login-email-text></strong>
+                </p>
+                <ul class="usa-nav__primary usa-accordion">
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           ncbi-nav__mobile-login-button ncbi--hide-at-desktop
+           "
+    
+    
+    
+    data-testid="mobileLoginButton"
+    data-mobile-login-button
+    >
+    
+        
+
+        Log in
+
+        
+    
+        
+            </button>
+        
+
+
+    </nav>
+</header>
+
+    
+    
+        
+
+<section class="pmc-header pmc-header--basic" aria-label="PMC Header with search box">
+    <div class="pmc-nav-container">
+        <div class="pmc-header__bar">
+           <div class="pmc-header__logo">
+               <a href="/" title="Home" aria-label="PMC Home"></a>
+           </div>
+            <button
+                    type="button"
+                    class="usa-button usa-button--unstyled pmc-header__search__button"
+                    aria-label="Open search"
+                    data-ga-category="search"
+                    data-ga-action="PMC"
+                    data-ga-label="pmc_search_panel_mobile"
+            >
+                <svg class="usa-icon width-4 height-4 pmc-icon__open" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#search"></use>
+                </svg>
+                <svg class="usa-icon width-4 height-4 pmc-icon__close" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="pmc-header__search">
+            
+
+
+<form class="usa-search usa-search--extra usa-search--article-right-column  pmc-header__search__form" id="pmc-search-form" autocomplete="off" role="search">
+<label class="usa-sr-only" for="pmc-search">Search PMC Full-Text Archive</label>
+<span class="autoComplete_wrapper flex-1">
+<input class="usa-input width-full maxw-none" required="required" placeholder="Search PMC Full-Text Archive" id="pmc-search"  type="search" name="term" data-autocomplete-url="https://pmc.ncbi.nlm.nih.gov/autocomp/search/autocomp/"/>
+</span>
+<button
+class="usa-button"
+type="submit"
+formaction="https://www.ncbi.nlm.nih.gov/pmc/"
+data-ga-category="search"
+data-ga-action="PMC"
+data-ga-label="PMC_search_button"
+>
+<span class="usa-search__submit-text">Search in PMC</span>
+<img
+src="/static/img/usa-icons-bg/search--white.svg"
+class="usa-search__submit-icon"
+alt="Search"
+/>
+</button>
+</form>
+            <div class="display-flex flex-column tablet:flex-row tablet:flex-justify flex-justify-center flex-align-center width-full desktop:maxw-44">
+                <ul class="pmc-header__search__menu">
+                    <li>
+                        
+                            <a class="usa-link" href="/journals/" data-ga-action="featured_link" data-ga-label="journal list">
+                                Journal List
+                            </a>
+                        
+                    </li>
+                    <li>
+                        
+                            <a class="usa-link" href="/about/userguide/" data-ga-action="featured_link"
+                            data-ga-label="user guide">
+                                User Guide
+                            </a>
+                        
+                    </li>
+                </ul>
+                
+                    <button form="pmc-search-form" formaction="https://pmc.ncbi.nlm.nih.gov/search/" type="submit" class="usa-button usa-button--unstyled hover:text-no-underline text-no-underline width-auto margin-top-1 tablet:margin-top-0">
+     <span class="bg-green-label padding-05 text-white">New</span><span class="text-underline text-primary">Try this search in PMC Beta Search</span>
+</button>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+
+
+        
+        
+
+       
+  <div class="usa-section padding-top-0 desktop:padding-top-6 pmc-article-section" data-article-db="pmc" data-article-id="12369033">
+
+    
+
+   
+
+
+
+<div class="grid-container pmc-actions-bar" aria-label="Actions bar" role="complementary">
+    <div class="grid-row">
+        <div class="grid-col-fill display-flex">
+             <div class="display-flex">
+                <ul class="usa-list usa-list--unstyled usa-list--horizontal">
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <button
+                                type="button"
+                                class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                                aria-label="Open resources"
+                                data-extra-class="is-visible-resources"
+                                data-ga-category="resources_accordion"
+                                data-ga-action="click"
+                                data-ga-label="mobile_icon"
+                        >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#more_vert"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <a
+                                href="https://doi.org/10.1186/s12889-025-24220-y"
+                                class="usa-link display-flex usa-tooltip"
+                                role="button"
+                                target="_blank"
+                                rel="noreferrer noopener"
+                                title="View on publisher site"
+                                data-position="bottom"
+                                aria-label="View on publisher site"
+                                data-ga-category="actions"
+                                data-ga-action="click"
+                                data-ga-label="publisher_link_mobile"
+                        >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#launch"></use>
+                                </svg>
+                        </a>
+                    </li>
+                    
+                    
+                        <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                             <a
+                                     href="pdf/12889_2025_Article_24220.pdf"
+                                     class="usa-link display-flex usa-tooltip"
+                                     role="button"
+                                     title="Download PDF"
+                                     data-position="bottom"
+                                     aria-label="Download PDF"
+                                     data-ga-category="actions"
+                                     data-ga-action="click"
+                                     data-ga-label="pdf_download_mobile"
+                             >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button
+                            class="usa-button usa-button--unstyled  usa-tooltip collections-dialog-trigger collections-button display-flex collections-button-empty"
+                            title="Add to Collections"
+                            data-position="bottom"
+                            aria-label="Save article in MyNCBI collections."
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="collections_button_mobile"
+                            data-collections-open-dialog-enabled="false"
+                            data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12369033%2F%3Freport%3Dclassic%23open-collections-dialog"
+                            data-in-collections="false"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button role="button" class="usa-button usa-button--unstyled usa-tooltip citation-dialog-trigger display-flex"
+                            aria-label="Open dialog with citation text in different styles"
+                            title="Cite"
+                            data-position="bottom"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="cite_mobile"
+                            data-all-citations-url="/resources/citations/12369033/"
+                            data-citation-style="nlm"
+                            data-download-format-link="/resources/citations/12369033/export/"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="pmc-permalink display-flex" >
+                         <button
+                                 type="button"
+                                 title="Permalink"
+                                 data-position="bottom"
+                                 class="usa-button usa-button--unstyled display-flex usa-tooltip"
+                                 aria-label="Show article permalink"
+                                 aria-expanded="false"
+                                 aria-haspopup="true"
+                                 data-ga-category="actions"
+                                 data-ga-action="open"
+                                 data-ga-label="permalink_mobile"
+                         >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#share"></use>
+                            </svg>
+                        </button>
+                        
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12369033/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+                    </li>
+                </ul>
+            </div>
+            <button
+                    type="button"
+                    class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                    aria-label="Open article navigation"
+                    data-extra-class="is-visible-in-page"
+                    data-ga-category="actions"
+                    data-ga-action="open"
+                    data-ga-label="article_nav_mobile"
+            >
+                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#list"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+    <div class="grid-container desktop:padding-left-6">
+      <div id="article-container" class="grid-row grid-gap">
+        <div class="grid-col-12 desktop:grid-col-8 order-2 pmc-layout__content">
+            <div class="grid-container padding-left-0 padding-right-0">
+                <div class="grid-row desktop:margin-left-neg-6">
+                    <div class="grid-col-12">
+                        <div class="pmc-layout__disclaimer" role="complementary" aria-label="Disclaimer note">
+    As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,
+    the contents by NLM or the National Institutes of Health.<br/>
+    Learn more:
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="Disclaimer" data-ga-label="New disclaimer box" href="/about/disclaimer/">PMC Disclaimer</a>
+    |
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="PMC Copyright Notice" data-ga-label="New disclaimer box" href="/about/copyright/">
+        PMC Copyright Notice
+    </a>
+</div>
+                    </div>
+                </div>
+                <div class="grid-row pmc-wm desktop:margin-left-neg-6">
+                    <!-- Main content -->
+                    <main
+                      id="main-content"
+                      class="usa-layout-docs__main usa-layout-docs grid-col-12 pmc-layout pmc-prose padding-0"
+                    >
+
+                      
+                        <section class="pmc-journal-banner text-center line-height-none" aria-label="Journal banner"><img src="https://cdn.ncbi.nlm.nih.gov/pmc/banners/logo-bmcph.png" alt="BMC Public Health logo" usemap="#pmc-banner-imagemap" width="500" height="75"><map name="pmc-banner-imagemap"><area alt="Link to BMC Public Health" title="Link to BMC Public Health" shape="default" href="https://bmcpublichealth.biomedcentral.com/" target="_blank" rel="noopener noreferrer"></map></section><article lang="en"><section aria-label="Article citation and metadata"><section class="pmc-layout__citation font-secondary font-xs"><div>
+<div class="display-inline-block"><button type="button" class="cursor-pointer text-no-underline bg-transparent border-0 padding-0 text-left margin-0 text-normal text-primary" aria-controls="journal_context_menu">BMC Public Health</button></div>. 2025 Aug 21;25:2868. doi: <a href="https://doi.org/10.1186/s12889-025-24220-y" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">10.1186/s12889-025-24220-y</a>
+</div>
+<nav id="journal_context_menu" hidden="hidden"><ul class="menu-list font-family-ui" role="menu">
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/pmc/?term=%22BMC%20Public%20Health%22%5Bjour%5D" class="usa-link" role="menuitem">Search in PMC</a></li>
+<li role="presentation"><a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22BMC%20Public%20Health%22%5Bjour%5D" lang="en" class="usa-link" role="menuitem">Search in PubMed</a></li>
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/nlmcatalog?term=%22BMC%20Public%20Health%22%5BTitle%20Abbreviation%5D" class="usa-link" role="menuitem">View in NLM Catalog</a></li>
+<li role="presentation"><a href="?term=%22BMC%20Public%20Health%22%5Bjour%5D" class="usa-link" role="menuitem" data-add-to-search="true">Add to search</a></li>
+</ul></nav></section><section class="front-matter"><div class="ameta p font-secondary font-xs">
+<hgroup><h1>Machine learning and SHAP values explain the association between social determinants of health and post-stroke depression</h1></hgroup><div class="cg p">
+<a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Song%20Z%22%5BAuthor%5D" class="usa-link" aria-describedby="id1"><span class="name western">Zhiwei Song</span></a><div hidden="hidden" id="id1">
+<h3><span class="name western">Zhiwei Song</span></h3>
+<div class="p">
+<sup>1</sup>Shengli Clinical Medical College of Fujian Medical University, Department of Neurology, Fuzhou University Affiliated Provincial Hospital, Fujian Key Laboratory of Medical Analysis, Fujian Academy of Medical Sciences, Fuzhou, Fujian China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Song%20Z%22%5BAuthor%5D" class="usa-link"><span class="name western">Zhiwei Song</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>#</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Weng%20J%22%5BAuthor%5D" class="usa-link" aria-describedby="id2"><span class="name western">Jilin Weng</span></a><div hidden="hidden" id="id2">
+<h3><span class="name western">Jilin Weng</span></h3>
+<div class="p">
+<sup>2</sup>Department of Neurology, Wuyishan City Hospital, Wuyi Hospital Affiliated To Fujian Provincial Hospital, Fuzhou, Fujian China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Weng%20J%22%5BAuthor%5D" class="usa-link"><span class="name western">Jilin Weng</span></a>
+</div>
+</div>
+<sup>2,</sup><sup>#</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Han%20Y%22%5BAuthor%5D" class="usa-link" aria-describedby="id3"><span class="name western">Yupeng Han</span></a><div hidden="hidden" id="id3">
+<h3><span class="name western">Yupeng Han</span></h3>
+<div class="p">
+<sup>3</sup>Department of Anesthesiology, Shengli Clinical Medical College of Fujian Medical University, Fuzhou University Affiliated Provincial Hospital, Fuzhou, Fujian China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Han%20Y%22%5BAuthor%5D" class="usa-link"><span class="name western">Yupeng Han</span></a>
+</div>
+</div>
+<sup>3</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Li%20W%22%5BAuthor%5D" class="usa-link" aria-describedby="id4"><span class="name western">Wangyu Li</span></a><div hidden="hidden" id="id4">
+<h3><span class="name western">Wangyu Li</span></h3>
+<div class="p">
+<sup>4</sup>Department of Painology, the First Affiliated Hospital of Fujian Medical University, Fuzhou, Fujian China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Li%20W%22%5BAuthor%5D" class="usa-link"><span class="name western">Wangyu Li</span></a>
+</div>
+</div>
+<sup>4</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Xu%20Y%22%5BAuthor%5D" class="usa-link" aria-describedby="id5"><span class="name western">Yiya Xu</span></a><div hidden="hidden" id="id5">
+<h3><span class="name western">Yiya Xu</span></h3>
+<div class="p">
+<sup>1</sup>Shengli Clinical Medical College of Fujian Medical University, Department of Neurology, Fuzhou University Affiliated Provincial Hospital, Fujian Key Laboratory of Medical Analysis, Fujian Academy of Medical Sciences, Fuzhou, Fujian China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Xu%20Y%22%5BAuthor%5D" class="usa-link"><span class="name western">Yiya Xu</span></a>
+</div>
+</div>
+<sup>1</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22He%20Y%22%5BAuthor%5D" class="usa-link" aria-describedby="id6"><span class="name western">Yingchao He</span></a><div hidden="hidden" id="id6">
+<h3><span class="name western">Yingchao He</span></h3>
+<div class="p">
+<sup>1</sup>Shengli Clinical Medical College of Fujian Medical University, Department of Neurology, Fuzhou University Affiliated Provincial Hospital, Fujian Key Laboratory of Medical Analysis, Fujian Academy of Medical Sciences, Fuzhou, Fujian China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22He%20Y%22%5BAuthor%5D" class="usa-link"><span class="name western">Yingchao He</span></a>
+</div>
+</div>
+<sup>1</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Wang%20Y%22%5BAuthor%5D" class="usa-link" aria-describedby="id7"><span class="name western">Yinzhou Wang</span></a><div hidden="hidden" id="id7">
+<h3><span class="name western">Yinzhou Wang</span></h3>
+<div class="p">
+<sup>5</sup>Fujian Key Laboratory of Medical Analysis, Fujian Academy of Medical Sciences, Shengli Clinical Medical College of Fujian Medical University, Department of Neurology, Fuzhou University Affiliated Provincial Hospital, Fuzhou, Fujian China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Wang%20Y%22%5BAuthor%5D" class="usa-link"><span class="name western">Yinzhou Wang</span></a>
+</div>
+</div>
+<sup>5,</sup><sup>✉</sup>
+</div>
+<ul class="d-buttons inline-list">
+<li><button class="d-button" aria-controls="aip_a" aria-expanded="false">Author information</button></li>
+<li><button class="d-button" aria-controls="anp_a" aria-expanded="false">Article notes</button></li>
+<li><button class="d-button" aria-controls="clp_a" aria-expanded="false">Copyright and License information</button></li>
+</ul>
+<div class="d-panels font-secondary-light">
+<div id="aip_a" class="d-panel p" style="display: none">
+<div class="p" id="Aff1">
+<sup>1</sup>Shengli Clinical Medical College of Fujian Medical University, Department of Neurology, Fuzhou University Affiliated Provincial Hospital, Fujian Key Laboratory of Medical Analysis, Fujian Academy of Medical Sciences, Fuzhou, Fujian China </div>
+<div id="Aff2">
+<sup>2</sup>Department of Neurology, Wuyishan City Hospital, Wuyi Hospital Affiliated To Fujian Provincial Hospital, Fuzhou, Fujian China </div>
+<div id="Aff3">
+<sup>3</sup>Department of Anesthesiology, Shengli Clinical Medical College of Fujian Medical University, Fuzhou University Affiliated Provincial Hospital, Fuzhou, Fujian China </div>
+<div id="Aff4">
+<sup>4</sup>Department of Painology, the First Affiliated Hospital of Fujian Medical University, Fuzhou, Fujian China </div>
+<div id="Aff5">
+<sup>5</sup>Fujian Key Laboratory of Medical Analysis, Fujian Academy of Medical Sciences, Shengli Clinical Medical College of Fujian Medical University, Department of Neurology, Fuzhou University Affiliated Provincial Hospital, Fuzhou, Fujian China </div>
+<div class="author-notes p">
+<div class="fn" id="_fncrsp93pmc__">
+<sup>✉</sup><p class="display-inline">Corresponding author.</p>
+</div>
+<div class="fn" id="_eqcntrb93pmc__">
+<sup>#</sup><p class="display-inline">Contributed equally.</p>
+</div>
+</div>
+</div>
+<div id="anp_a" class="d-panel p" style="display: none"><div class="notes p"><section id="historyarticle-meta1" class="history"><p>Received 2025 May 9; Accepted 2025 Jul 29; Collection date 2025.</p></section></div></div>
+<div id="clp_a" class="d-panel p" style="display: none">
+<div>© The Author(s) 2025</div>
+<p><strong>Open Access</strong> This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modified the licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">http://creativecommons.org/licenses/by-nc-nd/4.0/</a>.</p>
+<div class="p"><a href="/about/copyright/" class="usa-link">PMC Copyright notice</a></div>
+</div>
+</div>
+<div>PMCID: PMC12369033  PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/40841950/" class="usa-link">40841950</a>
+</div>
+</div></section></section><section aria-label="Article content"><section class="body main-article-body"><section class="abstract" id="Abs1"><h2>Abstract</h2>
+<section id="sec1"><h3 class="pmc_sec_title">Objective</h3>
+<p id="Par1">To create and verify a machine learning model that integrates social determinants of health (SDoH) for assessing post-stroke depression (PSD) and examining the association between SDoH and disease outcomes.</p></section><section id="sec2"><h3 class="pmc_sec_title">Methods</h3>
+<p id="Par2">Data were acquired from the National Health and Nutrition Examination Survey. Logistic regression was employed to analyse the association between SDoH and PSD, whereas Cox regression was utilized to assess the correlation between SDoH and all-cause mortality in PSD. The Boruta algorithm was employed for feature selection, and four machine learning models were constructed (CatBoost, Logistic, Multilayer Perceptron, and Random Forest) to evaluate the predictive effectiveness, calibration, and clinical applicability of these ML models. SHAP values were computed to ascertain the predictive significance of each feature in the model that exhibited the highest predictive performance.</p></section><section id="sec3"><h3 class="pmc_sec_title">Results</h3>
+<p id="Par3">Logistic regression analysis revealed a significant positive correlation between SDoH and PSD prevalence(<em>p</em> for trend &lt; 0.0001). Compared to the other three models, CatBoost (AUC = 0.966) demonstrated the best overall predictive performance. Moreover, the decision curve analysis (DCA) and calibration curve findings demonstrated that the CatBoost model possessed considerable clinical utility and consistent predictive efficacy. The ten-fold cross-validation method further confirmed the model’s robustness and generalization ability.</p></section><section id="sec4"><h3 class="pmc_sec_title">Conclusions</h3>
+<p id="Par4">A linear relationship exists between SDoH and PSD, with CatBoost demonstrating the best performance in predicting PSD. SHAP values emphasize the importance of SDoH.</p></section><section id="sec5"><h3 class="pmc_sec_title">Supplementary Information</h3>
+<p>The online version contains supplementary material available at 10.1186/s12889-025-24220-y.</p></section><section id="kwd-group1" lang="en" class="kwd-group"><p><strong>Keywords:</strong> SDoH, PSD, Machine learning, CatBoost, Shap</p></section></section><section id="Sec1"><h2 class="pmc_sec_title">Introduction</h2>
+<p id="Par5">Post-Stroke Depression (PSD) is one of the most common neuropsychiatric disorders in stroke patients, occurring in approximately one-third of cases [<a href="#CR1" class="usa-link" aria-describedby="CR1">1</a>, <a href="#CR2" class="usa-link" aria-describedby="CR2">2</a>]. PSD not only greatly diminishes patients’ quality of life but also negatively affects their rehabilitation and long-term prognosis. PSD hinders functional recovery, negatively affecting limb mobility, daily activities, and social engagement [<a href="#CR3" class="usa-link" aria-describedby="CR3">3</a>]. Additionally, it correlates with higher rates of rehospitalization and mortality among stroke patients [<a href="#CR4" class="usa-link" aria-describedby="CR4">4</a>]. Furthermore, PSD increases the risk of post-stroke complications (e.g., cardiovascular events) and exacerbates the economic and psychological burden on patients and their families [<a href="#CR2" class="usa-link" aria-describedby="CR2">2</a>]. Consequently, the prompt recognition and intervention of PSD, along with the development of innovative clinical prediction models, are crucial for enhancing patients’ rehabilitation outcomes and long-term health prognoses.</p>
+<p id="Par6">Social Determinants of Health (SDoH) refer to non-medical elements that impact an individual’s health. These include social, economic, environmental, and cultural factors, such as income, education, employment, social support, living conditions, and access to healthcare [<a href="#CR5" class="usa-link" aria-describedby="CR5">5</a>]. SDoH play a significant role, and an increasing number of studies have recognized it as a critical factor in disease prediction and health interventions [<a href="#CR6" class="usa-link" aria-describedby="CR6">6</a>]. With regard to disease occurrence, SDoH increases the risk of chronic diseases and mental illnesses by shaping an individual’s lifestyle, health behaviors, and psychological state. For instance, low-income populations often face a greater disease burden due to limited access to healthcare, higher life stress, and poorer living conditions [<a href="#CR7" class="usa-link" aria-describedby="CR7">7</a>]. Regarding disease progression and prognosis, poor social health conditions may hinder recovery and exacerbate health inequalities. For example, social isolation and a lack of support are frequently associated with poorer mental health and an increased risk of depression [<a href="#CR8" class="usa-link" aria-describedby="CR8">8</a>].</p>
+<p id="Par7">There is limited research in the literature that provides an in-depth assessment of the correlation between SDOH and PSD. Some studies have proposed that factors like low income, limited educational attainment, and social isolation could be linked to the onset of post-stroke depression [<a href="#CR9" class="usa-link" aria-describedby="CR9">9</a>–<a href="#CR11" class="usa-link" aria-describedby="CR11">11</a>]. These factors are frequently omitted from a comprehensive analytical framework, leading to fragmented and inconsistent findings. Furthermore, the relationship between SDOH and PSD, along with its relative significance, remains inadequately quantified, particularly in large-scale multivariate analyses.</p>
+<p id="Par8">Integrating machine learning (ML) with SHAP (Shapley Additive exPlanations) values is crucial for examining the relationship between SDoH and PSD. ML has demonstrated considerable strength in medical prediction [<a href="#CR12" class="usa-link" aria-describedby="CR12">12</a>], particularly in handling multivariate and non-linear relationships. Its capacity for multivariate analysis allows for the simultaneous consideration of multiple factors, capturing complex inter-variable relationships. Additionally, ML excels in handling non-linear relationships and identifying complex patterns in data, making it suitable for a broad range of predictive tasks in the medical field [<a href="#CR13" class="usa-link" aria-describedby="CR13">13</a>]. SHAP values offer clarity in model decision-making and improve interpretability by quantifying the influence of each feature on the model’s output [<a href="#CR14" class="usa-link" aria-describedby="CR14">14</a>]. The integration of ML and SHAP values helps identify and quantify the correlation between SDoH and PSD, providing a foundation for developing individualized intervention plans to improve patient outcomes.</p></section><section id="Sec2"><h2 class="pmc_sec_title">Materials and methods</h2>
+<section id="Sec3"><h3 class="pmc_sec_title">Data source and participants</h3>
+<p id="Par9">This research employed data from seven NHANES cycles from 2005 to 2018, encompassing a total of 70,190 individuals. All participants provided informed consent. Following the application of the inclusion and exclusion criteria outlined in Supplementary Fig. <a href="#Fig1" class="usa-link">1</a>, a total of 1,112 participants were finally incorporated into the study.</p>
+<figure class="fig xbox font-sm" id="Fig1"><h4 class="obj_head">Fig. 1.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12369033_12889_2025_24220_Fig1_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/e704/12369033/5860dd61a2f4/12889_2025_24220_Fig1_HTML.jpg" loading="lazy" id="MO1" height="569" width="744" alt="Fig. 1"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>The forest plots show the results of stratified analyses and interactions of the association between SDoH and PSD in different subgroups</p></figcaption></figure></section><section id="Sec4"><h3 class="pmc_sec_title">Exposure and outcome variables</h3>
+<p id="Par11">In this study, SDoH were utilised as the exposure variable. Eight critical SDoH were identified: employment status, household income-to-poverty ratio, food security, educational attainment, access to healthcare, health insurance coverage, homeownership, and marital status or cohabitation with a partner [<a href="#CR15" class="usa-link" aria-describedby="CR15">15</a>]. A cumulative SDoH variable was generated by aggregating the eight dichotomous SDoH, assigning a value of 0 to each favourable level and a value of 1 to each unfavourable level for the SDoH utilised in this investigation. The outcome variable was PSD. The stroke status of all participants was established based on a positive response to the inquiry: “Has a doctor or other health professional ever informed you that you have had a stroke?” Depressive symptoms were evaluated via PHQ-9 [<a href="#CR16" class="usa-link" aria-describedby="CR16">16</a>–<a href="#CR19" class="usa-link" aria-describedby="CR19">19</a>]. PSD was characterised by fulfilling the criteria for stroke and possessing a PHQ-9 score of ≥ 10.</p></section><section id="Sec5"><h3 class="pmc_sec_title">Covariates</h3>
+<p id="Par12">Based on clinical experience and previous reports in the literature, potential variables that may confound the relationship between SDoH and PSD were included as covariates in this study. Demographic and health status variables were regarded as potential confounders. Demographic variables encompassed age, gender, ethnicity, educational attainment, marital status, and household income, as well as the household income-to-poverty ratio. Health status indicators included body mass index (BMI), tobacco use, alcohol intake, and the presence of comorbid conditions such as hypertension, diabetes mellitus, and coronary heart disease.</p></section><section id="Sec6"><h3 class="pmc_sec_title">Machine learning models</h3>
+<p id="Par13">The dataset was split into training and test sets in a ratio of 7:3. Feature variables for final inclusion in the machine learning model were selected using the Boruta method [<a href="#CR20" class="usa-link" aria-describedby="CR20">20</a>]. Following feature selection, four models (CatBoost, Logistic Regression, Multilayer Perceptron(MLP), and Random Forest(RF) were employed to construct and validate the diagnostic models. We adopted a number of key statistical approaches to address potential bias, validity concerns, and the inflation of Type I error rates. First, for missing data, we employed direct deletion. Second, we employed a weighted sampling design (NHANES-based sample weighting) to ensure representativeness and mitigate selection bias. To further ensure the validity of the model and minimize validity concerns, we performed ten-fold cross-validation to assess the stability and generalization ability of the developed model. In addition, we evaluated the performance of the machine learning predictive models using receiver operating characteristic curves (AUC), specificity, recall, F1 score, and accuracy to identify the best diagnostic model, and the calibration curves, as well as decision curve analysis (DCA), to evaluate the calibration and clinical utility of the machine learning models. The SHAP approach was utilized to elucidate the outputs of the machine learning model, offering insight into the contribution of each feature to the ultimate prediction [<a href="#CR21" class="usa-link" aria-describedby="CR21">21</a>].</p></section><section id="Sec7"><h3 class="pmc_sec_title">Statistics analysis</h3>
+<p id="Par14">The analysis employed suitable NHANES sample weights for statistical evaluation. Continuous data were characterised by median (interquartile range), whilst categorical variables were expressed as weighted percentages. Multivariate logistic regression was utilised to explore the interaction between SDoH, SDoHQ, and PSD. In Model 1, the included variables were not adjusted. In Model 2, modifications were implemented for gender and age. Model 3 incorporated modifications for age, gender, race, education, marital status, BMI, smoking habits, alcohol use, hypertension, diabetes, and coronary heart disease. Stratified multivariate regression models were employed to evaluate the association between SDoH and PSD, with subsequent subgroup analyses conducted. Stratification factors served as potential effect modifiers, with heterogeneity assessed through interaction testing. For all regression analyses, we reported effect sizes (Odds Ratio, OR) to evaluate the clinical significance of each variable on the outcome. The threshold for statistical significance was established at <em>P</em> &lt; 0.05. Data were analysed via DecisionLinnc 1.0 software [<a href="#CR22" class="usa-link" aria-describedby="CR22">22</a>], which enables data processing, analysis, and the building of machine learning models via a visual interface.</p></section></section><section id="Sec8"><h2 class="pmc_sec_title">Results</h2>
+<section id="Sec9"><h3 class="pmc_sec_title">Characteristics of study participants</h3>
+<p id="Par15">A total of 1,112 stroke patients were included in this study, of which 907 did not develop PSD and 205 developed PSD(Table <a href="#Tab1" class="usa-link">1</a>). Regarding age, subjects with PSD were younger, and this difference was statistically significant (<em>p</em> &lt; 0.0001). Additionally, SDoH scores were significantly higher in the PSD group, with a median score of 3.80 (IQR: 3.45–4.15) compared to 2.75 (IQR: 2.57–2.92) in the non-PSD group (<em>p</em> &lt; 0.0001). The PSD group also had a significantly higher BMI, with the difference reaching statistical significance (<em>p</em> = 0.001). In terms of smoking and alcohol use, the proportion of subjects with PSD who smoked and consumed alcohol was significantly higher (<em>p</em> = 0.01). Finally, the analysis of SDoHQ revealed that subjects with PSD were more concentrated in the highest quartile of SDoH (Q4: 21.30% vs. 9.68%), whereas subjects without PSD were more concentrated in the lowest quartile (Q1: 49.85% vs. 26.84%), with a statistically significant difference (<em>p</em> &lt; 0.0001).</p>
+<section class="tw xbox font-sm" id="Tab1"><h4 class="obj_head">Table 1.</h4>
+<div class="caption p"><p> Basic characteristics of study participants by PSD</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1">Characteristic</th>
+<th align="left" colspan="1" rowspan="1">Total</th>
+<th align="left" colspan="2" rowspan="1">Post-stroke depression</th>
+<th align="left" colspan="1" rowspan="1">
+<em>P</em>
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">
+<em>N</em> = 1112</td>
+<td align="left" colspan="1" rowspan="1">
+<p>No</p>
+<p><em>N</em> = 907</p>
+</td>
+<td align="left" colspan="1" rowspan="1">
+<p>Yes</p>
+<p><em>N</em> = 205</p>
+</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Age(years)</td>
+<td align="left" colspan="1" rowspan="1">63.73(62.56,64.90)</td>
+<td align="left" colspan="1" rowspan="1">64.96(63.67,66.25)</td>
+<td align="left" colspan="1" rowspan="1">58.06(56.00,60.13)</td>
+<td align="left" colspan="1" rowspan="1">&lt; 0.0001</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">SDoH</td>
+<td align="left" colspan="1" rowspan="1">2.94(2.78,3.09)</td>
+<td align="left" colspan="1" rowspan="1">2.75(2.57,2.92)</td>
+<td align="left" colspan="1" rowspan="1">3.80(3.45,4.15)</td>
+<td align="left" colspan="1" rowspan="1">&lt; 0.0001</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">BMI (%)</td>
+<td align="left" colspan="1" rowspan="1">30.26(29.67,30.84)</td>
+<td align="left" colspan="1" rowspan="1">29.87(29.26,30.48)</td>
+<td align="left" colspan="1" rowspan="1">32.03(30.83,33.22)</td>
+<td align="left" colspan="1" rowspan="1">0.001</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Income to poverty ratio (%)</td>
+<td align="left" colspan="1" rowspan="1">2.37(2.24,2.49)</td>
+<td align="left" colspan="1" rowspan="1">2.47(2.32,2.62)</td>
+<td align="left" colspan="1" rowspan="1">1.88(1.61,2.16)</td>
+<td align="left" colspan="1" rowspan="1">&lt; 0.001</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Gender (%)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.08</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> Female</td>
+<td align="left" colspan="1" rowspan="1">564(54.99)</td>
+<td align="left" colspan="1" rowspan="1">438(53.32)</td>
+<td align="left" colspan="1" rowspan="1">126(62.62)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> Male</td>
+<td align="left" colspan="1" rowspan="1">548(45.01)</td>
+<td align="left" colspan="1" rowspan="1">469(46.68)</td>
+<td align="left" colspan="1" rowspan="1">79(37.38)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Race (%)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.19</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> Mexican American</td>
+<td align="left" colspan="1" rowspan="1">99(4.42)</td>
+<td align="left" colspan="1" rowspan="1">80(4.37)</td>
+<td align="left" colspan="1" rowspan="1">19(4.66)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> Non-Hispanic Black</td>
+<td align="left" colspan="1" rowspan="1">303(14.62)</td>
+<td align="left" colspan="1" rowspan="1">248(13.95)</td>
+<td align="left" colspan="1" rowspan="1">55(17.73)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> Non-Hispanic White</td>
+<td align="left" colspan="1" rowspan="1">572(71.33)</td>
+<td align="left" colspan="1" rowspan="1">468(71.65)</td>
+<td align="left" colspan="1" rowspan="1">104(69.88)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> Other Hispanic</td>
+<td align="left" colspan="1" rowspan="1">72(3.07)</td>
+<td align="left" colspan="1" rowspan="1">55(2.88)</td>
+<td align="left" colspan="1" rowspan="1">17(3.96)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Other Race</td>
+<td align="left" colspan="1" rowspan="1">66(6.56)</td>
+<td align="left" colspan="1" rowspan="1">56(7.16)</td>
+<td align="left" colspan="1" rowspan="1">10(3.77)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> Education (%)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.05</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> High school</td>
+<td align="left" colspan="1" rowspan="1">506(44.79)</td>
+<td align="left" colspan="1" rowspan="1">404(42.91)</td>
+<td align="left" colspan="1" rowspan="1">102(53.41)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> Less than high school</td>
+<td align="left" colspan="1" rowspan="1">157(8.85)</td>
+<td align="left" colspan="1" rowspan="1">127(8.67)</td>
+<td align="left" colspan="1" rowspan="1">30(9.71)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> More than high school</td>
+<td align="left" colspan="1" rowspan="1">449(46.35)</td>
+<td align="left" colspan="1" rowspan="1">376(48.42)</td>
+<td align="left" colspan="1" rowspan="1">73(36.88)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Marital Status(%)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.27</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> Married/Living with partner</td>
+<td align="left" colspan="1" rowspan="1">587(59.63)</td>
+<td align="left" colspan="1" rowspan="1">492(60.51)</td>
+<td align="left" colspan="1" rowspan="1">95(55.59)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> Never married</td>
+<td align="left" colspan="1" rowspan="1">86(6.38)</td>
+<td align="left" colspan="1" rowspan="1">59(5.85)</td>
+<td align="left" colspan="1" rowspan="1">27(8.82)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> Widowed/Divorced/Separated</td>
+<td align="left" colspan="1" rowspan="1">439(33.98)</td>
+<td align="left" colspan="1" rowspan="1">356(33.63)</td>
+<td align="left" colspan="1" rowspan="1">83(35.59)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Smoking status (%)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.02</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> no</td>
+<td align="left" colspan="1" rowspan="1">427(40.05)</td>
+<td align="left" colspan="1" rowspan="1">362(42.16)</td>
+<td align="left" colspan="1" rowspan="1">65(30.35)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> yes</td>
+<td align="left" colspan="1" rowspan="1">685(59.95)</td>
+<td align="left" colspan="1" rowspan="1">545(57.84)</td>
+<td align="left" colspan="1" rowspan="1">140(69.65)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Alcohol (%)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.01</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> no</td>
+<td align="left" colspan="1" rowspan="1">171(13.73)</td>
+<td align="left" colspan="1" rowspan="1">152(15.16)</td>
+<td align="left" colspan="1" rowspan="1">19(7.14)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> yes</td>
+<td align="left" colspan="1" rowspan="1">941(86.27)</td>
+<td align="left" colspan="1" rowspan="1">755(84.84)</td>
+<td align="left" colspan="1" rowspan="1">186(92.86)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Hypertension (%)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.96</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> no</td>
+<td align="left" colspan="1" rowspan="1">212(21.89)</td>
+<td align="left" colspan="1" rowspan="1">173(21.84)</td>
+<td align="left" colspan="1" rowspan="1">39(22.09)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> yes</td>
+<td align="left" colspan="1" rowspan="1">900(78.11)</td>
+<td align="left" colspan="1" rowspan="1">734(78.16)</td>
+<td align="left" colspan="1" rowspan="1">166(77.91)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Diabetes(%)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.19</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> DM</td>
+<td align="left" colspan="1" rowspan="1">453(37.30)</td>
+<td align="left" colspan="1" rowspan="1">368(36.77)</td>
+<td align="left" colspan="1" rowspan="1">85(39.76)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> IFG</td>
+<td align="left" colspan="1" rowspan="1">49(5.62)</td>
+<td align="left" colspan="1" rowspan="1">44(6.38)</td>
+<td align="left" colspan="1" rowspan="1">5(2.14)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> IGT</td>
+<td align="left" colspan="1" rowspan="1">41(3.00)</td>
+<td align="left" colspan="1" rowspan="1">34(2.87)</td>
+<td align="left" colspan="1" rowspan="1">7(3.58)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> no</td>
+<td align="left" colspan="1" rowspan="1">569(54.08)</td>
+<td align="left" colspan="1" rowspan="1">461(53.98)</td>
+<td align="left" colspan="1" rowspan="1">108(54.53)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Coronary Heart Disease(%)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.2</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> no</td>
+<td align="left" colspan="1" rowspan="1">923(82.17)</td>
+<td align="left" colspan="1" rowspan="1">762(82.96)</td>
+<td align="left" colspan="1" rowspan="1">161(78.55)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> yes</td>
+<td align="left" colspan="1" rowspan="1">189(17.83)</td>
+<td align="left" colspan="1" rowspan="1">145(17.04)</td>
+<td align="left" colspan="1" rowspan="1">44(21.45)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">SDoHQ</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">&lt; 0.0001</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> Q1</td>
+<td align="left" colspan="1" rowspan="1">398(45.74)</td>
+<td align="left" colspan="1" rowspan="1">359(49.85)</td>
+<td align="left" colspan="1" rowspan="1">39(26.84)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> Q2</td>
+<td align="left" colspan="1" rowspan="1">169(13.76)</td>
+<td align="left" colspan="1" rowspan="1">143(13.92)</td>
+<td align="left" colspan="1" rowspan="1">26(13.03)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> Q3</td>
+<td align="left" colspan="1" rowspan="1">370(28.74)</td>
+<td align="left" colspan="1" rowspan="1">291(26.55)</td>
+<td align="left" colspan="1" rowspan="1">79(38.83)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"> Q4</td>
+<td align="left" colspan="1" rowspan="1">175(11.76)</td>
+<td align="left" colspan="1" rowspan="1">114(9.68)</td>
+<td align="left" colspan="1" rowspan="1">61(21.30)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<div class="tw-foot p"><div class="fn" id="_fn_p24"><p>Continuous variables are expressed as median and interquartile range (IQR,p25-p75), and categorical variables are expressed as unweighted counts and weighted percentages</p></div></div></section></section><section id="Sec10"><h3 class="pmc_sec_title">Association analysis between SDoH and PSD prevalence</h3>
+<p id="Par17">Table <a href="#Tab2" class="usa-link">2</a> presents the results of the association analysis between SDoH and the prevalence of PSD. Logistic regression analysis across all three models demonstrated a significant positive correlation between SDoH and the occurrence of PSD. In Model 1, a significant association was found between SDoH and PSD occurrence, with an odds ratio (OR) of 1.32 (95% CI: 1.19, 1.48), <em>p</em> &lt; 0.0001. After adjusting for covariates, Models 2 and 3 confirmed that the association between SDoH and PSD remained significant. In the comparison of SDoH quartiles in Model 1, the first quartile (Q1) served as the reference group, while quartiles Q2 through Q4 were all positively associated with the occurrence of PSD. Trend analysis revealed a significant positive trend in the relationship between increasing SDoH and the prevalence of PSD (<em>p</em> for trend &lt; 0.0001).</p>
+<section class="tw xbox font-sm" id="Tab2"><h4 class="obj_head">Table 2.</h4>
+<div class="caption p"><p>Analysis between SDoH and PSD prevalence</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1">Characteristic</th>
+<th align="left" colspan="2" rowspan="1">Model 1</th>
+<th align="left" colspan="2" rowspan="1">Model 2</th>
+<th align="left" colspan="2" rowspan="1">Model 3</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">OR (95%CI)</td>
+<td align="left" colspan="1" rowspan="1">
+<em>P</em>
+</td>
+<td align="left" colspan="1" rowspan="1">OR (95%CI)</td>
+<td align="left" colspan="1" rowspan="1">
+<em>P</em>
+</td>
+<td align="left" colspan="1" rowspan="1">OR (95%CI)</td>
+<td align="left" colspan="1" rowspan="1">
+<em>P</em>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">SDoH</td>
+<td align="left" colspan="1" rowspan="1">1.32(1.19,1.48)</td>
+<td align="left" colspan="1" rowspan="1">&lt; 0.0001</td>
+<td align="left" colspan="1" rowspan="1">1.24(1.11,1.39)</td>
+<td align="left" colspan="1" rowspan="1">&lt; 0.001</td>
+<td align="left" colspan="1" rowspan="1">1.26(1.09,1.46)</td>
+<td align="left" colspan="1" rowspan="1">0.003</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Q1</td>
+<td align="left" colspan="1" rowspan="1">ref</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">ref</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">ref</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Q2</td>
+<td align="left" colspan="1" rowspan="1">1.74(0.80,3.77)</td>
+<td align="left" colspan="1" rowspan="1">0.16</td>
+<td align="left" colspan="1" rowspan="1">1.54(0.72,3.29)</td>
+<td align="left" colspan="1" rowspan="1">0.27</td>
+<td align="left" colspan="1" rowspan="1">1.56(0.69,3.51)</td>
+<td align="left" colspan="1" rowspan="1">0.28</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Q3</td>
+<td align="left" colspan="1" rowspan="1">2.72(1.63,4.54)</td>
+<td align="left" colspan="1" rowspan="1">&lt; 0.001</td>
+<td align="left" colspan="1" rowspan="1">2.15(1.26,3.66)</td>
+<td align="left" colspan="1" rowspan="1">0.01</td>
+<td align="left" colspan="1" rowspan="1">2.06(1.13,3.76)</td>
+<td align="left" colspan="1" rowspan="1">0.02</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Q4</td>
+<td align="left" colspan="1" rowspan="1">4.09(2.39,6.98)</td>
+<td align="left" colspan="1" rowspan="1">&lt; 0.0001</td>
+<td align="left" colspan="1" rowspan="1">3.03(1.77,5.21)</td>
+<td align="left" colspan="1" rowspan="1">&lt; 0.0001</td>
+<td align="left" colspan="1" rowspan="1">2.96(1.45,6.04)</td>
+<td align="left" colspan="1" rowspan="1">0.003</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">
+<em>p</em> for trend</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">&lt; 0.0001</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">&lt; 0.0001</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.002</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<div class="tw-foot p"><div class="fn" id="_fn_p28">
+<p>Ref: When performing regression analysis, the Q1 was used as a reference, and compared with the Q2, Q3 and tertile 3, respectively</p>
+<p>Model 1: SDoH</p>
+<p>Model 2: SDoH, age, sex</p>
+<p>Model 3: SDoH, age, Gender, Race, Education, Marital Status, BMI, Smoking status, Alcohol, Hypertension, Diabetes, Coronary Heart Disease</p>
+</div></div></section></section><section id="Sec11"><h3 class="pmc_sec_title">Stratification and interaction between SDoH and PSD prevalence</h3>
+<p id="Par19">Figure <a href="#Fig1" class="usa-link">1</a> illustrates that, in gender stratification, both females and males exhibited a significant association between SDoH and PSD. In the age stratification, both the under 60 and 60 and older groups demonstrated a significantly increased risk of PSD. Racial stratification revealed the strongest association between SDoH and PSD for non-Hispanic whites and individuals of other races, with a significant association also observed for non-Hispanic blacks. However, Mexican Americans and other Hispanics did not reach statistical significance. In the hypertension stratification, SDoH was significantly associated with PSD, regardless of hypertension status. Furthermore, the interaction analysis did not yield statistical significance, indicating that the relationship between SDoH and PSD was independent of other variables.</p></section><section id="Sec12"><h3 class="pmc_sec_title">Feature screening</h3>
+<p id="Par20">We screened the training set for relevant features using the Boruta method. Six feature variables (Race, Smoking status, Marital Status, Coronary Heart Disease, Alcohol, and Diabetes) were excluded based on the Tentative and Rejected classifications. We used Boruta analysis to determine the key contributors to the importance ranking, revealing that SDoH emerged as the primary contributor and ranked higher than individual SDoH components in terms of importance (Fig. <a href="#Fig2" class="usa-link">2</a>A).</p>
+<figure class="fig xbox font-sm" id="Fig2"><h4 class="obj_head">Fig. 2.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12369033_12889_2025_24220_Fig2_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/e704/12369033/0d512254892f/12889_2025_24220_Fig2_HTML.jpg" loading="lazy" id="MO2" height="766" width="669" alt="Fig. 2"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Comparison of machine learning model performance with feature screening. <strong>A</strong> Boruta feature screening results. <strong>B</strong> Comparison of the net benefits of models. <strong>C</strong> ROC curve results. <strong>D</strong> Calibration curves for each model. <strong>E</strong> Tenfold cross validation results</p></figcaption></figure></section><section id="Sec13"><h3 class="pmc_sec_title">Model performance comparisons</h3>
+<p id="Par22">In this study, we constructed four ML models to assess the risk of PSD in stroke patients. In terms of clinical applicability, the four models demonstrated robust net benefits across a broad range of threshold probabilities, with the CatBoost model exhibiting the highest net benefit (Fig. <a href="#Fig2" class="usa-link">2</a>B), highlighting the significant clinical value of our constructed ML models. The ROC curves indicated that all four models (CatBoost, Logistic, MLP, and RF) displayed good predictive performance for PSD (Fig. <a href="#Fig2" class="usa-link">2</a>C), with the CatBoost model (AUC = 0.966) showing the best performance. Additionally, the calibration curves demonstrated the stability of the results for each model (Fig. <a href="#Fig2" class="usa-link">2</a>D). We also examined the detailed performance metrics for these models (Supplementary Table 1), which revealed that the CatBoost model outperformed the other three models. Furthermore, we validated the predictive efficacy of the CatBoost model using ten-fold cross-validation, and the ROC curve results (Fig. <a href="#Fig2" class="usa-link">2</a>E) confirmed that the model exhibited good robustness and generalizability, with no signs of overfitting or underfitting.</p></section><section id="Sec14"><h3 class="pmc_sec_title">SHAP-based model visualization</h3>
+<p id="Par23">To investigate the contribution of the incorporated feature variables in the PSD prediction model, we performed a visualization based on the SHAP principle to illustrate the relative importance of each feature in the CatBoost model. The SHAP-based feature importance ranking plot (Supplementary Fig. 2 A) and the swarm plot (Supplementary Fig. 2B) illustrate the characteristics incorporated in the CatBoost model. Our results indicate that Age, Gender, SDoHQ, Education, and BMI are the top five most important features influencing the prediction of PSD.</p></section></section><section id="Sec15"><h2 class="pmc_sec_title">Discussion</h2>
+<p id="Par24">This study aimed to explore the association between SDoH and PSD. By analyzing clinical data from 1,112 stroke patients, we found that SDoH was significantly associated with the prevalence of PSD, and this relationship was validated in multiple subgroup analyses. Additionally, we developed a ML model to further demonstrate the clinical value of SDoH as a significant predictor of PSD occurrence.</p>
+<p id="Par25">The results of this study revealed a significant correlation between increasing SDoH and PSD. These findings align with current literature, underscoring the significant influence of social determinants, including socioeconomic position, educational attainment, and housing circumstances, on mental health. For instance, a systematic review has identified a significant association between reduced social networks and post-stroke depression [<a href="#CR9" class="usa-link" aria-describedby="CR9">9</a>], while meta-analyses have shown that social support can reduce the risk of PSD [<a href="#CR23" class="usa-link" aria-describedby="CR23">23</a>]. A cohort study also found that stroke patients with lower educational levels were more likely to develop PSD symptoms [<a href="#CR10" class="usa-link" aria-describedby="CR10">10</a>, <a href="#CR11" class="usa-link" aria-describedby="CR11">11</a>]. These results suggest that adverse social environments may be associated with an increased occurrence of post-stroke depression through various mechanisms. Poor socioeconomic status, lower educational attainment, limited social support, and poor living conditions may all contribute as risk factors for stroke patients experiencing mental health challenges during recovery.</p>
+<p id="Par26">Our study found that younger individuals exhibited a higher propensity for developing PSD. Younger patients may experience greater socially adaptive problems, including employment constraints, family commitments, and insufficient social support, which could heighten their vulnerability to depression symptoms during stroke recovery. In contrast, while older patients may encounter more health problems, they may exhibit greater psychological resilience in coping with major illnesses. Additionally, our study revealed a relatively higher proportion of women with PSD; however, this difference was not statistically significant. A separate systematic evaluation also found no consistent relationship between depression and gender [<a href="#CR24" class="usa-link" aria-describedby="CR24">24</a>]. Furthermore, gender did not show a significant interaction in the analyses, as both male and female groups demonstrated a significant relationship between SDoH and PSD.</p>
+<p id="Par27">Although BMI is commonly used as an indicator of physical health in medical studies, our analyses revealed a strong association between BMI and depressive symptoms. This suggests a potential relationship between obesity and mental health. Obesity may not only cause physical discomfort but also exacerbate depressive symptoms by affecting an individual’s self-image and social interactions. A similar study identified a correlation between obesity and post-stroke anxiety [<a href="#CR25" class="usa-link" aria-describedby="CR25">25</a>].</p>
+<p id="Par28">In this study, we used the Boruta algorithm for feature selection while excluding known risk factors for PSD, such as race, smoking, and marital status. Although these factors have been widely recognized as risk factors for PSD, they demonstrated weak correlations with other selected features in our model and did not notably enhance predictive accuracy during model training. Specifically, the Boruta algorithm assesses the contribution of each feature to predictive performance using a random forest approach, and features are excluded if their importance is lower than that of randomly generated features. This selection method facilitates the enhancement of the model’s simplicity and generalizability, but we understand that this exclusion decision may lead to concerns regarding the validity of the model. Therefore, we plan to further investigate the potential role of these factors, especially in different subgroups, in future studies. Additionally, we will explore alternative feature selection methods and consider incorporating additional clinical variables to enhance the model’s predictive power.</p>
+<p id="Par29">Among the machine learning models for predicting PSD, the CatBoost model demonstrated the best overall predictive performance with an AUC value of 0.966, significantly outperforming the other models. Compared to traditional logistic regression, CatBoost excels at handling complex non-linear relationships, particularly in the analysis of multivariate medical data, demonstrating significant advantages [<a href="#CR26" class="usa-link" aria-describedby="CR26">26</a>]. Logistic regression, as a classical statistical model, provides good interpretability in cases with simple feature relationships. However, in the presence of multidimensional, non-linear data, machine learning methods can capture more potential patterns and relationships, thereby improving prediction accuracy [<a href="#CR27" class="usa-link" aria-describedby="CR27">27</a>].</p>
+<p id="Par30">Furthermore, DCA and calibration curves validate the potential clinical applications of the CatBoost model. Although the ‘black-box’ nature of machine learning models is often criticized, this study improved model interpretability by incorporating SHAP values. This allowed clinicians to visualize the role of each variable, thereby enhancing the model’s clinical applicability [<a href="#CR28" class="usa-link" aria-describedby="CR28">28</a>].</p>
+<p id="Par31">The use of SHAP values enabled a quantitative assessment of the role of individual characteristics in predicting PSD. In the CatBoost model, age, gender, SDoHQ, education, and BMI emerged as the most important predictors. The effects of age and gender are likely linked to known physiological and psychological mechanisms underlying post-stroke depression. The SDoHQ is a comprehensive measure of social health status that emphasizes the correlation between socioeconomic status and mental health [<a href="#CR29" class="usa-link" aria-describedby="CR29">29</a>]. This finding aligns with sociological theory, indicating a strong link between social factors and health outcomes [<a href="#CR30" class="usa-link" aria-describedby="CR30">30</a>].</p>
+<p id="Par32">The model proposed in this study offers a novel approach to PSD risk assessment in clinical settings. First, by quantifying the relationship between SDoH and PSD, clinicians can more precisely identify individuals at risk for early intervention. For patients with high SDoH scores, particularly those with low income, limited education, and insufficient social support, personalized mental health monitoring and intervention plans can be developed to help mitigate the onset and progression of depression. Second, the clinical application of this model may help reduce inequalities in PSD diagnosis and outcomes. By integrating SDoH factors, the models can elucidate the relationship between socioeconomic status and mental health, thereby aiding in identifying groups that are vulnerable to PSD due to poorer social conditions. Existing tools, such as the PHQ-9 and BDI, typically focus on assessing symptoms of depression, but they often overlook external factors such as social determinants of health. In contrast, our model can integrate these social and economic contextual factors to offer a more holistic risk assessment.</p>
+<p id="Par33">Although this study provides valuable evidence regarding the relationship between SDoH and PSD, several limitations remain. First, given that NHANES is a cross-sectional survey, and although we ascertained that subjects had a history of stroke based on self-reported data and classified depressive status using a PHQ-9 score ≥ 10, we could not definitively determine whether depressive symptoms manifested after the stroke. The diagnosis of new-onset post-stroke depression, in the strictest sense, requires validation through longitudinal cohort studies. Second, the CatBoost model demonstrated strong performance in this study (AUC = 0.966), but we recognize that its validation was restricted to internal ten-fold cross-validation, which may carry a risk of overfitting. Currently, no independent stroke-related datasets are available for external validation; thus, the generalizability of the model requires further evaluation, particularly across diverse populations and national datasets. Third, this study employed a PHQ-9 score ≥ 10 as the diagnostic criterion for PSD, which has been widely used in epidemiologic investigations. However, we acknowledge that some depressive symptoms (e.g., malaise, sleep disturbance) could result from somatic conditions in stroke patients, posing a risk of misclassification. Future studies could improve diagnostic accuracy through clinical interviews or detailed assessment of symptom onset timing. Fourth, this study employed a cross-sectional study design, which enabled us to identify only the correlation between SDoH and PSD, but precluded inferring a causal relationship between the two. Furthermore, although the NHANES database provides a wide range of representative data, there may be differences in socio-cultural backgrounds, healthcare systems, and economic conditions in different countries and regions, and these factors may affect the relationship between SDoH and PSD. Therefore, future studies should consider cross-national or cross-cultural samples to validate the generalizability and cross-regional applicability of the model and to ensure that it can be effectively applied to a wider population. Additionally, although this study combined machine learning models and SHAP values, there is room for further improvement, and future research should include additional factors related to PSD, such as a history of depression [<a href="#CR31" class="usa-link" aria-describedby="CR31">31</a>], stroke severity [<a href="#CR32" class="usa-link" aria-describedby="CR32">32</a>], and stroke location [<a href="#CR33" class="usa-link" aria-describedby="CR33">33</a>].</p></section><section id="Sec16"><h2 class="pmc_sec_title">Conclusion</h2>
+<p id="Par34">This study demonstrated that SDoH is significantly associated with PSD prevalence, with patients having higher SDoH scores showing increased likelihood of depression. Through the application of machine learning models, we further validated the predictive value of SDoH for identifying PSD. Future longitudinal studies should investigate whether interventions targeting SDoH can reduce the incidence of PSD and explore more refined interventions to improve the overall health of stroke patients.</p></section><section id="Sec17"><h2 class="pmc_sec_title">Supplementary Information</h2>
+<section class="sm xbox font-sm" id="MOESM1"><div class="media p"><div class="caption">
+<a href="/articles/instance/12369033/bin/12889_2025_24220_MOESM1_ESM.docx" data-ga-action="click_feat_suppl" class="usa-link">Supplementary Material 1.</a><sup> (249.7KB, docx) </sup>
+</div></div></section></section><section id="ack1" class="ack"><h2 class="pmc_sec_title">Acknowledgements</h2>
+<p>The authors would like to thank all the colleagues who contributed to this work.</p></section><section id="notes1"><h2 class="pmc_sec_title">Authors’ contributions</h2>
+<p>Z.S., J.W. and Y.W. contributed to conceptualization, supervision and writing—review and editing. Y.H. and W.L. contributed to formal analysis and writing—original draft. Y.X. and Y.H. contributed to acquisition of data and statistical analysis. All authors contributed to the article and approved the submitted version.</p></section><section id="notes2"><h2 class="pmc_sec_title">Funding</h2>
+<p>This work was financially supported in part by research grants from the Natural Science Foundation of Fujian Province, China (2023J02024), Basic scientific research projects of public welfare scientific research institutes in Fujian Province(2024R1012002) and Medical Innovation Project of Fujian Province (2022CXA047).</p></section><section id="notes3"><h2 class="pmc_sec_title">Data availability</h2>
+<p>The raw data supporting the conclusions of this article will be made available by the authors, without undue reservation. Further inquiries can be directed to the corresponding author.</p></section><section id="notes4"><h2 class="pmc_sec_title">Declarations</h2>
+<section id="FPar1"><h3 class="pmc_sec_title">Ethics approval and consent to participate</h3>
+<p id="Par35">This study was reviewed and approved by the NCHS Ethics Review Board. All methods were carried out in accordance with relevant guidelines and regulations (declaration of Helsinki). The participants provided written informed consent to participate in this study.</p></section><section id="FPar2"><h3 class="pmc_sec_title">Consent for publication</h3>
+<p id="Par36">Not applicable.</p></section><section id="FPar3"><h3 class="pmc_sec_title">Competing interests</h3>
+<p id="Par37">The authors declare no competing interests.</p></section></section><section id="fn-group1" class="fn-group"><h2 class="pmc_sec_title">Footnotes</h2>
+<div class="fn-group p font-secondary-light font-sm">
+<div class="fn p" id="fn1">
+<p><strong>Publisher’s Note</strong></p>
+<p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</div>
+<div class="fn p" id="fn2"><p>Zhiwei Song and Jilin Weng contributed equally to this work.</p></div>
+</div></section><section id="Bib1" class="ref-list"><h2 class="pmc_sec_title">References</h2>
+<section id="Bib1_sec2"><ul class="ref-list font-sm" style="list-style-type:none">
+<li id="CR1">
+<span class="label">1.</span><cite>Villa RF, Ferrari F, Moretti A. Post-stroke depression: mechanisms and pharmacological treatment. Pharmacol Ther. 2018;184:131–44.
+</cite> [<a href="https://doi.org/10.1016/j.pharmthera.2017.11.005" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/29128343/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Villa%20RF,%20Ferrari%20F,%20Moretti%20A.%20Post-stroke%20depression:%20mechanisms%20and%20pharmacological%20treatment.%20Pharmacol%20Ther.%202018;184:131%E2%80%9344." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR2">
+<span class="label">2.</span><cite>Medeiros GC, Roy D, Kontos N, Beach SR. Post-stroke depression: a 2020 updated review. Gen Hosp Psychiatry. 2020;66:70–80.
+</cite> [<a href="https://doi.org/10.1016/j.genhosppsych.2020.06.011" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/32717644/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Medeiros%20GC,%20Roy%20D,%20Kontos%20N,%20Beach%20SR.%20Post-stroke%20depression:%20a%202020%20updated%20review.%20Gen%20Hosp%20Psychiatry.%202020;66:70%E2%80%9380." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR3">
+<span class="label">3.</span><cite>Zhou H, Wei YJ, Xie GY. Research progress on post-stroke depression. Exp Neurol. 2024;373: 114660.
+</cite> [<a href="https://doi.org/10.1016/j.expneurol.2023.114660" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/38141804/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Zhou%20H,%20Wei%20YJ,%20Xie%20GY.%20Research%20progress%20on%20post-stroke%20depression.%20Exp%20Neurol.%202024;373:%20114660." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR4">
+<span class="label">4.</span><cite>Robinson RG, Jorge RE. Post-stroke depression: a review. Am J Psychiatry. 2016;173(3):221–31.
+</cite> [<a href="https://doi.org/10.1176/appi.ajp.2015.15030363" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/26684921/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Robinson%20RG,%20Jorge%20RE.%20Post-stroke%20depression:%20a%20review.%20Am%20J%20Psychiatry.%202016;173(3):221%E2%80%9331." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR5">
+<span class="label">5.</span><cite>Braveman P, Gottlieb L. The social determinants of health: it’s time to consider the causes of the causes. Public Health Rep. 2014;129(Suppl 2):19–31.
+</cite> [<a href="https://doi.org/10.1177/00333549141291S206" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC3863696/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/24385661/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Braveman%20P,%20Gottlieb%20L.%20The%20social%20determinants%20of%20health:%20it%E2%80%99s%20time%20to%20consider%20the%20causes%20of%20the%20causes.%20Public%20Health%20Rep.%202014;129(Suppl%202):19%E2%80%9331." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR6">
+<span class="label">6.</span><cite>Hoagland A, Yu O, Horný M. Social determinants of health and insurance claim denials for preventive care. JAMA Netw Open. 2024;7(9):e2433316.
+</cite> [<a href="https://doi.org/10.1001/jamanetworkopen.2024.33316" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11411384/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39292461/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Hoagland%20A,%20Yu%20O,%20Horn%C3%BD%20M.%20Social%20determinants%20of%20health%20and%20insurance%20claim%20denials%20for%20preventive%20care.%20JAMA%20Netw%20Open.%202024;7(9):e2433316." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR7">
+<span class="label">7.</span><cite>Chetty R, Stepner M, Abraham S, Lin S, Scuderi B, Turner N, et al. The association between income and life expectancy in the United States, 2001–2014. JAMA. 2016;315(16):1750–66.
+</cite> [<a href="https://doi.org/10.1001/jama.2016.4226" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC4866586/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/27063997/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Chetty%20R,%20Stepner%20M,%20Abraham%20S,%20Lin%20S,%20Scuderi%20B,%20Turner%20N,%20et%20al.%20The%20association%20between%20income%20and%20life%20expectancy%20in%20the%20United%20States,%202001%E2%80%932014.%20JAMA.%202016;315(16):1750%E2%80%9366." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR8">
+<span class="label">8.</span><cite>Zhou F, He S, Shuai J, Deng Z, Wang Q, Yan Y. Social determinants of health and gender differences in depression among adults: a cohort study. Psychiatry Res. 2023;329: 115548.
+</cite> [<a href="https://doi.org/10.1016/j.psychres.2023.115548" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/37890404/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Zhou%20F,%20He%20S,%20Shuai%20J,%20Deng%20Z,%20Wang%20Q,%20Yan%20Y.%20Social%20determinants%20of%20health%20and%20gender%20differences%20in%20depression%20among%20adults:%20a%20cohort%20study.%20Psychiatry%20Res.%202023;329:%20115548." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR9">
+<span class="label">9.</span><cite>Northcott S, Moss B, Harrison K, Hilari K. A systematic review of the impact of stroke on social support and social networks: associated factors and patterns of change. Clin Rehabil. 2016;30(8):811–31.
+</cite> [<a href="https://doi.org/10.1177/0269215515602136" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/26330297/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Northcott%20S,%20Moss%20B,%20Harrison%20K,%20Hilari%20K.%20A%20systematic%20review%20of%20the%20impact%20of%20stroke%20on%20social%20support%20and%20social%20networks:%20associated%20factors%20and%20patterns%20of%20change.%20Clin%20Rehabil.%202016;30(8):811%E2%80%9331." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR10">
+<span class="label">10.</span><cite>Backhouse EV, McHutchison CA, Cvoro V, Shenkin SD, Wardlaw JM. Cognitive ability, education and socioeconomic status in childhood and risk of post-stroke depression in later life: a systematic review and meta-analysis. PLoS One. 2018;13(7): e0200525.
+</cite> [<a href="https://doi.org/10.1371/journal.pone.0200525" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC6047794/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/30011299/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Backhouse%20EV,%20McHutchison%20CA,%20Cvoro%20V,%20Shenkin%20SD,%20Wardlaw%20JM.%20Cognitive%20ability,%20education%20and%20socioeconomic%20status%20in%20childhood%20and%20risk%20of%20post-stroke%20depression%20in%20later%20life:%20a%20systematic%20review%20and%20meta-analysis.%20PLoS%20One.%202018;13(7):%20e0200525." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR11">
+<span class="label">11.</span><cite>Liu Q, Wang X, Wang Y, Wang C, Zhao X, Liu L, et al. Association between marriage and outcomes in patients with acute ischemic stroke. J Neurol. 2018;265(4):942–8.
+</cite> [<a href="https://doi.org/10.1007/s00415-018-8793-z" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC5878185/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/29464375/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Liu%20Q,%20Wang%20X,%20Wang%20Y,%20Wang%20C,%20Zhao%20X,%20Liu%20L,%20et%20al.%20Association%20between%20marriage%20and%20outcomes%20in%20patients%20with%20acute%20ischemic%20stroke.%20J%20Neurol.%202018;265(4):942%E2%80%938." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR12">
+<span class="label">12.</span><cite>Rajkomar A, Dean J, Kohane I. Machine learning in medicine. N Engl J Med. 2019;380(14):1347–58.
+</cite> [<a href="https://doi.org/10.1056/NEJMra1814259" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/30943338/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Rajkomar%20A,%20Dean%20J,%20Kohane%20I.%20Machine%20learning%20in%20medicine.%20N%20Engl%20J%20Med.%202019;380(14):1347%E2%80%9358." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR13">
+<span class="label">13.</span><cite>Handelman GS, Kok HK, Chandra RV, Razavi AH, Lee MJ, Asadi H. eDoctor: machine learning and the future of medicine. J Intern Med. 2018;284(6):603–19.
+</cite> [<a href="https://doi.org/10.1111/joim.12822" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/30102808/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Handelman%20GS,%20Kok%20HK,%20Chandra%20RV,%20Razavi%20AH,%20Lee%20MJ,%20Asadi%20H.%20eDoctor:%20machine%20learning%20and%20the%20future%20of%20medicine.%20J%20Intern%20Med.%202018;284(6):603%E2%80%9319." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR14">
+<span class="label">14.</span><cite>Ponce-Bobadilla AV, Schmitt V, Maier CS, Mensing S, Stodtmann S. Practical guide to SHAP analysis: explaining supervised machine learning model predictions in drug development. Clin Transl Sci. 2024;17(11): e70056.
+</cite> [<a href="https://doi.org/10.1111/cts.70056" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11513550/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39463176/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Ponce-Bobadilla%20AV,%20Schmitt%20V,%20Maier%20CS,%20Mensing%20S,%20Stodtmann%20S.%20Practical%20guide%20to%20SHAP%20analysis:%20explaining%20supervised%20machine%20learning%20model%20predictions%20in%20drug%20development.%20Clin%20Transl%20Sci.%202024;17(11):%20e70056." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR15">
+<span class="label">15.</span><cite>Bundy JD, Mills KT, He H, LaVeist TA, Ferdinand KC, Chen J, et al. Social determinants of health and premature death among adults in the USA from 1999 to 2018: a National cohort study. Lancet Public Health. 2023;8(6):e422–422431.
+</cite> [<a href="https://doi.org/10.1016/S2468-2667(23)00081-6" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC10349537/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/37244672/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Bundy%20JD,%20Mills%20KT,%20He%20H,%20LaVeist%20TA,%20Ferdinand%20KC,%20Chen%20J,%20et%20al.%20Social%20determinants%20of%20health%20and%20premature%20death%20among%20adults%20in%20the%20USA%20from%201999%20to%202018:%20a%20National%20cohort%20study.%20Lancet%20Public%20Health.%202023;8(6):e422%E2%80%93422431." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR16">
+<span class="label">16.</span><cite>Kroenke K, Spitzer RL, Williams JB. The PHQ-9: validity of a brief depression severity measure. J Gen Intern Med. 2001;16(9):606–13.
+</cite> [<a href="https://doi.org/10.1046/j.1525-1497.2001.016009606.x" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC1495268/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/11556941/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Kroenke%20K,%20Spitzer%20RL,%20Williams%20JB.%20The%20PHQ-9:%20validity%20of%20a%20brief%20depression%20severity%20measure.%20J%20Gen%20Intern%20Med.%202001;16(9):606%E2%80%9313." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR17">
+<span class="label">17.</span><cite>Xu Q, Qian X, Sun F, Liu H, Dou Z, Zhang J. Independent and joint associations of dietary antioxidant intake with risk of post-stroke depression and all-cause mortality. J Affect Disord. 2023;322:84–90.
+</cite> [<a href="https://doi.org/10.1016/j.jad.2022.11.013" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/36372128/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Xu%20Q,%20Qian%20X,%20Sun%20F,%20Liu%20H,%20Dou%20Z,%20Zhang%20J.%20Independent%20and%20joint%20associations%20of%20dietary%20antioxidant%20intake%20with%20risk%20of%20post-stroke%20depression%20and%20all-cause%20mortality.%20J%20Affect%20Disord.%202023;322:84%E2%80%9390." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR18">
+<span class="label">18.</span><cite>Zou J, Lin R, Miao Y, et al. Association between life’s simple 7 and post-stroke depression symptom from 2005–2016 NHANES survey: a cross-sectional study. J Psychiatr Res. 2024;177:346–51.
+</cite> [<a href="https://doi.org/10.1016/j.jpsychires.2024.07.005" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39079467/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Zou%20J,%20Lin%20R,%20Miao%20Y,%20et%20al.%20Association%20between%20life%E2%80%99s%20simple%207%20and%20post-stroke%20depression%20symptom%20from%202005%E2%80%932016%20NHANES%20survey:%20a%20cross-sectional%20study.%20J%20Psychiatr%20Res.%202024;177:346%E2%80%9351." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR19">
+<span class="label">19.</span><cite>Liang F, Shan X, Chen X, Yang B. The association between triglyceride-glucose index and its combination with post-stroke depression: NHANES 2005–2018. BMC Psychiatry. 2025;25(1):243.
+</cite> [<a href="https://doi.org/10.1186/s12888-025-06676-9" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11909874/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/40087591/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Liang%20F,%20Shan%20X,%20Chen%20X,%20Yang%20B.%20The%20association%20between%20triglyceride-glucose%20index%20and%20its%20combination%20with%20post-stroke%20depression:%20NHANES%202005%E2%80%932018.%20BMC%20Psychiatry.%202025;25(1):243." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR20">
+<span class="label">20.</span><cite>Mahmoudian M, Venäläinen MS, Klén R, Elo LL. Stable iterative variable selection. Bioinformatics. 2021;37(24):4810–7.
+</cite> [<a href="https://doi.org/10.1093/bioinformatics/btab501" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8665768/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/34270690/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Mahmoudian%20M,%20Ven%C3%A4l%C3%A4inen%20MS,%20Kl%C3%A9n%20R,%20Elo%20LL.%20Stable%20iterative%20variable%20selection.%20Bioinformatics.%202021;37(24):4810%E2%80%937." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR21">
+<span class="label">21.</span><cite>Wang K, Tian J, Zheng C, Yang H, Ren J, Liu Y, et al. Interpretable prediction of 3-year all-cause mortality in patients with heart failure caused by coronary heart disease based on machine learning and SHAP. Comput Biol Med. 2021;137: 104813.
+</cite> [<a href="https://doi.org/10.1016/j.compbiomed.2021.104813" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/34481185/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Wang%20K,%20Tian%20J,%20Zheng%20C,%20Yang%20H,%20Ren%20J,%20Liu%20Y,%20et%20al.%20Interpretable%20prediction%20of%203-year%20all-cause%20mortality%20in%20patients%20with%20heart%20failure%20caused%20by%20coronary%20heart%20disease%20based%20on%20machine%20learning%20and%20SHAP.%20Comput%20Biol%20Med.%202021;137:%20104813." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR22">
+<span class="label">22.</span><cite>DecisionLinnc Core Team. (2023). DecisionLinnc. 1.0. Available online at: <a href="https://www.statsape.com/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://www.statsape.com/</a> (Accessed October 10, 2024).</cite>
+</li>
+<li id="CR23">
+<span class="label">23.</span><cite>Shi Y, Yang D, Zeng Y, Wu W. Risk factors for post-stroke depression: a meta-analysis. Front Aging Neurosci. 2017;9: 218.
+</cite> [<a href="https://doi.org/10.3389/fnagi.2017.00218" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC5504146/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/28744213/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Shi%20Y,%20Yang%20D,%20Zeng%20Y,%20Wu%20W.%20Risk%20factors%20for%20post-stroke%20depression:%20a%20meta-analysis.%20Front%20Aging%20Neurosci.%202017;9:%20218." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR24">
+<span class="label">24.</span><cite>Kutlubaev MA, Hackett ML. Part II: predictors of depression after stroke and impact of depression on stroke outcome: an updated systematic review of observational studies. Int J Stroke. 2014;9(8):1026–36.
+</cite> [<a href="https://doi.org/10.1111/ijs.12356" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/25156411/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Kutlubaev%20MA,%20Hackett%20ML.%20Part%20II:%20predictors%20of%20depression%20after%20stroke%20and%20impact%20of%20depression%20on%20stroke%20outcome:%20an%20updated%20systematic%20review%20of%20observational%20studies.%20Int%20J%20Stroke.%202014;9(8):1026%E2%80%9336." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR25">
+<span class="label">25.</span><cite>Zhu BL, Hu AY, Huang GQ, Qiu HH, Hong XC, Hu PL, et al. Association between obesity and post-stroke anxiety in patients with acute ischemic stroke. Front Nutr. 2021;8: 749958.
+</cite> [<a href="https://doi.org/10.3389/fnut.2021.749958" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8655127/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/34901108/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Zhu%20BL,%20Hu%20AY,%20Huang%20GQ,%20Qiu%20HH,%20Hong%20XC,%20Hu%20PL,%20et%20al.%20Association%20between%20obesity%20and%20post-stroke%20anxiety%20in%20patients%20with%20acute%20ischemic%20stroke.%20Front%20Nutr.%202021;8:%20749958." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR26">
+<span class="label">26.</span><cite>Hancock JT, Khoshgoftaar TM. CatBoost for big data: an interdisciplinary review. J Big Data. 2020;7(1):94.
+</cite> [<a href="https://doi.org/10.1186/s40537-020-00369-8" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC7610170/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/33169094/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Hancock%20JT,%20Khoshgoftaar%20TM.%20CatBoost%20for%20big%20data:%20an%20interdisciplinary%20review.%20J%20Big%20Data.%202020;7(1):94." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR27">
+<span class="label">27.</span><cite>Zhang C, Chen X, Wang S, Hu J, Wang C, Liu X. Using catboost algorithm to identify middle-aged and elderly depression, National Health and Nutrition Examination Survey 2011–2018. Psychiatry Res. 2021;306: 114261.
+</cite> [<a href="https://doi.org/10.1016/j.psychres.2021.114261" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/34781111/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Zhang%20C,%20Chen%20X,%20Wang%20S,%20Hu%20J,%20Wang%20C,%20Liu%20X.%20Using%20catboost%20algorithm%20to%20identify%20middle-aged%20and%20elderly%20depression,%20National%20Health%20and%20Nutrition%20Examination%20Survey%202011%E2%80%932018.%20Psychiatry%20Res.%202021;306:%20114261." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR28">
+<span class="label">28.</span><cite>Ali S, Akhlaq F, Imran AS, Kastrati Z, Daudpota SM, Moosa M. The enlightening role of explainable artificial intelligence in medical &amp; healthcare domains: a systematic literature review. Comput Biol Med. 2023;166: 107555.
+</cite> [<a href="https://doi.org/10.1016/j.compbiomed.2023.107555" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/37806061/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Ali%20S,%20Akhlaq%20F,%20Imran%20AS,%20Kastrati%20Z,%20Daudpota%20SM,%20Moosa%20M.%20The%20enlightening%20role%20of%20explainable%20artificial%20intelligence%20in%20medical%20&amp;%20healthcare%20domains:%20a%20systematic%20literature%20review.%20Comput%20Biol%20Med.%202023;166:%20107555." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR29">
+<span class="label">29.</span><cite>Nutbeam D, Lloyd JE. Understanding and responding to health literacy as a social determinant of health. Annu Rev Public Health. 2021;42:159–73.
+</cite> [<a href="https://doi.org/10.1146/annurev-publhealth-090419-102529" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/33035427/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Nutbeam%20D,%20Lloyd%20JE.%20Understanding%20and%20responding%20to%20health%20literacy%20as%20a%20social%20determinant%20of%20health.%20Annu%20Rev%20Public%20Health.%202021;42:159%E2%80%9373." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR30">
+<span class="label">30.</span><cite>Cotton NK, Shim RS. Social determinants of health, structural racism, and the impact on child and adolescent mental health. J Am Acad Child Adolesc Psychiatry. 2022;61(11):1385–9.
+</cite> [<a href="https://doi.org/10.1016/j.jaac.2022.04.020" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/35533798/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Cotton%20NK,%20Shim%20RS.%20Social%20determinants%20of%20health,%20structural%20racism,%20and%20the%20impact%20on%20child%20and%20adolescent%20mental%20health.%20J%20Am%20Acad%20Child%20Adolesc%20Psychiatry.%202022;61(11):1385%E2%80%939." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR31">
+<span class="label">31.</span><cite>Pendlebury ST, Rothwell PM. Prevalence, incidence, and factors associated with pre-stroke and post-stroke dementia: a systematic review and meta-analysis. Lancet Neurol. 2009;8(11):1006–18.
+</cite> [<a href="https://doi.org/10.1016/S1474-4422(09)70236-4" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/19782001/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Pendlebury%20ST,%20Rothwell%20PM.%20Prevalence,%20incidence,%20and%20factors%20associated%20with%20pre-stroke%20and%20post-stroke%20dementia:%20a%20systematic%20review%20and%20meta-analysis.%20Lancet%20Neurol.%202009;8(11):1006%E2%80%9318." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR32">
+<span class="label">32.</span><cite>Jørgensen TS, Wium-Andersen IK, Wium-Andersen MK, Jørgensen MB, Prescott E, Maartensson S, et al. Incidence of depression after stroke, and associated risk factors and mortality outcomes, in a large cohort of Danish patients. JAMA Psychiatr. 2016;73(10):1032–40.</cite> [<a href="https://doi.org/10.1001/jamapsychiatry.2016.1932" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/27603000/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?J%C3%B8rgensen%20TS,%20Wium-Andersen%20IK,%20Wium-Andersen%20MK,%20J%C3%B8rgensen%20MB,%20Prescott%20E,%20Maartensson%20S,%20et%20al.%20Incidence%20of%20depression%20after%20stroke,%20and%20associated%20risk%20factors%20and%20mortality%20outcomes,%20in%20a%20large%20cohort%20of%20Danish%20patients.%20JAMA%20Psychiatr.%202016;73(10):1032%E2%80%9340." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR33">
+<span class="label">33.</span><cite>Robinson RG, Szetela B. Mood change following left hemispheric brain injury. Ann Neurol. 1981;9(5):447–53.
+</cite> [<a href="https://doi.org/10.1002/ana.410090506" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/7271239/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Robinson%20RG,%20Szetela%20B.%20Mood%20change%20following%20left%20hemispheric%20brain%20injury.%20Ann%20Neurol.%201981;9(5):447%E2%80%9353." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+</ul></section></section><section id="_ad93_" lang="en" class="associated-data"><h2 class="pmc_sec_title">Associated Data</h2>
+<p class="font-secondary"><em>This section collects any data citations, data availability statements, or supplementary materials included in this article.</em></p>
+<section id="_adsm93_" lang="en" class="supplementary-materials"><h3 class="pmc_sec_title">Supplementary Materials</h3>
+<section class="sm xbox font-sm" id="db_ds_supplementary-material1_reqid_"><div class="media p"><div class="caption">
+<a href="/articles/instance/12369033/bin/12889_2025_24220_MOESM1_ESM.docx" data-ga-action="click_feat_suppl" class="usa-link">Supplementary Material 1.</a><sup> (249.7KB, docx) </sup>
+</div></div></section></section><section id="_adda93_" lang="en" class="data-availability-statement"><h3 class="pmc_sec_title">Data Availability Statement</h3>
+<p>The raw data supporting the conclusions of this article will be made available by the authors, without undue reservation. Further inquiries can be directed to the corresponding author.</p></section></section></section><footer class="p courtesy-note font-secondary font-sm text-center"><hr class="headless">
+<p>Articles from BMC Public Health are provided here courtesy of <strong>BMC</strong></p></footer></section></article>
+
+                      
+
+                    </main>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+<!-- Secondary navigation placeholder -->
+<div class="pmc-sidenav desktop:grid-col-4 display-flex">
+    <section class="pmc-sidenav__container" aria-label="Article resources and navigation">
+        <button type="button" class="usa-button pmc-sidenav__container__close usa-button--unstyled">
+            <img src="/static/img/usa-icons/close.svg" role="img" alt="Close" />
+        </button>
+    <div class="display-none desktop:display-block">
+       <section class="margin-top-4 desktop:margin-top-0">
+              <h2 class="margin-top-0">ACTIONS</h2>
+           <ul class="usa-list usa-list--unstyled usa-list--actions">
+               
+               <li>
+                     <a
+                             href="https://doi.org/10.1186/s12889-025-24220-y"
+                             class="usa-button usa-button--outline width-24 font-xs display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                             target="_blank"
+                             rel="noreferrer noopener"
+                             data-ga-category="actions"
+                             data-ga-action="click"
+                             data-ga-label="publisher_link_desktop"
+                     >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#launch"></use>
+                         </svg>
+                         <span class="display-inline-flex flex-justify-center flex-1 padding-right-2">View on publisher site</span>
+                     </a>
+               </li>
+               
+               
+               <li>
+                    <a
+                            href="pdf/12889_2025_Article_24220.pdf"
+                            class="usa-button usa-button--outline width-24 display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="pdf_download_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1">PDF (2.2 MB)</span>
+                    </a>
+               </li>
+               
+                
+               <li>
+                   <button role="button" class="usa-button width-24 citation-dialog-trigger display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                        aria-label="Open dialog with citation text in different styles"
+                        data-ga-category="actions"
+                        data-ga-action="open"
+                        data-ga-label="cite_desktop"
+                        data-all-citations-url="/resources/citations/12369033/"
+                        data-citation-style="nlm"
+                        data-download-format-link="/resources/citations/12369033/export/"
+                    >
+                        <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                        </svg>
+                       <span class="display-inline-flex flex-justify-center flex-1 button-label">Cite</span>
+                    </button>
+               </li>
+                
+               <li>
+
+                        <button class="usa-button width-24 collections-dialog-trigger collections-button display-inline-flex flex-align-center flex-justify-start padding-left-1 collections-button-empty"
+                              aria-label="Save article in MyNCBI collections."
+                              data-ga-category="actions"
+                              data-ga-action="click"
+                              data-ga-label="collections_button_desktop"
+                              data-collections-open-dialog-enabled="false"
+                              data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12369033%2F%3Freport%3Dclassic%23open-collections-dialog"
+                              data-in-collections="false">
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                            <span class="display-inline-flex flex-justify-center flex-1">Collections</span>
+                       </button>
+               </li>
+               <li class="pmc-permalink">
+                    <button
+                            type="button"
+                            class="usa-button width-24 display-inline-flex flex-align-center flex-justify padding-left-1 shadow-none"
+                            aria-label="Show article permalink"
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="permalink_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#share"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1 button-label">Permalink</span>
+                    </button>
+                   
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12369033/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+               </li>
+           </ul>
+       </section>
+     </div>
+
+        <section class="pmc-resources margin-top-6 desktop:margin-top-4" data-page-path="/articles/PMC12369033/">
+            <h2 class="margin-top-0">RESOURCES</h2>
+            
+                <div class="usa-accordion usa-accordion--multiselectable" data-allow-multiple>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-similar-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_similar_articles"
+                        data-ga-label="/articles/PMC12369033/"
+                        data-action-open="open_similar_articles"
+                        data-action-close="close_similar_articles"
+                        >
+                            Similar articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-similar-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/similar-article-links/40841950/"
+                            
+                    >
+                        
+                    </div>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-cited-by-other-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_cited_by"
+                        data-ga-label="/articles/PMC12369033/"
+                        data-action-open="open_cited_by"
+                        data-action-close="close_cited_by"
+                        >
+                             Cited by other articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-cited-by-other-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/cited-by-links/40841950/"
+                            
+                    >
+                          
+                    </div>
+                    
+                        <h3 class="usa-accordion__heading">
+                            <button
+                            type="button"
+                            class="usa-accordion__button"
+                            aria-expanded="false"
+                            aria-controls="resources-links-to-ncbi-databases"
+                            data-ga-category="resources_accordion"
+                            data-ga-action="open_NCBI_links"
+                            data-ga-label="/articles/PMC12369033/"
+                            data-action-open="open_NCBI_links"
+                            data-action-close="close_NCBI_link"
+                            >
+                                 Links to NCBI Databases
+                            </button>
+                        </h3>
+                        <div
+                                id="resources-links-to-ncbi-databases"
+                                class="usa-accordion__content usa-prose"
+                                data-source-url="/resources/db-links/12369033/"
+                        >
+                        </div>
+                    
+                    
+                </div>
+            
+        </section>
+
+
+        <section
+        class="usa-in-page-nav usa-in-page-nav--wide margin-top-6 desktop:margin-top-4"
+        data-title-text="On this page"
+        data-title-heading-level="h2"
+        data-scroll-offset="0"
+        data-root-margin="-10% 0px -80% 0px"
+        data-main-content-selector="main"
+        data-threshold="1"
+        hidden
+        ></section>
+    </section>
+</div>
+
+
+        
+
+<div class="overlay" role="dialog" aria-label="Citation Dialog" hidden>
+    <div class="dialog citation-dialog" aria-hidden="true">
+        <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+            <h2 class="usa-modal__heading margin-0">Cite</h2>
+             <button type="button" class="usa-button usa-button--unstyled close-overlay text-black width-auto"  tabindex="1">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+             </button>
+        </div>
+
+        
+
+<div class="citation-text-block">
+  <div class="citation-text margin-bottom-2"></div>
+  <ul class="usa-list usa-list--unstyled display-inline-flex flex-justify width-full flex-align-center">
+      <li>
+        <button
+          class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center copy-button dialog-focus"
+          data-ga-category="save_share"
+          data-ga-action="cite"
+          data-ga-label="copy"
+          tabindex="2">
+            <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+            </svg>
+            <span>Copy</span>
+        </button>
+      </li>
+      <li>
+          <a
+              href="#"
+              role="button"
+              class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center export-button"
+              data-ga-category="save_share"
+              data-ga-action="cite"
+              data-ga-label="download"
+              title="Download a file for external citation management software"
+              tabindex="3">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                </svg>
+                <span class="display-none mobile-lg:display-inline">Download .nbib</span>
+                <span class="display-inline mobile-lg:display-none">.nbib</span>
+            </a>
+      </li>
+      <li>
+          
+
+<div class="display-inline-flex flex-align-center">
+  <label class="usa-label margin-top-0">Format:</label>
+  <select aria-label="Format" class="usa-select citation-style-selector padding-1 margin-top-0 border-0 padding-right-4" tabindex="4" >
+    
+      <option data-style-url-name="ama"
+              value="AMA"
+              >
+        AMA
+      </option>
+    
+      <option data-style-url-name="apa"
+              value="APA"
+              >
+        APA
+      </option>
+    
+      <option data-style-url-name="mla"
+              value="MLA"
+              >
+        MLA
+      </option>
+    
+      <option data-style-url-name="nlm"
+              value="NLM"
+              selected="selected">
+        NLM
+      </option>
+    
+  </select>
+</div>
+      </li>
+  </ul>
+</div>
+    </div>
+</div>
+
+        <div class="overlay" role="dialog" hidden>
+  <div id="collections-action-dialog" class="dialog collections-dialog" aria-hidden="true">
+   <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+        <h2 class="usa-modal__heading margin-0">Add to Collections</h2>
+    </div>
+    <div class="collections-action-panel action-panel">
+      
+
+
+<form id="collections-action-dialog-form"
+      class="usa-form maxw-full collections-action-panel-form action-panel-content action-form action-panel-smaller-selectors"
+      data-existing-collections-url="/list-existing-collections/"
+      data-add-to-existing-collection-url="/add-to-existing-collection/"
+      data-create-and-add-to-new-collection-url="/create-and-add-to-new-collection/"
+      data-myncbi-max-collection-name-length="100"
+      data-collections-root-url="https://www.ncbi.nlm.nih.gov/myncbi/collections/">
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="vzdgbFQeUTrRRkWTj6zPMs4IO3PtvTubNdxeUy1Tw5Krdp2Od6YoVsLlF5TpEjo4">
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-new"
+            class="usa-radio__input usa-radio__input--tile collections-new  margin-top-0"
+            name="collections"
+            value="new"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_new" />
+            <label class="usa-radio__label" for="collections-action-dialog-new">Create a new collection</label>
+        </div>
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-existing"
+            class="usa-radio__input usa-radio__input--tile collections-existing"
+            name="collections"
+            value="existing"
+            checked="true"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_existing" />
+            <label class="usa-radio__label" for="collections-action-dialog-existing">Add to an existing collection</label>
+        </div>
+    </fieldset>
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="action-panel-control-wrap new-collections-controls">
+           <label for="collections-action-dialog-add-to-new" class="usa-label margin-top-0">
+                Name your collection
+               <abbr title="required" class="usa-hint usa-hint--required text-no-underline">*</abbr>
+          </label>
+          <input
+            type="text"
+            name="add-to-new-collection"
+            id="collections-action-dialog-add-to-new"
+            class="usa-input collections-action-add-to-new"
+            pattern="[^&quot;&amp;=&lt;&gt;/]*" title="The following characters are not allowed in the Name field: &quot;&amp;=&lt;&gt;/"
+            maxlength=""
+            data-ga-category="collections_button"
+            data-ga-action="create_collection"
+            data-ga-label="non_favorties_collection"
+            required
+          />
+        </div>
+        <div class="action-panel-control-wrap existing-collections-controls">
+             <label for="collections-action-dialog-add-to-existing" class="usa-label margin-top-0">
+                Choose a collection
+              </label>
+              <select id="collections-action-dialog-add-to-existing"
+                      class="usa-select collections-action-add-to-existing"
+                      data-ga-category="collections_button"
+                      data-ga-action="select_collection"
+                      data-ga-label="($('.collections-action-add-to-existing').val() === 'Favorites') ? 'Favorites' : 'non_favorites_collection'">
+              </select>
+              <div class="collections-retry-load-on-error usa-input-error-message selection-validation-message">
+                Unable to load your collection due to an error<br>
+                <a href="#">Please try again</a>
+              </div>
+        </div>
+    </fieldset>
+
+    <div class="display-inline-flex">
+        <button class="usa-button margin-top-0 action-panel-submit"
+            type="submit"
+            data-loading-label="Adding..."
+            data-pinger-ignore
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="add">
+          Add
+        </button>
+        <button class="usa-button usa-button--outline margin-top-0 action-panel-cancel"
+                aria-label="Close 'Add to Collections' panel"
+                ref="linksrc=close_collections_panel"
+                data-ga-category="collections_button"
+                data-ga-action="click"
+                data-ga-label="cancel">
+          Cancel
+        </button>
+    </div>
+</form>
+    </div>
+  </div>
+</div>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+
+
+        
+    
+    
+
+<footer class="ncbi-footer ncbi-dark-background " >
+    
+        <div class="ncbi-footer__icon-section">
+            <div class="ncbi-footer__social-header">
+                Follow NCBI
+            </div>
+
+            <div class="grid-container ncbi-footer__ncbi-social-icons-container">
+                
+                    <a href="https://twitter.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="40"
+                             height="40"
+                             viewBox="0 0 40 40"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on X (formerly known as Twitter)</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.facebook.com/ncbi.nlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="16"
+                             height="29"
+                             focusable="false"
+                             aria-hidden="true"
+                             viewBox="0 0 16 29"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.8809 21.4002C3.8809 19.0932 3.8809 16.7876 3.8809 14.478C3.8809 14.2117 3.80103 14.1452 3.54278 14.1492C2.53372 14.1638 1.52334 14.1492 0.514288 14.1598C0.302626 14.1598 0.248047 14.0972 0.248047 13.8936C0.256034 12.4585 0.256034 11.0239 0.248047 9.58978C0.248047 9.37013 0.302626 9.30224 0.528931 9.3049C1.53798 9.31688 2.54837 9.3049 3.55742 9.31555C3.80103 9.31555 3.8809 9.26097 3.87957 9.00272C3.87158 8.00565 3.85428 7.00592 3.90753 6.00884C3.97142 4.83339 4.31487 3.73115 5.04437 2.78467C5.93095 1.63318 7.15699 1.09005 8.56141 0.967577C10.5582 0.79319 12.555 0.982221 14.5518 0.927641C14.7102 0.927641 14.7462 0.99287 14.7449 1.13664C14.7449 2.581 14.7449 4.02668 14.7449 5.47104C14.7449 5.67604 14.6517 5.68669 14.4946 5.68669C13.4523 5.68669 12.4113 5.68669 11.3703 5.68669C10.3506 5.68669 9.92057 6.10868 9.90593 7.13904C9.89661 7.7647 9.91525 8.39303 9.89794 9.01869C9.88995 9.26364 9.96583 9.31822 10.2015 9.31688C11.7204 9.30623 13.2393 9.31688 14.7595 9.3049C15.0257 9.3049 15.0723 9.3728 15.0444 9.62439C14.89 10.9849 14.7515 12.3467 14.6144 13.7085C14.5691 14.1571 14.5785 14.1585 14.1458 14.1585C12.8386 14.1585 11.5313 14.1665 10.2254 14.1518C9.95119 14.1518 9.89794 14.2317 9.89794 14.4899C9.90593 19.0799 9.89794 23.6752 9.91125 28.2612C9.91125 28.5674 9.8407 28.646 9.53186 28.6433C7.77866 28.6273 6.02414 28.6366 4.27094 28.634C3.82499 28.634 3.87158 28.6992 3.87158 28.22C3.87602 25.9472 3.87913 23.6739 3.8809 21.4002Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on Facebook</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.linkedin.com/company/ncbinlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="25"
+                             height="23"
+                             viewBox="0 0 26 24"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M14.6983 9.98423C15.6302 9.24808 16.5926 8.74754 17.6762 8.51991C19.673 8.09126 21.554 8.30824 23.1262 9.7526C24.2351 10.7723 24.7529 12.1115 25.0165 13.5612C25.1486 14.3363 25.2105 15.1218 25.2015 15.9081C25.2015 18.3043 25.2015 20.6898 25.2082 23.0806C25.2082 23.3468 25.1549 23.444 24.8621 23.4414C23.1297 23.4272 21.3992 23.4272 19.6704 23.4414C19.4041 23.4414 19.3429 23.3588 19.3442 23.1019C19.3535 20.5194 19.3442 17.9368 19.3442 15.3543C19.3442 14.0005 18.3258 12.9448 17.0266 12.9488C15.7273 12.9528 14.6983 14.0071 14.6983 15.361C14.6983 17.9328 14.6917 20.5047 14.6983 23.0753C14.6983 23.3708 14.6198 23.444 14.3296 23.4427C12.6185 23.4294 10.9079 23.4294 9.19779 23.4427C8.93155 23.4427 8.86099 23.3735 8.86232 23.1086C8.8783 19.7619 8.88628 16.4144 8.88628 13.066C8.88628 11.5688 8.87874 10.0708 8.86365 8.57182C8.86365 8.3575 8.90758 8.27896 9.14054 8.28029C10.9048 8.29094 12.6687 8.29094 14.4321 8.28029C14.6464 8.28029 14.6983 8.34818 14.6983 8.54653C14.6903 9.00047 14.6983 9.45441 14.6983 9.98423Z">
+                            </path>
+                            <path d="M6.55316 15.8443C6.55316 18.2564 6.55316 20.6699 6.55316 23.082C6.55316 23.3629 6.48127 23.4388 6.19906 23.4374C4.47737 23.4241 2.75568 23.4241 1.03399 23.4374C0.767751 23.4374 0.69986 23.3629 0.701191 23.1006C0.709178 18.2648 0.709178 13.4281 0.701191 8.59053C0.701191 8.34026 0.765089 8.27237 1.01669 8.2737C2.74991 8.28435 4.48048 8.28435 6.20838 8.2737C6.47462 8.2737 6.5465 8.33627 6.54517 8.6065C6.54783 11.0186 6.55316 13.4308 6.55316 15.8443Z">
+                            </path>
+                            <path d="M3.65878 0.243898C5.36804 0.243898 6.58743 1.45529 6.58743 3.1406C6.58743 4.75801 5.32145 5.95742 3.60819 5.96807C3.22177 5.97614 2.83768 5.90639 2.47877 5.76299C2.11985 5.61959 1.79344 5.40546 1.51897 5.13334C1.24449 4.86123 1.02755 4.53668 0.881058 4.17902C0.734563 3.82136 0.661505 3.43788 0.666231 3.05141C0.67555 1.42601 1.9362 0.242566 3.65878 0.243898Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on LinkedIn</span>
+                    </a>
+                
+
+                
+                    <a href="https://github.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="28"
+                             height="27"
+                             viewBox="0 0 28 28"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M16.7228 20.6334C17.5057 20.5527 18.2786 20.3944 19.0301 20.1608C21.3108 19.4193 22.5822 17.8259 22.963 15.4909C23.1228 14.5112 23.1814 13.5287 22.9883 12.5437C22.8106 11.6423 22.4013 10.8028 21.8007 10.1076C21.7526 10.0605 21.7197 10 21.7064 9.934C21.6931 9.86799 21.7 9.79952 21.7262 9.73748C22.0856 8.6206 21.9711 7.51969 21.601 6.42677C21.582 6.3497 21.5345 6.2827 21.468 6.23923C21.4016 6.19577 21.3211 6.17906 21.2429 6.19248C20.7329 6.21649 20.2313 6.33051 19.7611 6.52928C19.1103 6.7908 18.4899 7.12198 17.9104 7.51703C17.84 7.56996 17.7581 7.60551 17.6713 7.62078C17.5846 7.63605 17.4954 7.6306 17.4112 7.60489C15.2596 7.05882 13.0054 7.06203 10.8554 7.61421C10.7806 7.63586 10.7018 7.63967 10.6253 7.62534C10.5487 7.611 10.4766 7.57892 10.4148 7.53167C9.64788 7.03247 8.85171 6.58918 7.96368 6.33359C7.65781 6.24338 7.34123 6.19458 7.02239 6.18849C6.94879 6.17986 6.87462 6.19893 6.81432 6.242C6.75402 6.28507 6.71191 6.34904 6.69621 6.42145C6.32342 7.51437 6.2209 8.61527 6.56307 9.73348C6.59635 9.84264 6.64694 9.93316 6.54177 10.0516C5.47666 11.2604 5.09988 12.6834 5.19574 14.2676C5.2663 15.4244 5.46201 16.5466 6.01454 17.5769C6.84399 19.1171 8.21664 19.9119 9.85158 20.3352C10.3938 20.4706 10.9444 20.5698 11.4998 20.632C11.5384 20.7492 11.4506 20.7798 11.408 20.8291C11.1734 21.1179 10.9894 21.4441 10.8634 21.7942C10.7622 22.0458 10.8315 22.4039 10.6065 22.5516C10.263 22.7766 9.83827 22.8485 9.42421 22.8871C8.17936 23.0056 7.26471 22.4877 6.6283 21.4348C6.25552 20.8184 5.76956 20.3325 5.08523 20.0663C4.76981 19.9325 4.42139 19.8967 4.08537 19.9638C3.7898 20.029 3.73788 20.1901 3.93891 20.4111C4.03639 20.5234 4.14989 20.6207 4.27575 20.6999C4.9796 21.1318 5.51717 21.7884 5.80152 22.5636C6.37002 23.9973 7.48039 24.5697 8.93825 24.6323C9.43741 24.6575 9.93768 24.615 10.4254 24.5058C10.5892 24.4672 10.6531 24.4872 10.6517 24.6762C10.6451 25.4936 10.6637 26.3123 10.6517 27.131C10.6517 27.6635 10.1684 27.9297 9.58663 27.7393C8.17396 27.2671 6.84977 26.5631 5.66838 25.656C2.59555 23.2891 0.720966 20.1861 0.217704 16.3376C-0.357453 11.9127 0.911353 8.00824 3.98551 4.73881C6.11909 2.42656 8.99932 0.939975 12.1203 0.540191C16.5351 -0.0601815 20.4347 1.14323 23.7232 4.16373C26.2449 6.47869 27.724 9.37672 28.1048 12.7726C28.5828 17.0325 27.3686 20.7945 24.4768 23.9827C22.9762 25.6323 21.0956 26.8908 18.9982 27.6488C18.8783 27.6927 18.7585 27.738 18.636 27.7726C18.0356 27.9404 17.6189 27.6395 17.6189 27.0098C17.6189 25.7452 17.6308 24.4806 17.6295 23.2159C17.6329 22.9506 17.6128 22.6856 17.5696 22.4238C17.4325 21.6664 17.3419 21.484 16.7228 20.6334Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on GitHub</span>
+                    </a>
+                
+
+                
+                    <a href="https://ncbiinsights.ncbi.nlm.nih.gov/"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="26"
+                             height="26"
+                             viewBox="0 0 27 27"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M23.7778 26.4574C23.1354 26.3913 22.0856 26.8024 21.636 26.3087C21.212 25.8444 21.4359 24.8111 21.324 24.0347C19.9933 14.8323 14.8727 8.80132 6.09057 5.85008C4.37689 5.28406 2.58381 4.99533 0.779072 4.99481C0.202773 4.99481 -0.0229751 4.83146 0.00455514 4.21479C0.0660406 3.08627 0.0660406 1.95525 0.00455514 0.826734C-0.0413285 0.0815827 0.259669 -0.0193618 0.896534 0.00266238C6.96236 0.222904 12.3693 2.24179 16.9889 6.16209C22.9794 11.2478 26.1271 17.7688 26.4372 25.648C26.4629 26.294 26.3179 26.5271 25.6609 26.4684C25.0827 26.417 24.4991 26.4574 23.7778 26.4574Z">
+                            </path>
+                            <path d="M14.8265 26.441C14.0924 26.441 13.2371 26.6795 12.6626 26.3786C12.0092 26.0372 12.3781 25.0644 12.246 24.378C11.1154 18.5324 6.6849 14.5497 0.74755 14.1001C0.217135 14.0615 -0.0104482 13.9422 0.0134113 13.3659C0.0519536 12.1454 0.0482829 10.9213 0.0134113 9.69524C-0.00127145 9.14464 0.196946 9.03268 0.703502 9.04736C9.21217 9.27128 16.5994 16.2511 17.2804 24.7231C17.418 26.4446 17.418 26.4446 15.6579 26.4446H14.832L14.8265 26.441Z">
+                            </path>
+                            <path d="M3.58928 26.4555C2.64447 26.4618 1.73584 26.0925 1.06329 25.4289C0.39073 24.7653 0.00933763 23.8617 0.0030097 22.9169C-0.00331824 21.9721 0.365937 21.0635 1.02954 20.3909C1.69315 19.7184 2.59675 19.337 3.54156 19.3306C4.48637 19.3243 5.39499 19.6936 6.06755 20.3572C6.7401 21.0208 7.1215 21.9244 7.12782 22.8692C7.13415 23.814 6.7649 24.7226 6.10129 25.3952C5.43768 26.0677 4.53409 26.4491 3.58928 26.4555Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI RSS feed</span>
+                    </a>
+                
+            </div>
+        </div>
+    
+
+    <div data-testid="gridContainer"
+         class="grid-container ncbi-footer__container">
+        <div class="grid-row ncbi-footer__main-content-container"
+             data-testid="grid">
+            
+                <div class="ncbi-footer__column">
+                    
+                        <p class="ncbi-footer__circled-icons-heading">
+                            Connect with NLM
+                        </p>
+                    
+
+                    <div class="ncbi-footer__circled-icons-list">
+                        
+                            <a href=https://twitter.com/nlm_nih class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="32"
+                                     height="32"
+                                     viewBox="0 0 40 40"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on X (formerly known as Twitter)</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.facebook.com/nationallibraryofmedicine class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="13"
+                                     height="24"
+                                     viewBox="0 0 13 24"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M4.11371 23.1369C4.11371 23.082 4.11371 23.0294 4.11371 22.9745V12.9411H0.817305C0.6709 12.9411 0.670898 12.9411 0.670898 12.8016C0.670898 11.564 0.670898 10.3287 0.670898 9.09341C0.670898 8.97903 0.705213 8.95158 0.815017 8.95158C1.8673 8.95158 2.91959 8.95158 3.97417 8.95158H4.12057V8.83263C4.12057 7.8055 4.12057 6.7738 4.12057 5.74897C4.1264 4.92595 4.31387 4.11437 4.66959 3.37217C5.12916 2.38246 5.94651 1.60353 6.95717 1.1921C7.64827 0.905008 8.3913 0.764035 9.13953 0.778051C10.0019 0.791777 10.8644 0.830666 11.7268 0.860404C11.8869 0.860404 12.047 0.894717 12.2072 0.90158C12.2964 0.90158 12.3261 0.940469 12.3261 1.02968C12.3261 1.5421 12.3261 2.05452 12.3261 2.56465C12.3261 3.16857 12.3261 3.7725 12.3261 4.37642C12.3261 4.48165 12.2964 4.51367 12.1912 4.51138C11.5369 4.51138 10.8804 4.51138 10.2261 4.51138C9.92772 4.51814 9.63058 4.5526 9.33855 4.61433C9.08125 4.6617 8.84537 4.78881 8.66431 4.97766C8.48326 5.16652 8.3662 5.40755 8.32972 5.66661C8.28476 5.89271 8.26027 6.1224 8.25652 6.35289C8.25652 7.19014 8.25652 8.02969 8.25652 8.86923C8.25652 8.89439 8.25652 8.91955 8.25652 8.95615H12.0219C12.1797 8.95615 12.182 8.95616 12.1614 9.10714C12.0768 9.76596 11.9876 10.4248 11.9029 11.0813C11.8312 11.6319 11.7626 12.1824 11.697 12.733C11.6719 12.9434 11.6787 12.9434 11.4683 12.9434H8.26338V22.899C8.26338 22.979 8.26338 23.0591 8.26338 23.1392L4.11371 23.1369Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on Facebook</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.youtube.com/user/NLMNIH class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="21"
+                                     height="15"
+                                     viewBox="0 0 21 15"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M19.2561 1.47914C18.9016 1.15888 18.5699 0.957569 17.2271 0.834039C15.5503 0.678484 13.2787 0.655608 11.563 0.65332H9.43556C7.71987 0.65332 5.4483 0.678484 3.77151 0.834039C2.43098 0.957569 2.097 1.15888 1.74242 1.47914C0.813665 2.32097 0.619221 4.62685 0.598633 6.89384C0.598633 7.31781 0.598633 7.74101 0.598633 8.16345C0.626084 10.4121 0.827391 12.686 1.74242 13.521C2.097 13.8412 2.4287 14.0425 3.77151 14.1661C5.4483 14.3216 7.71987 14.3445 9.43556 14.3468H11.563C13.2787 14.3468 15.5503 14.3216 17.2271 14.1661C18.5676 14.0425 18.9016 13.8412 19.2561 13.521C20.1712 12.6929 20.3725 10.451 20.3999 8.22064C20.3999 7.74025 20.3999 7.25986 20.3999 6.77946C20.3725 4.54907 20.1689 2.30724 19.2561 1.47914ZM8.55942 10.5311V4.65201L13.5601 7.50005L8.55942 10.5311Z"
+                                          fill="white" />
+                                </svg>
+                                <span class="usa-sr-only">NLM on YouTube</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            
+
+            
+                <address class="ncbi-footer__address ncbi-footer__column">
+                    
+        <p>
+            <a class="usa-link usa-link--external"
+            href="https://www.google.com/maps/place/8600+Rockville+Pike,+Bethesda,+MD+20894/%4038.9959508,
+            -77.101021,17z/data%3D!3m1!4b1!4m5!3m4!1s0x89b7c95e25765ddb%3A0x19156f88b27635b8!8m2!3d38.9959508!
+            4d-77.0988323"
+            rel="noopener noreferrer" target="_blank">National Library of Medicine
+            <br/> 8600 Rockville Pike<br/> Bethesda, MD 20894</a>
+        </p>
+    
+                </address>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/web_policies.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Web Policies
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/institutes-nih/nih-office-director/office-communications-public-liaison/freedom-information-act-office" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            FOIA
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS Vulnerability Disclosure
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://support.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Help
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/accessibility.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Accessibility
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/careers/careers.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Careers
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+        </div>
+
+        
+            <div class="grid-row grid-col-12" data-testid="grid">
+                <ul class="ncbi-footer__bottom-links-list">
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NLM
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NIH
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.usa.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            USA.gov
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+    </div>
+</footer>
+
+    
+
+
+        
+        
+    
+  <script  type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/pinger/pinger.js"> </script>
+
+
+    
+        
+
+<button class="back-to-top" data-ga-category="pagination" data-ga-action="back_to_top">
+    <label>Back to Top</label>
+    <svg class="usa-icon order-0" aria-hidden="true" focusable="false" role="img">
+        <use xlink:href="/static/img/sprite.svg#arrow_upward"></use>
+    </svg>
+</button>
+    
+
+
+        
+    
+    
+    
+        
+    <script type="application/javascript">
+    window.ncbi = window.ncbi || {};
+    window.ncbi.pmc = window.ncbi.pmc || {};
+    window.ncbi.pmc.options = {
+        logLevel: 'INFO',
+        
+        staticEndpoint: '/static/',
+        
+        citeCookieName: 'pmc-cf',
+    };
+</script>
+    <script type="module" crossorigin="" src="/static/assets/base-133c6271.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/jquery/jquery-3.6.0.min.js">&#xA0;</script>
+    <script type="text/javascript">
+        jQuery.getScript("https://cdn.ncbi.nlm.nih.gov/core/alerts/alerts.js", function () {
+            galert(['div.nav_and_browser', 'div.header', '#universal_header', '.usa-banner', 'body > *:nth-child(1)'])
+        });
+    </script>
+
+
+    <script type="text/javascript">var exports = {};</script>
+     <script src="/static/CACHE/js/output.13b077bc3ffd.js"></script>
+
+    <script type="module" crossorigin="" src="/static/assets/article-44d04358.js"></script>
+    
+    
+
+    </body>
+</html>

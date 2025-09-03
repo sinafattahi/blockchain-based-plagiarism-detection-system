@@ -1,0 +1,73 @@
+A novel mathematical model which explores the transmission dynamics of infectious diseases integrating nonlinear incidence and quarantine measures is presented in this study. Five different compartments: susceptible, latent, infectious, quarantined and recovered individuals presents total population. Saturation effects in disease transmission are modeled through a nonlinear infection rate while quarantine and recovery processes are explicitly incorporated. Parameters are estimated using a genetic algorithm based on cumulative monthly case data for measles in Indonesia. The basic reproduction number is derived to assess the potential for outbreak persistence. Stability analysis of the equilibrium states is conducted, and sensitivity analysis identifies key parameters influencing disease spread. Furthermore, the model is extended using Atangana–Baleanu Caputo (ABC) fractional derivative to explore memory-dependent effects in disease dynamics. Numerical simulations illustrate how fractional-order values impact infection trajectories. The findings emphasize the importance of timely isolation and recovery in controlling outbreaks and suggest that fractional-order modeling can enhance understanding of long-term epidemic behavior.
+
+Measles is a transmissible disease instigated by an RNA virus which belongs to genus Morbillivirus1. Transmission naturally happens over direct contact with infectious droplets from the nose or mouth of infected individuals that affect mucosal surfaces of the respiratory tract. Before the development and widespread use of the measles vaccine, the disease exhibited cyclical outbreaks every two to three years, occasionally resulting in severe complications and hospitalizations2. Globally, measles continues to pose a serious health threat, accounting for an estimated 2.6 million deaths annually prior to immunization programs. Despite the availability of a safe and effective vaccine but still over 140,000 measles-related deaths were reported in 2018 predominantly among children under five years of age2.
+
+Measles anticipation is mostly accomplished over the MMR (measles-mumps-rubella) vaccine3. Centers for Disease Control and Prevention (CDC) endorse two doses of the vaccine for optimal protection, with efficacy rates estimated at approximately 97% for two doses and 93% for one dose4. However immunization alone does not always guarantee protection. According to the World Health Organization (WHO) around 15% of children may not develop immunity after the first dose importance the need for a second dose to ensure adequate population-level protection. Severe complications from measles can be mitigated through supportive care, including nutritional support, rehydration, and appropriate clinical management.
+
+In Indonesia both routine and extraordinary cases of measles are reported monthly.
+
+Routine and unusual cases of measles are reported monthly in Indonesia. Data from 2015–2017 disclose noteworthy interannual discrepancy, with 13,890 cases in 2015, a decrease to 7,460 cases in 2016, and a rise to 14,639 cases in 20175. These trends underscore the complex nature of measles transmission in a geographically and demographically diverse setting. Need for effective intervention and high number of cases make it compelling case study for mathematical modeling in Indonesia.
+
+Mathematical models show a an important role in understanding and predicting the spread of infectious diseases6–10. In11, the writers presentedmodels with periodic transmission rates to examine seasonal patterns and vaccine-related impressions on measles dynamics. Added studies have emphasized the essential to improve both vaccine efficiency and coverage to control the spread of measles12. Imperfect vaccination strategies have been examined in13, while13analyzed the effect of behavioral interventions such as social distancing on disease suppression. The influence of vaccine imperfection was also studied in14and15. In16, a deterministic model was developed to analyze how imperfect vaccination and treatment influence transmission dynamics. The importance of isolation and early treatment in reducing the disease burden was discussed in17.
+
+Other relevant modeling frameworks exploring measles dynamics and control mechanisms can be found in18–21. In particular22, proposed a measles model that includes two vaccination stages and inspired the structural development of extended models. Although the present study does not directly model vaccination dynamics, it builds on the conceptual framework of22and23to refine disease transmission modeling under non-vaccine-based interventions. As we know mass quarantine for measles is less common than for other infectious diseases, targeted isolation or temporary exclusion of infected individuals remains a recommended public health measure in some contexts. For instance schools or community centers frequently implement short-term isolation to comprise outbreaks particularly in areas with low vaccination coverage. That why the incorporation of a quarantine compartment permits our model to discover the potential impact of such interventions in practical scenarios and to assess how isolation could complement vaccination and treatment efforts.
+
+Fractional calculus, which generalizes classical differentiation and integration to non-integer orders, has emerged as a powerful framework for modeling complex dynamical systems. In the context of infectious disease modeling, fractional-order derivatives provide enhanced flexibility by capturing memory effects and long-range temporal dependencies that are often neglected in classical models24. These features allow for a more accurate representation of disease progression and transmission, especially in systems where past states influence current dynamics. Atangana-Baleanu (AB) operator has emerged as prominent mong various fractional operators proposed in the literature such as the Caputo, Riemann–Liouville, Caputo-Fabrizio and Katugampola derivatives because of its non-singular and non-local kernel. AB operator offers a balanced demonstration of memory while preserving computational stability25–28.
+
+AB fractional operator has been widely utilized in recent studies across a range of disciplines to describe systems with hereditary properties, including epidemiological models with strong sequential correlations29–31. The non-local and memory-dependent arrangement of AB operator enables the integration of past transmission dynamics into current disease progression with improving the predictive power of model. These advantages motivated us to formulate a fractional-order version of our compartmental model using the AB Caputo derivative to explore the impact of memory effects on measles dynamics. This approach allows for a deeper understanding of the temporal structure of outbreaks and offers a novel perspective on epidemic behavior beyond classical integer-order frameworks.
+
+.The nonlinear incidence termrepresents the saturated transmission rate, reflecting reduced per-capita transmission when either susceptible or infectious populations are large.
+
+Let, then the solution setandof the system of the Eq. (1) is positive for all32–35.
+
+Hence, it is clear by System (2) that System (1) holds the condition of positivity.
+
+Solutions of the System (1) are uniformly bounded in proper subset36.
+
+Model parameter sensitivity analyses identified parameters that had a high transmission influence.
+
+Sensitivity analysis tells us about the parameters have high influence on the model41. Infections and mortality can be preserved efficiently by evaluating reproduction numbers.
+
+where,qis parameter and the reproductive number is.
+
+Table1, depicts sensitivity parameters of the model. Fig.2depicts that with.
+
+signifies here normalization function andBy the Mittage-Leffler function43.
+
+AB time fractional parameter and operator are definedted byandrespectively.
+
+,,,andsatisfy the Lipschitz condition if,,,andcontain the upper bond. Letandare the couple function, then.
+
+Combining with,,,and. So, consecutive terms yield difference.
+
+withby hypothesis. By different methods, we can get a unique solution for System (1).
+
+Definition. (45)AB fractional model (15) is regarded as Hyers-Ulam stable if.
+
+The Hyers-Ulam stability of fractional model (15) is containing upon condition.
+
+By using theorem 2 the AB fractional model (15) has solution.
+
+Numerical methods are essential for analyzing nonlinear dynamical systems in infectious disease modeling, particularly when analytical solutions are intractable. In this section, we present numerical simulations for the measles model described in Eq. (1). The simulation is performed using the initial conditions:. The parameter values used are: =,,,. Fig.1, shows flow diagram, while Fig.2shows sensitivity indices. Table1and2show the discretion of variables and sensitivity indices.
+
+Fig.3is drawn to show the impact of the fractional parameterwhile keeping other parameters constant. The fractional model offers a variety of solutions, unlike classical models, which only have one solution. To obtain the best fit between theoretical and real data, it is necessary to adjust the fractional parameter appropriately. Compared to classical models, fractional models offer a more generalized explanation of physical phenomena. In this case, the fractional differential operator of Atangana-Baleanu is more appropriate since it allows for better explanation of the problem related to tuberculosis (TB). Simulated scenarios are offered both for fractional-orderand integer-orderscenarios allowing for a clear comparison. It is worth noting that when, the model transitions towards the classical order. Therefore, we assessed both the fractional and classical models in question to examine the impact of this reduction.
+
+Different fractional parametershave different effects of the dynamics of measles in different classes.
+
+Figure4depicts how the contact of an infected person with a susceptible person impacts the spread of measles in the population. From Fig.4, when the contact between susceptible and infected individuals with measles susceptible individual decreases in the population and Fig.5shows the infected individuals with measles increases in the population. This is because susceptible individuals can contract the infection from an infected person when they come into contact with each other. Figure5shows how the quarantine rate of measles-infected individuals affects the spread of measles in the population. From Fig.6we observed that as the quarantine rate of infected individuals with measles increases the infected individuals decreases, and Fig.7quarantine individuals in the population or community increases. This shows that the quarantine rate plays a vital role in order to control the spread of measles in population or community. Figure8and9shows how treatment rate plays a role in controlling the spread of measles in the population. Figure8and9clearly show that as the value of the treatment rate increases the individuals which are quarantine due to the measles in the population decreases and the recovered individuals increases.
+
+Solution trajectories for the fractional model with.
+
+Solution trajectories for the fractional model with.
+
+Solution trajectories for the fractional model with.
+
+Solution trajectories for the fractional model with.
+
+Solution trajectories for the fractional model with.
+
+Solution trajectories for the fractional model with.
+
+This study presents a measles transmission model using anframework with a harmonic mean incidence function. The model structure captures the flow of individuals through key epidemiological stages. We derived the basic reproduction numberusing the next-generation matrix method and extended the model to the fractional-order case using the Atangana–Baleanu operator, which accounts for memory effects in the system. To explore how parameters influence disease dynamics, a sensitivity analysis was conducted. This helped identify the most influential parameters driving measles spread. Numerical simulations were performed over a 100-day period using selected initial conditions and parameter values. The results show that changes in the fractional-order parameteraffect the trajectory of infected individuals, with higher values generally reducing the infection peak. From this work it is observed how fractional order formulation provide more realistic results as compare to classical one. This work be helpful for predictions which can help to update public health planning by measuring how changes in key parameters such as quarantine or treatment rates influence outbreak dynamics. This can be guidfull for decision makers to take decision properly and take measures accordingly. In future work, the model can be extended to include stochastic terms or fitted to real data for outbreak forecasting.
+
+Ongoing Research Funding Program, (ORF-2025-576), King Saud University, Riyadh, Saudi Arabia.

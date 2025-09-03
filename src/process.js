@@ -4,11 +4,11 @@ import { CONTRACT_ABI } from "./constants";
 import { uploadToIPFS, getFromIPFS } from "./services/ipfsService";
 import { Buffer } from "buffer";
 
-// LSH Configuration - Improved settings
-const NUM_HASH_FUNCTIONS = 32;
-const NUM_BANDS = 16;
+// LSH Configuration - Optimized for better similarity detection
+const NUM_HASH_FUNCTIONS = 20;
+const NUM_BANDS = 10;
 const BAND_SIZE = NUM_HASH_FUNCTIONS / NUM_BANDS;
-const SIMILARITY_THRESHOLD = 0.6;
+const SIMILARITY_THRESHOLD = 0.4;
 
 // Cache structure for LSH
 let lshCache = {
@@ -132,14 +132,14 @@ function normalizeSentence(sentence) {
     .trim();
 }
 
-// Create multiple types of shingles for better detection
+// Optimized shingle creation for better similarity detection
 function createShingles(sentence) {
   const normalized = normalizeSentence(sentence);
   const words = normalized.split(/\s+/).filter((word) => word.length > 0);
 
   const shingles = new Set();
 
-  // Add individual significant words (skip common words)
+  // Reduced stop words list for better content preservation
   const stopWords = new Set([
     "a",
     "an",
@@ -166,14 +166,11 @@ function createShingles(sentence) {
     "were",
     "will",
     "with",
-    "the",
-    "this",
     "but",
     "they",
     "have",
     "had",
     "what",
-    "said",
     "each",
     "which",
     "she",
@@ -181,60 +178,37 @@ function createShingles(sentence) {
     "how",
     "their",
     "if",
-    "up",
-    "out",
-    "many",
-    "then",
-    "them",
-    "these",
     "so",
     "some",
     "her",
     "would",
-    "make",
     "like",
-    "into",
     "him",
-    "time",
-    "two",
-    "more",
-    "go",
-    "no",
-    "way",
-    "could",
-    "my",
     "than",
-    "first",
     "been",
-    "call",
     "who",
-    "oil",
-    "sit",
     "now",
-    "find",
-    "down",
-    "day",
     "did",
     "get",
     "come",
     "made",
     "may",
-    "part",
   ]);
 
+  // Add meaningful individual words (increased threshold)
   words.forEach((word) => {
     if (word.length > 2 && !stopWords.has(word)) {
       shingles.add(word);
     }
   });
 
-  // Add 2-grams (better for paraphrases)
+  // Add 2-grams (most important for similarity)
   for (let i = 0; i < words.length - 1; i++) {
     const bigram = words[i] + " " + words[i + 1];
     shingles.add(bigram);
   }
 
-  // Add 3-grams if sentence is long enough
+  // Add 3-grams for longer sentences
   if (words.length >= 3) {
     for (let i = 0; i < words.length - 2; i++) {
       const trigram = words[i] + " " + words[i + 1] + " " + words[i + 2];
@@ -242,38 +216,33 @@ function createShingles(sentence) {
     }
   }
 
-  // Add character n-grams for fuzzy matching
-  const charNgrams = [];
-  for (let i = 0; i < normalized.length - 3; i++) {
-    charNgrams.push(normalized.substring(i, i + 4));
+  // Reduced character n-grams (less noise)
+  if (normalized.length > 10) {
+    for (let i = 0; i < normalized.length - 4; i++) {
+      const ngram = normalized.substring(i, i + 5);
+      // Only add if it contains meaningful content
+      if (!/^\s*$/.test(ngram)) {
+        shingles.add(ngram);
+      }
+    }
   }
-  charNgrams.forEach((ngram) => shingles.add(ngram));
 
   return Array.from(shingles);
 }
 
 // Improved hash function with better distribution
 function generateSignature(shingles) {
-  // Use a more diverse set of hash functions
+  // Reduced prime set for better performance
   const primes = [
     2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
     73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151,
-    157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233,
-    239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313,
   ];
 
   const saltValues = [
-    0x9e3779b9, 0x85ebca6b, 0xc2b2ae3d, 0x27d4eb2f, 0x165667b1, 0x9e3779b9,
-    0x85ebca6b, 0xc2b2ae3d, 0x27d4eb2f, 0x165667b1, 0x9e3779b9, 0x85ebca6b,
-    0xc2b2ae3d, 0x27d4eb2f, 0x165667b1, 0x9e3779b9, 0x85ebca6b, 0xc2b2ae3d,
-    0x27d4eb2f, 0x165667b1, 0x9e3779b9, 0x85ebca6b, 0xc2b2ae3d, 0x27d4eb2f,
-    0x165667b1, 0x9e3779b9, 0x85ebca6b, 0xc2b2ae3d, 0x27d4eb2f, 0x165667b1,
-    0x9e3779b9, 0x85ebca6b, 0xc2b2ae3d, 0x27d4eb2f, 0x165667b1, 0x9e3779b9,
-    0x85ebca6b, 0xc2b2ae3d, 0x27d4eb2f, 0x165667b1, 0x9e3779b9, 0x85ebca6b,
-    0xc2b2ae3d, 0x27d4eb2f, 0x165667b1, 0x9e3779b9, 0x85ebca6b, 0xc2b2ae3d,
-    0x27d4eb2f, 0x165667b1, 0x9e3779b9, 0x85ebca6b, 0xc2b2ae3d, 0x27d4eb2f,
-    0x165667b1, 0x9e3779b9, 0x85ebca6b, 0xc2b2ae3d, 0x27d4eb2f, 0x165667b1,
-    0x9e3779b9, 0x85ebca6b, 0xc2b2ae3d, 0x27d4eb2f,
+    0x9e3779b9, 0x85ebca6b, 0xc2b2ae3d, 0x27d4eb2f, 0x165667b1, 0x9a8b7c6d,
+    0xf1e2d3c4, 0x5a4b3c2d, 0x1e2f3a4b, 0x6c5d4e3f, 0xa9b8c7d6, 0x2d1e3f4a,
+    0x8b7c6d5e, 0x4f3e2d1c, 0xd6c5b4a3, 0x1a2b3c4d, 0x7e6f5a4b, 0x3c2d1e4f,
+    0xb9a8c7d6, 0x5e4f3a2b,
   ];
 
   function hashFunction(i, shingle) {
@@ -414,7 +383,7 @@ function computeScore(duplicateResults) {
 
     // For consecutive runs, apply exponential formula
     if (n > 1) {
-      score += 4 ** (n - 1);
+      score += 3 ** (n - 1);
     }
     // For isolated duplicates, just add 1
     else {
@@ -448,11 +417,10 @@ async function processArticle(articleId, article, signer) {
   for (let i = 0; i < sentences.length; i++) {
     const sentence = sentences[i];
     const sentenceHash = sentenceHashes[i];
-
     const shingles = createShingles(sentence);
     const signature = generateSignature(shingles);
 
-    const result = findSimilarSentences(signature, sentenceHash);
+    const result = findSimilarSentences(signature);
     duplicateResults.push(result);
 
     if (result.isDuplicate) {
@@ -463,9 +431,10 @@ async function processArticle(articleId, article, signer) {
       -> Similarity: ${result.similarity.toFixed(3)}`
       );
     } else {
-      uniqueHashes.push(sentenceHash);
-      uniqueSentences.push(sentence);
-      storeSentenceInLSH(sentence, sentenceHash, signature);
+      if (!uniqueSentences.includes(sentence)) {
+        uniqueSentences.push(sentence);
+        uniqueHashes.push(sentenceHash);
+      }
     }
   }
 
@@ -481,6 +450,16 @@ async function processArticle(articleId, article, signer) {
   if (ratio > 0.3) {
     console.log(`Article ${articleId} skipped`);
     return false;
+  }
+
+  for (let i = 0; i < uniqueSentences.length; i++) {
+    const sentence = uniqueSentences[i];
+    const sentenceHash = uniqueHashes[i];
+
+    const shingles = createShingles(sentence);
+    const signature = generateSignature(shingles);
+
+    storeSentenceInLSH(sentence, sentenceHash, signature);
   }
 
   try {

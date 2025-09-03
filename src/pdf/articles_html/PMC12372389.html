@@ -1,0 +1,2857 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+    <head >
+
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+        
+
+        
+        
+  <link rel="stylesheet" href="/static/assets/style-8258669d.css" />
+<script type="module" crossorigin="" src="/static/assets/base_style-f4a99799.js"></script>
+
+  <link rel="stylesheet" href="/static/assets/style-ef962842.css" />
+<link rel="stylesheet" href="/static/assets/style-3ade8b5c.css" />
+<script type="module" crossorigin="" src="/static/assets/article_style-d757a0dd.js"></script>
+
+  
+  
+    <style>
+  
+  
+  @media screen and (min-width: 64em) {
+    div.pmc-wm {
+      background: repeat-y;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='350' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-.02' y='0' width='1.05' height='1' id='c'%3E%3CfeFlood flood-color='%23FFF'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3Ctext id='b' font-family='Helvetica' font-size='11pt' style='opacity:1;fill:%23005ea2;stroke:none;text-anchor:middle' x='175' y='14'%3E%3C/text%3E%3Cpath id='a' style='fill:%23005ea2' d='M0 8h350v3H0z'/%3E%3C/defs%3E%3Cuse xlink:href='%23a' transform='rotate(90 10 10)'/%3E%3Cuse xlink:href='%23b' transform='rotate(90 10 10)' filter='url(%23c)'/%3E%3C/svg%3E");
+      padding-left: 3rem;
+    }
+  }
+</style>
+
+  
+
+
+
+        
+            <link rel="apple-touch-icon"
+                  sizes="180x180"
+                  href="/static/img/favicons/apple-touch-icon.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="48x48"
+                  href="/static/img/favicons/favicon-48x48.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="/static/img/favicons/favicon-32x32.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="/static/img/favicons/favicon-16x16.png" />
+            <link rel="manifest" href="/static/img/favicons/site.webmanifest" />
+            <link rel="mask-icon"
+                  href="/static/img/favicons/safari-pinned-tab.svg"
+                  color="#0071bc" />
+            <meta name="msapplication-config"
+                  content="/static/img/favicons/browserconfig.xml" />
+            <meta name="theme-color" content="#ffffff" />
+        
+
+        <title>
+            Deep learning radiomics based on MRI for differentiating tongue cancer T - staging - PMC
+        </title>
+
+        
+        
+  
+  <!-- Logging params: Pinger defaults -->
+<meta name="ncbi_app" content="cloudpmc-viewer" />
+<meta name="ncbi_db" content="pmc" />
+<meta name="ncbi_phid" content="15253AFE8AF22463053AFE000DBBEF71.m_1" />
+<meta name="ncbi_pinger_stat_url" content="https://pmc.ncbi.nlm.nih.gov/stat" />
+<!-- Logging params: Pinger custom -->
+<meta name="ncbi_pdid" content="article" />
+  
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+
+    
+        <link rel="preconnect" href="https://cdn.ncbi.nlm.nih.gov" />
+    
+
+    <!-- Include USWDS Init Script -->
+    <script src="/static/assets/uswds-init.js"></script>
+
+
+    <meta name="ncbi_domain" content="bmccanc">
+<meta name="ncbi_type" content="fulltext">
+<meta name="ncbi_pcid" content="journal">
+<meta name="ncbi_feature" content="associated_data">
+<link rel="canonical" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12372389/">
+<meta name="robots" content="INDEX,NOFOLLOW,NOARCHIVE">
+<meta name="citation_journal_title" content="BMC Cancer">
+<meta name="citation_title" content="Deep learning radiomics based on MRI for differentiating tongue cancer T - staging">
+<meta name="citation_author" content="Zhaoyi Lu">
+<meta name="citation_author_institution" content="Department of Otorhinolaryngology, The First Affiliated Hospital, Nanjing Medical University, Nanjing, 210029 China">
+<meta name="citation_author" content="Bowen Zhu">
+<meta name="citation_author_institution" content="Department of Stomatology, The First Affiliated Hospital of Nanjing Medical University, Nanjing, 210029 China">
+<meta name="citation_author" content="Hang Ling">
+<meta name="citation_author_institution" content="Department of Head and Neck Surgery, The Affiliated Cancer Hospital of Xiangya School of Medicine, Central South University, Changsha, 410000 China">
+<meta name="citation_author" content="Xi Chen">
+<meta name="citation_author_institution" content="Department of Otorhinolaryngology, The First Affiliated Hospital, Nanjing Medical University, Nanjing, 210029 China">
+<meta name="citation_publication_date" content="2025 Aug 22">
+<meta name="citation_volume" content="25">
+<meta name="citation_firstpage" content="1358">
+<meta name="citation_doi" content="10.1186/s12885-025-14627-6">
+<meta name="citation_pmid" content="40847271">
+<meta name="citation_abstract_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12372389/">
+<meta name="citation_fulltext_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12372389/">
+<meta name="citation_pdf_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12372389/pdf/12885_2025_Article_14627.pdf">
+<meta name="description" content="To develop a deep learning-based MRI model for predicting tongue cancer T-stage. This retrospective study analyzed clinical and MRI data from 579 tongue cancer patients (Xiangya Cancer Hospital and Jiangsu Province Hospital). T2-weighted (T2WI) and ...">
+<meta name="og:title" content="Deep learning radiomics based on MRI for differentiating tongue cancer T - staging">
+<meta name="og:type" content="article">
+<meta name="og:site_name" content="PubMed Central (PMC)">
+<meta name="og:description" content="To develop a deep learning-based MRI model for predicting tongue cancer T-stage. This retrospective study analyzed clinical and MRI data from 579 tongue cancer patients (Xiangya Cancer Hospital and Jiangsu Province Hospital). T2-weighted (T2WI) and ...">
+<meta name="og:url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12372389/">
+<meta name="og:image" content="https://cdn.ncbi.nlm.nih.gov/pmc/cms/images/pmc-card-share.jpg?_=0">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ncbi">
+    
+    
+
+    </head>
+    <body >
+        
+    <a class="usa-skipnav " href="#main-content">
+      Skip to main content
+    </a>
+
+
+        
+            
+
+<section class="usa-banner " aria-label="Official website of the United States government" >
+    <div class="usa-accordion">
+        <header class="usa-banner__header">
+            <div class="usa-banner__inner">
+                <div class="grid-col-auto">
+                    <img aria-hidden="true"
+                         class="usa-banner__header-flag"
+                         src="/static/img/us_flag.svg"
+                         alt="" />
+                </div>
+
+                <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+                    <p class="usa-banner__header-text">
+                        An official website of the United States government
+                    </p>
+                    <span class="usa-banner__header-action">Here's how you know</span>
+                </div>
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-accordion__button usa-banner__button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    aria-expanded="false"
+    aria-controls="gov-banner-default"
+    
+    data-testid="storybook-django-banner"
+    
+    >
+    
+        
+
+        
+                    <span class="usa-banner__button-text">Here's how you know</span>
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </div>
+        </header>
+
+        <div class="usa-banner__content usa-accordion__content"
+             id="gov-banner-default"
+             hidden>
+            <div class="grid-row grid-gap-lg">
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-dot-gov.svg"
+                         alt=""
+                         aria-hidden="true" />
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Official websites use .gov</strong>
+                            <br />
+                            A
+                            <strong>.gov</strong> website belongs to an official
+                            government organization in the United States.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-https.svg"
+                         alt=""
+                         aria-hidden="true" />
+
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Secure .gov websites use HTTPS</strong>
+                            <br />
+                            A <strong>lock</strong> (
+                            <span class="icon-lock">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     width="52"
+                                     height="64"
+                                     viewBox="0 0 52 64"
+                                     class="usa-banner__lock-image"
+                                     role="graphics-symbol"
+                                     aria-labelledby="banner-lock-description"
+                                     focusable="false">
+                                    <title id="banner-lock-title">Lock</title>
+                                    <desc id="banner-lock-description">
+                                    Locked padlock icon
+                                    </desc>
+                                    <path fill="#000000"
+                                          fill-rule="evenodd"
+                                          d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+                                </svg>
+</span>) or <strong>https://</strong> means you've safely
+                                connected to the .gov website. Share sensitive
+                                information only on official, secure websites.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        
+
+        
+    
+    
+    
+
+<div class="usa-overlay">
+</div>
+
+
+
+<header class="usa-header usa-header--extended usa-header--wide" data-header data-testid="header"    >
+    <div class="ncbi-header">
+        <div class="ncbi-header__container">
+            <a class="ncbi-header__logo-container"
+               href="https://www.ncbi.nlm.nih.gov/">
+                <img alt="NCBI home page"
+                     class="ncbi-header__logo-image"
+                     src="/static/img/ncbi-logos/nih-nlm-ncbi--white.svg"
+                     width="410"
+                     height="100" />
+            </a>
+
+            <!-- Mobile menu hamburger button -->
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-menu-btn ncbi-header__hamburger-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Show menu"
+    data-testid="navMenuButton"
+    
+    >
+    
+        
+
+        
+                <svg aria-hidden="true"
+                     class="ncbi-hamburger-icon"
+                     fill="none"
+                     focusable="false"
+                     height="21"
+                     viewBox="0 0 31 21"
+                     width="31"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd"
+                          d="M0.125 20.75H30.875V17.3333H0.125V20.75ZM0.125 12.2083H30.875V8.79167H0.125V12.2083ZM0.125 0.25V3.66667H30.875V0.25H0.125Z"
+                          fill="#F1F1F1"
+                          fill-rule="evenodd" />
+                </svg>
+            
+
+        
+    
+        
+            </button>
+        
+
+
+
+            
+                <!-- Desktop buttons-->
+                <div class="ncbi-header__desktop-buttons">
+                    
+                        <!-- Desktop search button -->
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button
+           "
+    aria-expanded="false"
+    aria-controls="search-field-desktop-navigation"
+    aria-label="Show search overlay"
+    data-testid="toggleSearchPanelButton"
+    data-toggle-search-panel-button
+    >
+    
+        
+
+        
+                            
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#search" />
+    </svg>
+
+
+                            Search
+                        
+
+        
+    
+        
+            </button>
+        
+
+
+                    
+
+                    <!-- Desktop login dropdown -->
+                    
+                        <div class="ncbi-header__login-dropdown">
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button ncbi-header__login-dropdown-button
+           "
+    aria-expanded="false"
+    aria-controls="login-dropdown-menu"
+    aria-label="Show login menu"
+    data-testid="toggleLoginMenuDropdown"
+    data-desktop-login-button
+    >
+    
+        
+
+        
+                                
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#person" />
+    </svg>
+
+
+
+                                <span data-login-dropdown-text>Log in</span>
+
+                                <!-- Dropdown icon pointing up -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-less ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-up-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_less" />
+    </svg>
+
+
+
+                                <!-- Dropdown icon pointing down -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-more ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-down-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_more" />
+    </svg>
+
+
+                            
+
+        
+    
+        
+            </button>
+        
+
+
+
+                            <!-- Login dropdown menu -->
+                            <ul class="usa-nav__submenu ncbi-header__login-dropdown-menu"
+                                id="login-dropdown-menu"
+                                data-desktop-login-menu-dropdown
+                                hidden>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                <li class="usa-nav__submenu-item">
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--outline ncbi-header__login-dropdown-logout-button
+           "
+    
+    
+    
+    data-testid="desktopLogoutButton"
+    data-desktop-logout-button
+    >
+    
+        
+
+        Log out
+
+        
+    
+        
+            </button>
+        
+
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                </div>
+            
+        </div>
+    </div>
+
+    <!-- Search panel -->
+    
+        <div class="ncbi-search-panel ncbi--show-only-at-desktop"
+             data-header-search-panel
+             hidden>
+            <div class="ncbi-search-panel__container">
+                <form action="https://www.ncbi.nlm.nih.gov/search/all/"
+                      
+                      autocomplete="off"
+                      class="usa-search usa-search--big ncbi-search-panel__form"
+                      data-testid="desktop-navigation-search-form"
+                      method="GET"
+                      role="search">
+                    <label class="usa-sr-only" for="search-field-desktop-navigation">
+                        Search…
+                    </label>
+                    <input class="usa-input"
+                           id="search-field-desktop-navigation"
+                           name="term"
+                           
+                               placeholder="Search NCBI"
+                           
+                           type="search"
+                           value="" />
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                        <span class="usa-search__submit-text">
+                            Search NCBI
+                        </span>
+                    
+
+        
+    
+        
+            </button>
+        
+
+
+                </form>
+
+                
+            </div>
+        </div>
+    
+
+    <nav aria-label="Primary navigation" class="usa-nav">
+        <p class="usa-sr-only" id="primary-navigation-sr-only-title">
+            Primary site navigation
+        </p>
+
+        <!-- Mobile menu close button -->
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-nav__close ncbi-nav__close-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Close navigation menu"
+    data-testid="navCloseButton"
+    
+    >
+    
+        
+
+        
+            <img src="/static/img/usa-icons/close.svg" alt="Close" />
+        
+
+        
+    
+        
+            </button>
+        
+
+
+
+        
+            <!-- Mobile search component -->
+            <form class="usa-search usa-search--small ncbi--hide-at-desktop margin-top-6"
+                  action="https://www.ncbi.nlm.nih.gov/search/all/"
+                  
+                  autocomplete="off"
+                  data-testid="mobile-navigation-search-form"
+                  method="GET"
+                  role="search">
+                <label class="usa-sr-only" for="search-field-mobile-navigation">
+                    Search
+                </label>
+
+                <input class="usa-input"
+                       id="search-field-mobile-navigation"
+                       type="search"
+                       
+                           placeholder="Search NCBI"
+                       
+                       name="term" />
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                    <!-- This SVG should be kept inline and not replaced with a link to the icon as otherwise it will render in the wrong color -->
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0E2LjQ3MSA2LjQ3MSAwIDAgMCAxNiA5LjUgNi41IDYuNSAwIDEgMCA5LjUgMTZjMS42MSAwIDMuMDktLjU5IDQuMjMtMS41N2wuMjcuMjh2Ljc5bDUgNC45OUwyMC40OSAxOWwtNC45OS01em0tNiAwQzcuMDEgMTQgNSAxMS45OSA1IDkuNVM3LjAxIDUgOS41IDUgMTQgNy4wMSAxNCA5LjUgMTEuOTkgMTQgOS41IDE0eiIvPjwvc3ZnPg=="
+                         class="usa-search__submit-icon"
+                         alt="Search" />
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </form>
+
+            
+        
+
+        <!-- Primary navigation menu items -->
+        <!-- This usa-nav__inner wrapper is required to correctly style the navigation items on Desktop -->
+        
+
+        
+            <div class="ncbi-nav__mobile-login-menu ncbi--hide-at-desktop"
+                 data-mobile-login-menu
+                 hidden>
+                <p class="ncbi-nav__mobile-login-menu-status">
+                    Logged in as:
+                    <strong class="ncbi-nav__mobile-login-menu-email"
+                            data-mobile-login-email-text></strong>
+                </p>
+                <ul class="usa-nav__primary usa-accordion">
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           ncbi-nav__mobile-login-button ncbi--hide-at-desktop
+           "
+    
+    
+    
+    data-testid="mobileLoginButton"
+    data-mobile-login-button
+    >
+    
+        
+
+        Log in
+
+        
+    
+        
+            </button>
+        
+
+
+    </nav>
+</header>
+
+    
+    
+        
+
+<section class="pmc-header pmc-header--basic" aria-label="PMC Header with search box">
+    <div class="pmc-nav-container">
+        <div class="pmc-header__bar">
+           <div class="pmc-header__logo">
+               <a href="/" title="Home" aria-label="PMC Home"></a>
+           </div>
+            <button
+                    type="button"
+                    class="usa-button usa-button--unstyled pmc-header__search__button"
+                    aria-label="Open search"
+                    data-ga-category="search"
+                    data-ga-action="PMC"
+                    data-ga-label="pmc_search_panel_mobile"
+            >
+                <svg class="usa-icon width-4 height-4 pmc-icon__open" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#search"></use>
+                </svg>
+                <svg class="usa-icon width-4 height-4 pmc-icon__close" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="pmc-header__search">
+            
+
+
+<form class="usa-search usa-search--extra usa-search--article-right-column  pmc-header__search__form" id="pmc-search-form" autocomplete="off" role="search">
+<label class="usa-sr-only" for="pmc-search">Search PMC Full-Text Archive</label>
+<span class="autoComplete_wrapper flex-1">
+<input class="usa-input width-full maxw-none" required="required" placeholder="Search PMC Full-Text Archive" id="pmc-search"  type="search" name="term" data-autocomplete-url="https://pmc.ncbi.nlm.nih.gov/autocomp/search/autocomp/"/>
+</span>
+<button
+class="usa-button"
+type="submit"
+formaction="https://www.ncbi.nlm.nih.gov/pmc/"
+data-ga-category="search"
+data-ga-action="PMC"
+data-ga-label="PMC_search_button"
+>
+<span class="usa-search__submit-text">Search in PMC</span>
+<img
+src="/static/img/usa-icons-bg/search--white.svg"
+class="usa-search__submit-icon"
+alt="Search"
+/>
+</button>
+</form>
+            <div class="display-flex flex-column tablet:flex-row tablet:flex-justify flex-justify-center flex-align-center width-full desktop:maxw-44">
+                <ul class="pmc-header__search__menu">
+                    <li>
+                        
+                            <a class="usa-link" href="/journals/" data-ga-action="featured_link" data-ga-label="journal list">
+                                Journal List
+                            </a>
+                        
+                    </li>
+                    <li>
+                        
+                            <a class="usa-link" href="/about/userguide/" data-ga-action="featured_link"
+                            data-ga-label="user guide">
+                                User Guide
+                            </a>
+                        
+                    </li>
+                </ul>
+                
+                    <button form="pmc-search-form" formaction="https://pmc.ncbi.nlm.nih.gov/search/" type="submit" class="usa-button usa-button--unstyled hover:text-no-underline text-no-underline width-auto margin-top-1 tablet:margin-top-0">
+     <span class="bg-green-label padding-05 text-white">New</span><span class="text-underline text-primary">Try this search in PMC Beta Search</span>
+</button>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+
+
+        
+        
+
+       
+  <div class="usa-section padding-top-0 desktop:padding-top-6 pmc-article-section" data-article-db="pmc" data-article-id="12372389">
+
+    
+
+   
+
+
+
+<div class="grid-container pmc-actions-bar" aria-label="Actions bar" role="complementary">
+    <div class="grid-row">
+        <div class="grid-col-fill display-flex">
+             <div class="display-flex">
+                <ul class="usa-list usa-list--unstyled usa-list--horizontal">
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <button
+                                type="button"
+                                class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                                aria-label="Open resources"
+                                data-extra-class="is-visible-resources"
+                                data-ga-category="resources_accordion"
+                                data-ga-action="click"
+                                data-ga-label="mobile_icon"
+                        >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#more_vert"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <a
+                                href="https://doi.org/10.1186/s12885-025-14627-6"
+                                class="usa-link display-flex usa-tooltip"
+                                role="button"
+                                target="_blank"
+                                rel="noreferrer noopener"
+                                title="View on publisher site"
+                                data-position="bottom"
+                                aria-label="View on publisher site"
+                                data-ga-category="actions"
+                                data-ga-action="click"
+                                data-ga-label="publisher_link_mobile"
+                        >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#launch"></use>
+                                </svg>
+                        </a>
+                    </li>
+                    
+                    
+                        <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                             <a
+                                     href="pdf/12885_2025_Article_14627.pdf"
+                                     class="usa-link display-flex usa-tooltip"
+                                     role="button"
+                                     title="Download PDF"
+                                     data-position="bottom"
+                                     aria-label="Download PDF"
+                                     data-ga-category="actions"
+                                     data-ga-action="click"
+                                     data-ga-label="pdf_download_mobile"
+                             >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button
+                            class="usa-button usa-button--unstyled  usa-tooltip collections-dialog-trigger collections-button display-flex collections-button-empty"
+                            title="Add to Collections"
+                            data-position="bottom"
+                            aria-label="Save article in MyNCBI collections."
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="collections_button_mobile"
+                            data-collections-open-dialog-enabled="false"
+                            data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12372389%2F%3Freport%3Dclassic%23open-collections-dialog"
+                            data-in-collections="false"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button role="button" class="usa-button usa-button--unstyled usa-tooltip citation-dialog-trigger display-flex"
+                            aria-label="Open dialog with citation text in different styles"
+                            title="Cite"
+                            data-position="bottom"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="cite_mobile"
+                            data-all-citations-url="/resources/citations/12372389/"
+                            data-citation-style="nlm"
+                            data-download-format-link="/resources/citations/12372389/export/"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="pmc-permalink display-flex" >
+                         <button
+                                 type="button"
+                                 title="Permalink"
+                                 data-position="bottom"
+                                 class="usa-button usa-button--unstyled display-flex usa-tooltip"
+                                 aria-label="Show article permalink"
+                                 aria-expanded="false"
+                                 aria-haspopup="true"
+                                 data-ga-category="actions"
+                                 data-ga-action="open"
+                                 data-ga-label="permalink_mobile"
+                         >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#share"></use>
+                            </svg>
+                        </button>
+                        
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12372389/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+                    </li>
+                </ul>
+            </div>
+            <button
+                    type="button"
+                    class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                    aria-label="Open article navigation"
+                    data-extra-class="is-visible-in-page"
+                    data-ga-category="actions"
+                    data-ga-action="open"
+                    data-ga-label="article_nav_mobile"
+            >
+                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#list"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+    <div class="grid-container desktop:padding-left-6">
+      <div id="article-container" class="grid-row grid-gap">
+        <div class="grid-col-12 desktop:grid-col-8 order-2 pmc-layout__content">
+            <div class="grid-container padding-left-0 padding-right-0">
+                <div class="grid-row desktop:margin-left-neg-6">
+                    <div class="grid-col-12">
+                        <div class="pmc-layout__disclaimer" role="complementary" aria-label="Disclaimer note">
+    As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,
+    the contents by NLM or the National Institutes of Health.<br/>
+    Learn more:
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="Disclaimer" data-ga-label="New disclaimer box" href="/about/disclaimer/">PMC Disclaimer</a>
+    |
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="PMC Copyright Notice" data-ga-label="New disclaimer box" href="/about/copyright/">
+        PMC Copyright Notice
+    </a>
+</div>
+                    </div>
+                </div>
+                <div class="grid-row pmc-wm desktop:margin-left-neg-6">
+                    <!-- Main content -->
+                    <main
+                      id="main-content"
+                      class="usa-layout-docs__main usa-layout-docs grid-col-12 pmc-layout pmc-prose padding-0"
+                    >
+
+                      
+                        <section class="pmc-journal-banner text-center line-height-none" aria-label="Journal banner"><img src="https://cdn.ncbi.nlm.nih.gov/pmc/banners/logo-bmccanc.png" alt="BMC Cancer logo" usemap="#pmc-banner-imagemap" width="500" height="75"><map name="pmc-banner-imagemap"><area alt="Link to BMC Cancer" title="Link to BMC Cancer" shape="default" href="https://doi.org/10.1186/s12885-025-14627-6" target="_blank" rel="noopener noreferrer"></map></section><article lang="en"><section aria-label="Article citation and metadata"><section class="pmc-layout__citation font-secondary font-xs"><div>
+<div class="display-inline-block"><button type="button" class="cursor-pointer text-no-underline bg-transparent border-0 padding-0 text-left margin-0 text-normal text-primary" aria-controls="journal_context_menu">BMC Cancer</button></div>. 2025 Aug 22;25:1358. doi: <a href="https://doi.org/10.1186/s12885-025-14627-6" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">10.1186/s12885-025-14627-6</a>
+</div>
+<nav id="journal_context_menu" hidden="hidden"><ul class="menu-list font-family-ui" role="menu">
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/pmc/?term=%22BMC%20Cancer%22%5Bjour%5D" class="usa-link" role="menuitem">Search in PMC</a></li>
+<li role="presentation"><a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22BMC%20Cancer%22%5Bjour%5D" lang="en" class="usa-link" role="menuitem">Search in PubMed</a></li>
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/nlmcatalog?term=%22BMC%20Cancer%22%5BTitle%20Abbreviation%5D" class="usa-link" role="menuitem">View in NLM Catalog</a></li>
+<li role="presentation"><a href="?term=%22BMC%20Cancer%22%5Bjour%5D" class="usa-link" role="menuitem" data-add-to-search="true">Add to search</a></li>
+</ul></nav></section><section class="front-matter"><div class="ameta p font-secondary font-xs">
+<hgroup><h1>Deep learning radiomics based on MRI for differentiating tongue cancer T - staging</h1></hgroup><div class="cg p">
+<a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Lu%20Z%22%5BAuthor%5D" class="usa-link" aria-describedby="id1"><span class="name western">Zhaoyi Lu</span></a><div hidden="hidden" id="id1">
+<h3><span class="name western">Zhaoyi Lu</span></h3>
+<div class="p">
+<sup>1</sup>Department of Otorhinolaryngology, The First Affiliated Hospital, Nanjing Medical University, Nanjing, 210029 China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Lu%20Z%22%5BAuthor%5D" class="usa-link"><span class="name western">Zhaoyi Lu</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>#</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Zhu%20B%22%5BAuthor%5D" class="usa-link" aria-describedby="id2"><span class="name western">Bowen Zhu</span></a><div hidden="hidden" id="id2">
+<h3><span class="name western">Bowen Zhu</span></h3>
+<div class="p">
+<sup>2</sup>Department of Stomatology, The First Affiliated Hospital of Nanjing Medical University, Nanjing, 210029 China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Zhu%20B%22%5BAuthor%5D" class="usa-link"><span class="name western">Bowen Zhu</span></a>
+</div>
+</div>
+<sup>2,</sup><sup>#</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Ling%20H%22%5BAuthor%5D" class="usa-link" aria-describedby="id3"><span class="name western">Hang Ling</span></a><div hidden="hidden" id="id3">
+<h3><span class="name western">Hang Ling</span></h3>
+<div class="p">
+<sup>3</sup>Department of Head and Neck Surgery, The Affiliated Cancer Hospital of Xiangya School of Medicine, Central South University, Changsha, 410000 China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Ling%20H%22%5BAuthor%5D" class="usa-link"><span class="name western">Hang Ling</span></a>
+</div>
+</div>
+<sup>3</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Chen%20X%22%5BAuthor%5D" class="usa-link" aria-describedby="id4"><span class="name western">Xi Chen</span></a><div hidden="hidden" id="id4">
+<h3><span class="name western">Xi Chen</span></h3>
+<div class="p">
+<sup>1</sup>Department of Otorhinolaryngology, The First Affiliated Hospital, Nanjing Medical University, Nanjing, 210029 China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Chen%20X%22%5BAuthor%5D" class="usa-link"><span class="name western">Xi Chen</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>✉</sup>
+</div>
+<ul class="d-buttons inline-list">
+<li><button class="d-button" aria-controls="aip_a" aria-expanded="false">Author information</button></li>
+<li><button class="d-button" aria-controls="anp_a" aria-expanded="false">Article notes</button></li>
+<li><button class="d-button" aria-controls="clp_a" aria-expanded="false">Copyright and License information</button></li>
+</ul>
+<div class="d-panels font-secondary-light">
+<div id="aip_a" class="d-panel p" style="display: none">
+<div class="p" id="Aff1">
+<sup>1</sup>Department of Otorhinolaryngology, The First Affiliated Hospital, Nanjing Medical University, Nanjing, 210029 China </div>
+<div id="Aff2">
+<sup>2</sup>Department of Stomatology, The First Affiliated Hospital of Nanjing Medical University, Nanjing, 210029 China </div>
+<div id="Aff3">
+<sup>3</sup>Department of Head and Neck Surgery, The Affiliated Cancer Hospital of Xiangya School of Medicine, Central South University, Changsha, 410000 China </div>
+<div class="author-notes p">
+<div class="fn" id="_fncrsp93pmc__">
+<sup>✉</sup><p class="display-inline">Corresponding author.</p>
+</div>
+<div class="fn" id="_eqcntrb93pmc__">
+<sup>#</sup><p class="display-inline">Contributed equally.</p>
+</div>
+</div>
+</div>
+<div id="anp_a" class="d-panel p" style="display: none"><div class="notes p"><section id="historyarticle-meta1" class="history"><p>Received 2025 Apr 1; Accepted 2025 Jul 2; Collection date 2025.</p></section></div></div>
+<div id="clp_a" class="d-panel p" style="display: none">
+<div>© The Author(s) 2025</div>
+<p><strong>Open Access</strong> This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modified the licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">http://creativecommons.org/licenses/by-nc-nd/4.0/</a>.</p>
+<div class="p"><a href="/about/copyright/" class="usa-link">PMC Copyright notice</a></div>
+</div>
+</div>
+<div>PMCID: PMC12372389  PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/40847271/" class="usa-link">40847271</a>
+</div>
+</div></section></section><section aria-label="Article content"><section class="body main-article-body"><section class="abstract" id="Abs1"><h2>Abstract</h2>
+<section id="sec1"><h3 class="pmc_sec_title">Objective</h3>
+<p id="Par1">To develop a deep learning-based MRI model for predicting tongue cancer T-stage.</p></section><section id="sec2"><h3 class="pmc_sec_title">Methods</h3>
+<p id="Par2">This retrospective study analyzed clinical and MRI data from 579 tongue cancer patients (Xiangya Cancer Hospital and Jiangsu Province Hospital). T2-weighted (T2WI) and contrast-enhanced T1-weighted (CET1) sequences were preprocessed (anonymization/resampling/calibration). Regions of interest (ROI) were segmented by two radiologists (intraclass correlation coefficient (ICC) &gt; 0.75), and using PyRadiomics, 2375 radiomics features were extracted. ResNet18 and ResNet50 algorithms were employed to build deep learning models (deep learning radiomics (DLR) resnet18 / DLRresnet50), compared with a radiomics model (Rad) based on 17 optimized features. Performance was evaluated via AUC, DCA, IDI, and NRI in different sets.</p></section><section id="sec3"><h3 class="pmc_sec_title">Results</h3>
+<p id="Par3">In training set, deep learning models outperformed Rad (AUC: DLRresnet18 = 0.837, DLRresnet50 = 0.847 vs. Rad = 0.828). Test set and and external validation set results were consistent (DLRresnet18, AUC = 0.805 / 0.857; DLRresnet50, AUC = 0.810 / 0.860). The decision curve analysis (DCA) demonstrated that both deep learning models performed better than the Rad model in the training set, test set, and external validation set. Furthermore, both NRI and IDI of the two deep learning models compared with the Rad model were greater than 0.</p></section><section id="sec4"><h3 class="pmc_sec_title">Conclusion</h3>
+<p id="Par4">DLRresnet18 and DLRresnet50 models significantly improve T-stage prediction accuracy over traditional radiomics, reducing subjective interpretation errors and supporting personalized treatment planning. This research achievement provides new ideas and tools for image-assisted diagnosis of tongue cancer T-stage.</p></section><section id="sec5"><h3 class="pmc_sec_title">Level of evidence</h3>
+<p id="Par5">III.</p></section><section id="sec6"><h3 class="pmc_sec_title">Supplementary Information</h3>
+<p>The online version contains supplementary material available at 10.1186/s12885-025-14627-6.</p></section><section id="kwd-group1" lang="en" class="kwd-group"><p><strong>Keywords:</strong> Tongue cancer, Magnetic resonance imaging, Radiomics, Deep learning</p></section></section><section id="Sec1"><h2 class="pmc_sec_title">Introduction</h2>
+<p id="Par6">Tongue cancer is one of the most common malignant tumors in the head and neck region, accounting for 25–40% of oral cancers. Its incidence is on the rise globally, especially in Asia, where it is closely related to smoking, alcohol consumption, and HPV infection [<a href="#CR1" class="usa-link" aria-describedby="CR1">1</a>]. Although surgical resection combined with radiotherapy or chemotherapy is the main treatment modality, patient prognosis remains limited by early tumor metastasis and recurrence. Clinically, accurate assessment of the tumor's T stage (primary tumor size and local invasion extent) is crucial for formulating individualized treatment plans [<a href="#CR2" class="usa-link" aria-describedby="CR2">2</a>].However, traditional imaging methods (such as CT or MRI) rely on the subjective experience of physicians to judge the T stage, which may have potentially high heterogeneity [<a href="#CR3" class="usa-link" aria-describedby="CR3">3</a>].</p>
+<p id="Par7">Radiomics is an emerging technology that involves extracting and analyzing a large amount of high-dimensional data from medical images. By analyzing radiomic features such as shape, texture, and contrast, the biological characteristics of tumors can be quantified more precisely. In recent years, radiomics has provided new ideas for the non-invasive staging of tumors by combining machine learning algorithms with the high-throughput extraction of quantitative features from medical images [<a href="#CR4" class="usa-link" aria-describedby="CR4">4</a>].Bilal et al. Using deep learning models to predict molecular pathway status from colorectal cancer tissue sections has demonstrated the potential of multimodal data integration [<a href="#CR5" class="usa-link" aria-describedby="CR5">5</a>]. However, individual radiomic features often fail to capture the heterogeneity of tumors, a shortcoming that deep learning may overcome by automatically learning high-level semantic features. Particularly in tongue cancer, where tumor boundaries are indistinct and contrast with surrounding tissues is low, traditional feature extraction methods face challenges [<a href="#CR6" class="usa-link" aria-describedby="CR6">6</a>]. Deep learning, a powerful subset of machine learning, excels in automatically extracting hierarchical features from raw data, offering significant advantages over traditional radiomics. Unlike radiomics, which relies on manually extracted features, deep learning models, such as CNNs and ResNets, can learn complex patterns directly from images, enhancing predictive accuracy and generalizability [<a href="#CR7" class="usa-link" aria-describedby="CR7">7</a>]. For instance, in medical imaging, deep learning models have shown superior performance in predicting tumor stages and outcomes, with AUC values significantly higher than traditional methods. They can also handle image heterogeneity by applying correction algorithms and selecting consistent features [<a href="#CR3" class="usa-link" aria-describedby="CR3">3</a>]. Future directions include exploring lightweight models like MobileNet and integrating multi-modal data to further improve performance [<a href="#CR8" class="usa-link" aria-describedby="CR8">8</a>]. The potential of deep learning in medical imaging is immense, promising more accurate and efficient diagnostic tools.</p>
+<p id="Par8">This study aims to construct a fusion model for predicting the T stage of tongue cancer by integrating traditional radiomic features with deep learning features, and to validate its generalization ability in multicenter datasets. The results are expected to provide an objective and automated T-staging tool for clinical use, assisting in treatment decision-making.</p></section><section id="Sec2"><h2 class="pmc_sec_title">Materials and methods</h2>
+<section id="Sec3"><h3 class="pmc_sec_title">Patients</h3>
+<p id="Par9">This study retrospectively collected 579 patients from the two hospitals from December 2019 to October 2024. All the participants underwent surgical resection and examination of pathology to confirm the pathological stage of the patients. Additionally, the study was approved by the medical ethics committees of Jiangsu Province Hospital (No. 2025-SR-111) and Xiangya Cancer Hospital, Central South University (No. SBQLL-2024–064), and the need for informed consent was waived.</p>
+<p id="Par10">The inclusion criteria were as follows: (1) tongue cancer patients who underwent MRI examination within 2 weeks before surgery; (2) patients who had not received surgery, radiotherapy, chemotherapy or targeted therapy; (3) patients with complete clinical records, imaging data and pathological reports. Exclusion criteria were as follows: (1) poor image quality; (2) patients without CET or T2WI sequence; (3) patients who received surgery, radiotherapy, chemotherapy or targeted therapy. After screening, a total of 579 subjects were enrolled in this study. We divided the patients in center 1 into an internal training set and an internal validation set at a ratio of 7:3 (357:153), and center 2 (69) was the external test set. Flow chart of patient inclusion and exclusion in the study (Fig. <a href="#Fig1" class="usa-link">1</a>).</p>
+<figure class="fig xbox font-sm" id="Fig1"><h4 class="obj_head">Fig. 1.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12372389_12885_2025_14627_Fig1_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/362d/12372389/c1e83f3be895/12885_2025_14627_Fig1_HTML.jpg" loading="lazy" id="MO1" height="1016" width="764" alt="Fig. 1"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Flow chart of inclusion and exclusion criteria</p></figcaption></figure></section><section id="Sec4"><h3 class="pmc_sec_title">Image acquisition and processing</h3>
+<p id="Par11">All participants underwent MRI scanning, two different MRI scanners (Siemens and GE) were used in this study. The MRI scan protocols are described in Table S1. The MRI images of all patients were resampled to 0.5*0.5*4mm<sup>3</sup> before feature extraction. In addition, N4 bias field [<a href="#CR9" class="usa-link" aria-describedby="CR9">9</a>] correction was used to adjust the image intensity to improve the image intensity inhomogeneity.</p></section><section id="Sec5"><h3 class="pmc_sec_title">ROI segmentation</h3>
+<p id="Par12">ITK-Snap software was used to register T2WI and CET1, so that the anatomical position and spatial structure in T2WI and CET1 sequences were consistent. The tumor region in the MRI image was delineated along the boundary of the tumor, and the corresponding region of interest (ROI) was generated layer by layer.</p>
+<p id="Par13">Twenty patients with T1-2 and 20 patients with T3-4 were randomly selected for Intraclass Correlation Coefficient. Two radiologists performed double-blind segmentation without knowing the pathological data of the patients. ICC &gt; 0.75 of radiomics features and Deep Learning (DL) features indicated good agreement.</p></section><section id="Sec6"><h3 class="pmc_sec_title">Radiomics feature and deep learning feature extraction</h3>
+<p id="Par14">PyRadiomics was used to extract the radiomics features of CET1 and T2WI from the same patient. The radiomics features included irstorder features, two-dimensional features, gray-level cooccurrence matrix (GLCM), gray-level dependence matrix (GLDM), gray-level size-zone matrix (GLSZM), gray-level runlength matrix (GLRLM), and neighboring gray tone difference matrix (NGTDM).</p>
+<p id="Par15">For each patient, the largest tumor region of interest (ROI) was precisely cropped from both the T2WI and CET1 sequences. After cropping, the data were enhanced using random horizontal and vertical flips. The images were then uniformly cropped to a size of 224 × 224 pixels. ResNet18 and ResNet50 (<a href="https://gitee.com/wangqingbaidu/OnekeyCompo" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://gitee.com/wangqingbaidu/OnekeyCompo</a>) are currently widely used deep learning algorithms in the field of radiomics [<a href="#CR3" class="usa-link" aria-describedby="CR3">3</a>, <a href="#CR5" class="usa-link" aria-describedby="CR5">5</a>]. ResNet18 and ResNet50 networks were pre-trained using a large number of images from the ImageNet dataset, and transfer learning was performed on the training set. In the training process, the ResNet50 and ResNet18 parameters were iteratively updated using backpropagation, and the cross-entropy loss function was used considering the output probability and the T-stage label. The learning rate was set to 1 × 10<sup>4</sup>, and the parameters were updated using the Adam optimizer. 64 batches, L2 regularization, and an early stopping strategy were utilized to prevent overfitting. The trained CNN can be used to predict the T stage of each MRI patch. Patient-level probabilities were then obtained by averaging the probabilities of all MRI patches for a patient. After completing the training of ResNet50 and ResNet18, we utilized ResNet50 to extract 2048 DL features for each patch from the penultimate average pooling layer of ResNet50. And, the 521 DL features were extracted from the ResNet18. Workflow of Deep Learning-Radiomics Analysis, as shown in Fig. <a href="#Fig2" class="usa-link">2</a>.</p>
+<figure class="fig xbox font-sm" id="Fig2"><h4 class="obj_head">Fig. 2.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12372389_12885_2025_14627_Fig2_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/362d/12372389/c7ce2118eb74/12885_2025_14627_Fig2_HTML.jpg" loading="lazy" id="MO2" height="355" width="778" alt="Fig. 2"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Workflow of deep learning-radiomics analysis</p></figcaption></figure></section><section id="Sec7"><h3 class="pmc_sec_title">Statistical analysis</h3>
+<p id="Par16">For the comparison of categorical data between groups, the chi-square test or Fisher's exact test is used. For the comparison of continuous data between groups, the Mann–Whitney U test or independent samples t-test is employed. The performance of the prediction model was evaluated using the receiver operating characteristic (ROC) curve and the area under the curve (AUC), along with measures of accuracy, sensitivity, and specificity. Net Reclassification Improvement Index (NRI) and Integrated Discrimination Improvement Index (IDI) were used to compare the performance of different models. Statistical significance was set at P &lt; 0.05. This study utilised the following software tools: ITK-SNAP (v3.8.0), custom Python scripts (v3.7.12), and RStudio (v4.3.2). Key Python packages included Pandas (v1.2.4), NumPy (v1.20.2), PyTorch (v1.8.0), Onekey (v2.2.3), OpenSlide (v1.2.0), Seaborn (v0.11.1), Matplotlib (v3.4.2), SciPy (v1.7.3), Scikit-learn (v1.0.2), and PyRadiomics (v3.0).</p></section></section><section id="Sec8"><h2 class="pmc_sec_title">Results</h2>
+<section id="Sec9"><h3 class="pmc_sec_title">Clinical characteristics of the patients</h3>
+<p id="Par17">The baseline clinical data of all patients were retrospectively analyzed through the electronic medical record system of the two hospitals. The clinical characteristics of the patients are shown in Table <a href="#Tab1" class="usa-link">1</a><strong>.</strong></p>
+<section class="tw xbox font-sm" id="Tab1"><h4 class="obj_head">Table 1.</h4>
+<div class="caption p"><p>Clinical characteristics of patients in the training set, test set and external validation set</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1">feature_name</th>
+<th align="left" colspan="1" rowspan="1">train set (n, %)</th>
+<th align="left" colspan="1" rowspan="1">T1-2</th>
+<th align="left" colspan="1" rowspan="1">T3-4</th>
+<th align="left" colspan="1" rowspan="1">p value</th>
+<th align="left" colspan="1" rowspan="1">test set (n, %)</th>
+<th align="left" colspan="1" rowspan="1">T1-2</th>
+<th align="left" colspan="1" rowspan="1">T3-4</th>
+<th align="left" colspan="1" rowspan="1">p value</th>
+<th align="left" colspan="1" rowspan="1">validation set (n, %)</th>
+<th align="left" colspan="1" rowspan="1">T1-2</th>
+<th align="left" colspan="1" rowspan="1">T3-4</th>
+<th align="left" colspan="1" rowspan="1">p value</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">Age</td>
+<td align="left" colspan="1" rowspan="1">60.89 ± 12.18</td>
+<td align="left" colspan="1" rowspan="1">60.02 ± 12.23</td>
+<td align="left" colspan="1" rowspan="1">61.86 ± 12.09</td>
+<td align="left" colspan="1" rowspan="1">0.090</td>
+<td align="left" colspan="1" rowspan="1">60.16 ± 12.67</td>
+<td align="left" colspan="1" rowspan="1">58.30 ± 12.35</td>
+<td align="left" colspan="1" rowspan="1">66.87 ± 11.87</td>
+<td align="left" colspan="1" rowspan="1">0.019</td>
+<td align="left" colspan="1" rowspan="1">60.82 ± 12.28</td>
+<td align="left" colspan="1" rowspan="1">61.62 ± 12.61</td>
+<td align="left" colspan="1" rowspan="1">59.95 ± 11.93</td>
+<td align="left" colspan="1" rowspan="1">0.479</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Gender</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.208</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.156</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.212</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Male</td>
+<td align="left" colspan="1" rowspan="1">335(93.84)</td>
+<td align="left" colspan="1" rowspan="1">174(92.06)</td>
+<td align="left" colspan="1" rowspan="1">161(95.83)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">42(60.87)</td>
+<td align="left" colspan="1" rowspan="1">30(55.56)</td>
+<td align="left" colspan="1" rowspan="1">12(80.00)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">150(98.04)</td>
+<td align="left" colspan="1" rowspan="1">80(100.00)</td>
+<td align="left" colspan="1" rowspan="1">70(95.89)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Female</td>
+<td align="left" colspan="1" rowspan="1">22(6.16)</td>
+<td align="left" colspan="1" rowspan="1">15(7.94)</td>
+<td align="left" colspan="1" rowspan="1">7(4.17)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">27(39.13)</td>
+<td align="left" colspan="1" rowspan="1">24(44.44)</td>
+<td align="left" colspan="1" rowspan="1">3(20.00)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">3(1.96)</td>
+<td align="left" colspan="1" rowspan="1">null</td>
+<td align="left" colspan="1" rowspan="1">3(4.11)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Smoking</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.177</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.137</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.478</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">No</td>
+<td align="left" colspan="1" rowspan="1">198(55.46)</td>
+<td align="left" colspan="1" rowspan="1">98(51.85)</td>
+<td align="left" colspan="1" rowspan="1">100(59.52)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">37(53.62)</td>
+<td align="left" colspan="1" rowspan="1">32(59.26)</td>
+<td align="left" colspan="1" rowspan="1">5(33.33)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">79(51.63)</td>
+<td align="left" colspan="1" rowspan="1">44(55.00)</td>
+<td align="left" colspan="1" rowspan="1">35(47.95)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Yes</td>
+<td align="left" colspan="1" rowspan="1">159(44.54)</td>
+<td align="left" colspan="1" rowspan="1">91(48.15)</td>
+<td align="left" colspan="1" rowspan="1">68(40.48)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">32(46.38)</td>
+<td align="left" colspan="1" rowspan="1">22(40.74)</td>
+<td align="left" colspan="1" rowspan="1">10(66.67)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">74(48.37)</td>
+<td align="left" colspan="1" rowspan="1">36(45.00)</td>
+<td align="left" colspan="1" rowspan="1">38(52.05)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Drinking</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.656</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.086</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.907</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">No</td>
+<td align="left" colspan="1" rowspan="1">252(70.59)</td>
+<td align="left" colspan="1" rowspan="1">131(69.31)</td>
+<td align="left" colspan="1" rowspan="1">121(72.02)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">43(62.32)</td>
+<td align="left" colspan="1" rowspan="1">37(68.52)</td>
+<td align="left" colspan="1" rowspan="1">6(40.00)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">94(61.44)</td>
+<td align="left" colspan="1" rowspan="1">50(62.50)</td>
+<td align="left" colspan="1" rowspan="1">44(60.27)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Yes</td>
+<td align="left" colspan="1" rowspan="1">105(29.41)</td>
+<td align="left" colspan="1" rowspan="1">58(30.69)</td>
+<td align="left" colspan="1" rowspan="1">47(27.98)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">26(37.68)</td>
+<td align="left" colspan="1" rowspan="1">17(31.48)</td>
+<td align="left" colspan="1" rowspan="1">9(60.00)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">59(38.56)</td>
+<td align="left" colspan="1" rowspan="1">30(37.50)</td>
+<td align="left" colspan="1" rowspan="1">29(39.73)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">N stage</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">&lt; 0.001</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.002</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">0.009</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">0</td>
+<td align="left" colspan="1" rowspan="1">215(60.22)</td>
+<td align="left" colspan="1" rowspan="1">138(73.02)</td>
+<td align="left" colspan="1" rowspan="1">77(45.83)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">46(66.67)</td>
+<td align="left" colspan="1" rowspan="1">39(72.22)</td>
+<td align="left" colspan="1" rowspan="1">7(46.67)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">97(63.40)</td>
+<td align="left" colspan="1" rowspan="1">60(75.00)</td>
+<td align="left" colspan="1" rowspan="1">37(50.68)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">1</td>
+<td align="left" colspan="1" rowspan="1">62(17.37)</td>
+<td align="left" colspan="1" rowspan="1">28(14.81)</td>
+<td align="left" colspan="1" rowspan="1">34(20.24)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">9(13.04)</td>
+<td align="left" colspan="1" rowspan="1">9(16.67)</td>
+<td align="left" colspan="1" rowspan="1">null</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">19(12.42)</td>
+<td align="left" colspan="1" rowspan="1">9(11.25)</td>
+<td align="left" colspan="1" rowspan="1">10(13.70)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">2</td>
+<td align="left" colspan="1" rowspan="1">78(21.85)</td>
+<td align="left" colspan="1" rowspan="1">23(12.17)</td>
+<td align="left" colspan="1" rowspan="1">55(32.74)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">10(14.49)</td>
+<td align="left" colspan="1" rowspan="1">5(9.26)</td>
+<td align="left" colspan="1" rowspan="1">5(33.33)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">36(23.53)</td>
+<td align="left" colspan="1" rowspan="1">11(13.75)</td>
+<td align="left" colspan="1" rowspan="1">25(34.25)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">3</td>
+<td align="left" colspan="1" rowspan="1">2(0.56)</td>
+<td align="left" colspan="1" rowspan="1">null</td>
+<td align="left" colspan="1" rowspan="1">2(1.19)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">4(5.80)</td>
+<td align="left" colspan="1" rowspan="1">1(1.85)</td>
+<td align="left" colspan="1" rowspan="1">3(20.00)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">1(0.65)</td>
+<td align="left" colspan="1" rowspan="1">null</td>
+<td align="left" colspan="1" rowspan="1">1(1.37)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></section></section><section id="Sec10"><h3 class="pmc_sec_title">Radiomics feature selection and model construction</h3>
+<p id="Par18">A total of 2394 radiomics features were extracted from CET1 and T2WI. 2375 with ICC greater than 0.75 were selected for subsequent feature selection. The radiomics features were standardized using the z-score normalization method. To address the strong correlations between features (Spearman correlation coefficient ≥ 0.9), a greedy recursive feature elimination strategy was employed for feature selection. This method involves iteratively removing the most redundant feature from the current set until no features with a correlation coefficient greater than 0.9 remain. Subsequently, we further refined the features using multivariate least absolute shrinkage and selection operator (LASSO) regression (Fig. <a href="#Fig3" class="usa-link">3</a>A, D), and Minimum Redundancy Maximum Relevance. Finally, 17 radiomics features were used to construct the radiomics model (Rad), and the feature weights are shown in Fig. <a href="#Fig4" class="usa-link">4</a>a. The NaiveBayes algorithm is known for its simplicity and efficiency [<a href="#CR10" class="usa-link" aria-describedby="CR10">10</a>]. The Rad model was constructed based on NaiveBayes classifier, the specific parameters are shown in Table S2.</p>
+<figure class="fig xbox font-sm" id="Fig3"><h4 class="obj_head">Fig. 3.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12372389_12885_2025_14627_Fig3_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/362d/12372389/9653f248a2e9/12885_2025_14627_Fig3_HTML.jpg" loading="lazy" id="d33e787" height="321" width="669" alt="Fig. 3"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig3/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Lasso regression modeling. <strong>A</strong>, <strong>B</strong>, <strong>C</strong> LASSO regression coefficient path diagram of radiomics model, DLRresnet18 model and DLRresnet50 model. <strong>D</strong>, <strong>E</strong>, <strong>F</strong> LASSO regression analysis cross-validation curve of radiomics model, DLRresnet18 model and DLRresnet50 model</p></figcaption></figure><figure class="fig xbox font-sm" id="Fig4"><h4 class="obj_head">Fig. 4.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12372389_12885_2025_14627_Fig4_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/362d/12372389/52eedb2c0e55/12885_2025_14627_Fig4_HTML.jpg" loading="lazy" id="d33e804" height="1269" width="751" alt="Fig. 4"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig4/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Feature construction for radiomics and deep learning-based omics models using Naive Bayes. <strong>A</strong> Feature construction for the radiomics model (<strong>B</strong>) Feature construction for the DLRresnet18 model (<strong>C</strong>) Feature construction for the DLRresnet50 model</p></figcaption></figure></section><section id="Sec11"><h3 class="pmc_sec_title">Deep learning feature and deep learning radiomics model construction</h3>
+<p id="Par19">Supplementary Fig. 1 illustrates region-specific activation patterns of deep learning architectures in tongue cancer MRI. ResNet 50 (50-layer residual network) localizes tumor core regions with precise correspondence to pathological boundaries, indicating its sensitivity to morphometric determinants (e.g., maximum tumor diameter) and infiltration characteristics. These features constitute established prognostic indicators for T-stage classification. Conversely, ResNet 18 exhibits heightened activation at the tumor-normal tissue interface, capturing subtle morphological transitions through its optimized residual blocks. This differential attention suggests complementary roles: ResNet 50 quantifies invasion extent while ResNet-18 delineates marginal heterogeneity – both essential for staging accuracy.</p>
+<p id="Par20">Five hundred twelve and 2048 DL features were extracted by resnet18 and resnet50 algorithms, respectively. Additionally, 512 and 1883 features with ICC greater than 0.75 were retained for further screening. These features were evaluated by the z-score normalization method, Spearman correlation coefficientand, lasso and Minimum Redundancy Maximum Relevance were used to construct DLRresnet18 and DLRresnet50 models (Fig. <a href="#Fig3" class="usa-link">3</a>B and E). Twelve radiomics features and two DL features were used to construct the DLRresnet18 model, and 17 radiomics features and seven DL features were used to construct the DLRresnet50 model (Fig. <a href="#Fig4" class="usa-link">4</a>B and C). Similarly, NaiveBayes was used for model classification.</p></section><section id="Sec12"><h3 class="pmc_sec_title">Evaluation of the radiomics, deep learning models and the fusion models</h3>
+<p id="Par21">The AUCs of the two DLR models (AUC = 0.847 and 0.837) were higher than the Rad model (AUC = 0.828) in training set. In the test set and the external test set, the AUCs of DLRresnet18 (AUC = 0.805 and 0.857) and DLRresnet50 (AUC = 0.810 and 0.860) were consistent with the training set and higher than the Rad model (AUC = 0.770 and 0.801) (Fig. <a href="#Fig5" class="usa-link">5</a>). DCA curves also showed that DLRresnet18 and DLRresnet50 were superior to Rad model in the training set, test set and external validation set (Fig. <a href="#Fig6" class="usa-link">6</a>). To further indicate whether there is an improvement in the predicted categories of the two DLR models relative to the Rad model, we employ the NRI set IDI to compare with the Rad. In the test set, the NRI and IDI of DLRresnet18 relative to the Rad model are respectively 0.001 and 0.030. The NRI and IDI of DLRresnet50 relative to the Rad model are respectively 0.033 and 0.042. In the external dataset, DLRresnet18 (NRIs = 0.044, IDI = 0.029) and DLRresnet50 (NRIs = 0.048, IDI = 0.062) also had high NRI and IDI (Fig. <a href="#Fig7" class="usa-link">7</a>). Supplementary Fig. 2 shows the NRI and IDI values of the two DLR models in the training set compared with the Rad model, the NRI and IDI of DLRresnet18 relative to the Rad model are respectively 0.058 and 0.065. The NRI and IDI of DLRresnet50 rela-tive to the Rad model are respectively 0.056 and 0.066. The probability distribution histograms for the Rad and DLR models are presented in Supplementary Fig. 3. The performance metrics, including AUC, ACC, TPR, and TNR, for all three models are displayed in Table <a href="#Tab2" class="usa-link">2</a>.</p>
+<figure class="fig xbox font-sm" id="Fig5"><h4 class="obj_head">Fig. 5.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12372389_12885_2025_14627_Fig5_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/362d/12372389/df7a4dd927af/12885_2025_14627_Fig5_HTML.jpg" loading="lazy" id="d33e849" height="163" width="669" alt="Fig. 5"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig5/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>The AUCs of the Rad model and the two DLR models in the training set (<strong>A</strong>), test set (<strong>B</strong>) and external validation set (<strong>C</strong>)</p></figcaption></figure><figure class="fig xbox font-sm" id="Fig6"><h4 class="obj_head">Fig. 6.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12372389_12885_2025_14627_Fig6_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/362d/12372389/ba14e5ae024d/12885_2025_14627_Fig6_HTML.jpg" loading="lazy" id="d33e866" height="163" width="669" alt="Fig. 6"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig6/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>DCA curves of the Rad model and the two DLR models in the training set (<strong>A</strong>), test set (<strong>B</strong>) and external validation set (<strong>C</strong>)</p></figcaption></figure><figure class="fig xbox font-sm" id="Fig7"><h4 class="obj_head">Fig. 7.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12372389_12885_2025_14627_Fig7_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/362d/12372389/f4602bb34f5d/12885_2025_14627_Fig7_HTML.jpg" loading="lazy" id="d33e887" height="551" width="669" alt="Fig. 7"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig7/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>The NRI and IDI values of the two DLR models compared with the Rad model in test set (<strong>A</strong>, <strong>C</strong>) and external validation set (<strong>B</strong>, <strong>D</strong>)</p></figcaption></figure><section class="tw xbox font-sm" id="Tab2"><h4 class="obj_head">Table 2.</h4>
+<div class="caption p"><p>The performance metrics, including AUC, ACC, TPR, and TNR, for all three models</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1">Model</th>
+<th align="left" colspan="1" rowspan="1">Cohort</th>
+<th align="left" colspan="1" rowspan="1">AUC(95% CI)</th>
+<th align="left" colspan="1" rowspan="1">Accuracy</th>
+<th align="left" colspan="1" rowspan="1">Sensitivity</th>
+<th align="left" colspan="1" rowspan="1">Specificity</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" rowspan="3" colspan="1">Rad</td>
+<td align="left" colspan="1" rowspan="1">Training</td>
+<td align="left" colspan="1" rowspan="1">0.828 (0.7866—0.8695)</td>
+<td align="left" colspan="1" rowspan="1">0.751</td>
+<td align="left" colspan="1" rowspan="1">0.702</td>
+<td align="left" colspan="1" rowspan="1">0.794</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Validation</td>
+<td align="left" colspan="1" rowspan="1">0.770 (0.6948—0.8449)</td>
+<td align="left" colspan="1" rowspan="1">0.719</td>
+<td align="left" colspan="1" rowspan="1">0.712</td>
+<td align="left" colspan="1" rowspan="1">0.725</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">External test</td>
+<td align="left" colspan="1" rowspan="1">0.801 (0.6599—0.9426)</td>
+<td align="left" colspan="1" rowspan="1">0.783</td>
+<td align="left" colspan="1" rowspan="1">0.733</td>
+<td align="left" colspan="1" rowspan="1">0.796</td>
+</tr>
+<tr>
+<td align="left" rowspan="3" colspan="1">DLRresnet18</td>
+<td align="left" colspan="1" rowspan="1">Training</td>
+<td align="left" colspan="1" rowspan="1">0.837 (0.7965—0.8783)</td>
+<td align="left" colspan="1" rowspan="1">0.773</td>
+<td align="left" colspan="1" rowspan="1">0.839</td>
+<td align="left" colspan="1" rowspan="1">0.714</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Validation</td>
+<td align="left" colspan="1" rowspan="1">0.805 (0.7374—0.8729)</td>
+<td align="left" colspan="1" rowspan="1">0.712</td>
+<td align="left" colspan="1" rowspan="1">0.849</td>
+<td align="left" colspan="1" rowspan="1">0.587</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">External test</td>
+<td align="left" colspan="1" rowspan="1">0.857 (0.7592—0.9544)</td>
+<td align="left" colspan="1" rowspan="1">0.710</td>
+<td align="left" colspan="1" rowspan="1">0.867</td>
+<td align="left" colspan="1" rowspan="1">0.667</td>
+</tr>
+<tr>
+<td align="left" rowspan="3" colspan="1">DLRresnet50</td>
+<td align="left" colspan="1" rowspan="1">Training</td>
+<td align="left" colspan="1" rowspan="1">0.847 (0.8075—0.8863)</td>
+<td align="left" colspan="1" rowspan="1">0.776</td>
+<td align="left" colspan="1" rowspan="1">0.780</td>
+<td align="left" colspan="1" rowspan="1">0.772</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Validation</td>
+<td align="left" colspan="1" rowspan="1">0.810(0.7433—0.8769)</td>
+<td align="left" colspan="1" rowspan="1">0.732</td>
+<td align="left" colspan="1" rowspan="1">0.808</td>
+<td align="left" colspan="1" rowspan="1">0.662</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">External test</td>
+<td align="left" colspan="1" rowspan="1">0.860 (0.7433—0.8769)</td>
+<td align="left" colspan="1" rowspan="1">0.783</td>
+<td align="left" colspan="1" rowspan="1">0.800</td>
+<td align="left" colspan="1" rowspan="1">0.778</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></section></section></section><section id="Sec13"><h2 class="pmc_sec_title">Discussion</h2>
+<p id="Par22">Traditional imaging methods such as CT and MRI, while capable of providing morphological information about tumors, often fall short in reflecting the internal heterogeneity of tumors. Deep learning radiomics analysis, by extracting and analyzing these advanced quantitative features, can more accurately assess the nature and extent of tumors [<a href="#CR11" class="usa-link" aria-describedby="CR11">11</a>].Radiomics not only plays a role in diagnosis but also provides important support in the treatment of tongue cancer [<a href="#CR12" class="usa-link" aria-describedby="CR12">12</a>]. MRI radiomics based on machine learning can predict the pathological differentiation degree of tongue cancer [<a href="#CR13" class="usa-link" aria-describedby="CR13">13</a>]. This is further validated by our DLR models'high AUC (0.860 in external test set, Table <a href="#Tab2" class="usa-link">2</a>) and clear feature separation in Naive Bayes probability distributions (Fig. <a href="#Fig4" class="usa-link">4</a>), demonstrating superior capture of tumor heterogeneity compared to traditional Rad model.</p>
+<p id="Par23">By extracting imaging features of tumors and combining them with machine learning algorithms, it is possible to establish classification or predictive models of imaging features related to tumor phenotypes or gene-protein characteristics [<a href="#CR14" class="usa-link" aria-describedby="CR14">14</a>].Radiomics can predict the risk of neck lymph node metastasis in patients with tongue cancer by analyzing MRI image features. For example, MRI texture analysis based on the gray-level co-occurrence matrix (GLCM) can provide value in predicting cervical lymph node metastasis in patients with tongue cancer [<a href="#CR3" class="usa-link" aria-describedby="CR3">3</a>]. Our clinical data (Table <a href="#Tab1" class="usa-link">1</a>) support this: N stage significantly correlated with T stage (<em>p</em> &lt; 0.001), with T3-4 patients having higher N2-3 rates (32.74% vs 12.17% in training set), aligning with the DLR model's ability to detect advanced invasion.</p>
+<p id="Par24">Radiomics can also be used to assess the response of patients with HNSCC to treatment. By comparing the changes in imaging features before and after treatment, the therapeutic effect can be more accurately evaluated, providing a basis for adjusting the treatment plan [<a href="#CR15" class="usa-link" aria-describedby="CR15">15</a>]. By predicting pathological differentiation, neck lymph node metastasis, and treatment response, radiomics provides new evidence for clinical decision-making.</p>
+<p id="Par25">Contrast, deep learning models, with their multi-layered neural network architecture, can automatically identify optimal features from raw image data, offering greater flexibility, nonlinearity, and rich parameterization to predict clinical outcomes [<a href="#CR16" class="usa-link" aria-describedby="CR16">16</a>]. Moreover, deep learning models have the capacity for self-improvement and can scale exponentially with increasing data and complexity. As a result, deep learning algorithms have been shown to enhance predictive performance in 74% of studies, whether used alone or integrated with conventional radiomics [<a href="#CR17" class="usa-link" aria-describedby="CR17">17</a>]. Our results confirm this: DLRresnet50 achieved IDI = 0.062 and NRI = 0.048 in external validation (Fig. <a href="#Fig7" class="usa-link">7</a>), indicating significant discrimination improvement over the Rad model. The Grad-CAM heatmaps (Figs. <a href="#Fig1" class="usa-link">1</a>) further illustrate how deep features localize invasion boundaries (e.g., tongue base infiltration in T3 cases).</p>
+<p id="Par26">The T staging of tongue cancer is classified based on the size of the tumor and the depth of invasion, and is mainly used to guide the selection of treatment plans. Although T staging plays an important role in guiding treatment, it still has certain limitations [<a href="#CR18" class="usa-link" aria-describedby="CR18">18</a>]. The 2017 AJCC 8th edition introduced the concept of depth of invasion, but the assessment of depth of invasion is somewhat subjective in histology, which can affect the choice of treatment plan. Currently, there is no effective imaging tool for preoperative T staging in clinical application, and no relevant models have been reported. In this multicenter retrospective cohort study, we established, for the first time, an extensive deep learning radiomics (DLR) model to predict the preoperative T staging of tongue cancer. DLRresnet18 and DLRresnet50 are deep learning models derived from the ResNet architecture, using deeper networks with 18/50 layers to process complex features from input data. Their applications in medical image analysis have demonstrated powerful feature extraction capabilities and adaptability. By improving the architecture and using transfer learning techniques, they can significantly enhance diagnostic accuracy and efficiency, providing a robust tool for medical image analysis [<a href="#CR19" class="usa-link" aria-describedby="CR19">19</a>, <a href="#CR20" class="usa-link" aria-describedby="CR20">20</a>]. The LASSO feature selection process (Fig. <a href="#Fig3" class="usa-link">3</a>) optimized this capability – for example, DLRresnet50 retained deep features that reduced overfitting while maintaining validation AUC = 0.860 (Table <a href="#Tab2" class="usa-link">2</a>).</p>
+<p id="Par27">Compared to traditional CT, MRI has good soft tissue resolution in the preoperative assessment of tongue cancer. In tongue cancer with severe soft tissue involvement, MRI is more suitable for accurate T staging [<a href="#CR21" class="usa-link" aria-describedby="CR21">21</a>]. Supplementary Table S1 details the MRI parameters enabling this: uniform 4 mm slice thickness across GE/Siemens scanners ensured feature extraction consistency, critical for multicenter validation.</p>
+<p id="Par28">This study retrospectively analyzed MRI data from 579 patients with tongue cancer from two centers and constructed radiomics (Rad)- and deep learning radiomics (DLR) models based on ResNet18 and ResNet50 architectures, which can effectively identify T1-2 and T3-4 stages of tongue cancer. To address the potential heterogeneity of images from different centers, we applied intensity inhomogeneity correction algorithms and performed interobserver reproducibility assessments to select features with good consistency (ICC &gt; 0.75). By integrating T1WI and T2-fs radiomics features with maximum cross-sectional deep learning features, the DLR model demonstrated reliable predictive ability, with AUC values (0.805–0.860) significantly higher than those of the traditional radiomics model (Rad, AUC = 0.770–0.828) in the training, test, and external validation sets, indicating that deep learning features can effectively complement the deficiencies of traditional features (NRI = 0.033–0.048, IDI = 0.029–0.062). Figure <a href="#Fig7" class="usa-link">7</a> and Figs2 quantify this complementarity: NRI values were consistently positive across all cohorts (<em>p</em> &lt; 0.05), confirming the DLR models'superior reclassification ability. Decision curve analysis (DCA) showed that the fusion model has higher net benefit across a wide range of threshold probabilities, supporting its potential application value as a non-invasive staging tool. As seen in Fig. <a href="#Fig6" class="usa-link">6</a>, DLRresnet50 provided the highest net benefit at clinical decision thresholds. We validated the applicability and generalizability of the proposed DLR analysis using internal datasets. These findings suggest that a multimodal feature fusion strategy can significantly enhance the predictive accuracy of tongue cancer staging, providing a reliable basis for individualized treatment.</p>
+<p id="Par29">In comparison with other studies, this study shares similarities with the work of Lan et al. on oral squamous cell carcinoma [<a href="#CR22" class="usa-link" aria-describedby="CR22">22</a>], which focused on predicting lymph node metastasis (DLRresnet50, AUC = 0.796–0.928), whereas this study is the first to apply the DLR model to T staging (DLRresnet50, AUC = 0.810–0.860). Similarly, in our study on T-staging prediction of tongue cancer, DLRresnet50 demonstrated significantly superior predictive efficacy compared to the Rad model. Additionally, this study quantifies model improvement through NRI and IDI, providing a more comprehensive performance evaluation than AUC alone, echoing the multi-omics feature selection framework proposed by Bhadra et al. [<a href="#CR10" class="usa-link" aria-describedby="CR10">10</a>, <a href="#CR23" class="usa-link" aria-describedby="CR23">23</a>]. The probability distribution histograms (Figs3) further differentiate our approach: DLR models showed bimodal distributions with minimal overlap between T1-2/T3-4 classes, reducing ambiguity in clinical staging.</p>
+<p id="Par30">Our research also has some limitations, as follows. The current model relies on high-resolution MRI data, which limits its application in regions with limited resources. The quality and standardization of imaging data are important factors affecting the application of radiomics. Differences between different devices and operators may lead to inconsistent data, affecting the accuracy and generalization ability of the model. Clinical deployment faces significant challenges: MRI-based deep learning for tongue cancer T-staging encounters triple barriers in resource accessibility, technical robustness, and clinical integration maturity. Breakthroughs require synergistic advances in rapid scanning technology, cross-center federated learning frameworks, and interpretable algorithms. In the future, lightweight models (such as MobileNet) or the combination of CT features can be explored. Secondly, the interpretability and generalization ability of machine learning and deep learning algorithms are hot issues in current research. How to improve the interpretability and generalization ability of algorithms so that they can maintain a high accuracy rate across different datasets is an important direction for future research. Figure <a href="#Fig4" class="usa-link">4</a>'s feature construction analysis reveals a related challenge: Naive Bayes assumes feature independence, potentially underutilizing spatial relationships captured in ResNet activations. Thirdly, the inherent selection bias in the retrospective design may affect the extrapolation ability of the model. Advanced imaging sequences, such as DWI (Diffusion-Weighted Imaging) and ADC (Apparent Diffusion Coefficient) maps, were not included in the radiomics analysis. These sequences can provide additional information as tumor tissues typically exhibit different diffusion characteristics. Prospective cohort validation is required, with a larger cohort and the inclusion of multi—parameter data, to explore the impact of these sequences. Finally, the regions of interest (ROIs) were manually delineated. Although the intra—class correlation coefficient (ICC) was calculated to minimize inter—observer variability, automated segmentation methods can improve accuracy and reduce the labor—intensiveness of manual delineation, especially with the advancements in artificial intelligence algorithms.</p></section><section id="Sec14"><h2 class="pmc_sec_title">Conclusion</h2>
+<p id="Par31">This study proposed a novel deep learning radiomics (DLR) model to predict the T stage of tongue cancer based on the features of T1WI and T2—fs MRI images. As an important tool in tongue cancer research and clinical practice, deep learning radiomics is constantly evolving and advancing. By integrating advanced imaging technologies and machine learning algorithms, deep learning radiomics offers new methods and ideas for the early diagnosis, precise treatment, and prognosis assessment of tongue cancer.</p></section><section id="Sec15"><h2 class="pmc_sec_title">Supplementary Information</h2>
+<section class="sm xbox font-sm" id="MOESM1"><div class="media p"><div class="caption">
+<a href="/articles/instance/12372389/bin/12885_2025_14627_MOESM1_ESM.docx" data-ga-action="click_feat_suppl" class="usa-link">12885_2025_14627_MOESM1_ESM.docx</a><sup> (6.7MB, docx) </sup><p>Supplementary Material 1: Supplementary Table S1 Detailed MRI Scan Parameters. Supplementary Table S2 Parameters of machine learning. Figs1. Illustration of deep learning feature heatmap to predict T-staging of Tongue Cancer. (A) Grad-Cam of ResNet 18. (B) Grad-Cam of ResNet 50. Figs2. The NRI and IDI values of the two DLR models in the training set compared with the Rad model. Figs3. The probability distribution histograms for the Rad and DLR models.</p>
+</div></div></section></section><section id="notes1"><h2 class="pmc_sec_title">Authors’ contributions</h2>
+<p>Xi Chen designed the study; Zhaoyi Lu wrote the manuscript; Hang ling coordinated the project; Zhaoyi Lu and Bowen Zhu performed data analysis; All members participated in discussion. All authors approved the final manuscript.</p></section><section id="notes2"><h2 class="pmc_sec_title">Funding</h2>
+<p>The study was supported by Jiangsu Province Hospital (the First Affiliated Hospital with Nanjing Medical University) Clinical Capacity Enhancement Project (JSPH-MA-2023–1), Clinical Diagnosis and Treatment Technology Innovation Challenge Project of Jiangsu Province Hospital (JBGS202420) and the Natural Science Foundation of Jiangsu Province (Grants No. BK20230739).</p></section><section id="notes3"><h2 class="pmc_sec_title">Data availability</h2>
+<p>No datasets were generated or analysed during the current study.</p></section><section id="notes4"><h2 class="pmc_sec_title">Declarations</h2>
+<section id="FPar1"><h3 class="pmc_sec_title">Ethics approval and consent to participate</h3>
+<p id="Par32">This study was approved by the Medical Ethics Committee of Jiangsu Province Hospital (No. 2025-SR-111) and Xiangya Cancer Hospital, Central South University (No. SBQLL-2024–064), and the need for informed consent was waived. All procedures adhered to the Declaration of Helsinki and relevant national guidelines and we confirm that our study does not involve experiments on humans or the use of human tissue samples.</p></section><section id="FPar2"><h3 class="pmc_sec_title">Consent for publication</h3>
+<p id="Par33">All authors approved the final manuscript.</p></section><section id="FPar3"><h3 class="pmc_sec_title">Competing interests</h3>
+<p id="Par34">The authors declare no competing interests.</p></section></section><section id="fn-group1" class="fn-group"><h2 class="pmc_sec_title">Footnotes</h2>
+<div class="fn-group p font-secondary-light font-sm">
+<div class="fn p" id="fn1">
+<p><strong>Publisher’s Note</strong></p>
+<p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</div>
+<div class="fn p" id="fn2"><p>Zhaoyi Lu and Bowen Zhu are co-authors.</p></div>
+</div></section><section id="Bib1" class="ref-list"><h2 class="pmc_sec_title">References</h2>
+<section id="Bib1_sec2"><ul class="ref-list font-sm" style="list-style-type:none">
+<li id="CR1">
+<span class="label">1.</span><cite>Sung H, Ferlay J, Siegel RL, Laversanne M, Soerjomataram I, Jemal A, Bray F. Global cancer statistics 2020: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries. CA Cancer J Clin. 2021;71(3):209–49.
+</cite> [<a href="https://doi.org/10.3322/caac.21660" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/33538338/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Sung%20H,%20Ferlay%20J,%20Siegel%20RL,%20Laversanne%20M,%20Soerjomataram%20I,%20Jemal%20A,%20Bray%20F.%20Global%20cancer%20statistics%202020:%20GLOBOCAN%20estimates%20of%20incidence%20and%20mortality%20worldwide%20for%2036%20cancers%20in%20185%20countries.%20CA%20Cancer%20J%20Clin.%202021;71(3):209%E2%80%9349." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR2">
+<span class="label">2.</span><cite>Bourhis J, Le Tourneau C, Calderon B, Martin L, Sire C, Pointreau Y, Ramee J, Coutte A, Boisselier P, Kaminsky-Forrett M. LBA33 5-year overall survival (OS) in patients (pts) with locally advanced squamous cell carcinoma of the head and neck (LA SCCHN) treated with xevinapant+ chemoradiotherapy (CRT) vs placebo+ CRT in a randomized, phase II study. Ann Oncol. 2022;33:S1400.</cite> [<a href="https://scholar.google.com/scholar_lookup?Bourhis%20J,%20Le%20Tourneau%20C,%20Calderon%20B,%20Martin%20L,%20Sire%20C,%20Pointreau%20Y,%20Ramee%20J,%20Coutte%20A,%20Boisselier%20P,%20Kaminsky-Forrett%20M.%20LBA33%205-year%20overall%20survival%20(OS)%20in%20patients%20(pts)%20with%20locally%20advanced%20squamous%20cell%20carcinoma%20of%20the%20head%20and%20neck%20(LA%20SCCHN)%20treated%20with%20xevinapant+%20chemoradiotherapy%20(CRT)%20vs%20placebo+%20CRT%20in%20a%20randomized,%20phase%20II%20study.%20Ann%20Oncol.%202022;33:S1400." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR3">
+<span class="label">3.</span><cite>Lan T, Kuang S, Liang P, Ning C, Li Q, Wang L, Wang Y, Lin Z, Hu H, Yang L, et al. MRI-based deep learning and radiomics for prediction of occult cervical lymph node metastasis and prognosis in early-stage oral and oropharyngeal squamous cell carcinoma: a diagnostic study. Int J Surg. 2024;110(8):4648–59.
+</cite> [<a href="https://doi.org/10.1097/JS9.0000000000001578" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11325978/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/38729119/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Lan%20T,%20Kuang%20S,%20Liang%20P,%20Ning%20C,%20Li%20Q,%20Wang%20L,%20Wang%20Y,%20Lin%20Z,%20Hu%20H,%20Yang%20L,%20et%20al.%20MRI-based%20deep%20learning%20and%20radiomics%20for%20prediction%20of%20occult%20cervical%20lymph%20node%20metastasis%20and%20prognosis%20in%20early-stage%20oral%20and%20oropharyngeal%20squamous%20cell%20carcinoma:%20a%20diagnostic%20study.%20Int%20J%20Surg.%202024;110(8):4648%E2%80%9359." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR4">
+<span class="label">4.</span><cite>Lambin P, Leijenaar RTH, Deist TM, Peerlings J, de Jong EEC, van Timmeren J, Sanduleanu S, Larue R, Even AJG, Jochems A, et al. Radiomics: the bridge between medical imaging and personalized medicine. Nat Rev Clin Oncol. 2017;14(12):749–62.
+</cite> [<a href="https://doi.org/10.1038/nrclinonc.2017.141" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/28975929/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Lambin%20P,%20Leijenaar%20RTH,%20Deist%20TM,%20Peerlings%20J,%20de%20Jong%20EEC,%20van%20Timmeren%20J,%20Sanduleanu%20S,%20Larue%20R,%20Even%20AJG,%20Jochems%20A,%20et%20al.%20Radiomics:%20the%20bridge%20between%20medical%20imaging%20and%20personalized%20medicine.%20Nat%20Rev%20Clin%20Oncol.%202017;14(12):749%E2%80%9362." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR5">
+<span class="label">5.</span><cite>Bilal M, Raza SEA, Azam A, Graham S, Ilyas M, Cree IA, Snead D, Minhas F, Rajpoot NM. Development and validation of a weakly supervised deep learning framework to predict the status of molecular pathways and key mutations in colorectal cancer from routine histology images: a retrospective study. Lancet Digit Health. 2021;3(12):e763–72.
+</cite> [<a href="https://doi.org/10.1016/S2589-7500(21)00180-1" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8609154/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/34686474/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Bilal%20M,%20Raza%20SEA,%20Azam%20A,%20Graham%20S,%20Ilyas%20M,%20Cree%20IA,%20Snead%20D,%20Minhas%20F,%20Rajpoot%20NM.%20Development%20and%20validation%20of%20a%20weakly%20supervised%20deep%20learning%20framework%20to%20predict%20the%20status%20of%20molecular%20pathways%20and%20key%20mutations%20in%20colorectal%20cancer%20from%20routine%20histology%20images:%20a%20retrospective%20study.%20Lancet%20Digit%20Health.%202021;3(12):e763%E2%80%9372." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR6">
+<span class="label">6.</span><cite>Aerts HJ, Velazquez ER, Leijenaar RT, Parmar C, Grossmann P, Carvalho S, Bussink J, Monshouwer R, Haibe-Kains B, Rietveld D, et al. Decoding tumour phenotype by noninvasive imaging using a quantitative radiomics approach. Nat Commun. 2014;5:4006.
+</cite> [<a href="https://doi.org/10.1038/ncomms5006" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC4059926/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/24892406/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Aerts%20HJ,%20Velazquez%20ER,%20Leijenaar%20RT,%20Parmar%20C,%20Grossmann%20P,%20Carvalho%20S,%20Bussink%20J,%20Monshouwer%20R,%20Haibe-Kains%20B,%20Rietveld%20D,%20et%20al.%20Decoding%20tumour%20phenotype%20by%20noninvasive%20imaging%20using%20a%20quantitative%20radiomics%20approach.%20Nat%20Commun.%202014;5:4006." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR7">
+<span class="label">7.</span><cite>Esteva A, Kuprel B, Novoa RA, Ko J, Swetter SM, Blau HM, Thrun S. Dermatologist-level classification of skin cancer with deep neural networks. Nature. 2017;542(7639):115–8.
+</cite> [<a href="https://doi.org/10.1038/nature21056" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8382232/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/28117445/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Esteva%20A,%20Kuprel%20B,%20Novoa%20RA,%20Ko%20J,%20Swetter%20SM,%20Blau%20HM,%20Thrun%20S.%20Dermatologist-level%20classification%20of%20skin%20cancer%20with%20deep%20neural%20networks.%20Nature.%202017;542(7639):115%E2%80%938." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR8">
+<span class="label">8.</span><cite>Liu L, Wang X, Bao Q, Li X. Behavior detection and evaluation based on multi-frame MobileNet. Multimedia Tools Appl. 2024;83(6):15733–50.</cite> [<a href="https://scholar.google.com/scholar_lookup?Liu%20L,%20Wang%20X,%20Bao%20Q,%20Li%20X.%20Behavior%20detection%20and%20evaluation%20based%20on%20multi-frame%20MobileNet.%20Multimedia%20Tools%20Appl.%202024;83(6):15733%E2%80%9350." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR9">
+<span class="label">9.</span><cite>Dovrou A, Nikiforaki K, Zaridis D, Manikis GC, Mylona E, Tachos N, Tsiknakis M, Fotiadis DI, Marias K. A segmentation-based method improving the performance of N4 bias field correction on T2-weighted MR imaging data of the prostate. Magn Reson Imaging. 2023;101:1–12.
+</cite> [<a href="https://doi.org/10.1016/j.mri.2023.03.012" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/37004467/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Dovrou%20A,%20Nikiforaki%20K,%20Zaridis%20D,%20Manikis%20GC,%20Mylona%20E,%20Tachos%20N,%20Tsiknakis%20M,%20Fotiadis%20DI,%20Marias%20K.%20A%20segmentation-based%20method%20improving%20the%20performance%20of%20N4%20bias%20field%20correction%20on%20T2-weighted%20MR%20imaging%20data%20of%20the%20prostate.%20Magn%20Reson%20Imaging.%202023;101:1%E2%80%9312." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR10">
+<span class="label">10.</span><cite>Bhadra T, Mallik S, Hasan N, Zhao Z. Comparison of five supervised feature selection algorithms leading to top features and gene signatures from multi-omics data in cancer. BMC Bioinformatics. 2022;23(Suppl 3):153.
+</cite> [<a href="https://doi.org/10.1186/s12859-022-04678-y" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC9052461/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/35484501/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Bhadra%20T,%20Mallik%20S,%20Hasan%20N,%20Zhao%20Z.%20Comparison%20of%20five%20supervised%20feature%20selection%20algorithms%20leading%20to%20top%20features%20and%20gene%20signatures%20from%20multi-omics%20data%20in%20cancer.%20BMC%20Bioinformatics.%202022;23(Suppl%203):153." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR11">
+<span class="label">11.</span><cite>Crombe A, Spinnato P, Italiano A, Brisse HJ, Feydy A, Fadli D, Kind M. Radiomics and artificial intelligence for soft-tissue sarcomas: current status and perspectives. Diagn Interv Imaging. 2023;104(12):567–83.
+</cite> [<a href="https://doi.org/10.1016/j.diii.2023.09.005" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/37802753/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Crombe%20A,%20Spinnato%20P,%20Italiano%20A,%20Brisse%20HJ,%20Feydy%20A,%20Fadli%20D,%20Kind%20M.%20Radiomics%20and%20artificial%20intelligence%20for%20soft-tissue%20sarcomas:%20current%20status%20and%20perspectives.%20Diagn%20Interv%20Imaging.%202023;104(12):567%E2%80%9383." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR12">
+<span class="label">12.</span><cite>Tagliabue M, Ruju F, Mossinelli C, Gaeta A, Raimondi S, Volpe S, Zaffaroni M, Isaksson LJ, Garibaldi C, Cremonesi M, et al. The prognostic role of MRI-based radiomics in tongue carcinoma: a multicentric validation study. Radiol Med. 2024;129(9):1369–81.
+</cite> [<a href="https://doi.org/10.1007/s11547-024-01859-y" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11379741/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39096355/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Tagliabue%20M,%20Ruju%20F,%20Mossinelli%20C,%20Gaeta%20A,%20Raimondi%20S,%20Volpe%20S,%20Zaffaroni%20M,%20Isaksson%20LJ,%20Garibaldi%20C,%20Cremonesi%20M,%20et%20al.%20The%20prognostic%20role%20of%20MRI-based%20radiomics%20in%20tongue%20carcinoma:%20a%20multicentric%20validation%20study.%20Radiol%20Med.%202024;129(9):1369%E2%80%9381." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR13">
+<span class="label">13.</span><cite>Yu B, Huang C, Xu J, Liu S, Guan Y, Li T, Zheng X, Ding J. Prediction of the degree of pathological differentiation in tongue squamous cell carcinoma based on radiomics analysis of magnetic resonance images. BMC Oral Health. 2021;21(1):585.
+</cite> [<a href="https://doi.org/10.1186/s12903-021-01947-9" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8603498/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/34798867/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Yu%20B,%20Huang%20C,%20Xu%20J,%20Liu%20S,%20Guan%20Y,%20Li%20T,%20Zheng%20X,%20Ding%20J.%20Prediction%20of%20the%20degree%20of%20pathological%20differentiation%20in%20tongue%20squamous%20cell%20carcinoma%20based%20on%20radiomics%20analysis%20of%20magnetic%20resonance%20images.%20BMC%20Oral%20Health.%202021;21(1):585." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR14">
+<span class="label">14.</span><cite>Ren J, Qi M, Yuan Y, Tao X. Radiomics of apparent diffusion coefficient maps to predict histologic grade in squamous cell carcinoma of the oral tongue and floor of mouth: a preliminary study. Acta Radiol. 2021;62(4):453–61.
+</cite> [<a href="https://doi.org/10.1177/0284185120931683" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/32536260/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Ren%20J,%20Qi%20M,%20Yuan%20Y,%20Tao%20X.%20Radiomics%20of%20apparent%20diffusion%20coefficient%20maps%20to%20predict%20histologic%20grade%20in%20squamous%20cell%20carcinoma%20of%20the%20oral%20tongue%20and%20floor%20of%20mouth:%20a%20preliminary%20study.%20Acta%20Radiol.%202021;62(4):453%E2%80%9361." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR15">
+<span class="label">15.</span><cite>Lin P, Xie W, Li Y, Zhang C, Wu H, Wan H, Gao M, Liang F, Han P, Chen R, et al. Intratumoral and peritumoral radiomics of MRIs predicts pathologic complete response to neoadjuvant chemoimmunotherapy in patients with head and neck squamous cell carcinoma. J Immunother Cancer. 2024. 10.1136/jitc-2024-009616.
+</cite> [<a href="https://doi.org/10.1136/jitc-2024-009616" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11552555/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39500529/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Lin%20P,%20Xie%20W,%20Li%20Y,%20Zhang%20C,%20Wu%20H,%20Wan%20H,%20Gao%20M,%20Liang%20F,%20Han%20P,%20Chen%20R,%20et%20al.%20Intratumoral%20and%20peritumoral%20radiomics%20of%20MRIs%20predicts%20pathologic%20complete%20response%20to%20neoadjuvant%20chemoimmunotherapy%20in%20patients%20with%20head%20and%20neck%20squamous%20cell%20carcinoma.%20J%20Immunother%20Cancer.%202024.%2010.1136/jitc-2024-009616." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR16">
+<span class="label">16.</span><cite>Shehta AI, Nasr M, El Ghazali A. Blood cancer prediction model based on deep learning technique. Sci Rep. 2025;15(1):1889.
+</cite> [<a href="https://doi.org/10.1038/s41598-024-84475-0" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11731045/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39805996/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Shehta%20AI,%20Nasr%20M,%20El%20Ghazali%20A.%20Blood%20cancer%20prediction%20model%20based%20on%20deep%20learning%20technique.%20Sci%20Rep.%202025;15(1):1889." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR17">
+<span class="label">17.</span><cite>Wan Q, Lindsay C, Zhang C, Kim J, Chen X, Li J, Huang RY, Reardon DA, Young GS, Qin L. Comparative analysis of deep learning and radiomic signatures for overall survival prediction in recurrent high-grade glioma treated with immunotherapy. Cancer Imaging. 2025;25(1):5.
+</cite> [<a href="https://doi.org/10.1186/s40644-024-00818-0" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11752626/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39838503/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Wan%20Q,%20Lindsay%20C,%20Zhang%20C,%20Kim%20J,%20Chen%20X,%20Li%20J,%20Huang%20RY,%20Reardon%20DA,%20Young%20GS,%20Qin%20L.%20Comparative%20analysis%20of%20deep%20learning%20and%20radiomic%20signatures%20for%20overall%20survival%20prediction%20in%20recurrent%20high-grade%20glioma%20treated%20with%20immunotherapy.%20Cancer%20Imaging.%202025;25(1):5." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR18">
+<span class="label">18.</span><cite>Dai B, Tan H, Yang Z, Gong Z, Wu K, Wu H. Necessity of applying anatomical unit resection surgery in suspected posterior oral squamous cell carcinoma. BMC Oral Health. 2025;25(1):212.
+</cite> [<a href="https://doi.org/10.1186/s12903-025-05572-8" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11807295/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39923071/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Dai%20B,%20Tan%20H,%20Yang%20Z,%20Gong%20Z,%20Wu%20K,%20Wu%20H.%20Necessity%20of%20applying%20anatomical%20unit%20resection%20surgery%20in%20suspected%20posterior%20oral%20squamous%20cell%20carcinoma.%20BMC%20Oral%20Health.%202025;25(1):212." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR19">
+<span class="label">19.</span><cite>Gong W, Vaishnani DK, Jin X-C, Zeng J, Chen W, Huang H, Zhou Y-Q, Hla KWY, Geng C, Ma J. Evaluation of an enhanced ResNet-18 classification model for rapid on-site diagnosis in respiratory cytology. BMC Cancer. 2025;25(1):10.
+</cite> [<a href="https://doi.org/10.1186/s12885-024-13402-3" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11697834/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39754166/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Gong%20W,%20Vaishnani%20DK,%20Jin%20X-C,%20Zeng%20J,%20Chen%20W,%20Huang%20H,%20Zhou%20Y-Q,%20Hla%20KWY,%20Geng%20C,%20Ma%20J.%20Evaluation%20of%20an%20enhanced%20ResNet-18%20classification%20model%20for%20rapid%20on-site%20diagnosis%20in%20respiratory%20cytology.%20BMC%20Cancer.%202025;25(1):10." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR20">
+<span class="label">20.</span><cite>Su F, Sun Y, Hu Y, Yuan P, Wang X, Wang Q, Li J, Ji JF. Development and validation of a deep learning system for ascites cytopathology interpretation. Gastric Cancer. 2020;23(6):1041–50.
+</cite> [<a href="https://doi.org/10.1007/s10120-020-01093-1" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/32500456/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Su%20F,%20Sun%20Y,%20Hu%20Y,%20Yuan%20P,%20Wang%20X,%20Wang%20Q,%20Li%20J,%20Ji%20JF.%20Development%20and%20validation%20of%20a%20deep%20learning%20system%20for%20ascites%20cytopathology%20interpretation.%20Gastric%20Cancer.%202020;23(6):1041%E2%80%9350." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR21">
+<span class="label">21.</span><cite>Bae MR, Roh JL, Kim JS, Lee JH, Cho KJ, Choi SH, Nam SY, Kim SY. (18)F-fdg pet/ct versus ct/mr imaging for detection of neck lymph node metastasis in palpably node-negative oral cavity cancer. J Cancer Res Clin Oncol. 2020;146(1):237–44.
+</cite> [<a href="https://doi.org/10.1007/s00432-019-03054-3" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11804503/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/31606761/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Bae%20MR,%20Roh%20JL,%20Kim%20JS,%20Lee%20JH,%20Cho%20KJ,%20Choi%20SH,%20Nam%20SY,%20Kim%20SY.%20(18)F-fdg%20pet/ct%20versus%20ct/mr%20imaging%20for%20detection%20of%20neck%20lymph%20node%20metastasis%20in%20palpably%20node-negative%20oral%20cavity%20cancer.%20J%20Cancer%20Res%20Clin%20Oncol.%202020;146(1):237%E2%80%9344." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR22">
+<span class="label">22.</span><cite>Malone J, Hill C, Tanskanen A, Liu K, Ng S, MacAulay C, Poh CF, Lane PM. Imaging biomarkers of oral dysplasia and carcinoma measured with in vivo endoscopic optical coherence tomography. Cancers (Basel). 2024. 10.3390/cancers16152751.
+</cite> [<a href="https://doi.org/10.3390/cancers16152751" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11311571/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39123478/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Malone%20J,%20Hill%20C,%20Tanskanen%20A,%20Liu%20K,%20Ng%20S,%20MacAulay%20C,%20Poh%20CF,%20Lane%20PM.%20Imaging%20biomarkers%20of%20oral%20dysplasia%20and%20carcinoma%20measured%20with%20in%20vivo%20endoscopic%20optical%20coherence%20tomography.%20Cancers%20(Basel).%202024.%2010.3390/cancers16152751." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR23">
+<span class="label">23.</span><cite>Bhadra T, Maulik U. Unsupervised feature selection using iterative shrinking and expansion algorithm. IEEE Trans Emerg Top Comput Intell. 2022;6(6):1453–62.</cite> [<a href="https://scholar.google.com/scholar_lookup?Bhadra%20T,%20Maulik%20U.%20Unsupervised%20feature%20selection%20using%20iterative%20shrinking%20and%20expansion%20algorithm.%20IEEE%20Trans%20Emerg%20Top%20Comput%20Intell.%202022;6(6):1453%E2%80%9362." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+</ul></section></section><section id="_ad93_" lang="en" class="associated-data"><h2 class="pmc_sec_title">Associated Data</h2>
+<p class="font-secondary"><em>This section collects any data citations, data availability statements, or supplementary materials included in this article.</em></p>
+<section id="_adsm93_" lang="en" class="supplementary-materials"><h3 class="pmc_sec_title">Supplementary Materials</h3>
+<section class="sm xbox font-sm" id="db_ds_supplementary-material1_reqid_"><div class="media p"><div class="caption">
+<a href="/articles/instance/12372389/bin/12885_2025_14627_MOESM1_ESM.docx" data-ga-action="click_feat_suppl" class="usa-link">12885_2025_14627_MOESM1_ESM.docx</a><sup> (6.7MB, docx) </sup><p>Supplementary Material 1: Supplementary Table S1 Detailed MRI Scan Parameters. Supplementary Table S2 Parameters of machine learning. Figs1. Illustration of deep learning feature heatmap to predict T-staging of Tongue Cancer. (A) Grad-Cam of ResNet 18. (B) Grad-Cam of ResNet 50. Figs2. The NRI and IDI values of the two DLR models in the training set compared with the Rad model. Figs3. The probability distribution histograms for the Rad and DLR models.</p>
+</div></div></section></section><section id="_adda93_" lang="en" class="data-availability-statement"><h3 class="pmc_sec_title">Data Availability Statement</h3>
+<p>No datasets were generated or analysed during the current study.</p></section></section></section><footer class="p courtesy-note font-secondary font-sm text-center"><hr class="headless">
+<p>Articles from BMC Cancer are provided here courtesy of <strong>BMC</strong></p></footer></section></article>
+
+                      
+
+                    </main>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+<!-- Secondary navigation placeholder -->
+<div class="pmc-sidenav desktop:grid-col-4 display-flex">
+    <section class="pmc-sidenav__container" aria-label="Article resources and navigation">
+        <button type="button" class="usa-button pmc-sidenav__container__close usa-button--unstyled">
+            <img src="/static/img/usa-icons/close.svg" role="img" alt="Close" />
+        </button>
+    <div class="display-none desktop:display-block">
+       <section class="margin-top-4 desktop:margin-top-0">
+              <h2 class="margin-top-0">ACTIONS</h2>
+           <ul class="usa-list usa-list--unstyled usa-list--actions">
+               
+               <li>
+                     <a
+                             href="https://doi.org/10.1186/s12885-025-14627-6"
+                             class="usa-button usa-button--outline width-24 font-xs display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                             target="_blank"
+                             rel="noreferrer noopener"
+                             data-ga-category="actions"
+                             data-ga-action="click"
+                             data-ga-label="publisher_link_desktop"
+                     >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#launch"></use>
+                         </svg>
+                         <span class="display-inline-flex flex-justify-center flex-1 padding-right-2">View on publisher site</span>
+                     </a>
+               </li>
+               
+               
+               <li>
+                    <a
+                            href="pdf/12885_2025_Article_14627.pdf"
+                            class="usa-button usa-button--outline width-24 display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="pdf_download_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1">PDF (2.9 MB)</span>
+                    </a>
+               </li>
+               
+                
+               <li>
+                   <button role="button" class="usa-button width-24 citation-dialog-trigger display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                        aria-label="Open dialog with citation text in different styles"
+                        data-ga-category="actions"
+                        data-ga-action="open"
+                        data-ga-label="cite_desktop"
+                        data-all-citations-url="/resources/citations/12372389/"
+                        data-citation-style="nlm"
+                        data-download-format-link="/resources/citations/12372389/export/"
+                    >
+                        <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                        </svg>
+                       <span class="display-inline-flex flex-justify-center flex-1 button-label">Cite</span>
+                    </button>
+               </li>
+                
+               <li>
+
+                        <button class="usa-button width-24 collections-dialog-trigger collections-button display-inline-flex flex-align-center flex-justify-start padding-left-1 collections-button-empty"
+                              aria-label="Save article in MyNCBI collections."
+                              data-ga-category="actions"
+                              data-ga-action="click"
+                              data-ga-label="collections_button_desktop"
+                              data-collections-open-dialog-enabled="false"
+                              data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12372389%2F%3Freport%3Dclassic%23open-collections-dialog"
+                              data-in-collections="false">
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                            <span class="display-inline-flex flex-justify-center flex-1">Collections</span>
+                       </button>
+               </li>
+               <li class="pmc-permalink">
+                    <button
+                            type="button"
+                            class="usa-button width-24 display-inline-flex flex-align-center flex-justify padding-left-1 shadow-none"
+                            aria-label="Show article permalink"
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="permalink_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#share"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1 button-label">Permalink</span>
+                    </button>
+                   
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12372389/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+               </li>
+           </ul>
+       </section>
+     </div>
+
+        <section class="pmc-resources margin-top-6 desktop:margin-top-4" data-page-path="/articles/PMC12372389/">
+            <h2 class="margin-top-0">RESOURCES</h2>
+            
+                <div class="usa-accordion usa-accordion--multiselectable" data-allow-multiple>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-similar-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_similar_articles"
+                        data-ga-label="/articles/PMC12372389/"
+                        data-action-open="open_similar_articles"
+                        data-action-close="close_similar_articles"
+                        >
+                            Similar articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-similar-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/similar-article-links/40847271/"
+                            
+                    >
+                        
+                    </div>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-cited-by-other-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_cited_by"
+                        data-ga-label="/articles/PMC12372389/"
+                        data-action-open="open_cited_by"
+                        data-action-close="close_cited_by"
+                        >
+                             Cited by other articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-cited-by-other-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/cited-by-links/40847271/"
+                            
+                    >
+                          
+                    </div>
+                    
+                        <h3 class="usa-accordion__heading">
+                            <button
+                            type="button"
+                            class="usa-accordion__button"
+                            aria-expanded="false"
+                            aria-controls="resources-links-to-ncbi-databases"
+                            data-ga-category="resources_accordion"
+                            data-ga-action="open_NCBI_links"
+                            data-ga-label="/articles/PMC12372389/"
+                            data-action-open="open_NCBI_links"
+                            data-action-close="close_NCBI_link"
+                            >
+                                 Links to NCBI Databases
+                            </button>
+                        </h3>
+                        <div
+                                id="resources-links-to-ncbi-databases"
+                                class="usa-accordion__content usa-prose"
+                                data-source-url="/resources/db-links/12372389/"
+                        >
+                        </div>
+                    
+                    
+                </div>
+            
+        </section>
+
+
+        <section
+        class="usa-in-page-nav usa-in-page-nav--wide margin-top-6 desktop:margin-top-4"
+        data-title-text="On this page"
+        data-title-heading-level="h2"
+        data-scroll-offset="0"
+        data-root-margin="-10% 0px -80% 0px"
+        data-main-content-selector="main"
+        data-threshold="1"
+        hidden
+        ></section>
+    </section>
+</div>
+
+
+        
+
+<div class="overlay" role="dialog" aria-label="Citation Dialog" hidden>
+    <div class="dialog citation-dialog" aria-hidden="true">
+        <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+            <h2 class="usa-modal__heading margin-0">Cite</h2>
+             <button type="button" class="usa-button usa-button--unstyled close-overlay text-black width-auto"  tabindex="1">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+             </button>
+        </div>
+
+        
+
+<div class="citation-text-block">
+  <div class="citation-text margin-bottom-2"></div>
+  <ul class="usa-list usa-list--unstyled display-inline-flex flex-justify width-full flex-align-center">
+      <li>
+        <button
+          class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center copy-button dialog-focus"
+          data-ga-category="save_share"
+          data-ga-action="cite"
+          data-ga-label="copy"
+          tabindex="2">
+            <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+            </svg>
+            <span>Copy</span>
+        </button>
+      </li>
+      <li>
+          <a
+              href="#"
+              role="button"
+              class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center export-button"
+              data-ga-category="save_share"
+              data-ga-action="cite"
+              data-ga-label="download"
+              title="Download a file for external citation management software"
+              tabindex="3">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                </svg>
+                <span class="display-none mobile-lg:display-inline">Download .nbib</span>
+                <span class="display-inline mobile-lg:display-none">.nbib</span>
+            </a>
+      </li>
+      <li>
+          
+
+<div class="display-inline-flex flex-align-center">
+  <label class="usa-label margin-top-0">Format:</label>
+  <select aria-label="Format" class="usa-select citation-style-selector padding-1 margin-top-0 border-0 padding-right-4" tabindex="4" >
+    
+      <option data-style-url-name="ama"
+              value="AMA"
+              >
+        AMA
+      </option>
+    
+      <option data-style-url-name="apa"
+              value="APA"
+              >
+        APA
+      </option>
+    
+      <option data-style-url-name="mla"
+              value="MLA"
+              >
+        MLA
+      </option>
+    
+      <option data-style-url-name="nlm"
+              value="NLM"
+              selected="selected">
+        NLM
+      </option>
+    
+  </select>
+</div>
+      </li>
+  </ul>
+</div>
+    </div>
+</div>
+
+        <div class="overlay" role="dialog" hidden>
+  <div id="collections-action-dialog" class="dialog collections-dialog" aria-hidden="true">
+   <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+        <h2 class="usa-modal__heading margin-0">Add to Collections</h2>
+    </div>
+    <div class="collections-action-panel action-panel">
+      
+
+
+<form id="collections-action-dialog-form"
+      class="usa-form maxw-full collections-action-panel-form action-panel-content action-form action-panel-smaller-selectors"
+      data-existing-collections-url="/list-existing-collections/"
+      data-add-to-existing-collection-url="/add-to-existing-collection/"
+      data-create-and-add-to-new-collection-url="/create-and-add-to-new-collection/"
+      data-myncbi-max-collection-name-length="100"
+      data-collections-root-url="https://www.ncbi.nlm.nih.gov/myncbi/collections/">
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="Vee12zTVADYckG7NAMpaq12biYZbDiIC4NkbOEfdaw7nrR2QwRfgVJyteEU6u0UN">
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-new"
+            class="usa-radio__input usa-radio__input--tile collections-new  margin-top-0"
+            name="collections"
+            value="new"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_new" />
+            <label class="usa-radio__label" for="collections-action-dialog-new">Create a new collection</label>
+        </div>
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-existing"
+            class="usa-radio__input usa-radio__input--tile collections-existing"
+            name="collections"
+            value="existing"
+            checked="true"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_existing" />
+            <label class="usa-radio__label" for="collections-action-dialog-existing">Add to an existing collection</label>
+        </div>
+    </fieldset>
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="action-panel-control-wrap new-collections-controls">
+           <label for="collections-action-dialog-add-to-new" class="usa-label margin-top-0">
+                Name your collection
+               <abbr title="required" class="usa-hint usa-hint--required text-no-underline">*</abbr>
+          </label>
+          <input
+            type="text"
+            name="add-to-new-collection"
+            id="collections-action-dialog-add-to-new"
+            class="usa-input collections-action-add-to-new"
+            pattern="[^&quot;&amp;=&lt;&gt;/]*" title="The following characters are not allowed in the Name field: &quot;&amp;=&lt;&gt;/"
+            maxlength=""
+            data-ga-category="collections_button"
+            data-ga-action="create_collection"
+            data-ga-label="non_favorties_collection"
+            required
+          />
+        </div>
+        <div class="action-panel-control-wrap existing-collections-controls">
+             <label for="collections-action-dialog-add-to-existing" class="usa-label margin-top-0">
+                Choose a collection
+              </label>
+              <select id="collections-action-dialog-add-to-existing"
+                      class="usa-select collections-action-add-to-existing"
+                      data-ga-category="collections_button"
+                      data-ga-action="select_collection"
+                      data-ga-label="($('.collections-action-add-to-existing').val() === 'Favorites') ? 'Favorites' : 'non_favorites_collection'">
+              </select>
+              <div class="collections-retry-load-on-error usa-input-error-message selection-validation-message">
+                Unable to load your collection due to an error<br>
+                <a href="#">Please try again</a>
+              </div>
+        </div>
+    </fieldset>
+
+    <div class="display-inline-flex">
+        <button class="usa-button margin-top-0 action-panel-submit"
+            type="submit"
+            data-loading-label="Adding..."
+            data-pinger-ignore
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="add">
+          Add
+        </button>
+        <button class="usa-button usa-button--outline margin-top-0 action-panel-cancel"
+                aria-label="Close 'Add to Collections' panel"
+                ref="linksrc=close_collections_panel"
+                data-ga-category="collections_button"
+                data-ga-action="click"
+                data-ga-label="cancel">
+          Cancel
+        </button>
+    </div>
+</form>
+    </div>
+  </div>
+</div>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+
+
+        
+    
+    
+
+<footer class="ncbi-footer ncbi-dark-background " >
+    
+        <div class="ncbi-footer__icon-section">
+            <div class="ncbi-footer__social-header">
+                Follow NCBI
+            </div>
+
+            <div class="grid-container ncbi-footer__ncbi-social-icons-container">
+                
+                    <a href="https://twitter.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="40"
+                             height="40"
+                             viewBox="0 0 40 40"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on X (formerly known as Twitter)</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.facebook.com/ncbi.nlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="16"
+                             height="29"
+                             focusable="false"
+                             aria-hidden="true"
+                             viewBox="0 0 16 29"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.8809 21.4002C3.8809 19.0932 3.8809 16.7876 3.8809 14.478C3.8809 14.2117 3.80103 14.1452 3.54278 14.1492C2.53372 14.1638 1.52334 14.1492 0.514288 14.1598C0.302626 14.1598 0.248047 14.0972 0.248047 13.8936C0.256034 12.4585 0.256034 11.0239 0.248047 9.58978C0.248047 9.37013 0.302626 9.30224 0.528931 9.3049C1.53798 9.31688 2.54837 9.3049 3.55742 9.31555C3.80103 9.31555 3.8809 9.26097 3.87957 9.00272C3.87158 8.00565 3.85428 7.00592 3.90753 6.00884C3.97142 4.83339 4.31487 3.73115 5.04437 2.78467C5.93095 1.63318 7.15699 1.09005 8.56141 0.967577C10.5582 0.79319 12.555 0.982221 14.5518 0.927641C14.7102 0.927641 14.7462 0.99287 14.7449 1.13664C14.7449 2.581 14.7449 4.02668 14.7449 5.47104C14.7449 5.67604 14.6517 5.68669 14.4946 5.68669C13.4523 5.68669 12.4113 5.68669 11.3703 5.68669C10.3506 5.68669 9.92057 6.10868 9.90593 7.13904C9.89661 7.7647 9.91525 8.39303 9.89794 9.01869C9.88995 9.26364 9.96583 9.31822 10.2015 9.31688C11.7204 9.30623 13.2393 9.31688 14.7595 9.3049C15.0257 9.3049 15.0723 9.3728 15.0444 9.62439C14.89 10.9849 14.7515 12.3467 14.6144 13.7085C14.5691 14.1571 14.5785 14.1585 14.1458 14.1585C12.8386 14.1585 11.5313 14.1665 10.2254 14.1518C9.95119 14.1518 9.89794 14.2317 9.89794 14.4899C9.90593 19.0799 9.89794 23.6752 9.91125 28.2612C9.91125 28.5674 9.8407 28.646 9.53186 28.6433C7.77866 28.6273 6.02414 28.6366 4.27094 28.634C3.82499 28.634 3.87158 28.6992 3.87158 28.22C3.87602 25.9472 3.87913 23.6739 3.8809 21.4002Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on Facebook</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.linkedin.com/company/ncbinlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="25"
+                             height="23"
+                             viewBox="0 0 26 24"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M14.6983 9.98423C15.6302 9.24808 16.5926 8.74754 17.6762 8.51991C19.673 8.09126 21.554 8.30824 23.1262 9.7526C24.2351 10.7723 24.7529 12.1115 25.0165 13.5612C25.1486 14.3363 25.2105 15.1218 25.2015 15.9081C25.2015 18.3043 25.2015 20.6898 25.2082 23.0806C25.2082 23.3468 25.1549 23.444 24.8621 23.4414C23.1297 23.4272 21.3992 23.4272 19.6704 23.4414C19.4041 23.4414 19.3429 23.3588 19.3442 23.1019C19.3535 20.5194 19.3442 17.9368 19.3442 15.3543C19.3442 14.0005 18.3258 12.9448 17.0266 12.9488C15.7273 12.9528 14.6983 14.0071 14.6983 15.361C14.6983 17.9328 14.6917 20.5047 14.6983 23.0753C14.6983 23.3708 14.6198 23.444 14.3296 23.4427C12.6185 23.4294 10.9079 23.4294 9.19779 23.4427C8.93155 23.4427 8.86099 23.3735 8.86232 23.1086C8.8783 19.7619 8.88628 16.4144 8.88628 13.066C8.88628 11.5688 8.87874 10.0708 8.86365 8.57182C8.86365 8.3575 8.90758 8.27896 9.14054 8.28029C10.9048 8.29094 12.6687 8.29094 14.4321 8.28029C14.6464 8.28029 14.6983 8.34818 14.6983 8.54653C14.6903 9.00047 14.6983 9.45441 14.6983 9.98423Z">
+                            </path>
+                            <path d="M6.55316 15.8443C6.55316 18.2564 6.55316 20.6699 6.55316 23.082C6.55316 23.3629 6.48127 23.4388 6.19906 23.4374C4.47737 23.4241 2.75568 23.4241 1.03399 23.4374C0.767751 23.4374 0.69986 23.3629 0.701191 23.1006C0.709178 18.2648 0.709178 13.4281 0.701191 8.59053C0.701191 8.34026 0.765089 8.27237 1.01669 8.2737C2.74991 8.28435 4.48048 8.28435 6.20838 8.2737C6.47462 8.2737 6.5465 8.33627 6.54517 8.6065C6.54783 11.0186 6.55316 13.4308 6.55316 15.8443Z">
+                            </path>
+                            <path d="M3.65878 0.243898C5.36804 0.243898 6.58743 1.45529 6.58743 3.1406C6.58743 4.75801 5.32145 5.95742 3.60819 5.96807C3.22177 5.97614 2.83768 5.90639 2.47877 5.76299C2.11985 5.61959 1.79344 5.40546 1.51897 5.13334C1.24449 4.86123 1.02755 4.53668 0.881058 4.17902C0.734563 3.82136 0.661505 3.43788 0.666231 3.05141C0.67555 1.42601 1.9362 0.242566 3.65878 0.243898Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on LinkedIn</span>
+                    </a>
+                
+
+                
+                    <a href="https://github.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="28"
+                             height="27"
+                             viewBox="0 0 28 28"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M16.7228 20.6334C17.5057 20.5527 18.2786 20.3944 19.0301 20.1608C21.3108 19.4193 22.5822 17.8259 22.963 15.4909C23.1228 14.5112 23.1814 13.5287 22.9883 12.5437C22.8106 11.6423 22.4013 10.8028 21.8007 10.1076C21.7526 10.0605 21.7197 10 21.7064 9.934C21.6931 9.86799 21.7 9.79952 21.7262 9.73748C22.0856 8.6206 21.9711 7.51969 21.601 6.42677C21.582 6.3497 21.5345 6.2827 21.468 6.23923C21.4016 6.19577 21.3211 6.17906 21.2429 6.19248C20.7329 6.21649 20.2313 6.33051 19.7611 6.52928C19.1103 6.7908 18.4899 7.12198 17.9104 7.51703C17.84 7.56996 17.7581 7.60551 17.6713 7.62078C17.5846 7.63605 17.4954 7.6306 17.4112 7.60489C15.2596 7.05882 13.0054 7.06203 10.8554 7.61421C10.7806 7.63586 10.7018 7.63967 10.6253 7.62534C10.5487 7.611 10.4766 7.57892 10.4148 7.53167C9.64788 7.03247 8.85171 6.58918 7.96368 6.33359C7.65781 6.24338 7.34123 6.19458 7.02239 6.18849C6.94879 6.17986 6.87462 6.19893 6.81432 6.242C6.75402 6.28507 6.71191 6.34904 6.69621 6.42145C6.32342 7.51437 6.2209 8.61527 6.56307 9.73348C6.59635 9.84264 6.64694 9.93316 6.54177 10.0516C5.47666 11.2604 5.09988 12.6834 5.19574 14.2676C5.2663 15.4244 5.46201 16.5466 6.01454 17.5769C6.84399 19.1171 8.21664 19.9119 9.85158 20.3352C10.3938 20.4706 10.9444 20.5698 11.4998 20.632C11.5384 20.7492 11.4506 20.7798 11.408 20.8291C11.1734 21.1179 10.9894 21.4441 10.8634 21.7942C10.7622 22.0458 10.8315 22.4039 10.6065 22.5516C10.263 22.7766 9.83827 22.8485 9.42421 22.8871C8.17936 23.0056 7.26471 22.4877 6.6283 21.4348C6.25552 20.8184 5.76956 20.3325 5.08523 20.0663C4.76981 19.9325 4.42139 19.8967 4.08537 19.9638C3.7898 20.029 3.73788 20.1901 3.93891 20.4111C4.03639 20.5234 4.14989 20.6207 4.27575 20.6999C4.9796 21.1318 5.51717 21.7884 5.80152 22.5636C6.37002 23.9973 7.48039 24.5697 8.93825 24.6323C9.43741 24.6575 9.93768 24.615 10.4254 24.5058C10.5892 24.4672 10.6531 24.4872 10.6517 24.6762C10.6451 25.4936 10.6637 26.3123 10.6517 27.131C10.6517 27.6635 10.1684 27.9297 9.58663 27.7393C8.17396 27.2671 6.84977 26.5631 5.66838 25.656C2.59555 23.2891 0.720966 20.1861 0.217704 16.3376C-0.357453 11.9127 0.911353 8.00824 3.98551 4.73881C6.11909 2.42656 8.99932 0.939975 12.1203 0.540191C16.5351 -0.0601815 20.4347 1.14323 23.7232 4.16373C26.2449 6.47869 27.724 9.37672 28.1048 12.7726C28.5828 17.0325 27.3686 20.7945 24.4768 23.9827C22.9762 25.6323 21.0956 26.8908 18.9982 27.6488C18.8783 27.6927 18.7585 27.738 18.636 27.7726C18.0356 27.9404 17.6189 27.6395 17.6189 27.0098C17.6189 25.7452 17.6308 24.4806 17.6295 23.2159C17.6329 22.9506 17.6128 22.6856 17.5696 22.4238C17.4325 21.6664 17.3419 21.484 16.7228 20.6334Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on GitHub</span>
+                    </a>
+                
+
+                
+                    <a href="https://ncbiinsights.ncbi.nlm.nih.gov/"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="26"
+                             height="26"
+                             viewBox="0 0 27 27"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M23.7778 26.4574C23.1354 26.3913 22.0856 26.8024 21.636 26.3087C21.212 25.8444 21.4359 24.8111 21.324 24.0347C19.9933 14.8323 14.8727 8.80132 6.09057 5.85008C4.37689 5.28406 2.58381 4.99533 0.779072 4.99481C0.202773 4.99481 -0.0229751 4.83146 0.00455514 4.21479C0.0660406 3.08627 0.0660406 1.95525 0.00455514 0.826734C-0.0413285 0.0815827 0.259669 -0.0193618 0.896534 0.00266238C6.96236 0.222904 12.3693 2.24179 16.9889 6.16209C22.9794 11.2478 26.1271 17.7688 26.4372 25.648C26.4629 26.294 26.3179 26.5271 25.6609 26.4684C25.0827 26.417 24.4991 26.4574 23.7778 26.4574Z">
+                            </path>
+                            <path d="M14.8265 26.441C14.0924 26.441 13.2371 26.6795 12.6626 26.3786C12.0092 26.0372 12.3781 25.0644 12.246 24.378C11.1154 18.5324 6.6849 14.5497 0.74755 14.1001C0.217135 14.0615 -0.0104482 13.9422 0.0134113 13.3659C0.0519536 12.1454 0.0482829 10.9213 0.0134113 9.69524C-0.00127145 9.14464 0.196946 9.03268 0.703502 9.04736C9.21217 9.27128 16.5994 16.2511 17.2804 24.7231C17.418 26.4446 17.418 26.4446 15.6579 26.4446H14.832L14.8265 26.441Z">
+                            </path>
+                            <path d="M3.58928 26.4555C2.64447 26.4618 1.73584 26.0925 1.06329 25.4289C0.39073 24.7653 0.00933763 23.8617 0.0030097 22.9169C-0.00331824 21.9721 0.365937 21.0635 1.02954 20.3909C1.69315 19.7184 2.59675 19.337 3.54156 19.3306C4.48637 19.3243 5.39499 19.6936 6.06755 20.3572C6.7401 21.0208 7.1215 21.9244 7.12782 22.8692C7.13415 23.814 6.7649 24.7226 6.10129 25.3952C5.43768 26.0677 4.53409 26.4491 3.58928 26.4555Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI RSS feed</span>
+                    </a>
+                
+            </div>
+        </div>
+    
+
+    <div data-testid="gridContainer"
+         class="grid-container ncbi-footer__container">
+        <div class="grid-row ncbi-footer__main-content-container"
+             data-testid="grid">
+            
+                <div class="ncbi-footer__column">
+                    
+                        <p class="ncbi-footer__circled-icons-heading">
+                            Connect with NLM
+                        </p>
+                    
+
+                    <div class="ncbi-footer__circled-icons-list">
+                        
+                            <a href=https://twitter.com/nlm_nih class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="32"
+                                     height="32"
+                                     viewBox="0 0 40 40"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on X (formerly known as Twitter)</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.facebook.com/nationallibraryofmedicine class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="13"
+                                     height="24"
+                                     viewBox="0 0 13 24"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M4.11371 23.1369C4.11371 23.082 4.11371 23.0294 4.11371 22.9745V12.9411H0.817305C0.6709 12.9411 0.670898 12.9411 0.670898 12.8016C0.670898 11.564 0.670898 10.3287 0.670898 9.09341C0.670898 8.97903 0.705213 8.95158 0.815017 8.95158C1.8673 8.95158 2.91959 8.95158 3.97417 8.95158H4.12057V8.83263C4.12057 7.8055 4.12057 6.7738 4.12057 5.74897C4.1264 4.92595 4.31387 4.11437 4.66959 3.37217C5.12916 2.38246 5.94651 1.60353 6.95717 1.1921C7.64827 0.905008 8.3913 0.764035 9.13953 0.778051C10.0019 0.791777 10.8644 0.830666 11.7268 0.860404C11.8869 0.860404 12.047 0.894717 12.2072 0.90158C12.2964 0.90158 12.3261 0.940469 12.3261 1.02968C12.3261 1.5421 12.3261 2.05452 12.3261 2.56465C12.3261 3.16857 12.3261 3.7725 12.3261 4.37642C12.3261 4.48165 12.2964 4.51367 12.1912 4.51138C11.5369 4.51138 10.8804 4.51138 10.2261 4.51138C9.92772 4.51814 9.63058 4.5526 9.33855 4.61433C9.08125 4.6617 8.84537 4.78881 8.66431 4.97766C8.48326 5.16652 8.3662 5.40755 8.32972 5.66661C8.28476 5.89271 8.26027 6.1224 8.25652 6.35289C8.25652 7.19014 8.25652 8.02969 8.25652 8.86923C8.25652 8.89439 8.25652 8.91955 8.25652 8.95615H12.0219C12.1797 8.95615 12.182 8.95616 12.1614 9.10714C12.0768 9.76596 11.9876 10.4248 11.9029 11.0813C11.8312 11.6319 11.7626 12.1824 11.697 12.733C11.6719 12.9434 11.6787 12.9434 11.4683 12.9434H8.26338V22.899C8.26338 22.979 8.26338 23.0591 8.26338 23.1392L4.11371 23.1369Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on Facebook</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.youtube.com/user/NLMNIH class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="21"
+                                     height="15"
+                                     viewBox="0 0 21 15"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M19.2561 1.47914C18.9016 1.15888 18.5699 0.957569 17.2271 0.834039C15.5503 0.678484 13.2787 0.655608 11.563 0.65332H9.43556C7.71987 0.65332 5.4483 0.678484 3.77151 0.834039C2.43098 0.957569 2.097 1.15888 1.74242 1.47914C0.813665 2.32097 0.619221 4.62685 0.598633 6.89384C0.598633 7.31781 0.598633 7.74101 0.598633 8.16345C0.626084 10.4121 0.827391 12.686 1.74242 13.521C2.097 13.8412 2.4287 14.0425 3.77151 14.1661C5.4483 14.3216 7.71987 14.3445 9.43556 14.3468H11.563C13.2787 14.3468 15.5503 14.3216 17.2271 14.1661C18.5676 14.0425 18.9016 13.8412 19.2561 13.521C20.1712 12.6929 20.3725 10.451 20.3999 8.22064C20.3999 7.74025 20.3999 7.25986 20.3999 6.77946C20.3725 4.54907 20.1689 2.30724 19.2561 1.47914ZM8.55942 10.5311V4.65201L13.5601 7.50005L8.55942 10.5311Z"
+                                          fill="white" />
+                                </svg>
+                                <span class="usa-sr-only">NLM on YouTube</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            
+
+            
+                <address class="ncbi-footer__address ncbi-footer__column">
+                    
+        <p>
+            <a class="usa-link usa-link--external"
+            href="https://www.google.com/maps/place/8600+Rockville+Pike,+Bethesda,+MD+20894/%4038.9959508,
+            -77.101021,17z/data%3D!3m1!4b1!4m5!3m4!1s0x89b7c95e25765ddb%3A0x19156f88b27635b8!8m2!3d38.9959508!
+            4d-77.0988323"
+            rel="noopener noreferrer" target="_blank">National Library of Medicine
+            <br/> 8600 Rockville Pike<br/> Bethesda, MD 20894</a>
+        </p>
+    
+                </address>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/web_policies.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Web Policies
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/institutes-nih/nih-office-director/office-communications-public-liaison/freedom-information-act-office" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            FOIA
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS Vulnerability Disclosure
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://support.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Help
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/accessibility.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Accessibility
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/careers/careers.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Careers
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+        </div>
+
+        
+            <div class="grid-row grid-col-12" data-testid="grid">
+                <ul class="ncbi-footer__bottom-links-list">
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NLM
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NIH
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.usa.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            USA.gov
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+    </div>
+</footer>
+
+    
+
+
+        
+        
+    
+  <script  type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/pinger/pinger.js"> </script>
+
+
+    
+        
+
+<button class="back-to-top" data-ga-category="pagination" data-ga-action="back_to_top">
+    <label>Back to Top</label>
+    <svg class="usa-icon order-0" aria-hidden="true" focusable="false" role="img">
+        <use xlink:href="/static/img/sprite.svg#arrow_upward"></use>
+    </svg>
+</button>
+    
+
+
+        
+    
+    
+    
+        
+    <script type="application/javascript">
+    window.ncbi = window.ncbi || {};
+    window.ncbi.pmc = window.ncbi.pmc || {};
+    window.ncbi.pmc.options = {
+        logLevel: 'INFO',
+        
+        staticEndpoint: '/static/',
+        
+        citeCookieName: 'pmc-cf',
+    };
+</script>
+    <script type="module" crossorigin="" src="/static/assets/base-133c6271.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/jquery/jquery-3.6.0.min.js">&#xA0;</script>
+    <script type="text/javascript">
+        jQuery.getScript("https://cdn.ncbi.nlm.nih.gov/core/alerts/alerts.js", function () {
+            galert(['div.nav_and_browser', 'div.header', '#universal_header', '.usa-banner', 'body > *:nth-child(1)'])
+        });
+    </script>
+
+
+    <script type="text/javascript">var exports = {};</script>
+     <script src="/static/CACHE/js/output.13b077bc3ffd.js"></script>
+
+    <script type="module" crossorigin="" src="/static/assets/article-44d04358.js"></script>
+    
+    
+
+    </body>
+</html>

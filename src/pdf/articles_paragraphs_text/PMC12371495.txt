@@ -1,0 +1,917 @@
+Metal nanocrystals (NCs) show utility in a variety of
+applications
+due to their unique structure-dependent properties. Isolating these
+structure–property relationships is crucial for NC design,
+but heterogeneities present in NC ensembles as well as limitations
+in NC characterization strategies complicate this goal. Herein, we
+describe the various types of intraparticle and interparticle heterogeneities
+common to NC ensembles and then provide a detailed description and
+comparison of single-particle techniques that can be used to characterize
+these different heterogeneities. Case studies then showcase the use
+of multimodal characterization approaches, where multiple, primarily
+single-NC techniques are used in tandem to provide new insights into
+metal NC structure–property relationships. We conclude with
+a critique of single-NC techniques that motivates the development
+of new high-throughput and high-resolution single-NC characterization
+approaches as well as computational tools, with a proposed workflow
+outlined to accelerate NC design and discovery.
+
+Metal nanocrystals (NCs) are
+of interest in research areas as far ranging as biosensing to space
+exploration.−The interest in and usefulness of metal NCs arise from their unique
+nanoscale features, such as large surface area-to-volume ratios, the
+close proximity of energetically distinct surface sites, and the rise
+of localized surface plasmon resonances (LSPRs).−Further, the
+properties of NCs can be tuned through their size, shape, and composition.−However, colloidally synthesized NCs are not identical within the
+ensemble, displaying both intraparticle and interparticle heterogeneity,
+defined as structural and compositional inconsistencies within a single
+particle or among a grouping of particles, respectively. This heterogeneity
+arises from small energetic differences between certain features during
+NC formation (e.g., twinned versus single-crystalline
+seeds, which can vary in their total energy as a function of size). Significantly, this heterogeneity may dilute
+the properties of the predominant NC structure within an ensemble,
+falsely enhance the ensemble’s properties in ensemble-averaged
+measurements, and mask NCs with exceptional properties. For example,
+Nie and Emory proposed that the enhanced Raman signal observed when
+using Ag nanoparticles originated from less than 1% of the nanoparticles
+within the ensemble. This groundbreaking
+identification led to decades of research, largely leveraging theory
+and single-NC approaches, to accurately elucidate structure–property
+relationships, where now surface-enhanced Raman spectroscopy (SERS)
+is a robust analytical tool.
+
+This example highlights the importance
+of deconvoluting the structure–property
+relationships of NCs to efficiently design NC candidates for various
+applications and understanding the tolerances of various heterogeneities
+in an NC ensemble toward an application. However, this example also
+highlights a major challenge for the field of nanoscience. Most efforts
+directed at structure–property correlation rely on routine
+bulk measurements (e.g., absorption spectroscopy,
+cyclic voltammetry,etc.), which can lead to misidentification
+of these relationships on account of interparticle and intraparticle
+heterogeneity. To obtain reliable structure–property correlation,
+property measurements of individual NCs are required, which directly
+correlate with their composition, size, shape, and defects. Single-NC
+measurements are state-of-the-art in terms of structure–property
+correlation.−However, these methods often suffer from experimental
+complexity, low throughput, and insufficient correlated data. There
+is a need for accessible, high-throughput single-NC methods that are
+also information-rich. For example, conceptual breakthroughs such
+as those that made SERS robust could be accelerated by obtaining correlated
+structure–property measurements from thousands of individual
+NCs in seconds, but a major bottleneck is reliance on electron microscopy
+to obtain structural and compositional information at the level of
+single NCs. Additionally, some property measurements are not available
+at the level of single NCs currently (e.g., selectivity
+and active surface area of single-NC electrocatalysts, particle density,
+ligand placement,etc.).
+
+Herein, NC heterogeneity
+across length scales is described by outlining
+common intraparticle defects, ranging in scale from atomic level (point)
+to linear (one-dimensional) to planar (two-dimensional) defects, before
+concluding with a description of ensemble-level (interparticle) heterogeneity.
+Then, analytical techniques for single-particle structural characterization
+of metal NCs are described, comparing and contrasting their advantages
+and disadvantages relative to those of other techniques. Case studies
+in both the intraparticle and interparticle size regimes are included,
+showcasing the current state of structure–property characterization
+and correlation across these length scales. We conclude thisPerspectivewith a proposed characterization workflow for
+accelerating NC design through both high-throughput and high-resolution
+single-particle techniques, outlining the frontiers of single-NC studies
+where big data and computational and machine learning (ML) approaches
+are expected to play an increasingly important role.
+
+Figuresummarizes
+the different types of intraparticle and interparticle heterogeneities
+common to metal NCs and their relationship to one another as a function
+of length scale. The smallest-scale sources of intraparticle heterogeneity
+possible within NCs are point defects. These atomic-scale defects
+include the replacement of an atom with one of a different element
+(substitutions) or the absence of an atom (vacancies) within a crystal
+lattice. Interstitial defects can also occur where an atom occupies
+a site outside of the points formed by the crystal lattice.
+
+Scheme depicting
+different types of intraparticle and interparticle
+NC heterogeneities across length scales, where blue atoms contribute
+to intraparticle examples, brown atoms contribute to interparticle
+examples, and black atoms represent a secondary composition in multielemental
+particles or a substituted atom.
+
+Although intraparticle
+heterogeneity is inherent to colloidal NCs,
+interparticle heterogeneity is more commonly characterized, as these
+differences are often larger and more easily visualized. Interparticle
+heterogeneities include differences in NC size and shape within the
+ensemble and particle-to-particle variations in composition and truncation.
+Ligands on the surface of NCs, introduced from the NC synthesis or
+by post-synthesis NC functionalization, can be an additional source
+of both intra and interparticle heterogeneity due to differences in
+ligand density across a single NC or from particle-to-particle. We note that in some cases, intraparticle heterogeneities
+introduce interparticle heterogeneities; that is, when intraparticle
+defects are present in NCs used as seeds (i.e., sites
+for heterogeneous nucleation) for growth to larger NCs, propagation
+of such defects to a larger scale is possible. The propagated defects
+can lead to increased polydispersity, especially in relation to the
+NC shape in the resulting NC ensemble. For example, when synthesizing
+Ag nanocubes, often a subset of the ensemble consists of shape impurities
+such as Ag right bipyramids, Ag decahedra, and even Ag nanowires with
+pentagonal cross-sections; these shape impurities arise because the
+initial seeds formed during the synthesis contain twin planes while
+the seeds producing Ag nanocubes are single-crystalline. However, intraparticle defects in seeds can
+also be intentionally engineered to access monodisperse populations
+of specific shapes and symmetry-reduced structures.,Further, intraparticle defects in catalytic materials can be intentionally
+formed to alter the material’s electronic properties and surface
+structure toward more selective and active catalysis.
+
+This section describes and contrasts different analytical techniques
+that are capable of characterizing the structural features of single
+metal NCs at different length scales, whether they are already well-established
+tools for single-NC analysis (e.g., electron microscopy)
+or less common but promising tools for single metal NC characterization.
+Though techniques such as X-ray diffraction (XRD), X-ray fluorescence,
+and X-ray photoelectron spectroscopy (XPS) are common methods used
+in materials characterization and may indicate the presence of some
+interparticle heterogeneities (e.g., size polydispersity,
+sample compositional and phase purity,etc.),−they are limited to bulk-scale, not single NC, analysis and thus
+will not be discussed herein. Further, techniques that are primarily
+used to measure single-NC properties (as opposed to techniques that
+characterize structure only or can measure both structure and properties)
+were excluded from this section, with two single-NC property techniques,
+scanning electrochemical cell microscopy (SECCM) and electrochemical
+collision methods, being highlighted in the following case study sections.
+
+Scanning electron microscopy (SEM) and transmission electron microscopy
+(TEM) have long been foundational techniques in single-NC studies,
+being the gold standard of verifying that a single NC is being analyzed,
+although familiarity with signal intensities (e.g., electrical current, light scattering) in other single-NC techniques
+can provide an internal reference. In SEM, a focused electron beam
+is scanned across the sample, generating backscattered and secondary
+electrons that are detected on the same side of the sample as the
+electron source to build an image with three-dimensional (3-D) topographical
+information. Alternatively, TEM uses an electron beam that penetrates
+and is transmitted through the sample, generating elastically and
+inelastically scattered electrons that are collected on the opposite
+side of the sample as the electron source to construct a two-dimensional
+projection of the sample. Due to the
+reliance on the transmission of electrons through the sample, TEM
+is limited to a sample thickness of a few hundred nanometers, although
+focused ion beam milling can thin specific regions of a material for
+TEM analysis and be used to reveal the internal structure of nanomaterials. SEM is limited only by the maximum distance
+the instrument allows between the sample stage and the electron beam/detector,
+which is on the scale of centimeters. Further, SEM requires conductive
+samples to limit the charging of the sample by the electron beam,
+but TEM can image both conductive and non-conductive specimens. Overall, SEM offers easier sample preparation
+and analysis, faster experiments, and less sample damage at the cost
+of reduced spatial resolution compared to TEM, which is on the order
+of nanometers in SEM studies as opposed to angstroms in TEM studies. SEM is also limited in the number of compatible
+auxiliary techniques when compared to TEM, although an energy-dispersive
+X-ray spectroscopy (EDS) detector can be inserted into both types
+of instruments to obtain compositional information from element-specific
+X-rays generated as the electron beam interacts with the sample.
+
+High-resolution transmission electron
+microscopy (HRTEM) and scanning
+transmission electron microscopy (STEM) are two popular modes of TEM
+capable of reaching subangstrom resolution. In HRTEM, a phase contrast
+image is formed by the interference of the direct electron beam with
+a diffracted electron beam, whereas in STEM, a single highly focused
+electron beam is raster scanned across the sample, increasing the
+time required to collect an image but also increasing the resulting
+spatial resolution.,The detector used in STEM imaging
+can also be varied to further optimize the resulting signal. For example,
+annular bright field (ABF)-STEM collects low-angle scattered electrons
+and is optimal for imaging light elements, whereas high-angle annular
+dark-field (HAADF)-STEM collects electrons scattered at high angles
+and is optimal for imaging heavy elements. HAADF-STEM has superiorZ-contrast (Z= atomic number) compared to HRTEM, making atomic features often
+easier to visualize and differentiate. Aberration correction in some
+HRTEM and STEM instruments can further increase the spatial resolution
+of these techniques, as well asZ-contrast in HAADF-STEM,
+through real-time correction of electron beam distortions while imaging.
+
+In addition to static imaging, auxiliary
+methods make it possible
+to capture 3-D morphology, obtain compositional information, and monitor
+dynamic processes in state-of-the-art TEM studies. Electron tomography
+is one such auxiliary technique, in which the 3-D structure of a single
+NC is reconstructed from a series of two-dimensional TEM or STEM images
+collected at various tilt angles, providing
+snapshots of NC structure in processes such as early-stage nucleation
+and atomic-level restructuring.,Electron tomography
+can also be used to qualitatively evaluate complex NC structures and
+morphology, such as helicity measurements to report on single-NC chirality. Another auxiliary technique is 4D-STEM, where
+an electron diffraction pattern is collected at each probe position
+as the electron beam is scanned across the sample, forming an information-rich
+four-dimensional data set with a high spatial resolution (∼1
+nm). 4D-STEM has been used to obtain
+high-resolution information about strain, lattice orientation, and
+dielectric field across single NCs,−though the large amount
+of data collected in this technique makes data processing time-intensive.
+
+Advances inin situTEM and STEM have made
+the
+visualization and study of various dynamic processes occurring at
+the single-NC level possible. Specifically, advances in TEM sample
+holders and use of graphene liquid cells provide gas- and solvent-tight
+chambers,−while specialized e-chips and holder ports allow imaging and tracking
+in a variety of environments, including thermal, electrochemical, pressurized/gas
+flow,,and liquid flow. Further, advancements in cameras used in this technology allow dynamic
+processes occurring at the millisecond time scale to be captured. EDS, EELS, and 4D-STEM can also be used in tandem
+within situ(S)­TEM to study changes in composition
+and the crystal lattice as well as changes in electronic properties
+of single NCs in real time.,,A significant question that continually plaguesin situelectron microscopy experiments is, to what extent does the electron
+beam affect, even at low doses, the dynamic processes being recorded?
+To minimize these effects, careful protocols and best practices have
+been implemented by the community, with
+control experiments and benchmarking withex situdata being important components in validatingin situresults.
+
+In comparison to electron microscopy, optical microscopy
+techniques
+can be inexpensive, high-throughput alternatives to identify interparticle
+heterogeneity, especially in plasmonic NC samples. However, since optical microscopy techniques probe samples
+with much lower energy than electron microscopy, optical images of
+single NCs are diffraction-limited, meaning that small-scale intraparticle
+defects cannot be directly visualized. This limitation can be overcome
+using super-resolution imaging, where single NCs are tagged with a
+series of probes that can be localized at the NC surface with a spatial
+resolution of ∼10 nm, revealing NC structure in optical reconstructions. Such studies can also be used to reveal the
+effect of both interparticle and intraparticle heterogeneity on single-NC
+catalytic activity,,though these super-resolution
+techniques suffer in part from lower throughput and challenging sample
+preparation compared to other optical methods as well as possible
+alteration of the NC properties resulting from probe functionalization.
+
+Without additional probes, wide-field optical microscopy techniques
+can be used to capture interparticle heterogeneity in NC samples,
+where many single particles are imaged simultaneously. As the optical
+response of a single NC is highly sensitive to its physical features,
+NCs of different sizes, shapes, and compositions can be compared and distinguished through differences in their optical
+properties. Further, the short integration times andin situcapabilities of optical microscopy make it an ideal candidate to
+track dynamic changes in single-NC structures under various conditions
+and applications.,Of course, the “structural”
+information obtained from diffraction-limited optical data is qualitative
+and must be inferred, where correlated electron microscopy is often
+used to confirm such interpretations and determine structure–property
+relationships.
+
+Compared to scanning electron
+microscopy techniques (SEM and STEM),
+both STM and AFM have lower temporal resolution (s–1to ms–1scan rate as opposed to μs–1scan rate for SEM/STEM), limiting the event types that can be capturedin situ. However, STM and AFM eliminate the concern of electron
+beam effects inin situstudies that afflict electron
+microscopy studies. Electron microscopy also benefits from the ability
+to obtain compositional information on single NCs through commercially
+available coupled techniques, though STM and AFM can measure particle
+height with high accuracy and obtain electrical, magnetic, and mechanical
+information on single NCs. A significant
+benefit to STM and AFM is that they can characterize the size, structure,
+height, and surface topography of thin two-dimensional NCs, whereas
+(S)­TEM can usually only capture the lateral dimensions and shape of
+these materials, and SEM often struggles to visualize these weakly
+electron-scattering NCs at all.
+
+Another high-throughput MS technique, charge-detection MS
+(CD-MS),
+which is often used to analyze large biomolecules, has also been used
+to obtain single-particle information on nanoscale particles. In CD-MS,
+the charge of an ion (a single, charged particle in the case of NCs)
+is measured through the charge (z) induced by the
+ion on the walls of a conducting tube, while them/zis simultaneously obtained from the time-of-flight
+of the ion through the tube. Because
+both thezandm/zare measured for each charged particle, the mass of thousands of
+single particles can be calculated and converted into size histograms
+using shape-dependent density equations like in SP-ICP-MS data processing. While CD-MS cannot provide precise compositional
+data like SP-ICP-MS because the particles are not atomized, CD-MS
+has been shown to be sensitive to the particle surface, where particles
+with similar masses but different surface properties (e.g., capping ligands,etc.) can be distinguished due
+to differences inzafter ionization. However, CD-MS instruments are still much less
+common than quadrupole ICP-MS instruments, which are able to analyze
+mono- and bimetallic NCs in SP-ICP-MS (whereas the more rare and expensive
+time-of-flight ICP-MS is required for compositions >2).,Currently, most nanoparticle CD-MS studies have focused on polymeric
+or oxide nanoparticles, and particle masses between 1 MDa and a few
+hundred MDa have been found to be sufficient for analysis.,For reference, a 10 nm Au nanoparticle (assumed to be perfectly
+spherical with a density equal to bulk Au, 19.3 g/cm3)
+is expected to have a mass around 6 MDa, which theoretically falls
+within the typical reported analysis range for non-metallic nanoparticles
+by CD-MS, though detection limits for metal NC compositions have not
+yet been thoroughly investigated for CD-MS as they have for techniques
+like SP-ICP-MS. This data will be of
+growing interest and necessity for relevant metal compositions as
+CD-MS likely continues its expansion into the high-throughput metal
+and metal oxide NC characterization space.
+
+Recently, single-particle
+mass and volume measurements of large
+populations of silica nanoparticles, acquired by CD-MS and resistive-pulse
+sensing (RPS), respectively, allowed for the observance of size-dependent
+silica particle density changes for particles ranging from 19 to 72
+nm in diameter. While not an MS technique,
+RPS is a high-throughput microfluidic technique capable of estimating
+certain single-particle structural features through signal processing
+and geometric modeling, similar to SP-ICP-MS and CD-MS. In RPS, ion
+displacement resulting from the movement of a particle through an
+electrically biased nanopore results in a current pulse that has an
+amplitude proportional to the particle volume (Figurea). Further,
+the particle dwell time in the pore (i.e., current
+pulse width) may give insight into particle shape and length, and
+the pore-to-pore time (i.e., the time between current
+pulses) can provide information about particle ζ-potential (Figureb). While being unable to obtain NC composition like in SP-ICP-MS,
+the biggest advantage of RPS over both SP-ICP-MS and CD-MS is the
+ability to estimate the size of single particles with unknown densities
+(i.e., multimetallic NCs) by solving volume equations
+directly, although these equations are still shape-dependent. Analysis
+of metal NCs by RPS can be complicated compared to other analytes
+due to particle conductivity and surface charges affecting ion flux
+through the pore and therefore the characteristics of the resulting
+current pulse.,The impact of NC conductivity
+can be minimized through adjustment of pore size, electrolyte salt
+concentration, and applied bias voltage as well as the use of particle
+calibration standards to decrease the error in particle volume calculated
+from current pulse amplitude. Still,
+there are currently few examples of analysis of metal NCs by resistive-pulse
+techniques,−though the non-destructive continuous flow analysis afforded by
+this technique makes it uniquely capable of direct coupling to flow
+synthesis reactors and other single-particle characterization methods
+compared to the majority of other techniques discussed herein.
+
+(a) SEM image
+of an example detecting region used in resistive-pulse
+sensing measurements, where particles in solution enter the channel
+through a nanofilter to limit aggregates entering and clogging the
+nanopores, and multiple pores in series are used to increase the measurement
+precision. (b) Current vs time trace resulting from resistive-pulse
+measurements of a single 50 nm silica particle passing through the
+three-nanopore series, where the current pulse amplitude (Δi), dwell time (td), and pore-to-pore
+time (tpp) are labeled. (c) Schematic
+showing one preparation method for APT specimens containing NCs, where
+Au@Ag core@shell nanoparticles were dried onto a Si substrate before
+being sputter coated with a Cr layer and then covered with a Pt layer
+by chemical vapor deposition. A focused ion beam instrument is then
+used to carve and lift out a probe tip-shaped portion of the layered
+specimen (black dashed line), with the nanoparticles suspended in
+the middle of the formed tip. (d) HAADF-STEM image of an APT specimen
+fabricated using a similar method as shown in part (c) except using
+Pd@Au core@shell nanoparticles (visualized as white spots in the inset
+magnified image) embedded in a Ni matrix. (e) Three-dimensional APT
+reconstruction (top) showing heterogeneity on the surface of an isolated
+Au@Ag nanoparticle from the sample described in part (c) as well as
+a 2 nm thick cross-sectional slice through the particle showing the
+core@shell morphology when Au and Ag are mapped together (middle)
+and showing a small internal cluster when just Ag is mapped (bottom).
+Parts (a–b) adapted with permission from ref . Copyright 2024 American
+Chemical Society. Parts (c, e) adapted with permission from ref . Copyright 2014 Wiley-VCH
+Publishing. Part (d) adapted with permission from ref . Copyright 2020 Elsevier
+B.V.
+
+For high-resolution MS techniques, there are two
+types of resolutions
+that should be considered: mass resolution and spatial resolution.
+Mass resolution is determined by the mass analyzer and is the smallest
+difference inm/zthat can be separated,
+whereas spatial resolution refers to the minimum sampling spot size
+where an isolated mass spectrum is obtained in MS mapping techniques. One such high-spatial-resolution MS technique
+capable of analyzing single NCs is atom probe tomography (APT), which
+allows for the 3-D compositional mapping of a sample with a sub-nanometer
+spatial resolution and parts per million elemental sensitivity. This
+sensitivity is accomplished by applying a high voltage to a sample,
+resulting in the ionization and desorption of individual atoms that
+are then characterized based on theirm/z. Each data point is then used to build a 3-D reconstruction of the
+sample volume containing spatially resolved compositional information,
+which also gives information about particle size and shape. An important distinction of APT is that the
+sample must be formed into the shape of a probe tip with a tip diameter
+of around 100 nm, through processes such as focused ion beam milling
+for bulk materials, in order to achieve the electrostatic field magnitudes
+(∼10 V nm–1) required to remove the single
+atoms from the material surface. Many
+methods have been designed for preparing NC samples for APT analysis
+such as coating a Si probe tip with NCs by electrophoresis, or encasing one or multiple NCs within a matrix
+material through electrodeposition before sharpening to a tip using
+a focused ion beam (Figurec,d). APT has been used to
+visualize individual NC phenomena such as trace Na and Cl impurities
+in 7 nm carbon-supported Pt nanoparticles as well as to visualize
+phase-segregated clusters hidden within individual core@shell nanoparticles
+(Figuree).−The small phase-segregated clusters found inside of the nanoparticles
+by APT would likely not be possible to visualize by traditional STEM-EDS/EELS
+due to each point in a 2-D STEM-EDS/EELS map corresponding to the
+compositional average of that point along the height of the particle
+(i.e.,thez-axis).
+APT has also been used to visualize thin shells (down to a single
+atomic layer) in core@shell nanoparticles, where the thin shell could
+not be visualized by STEM-EDS due to detection limits of the EDS detector
+and the core and shell metals not having a large enough Z-contrast
+to be visually distinguished. Although
+three-dimensional compositional mapping can be performed using EDS
+tomography within the STEM instrument, it does not match the compositional spatial resolution of APT, and
+issues can arise due to detector shadowing and sample damage from
+long electron beam exposure time. Despite
+the unmatched intraparticle compositional detail that APT can provide
+for individual NCs, it is still not widely adopted in single-NC studies
+given the limited number of instruments available across institutions,
+its high cost, as well as challenging sample preparation.
+
+Secondary-ion
+MS (SIMS) is another high-spatial-resolution MS technique
+where an ion beam is focused and scanned across a sample surface (substrate-supported
+particles in the case of NC analysis), ejecting secondary ions from
+the sample that are then guided to a mass analyzer and characterized
+based on theirm/z. Currently, SIMS is limited to a lateral spatial
+resolution of nearly 100 nm, but the compositional mapping resolution
+can be improved to sub-20 nm through correlative SIMS-microscopy imaging
+and data processing or by inserting SIMS instrumentation and an ion
+source directly into different types of microscopes, including helium
+ion,,SEM, and (S)­TEM instruments. The
+compositional data obtained by SIMS is highly surface-sensitive, as
+only secondary ions from the first few atomic layers are ejected from
+the sample surface and detected. This
+sensitivity significantly differs from compositional analysis by (S)­TEM-EDS/EELS,
+where a very high compositional mapping resolution is typical (∼1
+nm), but the composition at each spot is an average across the entire
+sample height and only has surface-sensitivity at the sample edges.
+Advantages of SIMS over EDS/EELS include its much lower detection
+limit (ppm compared to >0.1 wt %) and its ability to detect both
+light
+and heavy elements and distinguish between isotopes, though coupled electron microscopy-EDS/EELS instrumentation
+is widely commercially available and protocols are well-established.
+Although not widely used as such now, SIMS may be used to assess quantitative
+differences in surface composition between single NCs in an ensemble,
+even for surface elements at very low concentrations. Future technique
+improvements may also allow for spatial resolutions favorable for
+intraparticle mapping of NCs, giving a unique insight into compositional
+variations across NC surfaces.
+
+Tablesummarizes
+the opportunities of the various analytical techniques discussed,
+comparing their ability to characterize different structural heterogeneities
+within and between NCs and theirin situcapabilities
+and general limitations. Overall, though many of these structural
+and compositional characterization techniques have the spatial resolution
+required to visualize interparticle and intraparticle NC characteristics,
+logistics such as finding and placing the probe at a single NC remain
+a time-consuming challenge. Further, as each of these techniques has
+its own limitations, the most robust analysis of NCs often requires
+multimodal approaches where structural techniques are coupled with
+other such techniques (often analyzing different length scales such
+as single particles versus the ensemble) as well as coupled with techniques
+that measure properties. The following case studies demonstrate the
+ability of some of these analytical techniques to be used together
+to correlate NC structure and properties at the nanoscale.
+
+Despite their
+sometimes atomic-scale size, intraparticle heterogeneities
+can influence the electronic structure, catalytic activity, optical
+response, mechanical strength, and more of NCs by creating localized
+regions with distinct behavior. For example, compositional and crystallographic
+gradients may give rise to distinct catalytic activity and selectivity
+within an NC. This strong dependence
+of properties on structure makes precise and correlative characterization
+of these heterogeneities critical for various applications, with examples
+to the fields of catalysis and plasmonics described herein.
+
+In the case of catalysis, the intersite distance (dsite) of single atoms on the surface of NCs (referred
+to as single-atom alloys and can be viewed as point defects) has been
+shown to alter the activity of NCs. Wang
+et al. studied the effect of Audsitein
+Au–Ag single-atom alloys on the oxygen reduction reaction (ORR)
+using a single-particle collision electrochemistry method. Particle collision electrochemistry, also referred
+to as stochastic electrochemistry, allows for many single-particle
+events to be captured one-by-one at a micro- or nanoelectrode in a
+short amount of time by relying on the random collision of nanoparticles
+dispersed in the electrolyte with the electrode. In contrast, more traditional NC electrochemical methods
+rely on a single ensemble-averaged measurement involving hundreds
+of stationary NCs anchored to the electrode surface, which may misrepresent
+or oversimplify NC structure–property relationships. The high-throughput
+single-particle measurements afforded by collision electrochemistry
+methods sacrifice the ability to perform correlated experiments with
+structural techniques such as electron microscopy, as the NCs measured
+are not anchored to the electrode. Structure–property correlation
+using this technique is thus often reliant on statistical analysis
+and inference, though collision methods can be more relevant to a
+wider range of materials (e.g., non-catalytic materials
+through blocking methods) than traditional methods. In the collision method employed by Wang et al., single
+Ag nanoparticles that collide with the surface of an ultramicroelectrode
+first trigger deposition of single Au atoms on the Ag nanoparticle
+surface from the reduction of NaAuCl4in the surrounding
+electrolyte. This collision process is also coupled with an instantaneous
+measurement of the ORR activity of the newly formed single-atom alloy
+particle. Thedsitein the formed single-atom
+alloys was controlled by varying the concentration of NaAuCl4in the electrolyte solution, and its value was estimated theoretically
+by calculating the number of Au atoms deposited during the collision
+event and assuming that the Au atoms were evenly distributed across
+the Ag particle surface. Single-atom alloy nanoparticles formed by
+collision with the ultramicroelectrode were collected for imaging
+by aberration-corrected HAADF-STEM by injecting Ag nanoparticles one-by-one
+toward the surface of the ultramicroelectrode using an injection nanopipette
+in close proximity to the electrode. This specialized preparation
+method greatly decreases the throughput of the collision method but
+limits the number of pure Ag nanoparticles in the resulting STEM sample.
+HAADF-STEM imaging of the Au single atoms on the Ag host particle
+for the largest NaAuCl4concentration studied (Figurea,b) revealed an
+Audsitevalue (1.2 nm) in good agreement
+with the value predicted theoretically (1.3 nm).
+
+(a) Aberration-corrected
+HAADF-STEM image of Au single atoms on
+an individual Ag NC and (b) corresponding distance energy spectrum
+between two neighboring Au atoms (dsite). (c) TOF per Au atom for the ORR as a function ofdsite, with the error bars representing the standard deviation
+between 3 independent experiments. (d) HRTEM images of the tip of
+a defect-free (“normal”) Au nanostar and the tip of
+a defective Au nanostar with twin boundaries and superlattice defects.
+(e) Finite-element method-based electromagnetic field distribution
+simulations of a defect-free Au nanosphere (left), defect-free Au
+nanostar (middle), and defective Au nanostar (right) under various
+excitation wavelengths. (f) SERS spectra of 4-nitrobenzenethiol (4-NTP)
+collected on an Au nanosphere film substrate (red) and a defective
+Au nanostar film substrate (black) under an excitation wavelength
+of 785 nm. Parts (a–c) adapted with permission from ref . Copyright 2024 American
+Chemical Society. Parts (d–f) adapted with permission from
+ref . Copyright
+2022 American Chemical Society.
+
+To assess the effect ofdsite, the
+turnover frequency (TOF) per Au atom for the ORR was calculated and
+mapped for each Au–Ag single-atom alloy studied (Figurec). When Audsitedecreased from 4.0 to 1.9 nm, the TOF increased by
+1.8 times; however, the TOF declined whendsitewas further reduced to 1.3 nm. Notably, Au–Ag single-atom
+alloys with adsiteof 1.9 nm exhibited
+the highest TOF, making them the most efficient ORR electrocatalyst.
+The optimized Audsiteis believed to
+enhance O2adsorption and weaken the binding strength of
+ORR intermediates, thereby improving activity. These findings demonstrate that even the smallest-scale
+intraparticle defect, specifically low concentrations of surface substitutions,
+may have a significant impact on the resulting properties, such as
+on the catalytic activity, of a particle. Further, the use of a collision
+electrochemical method for these intraparticle catalytic studies allowed
+for the high-throughput synthesis and near-instantaneous characterization
+of single particles, which would be a much lower throughput and tedious
+task if other methods were employed.
+
+Intraparticle defects also
+have the potential to influence the
+plasmonic properties of the metal NCs. For example, while it has been
+well-established that large-scale features such as particle size,
+shape, and composition affect the optical properties of an NC,,Guo et al. recently showed that twin boundaries in the tips of Au
+nanostars can significantly impact the electromagnetic field enhancement
+and corresponding SERS intensity in what are usually highly active
+samples. Observed using HRTEM, the twin
+boundaries and superlattice defects are believed to shorten the mean
+free path of electron scattering, increasing electron oscillation
+damping and in turn weakening the electromagnetic field enhancement
+and SERS activity of the nanoparticle (Figured). In finite-element method-based electromagnetic
+field distribution simulations, the effect of such defects can be
+modeled using a bulk damping term (Γb).Figuree shows that the
+simulated electromagnetic field enhancement for a defective Au nanostar
+(25Γb, right) is significantly lower than the electromagnetic
+field enhancement of a normal Au nanostar (1Γb, center)
+and even a tip-less Au nanosphere (1Γb, left). The
+simulated trends agree with the experimental observation that Au nanospheres
+have a greater enhancement factor than defective Au nanostars, with
+a nearly 40 times greater enhancement factor being observed experimentally
+at an excitation wavelength of 633 nm. This enhancement leads to the
+SERS intensity of 4-nitrobenzenethiol (4-NTP) collected on a film
+of Au nanospheres being greater than the intensity of 4-NTP collected
+on defective Au nanostars, contradicting the notion that sharp NC
+features will result in greater electromagnetic field enhancement
+and therefore greater SERS intensity compared to rounded edges (Figuref). Such a result
+demonstrates not only the need for analytical techniques capable of
+capturing atomic-level features but also the need for greater examination
+of the role that small intraparticle defects play in resulting NC
+properties compared to more “obvious” features such
+as NC size, shape, and composition. This study also demonstrates the
+coupling of single-particle (HRTEM) and ensemble (SERS) techniques,
+bridged by computational insight, to build a complete understanding
+of this specific structure–property relationship. Further,
+using single-particle insights to better understand how defects propagate
+effects to the ensemble-level is especially important as some NC applications,
+such as biosensing and batteries, require NC ensembles.
+
+Interparticle
+heterogeneity can lead to broad distributions in
+the physical and chemical properties across an NC ensemble. This heterogeneity
+can impact collective behaviors like optical absorption (e.g., LSPR bandwidth), catalytic activity, and even electronic conductivity
+by introducing different local environments and reaction sites.−This heterogeneity can lead to an inaccurate understanding of structure–property
+relationships while also limiting the reproducibility of ensemble
+NC responses. Thus, characterizing interparticle heterogeneities and
+correlating them to properties is essential, as highlighted with examples
+from the fields of catalysis and plasmonics herein.
+
+For plasmonic
+NCs, the correlation of single-particle optical properties
+such as the LSPR spectrum to the size, shape, and/or composition of
+an NC is critical, as changes to NC structure can impact performance
+in applications such as refractive index sensing. Traditionally, this correlation requires linked optical
+and electron microscopy measurements, which makes the evaluation of
+the structure–function relationship of many single particles
+extremely inefficient. Recently, O’Dell et al. demonstrated
+the ability to obtain Au nanorod structure and its corresponding optical
+properties in the same image using CLocK microscopy. In CLocK microscopy, a rotating birefringent calcite crystal
+is placed in the emission path of an optical microscope, producing
+a polarization-resolved extraordinary ray (e⊥) ring
+around a traditional polarization-averaged diffraction-limited spot
+(Figurea). The polarization-resolved nature of the e⊥ring allows for NC structure, orientation, and information
+about its polarization-resolved scattering spectrum to be captured
+in a single image in less than 1 s. As can be seen inFigureb, the orientation of the red/orange
+lobes of the e⊥ring in the CLocK image indicates
+the orientation of the long axis of an Au nanorod on a substrate,
+as confirmed by the correlated SEM image. The relative intensities
+of the red, green, and blue (RGB) color channels at various e⊥ring orientations in the CLocK image report on the
+positions and magnitudes of the longitudinal and transverse plasmon
+modes traditionally measured by using polarization-resolved single-particle
+dark-field scattering spectroscopy. The RGB polar plot obtained from
+the polarization-resolved spectrum agrees well with the RGB polar
+plot obtained by fitting the CLocK image, supporting the idea that
+color CLocK images accurately capture single-particle scattering spectral
+information. Thus, with shorter integration times and wide-field capabilities,
+CLocK microscopy can be used to more efficiently infer information
+about Au nanorod length and width, allowing for Au nanorods of various
+dimensions and orientations to be identified and differentiated all-optically
+without further post-processing or structural characterization by
+electron microscopy (Figurec). Using ML approaches, specifically a convolutional neural
+network, Au nanorod length, width, and aspect ratio were predicted
+directly from CLocK images within ∼10% of the true value measured
+using electron microscopy. This wide-field,
+all-optical approach of obtaining structure–property relationships
+is extremely valuable in quickly identifying interparticle heterogeneity
+in NC samples and can potentially be used to identify over- or underperforming
+NCs in various applications when coupled within situtechniques and other property measurements.
+
+(a) Schematic of the
+CLocK microscope. (b) Correlated SEM image,
+CLocK image, and polarization-resolved dark-field scattering spectra
+for a single Au nanorod. The RGB polar plots are provided to compare
+the optical properties obtained from CLocK (top) with the optical
+properties measured by using a spectrometer (bottom). SEM scale bar
+= 100 nm. CLocK scale bar = 1 μm. (c) Wide-field color CLocK
+image with the corresponding numerically labeled and color-correlated
+SEM images. SEM scale bars = 100 nm. CLocK scale bar = 5 μm.
+Parts (a–c) adapted with permission from ref . Copyright 2024 American
+Chemical Society.
+
+Single-particle property measurements have also
+made it possible
+to better understand the implications of interparticle heterogeneity
+for common NC applications such as catalysis. For example, SECCM,
+whereby an electrolyte-filled micro- or nanopipette forms a droplet
+at its tip that acts as an electrochemical cell (Figurea), has allowed for electrochemical
+properties of single NCs dispersed onto an electrode to be individually
+measured. Besides the use of SECCM to
+form a small electrochemical cell that completely envelopes a single
+NC for study, SECCM has also been used to map the electrochemical
+activity and topography across the surface of particles to assess
+intraparticle differences,,as well as to map
+the heterogeneity in various electrode materials, such as indium tin
+oxide (ITO). Though they are both single-particle
+electrochemical techniques, SECCM differs from collision electrochemical
+methods as the NCs of interest are anchored onto the electrode surface,
+and the electrochemical cell formed by the nanopipette droplet is
+the dynamic component as opposed to the NCs comprising the dynamic
+component in collision methods. The stationary state of the NCs in
+SECCM allows for correlated techniques, such as electron microscopy,
+to be performed after electrochemical measurement, as well as the
+length of the experiment to be controlled, though the throughput of
+the measurements is greatly reduced compared to collision methods.
+A significant challenge in SECCM is the placement of the pipette onto
+the electrode since scanning the cell in a grid pattern across the
+electrode surface is time-intensive, with the risk of only partially
+enveloping an NC of interest. Because electron microscopy can damage
+the NCs of interest and deposit contaminants such as carbon onto the
+NCs while imaging, optical techniques have been employed before SECCM
+measurement to better target NC locations on the electrode.
+
+(a) Schematic depicting
+the SECCM setup. (b) SECCM map and correlated
+SEM images for the CO2RR (−1.3 V vs RHE). (c) SECCM-derived
+and (d) macroscale electrochemically active surface area (ECSA)-derived
+TOFCOvs potential plots comparing the CO2RR
+activity of {111}-terminated octahedra (OD), {110}-terminated rhombic
+dodecahedra (RD), and {310}-terminated truncated ditetragonal prisms
+(TDP). (e) SEM images of a single Au nanocube (left) and Au octahedron
+(right) and (f) the averaged electrochemical response with error bars
+for HER at individual Au nanocubes (Au NCs) and Au octahedra (Au ODs)
+obtained by SECCM. Parts (a–d) adapted with permission from
+ref . Copyright
+2022 American Chemical Society. Parts (e–f) adapted with permission
+from ref . Copyright
+2020 American Chemical Society.
+
+Recently, SECCM has been used to isolate the catalytic
+activity
+of different NC shapes and facet types toward the CO2reduction
+reaction (CO2RR) and the hydrogen evolution reaction (HER).−Specifically, in one study, single-crystalline Au NCs predominantly
+exhibiting specific crystallographic planes, including {111}-terminated
+octahedra, {110}-terminated rhombic dodecahedra, {310}-terminated
+truncated ditetragonal prisms, and {100}-terminated cubes, were synthesized
+for SECCM studies. For CO2RR, the SECCM pipette was scanned across a glassy carbon substrate
+containing dispersed particles, creating a map of electrochemical
+activity that was correlated with SEM images (Figureb). The turnover frequency of CO (TOFCO), a key metric reflecting the intrinsic activity, was calculated
+to compare the performance of different Au facets. SECCM-derived TOFCOshowed that the CO2RR activity follows the order
+of {110}-terminated rhombic dodecahedra > {310}-terminated truncated
+ditetragonal prisms > {111}-terminated octahedra across almost
+the
+entire potential range studied (Figurec). This same activity trend was observed from macroscale
+(ensemble) data at low overpotentials (potentials more positive than
+−0.7 V vs RHE). However, at higher overpotentials (potentials
+more negative than −0.7 V vs RHE), mass transfer limitations
+in macroscale measurements altered the trend to rhombic dodecahedra
+≈ truncated ditetragonal prisms > octahedra (Figured), obscuring the actual differences
+in activity. By combining SECCM and macroscale results, {110}-terminated
+Au rhombic dodecahedra were found to offer a superior activity for
+converting CO2to CO compared to both {111}-terminated
+octahedra and high-index {310}-terminated truncated ditetragonal prisms. For HER, single-particle SECCM measurements
+revealed that Au nanocubes exhibit higher HER electrocatalytic activity
+than Au octahedra (Figuree,f). These findings are significant
+to the understanding of the implications and tolerances of various
+applications toward interparticle heterogeneity, as all NC ensembles
+contain interparticle heterogeneities such as shape differences, which
+may yield different catalytic activities and selectivities depending
+on the shapes present. These case studies are also significant, as
+they demonstrate a rigorous protocol for correlating SECCM and NC
+structural characterization, which can be used to investigate other
+types of NC heterogeneity, such as composition or ligand density.
+
+These case studies represent
+the state-of-the-art in single-particle
+characterization, linking directly NC features to critical property
+measurements. However, certain property measurements are still not
+possible at the level of single NCs. For example, SECCM provides electrochemical
+readouts of single-NC catalysts, but to obtain product quantification
+from reactions generating multiple products, additional tools would
+need to be coupled with SECCM. Moreover, many single-NC techniques
+have low throughput, especially when moving between multiple analytical
+techniques to acquire correlative data. These limitations, coupled
+with the notion that single-NC techniques are experimentally complicated,
+have limited their adoption. However, we are inspired by the ability
+of single-NC studies to reveal fundamental NC features that give rise
+to functional properties and envision a future in which single-NC
+studies are high-throughput, information-rich, and experimentally
+accessible to a diverse community of researchers.
+
+Conceptually,
+the screening challenge presented by NC heterogeneity
+may be viewed similarly to that of drug discovery and design, where
+there is a large, multidimensional experimental space from which a
+lead target is to be identified. Notably,
+the process of drug discovery has been transformed over the past few
+decades by the creation of high-throughput assays to identify lead
+compounds that then undergo high-resolution characterization and computer-aided
+design until clinical candidates are identified. We propose that a similar workflow be adopted to accelerate
+single-NC screening and design, as outlined inFigure.
+
+Schematic of proposed workflow to accelerate
+single-NC screening
+of structure and properties.
+
+Next, the model NC collections would be analyzed by high-throughput
+primary assays that provide rapid evaluation of ensemble heterogeneity
+and, ideally, of an NC feature or property of interest at the level
+of single NCs. Here, automation and artificial intelligence may offer
+opportunities to improve the efficiency of traditionally low-throughput
+techniques such as electron microscopy. At the same time, intrinsically high-throughput methods are being
+advanced to provide more correlative sample information. For example,
+optical methods offer high-throughput screening of ensemble heterogeneity,
+and the NC features that account for this heterogeneity are now starting
+to be obtained through all-optical methods such as CLocK microscopy.,These advances provide a tremendous opportunity to accelerate the
+identification of interesting NCs through the creation of hybrid tools
+(e.g., tools that combine optical with probe-based
+techniques) and by coupling other optical readouts as proxies for
+a property of interest (e.g., use of fluorescent
+probes in catalysis).,Additionally, SP-ICP-MS provides
+high-throughput screening of ensemble structural and compositional
+heterogeneity. Statistical analysis may link this heterogeneity to
+other property measurements as well. With this insight, single NCs
+identified as potentially interesting through these primary assays
+can then enter a high-resolution characterization loop.
+
+As discussed,
+excellent tools for high-resolution characterization
+of NCs exist (e.g., analytical TEM), where now the
+most promising single NCs would be the focus after being identified
+through a high-throughput workflow rather than the whole NC ensemble.
+Central to the success of this workflow is the ability to analyze
+the same single NCs in both the high-throughput primary assays and
+high-resolution techniques providing property measurement and structural
+characterization. This logistical challenge is non-trivial, given
+the sample requirements of different analytical techniques; however,
+research is addressing this challenge. For example, optically transparent
+carbon electrodes have recently been reported and enable correlative
+single-NC measurements by optical microscopy techniques, electrochemistry,
+and TEM.,Notably, by first screening
+NC ensembles with high-throughput single-NC methods, scientists now
+could strategically select single NCs with different properties for
+high-resolution characterization rather than randomly characterizing
+as many single NCs as possible with the hope that the different particle
+types are captured in the measurements. In this manner, single-NC
+studies are accelerated while preserving the ability to obtain accurate
+structure–property relationships.
+
+At the same time, we
+need to continue to push the frontiers of
+what types of high-resolution single-NC property measurements are
+possible, where, again, the creation of new hybrid tools for analytical
+nanoscience represents a key opportunity. With these advances, computational
+methods play a crucial role, assisting experimentalists in validating
+techniques and providing a better understanding of structure–property
+relationships down to the atomic scale. Traditionally, first-principles
+calculations based on density functional theory (DFT) and molecular
+dynamics (MD) have been used to investigate the electronic and structural
+properties of NCs.,These calculated properties
+can aid in predicting the thermodynamic and kinetic behavior of species
+interacting with NC surfaces, defects, and interfaces, including surface
+reactivity. For instance, DFT can predict the hydrogen binding energy
+at different facets, which is an important descriptor for reactivity
+in the HER. This capability, when coupled
+with single-NC measurements of HER by SECCM and SEM imaging, provides
+the atomic-level detail essential for active site identification,
+which is a challenge for NC ensembles with high levels of heterogeneity.
+
+At this point, NC optimization and design become possible with
+reliable structural and compositional inputs. Modern supercomputers
+have facilitated high-throughput screening and the data-driven expedition
+of novel nanomaterials. Structure generation methodologies such as
+Monte Carlo sampling, Cluster Expansion
+(CE), and Genetic Algorithm (GA) facilitate computational sampling for material
+screening. The rise of artificial intelligence has sparked significant
+interest in its application to NC design by introducing machine-learned
+potentials (MLPs), which define the potential energy surface (PES)
+of materials. These MLPs provide a promising
+alternative to traditional methods for modeling complex NC systems
+with a far-reduced computational expense as compared with DFT, nearing
+comparable accuracy. Many open-source and pretrained models such as
+CHGNET and MACE have been developed to accelerate simulations of NCs.,Furthermore, generated computational and experimental data can be
+used to train and refine MLPs for better accuracy and efficiency in
+future modeling efforts.
+
+With such design principles computationally
+identified, the workflow
+can leverage automated synthetic methods for NC collection generation
+to target and optimize an ensemble in a high-throughput manner. In
+this NC optimization step, a key consideration is the synthetic feasibility.
+That is, once an NC feature is identified as functionally important
+through the workflow outlined inFigure, this feature will ideally be amplified
+in the NC ensemble. For some features, synthetic tools likely already
+exist (e.g., expression of low index surface facets).
+However, other features may be difficult to replicate at scale, given
+the current synthetic toolkit. In this regard, the workflow may identify
+the frontiers of nanomaterial synthesis. Yet, at the same time, this
+possibility also highlights that there may be benefits to keeping
+NC heterogeneity within a manageable level at the initial stage of
+model NC collection generation. Imposing such limits may conceptually
+be considered akin to diversity-oriented synthesis in the field of
+drug discovery and design, where small-molecule collections are created
+by starting from a common, promising compound and modifying the compound
+through limited synthetic steps.
+
+The proposed workflow outlined inFigureand the high-throughput and high-resolution
+techniques required for its implementation are anticipated to greatly
+accelerate NC design by accurately revealing fundamental structure–property
+relationships. Yet, we also note two additional sources of heterogeneity
+that are not tied to the lattice of the NCs but are critical to evaluate
+to ensure accurate structure–property measurements. First,
+the ligand shells that passivate the surfaces of colloidally derived
+NCs can be a source of heterogeneity. For structural measurements
+at the single-NC level, capping ligands on the NC surface may impact
+the perceived particle volume and particle surface charge, resulting
+in inaccuracies in the calculated particle sizes. Further, capping
+ligands can also impact NC properties, including the LSPR of plasmonic
+NCs, through changes in the local dielectric environment and the activity
+and selectivity of NC catalysts through blocking of specific surface
+sites.−Consequently, protocols are commonly adopted
+to remove the capping ligands before property measurement, but as
+Baker et al. showed, some methods do not fully remove these ligands
+and can introduce spatial variation. These protocols also likely depend on the composition and faceting
+of the NCs, but rarely are these protocols validated across material
+systems. Second, many of the property measurements of NCs are performed
+with the NCs supported on a substrate. For example, for optical studies
+of NCs, ITO is a widely used transparent support electrode because
+of its favorable conductivity and transparency in the UV–visible
+region. However, ITO has recently been shown to have nanoscale heterogeneities
+in its electrochemical properties,,which could
+lead to misinterpretation of results. As such, consideration of this
+heterogeneity is critical, along with the development of alternative
+substrate materials.
+
+Given the
+strong correlation between the NC structure and its properties,
+a trend in nanomaterial synthesis has been to minimize heterogeneity
+in NC ensembles and move toward atomically precise nanostructures.
+However, NC heterogeneity can also be viewed as an asset, as an opportunity
+for NC discovery, and for screening diverse NC populations. By the
+development of new high-throughput and high-resolution tools to evaluate
+single NCs in an integrated workflow, the inherent heterogeneity of
+NCs can be leveraged to drive new science and innovation. In accurately
+identifying NC structure–property relationships, conceptual
+breakthroughs for NC design can be achieved. This design should lead
+to NCs with property enhancements but also a better understanding
+of what level and types of heterogeneity are allowable, and even beneficial,
+in an ensemble for a given application. Ultimately, this understanding
+is anticipated to address reproducibility concerns and may lead to
+more sustainable nanochemistry.
+
+The authors acknowledge financial support from the
+US National
+Science Foundation Center for Single-Entity Nanochemistry and Nanocrystal
+Design (CSENND) under Grant No. CHE 2221062. The authors would like
+to thank all members of CSENND for their valuable insights and discussions.
+
+The authors declare
+no
+competing financial interest.

@@ -1,0 +1,2690 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+    <head >
+
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+        
+
+        
+        
+  <link rel="stylesheet" href="/static/assets/style-8258669d.css" />
+<script type="module" crossorigin="" src="/static/assets/base_style-f4a99799.js"></script>
+
+  <link rel="stylesheet" href="/static/assets/style-ef962842.css" />
+<link rel="stylesheet" href="/static/assets/style-3ade8b5c.css" />
+<script type="module" crossorigin="" src="/static/assets/article_style-d757a0dd.js"></script>
+
+  
+  
+    <style>
+  
+  
+  @media screen and (min-width: 64em) {
+    div.pmc-wm {
+      background: repeat-y;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='350' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-.02' y='0' width='1.05' height='1' id='c'%3E%3CfeFlood flood-color='%23FFF'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3Ctext id='b' font-family='Helvetica' font-size='11pt' style='opacity:1;fill:%23005ea2;stroke:none;text-anchor:middle' x='175' y='14'%3E%3C/text%3E%3Cpath id='a' style='fill:%23005ea2' d='M0 8h350v3H0z'/%3E%3C/defs%3E%3Cuse xlink:href='%23a' transform='rotate(90 10 10)'/%3E%3Cuse xlink:href='%23b' transform='rotate(90 10 10)' filter='url(%23c)'/%3E%3C/svg%3E");
+      padding-left: 3rem;
+    }
+  }
+</style>
+
+  
+
+
+
+        
+            <link rel="apple-touch-icon"
+                  sizes="180x180"
+                  href="/static/img/favicons/apple-touch-icon.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="48x48"
+                  href="/static/img/favicons/favicon-48x48.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="/static/img/favicons/favicon-32x32.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="/static/img/favicons/favicon-16x16.png" />
+            <link rel="manifest" href="/static/img/favicons/site.webmanifest" />
+            <link rel="mask-icon"
+                  href="/static/img/favicons/safari-pinned-tab.svg"
+                  color="#0071bc" />
+            <meta name="msapplication-config"
+                  content="/static/img/favicons/browserconfig.xml" />
+            <meta name="theme-color" content="#ffffff" />
+        
+
+        <title>
+            Highly accurate prophage island detection with PIDE - PMC
+        </title>
+
+        
+        
+  
+  <!-- Logging params: Pinger defaults -->
+<meta name="ncbi_app" content="cloudpmc-viewer" />
+<meta name="ncbi_db" content="pmc" />
+<meta name="ncbi_phid" content="AE5334198AF2866305341900888114BC.m_1" />
+<meta name="ncbi_pinger_stat_url" content="https://pmc.ncbi.nlm.nih.gov/stat" />
+<!-- Logging params: Pinger custom -->
+<meta name="ncbi_pdid" content="article" />
+  
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+
+    
+        <link rel="preconnect" href="https://cdn.ncbi.nlm.nih.gov" />
+    
+
+    <!-- Include USWDS Init Script -->
+    <script src="/static/assets/uswds-init.js"></script>
+
+
+    <meta name="ncbi_domain" content="genbio">
+<meta name="ncbi_type" content="fulltext">
+<meta name="ncbi_pcid" content="journal">
+<meta name="ncbi_feature" content="associated_data">
+<link rel="canonical" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12366036/">
+<meta name="robots" content="INDEX,NOFOLLOW,NOARCHIVE">
+<meta name="citation_journal_title" content="Genome Biology">
+<meta name="citation_title" content="Highly accurate prophage island detection with PIDE">
+<meta name="citation_author" content="Hongyan Gao">
+<meta name="citation_author_institution" content="Center for Infection Biology, School of Basic Medical Sciences, Tsinghua University, Beijing, 100084 China">
+<meta name="citation_author_institution" content="Tsinghua-Peking Joint Center for Life Sciences, Beijing, 100084 China">
+<meta name="citation_author" content="Bowen Li">
+<meta name="citation_author_institution" content="Center for Infection Biology, School of Basic Medical Sciences, Tsinghua University, Beijing, 100084 China">
+<meta name="citation_author_institution" content="Tsinghua-Peking Joint Center for Life Sciences, Beijing, 100084 China">
+<meta name="citation_author" content="Zihan Guo">
+<meta name="citation_author_institution" content="Center for Infection Biology, School of Basic Medical Sciences, Tsinghua University, Beijing, 100084 China">
+<meta name="citation_author_institution" content="Tsinghua-Peking Joint Center for Life Sciences, Beijing, 100084 China">
+<meta name="citation_author" content="Lei Zheng">
+<meta name="citation_author_institution" content="Center for Infection Biology, School of Basic Medical Sciences, Tsinghua University, Beijing, 100084 China">
+<meta name="citation_author_institution" content="Tsinghua-Peking Joint Center for Life Sciences, Beijing, 100084 China">
+<meta name="citation_author" content="Junnan Chen">
+<meta name="citation_author_institution" content="Center for Infection Biology, School of Basic Medical Sciences, Tsinghua University, Beijing, 100084 China">
+<meta name="citation_author_institution" content="Tsinghua-Peking Joint Center for Life Sciences, Beijing, 100084 China">
+<meta name="citation_author" content="Guanxiang Liang">
+<meta name="citation_author_institution" content="Center for Infection Biology, School of Basic Medical Sciences, Tsinghua University, Beijing, 100084 China">
+<meta name="citation_author_institution" content="Tsinghua-Peking Joint Center for Life Sciences, Beijing, 100084 China">
+<meta name="citation_author_institution" content="SXMU-Tsinghua Collaborative Innovation Center for Frontier Medicine, Shanxi Medical University, Taiyuan, Shanxi 030001 China">
+<meta name="citation_publication_date" content="2025 Aug 20">
+<meta name="citation_volume" content="26">
+<meta name="citation_firstpage" content="254">
+<meta name="citation_doi" content="10.1186/s13059-025-03733-0">
+<meta name="citation_pmid" content="40836306">
+<meta name="citation_abstract_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12366036/">
+<meta name="citation_fulltext_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12366036/">
+<meta name="citation_pdf_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12366036/pdf/13059_2025_Article_3733.pdf">
+<meta name="description" content="As important mobile elements in prokaryotes, prophages shape the genomic context of their hosts and regulate the structure of bacterial populations. However, it is challenging to precisely identify prophages through computational methods. Here, we ...">
+<meta name="og:title" content="Highly accurate prophage island detection with PIDE">
+<meta name="og:type" content="article">
+<meta name="og:site_name" content="PubMed Central (PMC)">
+<meta name="og:description" content="As important mobile elements in prokaryotes, prophages shape the genomic context of their hosts and regulate the structure of bacterial populations. However, it is challenging to precisely identify prophages through computational methods. Here, we ...">
+<meta name="og:url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12366036/">
+<meta name="og:image" content="https://cdn.ncbi.nlm.nih.gov/pmc/cms/images/pmc-card-share.jpg?_=0">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ncbi">
+    
+    
+
+    </head>
+    <body >
+        
+    <a class="usa-skipnav " href="#main-content">
+      Skip to main content
+    </a>
+
+
+        
+            
+
+<section class="usa-banner " aria-label="Official website of the United States government" >
+    <div class="usa-accordion">
+        <header class="usa-banner__header">
+            <div class="usa-banner__inner">
+                <div class="grid-col-auto">
+                    <img aria-hidden="true"
+                         class="usa-banner__header-flag"
+                         src="/static/img/us_flag.svg"
+                         alt="" />
+                </div>
+
+                <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+                    <p class="usa-banner__header-text">
+                        An official website of the United States government
+                    </p>
+                    <span class="usa-banner__header-action">Here's how you know</span>
+                </div>
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-accordion__button usa-banner__button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    aria-expanded="false"
+    aria-controls="gov-banner-default"
+    
+    data-testid="storybook-django-banner"
+    
+    >
+    
+        
+
+        
+                    <span class="usa-banner__button-text">Here's how you know</span>
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </div>
+        </header>
+
+        <div class="usa-banner__content usa-accordion__content"
+             id="gov-banner-default"
+             hidden>
+            <div class="grid-row grid-gap-lg">
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-dot-gov.svg"
+                         alt=""
+                         aria-hidden="true" />
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Official websites use .gov</strong>
+                            <br />
+                            A
+                            <strong>.gov</strong> website belongs to an official
+                            government organization in the United States.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-https.svg"
+                         alt=""
+                         aria-hidden="true" />
+
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Secure .gov websites use HTTPS</strong>
+                            <br />
+                            A <strong>lock</strong> (
+                            <span class="icon-lock">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     width="52"
+                                     height="64"
+                                     viewBox="0 0 52 64"
+                                     class="usa-banner__lock-image"
+                                     role="graphics-symbol"
+                                     aria-labelledby="banner-lock-description"
+                                     focusable="false">
+                                    <title id="banner-lock-title">Lock</title>
+                                    <desc id="banner-lock-description">
+                                    Locked padlock icon
+                                    </desc>
+                                    <path fill="#000000"
+                                          fill-rule="evenodd"
+                                          d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+                                </svg>
+</span>) or <strong>https://</strong> means you've safely
+                                connected to the .gov website. Share sensitive
+                                information only on official, secure websites.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        
+
+        
+    
+    
+    
+
+<div class="usa-overlay">
+</div>
+
+
+
+<header class="usa-header usa-header--extended usa-header--wide" data-header data-testid="header"    >
+    <div class="ncbi-header">
+        <div class="ncbi-header__container">
+            <a class="ncbi-header__logo-container"
+               href="https://www.ncbi.nlm.nih.gov/">
+                <img alt="NCBI home page"
+                     class="ncbi-header__logo-image"
+                     src="/static/img/ncbi-logos/nih-nlm-ncbi--white.svg"
+                     width="410"
+                     height="100" />
+            </a>
+
+            <!-- Mobile menu hamburger button -->
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-menu-btn ncbi-header__hamburger-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Show menu"
+    data-testid="navMenuButton"
+    
+    >
+    
+        
+
+        
+                <svg aria-hidden="true"
+                     class="ncbi-hamburger-icon"
+                     fill="none"
+                     focusable="false"
+                     height="21"
+                     viewBox="0 0 31 21"
+                     width="31"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd"
+                          d="M0.125 20.75H30.875V17.3333H0.125V20.75ZM0.125 12.2083H30.875V8.79167H0.125V12.2083ZM0.125 0.25V3.66667H30.875V0.25H0.125Z"
+                          fill="#F1F1F1"
+                          fill-rule="evenodd" />
+                </svg>
+            
+
+        
+    
+        
+            </button>
+        
+
+
+
+            
+                <!-- Desktop buttons-->
+                <div class="ncbi-header__desktop-buttons">
+                    
+                        <!-- Desktop search button -->
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button
+           "
+    aria-expanded="false"
+    aria-controls="search-field-desktop-navigation"
+    aria-label="Show search overlay"
+    data-testid="toggleSearchPanelButton"
+    data-toggle-search-panel-button
+    >
+    
+        
+
+        
+                            
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#search" />
+    </svg>
+
+
+                            Search
+                        
+
+        
+    
+        
+            </button>
+        
+
+
+                    
+
+                    <!-- Desktop login dropdown -->
+                    
+                        <div class="ncbi-header__login-dropdown">
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button ncbi-header__login-dropdown-button
+           "
+    aria-expanded="false"
+    aria-controls="login-dropdown-menu"
+    aria-label="Show login menu"
+    data-testid="toggleLoginMenuDropdown"
+    data-desktop-login-button
+    >
+    
+        
+
+        
+                                
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#person" />
+    </svg>
+
+
+
+                                <span data-login-dropdown-text>Log in</span>
+
+                                <!-- Dropdown icon pointing up -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-less ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-up-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_less" />
+    </svg>
+
+
+
+                                <!-- Dropdown icon pointing down -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-more ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-down-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_more" />
+    </svg>
+
+
+                            
+
+        
+    
+        
+            </button>
+        
+
+
+
+                            <!-- Login dropdown menu -->
+                            <ul class="usa-nav__submenu ncbi-header__login-dropdown-menu"
+                                id="login-dropdown-menu"
+                                data-desktop-login-menu-dropdown
+                                hidden>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                <li class="usa-nav__submenu-item">
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--outline ncbi-header__login-dropdown-logout-button
+           "
+    
+    
+    
+    data-testid="desktopLogoutButton"
+    data-desktop-logout-button
+    >
+    
+        
+
+        Log out
+
+        
+    
+        
+            </button>
+        
+
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                </div>
+            
+        </div>
+    </div>
+
+    <!-- Search panel -->
+    
+        <div class="ncbi-search-panel ncbi--show-only-at-desktop"
+             data-header-search-panel
+             hidden>
+            <div class="ncbi-search-panel__container">
+                <form action="https://www.ncbi.nlm.nih.gov/search/all/"
+                      
+                      autocomplete="off"
+                      class="usa-search usa-search--big ncbi-search-panel__form"
+                      data-testid="desktop-navigation-search-form"
+                      method="GET"
+                      role="search">
+                    <label class="usa-sr-only" for="search-field-desktop-navigation">
+                        Search…
+                    </label>
+                    <input class="usa-input"
+                           id="search-field-desktop-navigation"
+                           name="term"
+                           
+                               placeholder="Search NCBI"
+                           
+                           type="search"
+                           value="" />
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                        <span class="usa-search__submit-text">
+                            Search NCBI
+                        </span>
+                    
+
+        
+    
+        
+            </button>
+        
+
+
+                </form>
+
+                
+            </div>
+        </div>
+    
+
+    <nav aria-label="Primary navigation" class="usa-nav">
+        <p class="usa-sr-only" id="primary-navigation-sr-only-title">
+            Primary site navigation
+        </p>
+
+        <!-- Mobile menu close button -->
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-nav__close ncbi-nav__close-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Close navigation menu"
+    data-testid="navCloseButton"
+    
+    >
+    
+        
+
+        
+            <img src="/static/img/usa-icons/close.svg" alt="Close" />
+        
+
+        
+    
+        
+            </button>
+        
+
+
+
+        
+            <!-- Mobile search component -->
+            <form class="usa-search usa-search--small ncbi--hide-at-desktop margin-top-6"
+                  action="https://www.ncbi.nlm.nih.gov/search/all/"
+                  
+                  autocomplete="off"
+                  data-testid="mobile-navigation-search-form"
+                  method="GET"
+                  role="search">
+                <label class="usa-sr-only" for="search-field-mobile-navigation">
+                    Search
+                </label>
+
+                <input class="usa-input"
+                       id="search-field-mobile-navigation"
+                       type="search"
+                       
+                           placeholder="Search NCBI"
+                       
+                       name="term" />
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                    <!-- This SVG should be kept inline and not replaced with a link to the icon as otherwise it will render in the wrong color -->
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0E2LjQ3MSA2LjQ3MSAwIDAgMCAxNiA5LjUgNi41IDYuNSAwIDEgMCA5LjUgMTZjMS42MSAwIDMuMDktLjU5IDQuMjMtMS41N2wuMjcuMjh2Ljc5bDUgNC45OUwyMC40OSAxOWwtNC45OS01em0tNiAwQzcuMDEgMTQgNSAxMS45OSA1IDkuNVM3LjAxIDUgOS41IDUgMTQgNy4wMSAxNCA5LjUgMTEuOTkgMTQgOS41IDE0eiIvPjwvc3ZnPg=="
+                         class="usa-search__submit-icon"
+                         alt="Search" />
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </form>
+
+            
+        
+
+        <!-- Primary navigation menu items -->
+        <!-- This usa-nav__inner wrapper is required to correctly style the navigation items on Desktop -->
+        
+
+        
+            <div class="ncbi-nav__mobile-login-menu ncbi--hide-at-desktop"
+                 data-mobile-login-menu
+                 hidden>
+                <p class="ncbi-nav__mobile-login-menu-status">
+                    Logged in as:
+                    <strong class="ncbi-nav__mobile-login-menu-email"
+                            data-mobile-login-email-text></strong>
+                </p>
+                <ul class="usa-nav__primary usa-accordion">
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           ncbi-nav__mobile-login-button ncbi--hide-at-desktop
+           "
+    
+    
+    
+    data-testid="mobileLoginButton"
+    data-mobile-login-button
+    >
+    
+        
+
+        Log in
+
+        
+    
+        
+            </button>
+        
+
+
+    </nav>
+</header>
+
+    
+    
+        
+
+<section class="pmc-header pmc-header--basic" aria-label="PMC Header with search box">
+    <div class="pmc-nav-container">
+        <div class="pmc-header__bar">
+           <div class="pmc-header__logo">
+               <a href="/" title="Home" aria-label="PMC Home"></a>
+           </div>
+            <button
+                    type="button"
+                    class="usa-button usa-button--unstyled pmc-header__search__button"
+                    aria-label="Open search"
+                    data-ga-category="search"
+                    data-ga-action="PMC"
+                    data-ga-label="pmc_search_panel_mobile"
+            >
+                <svg class="usa-icon width-4 height-4 pmc-icon__open" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#search"></use>
+                </svg>
+                <svg class="usa-icon width-4 height-4 pmc-icon__close" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="pmc-header__search">
+            
+
+
+<form class="usa-search usa-search--extra usa-search--article-right-column  pmc-header__search__form" id="pmc-search-form" autocomplete="off" role="search">
+<label class="usa-sr-only" for="pmc-search">Search PMC Full-Text Archive</label>
+<span class="autoComplete_wrapper flex-1">
+<input class="usa-input width-full maxw-none" required="required" placeholder="Search PMC Full-Text Archive" id="pmc-search"  type="search" name="term" data-autocomplete-url="https://pmc.ncbi.nlm.nih.gov/autocomp/search/autocomp/"/>
+</span>
+<button
+class="usa-button"
+type="submit"
+formaction="https://www.ncbi.nlm.nih.gov/pmc/"
+data-ga-category="search"
+data-ga-action="PMC"
+data-ga-label="PMC_search_button"
+>
+<span class="usa-search__submit-text">Search in PMC</span>
+<img
+src="/static/img/usa-icons-bg/search--white.svg"
+class="usa-search__submit-icon"
+alt="Search"
+/>
+</button>
+</form>
+            <div class="display-flex flex-column tablet:flex-row tablet:flex-justify flex-justify-center flex-align-center width-full desktop:maxw-44">
+                <ul class="pmc-header__search__menu">
+                    <li>
+                        
+                            <a class="usa-link" href="/journals/" data-ga-action="featured_link" data-ga-label="journal list">
+                                Journal List
+                            </a>
+                        
+                    </li>
+                    <li>
+                        
+                            <a class="usa-link" href="/about/userguide/" data-ga-action="featured_link"
+                            data-ga-label="user guide">
+                                User Guide
+                            </a>
+                        
+                    </li>
+                </ul>
+                
+                    <button form="pmc-search-form" formaction="https://pmc.ncbi.nlm.nih.gov/search/" type="submit" class="usa-button usa-button--unstyled hover:text-no-underline text-no-underline width-auto margin-top-1 tablet:margin-top-0">
+     <span class="bg-green-label padding-05 text-white">New</span><span class="text-underline text-primary">Try this search in PMC Beta Search</span>
+</button>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+
+
+        
+        
+
+       
+  <div class="usa-section padding-top-0 desktop:padding-top-6 pmc-article-section" data-article-db="pmc" data-article-id="12366036">
+
+    
+
+   
+
+
+
+<div class="grid-container pmc-actions-bar" aria-label="Actions bar" role="complementary">
+    <div class="grid-row">
+        <div class="grid-col-fill display-flex">
+             <div class="display-flex">
+                <ul class="usa-list usa-list--unstyled usa-list--horizontal">
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <button
+                                type="button"
+                                class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                                aria-label="Open resources"
+                                data-extra-class="is-visible-resources"
+                                data-ga-category="resources_accordion"
+                                data-ga-action="click"
+                                data-ga-label="mobile_icon"
+                        >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#more_vert"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <a
+                                href="https://doi.org/10.1186/s13059-025-03733-0"
+                                class="usa-link display-flex usa-tooltip"
+                                role="button"
+                                target="_blank"
+                                rel="noreferrer noopener"
+                                title="View on publisher site"
+                                data-position="bottom"
+                                aria-label="View on publisher site"
+                                data-ga-category="actions"
+                                data-ga-action="click"
+                                data-ga-label="publisher_link_mobile"
+                        >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#launch"></use>
+                                </svg>
+                        </a>
+                    </li>
+                    
+                    
+                        <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                             <a
+                                     href="pdf/13059_2025_Article_3733.pdf"
+                                     class="usa-link display-flex usa-tooltip"
+                                     role="button"
+                                     title="Download PDF"
+                                     data-position="bottom"
+                                     aria-label="Download PDF"
+                                     data-ga-category="actions"
+                                     data-ga-action="click"
+                                     data-ga-label="pdf_download_mobile"
+                             >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button
+                            class="usa-button usa-button--unstyled  usa-tooltip collections-dialog-trigger collections-button display-flex collections-button-empty"
+                            title="Add to Collections"
+                            data-position="bottom"
+                            aria-label="Save article in MyNCBI collections."
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="collections_button_mobile"
+                            data-collections-open-dialog-enabled="false"
+                            data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12366036%2F%3Freport%3Dclassic%23open-collections-dialog"
+                            data-in-collections="false"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button role="button" class="usa-button usa-button--unstyled usa-tooltip citation-dialog-trigger display-flex"
+                            aria-label="Open dialog with citation text in different styles"
+                            title="Cite"
+                            data-position="bottom"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="cite_mobile"
+                            data-all-citations-url="/resources/citations/12366036/"
+                            data-citation-style="nlm"
+                            data-download-format-link="/resources/citations/12366036/export/"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="pmc-permalink display-flex" >
+                         <button
+                                 type="button"
+                                 title="Permalink"
+                                 data-position="bottom"
+                                 class="usa-button usa-button--unstyled display-flex usa-tooltip"
+                                 aria-label="Show article permalink"
+                                 aria-expanded="false"
+                                 aria-haspopup="true"
+                                 data-ga-category="actions"
+                                 data-ga-action="open"
+                                 data-ga-label="permalink_mobile"
+                         >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#share"></use>
+                            </svg>
+                        </button>
+                        
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12366036/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+                    </li>
+                </ul>
+            </div>
+            <button
+                    type="button"
+                    class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                    aria-label="Open article navigation"
+                    data-extra-class="is-visible-in-page"
+                    data-ga-category="actions"
+                    data-ga-action="open"
+                    data-ga-label="article_nav_mobile"
+            >
+                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#list"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+    <div class="grid-container desktop:padding-left-6">
+      <div id="article-container" class="grid-row grid-gap">
+        <div class="grid-col-12 desktop:grid-col-8 order-2 pmc-layout__content">
+            <div class="grid-container padding-left-0 padding-right-0">
+                <div class="grid-row desktop:margin-left-neg-6">
+                    <div class="grid-col-12">
+                        <div class="pmc-layout__disclaimer" role="complementary" aria-label="Disclaimer note">
+    As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,
+    the contents by NLM or the National Institutes of Health.<br/>
+    Learn more:
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="Disclaimer" data-ga-label="New disclaimer box" href="/about/disclaimer/">PMC Disclaimer</a>
+    |
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="PMC Copyright Notice" data-ga-label="New disclaimer box" href="/about/copyright/">
+        PMC Copyright Notice
+    </a>
+</div>
+                    </div>
+                </div>
+                <div class="grid-row pmc-wm desktop:margin-left-neg-6">
+                    <!-- Main content -->
+                    <main
+                      id="main-content"
+                      class="usa-layout-docs__main usa-layout-docs grid-col-12 pmc-layout pmc-prose padding-0"
+                    >
+
+                      
+                        <section class="pmc-journal-banner text-center line-height-none" aria-label="Journal banner"><img src="https://cdn.ncbi.nlm.nih.gov/pmc/banners/logo-genbio.png" alt="Genome Biology logo" usemap="#pmc-banner-imagemap" width="500" height="75"><map name="pmc-banner-imagemap"><area alt="Link to Genome Biology" title="Link to Genome Biology" shape="default" href="https://genomebiology.biomedcentral.com/" target="_blank" rel="noopener noreferrer"></map></section><article lang="en"><section aria-label="Article citation and metadata"><section class="pmc-layout__citation font-secondary font-xs"><div>
+<div class="display-inline-block"><button type="button" class="cursor-pointer text-no-underline bg-transparent border-0 padding-0 text-left margin-0 text-normal text-primary" aria-controls="journal_context_menu">Genome Biol</button></div>. 2025 Aug 20;26:254. doi: <a href="https://doi.org/10.1186/s13059-025-03733-0" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">10.1186/s13059-025-03733-0</a>
+</div>
+<nav id="journal_context_menu" hidden="hidden"><ul class="menu-list font-family-ui" role="menu">
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/pmc/?term=%22Genome%20Biol%22%5Bjour%5D" class="usa-link" role="menuitem">Search in PMC</a></li>
+<li role="presentation"><a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Genome%20Biol%22%5Bjour%5D" lang="en" class="usa-link" role="menuitem">Search in PubMed</a></li>
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/nlmcatalog?term=%22Genome%20Biol%22%5BTitle%20Abbreviation%5D" class="usa-link" role="menuitem">View in NLM Catalog</a></li>
+<li role="presentation"><a href="?term=%22Genome%20Biol%22%5Bjour%5D" class="usa-link" role="menuitem" data-add-to-search="true">Add to search</a></li>
+</ul></nav></section><section class="front-matter"><div class="ameta p font-secondary font-xs">
+<hgroup><h1>Highly accurate prophage island detection with PIDE</h1></hgroup><div class="cg p">
+<a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Gao%20H%22%5BAuthor%5D" class="usa-link" aria-describedby="id1"><span class="name western">Hongyan Gao</span></a><div hidden="hidden" id="id1">
+<h3><span class="name western">Hongyan Gao</span></h3>
+<div class="p">
+<sup>1</sup>Center for Infection Biology, School of Basic Medical Sciences, Tsinghua University, Beijing, 100084 China </div>
+<div class="p">
+<sup>2</sup>Tsinghua-Peking Joint Center for Life Sciences, Beijing, 100084 China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Gao%20H%22%5BAuthor%5D" class="usa-link"><span class="name western">Hongyan Gao</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>2,</sup><sup>#</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Li%20B%22%5BAuthor%5D" class="usa-link" aria-describedby="id2"><span class="name western">Bowen Li</span></a><div hidden="hidden" id="id2">
+<h3><span class="name western">Bowen Li</span></h3>
+<div class="p">
+<sup>1</sup>Center for Infection Biology, School of Basic Medical Sciences, Tsinghua University, Beijing, 100084 China </div>
+<div class="p">
+<sup>2</sup>Tsinghua-Peking Joint Center for Life Sciences, Beijing, 100084 China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Li%20B%22%5BAuthor%5D" class="usa-link"><span class="name western">Bowen Li</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>2,</sup><sup>#</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Guo%20Z%22%5BAuthor%5D" class="usa-link" aria-describedby="id3"><span class="name western">Zihan Guo</span></a><div hidden="hidden" id="id3">
+<h3><span class="name western">Zihan Guo</span></h3>
+<div class="p">
+<sup>1</sup>Center for Infection Biology, School of Basic Medical Sciences, Tsinghua University, Beijing, 100084 China </div>
+<div class="p">
+<sup>2</sup>Tsinghua-Peking Joint Center for Life Sciences, Beijing, 100084 China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Guo%20Z%22%5BAuthor%5D" class="usa-link"><span class="name western">Zihan Guo</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>2,</sup><sup>#</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Zheng%20L%22%5BAuthor%5D" class="usa-link" aria-describedby="id4"><span class="name western">Lei Zheng</span></a><div hidden="hidden" id="id4">
+<h3><span class="name western">Lei Zheng</span></h3>
+<div class="p">
+<sup>1</sup>Center for Infection Biology, School of Basic Medical Sciences, Tsinghua University, Beijing, 100084 China </div>
+<div class="p">
+<sup>2</sup>Tsinghua-Peking Joint Center for Life Sciences, Beijing, 100084 China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Zheng%20L%22%5BAuthor%5D" class="usa-link"><span class="name western">Lei Zheng</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>2</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Chen%20J%22%5BAuthor%5D" class="usa-link" aria-describedby="id5"><span class="name western">Junnan Chen</span></a><div hidden="hidden" id="id5">
+<h3><span class="name western">Junnan Chen</span></h3>
+<div class="p">
+<sup>1</sup>Center for Infection Biology, School of Basic Medical Sciences, Tsinghua University, Beijing, 100084 China </div>
+<div class="p">
+<sup>2</sup>Tsinghua-Peking Joint Center for Life Sciences, Beijing, 100084 China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Chen%20J%22%5BAuthor%5D" class="usa-link"><span class="name western">Junnan Chen</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>2</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Liang%20G%22%5BAuthor%5D" class="usa-link" aria-describedby="id6"><span class="name western">Guanxiang Liang</span></a><div hidden="hidden" id="id6">
+<h3><span class="name western">Guanxiang Liang</span></h3>
+<div class="p">
+<sup>1</sup>Center for Infection Biology, School of Basic Medical Sciences, Tsinghua University, Beijing, 100084 China </div>
+<div class="p">
+<sup>2</sup>Tsinghua-Peking Joint Center for Life Sciences, Beijing, 100084 China </div>
+<div class="p">
+<sup>3</sup>SXMU-Tsinghua Collaborative Innovation Center for Frontier Medicine, Shanxi Medical University, Taiyuan, Shanxi 030001 China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Liang%20G%22%5BAuthor%5D" class="usa-link"><span class="name western">Guanxiang Liang</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>2,</sup><sup>3,</sup><sup>✉</sup>
+</div>
+<ul class="d-buttons inline-list">
+<li><button class="d-button" aria-controls="aip_a" aria-expanded="false">Author information</button></li>
+<li><button class="d-button" aria-controls="anp_a" aria-expanded="false">Article notes</button></li>
+<li><button class="d-button" aria-controls="clp_a" aria-expanded="false">Copyright and License information</button></li>
+</ul>
+<div class="d-panels font-secondary-light">
+<div id="aip_a" class="d-panel p" style="display: none">
+<div class="p" id="Aff1">
+<sup>1</sup>Center for Infection Biology, School of Basic Medical Sciences, Tsinghua University, Beijing, 100084 China </div>
+<div id="Aff2">
+<sup>2</sup>Tsinghua-Peking Joint Center for Life Sciences, Beijing, 100084 China </div>
+<div id="Aff3">
+<sup>3</sup>SXMU-Tsinghua Collaborative Innovation Center for Frontier Medicine, Shanxi Medical University, Taiyuan, Shanxi 030001 China </div>
+<div class="author-notes p">
+<div class="fn" id="_fncrsp93pmc__">
+<sup>✉</sup><p class="display-inline">Corresponding author.</p>
+</div>
+<div class="fn" id="_eqcntrb93pmc__">
+<sup>#</sup><p class="display-inline">Contributed equally.</p>
+</div>
+</div>
+</div>
+<div id="anp_a" class="d-panel p" style="display: none"><div class="notes p"><section id="historyarticle-meta1" class="history"><p>Received 2024 Aug 23; Accepted 2025 Aug 6; Collection date 2025.</p></section></div></div>
+<div id="clp_a" class="d-panel p" style="display: none">
+<div>© The Author(s) 2025</div>
+<p><strong>Open Access</strong> This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modified the licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">http://creativecommons.org/licenses/by-nc-nd/4.0/</a>.</p>
+<div class="p"><a href="/about/copyright/" class="usa-link">PMC Copyright notice</a></div>
+</div>
+</div>
+<div>PMCID: PMC12366036  PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/40836306/" class="usa-link">40836306</a>
+</div>
+</div></section></section><section aria-label="Article content"><section class="body main-article-body"><section class="abstract" id="Abs1"><h2>Abstract</h2>
+<p id="Par1">As important mobile elements in prokaryotes, prophages shape the genomic context of their hosts and regulate the structure of bacterial populations. However, it is challenging to precisely identify prophages through computational methods. Here, we introduce PIDE for identifying prophages from bacterial genomes or metagenome-assembled genomes. PIDE integrates a pre-trained protein language model and gene density clustering algorithm to distinguish prophages. Benchmarking with induced prophage sequencing datasets demonstrates that PIDE pinpoints prophages with precise boundaries. Applying PIDE to 4744 human gut representative genomes reveals 24,467 prophages with widespread functional capacity. PIDE is available at <a href="https://github.com/chyghy/PIDE" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://github.com/chyghy/PIDE</a>, with model training code at <a href="https://zenodo.org/records/16457629" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://zenodo.org/records/16457629</a>.</p>
+<section id="sec1"><h3 class="pmc_sec_title">Supplementary Information</h3>
+<p>The online version contains supplementary material available at 10.1186/s13059-025-03733-0.</p></section><section id="kwd-group1" lang="en" class="kwd-group"><p><strong>Keywords:</strong> Prophage identification, Protein language model, Gene cluster, Human gut metagenome</p></section></section><section id="Sec1"><h2 class="pmc_sec_title">Background</h2>
+<p id="Par2">Bacteriophages, or phages, are viruses that infect bacteria and the most abundant and diverse entities in the biosphere [<a href="#CR1" class="usa-link" aria-describedby="CR1">1</a>]. They mainly exhibit two life cycles: the lytic cycle and the lysogenic cycle. Unlike obligate lytic phages, temperate phages have a life cycle that involves a decision-making process between lysis and lysogeny. During lysogeny, temperate phages integrate their genomes into bacterial genomes as prophages, remaining dormant until an induction signal is sensed [<a href="#CR2" class="usa-link" aria-describedby="CR2">2</a>]. A previous study found that over 80% of bacterial strains from infant feces could produce phages when exposed to mitomycin C [<a href="#CR3" class="usa-link" aria-describedby="CR3">3</a>], highlighting the prevalence of lysogeny in the human gut. As a result, lysogeny not only regulates bacterial community structure but also contributes to genetic variation by disrupting host genes or introducing new functions [<a href="#CR4" class="usa-link" aria-describedby="CR4">4</a>–<a href="#CR7" class="usa-link" aria-describedby="CR7">7</a>], and certain defective prophages can have a significant impact on the host’s physiological functions [<a href="#CR8" class="usa-link" aria-describedby="CR8">8</a>–<a href="#CR10" class="usa-link" aria-describedby="CR10">10</a>]. Therefore, identifying prophages, even defective prophages, in a given environment is essential for understanding their effects on bacterial hosts. Due to challenges in determining prophage activity and the presence of mobile genetic elements carrying phage-related genes, this study uses the term “Prophage Island (PI)” to refer to genomic regions that may include complete prophages, prophage remnants, or other phage-related elements.
+</p>
+<p id="Par3">Given their significance, various prophage identification tools have been developed, each employing distinct strategies. For instance, VirSorter2 employs random forest classifiers on sliding windows to detect viral segments in non-viral regions [<a href="#CR11" class="usa-link" aria-describedby="CR11">11</a>]. PHASTER identifies phage genes via BLAST and uses gene clustering density measurements to locate prophages [<a href="#CR12" class="usa-link" aria-describedby="CR12">12</a>]. Similarly, Prophinder and ProphET use BLAST to identify genomic segments statistically enriched in phage-like genes [<a href="#CR13" class="usa-link" aria-describedby="CR13">13</a>, <a href="#CR14" class="usa-link" aria-describedby="CR14">14</a>]. The recently published geNomad also employs a conditional random field model to identify viral marker-enriched regions within bacterial chromosome [<a href="#CR15" class="usa-link" aria-describedby="CR15">15</a>]. The common strategy across these tools involves identifying phage-like open reading frames (ORFs) through sequence similarity searches or machine learning classifiers, and subsequently detecting regions with high enrichment of phage ORFs. The success of pre-trained language models in natural language processing has spurred a growing interest in applying similar deep learning techniques to biological tasks. Protein language models based on Transformer architecture are adept at uncovering complex patterns within protein sequences to decipher their structures and functions. Evolutionary Scale Modeling (ESM)−2, a protein language model pre-trained on millions of unique protein sequences from the UniRef database, can capture both sequence information and functional characteristics of proteins [<a href="#CR16" class="usa-link" aria-describedby="CR16">16</a>]. It can be easily adapted by finetuning a small proportion of parameters for specific tasks [<a href="#CR17" class="usa-link" aria-describedby="CR17">17</a>, <a href="#CR18" class="usa-link" aria-describedby="CR18">18</a>].
+</p>
+<p id="Par4">Here, we introduce a tool named PIDE (prophage island detection using ESM-2) to detect prophage islands. PIDE first accurately predicted phage ORFs from bacterial genomes by finetuned ESM-2 with 650 million parameters, and subsequently pinpointed prophages by employing a statistical algorithm to cluster predicted phage ORFs based on gene density. Furthermore, we validated the performance of PIDE using induced prophage sequencing datasets from 38 bacterial strains. Last, we applied it to bacterial genomes derived from human gut microbiome data and found that PIs were widely present in gut bacteria and functional analysis indicated that these PIs could potentially influence their host resistance and metabolism.</p></section><section id="Sec2"><h2 class="pmc_sec_title">Results</h2>
+<section id="Sec3"><h3 class="pmc_sec_title">The overview of the PIDE framework</h3>
+<p id="Par5">PIDE is an automated, user-friendly tool specifically developed for the identification of PIs within bacterial genomes. The tool consists of two core stages: (1) identifying phage ORFs; (2) detecting regions with high enrichment of these ORFs. In the first step, the deep learning model for phage ORF prediction adopts ESM-2 with 650 million parameters as the extractor for 1D sequence embedding (Fig. <a href="#Fig1" class="usa-link">1</a>a). Then, the sequence embedding is fed into a multi-layer perceptron (MLP) classifier with five layers to obtain the classification for each ORF, where ORFs with the probability over 0.5 are considered as phage ORFs. Next, as many PIs may carry bacterial genes which are also known as cargo genes, the PIs may exhibit characteristics of clustered prophage genes accompanied by scattered bacterial elements (Fig. <a href="#Fig1" class="usa-link">1</a>a). Here, we cluster adjacent prophage ORFs into a single PI, ensuring that the intergenic distance between adjacent prophage ORFs is less than the clustering distance threshold <em>D</em>. And to obtain relatively high-confidence PIs, we ensure that the PI score (<em>P</em>), which is the average probability of each ORF based on the MLP output, is not less than 0.7. If the <em>P</em> falls below 0.7, we iteratively trim ORFs one by one from both ends until <em>P</em> reaches or exceeds 0.7. Empirically, we require the PI to include at least five phage ORFs to output PI information [<a href="#CR19" class="usa-link" aria-describedby="CR19">19</a>] (Fig. <a href="#Fig1" class="usa-link">1</a>b).</p>
+<figure class="fig xbox font-sm" id="Fig1"><h4 class="obj_head">Fig. 1.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/99b7/12366036/944286a38ef3/13059_2025_3733_Fig1_HTML.jpg" loading="lazy" id="MO1" height="549" width="778" alt="Fig. 1"></p>
+<div class="p text-right font-secondary"><a href="figure/Fig1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>The PIDE framework for identifying PIs. <strong>a</strong> Schematic overview of PIDE. PIDE takes DNA sequences as input and outputs the predicted PI regions. <strong>b</strong> The detailed strategy employed by PIDE for clustering prophage ORFs and identifying prophage regions. <em>D</em> represents the distance, and it can vary depending on different requirements. <strong>c</strong> The performance of PIDE and the effect of ablation analysis. FT, fine-tuning. <strong>d</strong> The distribution of PIDE-predicted PIs across phage genomes under different <em>D</em>. The <em>x</em>-axis represents the number of PIs predicted by PIDE for each complete phage genome, and the <em>y</em>-axis indicates the number of complete phage genomes. <strong>e</strong> The <em>x</em>-axis represents different <em>D</em> values, and the <em>y</em>-axis indicates the proportion of complete phages that can be recovered by PIDE</p></figcaption></figure><p id="Par6">The accuracy of the model on the test set reached 0.90, the F1 score reached 0.90, the AUC reached 0.96, and the AP reached 0.95 (Fig. <a href="#Fig1" class="usa-link">1</a>c, Table <a href="#Tab1" class="usa-link">1</a>). To evaluate the performance of the fine-tuned ESM2-based classifier (PIDE-ESM2), we compared it against three alternative methods—BLASTP-TOP, BiLSTM, and Transformer Encoder—using the same training and testing datasets (see the “<a href="#Sec11" class="usa-link">Methods</a>” section). PIDE-ESM2 consistently outperformed all competing models across all metrics (Additional file 1: Fig. S1).
+</p>
+<section class="tw xbox font-sm" id="Tab1"><h4 class="obj_head">Table 1.</h4>
+<div class="caption p"><p>The model performance</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1"></th>
+<th align="left" colspan="1" rowspan="1">ACC</th>
+<th align="left" colspan="1" rowspan="1">AUC</th>
+<th align="left" colspan="1" rowspan="1">Precision</th>
+<th align="left" colspan="1" rowspan="1">Recall</th>
+<th align="left" colspan="1" rowspan="1">F1</th>
+<th align="left" colspan="1" rowspan="1">AP</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">Without fine-tuning</td>
+<td align="center" colspan="1" rowspan="1">0.89</td>
+<td align="center" colspan="1" rowspan="1">0.95</td>
+<td align="center" colspan="1" rowspan="1">0.86</td>
+<td align="center" colspan="1" rowspan="1">0.93</td>
+<td align="center" colspan="1" rowspan="1">0.90</td>
+<td align="center" colspan="1" rowspan="1">0.94</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">After fine-tuning</td>
+<td align="center" colspan="1" rowspan="1">0.90</td>
+<td align="center" colspan="1" rowspan="1">0.96</td>
+<td align="center" colspan="1" rowspan="1">0.86</td>
+<td align="center" colspan="1" rowspan="1">0.95</td>
+<td align="center" colspan="1" rowspan="1">0.90</td>
+<td align="center" colspan="1" rowspan="1">0.95</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></section><p id="Par7">To further investigate the contribution of the step of finetuning ESM-2, we performed an ablation study. Without finetuning, the evaluation performance of the model dropped, especially in the recall, demonstrating the benefit of fine-tuning (Fig. <a href="#Fig1" class="usa-link">1</a>c). Fine-tuning ESM-2 yields modest performance improvements, which is a common situation for some specific tasks [<a href="#CR20" class="usa-link" aria-describedby="CR20">20</a>], as the pre-training of ESM-2 on a vast corpus of protein sequences already learned a broad range of features relevant to these tasks. While the gains are incremental, fine-tuning enhances the specificity of this model for phage-bacteria protein discrimination without compromising inference speed or usability.</p></section><section id="Sec4"><h3 class="pmc_sec_title">Determination of the clustering distance for PI identification</h3>
+<p id="Par8">Next, we assessed the impact of different <em>D</em> values on PI identification, as larger <em>D</em> values tend to introduce false positives by including bacterial sequences within prophages, whereas smaller <em>D</em> values can fragment prophage sequences, leading to the omission of potential prophage-associated genes. To assess the effectiveness of different <em>D</em> values in predicting prophages, we calculated the number of PIs predicted by PIDE for each single complete PhaTYP-predicted temperate phage genome from the RefSeq [<a href="#CR21" class="usa-link" aria-describedby="CR21">21</a>, <a href="#CR22" class="usa-link" aria-describedby="CR22">22</a>], as temperate phages typically have the capacity to form prophages, making their genomes closely aligned with the biological context of prophages. A greater number of predicted PIs within a single complete temperate phage suggest lower effectiveness of PI prediction. Nine different <em>D</em> values ranging from 1 to 5 kb were tested. At the distance threshold of 1 kb, PIDE fragments 32% of phages into two or even nine segments; at 3 kb, 95% of phages remain unfragmented. And at 5 kb, 99% remain unfragmented (Fig. <a href="#Fig1" class="usa-link">1</a> d, e). Here, PIDE defaults to the 3 kb threshold to strike a balance between minimizing false positives and maintaining the integrity of prophages. At this threshold, further analysis revealed that 93.5% of PIs predicted by PIDE achieve a genome coverage of over 90% for the original reference genome, with the missing regions mainly located at the ends of the phage genome (Additional file 1: Fig. S2a, S2b).</p>
+<p id="Par9">Some PIs may contain numerous nonphage-related genes with scattered phage-related genes within the 3 kb threshold (default <em>D</em> value), leading to a proportion of cargo genes exceeding 50%, which may result in false positives. Given that up to 60% cargo genes have been observed in PhaTYP-predicted temperate phage genomes (Additional file 1: Fig. S2c), PIDE did not set cutoff on the percentage of bacterial cargo genes relative to the total ORF number. The proportion of cargo genes within each PI was included in the PIDE report, and users can enforce stricter criteria based on their specific research needs for downstream analysis. We did not include any cutoff in the following analysis.</p></section><section id="Sec5"><h3 class="pmc_sec_title">PIDE enables the discovery of extensive PIs with precise boundary detection</h3>
+<p id="Par10">We evaluated PIDE alongside three other widely used tools on 38 gut-derived bacterial isolates with complete whole genome sequences available. A total of 365 PIs were identified using PIDE, whereas geNomad, Virsorter2, and PHASTER identified 142, 101, and 174 PIs, respectively. PIDE successfully predicted 84% of geNomad predictions, 80% of Virsorter2 predictions, and 55% of PHASTER predictions, demonstrating the highest performance in recovering overlapping PIs across different tools (Fig. <a href="#Fig2" class="usa-link">2</a>a). Moreover, PIDE identified the highest number of unique PIs not predicted by other tools, with 184 out of 365 PIs being unique, followed by PHASTER (Additional file 1: Fig. S3a). To validate these predicted PIs, we conducted BLAST searches against the NT database (evalue &lt; 1E-10) to identify potential viral sequences which have been previously reported. Among the 181 PIs predicted by PIDE and at least one other tool, 132 were alignable, with 99 exhibiting coverage of ≥ 50% (Fig. <a href="#Fig2" class="usa-link">2</a>b). For unique PIs with coverage ≥ 50%, PIDE had the highest alignable count at 24, followed by PHASTER with 5, VirSorter with 1, and geNomad with 0 (Fig. <a href="#Fig2" class="usa-link">2</a>c, Additional file 1: Fig. S3a). The remaining unalignable sequences may represent novel, unidentified phages, although they could also include false positives.</p>
+<figure class="fig xbox font-sm" id="Fig2"><h4 class="obj_head">Fig. 2.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12366036_13059_2025_3733_Fig2_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/99b7/12366036/3e4d582d20b4/13059_2025_3733_Fig2_HTML.jpg" loading="lazy" id="MO2" height="740" width="708" alt="Fig. 2"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>The performance of PIDE and other tools in PI detection. <strong>a</strong> Heatmap illustrating the overlap of PIs predicted by different tools. Each row corresponds to a specific tool (geNomad, VirSorter2, PHASTER, PIDE), and the cells indicate the proportion of PIs predicted by that tool (row) which are also identified by other tools (columns). For example, the value 0.64 in the first row indicates that 64% of the PIs predicted by geNomad are also identified by VirSorter2. Density plots showing the distribution of coverage and identity for 132 overlapped-predicted PIs (<strong>b</strong>) and 89 unique-predicted PIs (<strong>c</strong>) aligned with virus entries of nt database. <strong>d</strong> Gene prediction classification by PIDE for PIDE-Ef PI. <strong>e</strong> The distribution of virome reads on the local genome of <em>Enterococcus faecalis</em> V583 (blue), with PIDE-Ef PI region highlighted in red. <strong>f</strong> The boxplot shows the distribution of precision and recall for PIs predicted by different tools, measured at the base level. <strong>g</strong> The distribution of virome reads on local <em>Fusobacterium varium</em> ATCC 27725 and <em>Bifidobacterium bifidum</em> ATCC 29521 (blue), with PI regions predicted by different tools highlighted in red</p></figcaption></figure><p id="Par11">Genome completeness assessment of the identified PIs was performed using CheckV [<a href="#CR23" class="usa-link" aria-describedby="CR23">23</a>]. Of the 365 PIs identified by PIDE, 34 exhibited high completeness with the completeness score greater than 90 (Additional file 1: Fig. S3b). Notably, among the 53 PIs showing activity in mitomycin C-induced prophage sequencing, 39.6% had completeness scores greater than 90, and 11.3% had completeness scores lower than 20 (Additional file 1: Fig. S3c), indicating that even prophages with lower completeness scores may still be inducible by mitomycin C. The completeness score assessment relies on reference databases, which may hinder its ability to identify novel prophage elements that are not well represented in existing databases. Therefore, we retained all PIs predicted by PIDE, allowing users to perform further selection based on completeness analysis.</p>
+<p id="Par12">For further analysis, we selected a prophage-like element (PIDE-Ef PI) identified exclusively by PIDE, which originates from <em>Enterococcus faecalis</em> V583 and spans 12,704 bp. The classification model predicted that this PI harbors 20 phage-associated genes out of a total of 23 (Fig. <a href="#Fig2" class="usa-link">2</a>d). Furthermore, sequencing data from mitomycin C-induced prophages revealed discernible activity of the PIDE-Ef PI relative to adjacent genomic regions (Fig. <a href="#Fig2" class="usa-link">2</a>e). Overall, these results demonstrated the superior sensitivity of PIDE in predicting PIs.</p>
+<p id="Par13">Besides, the induced prophage sequencing data can help provide precise insights into the boundaries of active PIs, which can serve as a reliable ground truth. Hence, we computed and compared the base recall and base precision metrics for PIs identified by different tools (see the “<a href="#Sec11" class="usa-link">Methods</a>” section), aiming to assess their accuracy in boundary delineation. The results demonstrated that PIDE exhibited the highest base precision with a mean score of 0.91, followed by geNomad at 0.81, PHASTER at 0.7, and Virsorter2 at 0.35. In terms of base recall, Virsorter2 achieved the highest mean score at 0.94, followed by PIDE at 0.91, geNomad at 0.90, and PHASTER at 0.80 (Fig. <a href="#Fig2" class="usa-link">2</a>f). Notably, VirSorter2 systematically overpredicted PI boundaries, whereas PHASTER frequently missed portions of PI regions—a pattern illustrated by two representative examples in Fig. <a href="#Fig2" class="usa-link">2</a>g. Together, these results indicate that PIDE outperforms other tools in independent validation tests, enhancing our capacity to infer the gene pool and ecological dynamics of naturally occurring PIs.</p></section><section id="Sec6"><h3 class="pmc_sec_title">PIDE facilitates detection of phage contigs across diverse sequence lengths</h3>
+<p id="Par14">PIDE can also be used to identify phage-derived contigs. To determine whether a contig is phage-derived, we assessed the proportion of phage-like ORFs relative to the total number of ORFs. Contig length can affect the accuracy of identifying phage contigs, so we first established the optimal thresholds for the phage-like ORF proportion across different contig lengths. We simulated 60,000 contigs of various lengths (0.5 kb, 1 kb, 3 kb, 5 kb, 10 kb, 20 kb) from 6099 phage genomes in RefSeq and 4744 representative bacterial genomes from the Unified Human Gastrointestinal Genome (UHGG) [<a href="#CR24" class="usa-link" aria-describedby="CR24">24</a>]. These simulated contigs were analyzed by PIDE for phage ORF prediction, and the phage-like ORF proportions were calculated. The optimal thresholds for contigs of 0.5 kb, 1 kb, 3 kb, 5 kb, 10 kb, and 20 kb were determined to be 1, 1, 0.57, 0.56, 0.53, and 0.52, respectively (Fig. <a href="#Fig3" class="usa-link">3</a>a).</p>
+<figure class="fig xbox font-sm" id="Fig3"><h4 class="obj_head">Fig. 3.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12366036_13059_2025_3733_Fig3_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/99b7/12366036/50405b67a619/13059_2025_3733_Fig3_HTML.jpg" loading="lazy" id="MO3" height="221" width="708" alt="Fig. 3"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig3/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>The performance of PIDE in identifying assembled phage contigs. <strong>a</strong> F1 score versus FDR curve at various sequence lengths. <strong>b</strong> The sequence classification performance of PIDE and VirRep across sequences of varying length. Performance was measured using precision, recall, and F1 score</p></figcaption></figure><p id="Par15">Performance metrics were assessed using an additional set of ten independent samples and compared with VirRep, a state-of-the-art hybrid language representation learning framework for identifying viruses from metagenomic contigs [<a href="#CR25" class="usa-link" aria-describedby="CR25">25</a>]. While PIDE demonstrated higher precision across most sequence lengths, its performance for shorter sequences (0.5–1 kb) was limited, detecting less than 50% of phage sequences. F1 score comparisons indicated that PIDE showed an advantage over VirRep in predicting phage contigs for longer sequences (&gt; 3 kb) (Fig. <a href="#Fig3" class="usa-link">3</a>b). These results highlight the complementary strengths of both tools, with PIDE excelling for longer sequences and VirRep demonstrating better performance for sequences in the 1–3 kb range.</p></section><section id="Sec7"><h3 class="pmc_sec_title">The features of PI in the human gut microbiome</h3>
+<p id="Par16">Next, we applied PIDE to 4744 species representatives derived from the human gut microbiome to survey the PI features in the human gut microbiome. A total of 24,467 PIs were detected across 4198 genomes (88.5% prevalence). The high prevalence of PIs in the gut microbiome underscores lysogeny as a widespread strategy for phage survival in the gut ecosystem, highlighting the potential role of prophages in shaping microbiome composition and function. On average, prophage-derived sequences constituted 2.8% of their host genomic content, with an interquartile range from 0.8 to 3.6%. A genome contained an average of 6 PIs, with a maximum of 42. And these islands varied widely in size, with a median of 7738 bp, and up to 205,026 bp (Additional file 1: Fig. S4a). Of particular significance was the discovery of a 205,026 bp prophage within a genome of <em>Coprobacillus</em>, representing genomic evidence for the existence of jumbo prophages. Genomic annotation using Pharokka revealed characteristic features of prophages and jumbo phages, including genes associated with integration, lysis, structural morphogenesis, and DNA replication (Additional file 1: Fig. S4b). Furthermore, we detected numerous cargo genes encoding various metabolic enzymes, including NAD synthetase, nicotinamide phosphoribosyl transferase, and lipoproteins, suggesting that this jumbo prophage may play roles in regulating bacterial host metabolism and membrane remodeling (Additional file 1: Fig. S4b).</p>
+<p id="Par17">In analyzing the distribution of PIs across different taxonomic groups, we observed significant inter-phylum variations. Among the four most prevalent phyla, Proteobacteria genomes harbored the highest average number of PIs per genome, followed by Firmicutes, Bacteroidota, and Actinobacteriota, with respective median values of 6, 5, 5, and 2 PIs per genome (Fig. <a href="#Fig4" class="usa-link">4</a>a). Among prevalent gut bacterial genera, <em>Bacteroides</em> exhibited the highest median number of PIs per genome, followed by <em>Clostridium</em>, <em>Enterococcus</em>, and <em>Ruminococcus</em>, with respective values of 11, 9, 9, and 8 PIs per genome. In contrast, <em>Alistipes</em> showed fewer and <em>Collinsella</em> the fewest, with respective values of 4 and 2 (Fig. <a href="#Fig4" class="usa-link">4</a>b). These findings suggest that the occurrence frequency of lysogeny varies significantly across different bacterial taxa.</p>
+<figure class="fig xbox font-sm" id="Fig4"><h4 class="obj_head">Fig. 4.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12366036_13059_2025_3733_Fig4_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/99b7/12366036/d3c8991711f9/13059_2025_3733_Fig4_HTML.jpg" loading="lazy" id="MO4" height="531" width="708" alt="Fig. 4"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig4/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>The application of PIDE to 4744 representative prokaryotic genomes from the human gut microbiome. The violin plot displays the distribution of the number of PIs on each genome across the top four most abundant phyla (<strong>a</strong>) or the top twenty most abundant genera (<strong>b</strong>). <strong>c</strong> eggNOG annotation of PIs, where the <em>x</em>-axis represents the prevalence in prokaryotic genomes and <em>y</em>-axis represents different eggNOG categories. <strong>d</strong> The relative abundance of PI-encoded ARGs across different phyla within various categories. <strong>e</strong> The distribution of the number of PI-encoded genes across different phyla in various metabolic pathways</p></figcaption></figure></section><section id="Sec8"><h3 class="pmc_sec_title">PIs carry a wide repertoire of cargo genes</h3>
+<p id="Par18">Among these 4198 lysogens, 4039 (96.2%) were predicted to contain PIs carrying cargo genes, with cargo genes accounting for a median of 23.8% of total PI length (Additional file 1: Fig. S4c). To understand the potential functions of prophage-carried genes, we annotated PI ORFs using eggNOG-mapper v2 [<a href="#CR26" class="usa-link" aria-describedby="CR26">26</a>]. And 183,410 out of 399,565 predicted ORFs (45.9%) were assigned to the specific COG categories. Then, we calculated the prevalence of each COG category encoded by PIs in all bacterial genomes. In addition to genes typically found in phages related to replication, recombination, and transcription, a significant proportion of bacterial PIs carry genes involved in regulating the bacterial cell cycle, amino acid transport, and metabolism, as well as defense-related pathways (Fig. <a href="#Fig4" class="usa-link">4</a>c). To further refine these functional annotations, we employed a deep learning-based functional annotation method that provided additional resolution by assigning 93.4% of ORFs to 732 distinct GO terms (Supplementary Table 1) [<a href="#CR27" class="usa-link" aria-describedby="CR27">27</a>]. This multi-method annotation framework significantly expanded the known functional repertoire of human gut prophages.</p>
+<p id="Par19">Due to the potential horizontal transfer of antibiotic resistance genes (ARGs) from commensal bacteria in the gut, especially those within PIs, we conducted a more detailed analysis of the ARGs carried on PIs. Our analysis showed that 34.2% of bacteria contained PIs carrying 120 different types of ARGs categorized into 18 types involving resistance to various antibiotics through different mechanisms (Additional file 1: Fig. S4d). The most abundant types of ARGs included genes resistant to a wide range of antibiotics, such as beta-lactamases, glycopeptides, aminoglycosides, chloramphenicol, fluoroquinolones, and tetracyclines. Next, we normalized for the absolute number of bacteria within each phylum to compare the proportions of PIs carrying different types of ARGs across various phyla. The result indicated that PIs of Cyanobacteria nearly carried all kinds of ARGs, except for TE inactivator (Fig. <a href="#Fig4" class="usa-link">4</a>d). Previous studies have revealed that Cyanobacteria serve as vital reservoirs for antibiotic resistance genes [<a href="#CR28" class="usa-link" aria-describedby="CR28">28</a>]. Apart from these bacteria that may originate from environmental contamination, PIs carrying ARGs were mainly from Bacteroidetes, Proteobacteria, and Firmicutes, while they occurred less frequently in Actinobacteria.</p>
+<p id="Par20">Moreover, we found that 3.3% of bacteria carried PIs harboring metabolic related genes, which might modulate bacteria physiology. Pyruvate to acetate/formate and cyclic-lactone-autoinducer were the most abundant primary and secondary pathway, respectively (Fig. <a href="#Fig4" class="usa-link">4</a>e). And the main PI carriers of these related genes were from Firmicutes. Overall, these results demonstrate that the PIs harbor a diverse array of functional genes, which may contribute to the physiological processes within the human gut microbiota.</p></section></section><section id="Sec9"><h2 class="pmc_sec_title">Discussion</h2>
+<p id="Par21">Identifying prophages is essential for elucidating the mechanisms of bacteria-phage interactions and understanding microbial community structure and function [<a href="#CR29" class="usa-link" aria-describedby="CR29">29</a>]. Here, we introduce PIDE, a novel framework for identifying prophages in whole bacterial genomes or MAGs. Large pretrained protein language models have demonstrated significant progress in annotating protein functions [<a href="#CR16" class="usa-link" aria-describedby="CR16">16</a>–<a href="#CR18" class="usa-link" aria-describedby="CR18">18</a>]. Compared to existing tools [<a href="#CR11" class="usa-link" aria-describedby="CR11">11</a>–<a href="#CR13" class="usa-link" aria-describedby="CR13">13</a>, <a href="#CR30" class="usa-link" aria-describedby="CR30">30</a>], a key innovation of PIDE is its incorporation of a large language mode to differentiate phage genes from bacterial genes. This capability is particularly important for identifying PIs that may have been previously overlooked. Additionally, PIDE features a custom-developed gene clustering algorithm specifically designed for prophage detection. We also employ a benchmarked distance threshold to ensure optimal performance and accurate identification of PI sequences. By sequencing phages induced from isolated bacterial strains, we have generated reliable data that showcases active prophage regions, providing a benchmark for evaluating the performance of various tools.</p>
+<p id="Par22">Compared to previous tools, the boundaries predicted by PIDE can achieve both high base recall and base precision at the nucleotide level. To be noted, PIDE identifies better prophage boundaries by accurately identifying the first or last phage ORF of the prophage, which can narrow down the search range for these attachment sites. However, it cannot predict the exact attachment regions of prophages. Other methods, identifying the split reads generated by lysis-lysogeny switch or searching for attachment site core sequences, such as Prophage tracer [<a href="#CR15" class="usa-link" aria-describedby="CR15">15</a>, <a href="#CR31" class="usa-link" aria-describedby="CR31">31</a>], can be integrated for further identification of the prophage attachment sites.</p>
+<p id="Par23">PIDE is also capable of predicting phage contigs in metagenomic data, even though it was not originally designed for this purpose. Considering that it is based on identifying multiple prophage genes within a certain region, it is understandable that precise results cannot be obtained when predicting shorter contigs (≤ 3 kb). Another algorithm, which can be used to predict short viral contig accurately, such as VirRep [<a href="#CR25" class="usa-link" aria-describedby="CR25">25</a>], can be integrated with PIDE for a good analysis of viral contig searching. It is important to note that PIDE may struggle to differentiate between authentic prophages and mobile genetic elements containing phage-associated genes. To mitigate this source of false positives, employing more stringent evaluation criteria should be considered—particularly through analyzing the proportion of phage-related genes within genomic islands (the number can be obtained from PIDE output) and integrating the phage completeness score into downstream analyses [<a href="#CR23" class="usa-link" aria-describedby="CR23">23</a>].</p>
+<p id="Par24">Applying PIDE to human gut microbiome revealed the widespread presence of prophages, as 88.5% of the bacteria harbor PIs. This is comparable to a previous report, which profiled prophages in more than 40,000 bacterial genomes using alignment-based method [<a href="#CR32" class="usa-link" aria-describedby="CR32">32</a>]. However, the average number of PIs detected in each genome doubled (5.9 vs 2.4) compared to the previous study. Although some of the PIs identified by PIDE may be not complete or active prophages, it still largely enhances the ability to discover prophage-like elements in the bacterial genomes. We also identified a well-annotated jumbo prophage. While jumbo phages (&gt; 200 kb) identified through experimental studies have so far only been observed to follow lytic cycles, the discovery of a jumbo prophage suggests that lysogenic life cycles may also exist for this phage class [<a href="#CR33" class="usa-link" aria-describedby="CR33">33</a>]. This finding is particularly intriguing in light of previous bioinformatic reports identifying integrase genes in some jumbo phage genomes, thereby broadening our appreciation of phage genomic diversity [<a href="#CR33" class="usa-link" aria-describedby="CR33">33</a>]. Further exploration of prophages with unique characteristics using PIDE and different bacterial genomes will contribute to a deeper understanding of prophage diversity.</p>
+<p id="Par25">The taxon-specific patterns in PI distribution have important implications for understanding gut microbiome dynamics. The prevalence of lysogeny among Proteobacteria, particularly in pathogenic genera like <em>Escherichia</em> and <em>Salmonella</em>, may contribute to their adaptability and occasional pathogenicity [<a href="#CR34" class="usa-link" aria-describedby="CR34">34</a>, <a href="#CR35" class="usa-link" aria-describedby="CR35">35</a>]. Furthermore, these PIs harbor various genes associated with bacterial survival and adaptation, including antibiotic-resistance genes and metabolism-related genes. Prophage-encoded antibiotic-resistance genes have been documented to be significantly enriched in human-associated environments, notably highlighting the role of human-derived prophages as key reservoirs for antibiotic-resistance genes [<a href="#CR36" class="usa-link" aria-describedby="CR36">36</a>]. This again underscores the importance of systematically profiling prophage-like elements within bacterial genomes. The identified prophage-encoded genes could also enhance our understanding of bacterial ecology and evolution, aid in the development of novel antimicrobial strategies, and inform the design of targeted therapeutic interventions [<a href="#CR29" class="usa-link" aria-describedby="CR29">29</a>, <a href="#CR37" class="usa-link" aria-describedby="CR37">37</a>–<a href="#CR39" class="usa-link" aria-describedby="CR39">39</a>]. Further experiments are needed to elucidate the functions of prophage-encoded genes.</p></section><section id="Sec10"><h2 class="pmc_sec_title">Conclusions</h2>
+<p id="Par26">In conclusion, PIDE offers a highly accurate method for identifying prophage island regions with precise boundary detection, utilizing both bacterial and metagenome-assembled genomes. Additionally, it can be employed for viral contig identification. We believe that PIDE will enhance the exploration of microbiome and virome data, contributing valuable insights to microbiome research.</p></section><section id="Sec11"><h2 class="pmc_sec_title">Methods</h2>
+<section id="Sec12"><h3 class="pmc_sec_title">Dataset generation</h3>
+<p id="Par27">The phage and prokaryotic proteins from UniRef50 database (May 2024 version) were downloaded for training the classification model [<a href="#CR40" class="usa-link" aria-describedby="CR40">40</a>]. The phage dataset comprised 263,843 sequences, while the bacteria and archaea dataset contained 40,572,403 sequences. Highly similar sequences to those in the phage dataset were removed from the bacteria and archaea datasets with cd-hit-2d (sequence similarity &gt; 95%) [<a href="#CR41" class="usa-link" aria-describedby="CR41">41</a>], resulting in 40,566,921 sequences. Subsequently, 263,843 sequences were randomly sampled from these 40,566,921 sequences to achieve a 1:1 ratio of positive to negative samples. Then, the dataset was randomly partitioned into training, validation, and test datasets with a ratio of 7:1.5:1.5.</p></section><section id="Sec13"><h3 class="pmc_sec_title">Model training processes and test metrics</h3>
+<p id="Par28">The ESM-2 model with 33 Transformer Encoder layers and 650 M parameters were used for the classification of phage protein. The input protein sequence is first tokenized and subsequently encoded into an embedding representation. Then, the embeddings are averaged based on sequence length, yielding a 1280-dimensional vector. This vector is fed into a five-layer MLP, where each layer employs ReLU activation. Finally, the probability value of phage protein is obtained by processing the MLP output using a softmax layer. A protein with a value greater than 0.5 is generally considered to be a phage protein. During training, the last four layers of the Transformer Encoder were fine-tuned, while the remaining layers were kept frozen. Additionally, the MLP parameters were optimized from scratch. The learning rate was set to 5e-6, with a batch size of 4 and a weight decay of 1e-5. The model converged after 2 epochs.</p>
+<p id="Par29">A variety of metrics were chosen to evaluate and compare the performance of models. For the binary task, we calculated the accuracy (ACC), precision, recall, F1, area under curve (AUC), and average precision (AP) value. The formulas for ACC, precision, recall, and F1 are as follows (Eqs. (<a href="#Equ1" class="usa-link">1</a>)–(<a href="#Equ4" class="usa-link">4</a>)):</p>
+<table class="disp-formula p" id="Equ1"><tr>
+<td class="formula"><math id="d33e774" display="block"><mrow><mi mathvariant="normal">ACC</mi><mo>=</mo><mfrac><mrow><mi mathvariant="normal">TP</mi><mo>+</mo><mi mathvariant="normal">TN</mi></mrow><mrow><mi mathvariant="normal">TP</mi><mo>+</mo><mi mathvariant="normal">FP</mi><mo>+</mo><mi mathvariant="normal">TN</mi><mo>+</mo><mi mathvariant="normal">FN</mi></mrow></mfrac></mrow></math></td>
+<td class="label">1</td>
+</tr></table>
+<table class="disp-formula p" id="Equ2"><tr>
+<td class="formula"><math id="d33e805" display="block"><mrow><mi mathvariant="normal">Precision</mi><mo>=</mo><mfrac><mi mathvariant="normal">TP</mi><mrow><mi mathvariant="normal">TP</mi><mo>+</mo><mi mathvariant="normal">FP</mi></mrow></mfrac></mrow></math></td>
+<td class="label">2</td>
+</tr></table>
+<table class="disp-formula p" id="Equ3"><tr>
+<td class="formula"><math id="d33e826" display="block"><mrow><mspace width="0.166667em"></mspace><mi mathvariant="normal">Recall</mi><mo>=</mo><mfrac><mi mathvariant="normal">TP</mi><mrow><mi mathvariant="normal">TP</mi><mo>+</mo><mi mathvariant="normal">FN</mi></mrow></mfrac></mrow></math></td>
+<td class="label">3</td>
+</tr></table>
+<table class="disp-formula p" id="Equ4"><tr>
+<td class="formula"><math id="d33e848" display="block"><mrow><mi mathvariant="normal">F</mi><mn>1</mn><mspace width="0.277778em"></mspace><mi mathvariant="normal">score</mi><mo>=</mo><mn>2</mn><mspace width="0.277778em"></mspace><mo>*</mo><mfrac><mrow><mi mathvariant="normal">Precision</mi><mspace width="0.277778em"></mspace><mo>*</mo><mspace width="0.277778em"></mspace><mi mathvariant="normal">Recall</mi></mrow><mrow><mi mathvariant="normal">Precision</mi><mspace width="0.277778em"></mspace><mo>+</mo><mspace width="0.277778em"></mspace><mi mathvariant="normal">Recall</mi></mrow></mfrac></mrow></math></td>
+<td class="label">4</td>
+</tr></table>
+<p>where TP, FP, TN, and FN mean the number of true positive, false positive, true negative, and false negative samples during a test.</p></section><section id="Sec14"><h3 class="pmc_sec_title">Performance assessment of PIDE-ESM2 versus other methods</h3>
+<p id="Par30">For comprehensive benchmarking of the binary classification module of PIDE, PIDE-ESM2, which determines whether an ORF belongs to a bacterium or a phage, three comparative methods were implemented alongside PIDE-ESM2. These methods include the following: BLASTP-TOP, where test sequences were matched to their lowest E-value counterparts in the training set without imposing threshold constraints on the BLASTP search to maintain binary classification parity; a two-layer bidirectional LSTM (BiLSTM); and a two-layer Transformer Encoder. All models were trained on identical datasets, with the training set serving either for database construction or model parameter optimization, followed by standardized evaluation on the same test set.</p></section><section id="Sec15"><h3 class="pmc_sec_title">Benchmarking prophage prediction performance using prophage induction experiments</h3>
+<p id="Par31">Prophages can enter lytic induction spontaneously or upon induction by mitomycin C or other agents, initiating replication, proliferation, and the release of numerous progenies from bacteria [<a href="#CR29" class="usa-link" aria-describedby="CR29">29</a>]. As a result, the majority of reads from induced prophages sequencing data originate from potentially active prophages, leading to significantly higher read coverage in these regions compared to the surrounding regions. Given that there are few data sets that accurately annotate the prophage region of bacteria and lack a gold standard for evaluating the effectiveness of different tools, we isolated and purified virus-like particles (VLPs) from 38 different bacterial cultures. The VLP DNA was extracted and amplified for sequencing.</p>
+<p id="Par32">The raw sequencing reads were first treated using fastp to remove adapters, duplicate reads, and low-complexity reads [<a href="#CR42" class="usa-link" aria-describedby="CR42">42</a>]. Then, the clean reads were mapped against the bacterial genome using bowtie2 [<a href="#CR43" class="usa-link" aria-describedby="CR43">43</a>]. To pinpoint these active regions, Homer (-style histone) was applied to call peaks, particularly adept at identifying broad peaks [<a href="#CR44" class="usa-link" aria-describedby="CR44">44</a>]. Given that most prophages span several to tens of kilobases and there is a feature of non-uniform read coverage across prophage positions, peaks within the same prophage may appear discontinuous (Additional file 1: Fig. S3d). Bedtools was employed to merge peaks within 6 kb into a single peak to reconcile this [<a href="#CR45" class="usa-link" aria-describedby="CR45">45</a>].</p>
+<p id="Par33">The following tools were included in our benchmarks: geNomad (version 1.8.0), VirSorter2 (version 2.2.4), and PHASTER. The tools were executed with default parameters.</p></section><section id="Sec16"><h3 class="pmc_sec_title">Comparison of base recall and base precision among different tools</h3>
+<p id="Par34">Given that PIs are cryptic and some others could not be triggered, we focused our comparison on the potential inducible prophage regions which were defined as the union of prophages predicted by the four tools that intersected with the identified peaks. And the regions of these peaks were used as the experimental gold standard to evaluate the performance of the four tools in predicting prophages. For each peak, the base recall score was defined as the proportion of the region predicted by a specific tool that covered the peak region. For each predicted prophage by a specific tool, the base precision score was defined as the proportion of the peak region that covered the predicted prophage region.</p></section><section id="Sec17"><h3 class="pmc_sec_title">Applying PIDE to the human gut microbiome</h3>
+<p id="Par35">PIED was employed to analyze the prophage characteristics in the human gut microbiome. A total of 4744 representative genomes of species derived from the human gut microbiome were retrieved from <a href="http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v2.0.2/species_catalogue/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v2.0.2/species_catalogue/</a> [<a href="#CR24" class="usa-link" aria-describedby="CR24">24</a>].</p>
+<p id="Par36">The PI sequences were extracted using seqtk (<a href="https://github.com/lh3/seqtk" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://github.com/lh3/seqtk</a>) and functionally annotated using eggNOG-mapper with default settings [<a href="#CR26" class="usa-link" aria-describedby="CR26">26</a>]. gutSMASH and antiSMASH were employed to annotate genes involved in primary and secondary metabolism on prophages, respectively [<a href="#CR46" class="usa-link" aria-describedby="CR46">46</a>, <a href="#CR47" class="usa-link" aria-describedby="CR47">47</a>]. And these PIs were also queried against the Resfams profile HMM database to identify potential resistance genes [<a href="#CR48" class="usa-link" aria-describedby="CR48">48</a>].</p></section></section><section id="Sec19"><h2 class="pmc_sec_title">Supplementary Information</h2>
+<section class="sm xbox font-sm" id="MOESM1"><div class="media p"><div class="caption">
+<a href="/articles/instance/12366036/bin/13059_2025_3733_MOESM1_ESM.pdf" data-ga-action="click_feat_suppl" class="usa-link">13059_2025_3733_MOESM1_ESM.pdf</a><sup> (1.2MB, pdf) </sup><p>Additional file 1. Supplementary figures, Fig. S1–S4. Fig. S1 Performance benchmarking of PIDE-ESM2. Fig. S2 The ability of PIDE to recover phage genomes at different thresholds. a, Coverage distribution of PIDE-predicted PIs in original phage genomes across various length ranges with <em>D</em> = 3 kb. Red line represents the overall distribution. b, Relative genomic coordinates of PIDE-predicted PI with <em>D</em> = 3 kb. All sequence lengths were normalized to 1. Each horizontal line represents an original phage sequence, with yellow color indicating the regions covered by PIs and black indicating the PI-uncovered regions. c, Density plot showing the proportion of cargo genes in temperate phage genomes. Fig. S3 PIs predicted by different tools. a, Venn diagram indicating the total number of PIs predicted by each of the four software tools, the number of unique PIs for each software, the number of unique PIs matched to viruses in the nr database, and the number of matches with coverage ≥ 50%. b, CheckV-evaluated genome completeness distribution of PIDE-predicted PIs. c, CheckV-evaluated genome completeness distribution of the potentially active PIs. d, An example showing the regions of Homer-predicted peaks and the distribution of virome reads in those regions and their surrounding areas. Fig. S4 The characteristics of PIs in human gut microbiome. a, The length distribution of the 24,467 PIs. b, Gene annotations of the PIDE-identified jumbo prophage using Pharokka. c, The distribution of the proportion of cargo genes relative to the total genes in PIs in length. d, The number of PIs carrying different types of ARGs.</p>
+</div></div></section><section class="sm xbox font-sm" id="MOESM2"><div class="media p"><div class="caption">
+<a href="/articles/instance/12366036/bin/13059_2025_3733_MOESM2_ESM.xlsx" data-ga-action="click_feat_suppl" class="usa-link">Additional file 2. Supplementary Table</a><sup> (31.2KB, xlsx) </sup>
+</div></div></section></section><section id="ack1" class="ack"><h2 class="pmc_sec_title">Acknowledgements</h2>
+<p>We are grateful to members of the Liang laboratory for their help and suggestions.</p>
+<section id="FPar1"><h3 class="pmc_sec_title">Peer review information</h3>
+<p id="Par37">Tim Sands was the primary editor of this article and managed its editorial process and peer review in collaboration with the rest of the editorial team. The peer-review history is available in the online version of this article.</p></section></section><section id="notes1"><h2 class="pmc_sec_title">Authors’ contributions</h2>
+<p>H.G., B.L. and G.L. conceived the project and wrote the manuscript. B.L. and H.G. designed the method. Z.G. conducted experiments. Z.G., L.Z. and J.C. helped with data analysis. All authors revised the manuscript and approved the final version for submission.</p></section><section id="notes2"><h2 class="pmc_sec_title">Funding</h2>
+<p>This work was supported by the Natural Science Foundation of China (32200036, 82341116), the Start-up Foundation of Tsinghua University (400–53332101822), Tsinghua University Initiative Scientific Research Program, Tsinghua University Dushi Program (20241080062), SXMU-Tsinghua Collaborative Innovation Center for Frontier Medicine Foundation, and Tsinghua-Peking Center for Life Sciences (045–61000100122).</p></section><section id="notes3"><h2 class="pmc_sec_title">Data availability</h2>
+<p>All datasets used in this study can be retrieved from the following links: (1) Uniprot, <a href="https://zenodo.org/records/16457629" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://zenodo.org/records/16457629</a>; (2) Refseq, <a href="https://ftp.ncbi.nlm.nih.gov/refseq/release/viral/viral.1.1.genomic.fna.gz" class="usa-link" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://ftp.ncbi.nlm.nih.gov/refseq/release/viral/viral.1.1.genomic.fna.gz</a>; (3) UHGG, <a href="http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/</a>; The parameter of the model can be downloaded from <a href="https://zenodo.org/records/12759619/files/PIDE.model.tar.gz?download=1" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://zenodo.org/records/12759619/files/PIDE.model.tar.gz?download=1</a>. The source code for PIDE has been placed into the GitHub (<a href="https://github.com/chyghy/PIDE" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://github.com/chyghy/PIDE</a>) and Zenodo (<a href="https://zenodo.org/records/16457629" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://zenodo.org/records/16457629</a>).</p></section><section id="notes4"><h2 class="pmc_sec_title">Declarations</h2>
+<section id="FPar3"><h3 class="pmc_sec_title">Ethics approval and consent to participate</h3>
+<p id="Par38">Not applicable.</p></section><section id="FPar4"><h3 class="pmc_sec_title">Consent for publication</h3>
+<p id="Par39">Not applicable.</p></section><section id="FPar5"><h3 class="pmc_sec_title">Competing interests</h3>
+<p id="Par40">The authors declare no competing interests. </p></section></section><section id="fn-group1" class="fn-group"><h2 class="pmc_sec_title">Footnotes</h2>
+<div class="fn-group p font-secondary-light font-sm">
+<div class="fn p" id="fn1">
+<p><strong>Publisher's Note</strong></p>
+<p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</div>
+<div class="fn p" id="fn2"><p>Hongyan Gao, Bowen Li, and Zihan Guo contributed equally to this work.</p></div>
+</div></section><section id="Bib1" class="ref-list"><h2 class="pmc_sec_title">References
+</h2>
+<section id="Bib1_sec2"><ul class="ref-list font-sm" style="list-style-type:none">
+<li id="CR1">
+<span class="label">1.</span><cite>Batinovic S, Wassef F, Knowler SA, Rice DTF, Stanton CR, Rose J, et al. Bacteriophages in natural and artificial environments. Pathogens. 2019;8(3):100.
+</cite> [<a href="https://doi.org/10.3390/pathogens8030100" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC6789717/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/31336985/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Batinovic%20S,%20Wassef%20F,%20Knowler%20SA,%20Rice%20DTF,%20Stanton%20CR,%20Rose%20J,%20et%20al.%20Bacteriophages%20in%20natural%20and%20artificial%20environments.%20Pathogens.%202019;8(3):100." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR2">
+<span class="label">2.</span><cite>Liang G, Bushman FD. The human virome: assembly, composition and host interactions. Nat Rev Microbiol. 2021;19(8):514–27. 10.1038/s41579-021-00536-5.
+</cite> [<a href="https://doi.org/10.1038/s41579-021-00536-5" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8008777/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/33785903/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Liang%20G,%20Bushman%20FD.%20The%20human%20virome:%20assembly,%20composition%20and%20host%20interactions.%20Nat%20Rev%20Microbiol.%202021;19(8):514%E2%80%9327.%2010.1038/s41579-021-00536-5." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR3">
+<span class="label">3.</span><cite>Liang G, Zhao C, Zhang H, Mattei L, Sherrill-Mix S, Bittinger K, et al. The stepwise assembly of the neonatal virome is modulated by breastfeeding. Nat. 2020;581(7809):470–4. <a href="http://www.nature.com/articles/s41586-020-2192-1" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">http://www.nature.com/articles/s41586-020-2192-1</a></cite> [<a href="https://doi.org/10.1038/s41586-020-2192-1" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC7263352/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/32461640/" class="usa-link">PubMed</a>]</li>
+<li id="CR4">
+<span class="label">4.</span><cite>Brum JR, Hurwitz BL, Schofield O, Ducklow HW, Sullivan MB. Seasonal time bombs: dominant temperate viruses affect Southern Ocean microbial dynamics. ISME J. 2016;10(2):437–49.
+</cite> [<a href="https://doi.org/10.1038/ismej.2015.125" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC4737935/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/26296067/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Brum%20JR,%20Hurwitz%20BL,%20Schofield%20O,%20Ducklow%20HW,%20Sullivan%20MB.%20Seasonal%20time%20bombs:%20dominant%20temperate%20viruses%20affect%20Southern%20Ocean%20microbial%20dynamics.%20ISME%20J.%202016;10(2):437%E2%80%9349." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR5">
+<span class="label">5.</span><cite>Jamet A, Touchon M, Ribeiro-Gonçalves B, Carriço JA, Charbit A, Nassif X, et al. A widespread family of polymorphic toxins encoded by temperate phages. BMC Biol. 2017;15:1–12.
+</cite> [<a href="https://doi.org/10.1186/s12915-017-0415-1" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC5576092/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/28851366/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Jamet%20A,%20Touchon%20M,%20Ribeiro-Gon%C3%A7alves%20B,%20Carri%C3%A7o%20JA,%20Charbit%20A,%20Nassif%20X,%20et%20al.%20A%20widespread%20family%20of%20polymorphic%20toxins%20encoded%20by%20temperate%20phages.%20BMC%20Biol.%202017;15:1%E2%80%9312." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR6">
+<span class="label">6.</span><cite>Frazão N, Sousa A, Lässig M, Gordo I. Horizontal gene transfer overrides mutation in <em>Escherichia coli</em> colonizing the mammalian gut. Proc Natl Acad Sci U S A. 2019;116(36):17906–15.
+</cite> [<a href="https://doi.org/10.1073/pnas.1906958116" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC6731689/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/31431529/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Fraz%C3%A3o%20N,%20Sousa%20A,%20L%C3%A4ssig%20M,%20Gordo%20I.%20Horizontal%20gene%20transfer%20overrides%20mutation%20in%20Escherichia%20coli%20colonizing%20the%20mammalian%20gut.%20Proc%20Natl%20Acad%20Sci%20U%20S%20A.%202019;116(36):17906%E2%80%9315." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR7">
+<span class="label">7.</span><cite>Chevallereau A, Pons BJ, van Houte S, Westra ER. Interactions between bacterial and phage communities in natural environments. Nat Rev Microbiol. 2022;20(1):49–62. 10.1038/s41579-021-00602-y.
+</cite> [<a href="https://doi.org/10.1038/s41579-021-00602-y" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/34373631/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Chevallereau%20A,%20Pons%20BJ,%20van%20Houte%20S,%20Westra%20ER.%20Interactions%20between%20bacterial%20and%20phage%20communities%20in%20natural%20environments.%20Nat%20Rev%20Microbiol.%202022;20(1):49%E2%80%9362.%2010.1038/s41579-021-00602-y." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR8">
+<span class="label">8.</span><cite>Ragunathan PT, Vanderpool CK. Cryptic-prophage-encoded small protein DicB protects <em>Escherichia coli</em> from phage infection by inhibiting inner membrane receptor proteins. J Bacteriol. 2019;201(23):10–1128.</cite> [<a href="https://doi.org/10.1128/JB.00475-19" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC6832061/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/31527115/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Ragunathan%20PT,%20Vanderpool%20CK.%20Cryptic-prophage-encoded%20small%20protein%20DicB%20protects%20Escherichia%20coli%20from%20phage%20infection%20by%20inhibiting%20inner%20membrane%20receptor%20proteins.%20J%20Bacteriol.%202019;201(23):10%E2%80%931128." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR9">
+<span class="label">9.</span><cite>Wang X, Kim Y, Ma Q, Hong SH, Pokusaeva K, Sturino JM, et al. Cryptic prophages help bacteria cope with adverse environments. Nat Commun. 2010;1(1):147.
+</cite> [<a href="https://doi.org/10.1038/ncomms1146" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC3105296/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/21266997/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Wang%20X,%20Kim%20Y,%20Ma%20Q,%20Hong%20SH,%20Pokusaeva%20K,%20Sturino%20JM,%20et%20al.%20Cryptic%20prophages%20help%20bacteria%20cope%20with%20adverse%20environments.%20Nat%20Commun.%202010;1(1):147." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR10">
+<span class="label">10.</span><cite>Backman T, Latorre SM, Symeonidi E, Muszyński A, Bleak E, Eads L, et al. A phage tail–like bacteriocin suppresses competitors in metapopulations of pathogenic bacteria. Sci (80- ). 2024;384(6701):eado0713.</cite> [<a href="https://doi.org/10.1126/science.ado0713" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11404688/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/38870284/" class="usa-link">PubMed</a>]</li>
+<li id="CR11">
+<span class="label">11.</span><cite>Guo J, Bolduc B, Zayed AA, Varsani A, Dominguez-Huerta G, Delmont TO, et al. Virsorter2: a multi-classifier, expert-guided approach to detect diverse DNA and RNA viruses. Microbiome. 2021;9(1): 37. 10.1186/s40168-020-00990-y.
+</cite> [<a href="https://doi.org/10.1186/s40168-020-00990-y" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC7852108/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/33522966/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Guo%20J,%20Bolduc%20B,%20Zayed%20AA,%20Varsani%20A,%20Dominguez-Huerta%20G,%20Delmont%20TO,%20et%20al.%20Virsorter2:%20a%20multi-classifier,%20expert-guided%20approach%20to%20detect%20diverse%20DNA%20and%20RNA%20viruses.%20Microbiome.%202021;9(1):%2037.%2010.1186/s40168-020-00990-y." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR12">
+<span class="label">12.</span><cite>Arndt D, Grant JR, Marcu A, Sajed T, Pon A, Liang Y, et al. PHASTER: a better, faster version of the PHAST phage search tool. Nucleic Acids Res. 2016;44(W1):W16–21. <a href="https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkw387" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://academic.oup.com/nar/article-lookup/doi/10.1093/nar/gkw387</a></cite> [<a href="https://doi.org/10.1093/nar/gkw387" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC4987931/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/27141966/" class="usa-link">PubMed</a>]</li>
+<li id="CR13">
+<span class="label">13.</span><cite>Lima-Mendez G, Van Helden J, Toussaint A, Leplae R. Prophinder: a computational tool for prophage prediction in prokaryotic genomes. Bioinformatics. 2008;24(6):863–5.
+</cite> [<a href="https://doi.org/10.1093/bioinformatics/btn043" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/18238785/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Lima-Mendez%20G,%20Van%20Helden%20J,%20Toussaint%20A,%20Leplae%20R.%20Prophinder:%20a%20computational%20tool%20for%20prophage%20prediction%20in%20prokaryotic%20genomes.%20Bioinformatics.%202008;24(6):863%E2%80%935." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR14">
+<span class="label">14.</span><cite>Reis-Cunha JL, Bartholomeu DC, Manson AL, Earl AM, Cerqueira GC. ProphET, prophage estimation tool: a stand-alone prophage sequence prediction tool with self-updating reference database. PLoS One. 2019;14(10): e0223364.
+</cite> [<a href="https://doi.org/10.1371/journal.pone.0223364" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC6774505/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/31577829/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Reis-Cunha%20JL,%20Bartholomeu%20DC,%20Manson%20AL,%20Earl%20AM,%20Cerqueira%20GC.%20ProphET,%20prophage%20estimation%20tool:%20a%20stand-alone%20prophage%20sequence%20prediction%20tool%20with%20self-updating%20reference%20database.%20PLoS%20One.%202019;14(10):%20e0223364." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR15">
+<span class="label">15.</span><cite>Camargo AP, Roux S, Schulz F, Babinski M, Xu Y, Hu B, et al. Identification of mobile genetic elements with geNomad. Nat Biotechnol. 2023;1–10.</cite> [<a href="https://doi.org/10.1038/s41587-023-01953-y" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11324519/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/37735266/" class="usa-link">PubMed</a>]</li>
+<li id="CR16">
+<span class="label">16.</span><cite>Lin Z, Akin H, Rao R, Hie B, Zhu Z, Lu W, et al. Evolutionary-scale prediction of atomic-level protein structure with a language model. Science (80- ). 2023;379(6637):1123–30.</cite> [<a href="https://doi.org/10.1126/science.ade2574" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/36927031/" class="usa-link">PubMed</a>]</li>
+<li id="CR17">
+<span class="label">17.</span><cite>Yu T, Cui H, Li JC, Luo Y, Jiang G, Zhao H. Enzyme function prediction using contrastive learning. Science. 2023;379(6639):1358–63.
+</cite> [<a href="https://doi.org/10.1126/science.adf2465" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/36996195/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Yu%20T,%20Cui%20H,%20Li%20JC,%20Luo%20Y,%20Jiang%20G,%20Zhao%20H.%20Enzyme%20function%20prediction%20using%20contrastive%20learning.%20Science.%202023;379(6639):1358%E2%80%9363." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR18">
+<span class="label">18.</span><cite>Luo Z, Wang R, Sun Y, Liu J, Chen Z, Zhang Y-J. Interpretable feature extraction and dimensionality reduction in ESM2 for protein localization prediction. Brief Bioinform. 2024;25(2): bbad534.
+</cite> [<a href="https://doi.org/10.1093/bib/bbad534" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC10818170/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/38279650/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Luo%20Z,%20Wang%20R,%20Sun%20Y,%20Liu%20J,%20Chen%20Z,%20Zhang%20Y-J.%20Interpretable%20feature%20extraction%20and%20dimensionality%20reduction%20in%20ESM2%20for%20protein%20localization%20prediction.%20Brief%20Bioinform.%202024;25(2):%20bbad534." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR19">
+<span class="label">19.</span><cite>Zhou Y, Liang Y, Lynch KH, Dennis JJ, Wishart DS. PHAST: a fast phage search tool. Nucleic Acids Res. 2011;39(suppl_2):W347–52.
+</cite> [<a href="https://doi.org/10.1093/nar/gkr485" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC3125810/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/21672955/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Zhou%20Y,%20Liang%20Y,%20Lynch%20KH,%20Dennis%20JJ,%20Wishart%20DS.%20PHAST:%20a%20fast%20phage%20search%20tool.%20Nucleic%20Acids%20Res.%202011;39(suppl_2):W347%E2%80%9352." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR20">
+<span class="label">20.</span><cite>Schmirler R, Heinzinger M, Rost B. Fine-tuning protein language models boosts predictions across diverse tasks. Nat Commun. 2024;15(1): 7407.
+</cite> [<a href="https://doi.org/10.1038/s41467-024-51844-2" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11358375/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39198457/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Schmirler%20R,%20Heinzinger%20M,%20Rost%20B.%20Fine-tuning%20protein%20language%20models%20boosts%20predictions%20across%20diverse%20tasks.%20Nat%20Commun.%202024;15(1):%207407." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR21">
+<span class="label">21.</span><cite>O’Leary NA, Wright MW, Brister JR, Ciufo S, Haddad D, McVeigh R, et al. Reference sequence (RefSeq) database at NCBI: current status, taxonomic expansion, and functional annotation. Nucleic Acids Res. 2016;44(D1):D733–45. <a href="http://www.ncbi.nlm.nih.gov/pubmed/26553804" class="usa-link" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">http://www.ncbi.nlm.nih.gov/pubmed/26553804</a></cite> [<a href="https://doi.org/10.1093/nar/gkv1189" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC4702849/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/26553804/" class="usa-link">PubMed</a>]</li>
+<li id="CR22">
+<span class="label">22.</span><cite>Shang J, Tang X, Sun Y. Phatyp: predicting the lifestyle for bacteriophages using BERT. Brief Bioinform. 2023;24(1): bbac487.
+</cite> [<a href="https://doi.org/10.1093/bib/bbac487" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC9851330/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/36659812/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Shang%20J,%20Tang%20X,%20Sun%20Y.%20Phatyp:%20predicting%20the%20lifestyle%20for%20bacteriophages%20using%20BERT.%20Brief%20Bioinform.%202023;24(1):%20bbac487." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR23">
+<span class="label">23.</span><cite>Nayfach S, Camargo AP, Schulz F, Eloe-Fadrosh E, Roux S, Kyrpides NC. Checkv assesses the quality and completeness of metagenome-assembled viral genomes. Nat Biotechnol. 2021;39(5):578–85. 10.1038/s41587-020-00774-7.
+</cite> [<a href="https://doi.org/10.1038/s41587-020-00774-7" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8116208/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/33349699/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Nayfach%20S,%20Camargo%20AP,%20Schulz%20F,%20Eloe-Fadrosh%20E,%20Roux%20S,%20Kyrpides%20NC.%20Checkv%20assesses%20the%20quality%20and%20completeness%20of%20metagenome-assembled%20viral%20genomes.%20Nat%20Biotechnol.%202021;39(5):578%E2%80%9385.%2010.1038/s41587-020-00774-7." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR24">
+<span class="label">24.</span><cite>Almeida A, Nayfach S, Boland M, Strozzi F, Beracochea M, Shi ZJ, et al. A unified catalog of 204,938 reference genomes from the human gut microbiome. Nat Biotechnol. 2021;39(1):105–14. 10.1038/s41587-020-0603-3.
+</cite> [<a href="https://doi.org/10.1038/s41587-020-0603-3" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC7801254/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/32690973/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Almeida%20A,%20Nayfach%20S,%20Boland%20M,%20Strozzi%20F,%20Beracochea%20M,%20Shi%20ZJ,%20et%20al.%20A%20unified%20catalog%20of%20204,938%20reference%20genomes%20from%20the%20human%20gut%20microbiome.%20Nat%20Biotechnol.%202021;39(1):105%E2%80%9314.%2010.1038/s41587-020-0603-3." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR25">
+<span class="label">25.</span><cite>Dong Y, Chen W-H, Zhao X-M. Virrep: a hybrid language representation learning framework for identifying viruses from human gut metagenomes. Genome Biol. 2024;25(1):177.
+</cite> [<a href="https://doi.org/10.1186/s13059-024-03320-9" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11229495/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/38965579/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Dong%20Y,%20Chen%20W-H,%20Zhao%20X-M.%20Virrep:%20a%20hybrid%20language%20representation%20learning%20framework%20for%20identifying%20viruses%20from%20human%20gut%20metagenomes.%20Genome%20Biol.%202024;25(1):177." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR26">
+<span class="label">26.</span><cite>Cantalapiedra CP, Hernández-Plaza A, Letunic I, Bork P, Huerta-Cepas J. EggNOG-mapper v2: functional annotation, orthology assignments, and domain prediction at the metagenomic scale. Mol Biol Evol. 2021;38(12):5825–9.
+</cite> [<a href="https://doi.org/10.1093/molbev/msab293" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8662613/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/34597405/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Cantalapiedra%20CP,%20Hern%C3%A1ndez-Plaza%20A,%20Letunic%20I,%20Bork%20P,%20Huerta-Cepas%20J.%20EggNOG-mapper%20v2:%20functional%20annotation,%20orthology%20assignments,%20and%20domain%20prediction%20at%20the%20metagenomic%20scale.%20Mol%20Biol%20Evol.%202021;38(12):5825%E2%80%939." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR27">
+<span class="label">27.</span><cite>Maranga M, Szczerbiak P, Bezshapkin V, Gligorijevic V, Chandler C, Bonneau R, et al. Comprehensive functional annotation of metagenomes and microbial genomes using a deep learning-based method. MSyst. 2023;8(2):e01178–e1222.</cite> [<a href="https://doi.org/10.1128/msystems.01178-22" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC10134832/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/37010293/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Maranga%20M,%20Szczerbiak%20P,%20Bezshapkin%20V,%20Gligorijevic%20V,%20Chandler%20C,%20Bonneau%20R,%20et%20al.%20Comprehensive%20functional%20annotation%20of%20metagenomes%20and%20microbial%20genomes%20using%20a%20deep%20learning-based%20method.%20MSyst.%202023;8(2):e01178%E2%80%93e1222." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR28">
+<span class="label">28.</span><cite>Wang Z, Chen Q, Zhang J, Guan T, Chen Y, Shi W. Critical roles of cyanobacteria as reservoir and source for antibiotic resistance genes. Environ Int. 2020;144: 106034.
+</cite> [<a href="https://doi.org/10.1016/j.envint.2020.106034" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/32777621/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Wang%20Z,%20Chen%20Q,%20Zhang%20J,%20Guan%20T,%20Chen%20Y,%20Shi%20W.%20Critical%20roles%20of%20cyanobacteria%20as%20reservoir%20and%20source%20for%20antibiotic%20resistance%20genes.%20Environ%20Int.%202020;144:%20106034." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR29">
+<span class="label">29.</span><cite>Feiner R, Argov T, Rabinovich L, Sigal N, Borovok I, Herskovits AA. A new perspective on lysogeny: prophages as active regulatory switches of bacteria. Nat Rev Microbiol. 2015;13(10):641–50. 10.1038/nrmicro3527.
+</cite> [<a href="https://doi.org/10.1038/nrmicro3527" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/26373372/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Feiner%20R,%20Argov%20T,%20Rabinovich%20L,%20Sigal%20N,%20Borovok%20I,%20Herskovits%20AA.%20A%20new%20perspective%20on%20lysogeny:%20prophages%20as%20active%20regulatory%20switches%20of%20bacteria.%20Nat%20Rev%20Microbiol.%202015;13(10):641%E2%80%9350.%2010.1038/nrmicro3527." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR30">
+<span class="label">30.</span><cite>Akhter S, Aziz RK, Edwards RA. PhiSpy: a novel algorithm for finding prophages in bacterial genomes that combines similarity-and composition-based strategies. Nucleic Acids Res. 2012;40(16):e126–e126.
+</cite> [<a href="https://doi.org/10.1093/nar/gks406" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC3439882/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/22584627/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Akhter%20S,%20Aziz%20RK,%20Edwards%20RA.%20PhiSpy:%20a%20novel%20algorithm%20for%20finding%20prophages%20in%20bacterial%20genomes%20that%20combines%20similarity-and%20composition-based%20strategies.%20Nucleic%20Acids%20Res.%202012;40(16):e126%E2%80%93e126." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR31">
+<span class="label">31.</span><cite>Tang K, Wang W, Sun Y, Zhou Y, Wang P, Guo Y, et al. Prophage tracer: precisely tracing prophages in prokaryotic genomes using overlapping split-read alignment. Nucleic Acids Res. 2021;49(22):e128–e128.
+</cite> [<a href="https://doi.org/10.1093/nar/gkab824" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8682789/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/34551431/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Tang%20K,%20Wang%20W,%20Sun%20Y,%20Zhou%20Y,%20Wang%20P,%20Guo%20Y,%20et%20al.%20Prophage%20tracer:%20precisely%20tracing%20prophages%20in%20prokaryotic%20genomes%20using%20overlapping%20split-read%20alignment.%20Nucleic%20Acids%20Res.%202021;49(22):e128%E2%80%93e128." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR32">
+<span class="label">32.</span><cite>Pei Z, Liu Y, Chen Y, Pan T, Sun X, Wang H, et al. A universe of human gut-derived bacterial prophages: unveiling the hidden viral players in intestinal microecology. Gut Microbes. 2024;16(1):1–21. 10.1080/19490976.2024.2309684</cite> [<a href="https://doi.org/10.1080/19490976.2024.2309684" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC10841027/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39679618/" class="usa-link">PubMed</a>]</li>
+<li id="CR33">
+<span class="label">33.</span><cite>Harding KR, Kyte N, Fineran PC. Jumbo phages. Curr Biol. 2023;33(14):R750–1. 10.1016/j.cub.2023.05.056</cite> [<a href="https://doi.org/10.1016/j.cub.2023.05.056" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/37490856/" class="usa-link">PubMed</a>]</li>
+<li id="CR34">
+<span class="label">34.</span><cite>Fortier L-C, Sekulovic O. Importance of prophages to evolution and virulence of bacterial pathogens. Virulence. 2013;4(5):354–65.
+</cite> [<a href="https://doi.org/10.4161/viru.24498" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC3714127/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/23611873/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Fortier%20L-C,%20Sekulovic%20O.%20Importance%20of%20prophages%20to%20evolution%20and%20virulence%20of%20bacterial%20pathogens.%20Virulence.%202013;4(5):354%E2%80%9365." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR35">
+<span class="label">35.</span><cite>Andrews K, Landeryou T, Sicheritz-Pontén T, Nale JY. Diverse prophage elements of <em>Salmonella enterica</em> serovars show potential roles in bacterial pathogenicity. Cells. 2024;13(6):514.
+</cite> [<a href="https://doi.org/10.3390/cells13060514" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC10969437/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/38534358/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Andrews%20K,%20Landeryou%20T,%20Sicheritz-Pont%C3%A9n%20T,%20Nale%20JY.%20Diverse%20prophage%20elements%20of%20Salmonella%20enterica%20serovars%20show%20potential%20roles%20in%20bacterial%20pathogenicity.%20Cells.%202024;13(6):514." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR36">
+<span class="label">36.</span><cite>Liao H, Liu C, Zhou S, Liu C, Eldridge DJ, Ai C, et al. Prophage-encoded antibiotic resistance genes are enriched in human-impacted environments. Nat Commun. 2024;15(1):8315.
+</cite> [<a href="https://doi.org/10.1038/s41467-024-52450-y" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11437078/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/39333115/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Liao%20H,%20Liu%20C,%20Zhou%20S,%20Liu%20C,%20Eldridge%20DJ,%20Ai%20C,%20et%20al.%20Prophage-encoded%20antibiotic%20resistance%20genes%20are%20enriched%20in%20human-impacted%20environments.%20Nat%20Commun.%202024;15(1):8315." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR37">
+<span class="label">37.</span><cite>Shkoporov AN, Turkington CJ, Hill C. Mutualistic interplay between bacteriophages and bacteria in the human gut. Nat Rev Microbiol. 2022;20(12):737–49.
+</cite> [<a href="https://doi.org/10.1038/s41579-022-00755-4" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/35773472/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Shkoporov%20AN,%20Turkington%20CJ,%20Hill%20C.%20Mutualistic%20interplay%20between%20bacteriophages%20and%20bacteria%20in%20the%20human%20gut.%20Nat%20Rev%20Microbiol.%202022;20(12):737%E2%80%9349." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR38">
+<span class="label">38.</span><cite>Silpe JE, Wong JWH, Owen SV, Baym M, Balskus EP. The bacterial toxin colibactin triggers prophage induction. Nature. 2022;603(7900):315–20.
+</cite> [<a href="https://doi.org/10.1038/s41586-022-04444-3" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8907063/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/35197633/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Silpe%20JE,%20Wong%20JWH,%20Owen%20SV,%20Baym%20M,%20Balskus%20EP.%20The%20bacterial%20toxin%20colibactin%20triggers%20prophage%20induction.%20Nature.%202022;603(7900):315%E2%80%9320." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR39">
+<span class="label">39.</span><cite>Henrot C, Petit M. Signals triggering prophage induction in the gut microbiota. Mol Microbiol. 2022;118(5):494–502.
+</cite> [<a href="https://doi.org/10.1111/mmi.14983" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC9827884/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/36164818/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Henrot%20C,%20Petit%20M.%20Signals%20triggering%20prophage%20induction%20in%20the%20gut%20microbiota.%20Mol%20Microbiol.%202022;118(5):494%E2%80%93502." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR40">
+<span class="label">40.</span><cite>Bateman A. UniProt: a worldwide hub of protein knowledge. Nucleic Acids Res. 2019;47(D1):D506–15. Available from: file:///Users/guanxiang/Library/ApplicationSupport/Mendeley Desktop/Downloaded/Bateman - 2019 - UniProt A worldwide hub of protein knowledge.pdf</cite> [<a href="https://doi.org/10.1093/nar/gky1049" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC6323992/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/30395287/" class="usa-link">PubMed</a>]</li>
+<li id="CR41">
+<span class="label">41.</span><cite>Li W, Godzik A. Cd-hit: a fast program for clustering and comparing large sets of protein or nucleotide sequences. Bioinformatics. 2006;22(13):1658–9.
+</cite> [<a href="https://doi.org/10.1093/bioinformatics/btl158" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/16731699/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Li%20W,%20Godzik%20A.%20Cd-hit:%20a%20fast%20program%20for%20clustering%20and%20comparing%20large%20sets%20of%20protein%20or%20nucleotide%20sequences.%20Bioinformatics.%202006;22(13):1658%E2%80%939." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR42">
+<span class="label">42.</span><cite>Chen S, Zhou Y, Chen Y, Gu J. Fastp: an ultra-fast all-in-one FASTQ preprocessor. Bioinformatics. 2018;34(17):i884–90.
+</cite> [<a href="https://doi.org/10.1093/bioinformatics/bty560" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC6129281/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/30423086/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Chen%20S,%20Zhou%20Y,%20Chen%20Y,%20Gu%20J.%20Fastp:%20an%20ultra-fast%20all-in-one%20FASTQ%20preprocessor.%20Bioinformatics.%202018;34(17):i884%E2%80%9390." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR43">
+<span class="label">43.</span><cite>Langmead B, Salzberg SL. Fast gapped-read alignment with Bowtie 2. Nat Methods. 2012. 10.1038/nmeth.1923.
+</cite> [<a href="https://doi.org/10.1038/nmeth.1923" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC3322381/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/22388286/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Langmead%20B,%20Salzberg%20SL.%20Fast%20gapped-read%20alignment%20with%20Bowtie%202.%20Nat%20Methods.%202012.%2010.1038/nmeth.1923." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR44">
+<span class="label">44.</span><cite>Heinz S, Benner C, Spann N, Bertolino E, Lin YC, Laslo P, et al. Simple combinations of lineage-determining transcription factors prime <em>cis</em>-regulatory elements required for macrophage and B cell identities. Mol Cell. 2010;38(4):576–89.
+</cite> [<a href="https://doi.org/10.1016/j.molcel.2010.05.004" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC2898526/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/20513432/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Heinz%20S,%20Benner%20C,%20Spann%20N,%20Bertolino%20E,%20Lin%20YC,%20Laslo%20P,%20et%20al.%20Simple%20combinations%20of%20lineage-determining%20transcription%20factors%20prime%20cis-regulatory%20elements%20required%20for%20macrophage%20and%20B%20cell%20identities.%20Mol%20Cell.%202010;38(4):576%E2%80%9389." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR45">
+<span class="label">45.</span><cite>Quinlan AR, Hall IM. BEDTools: a flexible suite of utilities for comparing genomic features. Bioinform. 2010;26(6):841–2. <a href="https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btq033" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btq033</a></cite> [<a href="https://doi.org/10.1093/bioinformatics/btq033" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC2832824/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/20110278/" class="usa-link">PubMed</a>]</li>
+<li id="CR46">
+<span class="label">46.</span><cite>Blin K, Shaw S, Steinke K, Villebro R, Ziemert N, Lee SY, et al. antiSMASH 5.0: updates to the secondary metabolite genome mining pipeline. Nucleic Acids Res. 2019;47(W1):W81–7.</cite> [<a href="https://doi.org/10.1093/nar/gkz310" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC6602434/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/31032519/" class="usa-link">PubMed</a>]</li>
+<li id="CR47">
+<span class="label">47.</span><cite>Pascal Andreu V, Augustijn HE, Chen L, Zhernakova A, Fu J, Fischbach MA, et al. Gutsmash predicts specialized primary metabolic pathways from the human gut microbiota. Nat Biotechnol. 2023;41(10):1416–23.
+</cite> [<a href="https://doi.org/10.1038/s41587-023-01675-1" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC10423304/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/36782070/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Pascal%20Andreu%20V,%20Augustijn%20HE,%20Chen%20L,%20Zhernakova%20A,%20Fu%20J,%20Fischbach%20MA,%20et%20al.%20Gutsmash%20predicts%20specialized%20primary%20metabolic%20pathways%20from%20the%20human%20gut%20microbiota.%20Nat%20Biotechnol.%202023;41(10):1416%E2%80%9323." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR48">
+<span class="label">48.</span><cite>Gibson MK, Forsberg KJ, Dantas G. Improved annotation of antibiotic resistance determinants reveals microbial resistomes cluster by ecology. ISME J. 2015;9(1):207–16.
+</cite> [<a href="https://doi.org/10.1038/ismej.2014.106" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC4274418/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/25003965/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Gibson%20MK,%20Forsberg%20KJ,%20Dantas%20G.%20Improved%20annotation%20of%20antibiotic%20resistance%20determinants%20reveals%20microbial%20resistomes%20cluster%20by%20ecology.%20ISME%20J.%202015;9(1):207%E2%80%9316." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+</ul></section></section><section id="_ad93_" lang="en" class="associated-data"><h2 class="pmc_sec_title">Associated Data</h2>
+<p class="font-secondary"><em>This section collects any data citations, data availability statements, or supplementary materials included in this article.</em></p>
+<section id="_adsm93_" lang="en" class="supplementary-materials"><h3 class="pmc_sec_title">Supplementary Materials</h3>
+<section class="sm xbox font-sm" id="db_ds_supplementary-material1_reqid_"><div class="media p"><div class="caption">
+<a href="/articles/instance/12366036/bin/13059_2025_3733_MOESM1_ESM.pdf" data-ga-action="click_feat_suppl" class="usa-link">13059_2025_3733_MOESM1_ESM.pdf</a><sup> (1.2MB, pdf) </sup><p>Additional file 1. Supplementary figures, Fig. S1–S4. Fig. S1 Performance benchmarking of PIDE-ESM2. Fig. S2 The ability of PIDE to recover phage genomes at different thresholds. a, Coverage distribution of PIDE-predicted PIs in original phage genomes across various length ranges with <em>D</em> = 3 kb. Red line represents the overall distribution. b, Relative genomic coordinates of PIDE-predicted PI with <em>D</em> = 3 kb. All sequence lengths were normalized to 1. Each horizontal line represents an original phage sequence, with yellow color indicating the regions covered by PIs and black indicating the PI-uncovered regions. c, Density plot showing the proportion of cargo genes in temperate phage genomes. Fig. S3 PIs predicted by different tools. a, Venn diagram indicating the total number of PIs predicted by each of the four software tools, the number of unique PIs for each software, the number of unique PIs matched to viruses in the nr database, and the number of matches with coverage ≥ 50%. b, CheckV-evaluated genome completeness distribution of PIDE-predicted PIs. c, CheckV-evaluated genome completeness distribution of the potentially active PIs. d, An example showing the regions of Homer-predicted peaks and the distribution of virome reads in those regions and their surrounding areas. Fig. S4 The characteristics of PIs in human gut microbiome. a, The length distribution of the 24,467 PIs. b, Gene annotations of the PIDE-identified jumbo prophage using Pharokka. c, The distribution of the proportion of cargo genes relative to the total genes in PIs in length. d, The number of PIs carrying different types of ARGs.</p>
+</div></div></section><section class="sm xbox font-sm" id="db_ds_supplementary-material2_reqid_"><div class="media p"><div class="caption">
+<a href="/articles/instance/12366036/bin/13059_2025_3733_MOESM2_ESM.xlsx" data-ga-action="click_feat_suppl" class="usa-link">Additional file 2. Supplementary Table</a><sup> (31.2KB, xlsx) </sup>
+</div></div></section></section><section id="_adda93_" lang="en" class="data-availability-statement"><h3 class="pmc_sec_title">Data Availability Statement</h3>
+<p>All datasets used in this study can be retrieved from the following links: (1) Uniprot, <a href="https://zenodo.org/records/16457629" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://zenodo.org/records/16457629</a>; (2) Refseq, <a href="https://ftp.ncbi.nlm.nih.gov/refseq/release/viral/viral.1.1.genomic.fna.gz" class="usa-link" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://ftp.ncbi.nlm.nih.gov/refseq/release/viral/viral.1.1.genomic.fna.gz</a>; (3) UHGG, <a href="http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/</a>; The parameter of the model can be downloaded from <a href="https://zenodo.org/records/12759619/files/PIDE.model.tar.gz?download=1" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://zenodo.org/records/12759619/files/PIDE.model.tar.gz?download=1</a>. The source code for PIDE has been placed into the GitHub (<a href="https://github.com/chyghy/PIDE" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://github.com/chyghy/PIDE</a>) and Zenodo (<a href="https://zenodo.org/records/16457629" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://zenodo.org/records/16457629</a>).</p></section></section></section><footer class="p courtesy-note font-secondary font-sm text-center"><hr class="headless">
+<p>Articles from Genome Biology are provided here courtesy of <strong>BMC</strong></p></footer></section></article>
+
+                      
+
+                    </main>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+<!-- Secondary navigation placeholder -->
+<div class="pmc-sidenav desktop:grid-col-4 display-flex">
+    <section class="pmc-sidenav__container" aria-label="Article resources and navigation">
+        <button type="button" class="usa-button pmc-sidenav__container__close usa-button--unstyled">
+            <img src="/static/img/usa-icons/close.svg" role="img" alt="Close" />
+        </button>
+    <div class="display-none desktop:display-block">
+       <section class="margin-top-4 desktop:margin-top-0">
+              <h2 class="margin-top-0">ACTIONS</h2>
+           <ul class="usa-list usa-list--unstyled usa-list--actions">
+               
+               <li>
+                     <a
+                             href="https://doi.org/10.1186/s13059-025-03733-0"
+                             class="usa-button usa-button--outline width-24 font-xs display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                             target="_blank"
+                             rel="noreferrer noopener"
+                             data-ga-category="actions"
+                             data-ga-action="click"
+                             data-ga-label="publisher_link_desktop"
+                     >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#launch"></use>
+                         </svg>
+                         <span class="display-inline-flex flex-justify-center flex-1 padding-right-2">View on publisher site</span>
+                     </a>
+               </li>
+               
+               
+               <li>
+                    <a
+                            href="pdf/13059_2025_Article_3733.pdf"
+                            class="usa-button usa-button--outline width-24 display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="pdf_download_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1">PDF (1.6 MB)</span>
+                    </a>
+               </li>
+               
+                
+               <li>
+                   <button role="button" class="usa-button width-24 citation-dialog-trigger display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                        aria-label="Open dialog with citation text in different styles"
+                        data-ga-category="actions"
+                        data-ga-action="open"
+                        data-ga-label="cite_desktop"
+                        data-all-citations-url="/resources/citations/12366036/"
+                        data-citation-style="nlm"
+                        data-download-format-link="/resources/citations/12366036/export/"
+                    >
+                        <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                        </svg>
+                       <span class="display-inline-flex flex-justify-center flex-1 button-label">Cite</span>
+                    </button>
+               </li>
+                
+               <li>
+
+                        <button class="usa-button width-24 collections-dialog-trigger collections-button display-inline-flex flex-align-center flex-justify-start padding-left-1 collections-button-empty"
+                              aria-label="Save article in MyNCBI collections."
+                              data-ga-category="actions"
+                              data-ga-action="click"
+                              data-ga-label="collections_button_desktop"
+                              data-collections-open-dialog-enabled="false"
+                              data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12366036%2F%3Freport%3Dclassic%23open-collections-dialog"
+                              data-in-collections="false">
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                            <span class="display-inline-flex flex-justify-center flex-1">Collections</span>
+                       </button>
+               </li>
+               <li class="pmc-permalink">
+                    <button
+                            type="button"
+                            class="usa-button width-24 display-inline-flex flex-align-center flex-justify padding-left-1 shadow-none"
+                            aria-label="Show article permalink"
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="permalink_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#share"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1 button-label">Permalink</span>
+                    </button>
+                   
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12366036/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+               </li>
+           </ul>
+       </section>
+     </div>
+
+        <section class="pmc-resources margin-top-6 desktop:margin-top-4" data-page-path="/articles/PMC12366036/">
+            <h2 class="margin-top-0">RESOURCES</h2>
+            
+                <div class="usa-accordion usa-accordion--multiselectable" data-allow-multiple>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-similar-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_similar_articles"
+                        data-ga-label="/articles/PMC12366036/"
+                        data-action-open="open_similar_articles"
+                        data-action-close="close_similar_articles"
+                        >
+                            Similar articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-similar-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/similar-article-links/40836306/"
+                            
+                    >
+                        
+                    </div>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-cited-by-other-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_cited_by"
+                        data-ga-label="/articles/PMC12366036/"
+                        data-action-open="open_cited_by"
+                        data-action-close="close_cited_by"
+                        >
+                             Cited by other articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-cited-by-other-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/cited-by-links/40836306/"
+                            
+                    >
+                          
+                    </div>
+                    
+                        <h3 class="usa-accordion__heading">
+                            <button
+                            type="button"
+                            class="usa-accordion__button"
+                            aria-expanded="false"
+                            aria-controls="resources-links-to-ncbi-databases"
+                            data-ga-category="resources_accordion"
+                            data-ga-action="open_NCBI_links"
+                            data-ga-label="/articles/PMC12366036/"
+                            data-action-open="open_NCBI_links"
+                            data-action-close="close_NCBI_link"
+                            >
+                                 Links to NCBI Databases
+                            </button>
+                        </h3>
+                        <div
+                                id="resources-links-to-ncbi-databases"
+                                class="usa-accordion__content usa-prose"
+                                data-source-url="/resources/db-links/12366036/"
+                        >
+                        </div>
+                    
+                    
+                </div>
+            
+        </section>
+
+
+        <section
+        class="usa-in-page-nav usa-in-page-nav--wide margin-top-6 desktop:margin-top-4"
+        data-title-text="On this page"
+        data-title-heading-level="h2"
+        data-scroll-offset="0"
+        data-root-margin="-10% 0px -80% 0px"
+        data-main-content-selector="main"
+        data-threshold="1"
+        hidden
+        ></section>
+    </section>
+</div>
+
+
+        
+
+<div class="overlay" role="dialog" aria-label="Citation Dialog" hidden>
+    <div class="dialog citation-dialog" aria-hidden="true">
+        <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+            <h2 class="usa-modal__heading margin-0">Cite</h2>
+             <button type="button" class="usa-button usa-button--unstyled close-overlay text-black width-auto"  tabindex="1">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+             </button>
+        </div>
+
+        
+
+<div class="citation-text-block">
+  <div class="citation-text margin-bottom-2"></div>
+  <ul class="usa-list usa-list--unstyled display-inline-flex flex-justify width-full flex-align-center">
+      <li>
+        <button
+          class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center copy-button dialog-focus"
+          data-ga-category="save_share"
+          data-ga-action="cite"
+          data-ga-label="copy"
+          tabindex="2">
+            <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+            </svg>
+            <span>Copy</span>
+        </button>
+      </li>
+      <li>
+          <a
+              href="#"
+              role="button"
+              class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center export-button"
+              data-ga-category="save_share"
+              data-ga-action="cite"
+              data-ga-label="download"
+              title="Download a file for external citation management software"
+              tabindex="3">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                </svg>
+                <span class="display-none mobile-lg:display-inline">Download .nbib</span>
+                <span class="display-inline mobile-lg:display-none">.nbib</span>
+            </a>
+      </li>
+      <li>
+          
+
+<div class="display-inline-flex flex-align-center">
+  <label class="usa-label margin-top-0">Format:</label>
+  <select aria-label="Format" class="usa-select citation-style-selector padding-1 margin-top-0 border-0 padding-right-4" tabindex="4" >
+    
+      <option data-style-url-name="ama"
+              value="AMA"
+              >
+        AMA
+      </option>
+    
+      <option data-style-url-name="apa"
+              value="APA"
+              >
+        APA
+      </option>
+    
+      <option data-style-url-name="mla"
+              value="MLA"
+              >
+        MLA
+      </option>
+    
+      <option data-style-url-name="nlm"
+              value="NLM"
+              selected="selected">
+        NLM
+      </option>
+    
+  </select>
+</div>
+      </li>
+  </ul>
+</div>
+    </div>
+</div>
+
+        <div class="overlay" role="dialog" hidden>
+  <div id="collections-action-dialog" class="dialog collections-dialog" aria-hidden="true">
+   <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+        <h2 class="usa-modal__heading margin-0">Add to Collections</h2>
+    </div>
+    <div class="collections-action-panel action-panel">
+      
+
+
+<form id="collections-action-dialog-form"
+      class="usa-form maxw-full collections-action-panel-form action-panel-content action-form action-panel-smaller-selectors"
+      data-existing-collections-url="/list-existing-collections/"
+      data-add-to-existing-collection-url="/add-to-existing-collection/"
+      data-create-and-add-to-new-collection-url="/create-and-add-to-new-collection/"
+      data-myncbi-max-collection-name-length="100"
+      data-collections-root-url="https://www.ncbi.nlm.nih.gov/myncbi/collections/">
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="iXjjsf8lab1N3sHvAVMvbiPWcdKHfi1D7GysiAhKCjzdsRUCbkGsFJ9Q947lWNie">
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-new"
+            class="usa-radio__input usa-radio__input--tile collections-new  margin-top-0"
+            name="collections"
+            value="new"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_new" />
+            <label class="usa-radio__label" for="collections-action-dialog-new">Create a new collection</label>
+        </div>
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-existing"
+            class="usa-radio__input usa-radio__input--tile collections-existing"
+            name="collections"
+            value="existing"
+            checked="true"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_existing" />
+            <label class="usa-radio__label" for="collections-action-dialog-existing">Add to an existing collection</label>
+        </div>
+    </fieldset>
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="action-panel-control-wrap new-collections-controls">
+           <label for="collections-action-dialog-add-to-new" class="usa-label margin-top-0">
+                Name your collection
+               <abbr title="required" class="usa-hint usa-hint--required text-no-underline">*</abbr>
+          </label>
+          <input
+            type="text"
+            name="add-to-new-collection"
+            id="collections-action-dialog-add-to-new"
+            class="usa-input collections-action-add-to-new"
+            pattern="[^&quot;&amp;=&lt;&gt;/]*" title="The following characters are not allowed in the Name field: &quot;&amp;=&lt;&gt;/"
+            maxlength=""
+            data-ga-category="collections_button"
+            data-ga-action="create_collection"
+            data-ga-label="non_favorties_collection"
+            required
+          />
+        </div>
+        <div class="action-panel-control-wrap existing-collections-controls">
+             <label for="collections-action-dialog-add-to-existing" class="usa-label margin-top-0">
+                Choose a collection
+              </label>
+              <select id="collections-action-dialog-add-to-existing"
+                      class="usa-select collections-action-add-to-existing"
+                      data-ga-category="collections_button"
+                      data-ga-action="select_collection"
+                      data-ga-label="($('.collections-action-add-to-existing').val() === 'Favorites') ? 'Favorites' : 'non_favorites_collection'">
+              </select>
+              <div class="collections-retry-load-on-error usa-input-error-message selection-validation-message">
+                Unable to load your collection due to an error<br>
+                <a href="#">Please try again</a>
+              </div>
+        </div>
+    </fieldset>
+
+    <div class="display-inline-flex">
+        <button class="usa-button margin-top-0 action-panel-submit"
+            type="submit"
+            data-loading-label="Adding..."
+            data-pinger-ignore
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="add">
+          Add
+        </button>
+        <button class="usa-button usa-button--outline margin-top-0 action-panel-cancel"
+                aria-label="Close 'Add to Collections' panel"
+                ref="linksrc=close_collections_panel"
+                data-ga-category="collections_button"
+                data-ga-action="click"
+                data-ga-label="cancel">
+          Cancel
+        </button>
+    </div>
+</form>
+    </div>
+  </div>
+</div>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+
+
+        
+    
+    
+
+<footer class="ncbi-footer ncbi-dark-background " >
+    
+        <div class="ncbi-footer__icon-section">
+            <div class="ncbi-footer__social-header">
+                Follow NCBI
+            </div>
+
+            <div class="grid-container ncbi-footer__ncbi-social-icons-container">
+                
+                    <a href="https://twitter.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="40"
+                             height="40"
+                             viewBox="0 0 40 40"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on X (formerly known as Twitter)</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.facebook.com/ncbi.nlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="16"
+                             height="29"
+                             focusable="false"
+                             aria-hidden="true"
+                             viewBox="0 0 16 29"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.8809 21.4002C3.8809 19.0932 3.8809 16.7876 3.8809 14.478C3.8809 14.2117 3.80103 14.1452 3.54278 14.1492C2.53372 14.1638 1.52334 14.1492 0.514288 14.1598C0.302626 14.1598 0.248047 14.0972 0.248047 13.8936C0.256034 12.4585 0.256034 11.0239 0.248047 9.58978C0.248047 9.37013 0.302626 9.30224 0.528931 9.3049C1.53798 9.31688 2.54837 9.3049 3.55742 9.31555C3.80103 9.31555 3.8809 9.26097 3.87957 9.00272C3.87158 8.00565 3.85428 7.00592 3.90753 6.00884C3.97142 4.83339 4.31487 3.73115 5.04437 2.78467C5.93095 1.63318 7.15699 1.09005 8.56141 0.967577C10.5582 0.79319 12.555 0.982221 14.5518 0.927641C14.7102 0.927641 14.7462 0.99287 14.7449 1.13664C14.7449 2.581 14.7449 4.02668 14.7449 5.47104C14.7449 5.67604 14.6517 5.68669 14.4946 5.68669C13.4523 5.68669 12.4113 5.68669 11.3703 5.68669C10.3506 5.68669 9.92057 6.10868 9.90593 7.13904C9.89661 7.7647 9.91525 8.39303 9.89794 9.01869C9.88995 9.26364 9.96583 9.31822 10.2015 9.31688C11.7204 9.30623 13.2393 9.31688 14.7595 9.3049C15.0257 9.3049 15.0723 9.3728 15.0444 9.62439C14.89 10.9849 14.7515 12.3467 14.6144 13.7085C14.5691 14.1571 14.5785 14.1585 14.1458 14.1585C12.8386 14.1585 11.5313 14.1665 10.2254 14.1518C9.95119 14.1518 9.89794 14.2317 9.89794 14.4899C9.90593 19.0799 9.89794 23.6752 9.91125 28.2612C9.91125 28.5674 9.8407 28.646 9.53186 28.6433C7.77866 28.6273 6.02414 28.6366 4.27094 28.634C3.82499 28.634 3.87158 28.6992 3.87158 28.22C3.87602 25.9472 3.87913 23.6739 3.8809 21.4002Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on Facebook</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.linkedin.com/company/ncbinlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="25"
+                             height="23"
+                             viewBox="0 0 26 24"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M14.6983 9.98423C15.6302 9.24808 16.5926 8.74754 17.6762 8.51991C19.673 8.09126 21.554 8.30824 23.1262 9.7526C24.2351 10.7723 24.7529 12.1115 25.0165 13.5612C25.1486 14.3363 25.2105 15.1218 25.2015 15.9081C25.2015 18.3043 25.2015 20.6898 25.2082 23.0806C25.2082 23.3468 25.1549 23.444 24.8621 23.4414C23.1297 23.4272 21.3992 23.4272 19.6704 23.4414C19.4041 23.4414 19.3429 23.3588 19.3442 23.1019C19.3535 20.5194 19.3442 17.9368 19.3442 15.3543C19.3442 14.0005 18.3258 12.9448 17.0266 12.9488C15.7273 12.9528 14.6983 14.0071 14.6983 15.361C14.6983 17.9328 14.6917 20.5047 14.6983 23.0753C14.6983 23.3708 14.6198 23.444 14.3296 23.4427C12.6185 23.4294 10.9079 23.4294 9.19779 23.4427C8.93155 23.4427 8.86099 23.3735 8.86232 23.1086C8.8783 19.7619 8.88628 16.4144 8.88628 13.066C8.88628 11.5688 8.87874 10.0708 8.86365 8.57182C8.86365 8.3575 8.90758 8.27896 9.14054 8.28029C10.9048 8.29094 12.6687 8.29094 14.4321 8.28029C14.6464 8.28029 14.6983 8.34818 14.6983 8.54653C14.6903 9.00047 14.6983 9.45441 14.6983 9.98423Z">
+                            </path>
+                            <path d="M6.55316 15.8443C6.55316 18.2564 6.55316 20.6699 6.55316 23.082C6.55316 23.3629 6.48127 23.4388 6.19906 23.4374C4.47737 23.4241 2.75568 23.4241 1.03399 23.4374C0.767751 23.4374 0.69986 23.3629 0.701191 23.1006C0.709178 18.2648 0.709178 13.4281 0.701191 8.59053C0.701191 8.34026 0.765089 8.27237 1.01669 8.2737C2.74991 8.28435 4.48048 8.28435 6.20838 8.2737C6.47462 8.2737 6.5465 8.33627 6.54517 8.6065C6.54783 11.0186 6.55316 13.4308 6.55316 15.8443Z">
+                            </path>
+                            <path d="M3.65878 0.243898C5.36804 0.243898 6.58743 1.45529 6.58743 3.1406C6.58743 4.75801 5.32145 5.95742 3.60819 5.96807C3.22177 5.97614 2.83768 5.90639 2.47877 5.76299C2.11985 5.61959 1.79344 5.40546 1.51897 5.13334C1.24449 4.86123 1.02755 4.53668 0.881058 4.17902C0.734563 3.82136 0.661505 3.43788 0.666231 3.05141C0.67555 1.42601 1.9362 0.242566 3.65878 0.243898Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on LinkedIn</span>
+                    </a>
+                
+
+                
+                    <a href="https://github.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="28"
+                             height="27"
+                             viewBox="0 0 28 28"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M16.7228 20.6334C17.5057 20.5527 18.2786 20.3944 19.0301 20.1608C21.3108 19.4193 22.5822 17.8259 22.963 15.4909C23.1228 14.5112 23.1814 13.5287 22.9883 12.5437C22.8106 11.6423 22.4013 10.8028 21.8007 10.1076C21.7526 10.0605 21.7197 10 21.7064 9.934C21.6931 9.86799 21.7 9.79952 21.7262 9.73748C22.0856 8.6206 21.9711 7.51969 21.601 6.42677C21.582 6.3497 21.5345 6.2827 21.468 6.23923C21.4016 6.19577 21.3211 6.17906 21.2429 6.19248C20.7329 6.21649 20.2313 6.33051 19.7611 6.52928C19.1103 6.7908 18.4899 7.12198 17.9104 7.51703C17.84 7.56996 17.7581 7.60551 17.6713 7.62078C17.5846 7.63605 17.4954 7.6306 17.4112 7.60489C15.2596 7.05882 13.0054 7.06203 10.8554 7.61421C10.7806 7.63586 10.7018 7.63967 10.6253 7.62534C10.5487 7.611 10.4766 7.57892 10.4148 7.53167C9.64788 7.03247 8.85171 6.58918 7.96368 6.33359C7.65781 6.24338 7.34123 6.19458 7.02239 6.18849C6.94879 6.17986 6.87462 6.19893 6.81432 6.242C6.75402 6.28507 6.71191 6.34904 6.69621 6.42145C6.32342 7.51437 6.2209 8.61527 6.56307 9.73348C6.59635 9.84264 6.64694 9.93316 6.54177 10.0516C5.47666 11.2604 5.09988 12.6834 5.19574 14.2676C5.2663 15.4244 5.46201 16.5466 6.01454 17.5769C6.84399 19.1171 8.21664 19.9119 9.85158 20.3352C10.3938 20.4706 10.9444 20.5698 11.4998 20.632C11.5384 20.7492 11.4506 20.7798 11.408 20.8291C11.1734 21.1179 10.9894 21.4441 10.8634 21.7942C10.7622 22.0458 10.8315 22.4039 10.6065 22.5516C10.263 22.7766 9.83827 22.8485 9.42421 22.8871C8.17936 23.0056 7.26471 22.4877 6.6283 21.4348C6.25552 20.8184 5.76956 20.3325 5.08523 20.0663C4.76981 19.9325 4.42139 19.8967 4.08537 19.9638C3.7898 20.029 3.73788 20.1901 3.93891 20.4111C4.03639 20.5234 4.14989 20.6207 4.27575 20.6999C4.9796 21.1318 5.51717 21.7884 5.80152 22.5636C6.37002 23.9973 7.48039 24.5697 8.93825 24.6323C9.43741 24.6575 9.93768 24.615 10.4254 24.5058C10.5892 24.4672 10.6531 24.4872 10.6517 24.6762C10.6451 25.4936 10.6637 26.3123 10.6517 27.131C10.6517 27.6635 10.1684 27.9297 9.58663 27.7393C8.17396 27.2671 6.84977 26.5631 5.66838 25.656C2.59555 23.2891 0.720966 20.1861 0.217704 16.3376C-0.357453 11.9127 0.911353 8.00824 3.98551 4.73881C6.11909 2.42656 8.99932 0.939975 12.1203 0.540191C16.5351 -0.0601815 20.4347 1.14323 23.7232 4.16373C26.2449 6.47869 27.724 9.37672 28.1048 12.7726C28.5828 17.0325 27.3686 20.7945 24.4768 23.9827C22.9762 25.6323 21.0956 26.8908 18.9982 27.6488C18.8783 27.6927 18.7585 27.738 18.636 27.7726C18.0356 27.9404 17.6189 27.6395 17.6189 27.0098C17.6189 25.7452 17.6308 24.4806 17.6295 23.2159C17.6329 22.9506 17.6128 22.6856 17.5696 22.4238C17.4325 21.6664 17.3419 21.484 16.7228 20.6334Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on GitHub</span>
+                    </a>
+                
+
+                
+                    <a href="https://ncbiinsights.ncbi.nlm.nih.gov/"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="26"
+                             height="26"
+                             viewBox="0 0 27 27"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M23.7778 26.4574C23.1354 26.3913 22.0856 26.8024 21.636 26.3087C21.212 25.8444 21.4359 24.8111 21.324 24.0347C19.9933 14.8323 14.8727 8.80132 6.09057 5.85008C4.37689 5.28406 2.58381 4.99533 0.779072 4.99481C0.202773 4.99481 -0.0229751 4.83146 0.00455514 4.21479C0.0660406 3.08627 0.0660406 1.95525 0.00455514 0.826734C-0.0413285 0.0815827 0.259669 -0.0193618 0.896534 0.00266238C6.96236 0.222904 12.3693 2.24179 16.9889 6.16209C22.9794 11.2478 26.1271 17.7688 26.4372 25.648C26.4629 26.294 26.3179 26.5271 25.6609 26.4684C25.0827 26.417 24.4991 26.4574 23.7778 26.4574Z">
+                            </path>
+                            <path d="M14.8265 26.441C14.0924 26.441 13.2371 26.6795 12.6626 26.3786C12.0092 26.0372 12.3781 25.0644 12.246 24.378C11.1154 18.5324 6.6849 14.5497 0.74755 14.1001C0.217135 14.0615 -0.0104482 13.9422 0.0134113 13.3659C0.0519536 12.1454 0.0482829 10.9213 0.0134113 9.69524C-0.00127145 9.14464 0.196946 9.03268 0.703502 9.04736C9.21217 9.27128 16.5994 16.2511 17.2804 24.7231C17.418 26.4446 17.418 26.4446 15.6579 26.4446H14.832L14.8265 26.441Z">
+                            </path>
+                            <path d="M3.58928 26.4555C2.64447 26.4618 1.73584 26.0925 1.06329 25.4289C0.39073 24.7653 0.00933763 23.8617 0.0030097 22.9169C-0.00331824 21.9721 0.365937 21.0635 1.02954 20.3909C1.69315 19.7184 2.59675 19.337 3.54156 19.3306C4.48637 19.3243 5.39499 19.6936 6.06755 20.3572C6.7401 21.0208 7.1215 21.9244 7.12782 22.8692C7.13415 23.814 6.7649 24.7226 6.10129 25.3952C5.43768 26.0677 4.53409 26.4491 3.58928 26.4555Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI RSS feed</span>
+                    </a>
+                
+            </div>
+        </div>
+    
+
+    <div data-testid="gridContainer"
+         class="grid-container ncbi-footer__container">
+        <div class="grid-row ncbi-footer__main-content-container"
+             data-testid="grid">
+            
+                <div class="ncbi-footer__column">
+                    
+                        <p class="ncbi-footer__circled-icons-heading">
+                            Connect with NLM
+                        </p>
+                    
+
+                    <div class="ncbi-footer__circled-icons-list">
+                        
+                            <a href=https://twitter.com/nlm_nih class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="32"
+                                     height="32"
+                                     viewBox="0 0 40 40"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on X (formerly known as Twitter)</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.facebook.com/nationallibraryofmedicine class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="13"
+                                     height="24"
+                                     viewBox="0 0 13 24"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M4.11371 23.1369C4.11371 23.082 4.11371 23.0294 4.11371 22.9745V12.9411H0.817305C0.6709 12.9411 0.670898 12.9411 0.670898 12.8016C0.670898 11.564 0.670898 10.3287 0.670898 9.09341C0.670898 8.97903 0.705213 8.95158 0.815017 8.95158C1.8673 8.95158 2.91959 8.95158 3.97417 8.95158H4.12057V8.83263C4.12057 7.8055 4.12057 6.7738 4.12057 5.74897C4.1264 4.92595 4.31387 4.11437 4.66959 3.37217C5.12916 2.38246 5.94651 1.60353 6.95717 1.1921C7.64827 0.905008 8.3913 0.764035 9.13953 0.778051C10.0019 0.791777 10.8644 0.830666 11.7268 0.860404C11.8869 0.860404 12.047 0.894717 12.2072 0.90158C12.2964 0.90158 12.3261 0.940469 12.3261 1.02968C12.3261 1.5421 12.3261 2.05452 12.3261 2.56465C12.3261 3.16857 12.3261 3.7725 12.3261 4.37642C12.3261 4.48165 12.2964 4.51367 12.1912 4.51138C11.5369 4.51138 10.8804 4.51138 10.2261 4.51138C9.92772 4.51814 9.63058 4.5526 9.33855 4.61433C9.08125 4.6617 8.84537 4.78881 8.66431 4.97766C8.48326 5.16652 8.3662 5.40755 8.32972 5.66661C8.28476 5.89271 8.26027 6.1224 8.25652 6.35289C8.25652 7.19014 8.25652 8.02969 8.25652 8.86923C8.25652 8.89439 8.25652 8.91955 8.25652 8.95615H12.0219C12.1797 8.95615 12.182 8.95616 12.1614 9.10714C12.0768 9.76596 11.9876 10.4248 11.9029 11.0813C11.8312 11.6319 11.7626 12.1824 11.697 12.733C11.6719 12.9434 11.6787 12.9434 11.4683 12.9434H8.26338V22.899C8.26338 22.979 8.26338 23.0591 8.26338 23.1392L4.11371 23.1369Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on Facebook</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.youtube.com/user/NLMNIH class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="21"
+                                     height="15"
+                                     viewBox="0 0 21 15"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M19.2561 1.47914C18.9016 1.15888 18.5699 0.957569 17.2271 0.834039C15.5503 0.678484 13.2787 0.655608 11.563 0.65332H9.43556C7.71987 0.65332 5.4483 0.678484 3.77151 0.834039C2.43098 0.957569 2.097 1.15888 1.74242 1.47914C0.813665 2.32097 0.619221 4.62685 0.598633 6.89384C0.598633 7.31781 0.598633 7.74101 0.598633 8.16345C0.626084 10.4121 0.827391 12.686 1.74242 13.521C2.097 13.8412 2.4287 14.0425 3.77151 14.1661C5.4483 14.3216 7.71987 14.3445 9.43556 14.3468H11.563C13.2787 14.3468 15.5503 14.3216 17.2271 14.1661C18.5676 14.0425 18.9016 13.8412 19.2561 13.521C20.1712 12.6929 20.3725 10.451 20.3999 8.22064C20.3999 7.74025 20.3999 7.25986 20.3999 6.77946C20.3725 4.54907 20.1689 2.30724 19.2561 1.47914ZM8.55942 10.5311V4.65201L13.5601 7.50005L8.55942 10.5311Z"
+                                          fill="white" />
+                                </svg>
+                                <span class="usa-sr-only">NLM on YouTube</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            
+
+            
+                <address class="ncbi-footer__address ncbi-footer__column">
+                    
+        <p>
+            <a class="usa-link usa-link--external"
+            href="https://www.google.com/maps/place/8600+Rockville+Pike,+Bethesda,+MD+20894/%4038.9959508,
+            -77.101021,17z/data%3D!3m1!4b1!4m5!3m4!1s0x89b7c95e25765ddb%3A0x19156f88b27635b8!8m2!3d38.9959508!
+            4d-77.0988323"
+            rel="noopener noreferrer" target="_blank">National Library of Medicine
+            <br/> 8600 Rockville Pike<br/> Bethesda, MD 20894</a>
+        </p>
+    
+                </address>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/web_policies.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Web Policies
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/institutes-nih/nih-office-director/office-communications-public-liaison/freedom-information-act-office" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            FOIA
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS Vulnerability Disclosure
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://support.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Help
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/accessibility.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Accessibility
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/careers/careers.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Careers
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+        </div>
+
+        
+            <div class="grid-row grid-col-12" data-testid="grid">
+                <ul class="ncbi-footer__bottom-links-list">
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NLM
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NIH
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.usa.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            USA.gov
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+    </div>
+</footer>
+
+    
+
+
+        
+        
+    
+  <script  type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/pinger/pinger.js"> </script>
+
+
+    
+        
+
+<button class="back-to-top" data-ga-category="pagination" data-ga-action="back_to_top">
+    <label>Back to Top</label>
+    <svg class="usa-icon order-0" aria-hidden="true" focusable="false" role="img">
+        <use xlink:href="/static/img/sprite.svg#arrow_upward"></use>
+    </svg>
+</button>
+    
+
+
+        
+    
+    
+    
+        
+    <script type="application/javascript">
+    window.ncbi = window.ncbi || {};
+    window.ncbi.pmc = window.ncbi.pmc || {};
+    window.ncbi.pmc.options = {
+        logLevel: 'INFO',
+        
+        staticEndpoint: '/static/',
+        
+        citeCookieName: 'pmc-cf',
+    };
+</script>
+    <script type="module" crossorigin="" src="/static/assets/base-133c6271.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/jquery/jquery-3.6.0.min.js">&#xA0;</script>
+    <script type="text/javascript">
+        jQuery.getScript("https://cdn.ncbi.nlm.nih.gov/core/alerts/alerts.js", function () {
+            galert(['div.nav_and_browser', 'div.header', '#universal_header', '.usa-banner', 'body > *:nth-child(1)'])
+        });
+    </script>
+
+
+    <script type="text/javascript">var exports = {};</script>
+     <script src="/static/CACHE/js/output.13b077bc3ffd.js"></script>
+
+    <script type="module" crossorigin="" src="/static/assets/article-44d04358.js"></script>
+    
+        <script type="module" crossorigin="" src="/static/assets/math-574fdcc6.js"></script>
+    
+    
+
+    </body>
+</html>

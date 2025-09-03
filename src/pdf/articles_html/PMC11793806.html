@@ -14,8 +14,8 @@
 
         
         
-  <link rel="stylesheet" href="/static/assets/style-a68b4900.css" />
-<script type="module" crossorigin="" src="/static/assets/base_style-0a3f24ce.js"></script>
+  <link rel="stylesheet" href="/static/assets/style-8258669d.css" />
+<script type="module" crossorigin="" src="/static/assets/base_style-f4a99799.js"></script>
 
   <link rel="stylesheet" href="/static/assets/style-ef962842.css" />
 <link rel="stylesheet" href="/static/assets/style-3ade8b5c.css" />
@@ -74,7 +74,7 @@
   <!-- Logging params: Pinger defaults -->
 <meta name="ncbi_app" content="cloudpmc-viewer" />
 <meta name="ncbi_db" content="pmc" />
-<meta name="ncbi_phid" content="3D96DBF88094D8B300DBF800427079F4.m_1" />
+<meta name="ncbi_phid" content="AE530E888AEEC833050E880004928255.m_1" />
 <meta name="ncbi_pinger_stat_url" content="https://pmc.ncbi.nlm.nih.gov/stat" />
 <!-- Logging params: Pinger custom -->
 <meta name="ncbi_pdid" content="article" />
@@ -285,18 +285,17 @@
 
 
 
-<header class="usa-header usa-header--extended usa-header--wide" data-testid="header" data-header >
+<header class="usa-header usa-header--extended usa-header--wide" data-header data-testid="header"    >
     <div class="ncbi-header">
         <div class="ncbi-header__container">
-            
-                <a class="ncbi-header__logo-container" href="https://www.ncbi.nlm.nih.gov/">
-                    <img alt="
-                                  NCBI home page
-                              "
-                         class="ncbi-header__logo-image"
-                         src="/static/img/ncbi-logos/nih-nlm-ncbi--white.svg" />
-                </a>
-            
+            <a class="ncbi-header__logo-container"
+               href="https://www.ncbi.nlm.nih.gov/">
+                <img alt="NCBI home page"
+                     class="ncbi-header__logo-image"
+                     src="/static/img/ncbi-logos/nih-nlm-ncbi--white.svg"
+                     width="410"
+                     height="100" />
+            </a>
 
             <!-- Mobile menu hamburger button -->
             
@@ -428,7 +427,8 @@
                             
 
 
-    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true"    >
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
         
         <use xlink:href="/static/img/sprite.svg#search" />
     </svg>
@@ -501,7 +501,8 @@
                                 
 
 
-    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true"    >
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
         
         <use xlink:href="/static/img/sprite.svg#person" />
     </svg>
@@ -514,7 +515,8 @@
                                 
 
 
-    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-less ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true"    data-login-dropdown-up-arrow>
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-less ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-up-arrow>
         
         <use xlink:href="/static/img/sprite.svg#expand_less" />
     </svg>
@@ -525,7 +527,8 @@
                                 
 
 
-    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-more ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true"    data-login-dropdown-down-arrow>
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-more ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-down-arrow>
         
         <use xlink:href="/static/img/sprite.svg#expand_more" />
     </svg>
@@ -558,13 +561,17 @@
 
 
 
-<a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
-    
 
-    Dashboard
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
 
-    
-</a>
+        
+            Dashboard
+        
+
+        
+    </a>
+
 
                                     </li>
                                 
@@ -579,13 +586,17 @@
 
 
 
-<a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
-    
 
-    Publications
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
 
-    
-</a>
+        
+            Publications
+        
+
+        
+    </a>
+
 
                                     </li>
                                 
@@ -600,13 +611,17 @@
 
 
 
-<a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
-    
 
-    Account settings
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
 
-    
-</a>
+        
+            Account settings
+        
+
+        
+    </a>
+
 
                                     </li>
                                 
@@ -680,24 +695,20 @@
     <!-- Search panel -->
     
         <div class="ncbi-search-panel ncbi--show-only-at-desktop"
-             data-testid="searchPanel"
              data-header-search-panel
              hidden>
             <div class="ncbi-search-panel__container">
                 <form action="https://www.ncbi.nlm.nih.gov/search/all/"
-                      aria-describedby="search-field-desktop-navigation-help-text"
+                      
                       autocomplete="off"
                       class="usa-search usa-search--big ncbi-search-panel__form"
-                      data-testid="form"
+                      data-testid="desktop-navigation-search-form"
                       method="GET"
                       role="search">
-                    <label class="usa-sr-only"
-                           data-testid="label"
-                           for="search-field-desktop-navigation">
+                    <label class="usa-sr-only" for="search-field-desktop-navigation">
                         Search…
                     </label>
                     <input class="usa-input"
-                           data-testid="textInput"
                            id="search-field-desktop-navigation"
                            name="term"
                            
@@ -747,7 +758,7 @@
     
     
     
-    data-testid="button"
+    
     
     >
     
@@ -842,8 +853,13 @@
         
             <!-- Mobile search component -->
             <form class="usa-search usa-search--small ncbi--hide-at-desktop margin-top-6"
+                  action="https://www.ncbi.nlm.nih.gov/search/all/"
+                  
+                  autocomplete="off"
+                  data-testid="mobile-navigation-search-form"
+                  method="GET"
                   role="search">
-                <label class="usa-sr-only" for="search-field">
+                <label class="usa-sr-only" for="search-field-mobile-navigation">
                     Search
                 </label>
 
@@ -853,7 +869,7 @@
                        
                            placeholder="Search NCBI"
                        
-                       name="search" />
+                       name="term" />
 
                 
 
@@ -947,13 +963,17 @@
 
 
 
-<a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
-    
 
-    Dashboard
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
 
-    
-</a>
+        
+            Dashboard
+        
+
+        
+    </a>
+
 
                         </li>
                     
@@ -967,13 +987,17 @@
 
 
 
-<a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
-    
 
-    Publications
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
 
-    
-</a>
+        
+            Publications
+        
+
+        
+    </a>
+
 
                         </li>
                     
@@ -987,13 +1011,17 @@
 
 
 
-<a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
-    
 
-    Account settings
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
 
-    
-</a>
+        
+            Account settings
+        
+
+        
+    </a>
+
 
                         </li>
                     
@@ -1114,11 +1142,6 @@ alt="Search"
 </form>
             <div class="display-flex flex-column tablet:flex-row tablet:flex-justify flex-justify-center flex-align-center width-full desktop:maxw-44">
                 <ul class="pmc-header__search__menu">
-                    <li>
-                        <a class="usa-link" href="https://www.ncbi.nlm.nih.gov/pmc/advanced/" data-ga-action="featured_link" data-ga-label="advanced_search">
-                            Advanced Search
-                        </a>
-                    </li>
                     <li>
                         
                             <a class="usa-link" href="/journals/" data-ga-action="featured_link" data-ga-label="journal list">
@@ -2998,7 +3021,7 @@ Yang JH, Shin BY, Han JY, et al. Isorhamnetin protects against oxidative stress 
       data-myncbi-max-collection-name-length="100"
       data-collections-root-url="https://www.ncbi.nlm.nih.gov/myncbi/collections/">
 
-    <input type="hidden" name="csrfmiddlewaretoken" value="ItrAk7j0u90mzsq6NdlU5r8R3pjrFpKFzppweJgIM3NVQ91GBwm7H8svWiojneZi">
+    <input type="hidden" name="csrfmiddlewaretoken" value="AdRVdPciQWCLtR5wj6SKkzOsGfzaCWJic6q17xThE2YieBKBrHNyfMrRG8Qzl2za">
 
     <fieldset class="usa-fieldset margin-bottom-2">
         <div class="usa-radio">
@@ -3304,13 +3327,17 @@ Yang JH, Shin BY, Han JY, et al. Isorhamnetin protects against oxidative stress 
 
 
 
-<a href="https://www.nlm.nih.gov/web_policies.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
-    
 
-    Web Policies
+    <a href="https://www.nlm.nih.gov/web_policies.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
 
-    
-</a>
+        
+            Web Policies
+        
+
+        
+    </a>
+
 
                         </li>
                     
@@ -3324,13 +3351,17 @@ Yang JH, Shin BY, Han JY, et al. Isorhamnetin protects against oxidative stress 
 
 
 
-<a href="https://www.nih.gov/institutes-nih/nih-office-director/office-communications-public-liaison/freedom-information-act-office" class="usa-link  usa-link--alt ncbi-footer__link"  >
-    
 
-    FOIA
+    <a href="https://www.nih.gov/institutes-nih/nih-office-director/office-communications-public-liaison/freedom-information-act-office" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
 
-    
-</a>
+        
+            FOIA
+        
+
+        
+    </a>
+
 
                         </li>
                     
@@ -3344,13 +3375,17 @@ Yang JH, Shin BY, Han JY, et al. Isorhamnetin protects against oxidative stress 
 
 
 
-<a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
-    
 
-    HHS Vulnerability Disclosure
+    <a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
 
-    
-</a>
+        
+            HHS Vulnerability Disclosure
+        
+
+        
+    </a>
+
 
                         </li>
                     
@@ -3370,13 +3405,17 @@ Yang JH, Shin BY, Han JY, et al. Isorhamnetin protects against oxidative stress 
 
 
 
-<a href="https://support.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
-    
 
-    Help
+    <a href="https://support.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
 
-    
-</a>
+        
+            Help
+        
+
+        
+    </a>
+
 
                         </li>
                     
@@ -3390,13 +3429,17 @@ Yang JH, Shin BY, Han JY, et al. Isorhamnetin protects against oxidative stress 
 
 
 
-<a href="https://www.nlm.nih.gov/accessibility.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
-    
 
-    Accessibility
+    <a href="https://www.nlm.nih.gov/accessibility.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
 
-    
-</a>
+        
+            Accessibility
+        
+
+        
+    </a>
+
 
                         </li>
                     
@@ -3410,13 +3453,17 @@ Yang JH, Shin BY, Han JY, et al. Isorhamnetin protects against oxidative stress 
 
 
 
-<a href="https://www.nlm.nih.gov/careers/careers.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
-    
 
-    Careers
+    <a href="https://www.nlm.nih.gov/careers/careers.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
 
-    
-</a>
+        
+            Careers
+        
+
+        
+    </a>
+
 
                         </li>
                     
@@ -3438,13 +3485,17 @@ Yang JH, Shin BY, Han JY, et al. Isorhamnetin protects against oxidative stress 
 
 
 
-<a href="https://www.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
-    
 
-    NLM
+    <a href="https://www.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
 
-    
-</a>
+        
+            NLM
+        
+
+        
+    </a>
+
 
                         </li>
                     
@@ -3458,13 +3509,17 @@ Yang JH, Shin BY, Han JY, et al. Isorhamnetin protects against oxidative stress 
 
 
 
-<a href="https://www.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
-    
 
-    NIH
+    <a href="https://www.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
 
-    
-</a>
+        
+            NIH
+        
+
+        
+    </a>
+
 
                         </li>
                     
@@ -3478,13 +3533,17 @@ Yang JH, Shin BY, Han JY, et al. Isorhamnetin protects against oxidative stress 
 
 
 
-<a href="https://www.hhs.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
-    
 
-    HHS
+    <a href="https://www.hhs.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
 
-    
-</a>
+        
+            HHS
+        
+
+        
+    </a>
+
 
                         </li>
                     
@@ -3498,13 +3557,17 @@ Yang JH, Shin BY, Han JY, et al. Isorhamnetin protects against oxidative stress 
 
 
 
-<a href="https://www.usa.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
-    
 
-    USA.gov
+    <a href="https://www.usa.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
 
-    
-</a>
+        
+            USA.gov
+        
+
+        
+    </a>
+
 
                         </li>
                     
@@ -3551,7 +3614,7 @@ Yang JH, Shin BY, Han JY, et al. Isorhamnetin protects against oxidative stress 
         citeCookieName: 'pmc-cf',
     };
 </script>
-    <script type="module" crossorigin="" src="/static/assets/base-370d5dd6.js"></script>
+    <script type="module" crossorigin="" src="/static/assets/base-133c6271.js"></script>
     
     <script type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/jquery/jquery-3.6.0.min.js">&#xA0;</script>
     <script type="text/javascript">
@@ -3564,7 +3627,7 @@ Yang JH, Shin BY, Han JY, et al. Isorhamnetin protects against oxidative stress 
     <script type="text/javascript">var exports = {};</script>
      <script src="/static/CACHE/js/output.13b077bc3ffd.js"></script>
 
-    <script type="module" crossorigin="" src="/static/assets/article-917ba005.js"></script>
+    <script type="module" crossorigin="" src="/static/assets/article-44d04358.js"></script>
     
     
 

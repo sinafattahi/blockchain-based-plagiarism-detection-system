@@ -1,0 +1,121 @@
+The Poisson-Inverse Gaussian regression model is a widely used method for analyzing count data, particularly in over-dispersion. However, the reliability of parameter estimates obtained through maximum likelihood estimation in this model can be compromised when multicollinearity exists among the explanatory variables. Multicollinearity means that high correlations between explanatory variables inflate the variance of the maximum likelihood estimates and increase the mean squared error. To handle this problem, the Poisson-Inverse Gaussian ridge regression estimator has been proposed as a viable alternative. This paper introduces a generalized ridge estimator to estimate regression coefficients in the Poisson-Inverse Gaussian regression model under multicollinearity. The performance of the proposed estimator is evaluated through a comprehensive simulation study, covering various scenarios and employing the mean squared error as the evaluation criterion. Furthermore, the practical applicability of the estimator is demonstrated using two real-life datasets, with its performance again assessed based on mean squared error. Theoretical analyses, supported by simulation and empirical findings, suggest that the proposed estimator outperforms existing methods, offering a more reliable solution in multicollinearity.
+
+Count data characterized by non-negative integer values frequently arises in various disciplines, necessitating the use of specialized regression models to explore relationships between the response variable and its predictors. These models facilitate the identification of significant explanatory variables and their impact on the response1,2. Among the most commonly employed models is the Poisson regression model (PRM), which assumes that the mean and variance are equal (i.e., equi-dispersion). However, this assumption is often unrealistic in empirical datasets, where the variance either exceeds (over-dispersion) or is less than (under-dispersion) the mean. In such situations, applying the Poisson model may lead to biased estimates and unreliable conclusions3. To address the limitations of equi-dispersion, alternative count regression models, including the negative binomial (NBRM)4, Bell (BRM)5, quasi-Poisson (QPRM)6, generalized Poisson Lindley (GPLRM)7, Conway-Maxwell Poisson (CMPRM)8, and Poisson-Inverse Gaussian (PIGRM) models9, have been proposed. These models extend the Poisson framework to accommodate over-dispersed and under-dispersed data, thereby enhancing model accuracy and interpretability.
+
+The PIGRM is highly effective for datasets with heavy tails, where a small number of extreme values differ significantly from most data near zero. This type of data is common in fields like actuarial science, biology, engineering, and medical research. The PIGRM is preferred over the NBRM for its ability to handle greater skewness and kurtosis, making it ideal for heavy-tailed count data9. Willmot3highlighted the PIGRM as a better alternative to the NBRM for highly skewed and heterogeneous datasets. Putri et al.10found PIGRM effective in managing overdispersion when compared to NBRM. Similarly, Saraiva et al.11used PIGRM for overdispersed dengue data, and Husna and Azizah12applied it to study dengue hemorrhagic fever in Central Java, showcasing its versatility for complex count data.
+
+One of the fundamental assumptions of the generalized linear regression model is the absence of correlation among explanatory variables. However, in empirical settings, explanatory variables frequently exhibit strong or near-strong linear relationships, thereby violating this assumption and giving rise to the problem of multicollinearity13. This issue also manifests in the context of the PIGRM, where multicollinearity complicates parameter estimation, inflated variance, and increases mean squared error (MSE). The maximum likelihood estimator (MLE), commonly employed for estimating regression coefficients in the PIGRM, is particularly sensitive to multicollinearity, as it results in inflated variances and unreliable parameter estimates14. To tackle multicollinearity in regression models, ridge regression and the Liu estimator are two commonly studied techniques. Ridge regression, introduced by Hoerl and Kennard15, has been extensively explored, with notable studies focusing on optimal shrinkage parameters by Golub et al.16, and Alkhamisi et al.17. Segerstedt18extended ridge regression to the generalized linear model (GLM), with further advancements by researchers like Månsson19, Saleh et al.20, Amin et al.21, Sami et al.22, and Shahzad et al.23. On anther hand Kejian24introduced the Liu estimator, which offers a linear shrinkage parameterand has been applied to different models. Kibria25and Alheety and Kibria26developed the Liu estimator for linear regression models (LRMs) and later Kurtoǧlu27defined the Liu estimator for GLMs. Then, inspiring further applications by Qasim et al.28and Bulut29.
+
+Several studies have focused on developing generalized versions of the ridge estimator to handle multicollinearity in different types of regression models. Rashad et al.30proposed a generalized ridge estimator for the NBRM, while Akram et al.31extended this idea to both generalized ridge and generalized Liu estimators in the gamma regression. Fayose and Ayinde32explored how to define an appropriate biasing parameter for the generalized ridge regression estimator, and Bhat and Raju33introduced a class of such estimators. Gómez et al.34discussed biased estimation using generalized ridge regression for multiple LRMs. Abdulazeez and Algamal35combined shrinkage estimation with particle swarm optimization to define a generalized ridge estimator. In addition, van Wieringen36applied the generalized ridge approach to estimate the inverse covariance matrix, and Mohammadi37suggested a test for detecting harmful multicollinearity based on this method. Bello and Ayinde38also proposed feasible generalized ridge estimators for models affected by both multicollinearity and autocorrelation. Recent works30,35,39,40have shown that the performance of biased estimators can be improved by allowing the biasing parameters to vary across observations (such as) rather than using a fixed value (such as). Based on this, the main goal of the present paper is to develop a more general form of the ridge estimator to better address multicollinearity in the PIGRM.
+
+This paper discusses the advantages of the generalized ridge estimator in the PIGRM. We also present new methods for determining the optimal values of the shrinkage coefficients (kj), based on the methodologies of Rashad30and Dawood et al.39The careful selection of these coefficients is crucial to improving the performance of the biased generalized ridge estimation method. Monte Carlo simulations use the MSE to evaluate the performance of the proposed estimator compared to existing estimators. To validate the simulation results, we use two real-world data studies that confirm the effectiveness of the estimator, highlighting its improved accuracy and robustness in addressing problems related to multicollinearity.
+
+The structure of this paper is as follows: Section 2 provides a summary of the PIGRM model and examines biased estimation approaches, including PIGRRE and the proposed estimator. It also discusses theoretical comparisons of the proposed estimator and methods for selecting biasing parameters. Section 3 describes the study and results of the Monte Carlo simulation used to evaluate the proposed estimator. Section 4 highlights the application of the estimator through two real-world datasets to confirm the simulation results. Finally, Section 5 summarizes the results and discusses their broader significance.
+
+where,, anddenotes the modified Bessel function of the third kind43. The mean and variance of the distribution areand, respectively.
+
+In the context of PIGRM, the linear predictoris used, which is equivalent to, whereis the linear combination of the explanatory variables, defined as, whereis the vector of regression coefficients, andis the vector of explanatory variables for the-th observation1,43.
+
+whereand, the adjusted response variable, is computed as. To evaluate the accuracy of the estimator, the mean squared error matrix (MSEM) and MSE ofare determined through spectral decomposition of the matrix. whereis the diagonal matrix of the eigenvalues of, andis the orthogonal matrix with columns corresponding to the eigenvectors of.
+
+whereis a diagonal matrix consisting of the eigenvalues of the covariance matrix, adjusted by the ridge parameter.
+
+wheredenotes the-th component of the vector, representing the MLE-adjusted coefficient values.
+
+Building on the work of Bhat and Raju33and extending the contributions of Rashad et al.30and Akram et al.31, we propose the generalized ridge estimator for the PIGRM. The Poisson-Inverse Gaussian generalized ridge estimator (PIGGRE) enhances standard ridge regression by assigning a unique shrinkage parameter to each regression coefficient, improving its ability to address multicollinearity.
+
+In the PIGGRE method, the ridge parameter matrix is written as, where eachcontrols how much shrinkage is applied to the-th regression coefficient. This setup gives more flexibility and improves prediction accuracy and addresses multicollinearity than the standard PIGRRE approach.
+
+(constant) for all: the estimator corresponds to PIGRRE.
+
+The matrixis positive definite if and only ifor. It is evident that for(), the termis positive, ensuring thatis positive definite. Thus, by Lemma 3, the superiority condition ofoveris satisfied.
+
+The matrixis positive definite if and only ifor. It is evident that for(), the termis positive, ensuring thatis positive definite. Thus, by Lemma 3, the superiority condition ofoveris satisfied.
+
+whereandrepresent the estimated values ofand, respectively.
+
+Choose the regression coefficientssuch that the sum of their squared values equals 1, i.e.,. This normalization is a common assumption in regression modeling.
+
+Use PIG() distribution to generate the response variablefor the PIGRM, where. Here,represents the explanatory variables for observation, andare the regression coefficients.
+
+whereare independent standard normal random variables. This ensures the correlation structure between the explanatory variables, withcontrolling the degree of correlation. This step is repeated forand.
+
+Use the ‘gamlss‘ package in R to estimate the regression parameters based on the simulated data, selecting the PIG family for the model.
+
+Repeat the generation of the entire data and estimation process for different combinations of,,, andfor 1000 replications to ensure the robustness of the results.
+
+whererepresents the estimated parameters from the-th replication,is the true parameter vector, andis the total number of replications (1000 in this case). This criterion quantifies the deviation between the true parameters and the estimated ones, helping to assess the accuracy of the estimator.
+
+Different factors considered in the simulation study.
+
+An increase in the degree of multicollinearity (), the dispersion parameter (), or the number of explanatory variables () results in higher MSE values for all estimators, indicating a degradation in performance under these conditions.
+
+The MSE values decrease as the sample size () increases, emphasizing the role of larger sample sizes in improving estimator reliability and precision.
+
+The PIGRRE demonstrates superior performance compared to the MLE across all scenarios, consistently yielding lower MSE values irrespective of variations in,,, and.
+
+The PIGGRE outperforms the PIGRRE, achieving the lowest MSE values among the evaluated estimators across all parameters irrespective of variations in,,, and.
+
+The results show that the proposed PIGGRE estimator works efficiently, especially when the dispersion parameter () is high and the explanatory variables are highly correlated. This indicates that the estimator is reliable even in complex situations where traditional methods may struggle.
+
+Figures1a–d show the simulation results by presenting the mean squared errors (MSEs) for different estimators under various settings, such as different sample sizes (), levels of multicollinearity (), numbers of predictors (), and values of the dispersion parameter (). The results clearly show that PIGGRE performs better than both PIGRRE and MLE by consistently achieving lower MSE values. This improvement is especially clear when using the ridge parametersand, which help reduce estimation errors and improve the reliability of the method.
+
+Estimated MSE for different estimators at p = 3 and.
+
+Estimated MSE for different estimators at p = 3 and.
+
+Estimated MSE for different estimators at p = 3 and.
+
+Estimated MSE for different estimators at p = 6 and.
+
+Estimated MSE for different estimators at p = 6 and.
+
+Estimated MSE for different estimators at p = 6 and.
+
+Estimated MSE for different estimators at p = 9 and.
+
+Estimated MSE for different estimators at p = 9 and.
+
+Estimated MSE for different estimators at p = 9 and.
+
+MSE of different estimators under various factors in the simulation study.
+
+In this section, we compare our proposed estimator with existing estimators such as MLE and PIGRRE, using two real-world datasets to demonstrate the advantages and superiority of the proposed estimator and highlight its effectiveness in improving estimation accuracy, especially in the presence of multicollinearity.
+
+The performance of the proposed estimator is assessed using a real dataset from Fawcett and Higginson48, which is available in R through the AER package under the name EquationCitations. This data investigates the relationship between the number of citations received by evolutionary biology publications and the number of equations per page in the cited papers. This dataset comprises 649 observations, with the response variable representing the total number of equations (y). The explanatory variables include the total number of citations received (), the number of equations present in appendix (), the number of equations present in the main text (), the number of citations made by the authors of the paper (), the number of citations from theoretical papers (), and the number of citations from non-theoretical papers ().
+
+The response variable in this study is count data, which requires specialized models. We compared the PRM, NBRM, COMPRM, and PIGRM to identify the best fit for the relationship between the response variable and explanatory variables in the number of equations and citation data. The selection criteria were the log-likelihood (LL), the Akaike Information Criterion (AIC), and the Bayesian Information Criterion (BIC), where a lower AIC, BIC, and higher LL indicate a better model. Results in Table11show that the PIGRM outperforms the other models with the lowest AIC, BIC, and highest LL.
+
+Comparison of model performance for the number of equations and citation data.
+
+Bolded values indicate the fitted model for the data.
+
+With six explanatory variables in the dataset, the eigenvalues of the matrixare: 1754069.240, 76832.270, 59927.316, 17295.812, 4131.207, 129.039, and 63.036. Multicollinearity was assessed using the condition number (CN) and variance inflation factors (VIFs). The CN, defined aswhereandare the largest and smallest eigenvalues of, respectively, was calculated to be 166.81, indicating a high level of multicollinearity. In addition, the VIF for each explanatory variable, computed as:whereis the coefficient of determination from regressing the-th variable on all other predictors, yielded values of 1201.15, 1.68, 1.57, 23.77, 255.37, and 463.52. These values confirm the presence of severe multicollinearity among several variables. This is further supported by the correlation matrix shown in Fig.2, emphasizing the need for caution in interpreting parameter estimates and potentially adopting bias-reducing methods to improve model stability.
+
+Correlation matrix for explanatory variables in the number of equations and citations data.
+
+The coefficients of the PIGRM are estimated using three methods: MLE, PIGRRE, and PIGGRE, as specified in Eqs.8,11, and17, respectively. The corresponding MSEs for each estimator are computed using Eqs.10,16, and21. The results indicate that MLE performs less favorably than PIGRRE across all ridge parameter estimators, as reflected by its higher MSE. Conversely, PIGGRE demonstrates improved performance compared to both MLE and PIGRRE, yielding lower MSE values. A comparison of the ridge parameter estimators used in PIGGRE, presented in Table12, highlights thatthroughoutperform other existing estimators. These findings are consistent with the results observed in the simulation studies, supporting the efficacy of the proposed estimators.
+
+Coefficients and MSEs of estimators in the number of equations and citation data.
+
+Bolded values indicate the best biasing parameter.
+
+The dependent variable in this analysis is count data, which necessitates appropriate models. To determine the best model for the relationship between the dependent variable and the explanatory variables in the context of the number of equations and citation data, we compared four models: the PRM, NBRM, COMPRM, and PIGRM. We evaluated the models based on three criteria: LL, AIC, and BIC. A lower AIC, BIC, and higher LL indicate a more suitable model. As shown in Table13, the PIGRM provides the best fit, with the lowest AIC and BIC values and the highest LL.
+
+Comparison of model performance for the Australian Institute of Sports data.
+
+Bolded values indicate the fitted model for the data.
+
+The dataset includes ten explanatory variables, the eigenvalues of the matrixare: 30689803.431, 702460.991, 114401.412, 8572.263, 1996.989, 1704.116, 1019.529, 123.657, 94.052, 19.553, and 0.037. Multicollinearity was assessed using the CN and VIFs. The observed CN value of 28699.25, alongside VIF values of 442.07, 56.21, 516.80, 79.96, 22.75, 7.27, 1.09, 15.95, 12.23, and 62.66, indicates substantial multicollinearity among the variables. These findings are further corroborated by the correlation matrix shown in Fig.3. Such evidence highlights the necessity for careful interpretation and potential adjustments in subsequent analyses to mitigate the impact of multicollinearity.
+
+Correlation matrix for explanatory variables in the Australian Institute of Sports data.
+
+The coefficients for the PIGRM were estimated using three methods: MLE, PIGRRE, and PIGGRE, as outlined in equations8,11, and17. The corresponding MSEs were calculated based on equations10,16, and21. The results indicate that MLE performs less effectively than PIGRRE, as reflected by its higher MSE values. In contrast, PIGGRE shows superior performance, with consistently lower MSEs compared to both MLE and PIGRRE. Additionally, a comparison of the ridge parameter estimators in PIGGRE, shown in Table14, highlights that estimatorsandoutperform,, andin PIGGRE. This can be attributed to the nature of the data, including the degree of multicollinearity among the predictors, the level of dispersion, and the sample size. These factors collectively influence the performance of the estimators and the sensitivity of each to the choice of the biasing parameterK. Overall, the PIGGRE estimator demonstrates superior performance, which is consistent with both the simulation results and the findings of the first application.
+
+Coefficients and MSEs of Estimators for the Australian Institute of Sports Data.
+
+Bolded values indicate the best biasing parameter.
+
+The PIGRM is one of the most widely used models for analyzing overdispersed count data. In the PIGRM, MLE is used to estimate regression coefficients. However, when the explanatory variables are highly correlated, this leads to multicollinearity, a problem that reduces the reliability of the regression coefficients and inflates the variance. To address this, we introduced in this paper a new biased estimation method called the PIGGRE, which uses shrinkage parameter techniques to reduce the effect of multicollinearity. We evaluated the performance of the proposed PIGGRE through simulation studies with different scenarios, such as sample sizes, levels of dispersion, multicollinearity, and number of predictors. The results showed that PIGGRE outperformed both MLE and PIGRRE. In particular, using shrinkage parametersandresulted in the lowest MSE, demonstrating higher accuracy. To confirm the simulation study results, we also applied the proposed PIGGRE to two real datasets. The results of these applications provided significant support and confirmation of the simulation results, demonstrating the advantages of using PIGGRE. Therefore, we recommend using PIGGRE with values ofandto address multicollinearity in PIGRM. This approach could be extended in future work to other models, such as the zero-inflated negative binomial model, the zero-inflated Poisson model, and the Conway-Maxwell-Poisson model. Although PIGGRE outperforms in the context of PIGRM under multicollinearity, there is one important limitation worth mentioning. The estimator’s performance depends mainly on theKvalues, which balance bias and variance, and suboptimalKvalues can affect the estimator’s performance, making the estimator sensitive to the choice of parameters. Further improvements could be achieved by incorporating accurate estimation techniques, such as those proposed by Omara50and Lukman et al.51.
+
+Princess Nourah bint Abdulrahman University Researchers Supporting Project number (PNURSP2025R515), Princess Nourah bint Abdulrahman University, Riyadh, Saudi Arabia.
