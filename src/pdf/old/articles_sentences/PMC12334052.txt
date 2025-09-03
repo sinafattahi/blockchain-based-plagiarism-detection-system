@@ -1,0 +1,336 @@
+Studies have shown that inhibition of the Cav3.1 T-type calcium channel can prevent or suppress neurological diseases, such as epileptic seizures and diabetic neuropathy.
+In this study, we aimed to usein silicosimulations to identify a U.S.
+Food and Drug Administration (FDA)-approved drug that can bind to the Cav3.1 T-type calcium channel.
+We used the automated docking suite GOLD v5.5 with the genetic algorithm to simulate molecular docking and predict the protein-ligand binding modes, and the ChemPLP empirical scoring function to estimate the binding affinities of 2,115 FDA-approved drugs to the human Cav3.1 channel.
+Drugs with high binding affinity and appropriate pharmacodynamic and pharmacokinetic properties were selected for molecular mechanics Poisson–Boltzmann surface area (MMPBSA) and molecular mechanics generalised Born surface area (MMGBSA) binding free energy calculations, GROMACS molecular dynamics (MD) simulations and Monte Carlo Cell (MCell) simulations.
+The docking results indicated that the FDA-approved drug montelukast has a high binding affinity to Cav3.1, and data from the literature suggested that montelukast has the appropriate drug-like properties to cross the human blood-brain barrier and reach synapses in the central nervous system.
+MMPBSA, MMGBSA, and MD simulations showed the high stability of the montelukast-Cav3.1 complex.
+MCell simulations indicated that the blockage of Cav3.1 by montelukast reduced the number of synaptic vesicles being released from the pre-synaptic region to the synaptic cleft, which may reduce the probability and amplitude of postsynaptic potentials.
+Calcium channels are located in the plasma membrane of excitable cells, including neurons, brain cells and heart muscle cells [1].
+These channels allow the influx of calcium ions into the cells and cause depolarisation and excitation, contributing to the biological functions of the cells [1].
+Blocking the influx of calcium ions has been shown to have pharmacological effects.
+For example, ziconotide is a calcium channel blocker medication that inhibits the influx of calcium ions into neurons, consequently reducing neurotransmitter release and dampening neuronal excitability.
+This reduction in excitability leads to its analgesic effects and makes ziconotide a treatment for severe chronic pain [2,3].
+Calcium channels can be categorised into voltage-gated and ligand-gated; the opening and closing of the former respond to a voltage difference, while the latter is governed by ligand binding.
+Voltage-gated calcium channels are subcategorised according to their response to voltage and temporal dynamics into L-type (long-lasting), N-type (neural), P-type (Purkinje), R-type (residual) and T-type (transient) [4].
+Their distribution throughout the human body varies by type; for example, N-type channels are typically found in the brain, R-type channels in neurons, and L-type channels in muscles, bones, myocytes and dendrites.
+This study aims to find an inhibitor of the T-type channel, which is widely distributed across the central nervous system [4].
+T-type calcium channels have three subcategories: Cav3.1, Cav3.2 and Cav3.3, which are all associated with neurological diseases, such as epilepsy, neuralgia, diabetic neuropathy, nerve injury and sleep disorders [5].
+Cav3.1 is primarily expressed in the central nervous system and is involved in the generation of rhythmic activities such as sleep patterns and regulating neuronal firing patterns, and its over-activation may cause neurons to fire at an abnormally high frequency, leading to epileptic seizures [5].
+A prior study provoked seizures in wild-type mice lacking Cav3.1 through intraperitoneal drug administration, revealing that the Cav3.1 knockout mice have significantly less risk of absence seizures [4].
+Cav3.2 contributes to various physiological processes such as hormone secretion, neurotransmitter release, and regulation of cardiac pacemaker activity [6].
+It is also associated with epilepsy, but its activation may not be strong enough to produce seizures [6].
+Cav3.3 channels are mainly found in the thalamus and play a crucial role in generating and modulating neuronal oscillations, sensory processing, and serving as the primary pacemaker for sleep spindles [7].
+Thus, all three types of calcium channels are considered potential drug targets for neurological diseases [1].
+Cav3.1 is the most studied and is most associated with epileptic seizures.
+The objective of this study is to identify a U.S.
+Food and Drug Administration (FDA)-approved drug that can bind to the Cav3.1 T-type calcium channels usingin silicosimulations.
+The first stage of most drug discovery projects isin silicosimulations [8], which help to identify potential drug candidates for further experiments.
+In general, the process starts with the creation of a library containing a large number of molecules.
+This library can be obtained from a chemical compound database, such as the ZINC database [9].
+ZINC classifies compounds into different categories; for example, herbal ingredients, human metabolites and FDA-approved drugs.
+After the selection and compilation of a compound library, screening is performed to identify potential molecules that can bind to the selected therapeutic target.
+The drug-like properties, such as adsorption, distribution, metabolism, excretion and toxicity, of these compounds are then predicted using variousin silicomethods [10].
+If required, the structures of these molecules can be modified to bind more tightly to the target or to have advanced drug-like properties, such as fewer side effects and higher bioavailability.
+Thein silicomethods used in this study were molecular docking, molecular mechanics Poisson–Boltzmann/generalised Born surface area (MMPBSA/MMGBSA), molecular dynamics (MD) and Monte Carlo (MCell) simulations.
+The docking simulations were employed to identify an FDA-approved drug that has a high potential to bind with Cav3.1.
+The MMPBSA/MMGBSA and MD simulations were used to validate that the identified FDA-approved drug can bind to Cav3.1 with high stability.
+A pre-synaptic MCell model was created to simulate the effect of the chosen FDA-approved drug on lowering neurotransmitter release and weakening the neural signal by competing with calcium ions for the Cav3.1 channels.
+Using these methods, we identified montelukast as a promising candidate to bind Cav3.1 channels and reduce the hyperactivity of presynaptic neurons.
+Further experimental studies are necessary to establish the feasibility of repurposing montelukast for the treatment of epilepsy and related conditions.
+Docking simulations were performed between the selected ligand-bound Cav3.1 structure (Fig 1, PDB code 6KZP) and 2,115 FDA-approved drugs.
+The results show that 234 drugs obtained a higher binding score than the native ligand embedded in the crystal structure of the Cav3.1 (PDB: Z944), indicating that these compounds may inhibit the opening of the calcium channel and block the entry of calcium ions into the neurons.
+The FDA-approved drugs with the top 20 binding scores are shown inTable 1[11].
+Indocyanine green obtained the highest score.
+Its 2D chemical structure is larger than the Z944 structure and contains more flexible single bonds, which are located near the two highly polar bisulphite groups (Fig 2).
+These features may enable the indocyanine green to fit more naturally in the binding site of Cav3.1.
+The second (cobicistat) and third (ritonavir) ranked drugs also have larger and more flexible structures than the native ligand (Fig 2).
+The binding site is indicated by the red dotted line.
+Although indocyanine green obtained the highest score, we do not believe that it is suitable for the drug repurposing aim of this study.
+We aimed to find a Cav3.1 inhibitor to treat neurological disorders, such as epileptic seizures, that generally require long-term regular use.
+However, indocyanine green is a diagnostic agent for angiography, and no studies can be found on the safety of its long-term regular use [12].
+Thus, regular administration may not be appropriate.
+Cobicistat obtained the second highest binding score (Table 1); it is a CYP3A (cytochrome P450, family 3, subfamily A) inhibitor used to increase the systemic exposure and hence the effectiveness of the HIV drugs atazanavir or darunavir [13].
+CYP3A is a group of enzymes involved in the metabolism of many drugs; thus, cobicistat can cause various drug-drug interactions [13], and we do not therefore believe it to be appropriate for regular use.
+The third- and fourth-ranked drugs were ritonavir and saquinavir.
+They are HIV antiviral drugs, and using them regularly may significantly increase drug resistance and worsen the global problems of HIV drug effectiveness [14].
+Glycerol phenylbutyrate was the fifth-ranked drug; it is an oral medication for inborn urea cycle disorders.
+However, it has a poor side effect profile: 16% of patients had diarrhoea, 14% had flatulence, 14% had a headache, and 7% had abdominal pain [15].
+The next ranked drug is carfilzomib, which is used as a treatment for myeloma.
+It only has parenteral administration and can cause serious side effects [16].
+Dabigatran is the next-ranked drug; it is an anticoagulant with a high risk of bleeding as a side effect [17].
+Thus, all the above-mentioned drugs may not be appropriate for regular use to treat neurological disorders, such as epileptic seizures.
+Montelukast obtained the eighth highest ranking score of 100.7 (Table 1), which is higher than the value of 62.9 for Z944.
+The docking conformation analysis shows that there were 15 hydrophobic contacts between montelukast and the amino acid residues in the binding site (Figs 3AandB).
+In contrast, the native ligand had hydrophobic contact with only 10 residues (Figs 3CandD).
+Most of these residues are different for montelukast and Z944; only three, Leu 872, Leu 920 and Phe 956, possess hydrophobic contacts with both montelukast and Z944.
+The other contact residues for montelukast are Ile 351, Thr 352, Leu 353, Ser 383, Ile 387, Gln 922 and Tyr 953 for Z994, and Asn 388, Leu 391, Phe 917, Thr 921, Asn 952, Lys 1462, Val 1505, Leu 1506, Phe 1509, Gln 1816, Val 1820 and Val 1823.
+The annotated yellow dotted lines indicate the distance between the atoms, measured in angstroms.
+The green dotted lines represent hydrogen bonding.
+The red spoked arcs indicate the residues making hydrophobic contacts with the ligand.
+Montelukast is a leukotriene receptor antagonist that has been approved by the FDA for the treatment of asthma and allergic rhinitis since 1998 [18].
+Millions of asthmatic patients around the world have been taking it regularly, generally as 10 mg once daily by mouth for the prophylaxis of asthma attacks [18].
+The side effects of montelukast are minimal and can be tolerated by most patients [18].
+The unique chemical structure of montelukast seems to have a low affinity to many other drug targets, and this causes very few known drug-drug interactions [18].
+Another advantage of montelukast is its safety in pregnancy [19,20].
+This study aims to identify a drug for neurological disorders, such as epileptic seizures, and most current anti-epileptic drugs carry the risk of congenital malformation and adverse prenatal outcomes [21].
+Many studies have proven that montelukast does not increase the rate of congenital malformation and can be safely used during pregnancy [19,20].
+In addition, montelukast is known to have the ability to cross the blood-brain barrier and could produce neuroprotective effects [22,23].
+An animal study showed that montelukast increased the number of neurons by 15% in mice with cranial irradiation [22].
+In mice and rats, montelukast has been found to reduce neuron loss after a chronic brain injury caused by cerebral ischaemia [23].
+Montelukast has also been found to inhibit the GPR17 receptor, which serves as a sensor for local damage to the myelin sheath and plays a role in the repair and regeneration of demyelinating plaques resulting from ongoing inflammation [24].
+Inhibiting the GPR17 receptor in rats with Montelukast may reduce neuroinflammation, suggesting its potential use in the treatment of dementia [24].
+Despite the beneficial effects of montelukast, studies analysed from electronic health record databases globally have found that potential neuropsychiatric adverse effects may be associated with its use, including dementia, sleep disorders, and depression [25,26].
+However, a meta-analysis of 59 studies found no association between montelukast and suicide or depression, although the elderly may be more prone to sleep disorders caused by montelukast [27].
+Another recently published review article suggested the neuroprotective property of montelukast and its potential use as an anti-epileptic drug, as it reduced the incidence and severity of seizures in epidemiological studies [28].
+However, the pharmacological mechanism of these properties is not known.
+Our docking results show that montelukast may have a high binding affinity to Cav3.1, which could be the reason for its neurological effects.
+Because of all the above-mentioned characteristics of montelukast, we selected it for further simulations to investigate its binding with Cav3.1.
+MD simulations were conducted on both the crystal structure of the native ligand (Z944) and the best-docked conformation of montelukast with Cav3.1 to investigate their dynamic interactions.
+For the montelukast complex, three separate 100 ns MD simulations were performed to ensure more reliable results.
+Their root mean square deviations (RMSD), root mean square fluctuation (RMSF), radius of gyration (Rg), solvent accessible surface area (SASA), number of hydrogen bonds and interaction energies were calculated.
+The RMSD shows the stabilities of the 6KZP-native and 6KZP-montelukast complexes (Fig 4A).
+The conformations of the 6KZP-native were stabilised by about 2 ns.
+For the montelukast complex, three separate 100 ns MD simulations were performed to ensure more reliable results.
+The results from the first two MD simulations were very similar, with the complex structures stabilising around 17 ns (Fig 4A).
+In contrast, the third MD simulation showed stabilisation from about 17 ns to 70 ns with a different conformation compared to the first two MDs, after which it resembled the conformations of the first and second simulations.
+Therefore, the first two MD runs achieved the most stable conformations much earlier than the third.
+The 6KZP-native complex was stabilised at an RMSD of about 0.4 nm, whereas that of the 6KZP-montelukast was 0.75 nm.
+A small RMSD value indicates that there were small differences in the conformation between the docked and MD-stabilised structures.
+In general, an RMSD value of less than 1.0 nm indicates that the docking approach can predict the binding mode of protein-ligand interactions to an acceptable standard [29].
+Here, both the stabilised RMSD values of 6KZP-native and 6KZP-montelukast are below 1.0 nm.
+Three 100 ns MD simulations were conducted on the 6KZP-montelukast complex, with labels 1, 2, and 3 indicating the 1st, 2nd, and 3rdsimulations, respectively.
+The black dotted lines mark the regions with differing RMSF values between the 6KZP-native and 6KZP-montelukast complexes.
+The RMSF results show the fluctuation behaviour of individual residues of the protein (Fig 4B).
+6KZP has about 1,200 amino acid residues.
+The RMSF plots of 6KZP-native and 6KZP-montelukast were similar, indicating that the conformations of both structures have a similar overall variation in stability.
+The 6KZP-montelukast complex has higher RMSF values than the 6KZP-native complex at residue 85 (Gln 172), 116 (Leu 205), 174 (Asn 263), 593–598 (Ser 1334 to Leu 1339), 934–935 (Glu 1749 to Thr 1750) and 978 (Asn 1800).
+These higher RMSF values indicate that these residues are important for the interactions between montelukast and 6KZP, but not for the native ligand.
+The important interaction residues for the binding between the native ligand and 6KZP are 378 (Val 823), 517 (Arg 1248), 673–691 (Cys 1418 to Ser 1436), 735–737 (Gln1480 to Pro1482), 741 (His 1486), 777 (Leu 1592) and 860 (Asn 1675).
+Rg evaluates the compactness of the complexes (Fig 4C).
+Throughout the simulation, the Rg values of the 6KZP-montelukast complex range from 3.17 nm to 3.29 nm, and those of the 6KZP-native range from 3.22 nm to 3.32 nm, suggesting that there may be a small difference in the complexes between the complexes.
+As shown inFig 4C, there is a slight increase in the 6KZP-native complex Rg curve and a slight decrease in the 6KZP-montelukast complex after 80 ns of MD simulations.
+The higher Rg values of the 6KZP-native complex may indicate slightly less compactness,i.e., more flexible structures, than the 6KZP-montelukast complex.
+The protein of the montelukast complex may be folded slightly more tightly than that of the native.
+Hydrogen bonds are one of the strongest types of bonds that are responsible for maintaining the protein structure and provide attractive interaction forces between protein and ligand.
+In general, hydrogen bonds are stronger than hydrophobic contacts and are considered another important facilitator for protein-ligand interactions.Fig 5shows the number of intra- and inter-hydrogen bonds of the 6KZP-montelukast and 6KZP-native complexes.
+The intra-protein hydrogen bonds are those within the protein, and the intermolecular hydrogen bonds are those between the ligand and the protein.
+The number of intra-protein hydrogen bonds was similar for 6KZP-native and 6KZP-montelukast, mainly varying between 720 and 770 (Fig 5A).
+This level of hydrogen bonds maintains the stabilised structure of the protein.
+Looking at the intermolecular hydrogen bonds, the 6KZP-native complex tends to have more conformations with two hydrogen bonds than the 6KZP-montelukast (Figs 5B,C and D).
+This may indicate that the higher binding affinity of 6KZP-montelukast may be caused by other intermolecular forces, such as hydrophobic contact.
+(B)The frequency of the number of inter-hydrogen bonds of the 6KZP-montelukast complex (blue) and 6KZP-native complex (orange colour).
+(C)Number of inter-hydrogen bonds for the 6KZP-montelukast complex.
+(D)Number of inter-hydrogen bonds for the 6KZP-native complex.
+The 6KZP-montelukast complex has lower solvent accessible surface area (SASA) values than the 6KZP-native complex over the 100 ns MD simulation (Fig 6A).
+The final SASA values of the 6KZP-montelukast and the 6KZP-native complexes are about 610 nm2and 520 nm2, respectively.
+A high SASA value indicates that a high proportion of the complex is surrounded by solvent molecules, whereas a low SASA value indicates that a large number of solvent molecules are buried inside the complex.
+Thus, the structure of the 6KZP-montelukast complex has less area covered by solvent molecules and is more compact and probably more stable than the 6KZP-native complex.
+The interaction energy calculated by GROMACS is defined as the potential energy of the complex minus the sum of the potential energies of the protein and ligand.
+A negative interaction energy means that energy is released upon binding; thus, the complex is more stable than the individual protein and ligand.
+Here, the interaction energy of the 6KZP-montelukast complex stabilised at around −300 kJmol−1after about 20 ns simulation, whereas that of the 6KZP-native complex stabilised at around −200 kJmol−1after about 2 ns (Fig 6B).
+The lower interaction energy of 6KZP-montelukast indicates a higher binding affinity and stability than the 6KZP-native.
+The results of the Principal Component Analysis (PCA) show that the first two principal components (PCs) of the 6KZP-montelukast complex capture 61.2% of its total motion, requiring 8 PCs to account for 80.9%.
+In contrast, the first two PCs of the 6KZP-native complex capture 55.8% of its aggregate motion and require 12 PCs to explain 80.6%, indicating a more complex dynamic behaviour.
+This suggests that the 6KZP-montelukast complex has a more efficient representation of its dynamics, while the 6KZP-native complex exhibits greater complexity, necessitating more components for a comparable level of explanation.
+In the 2D projections of trajectories (Fig 7A), the clustered points correspond to similar conformations or states of the system, indicating shared structural features or dynamics.
+The 6KZP-native complex exhibits a greater number of smaller clusters, while the 6KZP-montelukast complex displays fewer but larger clusters, which may represent more stable states.
+Additionally, isolated points between these clusters may signify transient conformations.
+Two-dimensional contour map of the Gibbs Free Energy Landscape (FEL) during 100 ns MD simulations for (B) the 6KZP-native complex and (C) the 6KZP-montelukast complex.
+The first and last principal components (PCs) indicate the components used to capture approximately 80% of the total dynamic motion.
+The 6KZP-montelukast complex requires 8 PCs, while the 6KZP-native complex requires 12 PCs.
+The Gibbs Free Energy landscape for both the 6KZP-native complex and the 6KZP-montelukast complex was analysed during the 100 ns MD simulations, utilising the first and last principal components that account for approximately 80% of the data variations (Figs 7BandC).
+These landscapes illustrate the directional fluctuations of the C-alpha atoms, revealing a large region of low energy in both complexes, indicating high stability.
+Notably, the 6KZP-native complex displayed multiple low-energy minima (shown in blue), suggesting it may exist in several states.
+In contrast, the deep blue low-energy region of the 6KZP-montelukast complex is more concentrated in a single region, indicating fewer low-energy stable states.
+In summary, both the docking and MD simulations indicate a high binding affinity between montelukast and Cav3.1.
+This supports further study on the use of montelukast as a Cav3.1 inhibitor for the treatment of neurological diseases, such as epileptic seizures.
+MMPBSA and MMGBSA binding free energy calculations were performed on the conformations of both Z944 and montelukast at the 100 ns MD simulations.
+The results from both approaches indicate that montelukast binds with a higher affinity than Z944, as evidenced by its lower binding free energies (Table 2).
+This suggests that the binding complex of montelukast with Cav3.1 is more stable than that of Z944.
+The increased stability primarily results from the van der Waals (ΔEvdW) and electrostatic interaction energies (ΔEelec), with differences of approximately 23.5 kcal/mol for van der Waals energy and 0.86 kcal/mol for electrostatic energy between montelukast and Z944.
+The total change in solvation free energy (ΔGsolv) for the montelukast complex is more positive than that of Z944, indicating that solvation is less favourable in the montelukast complex, which detracts from its binding affinity.
+A model utilising MCell and CellBlender was constructed to simulate the interaction between montelukast, calcium ions, Cav3.1, synaptic active membrane, and synaptic vesicles in and around the pre-synapse.
+It incorporates the opening of Cav3.1 channels near the pre-synaptic bouton, enabling the flow of calcium ions from the extracellular space into the pre-synapse.
+The influx of calcium ions can trigger the release of neurotransmitter molecules into the synaptic cleft, where they diffuse and initiate signal transmission in the postsynaptic cell.
+Excessive calcium influx can result in neurological disorders such as epileptic seizures.
+Conversely, if montelukast blocks the Cav3.1 channels, it can reduce calcium entry and neurotransmitter release, potentially preventing such disorders.
+In total, eight 0.2s MCell simulations were performed using different concentrations of montelukast and different rates of reaction (k2) between montelukast and the calcium channel (Table 3).
+The simulations demonstrated that the calcium ions and montelukast competed with the calcium channels.
+Once the montelukast molecules bound to the calcium channels, they blocked the movement of the calcium ions from the extra-synaptic region to the pre-synapse.
+This reduced the formation of the complex of calcium ions and synaptic vesicles in the pre-synapse, and thus reduced the amount of neurotransmitter released to the extra-synaptic region.
+The results of this study are as expected in our hypothesis.
+A high concentration of montelukast molecules and highk2values reduced the number of vesicles docking with the presynaptic membrane and releasing neurotransmitter to the extra-synaptic region.
+There were about 26% fewer vesicles docking when 1,500 montelukast molecules were presented with ak2value of 1.0 × 108M-1s-1in the system compared to the absence of montelukast.
+In contrast, there was almost no change in the number of vesicles docking when comparing the simulation of 500 montelukast molecules with ak2value of 0.5 × 106M-1s-1and the absence of montelukast (Table 3).
+When the amount of montelukast was set at 500 and the value ofk2increased from 0.5 × 106M-1s-1to 1.0 × 108M-1s-1, there was only a 4% increase in the number of vesicles being released.
+For the simulations with 1,500 montelukast, the number of vesicles being released increased by 24% whenk2increased from 0.5 × 106M-1s-1to 1.0 × 108M-1s-1.
+Thus, both the concentration of the montelukast and thek2reaction rate are important factors in these simulations.
+Figs 8AandBshow the MCell simulation results with the standard parameters, ak2rate constant of 1.0 × 108M-1s-1, with 1,500 montelukast molecules and with no montelukast molecules.
+The figures indicate that the calcium ions and montelukast compete with each other to bind to the calcium channel located in the extra-synaptic region.
+After 0.2 s of the simulation, the system was almost equilibrated, and about 700 montelukast molecules were bound to the calcium channels.
+This reduced the number of calcium ions that could bind to the channels, and thus the number of vesicles being released to the extra-synaptic region.
+CA_CYT and CA_Pre are the calcium ions located in the extra-synaptic region and the pre-synapse, respectively.
+E_World is the complex of montelukast and calcium channels.
+Mont_World is the montelukast in the whole system, VesC_CYT and VesC_Pre are the complexes of calcium ions and vesicles located in the extra-synaptic region and the pre-synapse, respectively.
+Figs 8CandDshow the simulations with the standard parameters, ak2rate constant of 1.0 × 107M-1s-1and with 500 and 1,500 montelukast molecules.
+Again, the systems seem to be almost equilibrated after 0.2 s. The number of calcium channels blocked by the montelukast increased gradually with time, leading to a reduction in the vesicles being released in the extra-synaptic region.Figs 8EandFillustrate that an increase ofk2rate constant from 0.5 × 106M-1s-1to 1.0 × 108M-1s-1for the system, with a small number of montelukast molecules (500), has a minimal effect on the number of vesicles being released.
+This may simply be because the lower reaction rate causes the montelukast to be less competitive than the calcium ions in binding to the channels.
+Our results indicate that montelukast binding to Cav3.1 is more stable than its native ligand Z944.
+Montelukast may have the ability to decrease the number of neurotransmitters released from the pre-synapse and potentially has therapeutic effects on neurological disorders, such as epileptic seizures.
+However, there are several limitations to this study.
+The docking simulations in this study were conducted using the GOLD genetic docking algorithms and ChemPLP scoring functions, without employing multiple docking software for cross-validation.
+However, our successful ROC analysis, along with support from previous studies [30,31], indicates the high reliability of our docking results.
+The selection of binding sites for ligands can influence docking scores.
+In this study, the binding pore domain of the native ligand, Z944, was used as the binding pocket for all docking simulations.
+While this is a standard practice, it does neglect the possibility that montelukast may have alternative binding sitesin vivoor that allosteric sites may exist where multiple molecules of Montelukast can bind to different locations on Cav3.1 simultaneously.
+This study conducted 100 ns MD simulations, which have demonstrated that the protein-ligand complexes reached a stable state.
+Additionally, the 100 ns timescale is consistent with other studies of Cav3.1 using the PDB code 6KZP [32–34].
+However, there remains a possibility for the system to become unstable after a prolonged period of stability due to a sudden conformational change.
+The use of Berendsen temperature coupling and Parrinello-Rahman barostat pressure coupling during NVT and NPT equilibration steps is primarily due to their simplicity and efficiency.
+The Berendsen thermostat is straightforward to implement in GROMACS and computationally efficient, making it suitable for initial equilibration steps.
+It also allows for rapid adjustments to the system’s temperature without introducing significant artifacts [35].
+However, other approaches, such as the Nose-Hoover thermostat and Velocity Rescaling thermostat, generate a proper ensemble and provide more accurate temperature control [35].
+Similarly, the Monte Carlo barostat and Martyna-Tuckerman-Tobias-Klein barostat offer accurate pressure control and are less prone to instability [35].
+Docking and MD can only suggest that montelukast has a high binding affinity to Cav3.1, but cannot indicate whether it is an inhibitor or an inducer.
+An inhibitor of Cav3.1 may produce the therapeutic effects mentioned in this study.
+In contrast, an inducer of Cav3.1 may increase the amount of calcium ion flux into the pre-synapse and increase signal transmission between neurons, thus worsening the condition of patients with neurological disorders, such as epileptic seizures.
+This indistinguishable property is the common drawback of docking and MD.
+However, most ligands are inhibitors, because induction requires activation of an enzyme, which generally requires conformational changes after binding, and only a very specific ligand structure can achieve this [36].
+Thus, there is a high chance that montelukast is an inhibitor of Cav3.1.
+Other limitations that may affect the interpretation of the results of this study are the result of uncertain reaction rates and the simplification of the MCell model.
+The reaction rates of montelukast binding and blocking the calcium channel could not be found in the literature; thus, several different values were explored in this study.
+Although these rates were based on those of another calcium channel blocker, nifedipine [37], they may not be precisely appropriate for montelukast.
+Another limitation is that the exchange of ions and neurotransmitters within the synapse requires many different types of channels and diffusion mechanisms, and these are far more complicated than our model.
+There are also many organelles in the human pre-synapse region, and they may affect the diffusion of calcium ions, synaptic vesicles and neurotransmitters.
+Nevertheless, our MCell results successfully simulated the interaction of montelukast molecules with all other components in the synapse model and showed that montelukast molecules reduced the number of vesicle complexes released from the pre-synapse.
+Thus, we believe the negative effect of this limitation on the result is minimal.
+Montelukast is an FDA-approved drug that has been used for decades.
+It has the appropriate pharmacodynamics, pharmacokinetics and pharmacovigilance profile for long-term oral administration [19,21].
+Montelukast is considered safe for use in pregnancy, while all other anti-epileptic drugs carry the risk of congenital malformation and adverse prenatal outcomes [21].
+This study used molecular docking, MD and MCell simulations to illustrate the potential of montelukast in binding to the Cav3.1 and reducing signal transmission between neurons.
+The results of this study support furtherin vitroinvestigations of montelukast as a safe and effective treatment for neurological diseases, such as epileptic seizures.
+The next step of this study is to perform anin vitroinhibition assay on Cav3.1 and confirm the inhibition property of montelukast [38].
+Molecular docking simulations were employed to calculate the binding affinities between Cav3.1 and the 2,115 FDA-approved drugs of the ZINC database subset [9], aiming to identify a currently used drug that may inhibit the calcium channel.
+The 3-dimensional (3D) atomic coordinates of the sole Cav3.1 structure derived fromHomo sapiensin the Protein Data Bank, a ligand-bound Cav3.1 (PDB code 6KZP), was retrieved [39].
+This structure was previously determined by single particle cryogenic electron microscopy with 3.10 Å resolution [39].
+The ligand bound to the structure was a Cav3.1 selective antagonist, Z944, which was located in the central cavity of the pore domain (Fig 1) [40].
+This site is considered the binding pocket for all the docking simulations in this study.
+This structure has been used in several studies for Cav3.1 channel simulations, including one that discovered a novel cyclic peptide as a Cav3.1 channel inhibitor [34,41].
+Many docking programs have been developed, each of which has its own set of docking algorithms, scoring functions, and optimisation methods, resulting in varying degrees of accuracy when applied to different protein-ligand systems [29].
+The docking algorithm is used to search all the potential orientations and conformations of the ligand located in the binding site of the protein.
+The scoring function is used to calculate the binding energies or binding scores of all the potential orientations and conformations [42].
+The automated docking suite GOLD v5.5 [43] was used for all docking simulations in this study.
+GOLD contains several docking algorithms and scoring functions for users to select.
+According to a previous study [43,44], the genetic algorithm of GOLD achieved an 80–90% success rate in finding the experimental binding modes of a dataset with 85 complexes, depending on the protocols used.
+ChemPLP achieved the highest success rate among 20 different scoring functions in a docking power test using a dataset of 195 protein-ligand complexes [31].
+This combination of docking algorithm and scoring function has also been used for calcium channel docking simulations [30].
+Therefore, in this study, the genetic algorithms with 100% search efficiency and the ChemPLP scoring function [45] of GOLD v5.5 were used for all docking simulations.
+The docking protocols were set with no early termination, and the ‘slow’ option with high accuracy and the default parameters were used.
+Atoms within an area of 6 Å of the cognate ligands (Z944) in the X-ray crystallographic structures were set as the binding sites (PDB code 6KZP).
+To validate the accuracy of our docking protocols in simulating Cav3.1 complexes, we performed a receiver operating characteristic (ROC) analysis.
+It has been used in various studies to evaluate the performance of docking simulations, mainly focusing on their ability to distinguish between the ‘true’ hits and the ‘negatives’ [46–48].
+In the receiver operating characteristic analysis, the docking scores were used to plot the true positive rate against the false positive rate at various threshold settings.
+The true positive rate was calculated using the experimentally determined binding affinities from the Zinc-in-vivo(ZIV) database [9].
+The area under the curve (AUC) was calculated to indicate the capability of the docking procedure in classifying the true hits from the whole dataset.
+An AUC value of 1.0 indicates a perfect classification model, and a value of 0.5 indicates a random model with no predictive power.
+In general, an AUC value of 0.7 or above means that the docking scores have acceptable predictive power in distinguishing between binders and non-binders to the protein [49].
+The receiver operating characteristic analysis of this study used the docking scores between Cav3.1 and 14,066 compounds in the ZIV database [9] as the ‘negatives’.
+These compounds are considered negative since they lack specific information indicating their status as T-type calcium channel inhibitors.
+Nonetheless, there is a possibility that a small subset of them retains the ability to bind to T-type calcium channels.
+Additionally, 548 T-type calcium channel inhibitors were obtained from the ZINC database as the ‘true’ hits.
+Thus, the total number of complexes used in this analysis was 14,614.
+All the compounds of the ZIV database have reported bioactivities in animals, including humans.
+The result of our analysis, shown inFig 9, indicates the satisfactory predictive power of our docking method.
+The high AUC value (0.865) indicates that the method has high sensitivity and specificity.
+The red line is a reference line, which indicates no predictive power, and the blue line is the resulting curve with an AUC value of 0.865.
+The aim of performing MD was to validate the docking results and to investigate protein-ligand dynamic interactions.
+MD simulates the motions and flexibility of a protein-ligand complex over a period of time, rather than a set of conformations as in the docking simulation.
+Thus, MD is more computationally demanding than docking and generally requires a high-performance computer.
+In this study, the ECDF Linux Compute Cluster (Eddie) of the University of Edinburgh with GPU acceleration was used to perform 100 ns MD simulations with a 2 ps time step between the Cav3.1 channel (PDB code 6KZP) and Z944 or the selected FDA-approved drug.
+In this study, utilities from the GROMACS suite [50] were used for all MD simulations and analyses.
+We used ‘gmx mdrun’ for MD simulations [50], ‘gmx rms’ to calculate the root mean square deviations (RMSD) of the Cav3.1 backbone associated with ligand-Cav3.1 complex, ‘gmx rmsf’ to calculate the root mean square fluctuation (RMSF) of the protein amino acid residues, ‘gmx gyrate’ for the radius of gyration (Rg), ‘gmx sasa’ to estimate the solvent accessible surface area (SASA) [51], ‘gmx hbond’ to count the number of hydrogen bonds, and ‘gmx energy’ to calculate the interaction energies between the protein and ligands.
+The atom types and parameters of the Cav3.1 channel were generated using the CHARMM36 force field [52].
+The parameterisation of the selected drug molecule (montelukast) was conducted using the CGenFF [53,54], which is accessible through the official CHARMM General Force Field server (https://cgenff.com/).
+The TIP3P water model was introduced to the system in a cubic unit cell shape [55].
+Anions (Cl–) were also added to neutralise the overall charge of the system.
+This ensures proper representation of electrostatic interactions and satisfactory system stability, preventing artificial polarisation, water distribution imbalance, and long-range interactions.
+This is a conventional practice in MD for more realistic and reliable simulations of protein-ligand complexes.Energy minimisation was performed on the system, to determine a molecular arrangement of all atoms that avoids steric clashes, using the steepest descent minimisation with 5 × 104steps.
+After minimisation of the solvated and electroneutral system, equilibration was performed to ensure that the solvent and ions around the protein-ligand system have the appropriate molecular geometry at a suitable pressure, volume and temperature [56].
+In general, equilibration contains two phases: the constant number of particles, volume and temperature (NVT) equilibration and the constant number of particles, pressure and temperature (NPT) equilibration.
+In this study, both NVT and NPT were performed for 5 ns with a 0.2 ps time step, while the protein and ligand were positionally restrained.
+The Berendsen temperature coupling method and Parrinello-Rahman barostat pressure coupling method were used to maintain the system at 300K and 1 bar [50].
+These techniques approximate the physiological temperature and atmospheric pressure for realistic conditions for the simulation [50].
+The Lennard-Jones potential was used to estimate the short-range interaction with a cut-off value of 12 Å. The long-range interactions were calculated by the Particle Mesh Ewald (PME) method, which has been shown to have an appropriate balance between computational cost and scientific reliability [57].
+Previous studies have successfully utilised both the AMBER ff19SB force field and the CHARMM36m force field to simulate Cav3.1 with the same protein structure (PDB code 6KZP) as in this study [32,33].
+There is currently no literature comparing the accuracies or efficiencies of these two force fields for this specific protein.
+Therefore, we employed both in this study: AMBER for the Binding Free Energy calculations and CHARMM36 for the MD simulations.
+This approach enhances our confidence that if both force fields indicate that montelukast is more stable than the native inhibitor (Z944), we are likely to achieve accurate results.
+After the MD simulations, Principal Component Analysis (PCA) and Free Energy Landscape (FEL) analyses were performed on both the Cav3.1 complexes of montelukast and the native (Z944) using the GROMACS functions ‘covar,’ ‘anaeig,’ and ‘sham’ [58].
+These analyses capture crucial dynamic information from the simulation trajectories by simplifying the data’s complexity and highlighting the primary motion patterns in the system [58].
+They are particularly beneficial for investigations focused on large-scale motions and conformational changes.
+The docking and molecular dynamics simulations may not accurately simulate solvation energy, which reflects the energy associated with interactions between the protein-ligand complex and water molecules.
+This limitation arises due to the high computational demands of such simulations, making it impractical to calculate solvation energies during large database screenings in docking or over extended MD simulations.
+Nevertheless, solvation energies can significantly influence the rate and magnitude of binding between a protein and a ligand [48].
+Therefore, we employed molecular mechanics energies combined with the Poisson–Boltzmann (MMPBSA) and generalised Born and surface area continuum solvation (MMGBSA) approaches to calculate the binding free energies of the protein-ligand complex conformations at the 100 ns MD simulations, with the aim of assessing their stability [59].
+A study by Sunet al.compared the performance of MMPBSA and MMGBSA in estimating binding free energies in 1,800 protein-ligand systems [60].
+Both approaches had similar performance: the authors judged that MMGBSA was more useful in ranking individual ligands on multiple proteins, while MMPBSA was more appropriate for ranking multiple ligands on the same protein [60].
+It is difficult to select which method is more appropriate for this study, which includes only two ligands (the native and the selected FDA-approved drug) and one protein (Cav3.1).
+Thus, both methods were used here.
+The gmx_MMPBSA function in GROMACS was utilised to calculate the binding free energy between Cav3.1 and its native ligand (Z944) or montelukast [61].
+The molecular mechanics (MM) component evaluated various interatomic interactions, including van der Waals and electrostatic forces.
+Solvation energy was determined by combining polar and non-polar contributions from the PBSA or GBSA models [61].
+The binding free energy was derived from the difference between the energy of the complex and the sum of the energies of the unbound ligand and protein [61].
+A more negative value indicates that more energy is released during binding, suggesting a more stable complex.
+After performing docking and MD to determine the potential Cav3.1 inhibitor from the 2,115 FDA-approved drugs, MCell modelling was conducted to simulate the interactions between the selected drug, calcium ions, Cav3.1, synaptic active membrane and synaptic vesicles in and around the pre-synapse.
+In the human nervous system, when an action potential propagates into an axon, the Cav3.1 channels close to the pre-synaptic bouton open and calcium ions from the extracellular space flow into the pre-synapse down the concentration gradient of calcium from the extra- to intra-presynapse.
+The calcium ions in the pre-synapse then trigger the synaptic vesicle to fuse with the pre-synaptic active membrane, and the neurotransmitter molecules in the synaptic vesicle are released into the synaptic cleft, where they diffuse, with some reaching postsynaptic receptors, initiating various forms of signal transmission in the postsynaptic cell.
+In particular, binding to ionotropic receptors such as AMPA or NMDA receptors leads to the influx of charge carried by ions into the postsynaptic cell.
+If the magnitude of this influx is too high, neurological disorders, such as epileptic seizures, may occur [1].
+Blocking the Cav3.1 channel with inhibitors may reduce the amount of calcium influx into the pre-synaptic region and decrease the number of neurotransmitter molecules being released.
+The resultant reduction in excitation may alleviate the severity of symptoms associated with neurological disorders.
+This study employed an open-source 3D graphical software, CellBlender bundle version 4.0.5 with Blender 2.93, to create and visualise the synapse model.
+Blender is a software toolset that has been used to generate animated films, video editing, fluid dynamic simulations and more [62].
+Thousands of add-ons have been developed for different purposes, including CellBlender, which is embedded with MCell (version 4.0.5) [63–65].
+MCell is a comprehensive modelling environment that uses Monte Carlo Cell simulations to investigate the characteristics and geometries of particles and their reactions, including synaptic plasticity in dendritic spines [66–68].
+The synapse model created in this study contains three parts: the pre-synapse, post-synapse and extracellular regions (Fig 10).
+The volume and surface area of the pre-synapse region were 0.21 µm3and 2.27 µm2, respectively; those of the post-synapse region were 0.15 µm3and 2.13 µm2, and those of the extracellular region were 4.63 µm3and 16.04 µm2, respectively [69].
+Calcium channels were placed on the upper surface of the pre-synapse, with a density of 104 per µm2(Fig 10C) [69].
+The bottom surface of the pre-synapse was assigned as an active membrane for the release of synaptic vesicles (Fig 10D).
+These values were adopted from a recent study [69], which used MCell simulations to investigate the inhibition effects of gadolinium ions on calcium channels located on the pre-synapse.
+(A)The pre-synapse (top) and post-synapse (bottom);(B)The synapse model with calcium ions (green), montelukast (red), calcium channels (blue) and calcium pump (black);(C)The pre-synapse region (orange) where the calcium channels were located;(D)The pre-synapse region (orange) of the active membrane where the vesicle and calcium ion complexes were released.
+whereCaout2+andCain2+indicate the calcium ions located outside and inside the pre-synapse, respectively.
+The calcium channel (A) allows calcium ions to travel into the pre-synapse.
+Thus,equation 1indicates the diffusion of calcium ions from the extracellular region into the pre-synapse through the calcium channels.Equation 2indicates the selected FDA-approved drug M blocking the calcium channel (A) and forming a complex of the drug and calcium channel (E).
+V and D inequation 3are the vesicles located inside the pre-synapse and the calcium ion and vesicle complex, respectively.
+In human pre-synapse, calcium ions are pumped out of the neurons by several mechanisms, such as ATP-driven pumps and Na+/Ca2+exchangers [70].
+This study collectively calls all mechanisms that remove calcium ions ‘calcium pumps’.
+The P ofequation 4is the calcium pump that moves calcium ions out of the pre-synapse to the extracellular region.
+The rate of calcium flux into the pre-synapse after binding to the calcium channel is denotedk1.
+The rate at which the selected drug molecules bind and block the calcium channels is denotedk2.
+The rate at which calcium ions bind to the vesicles inside the pre-synapse is denotedk3.
+The rate of the calcium ions being pumped out of the pre-synapse is denotedk4.
+The values of these rate constants (exceptk2) were adopted from the study by Sutresnoet al.
+[69] and are listed inTable 4.
+As the rate constantk2could not be found in the literature, we used four different values to explore the effects of the selected drug.
+According to the study by Meryet al.
+[37], the reaction rate constant of the calcium channel inhibitor nifedipine ranges from 1 × 106to 4.47 × 106M-1s-1.
+The docking results of this study (Table 1) show that the docking scores of the selected drug and nifedipine were 100.71 and 47.78, respectively.
+Thus, we believe the reaction rate of the drug is higher than that of nifedipine,i.e., at least 4.47 × 106M-1s-1.
+We explored the effects of four differentk2values: 5 × 106M-1s-1, 1 × 107M-1s-1, 5 × 107M-1s-1and 1 × 108M-1s-1(Table 4).
+In addition to the rate constant, the diffusion coefficient is also an important factor in our simulations.
+The diffusion coefficient indicates the distance that a molecule diffuses in the medium per unit of time.
+The diffusion coefficient values used in this study (Table 4) were adopted from a previous study [69], which simulated the interaction between calcium ions and gadolinium ions within calcium channels that regulate entry into the pre-synapse.
+Two different ratios of the number of calcium ions and the selected drug were used: 6:1 (N= 3000 and 500) and 2:1 (N= 3000 and 1500).
+Again, these ratios were adopted from the study by Sutresnoet al.[69].
+These ratios are a rough estimation because no such data can be found in the literature.
+The simulation protocol of this study is also similar to that of Sutresnoet al.
+[69]: all the calcium channels were in their open states, and they were ready for binding to either the calcium ion or the FDA-approved drug molecule.
+As no information can be found in the literature with regard to how long the drug molecule could bind to the calcium channel, we simulated that neither the calcium ion nor the drug molecule would unbind from the calcium channel once binding occurs.
+We initialised the system with a specified number of calcium ions and drug molecules evenly distributed throughout the extra-synaptic region.
+The drug molecules competed for the calcium channels until they were all occupied.
+In summary, this MCell model illustrates the effect of the selected drug on the inhibition of calcium channels.
+Its effect on the number of calcium ions in different compartments and the number of vesicles being released into the synaptic cleft under different reaction rate constants, diffusion constants and number of drug molecules was also demonstrated.
+The overall research process is summarised inFig 11.
+We are grateful to the National Center for Multiscale Modeling of Biological Systems (MMBios) of the University of Pittsburgh for teaching the authors to build MCell models.
+Susana Roman Garcia was supported by funding from Medical Research Scotland and CERN openlab (PHD-50053–2019).

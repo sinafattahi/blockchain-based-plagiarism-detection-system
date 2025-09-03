@@ -1,0 +1,268 @@
+Several mechanisms are known to cause monomeric protein misfolding.
+Coarse-grained simulations have predicted an additional mechanism exists involving off-pathway, noncovalent lasso entanglements, which are long-lived kinetic traps and structurally resemble the native state.
+Here, we examine whether such misfolded states occur in long-timescale, all-atom folding simulations of ubiquitin and λ-repressor.
+We find that these entangled misfolded states are populated in higher-resolution models.
+However, because of the small size of ubiquitin and λ-repressor, these states are short-lived.
+In contrast, coarse-grained simulations of a larger protein, IspE, predict that it populates long-lived misfolded states.
+Using an Arrhenius extrapolation applied to all-atom simulations, we estimate that these IspE misfolded states have lifetimes similar to the native state while remaining soluble.
+We further show that these misfolded states are consistent with the structural changes inferred from limited proteolysis and cross-linking mass spectrometry experiments.
+Our results indicate that misfolded states composed of non-native entanglements can persist for long timescales in both all-atom simulations and experiments.
+All-atom simulations populate a predicted class of misfolding, and ensembles are proposed based on structural mass spectrometry.
+Various factors are known to cause misfolding in monomeric proteins (Table 1).
+Recently, high-throughput, coarse-grained simulations of protein synthesis and folding of theEscherichia coliproteome have suggested that there exists an additional widespread mechanism of misfolding (1–3): Proteins can populate off-pathway misfolded states that involve a change in noncovalent lasso entanglements (1,2).
+This type of entanglement is defined by the presence of two structural components: a loop formed by a protein backbone segment closed by a noncovalent native contact and another segment of the protein that is threaded through this loop (4–6) and, in some cases, wrapped around it multiple times (Fig. 1, A and B).
+Between 49 and 71% of native structures contain a noncovalent lasso entanglement depending on the organism (7).
+(A) Illustration of the two geometric elements that compose an entanglement: The closed loop is colored in red, and the threading segment is in blue.
+The loop is closed by a noncovalent contact between two residues (yellow).
+Such entanglements occur naturally in the native states of some proteins.
+In other cases, non-native formation of these entanglements can occur.
+(B) Three-dimensional (3D) structure of a misfolded entangled state from the proteind-alanine—d-alanine ligase B (DDLB; the closed loop and crossing section of the threading segment of their entangled regions are colored in red and blue, respectively) taken from previously reported coarse-grained simulations (1).QandGcorrespond respectively to the fraction of native contacts formed in the structure and the fraction of native contacts that exhibit a change in entanglement.
+(C) Flattened two-dimensional (2D) structure representation of the entangled state of DDLB.
+S, β sheet; A, α helix.
+(D) 3D structure of the crystal structure of DDLB.
+All native contacts are formed in the crystal structure (Q= 1), and there is no entanglement change (hence,G=0).
+(E) Flattened 2D structure representation of the native state of DDLB.
+The coloring scheme of the relevant elements is the same in all panels.
+The misfolded states observed in the coarse-grained simulations involved either the gain of a non-native entanglement (i.e., the formation of an entanglement that is not present in the native ensemble; table S1 and fig. S1) or the loss of a native entanglement (i.e., an entanglement present in the native state fails to form; table S1 and fig. S1) (1–3).
+This predicted class of misfolding offers an explanation for the decades-old observations that nonfunctional (or less functional) protein molecules can persist for long timescales without aggregating and, in the presence of chaperones, neither get refolded nor degraded (8–10).
+The coarse-grained simulations, in which individual residues are represented by single interaction sites, suggest that these misfolded states are often long-lived because, to correctly fold, they need to change their entanglement state: For example, an entangled state would need to disentangle, which is energetically costly as correctly folded portions of the protein would need to unfold (see folded gray segments inFig.
+1, B and C).
+Moreover, these states are more likely to bypass cellular quality control mechanisms and remain long-lived in vivo (8–10) because, in some cases, they are similar in size and structure to the native state and do not expose that much more hydrophobic surface (compareFig.
+1, B and D).
+Two criticisms of these findings are that they are based on a model with limited spatial resolution and use force field approximations that have the potential to affect the results.
+It could be the case, for example, that these states are never populated in a more detailed, transferable all-atom model.
+Furthermore, the coarse-grained force field previously used was “structure-based,” meaning that the native state is encoded to be favored over other states (11). Both approximations have the potential to affect the accuracy of the earlier findings.
+Here, we examine whether an all-atom model of the protein folding process—based on a transferable force field—also exhibits these self-entangled states, as observed previously in coarse-grained models; and if they do, we test whether those states are off-pathway long-lived traps with properties similar to the native state.
+We show that this type of misfolding occurs in all-atom simulations and that for typically sized proteins, these misfolded states can be very long-lived, soluble kinetically trapped states and then combine information from mass spectrometry and simulations to propose experimentally informed misfolded ensembles.
+To address these questions, we analyze previously reported all-atom protein folding trajectories of ubiquitin (12) and the N-terminal domain (NTD) of λ-repressor (13) starting from their native and unfolded states (Fig. 2, A and B).
+Ubiquitin is a small protein (76 residues) found in eukaryotic organisms and regulates a range of processes including protein degradation and the cell cycle.
+Ubiquitin folds on the millisecond timescale under typical conditions in vitro (14) and in 3 ms in molecular dynamics simulations (12). The NTD of λ-repressor in the published trajectories (13) is 80 residues in length, binds DNA, and folds on the microsecond timescale (13,15).
+Noncovalent lasso entanglements are not present in the native structure of either of these proteins.
+(A) Ubiquitin’s native structure and (B) λ-repressor’s native structure have no entanglement present.
+(C) Upper panel: ubiquitin’s fraction of native contactsQversus time from all-atom simulations.
+The blue dashed line representsQ=0.6.
+Lower panel: ubiquitin’s degree of entanglementGversus time for the same trajectory.
+(D) Same as (C) but for λ-repressor.
+(E) 3D structure of a ubiquitin entangled state observed at the time point labeled (i) in (C), with entanglement elements colored as inFig.
+(F) Same as (E) but for λ-repressor and from point labeled (ii) in (D).
+(G) Flattened secondary structure representation for the entangled state in (E).
+(H) Same as (G) but for λ-repressor.
+We analyzed whether non-native entanglements are populated during the folding trajectories of ubiquitin and λ-repressor totaling 8 ms and 643 μs of simulation time, respectively.
+To characterize the folding events in the simulations, we used the fraction of native contacts (Q) and the order parameterG(defined inEq.
+4, which measures the fraction of native contacts that exhibit a change in entanglement).
+We observed several non-native entangled states (denoted by nonzeroGvalues, shown inFig.
+2, C and D) during folding transitions, which are indicated by shifts from low to highQvalues.
+Thus, protein self-entangled states are observed in all-atom models.
+Next, we asked whether these entangled states are off-pathway.
+We never observe in these trajectories a direct transition from entangled clusters (clusters 1 and 4 for ubiquitin and clusters 2 and 4 for λ-repressor from structural clustering; fig. S2) to the native cluster (clusters 6 and 5, respectively, for ubiquitin and λ-repressor).
+Hence, these misfolded states are off-pathway—they must unfold to reach the native state (as indicated in fig. S2, these entangled structures always transition to clusters with lowerQandG).
+These entangled states clearly are short-lived, lasting just a few nanoseconds according toFig.
+2 (C and D).
+This is seemingly at odds with the coarse-grained model prediction that these can be long-lived states (2). However, these all-atom simulations were performed at high temperatures (390 K for ubiquitin and 350 K for λ-repressor), near their melting temperatures in the all-atom force field, and configurational transitions are accelerated.
+Therefore, these entangled states may be able to rapidly disentangle because of these high temperatures.
+To test whether these entangled states are near-native, kinetic traps at physiological temperatures, we performed unrestrained molecular dynamics simulations at 310 K (37°C).
+We selected entangled structures that had at least 60% of their native contacts formed as starting structures, resulting in 21 and 12 structures, respectively, for ubiquitin and λ-repressor.
+Structurally, these entangled structures are qualitatively similar to each other (table S2); 20 of the 21 ubiquitin structures have closed loops located toward the C terminus, and the threading segment is composed of the N-terminal portion.
+For λ-repressor, the loop forms toward the C-terminal end and the N terminus threads through it in all 12 structures.
+Representative structures for these entangled states are shown inFig.
+2 (E and F).
+Three independent trajectories were started from each of these conformations, and the simulations were run for 700 ns or until the entanglement was lost (i.e., a value ofG=0was reached).
+For the 63 trajectories (= 21 × 3) of ubiquitin, 71% (45 of 63) of trajectories persist for 700 ns (an example in fig. S3A and detailed in table S2).
+On average then, the time to disentangle is ~2.1 μs (estimated usingEq.
+6, settingt=700ns).
+For λ-repressor, 17% of trajectories (6 of 36) persist in an entangled state for 700 ns (an example is shown in fig. S3B and table S2).
+The average time to disentangle for λ-repressor is ~390 ns, 50 times faster than for ubiquitin entanglements.
+The radii of gyration of these entangled states are comparable to the native state (the differences are less than 10%; table S3), indicating that the entangled and native states are of similar sizes.
+These entangled states are estimated to have solubility similar to the native state (table S3) according to a model that accounts for the chemical properties of the exposed protein surface (1). Next, we analyzed the secondary structure of proteins using Stride software (16) and found that the non-native entangled states contain up to 83% of the secondary structure found in the native state (table S2).
+Thus, the size, solubility, and secondary structure analyses indicate that these misfolded states are similar to the native state.
+Relative to their protein folding timescales, these entangled states are not long-lived kinetic traps even at 310 K. On the basis of the previous coarse-grained simulation results, this is to be expected (1), because ubiquitin and the NTD of λ-repressor are small single-domain proteins.
+They are representative of the “model proteins” that have been traditionally studied by biophysicists and demonstrate the ability to rapidly and reversibly unfold and refold (17) but are not representative of the complexity of proteomes (18) [for example, the median protein length among eukaryotes is 361 residues and that among archaea is 247 residues (19)].
+In such small proteins, entanglements comprise a large proportion of the total protein structure present—and hence, it is easier to disentangle since most of the protein structure is misfolded and less stable.
+For example, for the entanglements reported in table S2, up to 78% of ubiquitin’s primary structure is involved in the entanglement (i.e., the minimum distance along the primary sequence required to maintain the entanglement;Fig. 2, G and H), and up to 84% of λ-repressor’s primary structure is involved in the entanglement.
+In contrast, when a protein of median length misfolds, a larger proportion of the already folded structure will need to unfold to permit disentanglement (Fig. 1B).
+Unfolding the correctly folded portions of these proteins is energetically more costly, and hence, misfolded states involving non-native entanglements in typically sized proteins are more likely to be long-lived kinetic traps (2).
+Unrestrained all-atom simulations are incapable of folding such large proteins on tractable simulation timescales.
+Therefore, to test the aforementioned “size-effect” hypothesis, we calculated the lifetime of misfolded states of a larger protein,E.
+coli’s 4-diphosphocytidyl-2-C-methyl-d-erythritol kinase (283 residues; geneispE), within an aqueous, all-atom simulation model.
+This protein was chosen because it was previously identified to exhibit entangled misfolded states in coarse-grained simulations (2,11).
+To create models of misfolded IspE for all-atom simulations, we (i) performed protein folding simulations in a coarse-grained model; (ii) carried out structural clustering; (iii) scored the structures within each cluster for their consistency with limited proteolysis mass spectrometry (LiP-MS) and cross-linking mass spectrometry (XL-MS) data (described in the next section and Materials and Methods); (iv) chose, within each misfolded cluster, the single structure that had the highest score; and (v) backmapped those structures to an all-atom representation.
+These backmapped structures were then used as starting conformations for the aqueous, all-atom temperature jump simulations that were used to estimate their lifetimes at 298 K using an Arrhenius analysis.
+Five distinct misfolded clusters are observed in the simulations of this enzyme (step ii;Fig. 3A), and their backmapped all-atom representative structures (step v) are visualized inFig.
+An Arrhenius analysis [i.e., performing unfolding simulations at high temperatures (600, 650, 700, 750, and 800 K) and extrapolating the unfolding time to 298 K] is necessary because all-atom simulations cannot reach the timescales associated with unfolding at low temperatures.
+The resulting unfolding rates exhibited super-Arrhenius behavior (figs.
+S5 and S6) (20) and were fit toEq.
+11to estimate the unfolding rate at 298 K. The lifetimes were obtained as the inverse of the extrapolated unfolding rates.
+(A) −ln(P) surface and structural clusters identified from clustering analysis.
+(B) Structures selected from each cluster for all-atom temperature jump simulations.QandGvalues of the structure are reported below the structure.
+Entanglement elements colored as inFig.
+Interactive visualizations of these structures are available athttps://obrien-lab.github.io/All_Atom_Misfolding_Exp_Ensemble/.
+Additional structures from each cluster can be found in data S2.
+(C) Apparent unfolding rates and estimated lifetimes of the structures in (B), derived from Arrhenius extrapolation.
+(D) Relative aggregation propensities of misfolded clusters compared to the native state.
+The aggregation propensity of cluster 4 is not significantly different from that of the native cluster, which is indicated by the blue circle.
+Error bars in (C) and (D) represent the 95% confidence intervals.
+To determine whether these misfolded structures are long-lived, we compared their estimated lifetimes to the lifetime of the native cluster in the simulation model.
+(There are no experimentally reported lifetimes of native IspE; hence, we had to use the lifetime of native IspE within the model.)
+We find that the native cluster is estimated to have a lifetime of 3 hours (Fig. 3C), corresponding to an unfolding rate of 9.1 × 10−5s−1.
+In contrast, structures from clusters 2 to 4 persist for days to months (Fig. 3, B and C), while less structured clusters 0 and 1 last only seconds to minutes.
+We emphasize that because of the large uncertainties in these lifetime estimates (see 95% confidence intervals inFig.
+3C), only qualitative conclusions can be drawn that are relative to the estimated lifetime of the native cluster.
+We conclude that in all-atom simulations, misfolded clusters 2 to 4 are likely to be kinetic traps with lifetimes of a similar order of magnitude to the native cluster.
+We next experimentally tested whether IspE populates misfolded states.
+To address this, we performed LiP-MS (21–24) and XL-MS (25–27) on IspE after denaturing and refolding, and compared it to a native IspE sample that was never denatured to detect structural changes such as those associated with changes in entanglement (2,28).
+Refolded samples were prepared by first chemically denaturing IspE and then refolding it by dilution from high to low denaturant concentration.
+Then, the sample was incubated at room temperature for 1 hour before being exposed either to proteinase K (PK) in the LiP-MS experiment or to the cross-linking agent in the XL-MS experiment.
+We then detect differential signal changes between native (untreated) samples and refolded (treated) samples.
+We define a signal as significantly different if it exhibits more than a twofold difference in the mean abundance between the refolded and native samples (∣log2FC(fold change)∣≥1) and an adjustedPvalue, false discovery rate corrected—applied separately to the XL-MS and LiP-MS datasets—using the Benjamini-Hochberg method (29), of less than or equal to 0.05.
+We observe that there are changes in the proteolytic susceptibility and cross-linking patterns between chemically renatured IspE 1 hour after refolding conditions have been established and a native reference that was not denatured.
+Specifically, we identified 13 PK cleavage sites from LiP-MS (Table 2and data S1, sheet labeled “EXP-LiPMS”) and 20 cross-links from XL-MS (Table 3and data S1, sheet labeled “EXP-XLMS”) experiments that exhibited significant differences in abundance between refolded and native samples.
+These results suggest that in the case of LiP-MS, the solvent exposure of these regions along the primary structure of IspE was significantly altered in the refolded sample, and in the case of XL-MS, structural changes in the protein led to altered cross-linking propensity between various pairs of residues.
+We therefore conclude that IspE can populate soluble misfolded conformations over long timescales, qualitatively consistent with our simulation predictions.
+*FC: fold change defined as the ratio of the mean refold-sample abundance to native-sample abundance across five replicates each.
+†Adj.Pvalue: Benjamini-Hochberg adjustedPvalue.
+*FC: fold change defined as the ratio of the mean refold-sample abundance to native-sample abundance across five replicates each.
+† Adj.Pvalue: Benjamini-Hochberg adjustedPvalue.
+With 33 unique experimental signals reporting on changes in structure in IspE relative to the native state, we can examine which misfolded states seen in our simulations are consistent with these signals.
+To do this, we take a two-stage approach: First, we simulated the refolding of IspE in our coarse-grained model, and second, we scored the resulting misfolded subpopulations for their overall consistency with the mass spectrometric data (see Materials and Methods).
+From the simulations, we structurally clustered the resulting conformations and found one cluster corresponding to the native ensemble and five distinct misfolded clusters (Fig. 3A) that vary in their degree of native-structure formation (Q) and changes in entanglement status (G).
+Scoring each misfolded cluster in terms of its relative change in solvent accessibility for LiP-MS results and solvent-accessible surface distance (SASD) [as calculated with JWalk (30)] for XL-MS results, we find that cluster 3 is the highest scoring with 22 of 33 experimental signals consistent with the structural changes observed in this cluster.
+(For LiP-MS and XL-MS, respectively, 7 of 13 and 15 of 20 are consistent; data S1 labeled “Comparison-LiPMS” and “Comparison-XLMS”).
+In comparison, cluster 0 is consistent with 14 of the signals, cluster 2 with 11, and cluster 1 with 9.
+Cluster 4, which is the most similar to the native cluster, is consistent with only four of the signals.
+Across the five misfolded clusters, 29 unique experimental signals can be explained by the structural changes observed in this combination of clusters.
+One LiP-MS and three XL-MS signals cannot be explained by our methodology.
+Thus, 88% of the experimental signals can be explained by this ensemble of five misfolded clusters.
+For interactive visualization, we provide structures from each misfolded cluster in PDB format in data S2.
+Although most of these misfolded states are long-lived, we next examine whether they are likely to remain soluble or aggregate.
+To address this, we estimated the relative aggregation propensity of these misfolded clusters compared to the native cluster by incorporating information on the solvent accessibility of aggregation-prone regions (Eq.
+We first used the AMYLPRED2 server (31) to identify regions in IspE that are prone to aggregation when exposed to solvent.
+We then calculated the solvent-accessible surface area (SASA) of these regions from our simulated trajectories for each misfolded and native cluster.
+Our analysis indicates that the aggregation propensity of these misfolded clusters is very similar to that of the native cluster (Fig. 3D), with differences of less than 5%—except for cluster 3, which exhibits a 12.15% relative increase to the native state.
+Although these small differences are statistically significant (Benjamini-Hochberg adjustedPvalue ≤ 0.05) for all clusters except cluster 4, the small effect sizes (<5% increase) suggest that most of these misfolded ensembles would remain soluble on timescales similar to the native ensemble.
+Coarse-grained simulations predicted the existence of an additional widespread mechanism of protein misfolding.
+Motivated by the possibility this may be an artifact of those simulations’ resolution and structure-based force field, in this study, we examined whether protein folding modeled at all-atom resolution also exhibits this type of misfolding.
+We have demonstrated that ubiquitin and λ-repressor populate these entangled misfolded states in all-atom folding simulations.
+Thus, protein folding involving a change of entanglement status occurs regardless of model resolution, lending support to the validity of the earlier conclusions drawn from coarse-grained modeling.
+Because of the small size of ubiquitin and λ-repressor, the entangled states they populate are short-lived, persisting for just a few microseconds.
+For larger proteins, all-atom simulations indicate that these misfolded states can persist for much longer periods—on timescales similar to the lifetime of the native state while remaining soluble.
+This relationship between protein size and misfolded lifetimes arises from the fact that a more stabilizing native structure can form around the localized misfolded elements in larger proteins as compared to smaller proteins, creating a larger energy barrier to unfold improperly folded portions.
+Experimentally, we observed that IspE can populate misfolded structures that form after dilution from the denaturant and remain misfolded for over an hour.
+This result is consistent with our simulations of IspE (Fig. 3, A to C), giving us more confidence in our broader conclusions.
+When cross-referencing the misfolded signals from LiP-MS and XL-MS experiments with the misfolded clusters from the IspE coarse-grained simulations, we find that almost 90% of the experimental signals can be explained by the simulated structural changes.
+Thus, the structures we have identified inFig.
+3Band data S2 represent an experimentally informed misfolded ensemble involving soluble, long-lived states.
+Misfolding involving changes of entanglement status can arise from either a gain of a non-native entanglement or a loss of a native entanglement.
+In ubiquitin and λ-repressor, which contain no noncovalent lasso entanglements in their native state, it is only possible to misfold through the formation of a non-native entanglement (gain of entanglement), which we observed during their folding.
+In contrast, IspE has two unique representative, noncovalent lasso entanglements present in its native structure (table S5).
+In this system, we observed misfolded structures involving either gains of entanglement, losses of entanglement, or combinations thereof.
+Both classes of misfolding are manifestations of topological frustration.
+In the one case, a protein backbone segment is improperly positioned outside a backbone loop, corresponding to a loss of entanglement; in the other case, it is improperly positioned within a backbone loop, corresponding to a gain of entanglement.
+The consequence of both of these types of topological traps is that they both must backtrack (32) out of these states, meaning that already natively structured portions of the protein must unfold to allow proper folding.
+Small proteins that misfold in this way have additional folding pathways that bypass backtracking that include threading of the loop in cases in which the native entanglement failed to form or unthreading of a loop in misfolded states involving formation of non-native entanglements (1,33).
+However, for typically sized proteins, such as IspE, backtracking will often be the dominant pathway because substantial portions of the structure can still properly fold.
+Proteins containing entanglements in their native state are widespread across different organisms.
+The proportion of globular proteins with them ranges from 49% in humans to 71% inE.
+coli(7). Perhaps expectedly then, this type of misfolding has been found to be common based on high-throughput coarse-grained simulations of theE.
+coliproteome (2). Furthermore, because structure equals function, such misfolding has been implicated in influencing ensemble-averaged functioning of proteins like specific activity (1) and, in some cases, in bypassing the chaperone machinery in cells depending on how native-like in structure are these misfolded states (3). We hypothesize that this understudied class of protein misfolding will offer insights into protein function and homeostasis, including new causal mechanisms for disease and aging that can open up new therapeutic targets.
+Initial entangled conformations of the protein were placed at the center of a rectangular periodic box with the minimum distance between the box edge and protein atoms of 1.5 nm, the system was solvated with the TIP3P water model (37), and NaCl was added to neutralize and mimic relevant salt concentrations [ubiquitin: 0 mM; λ-repressor: 50 mM; the salt concentration was added according to original studies (12,13)].
+Energy minimization was then carried out using the steepest descent algorithm (38,39) to minimize steric conflict.
+The systems were then gradually heated from 2 to 310 K over 1 ns.
+After that, the system was equilibrated for 1 ns in the NVT ensemble and 1 ns in the NPT ensemble with all heavy atoms restrained using a harmonic potential with a force constant of 1000 kJ/mol per square nanometer before it went into production run in the NPT ensemble.
+The particle mesh Ewald method (40) was used to calculate long-range electrostatic interactions beyond 12 Å, and the Lennard-Jones interactions were calculated with a cutoff distance of 12 Å and applied, smoothly switching the forces to zero between 10 and 12 Å. Temperature and pressure were maintained at 310 K and 1 atm using a Nose-Hoover thermostat (41,42) and Parrinello-Rahman barostat (43), respectively.
+The LINCS algorithm (44) was used to constrain all bonds involving hydrogen atoms, and the integration time step was set to 2 fs.
+Simulations were performed using GROMACS 2018 (45) with the CHARMM36m force field (46). This procedure was used in all the new simulations carried out in this study.
+The use of the round function inEq.
+3serves to discretize the computed linking numbers, which can result in noninteger values because of numerical integration between a closed loop and an open segment.
+By applying the round function, we map such values to discrete integers (for example,g= 0.6 → 1), effectively capturing the presence or absence of an entanglement in a robust and consistent way.
+This discretization allows us to perform meaningful comparisons between the entanglement states of different structures.
+For instance, even if both a conformation in the simulated trajectory and the native structure are entangled, their computed linking values may slightly differ (for example,g= 0.6 versusg= 0.7), yet both indicate the same qualitative topological feature (i.e., one event of terminal threading).
+The round function ensures that such topologies are treated identically in our analysis.
+Comparing the absolute value of the total linking number for a contact (𝑖, 𝑗) at a given conformation to that of a reference state (i.e., native state) allows us to ascertain a gain or loss of linking between the backbone trace loop and the terminal open curves as well as any switches in chirality.
+There are six changes in linking cases we should consider (table S1 and fig. S1) when using this approach to quantify entanglement.
+where (𝑖, 𝑗) is one of the native contacts in the native crystal structure; NC is the set of native contacts formed in the current structure at time 𝑡; 𝑔(𝑖, 𝑗, 𝑡) and 𝑔native(𝑖, 𝑗) are, respectively, the total linking number of the contact (𝑖, 𝑗) at time 𝑡 and native structures estimated usingEq.
+3;Mis the total number of native contacts within the native structure; and the selection function Θ equals 1 when the condition is true and equals 0 when it is false.
+The largerGis, the greater the number of native contacts that have changed their entanglement status relative to the reference state.
+wherePdis(t)is the portion of disentangled trajectories at timet.τis a time constant that entanglement disappears.
+We use this equation to estimate the average lifetime of entangled states of ubiquitin and λ-repressor by settingt= 700 ns.
+The secondary structure similarity in table S2 is defined as the fraction of residues that are in the correct secondary element at the current structure compared to the native structure; we only count residues in the α helix or β sheet.
+The secondary structural elements of protein are assigned by the STRIDE program (16).
+whereTcan be aggregation, degradation, or Hsp70 binding propensities.
+The aggregation-prone region was predicted by the AmylPred2 server (31). The degradation-prone region was defined as the hydrophobic residues (Ile, Val, Phe, Cys, Met, Ala, Gly, and Trp).
+The Hsp70 binding region was predicted by using ChaperISM (48).
+We use a previously published Go̅-based coarse-grain model (1) in which each amino acid is represented by a single interaction site placed at the Cαatom with a specific van der Waals radius for each amino acid.
+Initial conformations for refolding simulations were generated by heating the native state of the protein to 1000 K for 15 ns.
+The final conformation from heating was then temperature quenched at 310 K to initialize refolding.
+All simulations were carried out using a Langevin thermostat at a temperature of 310 K, with a time step of 15 fs and a friction coefficient of 0.050 ps−1.
+All simulations were carried out using OpenMM version 7.7 (49). Trajectories were saved after every 5000 steps; a total of 56 independent trajectories of 1.5 μs was performed.
+The last 500 ns from each trajectory was used for structural clustering on the basis of two order parameters that capture the nativeness of the structures (fraction of native contacts,Q) and the changes in self-entanglement of the protein (fraction of native contact change in entanglement,G).
+The fraction of native contacts at each conformation was defined as the number of native contacts formed divided by the total number of native contacts in the crystal structure.
+Two residues (𝑖, 𝑗) were considered to form a native contact if the distance between their Cαatoms was less than 1.2 times their distance in the crystal structure, and∣i−j∣>3.
+The fraction of native contact change in entanglement (G) was calculated as described inEq.
+Using the K-mean++ clustering algorithm (50), 100 microstates were grouped from the coarse-grained simulations.
+These microstates are then coarse grained into structural states using the PCCA+ algorithm (51). To determine a reasonable number of clusters for the PCCA+ analysis, we used a timescale separation criterion based on identifying a large gap in the implied timescale (ITS) spectrum derived from eigenvalues of the transition probability matrix (52). Specifically, we calculated the ITSs, sorted them in descending order, and computed the ITS ratio, defined by the ratioITSi/ITSi+1.
+A large ratio indicates that the corresponding dynamical processes are kinetically well separated, while a ratio close to 1 suggests that the processes can be grouped together.
+All clustering analyses were performed by using the PyEmma package (53).
+The last 500-ns simulation structures were labeled using the cluster ID and the experimental signals they produce.
+Here, we identify a simulated structure capable of generating an experimental signal only if it demonstrates a SASA greater than the 97.5th percentile or less than the 2.5th percentile of all structures in the native ensemble for a LiP-MS signal or exhibits a cross-linking propensity score outside the corresponding percentiles for an XL-MS signal.
+These groups represent the misfolded structural ensemble that can generate the observed LiP-MS and/or XL-MS signals.
+For each of the clusters 0 to 4, we choose a single structure that can generate the greatest number of experimental signals.
+If there is a tie (multiple structures generate the same number of consistent experiment signals), preference is given to the structure with the highest microstate probability, followed by the highestQandGvalues.
+wheret0is the delay time of entanglement (fig. S4).
+The apparent unfolding rate at temperatureTiskapp(T)=1t0+1k.
+Herea,b, andcare the free fitting parameters.
+We then extrapolated to obtain the apparent unfolding rate at the target temperature of 298 K. The extrapolated unfolding time in simulation isτsim=1kapp.
+The uncertainties were estimated using bootstrapped resampling with 104iterations.
+For each iteration, at each temperature, we randomly selected with replacement 50 samples from the list of mean first-passage times of the original data at that temperature and then repeated the fitting procedure on the resampled data.
+Resampled datasets were discarded if the coefficient of determinationR2<0.9.
+To perform limited proteolysis, 2 μl of PK (from Tritirachium album) stock solutions (prepared at a concentration of 0.1 mg/ml in native buffer with 20% glycerol and then stored at −20°C for future use) was added to either native or refolded samples, which were prepared on a 200-μl scale.
+The reaction mixtures were rapidly mixed using a pipette [the enzyme:substrate ratio is 1:100 (w/w)].
+Samples were incubated for 1 min before being transferred to a preheated mineral oil bath at 105°C to quench the PK activity.
+The samples were left in the oil bath for 5 min.
+After quenching, the proteolyzed samples were transferred to a microcentrifuge tube containing 152 mg of urea to reach a final concentration of 8 M. The limited proteolysis experiments were conducted in five replicates for both native and refolded IspE samples, resulting in a total of 10 samples.
+Two hundred microliters of native samples was prepared, consisting of 20 mM Hepes, 100 mM NaCl, 2 mM MgCl2, 1 mM tris(2-carboxyethyl)phosphine (TCEP), and 0.1% glycerol at pH 7.4, with IspE protein (0.1 mg/ml).
+Cross-linking was initiated by adding 2 μl of DSBU-d0(100 mM stock in dimethyl sulfoxide; Thermo Fisher Scientific, A35459) to a final concentration of 1 mM.
+Simultaneously, refolded IspE samples were cross-linked with 2 μl of DSBU-d12[deuterated disuccinimidyl dibutyric urea (DSBU); 100 mM stock in dimethyl sulfoxide].
+DSBU-d12was prepared as described in a separate publication (55).
+The samples were then mixed and incubated at room temperature for 1 hour using a Roto-Mini rotator (Alkali Scientific RS3024) at 10 rpm.
+The reactions were quenched by adding 1 M tris-HCl (pH 7.5) to a final concentration of 20 mM, followed by 30-min incubation at room temperature, rotating at 10 rpm on the Roto-Mini.
+After quenching, the native and refolded samples were combined and transferred to a new microfuge tube containing 304 mg of urea to achieve a final concentration of 8 M. Cross-linking experiments were conducted in five replicates for both native and refolded IspE samples; after mixing the pairs, a total of five replicate samples (400 μl) was prepared.
+μi,j,σi,j2, andthresholdi,jdenote the mean, variance, and the SASD cutoff threshold for a specific pair of residues(i,j)involved in cross-linking, respectively.
+If the SASD of the pair of residues is less than the cutoff threshold, the propensity is determined by a normal distribution with the mean and variance specifically tailored for the pair of residues (table S6).
+If the SASD exceeds the threshold or if at least one residue in the pair is buried and inaccessible, then the propensity is assigned a value of 0.
+LiP-MS and XL-MS detected 13 and 20 structural signals, respectively, exhibiting significant differences between refolded and native samples.
+To assess the consistency between the misfolded ensembles from our simulations and experimental data, we examined whether the SASA of a region within five residues around the PK cut site identified from the experiment and the cross-linking propensity (MNXL score,Eq.
+12) of pairs of residues from misfolded ensembles are statistically significantly different from the native ensemble from our simulations.
+ThePvalues were computed using numerical permutation tests with 105iterations with the null hypothesis stating that there is no difference in the ensemble mean of SASA or cross-linking propensity between misfolded clusters and the native cluster.
+ThePvalues were then adjusted using the Benjamini-Hochberg method (29). Ifadj.Pvalue≤0.05, we reject the null hypothesis and accept the alternative hypothesis: The ensemble means of SASA or cross-linking propensity are significantly different between misfolded and native clusters.
+To mitigate the risk of underestimating the confidence interval of the ensemble mean (thus potentially overestimating the number of consistent signals) because of data correlation, we subsampled our data every 50 frames (as suggested by block averaging).
+The aggregation-prone region was predicted by the AmylPred2 server (31). The uncertainties were estimated from bootstrap resampling with 105iterations.
+The uncertainties, represented as 95% confidence intervals, were estimated using bootstrapped resampling with 105iterations (except for the Arrhenius extrapolation, where 104iterations were used because of computational expensive).
+For a sample ofNelements, in each iteration, we randomly selectedNvalues from the original data with replacement.
+The mean was calculated from these resampled values, and the distribution of these means was used to estimate the 95% confidence interval.
+To evaluate whether the sample means (xAandxB) of two groups, A (with sizenA) and B (with sizenB), are significantly different, we performed a permutation test with 105iterations.
+The null hypothesis states that there is no difference between the sample means of the two groups.
+First, we calculated the absolute observed mean difference:Tobs=∣xA−xB∣.
+Next, we pooled all the data from both groups and randomly selected, without replacement,nAvalues for group A andnBvalues for group B to form two new resampled groups.
+We then computed the absolute mean difference for these resampled groups.
+This process was repeated for 105iterations, generating a distribution of mean differences under the null hypothesis.
+The two-tailedPvalue was calculated as the proportion of times the absolute resampled mean difference was equal or more extreme than the absolute observed difference (Tobs).
+For multiple test comparison, we applied Benjamini-Hochberg correction toPvalues.
+If theadj.Pvalue≤0.05, we reject the null hypothesis and accept the alternative hypothesis suggesting a statistically significant difference between the sample means of the two groups.
+Additional methods related to LiP-MS and XL-MS experiments can be found in the Supplementary Materials.
+We thank D. E. Shaw’s group for providing access to molecular dynamics trajectories for ubiquitin and λ-repressor.
+This research was supported in part by the TASK Supercomputer Center in Gdansk, Poland, and PLGrid Infrastructure in Poland (Grant ID: plgribliq), as well as Roar supercomputer in the US.
+Funding:This work was supported by the following: National Science Centre, Poland, grant 2019/35/B/ST4/02086 (to M.S.L.
+), National Science Foundation grant MCB-2045844 (to S.D.F.
+), National Institutes of Health grant DP2-GM140926 (to S.D.F.
+), National Science Foundation grant MCB-1553291 (to E.P.O.
+), and National Institutes of Health grant R35-GM124818 (to E.P.O.
+Competing interests:The authors declare that they have no competing interests.
+Data and materials availability:All data needed to evaluate the conclusions in the paper are present in the paper and/or the Supplementary Materials.
+LiP-MS and XL-MS data and comparison between misfolded clusters and the native cluster from simulations based on experimental signals are provided in data S1.
+Misfolded structures of IspE are provided in data S2.
+The computer code for coarse-grained simulations and entanglement analysis is available athttps://github.com/obrien-lab/cg_simtk_protein_folding.
+Additional analyses and data are available athttps://github.com/obrien-lab/All_Atom_Misfolding_Exp_Ensembleorhttps://zenodo.org/records/15412020.
+Interactive visualizations of structures inFig.
+3Bare available athttps://obrien-lab.github.io/All_Atom_Misfolding_Exp_Ensemble/.
+Software used in experimental data analysis is available athttps://github.com/FriedLabJHU/Refoldability-Tools.
+The mass spectrometry data have been deposited to the ProteomeXchange Consortium via the PRIDE partner repository with the dataset identifiers PXD055795 for LiP-MS and PXD066083 for XL-MS.

@@ -1,0 +1,333 @@
+Cyber defense systems face increasingly sophisticated threats that rapidly evolve and exploit vulnerabilities in complex environments. Traditional approaches which often rely on centralized monitoring and static rule-based detection, struggle to adapt to new, crafted, and novel attack patterns. This paper presents the Adaptive Zero-Shot Hierarchical Multi-Agent Reinforcement Learning (AZH-MARL) framework, a novel approach that integrates hierarchical reinforcement learning, zero-shot learning capabilities, and federated knowledge sharing to build resilient cyber defense systems. The hierarchical structure decomposes complex defense tasks into specialized sub-tasks managed by agents, reducing the learning problem’s complexity and enabling more efficient coordination. The zero-shot learning component allows the framework to recognize and response to previously unseen attack patterns through semantic mapping. Furthermore, the federated learning learning component facilitates for knowledge sharing across network domains while preserving data privacy, enabling collaborative defense without exposing sensitive information. The detailed evaluation demonstrates that our approach significantly outperforms existing methods across a range of scenarios. It achieves a high detection rate of 94.2% for known attacks and 82.7% for zero-day exploits, while maintaining a low false positive rate of 3.8%. This robust performance extends to the most sophisticated threats, achieving an 87.3% containment rate against Advanced Persistent Threats (APTs). The framework’s zero-shot capability is underpinned by a semantic mapping accuracy of 89.3%, which enables rapid adaptation to novel threats. Consequently, the mean response time is reduced by 35% for known attacks and 42% for zero-day exploits compared to the best-performing baseline. Finally, the federated learning architecture proves highly efficient, reducing communication overhead by 45% while preserving privacy. These results collectively demonstrate our framework’s potential to set a new standard for resilient and adaptive cyber defense in complex, distributed environments.
+
+The increasing sophistication and frequency of cyberattacks pose significant challenges to traditional defense systems. Modern cyber threats leverage advanced techniques such as multi-stage attacks, zero-day exploits, and adaptive evasion strategies capable of bypassing conventional security measures [1]. These challenges are further compounded in distributed environments where privacy constraints limit the sharing of security data across organizational boundaries [2].
+
+Reinforcement learning (RL) has emerged as a promising approach for developing adaptive cyber defense systems that can learn from experience and improve over time [3,4]. By framing cyber defense as a sequential decision-making problem, RL enables the development of policies that optimize long-term security objectives rather than relying on predefined rules [5]. Recent advances in deep reinforcement learning have demonstrated remarkable success in complex domains such as game playing [6,7] and autonomous driving [8], suggesting its potential applications in cybersecurity.
+
+Complexity of Coordination: Coordinating multiple agents in large-scale networks introduces significant complexity, often leading to inefficient learning and suboptimal policies.
+
+Limited Adaptation to Novel Threats: Most approaches require extensive retraining to adapt to new attack patterns, creating vulnerability windows during which networks remain exposed.
+
+Privacy Constraints: Effective collaboration across organizational boundaries is hindered by privacy concerns and regulatory requirements that restrict the sharing of sensitive security data.
+
+Scalability Challenges: As networks grow in size and complexity, centralized approaches struggle to process the increasing volume of security data in real-time.
+
+Hierarchical MARL: I employ a hierarchical structure that decomposes complex defense tasks into specialized sub-tasks managed by distinct agents. This approach reduces the complexity of the learning problem and enables more efficient coordination.
+
+Zero-Shot Learning: I integrate zero-shot learning capabilities that enable recognition of and response to previously unseen attack patterns through semantic mapping. This approach addresses the critical vulnerability window associated with retraining for new threats.
+
+Federated Knowledge Sharing: I implement a federated learning framework that allows knowledge sharing across network domains while preserving data privacy. This approach enables collaborative defense without exposing sensitive information.
+
+This work builds on the foundation of our previous work [12] by significantly enhancing the multi-agent reinforcement learning framework for cyber defense. The two-level hierarchical structure is extended to incorporate more sophisticated agent coordination through transformer-based architectures integrated with Markov Logic Networks, enabling more robust threat detection and response capabilities. Our new approach preserves the adaptive defense strategy concept while introducing zero-shot learning capabilities which allow defensive agents to respond effectively to previously unseen attack patterns without requiring complete retraining. Moreover, I address the scalability and real-time performance limitations identified in the previous work through federated knowledge-sharing mechanisms that enable defensive agents to collaboratively learn without exposing sensitive data.
+
+Our comprehensive evaluation demonstrates that AZH-MARL significantly outperforms existing methods across various metrics. For known attacks, our approach achieves a detection rate of 94.2% and a false positive rate of 3.8%, comparable to the best-performing baselines. For zero-day exploits, our approach achieves a detection rate of 82.7%, representing a 37.5% improvement over approaches without zero-shot capabilities. The mean time to response is reduced by 35% for known attacks and 42% for zero-day exploits compared to the best-performing baseline.
+
+A hierarchical MARL framework that decomposes complex defense tasks into manageable sub-tasks, enabling more efficient learning and coordination.
+
+A zero-shot learning approach that enables adaptation to previously unseen attack patterns without requiring extensive retraining.
+
+A federated learning framework that enables privacy-preserving knowledge sharing across network domains.
+
+Comprehensive evaluation demonstrating significant improvements over existing approaches across various metrics.
+
+The remainder of this paper is organized as follows:Sect 2reviews related work in MARL for cyber security, hierarchical reinforcement learning, zero-shot learning, and federated learning.Sect 3presents our system model and problem formulation.Sect 4describes the implementation and evaluation of our approach.Sect 5concludes the paper and discusses future research directions. The full list of abbreviations is provided inAppendix Bfor convenience.
+
+Multi-agent reinforcement learning (MARL) has gained significant attention in cybersecurity due to its ability to handle complex, dynamic environments with multiple interacting entities. For instance Malialis and Kudenko [9] proposed a distributed response system using MARL to defend against distributed denial-of-service (DDoS) attacks. Their approach demonstrated improved resilience compared to centralized approaches but was limited to specific attack types and required extensive retraining for new threats.
+
+Ohet al. [13] proposed a deep reinforcement learning (DRL) framework that uses cyberattack simulation to enhance cybersecurity defenses. In their study, DRL agents (e.g., DQN, PPO) are trained in simulated environments to autonomously execute multi-stage attacks, such as privilege escalation and lateral movement, while evading detection. By modeling adversarial behaviors, the framework identifies system vulnerabilities and generates actionable data for improving intrusion detection systems. The authors highlight DRL’s adaptability to evolving threats. This work underscores the potential of AI-driven attack simulation for proactive defense, advocating for further research into real-world deployment and adversarial robustness.
+
+Eldermanet al. [10] explored adversarial reinforcement learning in a simulated network environment, where defensive agents learned to counter adversarial agents. Although this approach showed promising results in adapting to evolving attack strategies, it faced scalability challenges in large networks and did not address privacy concerns in collaborative settings.
+
+Nguyen and Reddi [2] extended MARL to intrusion detection systems, employing multiple specialized agents to monitor distinct aspects of network traffic. Their approach improved detection accuracy but required centralized coordination, limiting its applicability in distributed environments with privacy constraints.
+
+Fuet al. [14] presented a novel approach to multi-agent reinforcement learning (MARL) that incorporates self-clustering and hierarchical mechanisms within an extensible cooperation graph structure. Their work addresses the challenge of scalability and coordination in multi-agent systems by allowing agents to dynamically form clusters based on their interactions and objectives.
+
+Collectively, these approaches demonstrate the potential of MARL for cyber defense, but also highlight the need for more scalable, adaptive, and privacy-preserving solutions.
+
+Hierarchical reinforcement learning (HRL) addresses the complexity of large state and action spaces by decomposing tasks into hierarchical structures. For example, Kulkarniet al. [15] introduced hierarchical deep Q-networks that operate at different temporal scales, enabling more efficient learning in complex environments. Similarly, Nachumet al. [16] proposed a data-efficient HRL approach that learns both high-level policies for goal selection and low-level policies for goal achievement.
+
+In the context of MARL, Baconet al. [17] developed the option-critic architecture, which learns options (i.e., temporally extended actions) and policies over those options simultaneously. Separately, Vezhnevetset al. [18] introduced feudal networks, which employ a manager-worker hierarchy to facilitate learning in environments with sparse rewards.
+
+While these hierarchical approaches demonstrate improved learning efficiency and scalability compared to flat RL methods, they have not been extensively applied to cybersecurity scenarios particularly those with privacy constraints or the need for adaptation to novel threats.
+
+Zero-shot learning (ZSL) enables recognition of classes not seen during training by leveraging semantic information. Xianet al. [19] provided a comprehensive evaluation of ZSL methods, highlighting their potential for adapting to novel situations without extensive retraining. Wanget al. [20] surveyed ZSL settings, methods, and applications, emphasizing the importance of semantic attribute spaces for effective transfer.
+
+Romera-Paredes and Torr [21] proposed a simple yet effective approach to ZSL using a linear mapping between feature and semantic spaces. Socheret al. [22] developed a cross-modal transfer approach that enables zero-shot transfer through semantic embeddings.
+
+While these approaches have shown promise in computer vision and natural language processing, their application to cyber defense remains limited, particularly in the context of recognizing and responding to novel attack patterns.
+
+However, the proposed work in [23] explores how zero-shot learning (ZSL) can revolutionize cybersecurity by enabling systems to detect and respond to previously unseen threats without relying on training data for every attack variant. It highlights ZSL’s dual role in both adversarial applications—where attackers generate novel exploits that evade traditional defenses—and defensive strategies, such as classifying unknown malware or adapting to zero-day vulnerabilities using semantic reasoning. The study underscores key challenges, including the need for robust threat ontologies and explainable AI, while advocating for hybrid approaches (e.g., ZSL combined with few-shot learning) and collaborative threat intelligence to enhance real-world deployment. Ultimately, the paper positions ZSL as a transformative tool for next-generation cybersecurity, balancing its offensive and defensive potential with ethical and practical considerations.
+
+Federated learning enables collaborative model training without sharing raw data, addressing privacy concerns in distributed environments. McMahanet al. [24] introduced Federated Averaging (FedAvg), which aggregates model updates from distributed clients while keeping data local. Liet al. [25] surveyed challenges and methods in federated learning, highlighting issues related to communication efficiency, privacy guarantees, and model personalization.
+
+Gohilet al. [26] presented AttackGNN, a reinforcement learning framework for evaluating the robustness of Graph Neural Networks (GNNs) in hardware security applications. Their approach employs an RL-based adversarial agent to discover effective attacks without requiring gradient information, using a novel reward mechanism to identify minimal perturbations that bypass security measures. Empirical results show that AttackGNN outperforming traditional adversarial methods, compromising GNN-based hardware Trojan detection systems with over 90% effectiveness. The work demonstrates how reinforcement learning can systematically identify vulnerabilities that conventional testing might miss, establishing a new paradigm for hardware security evaluation.
+
+Zhouet al. [27] introduced an adaptive federated few-shot learning framework with prototype rectification, demonstrating how semantic prototypes can be aligned across decentralized clients to improve generalization. Though focused on few-shot settings, their prototype correction mechanism offers valuable insights for federated zero-shot adaptation, particularly in scenarios where semantic drift and heterogeneous data distributions hinder model transfer.
+
+More recently, Wanget al.[30] presented a federated zero-shot learning framework that uses an LLM to generate privacy-conscious semantic embeddings for unknown attack types. These embeddings are then collaboratively shared between clients, enabling zero-day attack detection without exposing raw data. Their approach directly parallels our semantic mapping module and further supports our hierarchical MARL design by validating the feasibility of federated semantic transfer for unseen threats.
+
+Recent developments have further advanced hierarchical MARL and federated learning specifically for cybersecurity applications. For example, Zhanget al. [31] introduced a federated MARL framework designed explicitly for intrusion detection in distributed IoT environments, demonstrating significant performance gains and robust privacy preservation. Similarly, recent work by Liuet al. [32], proposed hierarchical MARL architectures leveraging transformer-based multi-agent coordination, achieving improved scalability and resilience against adaptive cyber threats. Such state-of-the-art approaches underline the growing importance of federated and hierarchical MARL methodologies in cybersecurity research.
+
+In the context of cybersecurity, federated learning offers a promising approach for collaborative defense across organizational boundaries while preserving the confidentiality of sensitive security data. However, existing approaches have not fully integrated federated learning with hierarchical MARL and zero-shot capabilities to achieve comprehensive cyber defense.
+
+Therefore, our work builds upon these foundations to create a unified framework that addresses the limitations of existing approaches through the integration of hierarchical MARL, zero-shot learning, and federated knowledge sharing.
+
+Delayed Response to Novel Threats: When a previously unseen attack pattern emerges, traditional systems require manual analysis and rule updates, creating a vulnerability window during which networks remain exposed.
+
+Limited Contextual Understanding: Isolated security components lack the comprehensive contextual awareness needed to detect sophisticated attacks that target multiple network elements simultaneously.
+
+Privacy Constraints in Collaborative Defense: Organizations are often reluctant to share security data due to privacy concerns and regulatory requirements, limiting the potential for collaborative defense.
+
+Scalability Challenges: As networks grow in size and complexity, centralized approaches struggle to process the increasing volume of security data in real-time. It is known that organizations often face challenges in managing large volumes of security data, including firewall logs, endpoint detection and response (EDR) data, and network flows.
+
+To illustrate these challenges, consider an advanced persistent threat (APT) scenario where attackers employ a multi-stage approach initial reconnaissance to identify vulnerable systems, exploitation of known or zero-day vulnerabilities to establish foothold, lateral movement to access high-value assets, and data exfiltration through covert channels. A traditional defense system might detect individual components of this attack chain but would likely fail to recognize the overall pattern, especially if the attack employs previously unseen techniques as part of its TTPs.
+
+Immediate Response to Novel Threats: Through zero-shot learning capabilities that recognize semantic similarities between known and unknown attack patterns.
+
+Contextual Awareness: Through hierarchical coordination of specialized agents that collectively monitor and defend different aspects of the network.
+
+Privacy-Preserving Collaboration: Through federated learning that enables knowledge sharing without exposing sensitive data.
+
+Scalable Defense: By decomposing complex defense tasks into manageable sub-tasks distributed across multiple agents.
+
+I formulate the cyber defense problem as a hierarchical multi-agent Markov Decision Process (MDP) with two levels: a meta-level that coordinates overall defense strategy and a sub-level comprising specialized agents responsible for specific defense tasks.
+
+S0represents the high-level state space capturing the overall security status of the network. Each states0∈S0includes aggregate security metrics, threat assessments, and resource availability.
+
+A0is the set of available sub-policies that the meta-controller can activate. Each actiona0∈A0corresponds to selecting and parameterizing a specific sub-policy for execution.
+
+P0:S0×A0×S0→[0,1]is the transition function that defines the probability of transitioning from states0to states0′after taking actiona0.
+
+R0:S0×A0×S0→ℝis the reward function that evaluates the effectiveness of high-level decisions based on overall security objectives.
+
+γ0∈[0,1)is the discount factor for future rewards at the meta-level.
+
+Siis the state space relevant to sub-taski, containing detailed information specific to that task.
+
+Aiis the action space for sub-taski, comprising the primitive actions available to the corresponding agent.
+
+Pi:Si×Ai×Si→[0,1]is the transition function for sub-taski.
+
+Ri:Si×Ai×Si→ℝis the reward function specific to the objectives of sub-taski.
+
+γi∈[0,1)is the discount factor for future rewards in sub-taski.
+
+Each sub-level agent aims to learn a policyπi:Si→Aithat maximizes its expected cumulative discounted reward within the context of its specific sub-task.
+
+Reconnaissance: Monitoring network traffic and system logs to detect potential threats.
+
+Analysis: Evaluating detected anomalies to determine their nature and severity.
+
+Response: Executing defensive actions to mitigate confirmed threats.
+
+Recovery: Restoring affected systems to normal operation after an attack.
+
+To learn effective policies at both levels, I employ a hierarchical reinforcement learning approach based on the options framework [17]. The meta-controller learns to select appropriate sub-policies based on the current high-level state, while each sub-level agent learns to execute its specific task effectively.
+
+whereρiis the distribution of states encountered during the execution of sub-taski.
+
+The hierarchical structure enables efficient learning by reducing the complexity of the overall task and allowing specialized agents to focus on specific aspects of defense.
+
+To enable adaptation to previously unseen attack patterns, I integrate zero-shot learning capabilities into our framework through a semantic mapping approach.
+
+Each attack pattern, whether known or novel, can be represented as a point in this semantic space based on its observable characteristics.
+
+I define a mapping functionϕ:X→𝒮that projects observed attack featuresXinto the semantic attribute space𝒮. This function is learned from a diverse dataset of known attacks and their corresponding semantic attributes.
+
+To enable zero-shot transfer of defense policies to novel attacks, I learn a conditional policy functionπ(a|s,z)that takes as input not only the current statesbut also a semantic embeddingzof the attack being defended against.
+
+During training, the agent learns to associate effective defense strategies with specific regions of the semantic space. When a novel attack is detected, its semantic embedding is computed, and the conditional policy generates an appropriate response based on the similarity to known attacks.
+
+This approach enables the system to generate appropriate responses to previously unseen attack patterns by leveraging knowledge about semantically similar known attacks.
+
+Objective: Maximize the security of the network by minimizing successful attacks while maintaining operational efficiency and privacy.
+
+In the following section, I describe how I implement this framework using federated learning for privacy-preserving knowledge sharing and adaptive response mechanisms for evolving threats.
+
+To enable privacy-preserving knowledge sharing across network domains, I implement a federated learning framework specifically designed for cybersecurity applications. This framework allows defensive agents to learn collaboratively while maintaining the confidentiality of sensitive network data.
+
+Local Agents: Deployed across different network domains, each with its own local dataset and model.
+
+Regional Aggregators: Responsible for aggregating models from local agents within a specific region or organization.
+
+Global Coordinator: Responsible for aggregating regional models and distributing the global model.
+
+This hierarchical aggregation structure reduces communication overhead and enhances privacy by limiting the exposure of local models.
+
+The privacy guarantee of this approach is quantified using the(ϵ,δ)-differential privacy framework [34], whereεrepresents the privacy budget andδis the probability of privacy violation. We set these parameters based on the sensitivity of the security data being protected.
+
+To further enhance privacy during model aggregation, I implement a secure multi-party computation (SMPC) protocol based on homomorphic encryption [35]. This protocol enables the computation of the weighted average of model parameters without revealing the individual parameters to any party.
+
+Each local agent encrypts its model parameters using a homomorphic encryption scheme:E(θk).
+
+The encrypted parameters are sent to the aggregator.
+
+The aggregator computes the weighted average on the encrypted parameters:E(θglobal)=∑k=1KnknE(θk).
+
+The aggregator distributes the encrypted global model to all agents.
+
+Each agent decrypts the global model using its decryption key.
+
+This approach ensures that raw model parameters are never exposed during the aggregation process, providing strong privacy guarantees.
+
+To facilitate the transfer of knowledge between different network domains without sharing sensitive data, I implement a federated knowledge distillation approach [36]. This approach allows agents to learn from the behavior of other agents without accessing their training data.
+
+The agent generates a set of synthetic states and computes the corresponding action probabilities.
+
+These state-action probability pairs are shared with other agents.
+
+Each agent updates its policy to match the aggregated action probabilities on the synthetic states.
+
+This approach enables knowledge transfer while minimizing the exposure of sensitive information about local network environments.
+
+To enable effective response to evolving threats, I implement adaptive mechanisms that dynamically adjust defense strategies based on observed attack patterns and outcomes.
+
+whereJis a meta-objective that measures overall defense effectiveness andηis the learning rate.
+
+To enhance robustness against adversarial attacks, we implement an adversarial training approach that simulates sophisticated attack strategies. This approach involves training defensive agents against a simulated adversary that continuously adapts its attack strategies to exploit vulnerabilities in the defense system.
+
+This adversarial training approach ensures that defensive agents are prepared for sophisticated and adaptive attack strategies.
+
+To maintain effectiveness against evolving threats while avoiding catastrophic forgetting of previously learned defense strategies, I implement a continual learning approach with experience replay [37]. This approach involves maintaining a replay buffer of experiences from different threat scenarios and periodically retraining the model on a balanced sample from this buffer.
+
+whereℒis the loss function andℬsampleis a sample from the replay buffer.
+
+To ensure balanced representation of different threat scenarios, I implement a prioritized sampling approach that gives higher probability to scenarios that are underrepresented in recent training iterations.
+
+Semantic Mapperϕ: Projects observed features into the learned semantic space.
+
+Policy Matching Module: Compares the mapped vector to existing known responses using similarity functions.
+
+Knowledge Base: A local copy or federated view of known defense-action mappings.
+
+Adaptation Module: If no match is above threshold, the agent uses fallback exploration or queries the federation for new mappings.
+
+The algorithm runs continuously on agents deployed in edge hosts or gateways, depending on the testbed scenario. The logic is integrated as part of the agent’s decision cycle.
+
+Fig 1illustrates the overall architecture of our implementation, showing the hierarchical structure of agents, the federated learning components, and the zero-shot adaptation module.
+
+The system is deployed in a simulated network environment consisting of multiple segments, each containing various devices and services. Each network segment is protected by a team of specialized agents coordinated by a local meta-controller. The meta-controllers from different segments participate in federated learning to share knowledge while preserving privacy.
+
+Meta-Controller: A transformer-based architecture [39] that processes aggregate security metrics and outputs sub-policy selections. The network consists of a multi-head attention mechanism followed by feed-forward layers with ReLU activations.
+
+Reconnaissance Agent: A convolutional neural network (CNN) that processes network traffic patterns and system logs to detect potential threats.
+
+Analysis Agent: A graph neural network (GNN) that analyzes the relationships between detected anomalies to identify coordinated attack patterns.
+
+Response Agent: A deep Q-network (DQN) that selects appropriate defensive actions based on the current threat assessment.
+
+Recovery Agent: A policy gradient network that determines the optimal sequence of recovery actions to restore affected systems.
+
+For the semantic mapping function, I implement a Siamese network [40] that projects observed attack features into a semantic embedding space. The network is trained using a contrastive loss function that minimizes the distance between semantically similar attacks and maximizes the distance between dissimilar attacks.
+
+The zero-shot policy transfer is implemented using a conditional policy network that takes as input both the current state and the semantic embedding of the detected attack. This network is trained to associate effective defense strategies with specific regions of the semantic space.
+
+wherex1,x2represent the embeddings of paired samples,yis the binary label (1 for similar pairs, 0 for dissimilar),d(·)denotes the Euclidean distance function, andmis a predefined margin. This formulation ensures that semantically similar attack pairs have embeddings close to each other, while embeddings for dissimilar pairs are encouraged to separate. This approach ensures the semantic attribute space accurately captures critical characteristics of cyberattacks, facilitating effective zero-shot classification and policy transfer.
+
+CybORG Simulation Environment: A reinforcement learning environment for cyber security developed by the CAGE Challenge [42], which provides realistic network topologies and attack scenarios.
+
+DARPA CRATE Dataset: A dataset of cyber attacks and defenses collected from realistic network environments [43], which I use to train and evaluate our zero-shot learning components.
+
+Custom Federated Learning Testbed: A distributed testbed consisting of multiple virtual network environments, each with its own security policies and attack patterns, which I use to evaluate the federated learning components.
+
+The experiments are conducted on a cluster of machines, each equipped with an NVIDIA A100 GPU, 128GB RAM, and 32 CPU cores. To specifically evaluate the federated learning and privacy-preserving aspects of AZH-MARL, I developed a custom distributed testbed. This testbed simulated a collaborative defense scenario involving three independent organizational networks. Each virtual network environment within the testbed comprised approximately 30-40 nodes, with unique security policies, varying levels of baseline security posture, and distinct, locally generated attack patterns (e.g., phishing campaigns targeting one network, ransomware in another, or data exfiltration attempts in the third).
+
+This heterogeneity was crucial to test the framework’s ability to share knowledge effectively and adapt defenses in a federated manner while preserving the privacy of each participating entity’s local data. In the custom federated learning testbed, each of the three simulated organizational networks had its own deployment of this hierarchical agent structure which included a Meta-Controller and four sub-level agents: Reconnaissance, Analysis, Response, Recovery. The local models from these agents were then aggregated via the federated learning mechanism.Fig 2illustrates a network architecture, for this federated learning testbed.
+
+I evaluate our approach using a comprehensive set of metrics that assess different aspects of cyber defense effectiveness.
+
+Detection Rate (DR): The percentage of attacks successfully detected.
+
+False Positive Rate (FPR): The percentage of benign activities incorrectly classified as attacks.
+
+Mean Time to Detection (MTTD): The average time from attack initiation to detection.
+
+Mean Time to Response (MTTR): The average time from detection to defensive action.
+
+Zero-Shot Detection Rate (ZSDR): The detection rate for previously unseen attack patterns.
+
+Zero-Shot Response Effectiveness (ZSRE): The effectiveness of defensive actions against novel attacks.
+
+Semantic Mapping Accuracy (SMA): The accuracy of the semantic mapping function in classifying attack patterns.
+
+Communication Overhead (CO): The amount of data transferred during federated learning.
+
+Privacy Leakage (PL): The amount of sensitive information that can be inferred from shared models.
+
+Convergence Time (CT): The time required for the federated learning process to converge.
+
+Computational Overhead (CPO): The computational resources required for real-time operation.
+
+Memory Usage (MU): The memory required for model storage and execution.
+
+Energy Consumption (EC): The energy required for continuous operation.
+
+Zero-Shot Learning: A generalization-based model trained to respond to unseen attack types without prior specific training [19–23].
+
+In our experiments, zero-day exploits refer to attacks leveraging previously unknown vulnerabilities for which no explicit signature or patch was available. These were simulated across CybORG, the DARPA dataset, and our custom federated testbed by withholding specific attack variants from training. This forced agents—especially those using our AZH-MARL framework with zero-shot learning—to generalize from known behaviors and respond adaptively to novel threats, such as obfuscated malware or unseen TTPs.
+
+APTs were modeled as multi-stage, stealthy campaigns with persistent access goals. Using CybORG and selected DARPA scenarios, I scripted chained attack phases (e.g., phishing, lateral movement, data exfiltration), testing agents’ ability to detect the campaign across time. In our federated testbed, APTs unfolded gradually within different nodes, evaluating the meta-controller’s capacity to recognize strategic threats and orchestrate coordinated responses beyond isolated alerts.
+
+Fig 3shows the performance of our proposed AZH-MARL approach compared to the baselines across different attack scenarios, including known attacks, zero-day exploits, and advanced persistent threats (APTs).
+
+Table 3presents the detection performance of our approach compared to the baselines. Our approach achieves a detection rate of 94.2% for known attacks and 82.7% for zero-day exploits, significantly outperforming the baselines. The false positive rate is maintained at 3.8%, which is comparable to the best-performing baseline.
+
+The improved detection performance can be attributed to the combination of hierarchical structure, which enables specialized agents to focus on specific aspects of detection, and zero-shot learning, which enables recognition of novel attack patterns based on semantic similarities.
+
+Fig 4illustrates the effectiveness of defensive responses across different attack scenarios. Our approach achieves a mean time to response of 2.3 seconds for known attacks and 3.7 seconds for zero-day exploits, representing improvements of 35% and 42% respectively compared to the best-performing baseline.
+
+The response effectiveness is particularly notable for advanced persistent threats, where our approach achieves a containment rate of 87.3% compared to 62.1% for the best-performing baseline. This improvement is due to the hierarchical coordination of defensive actions and the adaptive response mechanisms that adjust to evolving threat patterns.
+
+Table 4presents the zero-shot performance of our approach compared to baselines with zero-shot capabilities. Our approach achieves a zero-shot detection rate of 82.7% and a zero-shot response effectiveness of 76.5%, outperforming all baselines.
+
+The semantic mapping accuracy of our approach is 89.3%, indicating that the semantic mapping function effectively captures the fundamental characteristics of attack patterns and enables accurate classification of novel attacks.
+
+Fig 5shows the convergence of the federated learning process across different privacy settings. Our approach achieves convergence within 15 communication rounds while maintaining strong privacy guarantees (ϵ=1.5,δ=10−5).
+
+The communication overhead of our approach is 45% lower than standard federated averaging due to the hierarchical aggregation structure. The privacy leakage, as measured by the success rate of membership inference attacks, is maintained below 5% across all experiments.
+
+To understand the contribution of each component to the overall performance, I conduct an ablation study by removing individual components from our approach.Table 5presents the results of this study.
+
+The removal of the hierarchical structure results in a 12.3% decrease in detection rate and a 18.7% increase in mean time to response, highlighting the importance of task decomposition for efficient learning and coordination.
+
+The removal of the zero-shot learning component results in a 37.5% decrease in zero-shot detection rate and a 42.1% decrease in zero-shot response effectiveness, confirming the critical role of semantic mapping for adapting to novel threats.
+
+The removal of the federated learning component results in a 15.2% decrease in detection rate for environments with limited local data, emphasizing the value of privacy-preserving knowledge sharing for improving overall defense effectiveness.
+
+Table 6presents the resource efficiency of our approach compared to the baselines. Our approach requires 2.3 GB of memory and 4.5 GFLOPS of computational power for real-time operation, which is higher than rule-based approaches but comparable to other learning-based approaches.
+
+The energy consumption of our approach is 15% lower than flat MARL approaches due to the efficient task decomposition and hierarchical decision-making structure.
+
+Enhanced Adaptability: The zero-shot learning component enables effective response to previously unseen attack patterns, addressing a critical limitation of traditional approaches.
+
+Improved Coordination: The hierarchical structure enables efficient coordination among specialized agents, leading to more effective defense strategies.
+
+Privacy-Preserving Collaboration: The federated learning component enables knowledge sharing across organizational boundaries without compromising sensitive data.
+
+Scalable Defense: The hierarchical aggregation structure reduces communication overhead and enables scalable deployment across large network environments.
+
+These advantages make our approach particularly well-suited for defending against sophisticated and evolving cyber threats in complex network environments with privacy constraints.
+
+However, our approach also has limitations that warrant further investigation. First, the computational requirements are higher than those traditional rule-based approaches, which may limit deployment on resource-constrained devices. Second, the effectiveness of zero-shot learning depends on the quality and diversity of the training data used to learn the semantic mapping function.
+
+In the next section, I conclude the paper and discuss future research directions to address these limitations and further enhance the capabilities of our approach.
+
+In this paper, I presented Adaptive Zero-Shot Hierarchical MARL with Federated Knowledge Sharing, a novel framework for resilient cyber defense that addresses critical limitations in existing approaches. The proposed framework integrates hierarchical multi-agent reinforcement learning, zero-shot learning capabilities, privacy-preserving federated knowledge sharing, and adaptive response mechanisms to create a more effective and adaptable defense system.
+
+The hierarchical structure decomposes complex defense tasks into specialized sub-tasks managed by distinct agents, reducing the learning complexity of and enabling more efficient coordination. The zero-shot learning component enables recognition and response to previously unseen attack patterns through semantic mapping, addressing a critical vulnerability in traditional approaches that require extensive retraining for new threats. The federated learning framework facilitates knowledge sharing across network domains while preserving data privacy, allowing collaborative defense without compromising sensitive information. The adaptive response mechanisms dynamically adjust to evolving threat landscapes, ensuring continued effectiveness against sophisticated adversaries.
+
+Our comprehensive evaluation demonstrates that the proposed framework significantly outperforms existing approaches across various metrics. For known attacks, our approach achieves a detection rate of 94.2% with a false positive rate of 3.8%, comparable to the best-performing baselines. For zero-day exploits, our approach achieves a detection rate of 82.7%, representing a 37.5% improvement over approaches without zero-shot capabilities. The mean time to response is reduced by 35% for known attacks and 42% for zero-day exploits compared to the best-performing baseline. These improvements are particularly notable for advanced persistent threats, where our approach achieves a containment rate of 87.3% compared to 62.1% for the best-performing baseline.
+
+The ablation study confirms the contribution of each component to the overall performance, with the hierarchical structure improving coordination efficiency, the zero-shot learning component enabling adaptation to novel threats, and the federated learning component enhancing performance in environments with limited local data. Therefore, the resource efficiency analysis shows that our approach requires computational resources comparable to other learning-based approaches while achieving significantly better performance.
+
+Computational Complexity: The integration of multiple advanced techniques requires significant computational resources, which may limit deployment on resource-constrained devices. Future work should explore optimization techniques to reduce computational requirements without sacrificing performance.
+
+Initial Training Data Requirements: Despite zero-shot capabilities, the system still requires diverse training data for initial semantic space construction. Future research should investigate methods to reduce initial data requirements through transfer learning and synthetic data generation.
+
+Theoretical Guarantees: Further work is needed to establish formal guarantees on performance bounds and convergence properties, particularly for the integration of hierarchical reinforcement learning with zero-shot adaptation.
+
+Human Oversight Integration: While our approach enables autonomous defense, effective integration with human operators remains a challenge. Future research should explore explainable AI techniques to provide transparency into decision-making processes and enable effective human-in-the-loop operation.
+
+Adversarial Robustness: As defensive systems become more sophisticated, attackers will develop new techniques to evade detection and mitigation. Future work should investigate adversarial robustness guarantees and defensive mechanisms against attacks targeting the learning process itself.
+
+In conclusion, our Adaptive Zero-Shot Hierarchical MARL framework with Federated Knowledge Sharing represents a significant step toward more resilient cyber defense systems that can adapt to emerging threats while preserving privacy in collaborative defense scenarios. By addressing key limitations in existing approaches, our framework provides a foundation for future research in adaptive and privacy-preserving cybersecurity.

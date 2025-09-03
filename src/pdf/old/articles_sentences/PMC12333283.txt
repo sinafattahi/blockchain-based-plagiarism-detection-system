@@ -1,0 +1,232 @@
+Sheep have demonstrated remarkable adaptability to diverse and unproductive pastures, making them highly advantageous in the context of sustainable farming practices in the globally warming world.
+Despite their adaptation skills, local sheep breeds generally exhibit low performance, highlighting the need to develop desired traits.
+Traditional Mixed Linear Model (MLM)-based single-locus Genome-Wide Association (GWA) studies may fall short in identifying multiple loci influencing traits due to their linear genome scanning approach, rendering them less effective for detecting polygenic effects.
+To identify genetic variants associated with birth weight (BW) and weaning weight (WW) in Karacabey Merino lambs using multi-locus genome-wide association study (GWAS) approaches, and to propose candidate genes for these economically important growth traits.
+Five multi-locus approaches were employed, including MrMLM, FastMrMLM, ISIS EM-BLASSO, FASTmrEMMA, pLARmEB, and pKWmEB.
+These methods utilize a two-stage process to detect associated markers, first screening with a single locus approach at a less strict significance threshold, followed by collective evaluation using multi-locus GWA models.
+Gene annotation was performed to identify candidate genes based on SNP locations within intron regions or within ± 100 Kb proximity of associated SNPs.
+Using the five multi-locus approaches, 11 SNPs were detected with significant effects on birth weight and seven SNPs on weaning weight in Karacabey merino lambs.
+Gene annotation revealed most associated SNPs were within or very close to protein-coding genes, suggesting a functional role in trait influence.
+The genesGNAQ,CDKL4,PIP,SLC7A1,PBRM1,SORCS3, andNFATC1were identified as candidate genes for birth weight, whileBABAM2,LALBA,NOP14,FAM110B,SKAP1,SVIL, andATXN1were proposed as candidate genes for weaning weight.
+These insights contribute to a better understanding of the genetic makeup of birth weight and weaning weight traits, supporting efforts to refine breeding programs for improved growth performance in Karacabey merino sheep.
+The online version contains supplementary material available at 10.1186/s12917-025-04957-9.
+As one of the earliest domesticated animals, domestic sheep have spread globally, encompassing around 1,000 breeds thriving in various climates, from scorching heat to freezing cold.
+Their incredible adaptability to diverse environments enables them to efficiently graze on less productive pastures, making them incredibly valuable in sustainable farming.
+Research highlights the selective breeding of sheep for specific environments, underlining the importance of these adaptation skills for their survival and productivity across different regions [1–4].
+In contrast, industrial cattle breeding often faces inbreeding issues [5], leading to susceptibility to heat stress [6], diseases, and decreased survival rates [7–10].
+On the other hand, sheep, with their wide genetic diversity, exhibit resilience to diseases and adeptness in coping with harsh climates.
+Their adaptability not only helps them thrive in challenging conditions but also ensures the sustainability of livestock populations overall [11–13].
+While industrial farming relies heavily on intensive rearing through concentrated feeding, small ruminant farming, including sheep, stands out for its ability to utilize natural resources that are not usable by cattle.
+This positions small ruminants as a safeguard for sustainable animal production in our warming world.
+The Karacabey Merino breed, which is reared at the Sheep Research and Breeding Institute (SRBI) and is widespread in the Marmara region of Northwest Turkey, was improved during the 1940 s by crossing German Mutton Merino with native Kivircik sheep.
+Since then, it has remained closed to crossbreeding for at least the last three decades.
+The thin-tailed Kivircik sheep, which constitutes the maternal line of backcrossing efforts, is one of Turkey’s ancient sheep breeds, renowned for its delicious meat and resilience to environmental conditions.
+Due to over 80 years of backcrossing and classical breeding efforts, as well as its widespread presence in the northern regions of Turkey, the Karacabey Merino has been officially recognized as Turkey’s native sheep breed.
+Genome-Wide Association (GWA) studies typically utilize the Mixed Linear Model (MLM) as the primary statistical method, known for its efficacy in controlling population stratification and polygenic background inflation [14].
+However, MLM-based single marker GWA studies may lack the capability to effectively identify multiple loci simultaneously influencing the traits of interest due to the linear scanning of the genome.
+Hence, MLM is often deemed unsuitable for detecting polygenic effects.
+Moreover, MLM-based GWA studies encounter challenges in correcting for multiple tests to establish statistical significance.
+The Bonferroni test, commonly employed for this purpose, tends to be overly conservative, potentially failing to identify all relevant SNPs.
+Consequently, the corrected “p” value for many crucial markers might not surpass the significance threshold [15,16].
+Various approaches have been developed in multi-locus methods to tackle these issues, including Multi-Locus Random-SNP-Effect Mixed Linear Model (MrMLM) [15], Fast Multi-Locus Random-SNP-Effect Mixed Linear Model (FastMrMLM) [14], Iterative sure independence screening EM-Bayesian LASSO (ISIS EM-BLASSO) [17], fast multi-locus random-SNP-effect EMMA (FASTmrEMMA) [14], polygenic-background-control-based least angle regression plus empirical Bayes (pLARmEB) [18], and polygenic-background-control-based Kruskal-Wallis test plus empirical Bayes (pKWmEB) [19].
+These multi-locus approaches employ multidimensional scanning and follow a two-stage process to detect associated markers.
+Initially, markers meeting quality control criteria undergo screening using a single locus approach with a less strict significance threshold, typically set atp< 0.005 or 0.001.
+The selected markers from this screening are then subjected to further analysis.
+In the second stage, all chosen markers are collectively evaluated using multi-locus GWA models.
+Due to their multi-locus nature, these approaches eliminate the need for the Bonferroni test for multiple test correction [14,15,17–19].
+Thus, in the present study, these five multi-locus methods were chosen because comparative analyses through both simulation studies and real data applications have demonstrated their enhanced capabilities in SNP detection power and effect estimation accuracy compared to conventional approaches such as EMMA, GEMMA, SUPER, CMLM, ECMLM, SCAD, and FarmCPU.
+These methods are effective for polygenic background control and have less bias.
+FASTmrEMMA and FASTmrMLM exhibit improved computational efficiency while maintaining high statistical power.
+MrMLM shows superior performance over RMLM and EMMA, while ISIS EM-BLASSO demonstrates the highest empirical power and accuracy compared to EMMA, SCAD, and FarmCPU.
+Similarly, pLARmEB exhibits enhanced performance over Bayesian hierarchical generalized linear model and EMMA.
+Additionally, all these methods are integrated into a single software package (mrMLM), providing a comprehensive and efficient analytical framework for multi-locus GWAS studies [14,15,17–19].
+In addition to the advantages of local sheep breeds’ adaptation to various geographic areas, ecosystems, and management practices, and their superior adaptability to various stressors, including feed shortages and extreme climatic conditions, their low performance in desired traits can be seen as a significant disadvantage.
+Therefore, there is a need to improve the productivity of local sheep breeds.
+The study reported here aims to identify the genetic background of the growth traits of Karacabey Merino lambs.
+Due to the exhibition of quantitative traits under polygenic control, recently developed multi-locus GWAS methods, which can detect polygenic effects through multidimensional scanning, have been employed.
+Thus, using five multi-locus GWAS methods—mrMLM, FASTmrMLM, FASTmrEMMA, pLARmEB, and ISIS EM-BLASSO—potentially influential markers for growth performance were investigated.
+The animal material used in this study, Karacabey Merino lambs, belongs to the Sheep Breeding Research Institute, an official institution under the Turkish Ministry of Agriculture and Forestry, and all necessary official permissions were obtained from the relevant institution prior to the study.
+A total of 734 lambs, including 338 males and 396 females, were included in the study.
+All lambs were weighed with a precision of 100 g within 24 h of birth, ear-tagged, and recorded.
+From 10 to 15 days after birth, in addition to nursing from their mothers, the lambs were allowed free access to concentrate feed, alfalfa hay, and clean water.
+They were fedad libitumuntil weaning, with all lambs receiving the same concentrate and roughage feed.
+The management practices were the same for all the lambs, and they were weaned at an average of 90 days.
+At the time of weaning, the lambs were weighed again and recorded.
+The weaning weights were adjusted to 90 days based on birth weight and the number of days from birth to the weaning.
+The lambs were genotyped using the OVINE 50 K BeadChip on the ILLUMINA platform with a total genotyping rate of 0.995.
+The sex chromosomes were excluded from the analysis.
+Quality control procedures were carried out using Plink v1.07 [20].
+The Quality Control (QC) parameters applied were: Minor Allele Frequency (MAF) ≥ 0.05, animal missing genotype rates (mind) ≤ 0.1, SNP Call rate ≥ 0.95, and Hardy-Weinberg equilibrium threshold ≥ 10−5.
+After performing the QC, a total of 35,886 SNPs and 734 lambs (338 males and 396 females) remained for further analysis.
+Before commencing the analyses, both an outlier detection test and a normality test were performed on each dataset.
+These tests were conducted using Minitab®version 21.4 software to ensure the data met the assumptions required for subsequent statistical analyses.
+The SNP-based heritability (h²), coefficient of variation (CV), and genetic correlation (rG) were computed using GCTA software [21].
+Multi-locus GWA analysis was conducted utilizing the default settings of mrMLM, an R package developed by Zhang et al. [22].
+Kinship matrices were created using the same package and integrated into all five multi-locus models to manage cryptic relatedness.
+To control possible population stratification, Principal Component Analysis (PCA) was performed using TASSEL software [23], incorporating the first five principal components into the all statistical model.
+Due to the strong effect of gender on the BW and WW (exactp-value; 0.001 and 1.76E-24, respectively) and birth type (single, twin, or triplet) on the same traits (exactp-value; 2.22E-30 and 5.23E-11, respectively), these two important factors were included in all models as covariates.
+In multi-locus GWAS methods, a commonly acknowledged threshold for the Logarithm of the Odds (LOD) score is set at LOD ≥ 3 [14–17,19].
+Traditionally, a LOD score of 3 means that the likelihood of the loci being linked is 1,000 times higher than the likelihood of them being unlinked [24].
+To ensure the most reliable association findings, we adopted the LOD ≥ 5 threshold for statistical significance.
+Such a significance threshold indicates that the probability of association is 100,000 times higher than the probability of no association.
+Manhattan plots were created to illustrate significant SNPs (LOD ≥ 5) across chromosomes.
+Quantile-Quantile (QQ) plots were employed to identify any inflation or deflation of test statistics resulting from systematic biases under the null model, such as unnoticed population stratification or cryptic relatedness.
+A post hoc statistical power analysis was conducted using the MAF andr² values of SNPs that have a significant relationship with the BW or WW.
+Since multiple SNPs were identified for each phenotype, the power analysis was conducted using the SNPs with the lowest and highestr² values that were associated with the BW or WW.
+The power analysis was performed using the “pwr” package in the R platform.
+Gene annotations were conducted using the ARS-UI_Ramb_v2.0 assembly by Ensembl (https://www.ensembl.org/index.html), Genome Data Viewer (https://www.ncbi.nlm.nih.gov/gdv), and Genome Browser (https://genome.ucsc.edu/).
+Further analysis was conducted on the genes situated within ± 100 Kb proximity of each associated SNP to identify the pathways in which they participate.
+Gene ontology and pathway analysis were performed using the widely-used online tool ShinyGO [25] with the Ovis aries database, employing a false discovery rate (FDR) cutoff of 0.05 to determine statistical significance.
+Pathway charts were illustrated using the same tool.
+To investigate potential promoter region associations of SNPs linked to the BW and WW that are situated in intergenic regions or upstream/downstream of genes, we employed Promoter 2.0 [26], one of the limited available online tools applicable to non-human and non-model organisms.
+The analysis involved examining sequences of approximately 480–500 base pairs in total length, comprising 240–250 base pairs flanking each side of these SNPs, through the Promoter 2.0 platform to identify potential promoter region overlaps.
+Additionally, we investigated whether the BW and WW-associated SNPs located within intronic regions were involved in splicing processes.
+This analysis was conducted using Spliceator [27], an Artificial Intelligence-based online tool, examining sequences of approximately 60 base pairs in total length, comprising 30 base pairs flanking each side of these intronic SNPs.
+Prior to the genotype–phenotype association analyses, phenotypic data were examined through a two-step process based on a significance threshold ofp< 0.05: first, an outlier test was performed, followed by a normality test.
+According to the outlier test results, no outliers were detected in any of the datasets (p= 1.00).
+The normality test revealed that the WW data did not follow a normal distribution (p= 0.048).
+Consequently, a Box-Cox transformation was applied, after which the WW data showed a good fit to the normal distribution (p= 0.348).
+Outlier test results for BW, raw WW, and Box-Cox transformed WW are presented in Fig.1A, while the results of the normality test are visualised through QQ plots (Fig.1B) and histograms (Fig.1C).
+For both traits, the BW and WW, the SNP-based heritability was calculated.
+The heritability for the BW was found to be 0.282, indicating that approximately 28.2% of the total phenotypic variation in the BW can be attributed to genetic factors.
+For the WW, the heritability was 0.164, meaning that 16.4% of the variation in the WW is due to genetic influences.
+The coefficient of variation (CV%) for the BW was determined to be 17.63%, which reflects the ratio of the standard deviation to the mean, expressed as a percentage, and indicates the relative variability of the BW.
+Similarly, the CV for the WW was 13.80%, showing the relative variability of this trait.
+Genetic correlations between the BW and WW were observed at a high level, with a correlation coefficient of 0.857.
+This suggests a strong positive genetic relationship between the two traits.
+Descriptive statistics are provided in Table1.
+Using multi-locus approaches, 11 SNPs were detected that met the LOD threshold of ≥ 5, indicating a significant effect on the BW (Table2; Fig.2A).
+However, when utilizing the ISIS EM-BLASSO method, no SNPs were found to be significantly associated with the BW.
+For the WW, a total of seven SNPs that met the LOD threshold of ≥ 5 were identified using four different methods: mrMLM, FASTmrMLM, ISIS EM-BLASSO, and FASTmrEMMA.
+These methods were effective in pinpointing SNPs that significantly affect the WW.
+However, the pLARmEB algorithm did not identify any SNPs meeting the critical threshold for the WW (Table3; Fig.2B).
+The calculatedr2values indicate that the proportion of phenotypic variance explained by significant SNPs for the BW ranged from 0.348 to 3.6%.
+The cumulative r2of all eleven SNPs reached 20.66%, accounting for one-fifth of the total phenotypic variance.
+The individual SNP effects ranged from − 0.657 to 0.172.
+Markers oar3_OAR4_105954111, OAR4_56152760.1, OAR5_92790718.1, OAR10_31255390.1, and oar3_OAR24_30511307 were shown to have a positive effect on the BW, while the remaining six markers exhibited a negative effect (Table2).
+For the WW,r2values ranged from 1.122 to 2.699%, and the cumulative r2of the seven WW-associated SNPs was calculated at 13.79%, explaining one-seventh of the total phenotypic variance.
+Individual SNP effects for the WW ranged from − 0.546 to 0.192.
+The only positively effective marker on the WW was OAR9_39173859.1 (Table3).
+For both traits, when a SNP was detected as significant by multiple models, the direction of its effect (positive or negative) was consistent across all models.
+The quantile-quantile (QQ) plots indicated that there were no notable signs of inflation or deflation in the test statistics, suggesting that the observedp-values closely follow the expected distribution under the null hypothesis.
+The genomic inflation factor (λ) was calculated to further assess the presence of any systematic bias.
+For the BW, the λ value was 1.006 (Fig.3A), and for the WW, the λ value was 1.008 (Fig.3B).
+These values are very close to 1, which confirms that there was effective management of potential population stratification and/or cryptic relatedness during the multi-locus GWAS.
+In the association analysis, multiple detections of significant SNPs were observed.
+For instance, during the analysis for the BW, the SNPs oar3_OAR2_58511524 and OAR4_56152760.1 were co-detected by the two methods (mrMLM and FASTmrMLM), whereas the SNP Chr3:84999096 was detected three times by mrMLM, FASTmrMLM, and FASTmrEMMA.
+The ISIS EM-BLASSO has not been able to identify any SNP meeting the critical threshold for the BW.
+The remaining SNPs were identified by any of the other four methods (Fig.4A).
+In the WW analysis, the SNPs s09049.1, OAR6_116658909.1, and OAR9_39173859.1 were identified three times by mrMLM, FASTmrMLM, and ISIS EM-BLASSO, whereas oar3_OAR13_33751699 was co-detected by the mrMLM and ISIS EM-BLASSO.
+Other SNPs were identified by any of the other methods except pLARmEB (Fig.4B).
+The post hoc power analysis results were calculated to be as follows: for the BW trait, the SNP with the lowestr² value (OAR5_92790718.1;r² = 0.913; MAF = 0.26) and the SNP with the highestr² value (oar3_OAR24_30511307;r² = 3.6; MAF = 0.477) yielded statistical powers of 0.75 and 0.99, respectively.
+For the WW trait, the SNP with the lowestr² value (s68294.1; r² = 1.224; MAF = 0.451) and the SNP with the highestr² value (s63779.1;r² = 2.699; MAF = 0.394) yielded statistical powers of 0.86 and 0.99, respectively (Fig.5).
+Gene annotation analysis revealed that the majority of the associated SNPs were located either within a ± 100 Kb proximity to protein-coding genes or within the intron regions of these genes.
+Specifically, out of the total 18 SNPs that were associated with either the BW or WW, the majority were closely linked to genes, enhancing the likelihood that these SNPs play a functional role in influencing the traits.
+Only four of these SNPs were located at a distance greater than 100 Kb from the nearest gene (Table4).
+Pathway analysis demonstrated that the candidate genes located within a ± 100 Kb proximity of the associated SNPs are involved in a diverse array of biological pathways.
+For both traits, these candidate genes participate in numerous pathways that may play a role in growth and development (Fig.6A and B).
+This comprehensive involvement in multiple pathways underscores the complex genetic architecture underlying both the BW and WW traits, highlighting the multifaceted nature of genetic regulation and its impact on these phenotypes.
+Our analysis demonstrated that none of the SNPs located in intergenic regions or upstream/downstream of genes were found to be localized within promoter regions.
+Additionally, investigation of SNPs situated within intronic regions revealed no evidence of their involvement in intron splicing processes (Supplemental TableS1).
+SRBI is a breeding enterprise that, in addition to being a research institute specialized in small ruminants under the Ministry of Agriculture and Forestry of Turkey, provides high-quality Karacabey Merino breeding rams to breeders.
+The Karacabey Merino was first developed at SRBI and distributed from there throughout Turkey, especially in the northwest.
+Currently, the nucleus Karacabey Merino flock of Turkey has been reared in the SRBI.
+In the SRBI herds, after closing to back-crossing, classical breeding efforts have been implemented for at least three decades.
+Thus, it is meaningful that the low heritability for the BW and WW traits, 0.282 and 0.164, respectively, indicates that most of the variations originates from the environment as a result of these ongoing classical breeding efforts.
+Additionally, the computed coefficient of variation indicates moderate variability, showing that both traits are influenced by multiple genetic and environmental factors.
+These factors, which lie beyond our ability to predict, may stem from numerous sources, such as the mother’s nurturing ability or maternal instincts, variations in the quantity and nutrient content of maternal milk, undiagnosed infections in the offspring, or individual epigenetic mechanisms that may respond differently to environmental conditions.
+However, despite the low heritability, there is still an opportunity for genetic improvement of these traits.
+Because SRBI is an official breeding enterprise that regularly provides breeding rams to farmers, it is evident that further genetic advancements in SRBI flocks will have a multiplicative effect on the productivity of farmers’ herds.
+Furthermore, given the genetic correlation of 0.857 between the two traits, it can be concluded that the BW is a strong predictor of the WW in Karacabey Merino lambs.
+Statistical power analysis, which included SNPs with the lowest and highestr2values associated with both the BW and WW, has shown that: the total sample size of 736 barely meets the 0.8 statistical power threshold for the SNP with the lowestr2value associated with the BW, while the mentioned sample size easily meets the > 0.8 statistical power threshold for the SNP with the highestr2value associated with the BW and for the SNPs with the lowest and highestr2values for the WW (Fig.5).
+To enhance the reliability of association analysis results and obtain more robust findings, we implemented a stringent significance threshold of LOD ≥ 5 instead of the conventional LOD ≥ 3, representing a 100-fold more stringent adjustment.
+This elevated threshold was observed to influence the co-detection rate.
+As expected, different algorithms detected associated SNPs at varying significance levels.
+For instance, under the current LOD ≥ 5 threshold for the WW phenotype, among the seven significant SNPs identified, three SNPs were detected by one model, one SNP by two models, and three SNPs by three models.
+In contrast, when applying the LOD ≥ 3 threshold, six SNPs were detected by three models and one SNP by four models for the same trait, resulting in a more satisfactory parallel detection rate.
+As a notable observation, while pLARmEB was able to detect SNPs associated with the WW trait under LOD ≥ 3 threshold conditions, ISIS EM-BLASSO failed to identify any SNPs associated with the BW trait even at the same LOD threshold.
+The underlying basis for this differential detection capability remains unclear.
+To facilitate independent evaluation by readers, the multi-locus GWAS results under LOD ≥ 3 conditions are presented in Supplemental TableS1.
+Among the SNPs associated with the BW, oar3_OAR2_58511524, Chr3:84999096, oar3_OAR4_105954111, OAR10_31255390.1, Chr19:48330391, and oar3_OAR22_24309813 were located in the intron regions of theGNAQ,CDKL4,PIP,SLC7A1,PBRM1, andSORCS3genes, respectively, while Chr23:960746 was located upstream of theNFATC1gene.
+Similarly, four of the SNPs associated with the WW, s09049.1, OAR6_116658909.1, s68294.1, and oar3_OAR13_33751699, were found in the introns of theBABAM2,NOP14,SKAP1, andSVILgenes, respectively.
+These findings highlight the importance of sequencing the coding regions of these associated genes to identify potential causal mutations.
+Other annotated genes for both traits were located in the intergenic regions (Table4).
+Some of the annotated genes are involved in critical processes, i.e., the regulation of signaling pathways, cell cycle, cellular growth, proliferation, and skeletal development, suggesting that they may be directly or indirectly related to growth performance.
+TheGNAQgene is known to have overlapping functions with its paralogGNA11in melanocytes, where they upregulate the MAP kinase pathway when constitutively active [28].
+Mutations inGNAQhave been shown to activate the RAF/MEK/ERK pathway, mimicking growth factor signaling and leading to the transcriptional activation of cell cycle genes [29].
+Moreover,GNAQmutations have been linked to differential activation of the mTOR pathway in human-transformed cells [30].
+While mTOR’s role as a regulator of growth and protein translation was previously established, contemporary understanding emphasizes its pivotal function as a central orchestrator of organismal metabolism, elicited by environmental and hormonal signals [31].
+TheTMEM38Bgene encodes the trimeric intracellular cation-B (TRIC-B) protein, which plays a crucial role in various biological processes, particularly in early skeletal development and bone cell differentiation.
+Studies have demonstrated thatTMEM38Bis essential for normal skeletal development in zebrafish, asTMEM38Bknockout has been shown to result in skeletal abnormalities [32].
+In humans,TMEM38Bhas been reported as a candidate gene for pubertal growth [33].
+Furthermore, mutations inTMEM38Bhave been associated with rare autosomal recessive osteogenesis imperfecta, further emphasizing its significance in growth properties [34].
+Additionally,TMEM38Bhas been linked to ion channel activity and calcium release, which may have implications for cellular growth and signaling processes [35].
+CDKL4belongs to the cyclin-dependent protein kinase family and is responsible for cell cycle progression, including transferase activity, transferring phosphorous-containing groups, and protein tyrosine kinase activity [36].
+Also, in their study, Meckes et al. [37] suggested that theCDKL4gene could be a candidate gene for behavioral responsiveness to acute stress.
+Prolactin-induced protein (PIP) is a small secreted glycoprotein, equipped with multiple N-linked carbohydrate chains.
+Evidence indicates thatPIPpossesses immunomodulatory capabilities and is integral to cell-mediated adaptive immunity.
+Its interaction with bacteria across various genera implies potential involvement in innate immunity, augmenting host defenses against microbial threats [38].
+It is estimated that the PIP gene has been involved in cell cycle regulation, DNA replication, recombination, and repair, particularly in cellular growth and proliferation [39].
+Huang et al. [40] identified two target genes,AKT1 andMDFIC, regulated by miR-146b-3p, and observed that miR-146b-3p has the ability to suppress the PI3K/AKT pathway.
+The results revealed that bothAKT1andMDFICenhance myoblast proliferation and differentiation while reducing apoptosis in chickens, illustrating that miR-146b-3p plays a direct role in modulating the proliferation, differentiation, and apoptosis of chicken myoblasts by targeting the PI3K/AKT pathway andMDFIC.
+Furthermore, findings of a GWA study indicate that the specific variants at the MyoD family inhibitor domain containingMDFICgene could potentially influence an individual’s birth weight in pigs [41].
+The transporterSLC7A1, also known asCAT1, plays a crucial role in facilitating the uptake of cationic amino acids such as arginine, lysine, and ornithine, which are vital for cellular growth [42].
+TheCAT-1gene is integral to numerous biological processes and is essential for cell survival under stress conditions, enabling cells to resume growth promptly upon the availability of amino acids [43].
+Additionally, this gene is implicated in cell susceptibility to viral infections, serving as a receptor for specific viruses [44].
+Furthermore, the expression ofSLC7A1is induced by stress, indicating its involvement in stress-induced gene regulation [45].
+The molecular functions ofPBRM1extend to its involvement in stress response mechanisms in epithelial cells, impacting pathways related to cell adhesion, neuronal processes, apoptosis, and ER stress or proteolysis [46].
+Re-expression ofPBRM1has been shown to lead to the upregulation of genes involved in cellular adhesion, carbohydrate metabolism, apoptotic processes, and response to hypoxia, while downregulating genes associated with different stages of cell division.
+Furthermore,PBRM1controls genes influencing cell growth and mobility, highlighting its significance in these processes [47].
+TheNFATC1gene, a member of the NFAT transcription factor family, plays crucial roles in various cellular processes, including cell and muscle growth.NFATC1has been identified as a key regulator of skeletal muscle fiber type, with its transcriptional activation of slow-fiber-specific genes mediated by a combinatorial mechanism involving proteins of the NFAT and MEF2 families [48].NFATC1has been implicated in bone homeostasis, where it is essential for the differentiation of osteoclasts in the skeletal system [49].
+Additionally,NFATC1has been associated with promoting muscle fiber type transformation through CaN/NFATc1 signaling in myoblasts, indicating its involvement in regulating muscle fiber-related gene expression [50].NFATC1has also been shown to control the growth of multinucleated muscle cells through an NFATC2-dependent pathway, suggesting its role in regulating muscle cell fusion and growth [51].
+TheBABAM2gene has been implicated in regulating cell cycle progression, pluripotency, anti-apoptosis, and radioresistance in various cellular contexts.BABAM2has been shown to maintain cell cycle regulation and pluripotency in mouse embryonic stem cells in response to induced DNA damage, indicating its role in maintaining cellular homeostasis [52].
+Additionally,BABAM2has been reported to mediate the functions of Pancreatic Progenitor Cell Differentiation And Proliferation Factor gene in anti-apoptosis and radioresistance, suggesting its involvement in cellular survival mechanisms [53].
+The lactalbumin protein encoded by theLALBAgene plays a pivotal role in the biosynthesis of lactose within the mammary gland.
+Its function primarily involves augmenting the substrate affinity of beta-1,4-galactosyltransferase (B4GALT1), an enzyme responsible for catalyzing the conversion of glucose and uridine diphosphate galactose into lactose.
+The role of theLALBAgene in lactation and milk production is well-established [54].
+Because lactalbumin is a key protein in the lactose synthase complex, which is crucial for lactose production in mammary glands during lactation, one can speculate that relevantLALBAvariants inherited from the mother may contribute to better lamb feeding of ewes and increased growth performance of lambs.
+SKAP1has been identified as a key regulator in T cell motility and interactions, where it regulates RapL-Rap1 complex formation and binding to lymphocyte function-associated antigen-1 (LFA-1) for clustering.
+Additionally,SKAP1acts as a scaffold for Polo-like kinase 1, facilitating optimal cell cycling necessary for T-cell clonal expansion in response to antigenic activation [55].
+TheSVILgene encodes the supervillin protein, which plays a significant role in cellular and molecular functions related to muscle growth processes.
+Supervillin is known to bind both myosin II and filamentous actin, interacting with various cytoskeletal proteins [56].
+This interaction is possibly crucial for the structural integrity and function of skeletal muscle, indicatingSVIL’s involvement in muscle development and maintenance.
+The intricate interplay between genetic background and environmental influences contributes to the complexity observed in growth traits.
+This complexity manifests in the detection of a multitude of pathways associated with the trait under investigation.
+Specifically, when examining genes located within ± 100 Kb proximity to the BW-associated SNPs, we find their involvement in an extensive network of 19 distinct pathways, each contributing to various aspects of growth regulation and development.
+Similarly, genes situated in the vicinity of the WW-associated SNPs demonstrate their participation in 17 different pathways, underscoring the diverse molecular mechanisms underlying this trait’s expression and regulation (Fig.6).
+Transcription factors (TFs) are fundamental regulatory proteins that modulate gene expression through specific binding interactions with gene promoter regions.
+These molecular interactions are crucial for transcription initiation and the modulation of gene expression levels in response to diverse cellular signals.
+The architectural complexity of promoter regions, characterized by multiple transcription factor-binding sites, facilitates precise regulation of gene activity, thereby orchestrating various biological processes including development, cellular differentiation, and environmental response mechanisms [57–59].
+Intron splicing represents a pivotal mechanism in eukaryotic gene expression, involving the precise excision of intronic sequences from pre-mRNA transcripts and the subsequent ligation of exons to generate mature mRNA.
+This highly coordinated process, which frequently occurs co-transcriptionally, is essential for the synthesis of functional proteins.
+The efficiency and accuracy of intron splicing are governed by multiple factors, including the recognition of specific splice sites, the coordinated assembly of splicing factors, and the broader transcriptional context [60,61].
+In our study, we explored the functional roles of trait-associated SNPs in promoter regions or intron splicing mechanisms but found no SNPs within these regulatory regions.
+This lack of regulatory SNPs suggests that these are not causal variants influencing the BW and WW traits and could instead be indirect markers.
+It is also possible that phenotypic variations in the BW and WW are mainly controlled by coding region variants affecting protein structure or function.
+Future studies should therefore consider a broader approach that includes multiple layers of genomic and protein function analysis.
+In the SRBI flocks, while classical breeding value estimation methods implemented over the past 20–25 years have yielded satisfactory improvements in growth performance, they have also led to an inherent limitation: increased genetic uniformity within the sheep population.
+This homogenization has manifested in relatively low heritability values and coefficients of variation for both the BW and WW traits.
+Nevertheless, the observed heritability values of 0.282 and 0.164, alongside coefficients of variation of 17.63% and 13.80% for the BW and WW respectively, suggest that there are still potential opportunities for Marker-assisted Selection (MAS) applications.
+The statistical power analysis revealed that the statistical power for some SNPs was just below or close to the acceptable threshold (≥ 0.8).
+Although the significance threshold was set at LOD ≥ 5 instead of LOD ≥ 3 to achieve more robust statistical results, these SNPs and their relevant annotated genes should be carefully considered.
+Another limitation of the study is that it was conducted within a single nucleus flock.
+Therefore, these results need to be tested and validated, particularly in crossbred and purebred Karacabey Merino flocks raised by local farmers.
+Similarly, the findings of this study do not represent all sheep breeds.
+Before applying these results to MAS studies in other breeds, further validation in larger populations is necessary.
+Furthermore, for the SNPs associated with both traits, the connections between the annotated genes and the molecular pathways in which they are involved are based on in silico calculations, making it impossible to assert definitive functional relationships.
+Additional studies are needed to explore possible direct and indirect functional connections of these genes.
+The low heritability coefficients of both traits suggest significant environmental influences on trait variations.
+Despite the substantial impact of environmental factors, there remains notable potential for genetic improvement in these traits.
+Association analysis identified multiple significant SNPs consistently linked to the BW and WW traits across various methods, indicating their reliability.
+The complex relationship between genetic and environmental factors is evident in the involvement of numerous molecular pathways regulating growth, development, and metabolism.
+Understanding the functions of annotated genes and related pathways is crucial for devising targeted breeding and management strategies to enhance growth performance.
+This highlights the intricate interplay between genetics and the environment in shaping growth traits, emphasizing the need for comprehensive approaches to achieve genetic advancements and improve productivity in livestock farming.
+If the findings of this study are validated in different populations, it may be possible to screen the identified variants using faster and more cost-effective genotyping methods such as Restriction Fragment Length Polymorphism (RFLP), Sanger sequencing, Single-nucleotide Primer Extension (SNuPE), or TaqMan probes, and to utilise them as markers in breeding selection.
+In particular, implementing marker-assisted selection (MAS) in nucleus breeding flocks at the initial stage has the potential to create a multiplier effect in village-based flocks through the dissemination of improved genetics.
+The authors express their gratitude to the General Directorate of Agricultural Research and Policies (TAGEM) for invaluable support.
+Language editing of this manuscript was assisted by the AI-based large language models (ChatGPT 4o and Claude 3.5 sonnet).
+conceptualized and designed the study and performed the GWAS analysis.
+R.A., M.K., and Y.E.K.
+conducted laboratory work, E.H., A.Ö., and E.Ç.
+conducted fieldwork and data collection.
+Funding for this research was provided by the Republic of Turkey Ministry of Agriculture and Forestry, General Directorate of Agricultural Research and Policies (TAGEM) (Project no: TAGEM/HAYSÜD/E/20/A4/P2/2141).

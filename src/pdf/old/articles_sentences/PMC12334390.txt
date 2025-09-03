@@ -1,0 +1,240 @@
+Head and Neck Squamous Cell Carcinoma (HNSCC) is a prevalent and deadly cancer with limited treatment options, for which autophagy has a dual impact.
+Nitazoxanide is a broad-spectrum antiviral drug showing promise in treating cancer, but its role in regulating autophagy in HNSCC remains unexplored.
+The molecular mechanisms were explored through Differential expression analysis, functional enrichment analysis, risk prognostic model, nomogram model, GSEA, GSVA, WGCNA, mutation analysis, scRNA analysis, spatial transcriptomic analysis, and L1000FWD analysis.
+And the impact of Nitazoxanide was experimentally verified.
+We identified 32 differentially expressed ARGs and 4 hub genes.
+They are involved in autophagy, apoptosis, and human cytomegalovirus infection.
+And hub genes were identified as independent prognostic factors for HNSCC.
+GSEA, GSVA and WGCNA uncovered the role of the dysregulation of IFN-α response pathway in HNSCC.
+scRNA and spatial transcriptomic analyses revealed the expression models of each hub gene.
+Furthermore, potential drugs were explored using L1000FWD analysis.
+Additionally, Nitazoxanide’s function was verified in vitro.
+Our findings established that Nitazoxanide has the potential to play a role in the treatment of HNSCC.
+We suggested that Nitazoxanide acts onNKX2-3,PINK1,BIRC5andCDKN2Ato inhibit the development of HNSCC through regulating autophagy, and it is a promising candidate drug for HNSCC.
+The online version contains supplementary material available at 10.1007/s12672-025-03372-8.
+Head and neck squamous cell carcinoma (HNSCC) is one of the seventh most common cancer in the world, with more than 600,000 newly diagnosed cases each year [1] and a mortality rate of about 50% within five years [1].
+HNSCC is a malignant tumor with poor prognosis.
+Conventional treatments for HNSCC, including surgery, radiotherapy, chemotherapy, and combination therapy [2], help a little due to high recurrence rate [3], drug resistance and sequelae [4–7].
+Latest immunotherapy based on checkpoint inhibitors like nivolumab, pembrolizumab [8], and cetuximab [9] also underperforms in clinic, for it may cause hyperprogression [10] and immune-related adverse events [11].
+Therefore, searching for effective molecular-targeted pharmacotherapy has become imperative for propelling treatment of HNSCC.
+Autophagy is a catabolic process which is critical for maintaining cellular homeostasis by degrading and circulating cellular proteins and organelles [12].
+Increasing evidence supports that autophagy has a dual effect on HNSCC.
+On the one hand, autophagy plays a preventive role in the initial stages of HNSCC [13].
+In healthy cells, autophagy at basal levels removes dysfunctional or damaged mitochondria, peroxisomes, and endoplasmic reticulum (ER) [14], thereby avoiding excessive reactive oxygen species (ROS) and reducing genetic mutations and DNA damage which induce HNSCC [15].
+In tumor Microenvironment (TME), autophagy of endothelial cells drives them to apoptosis, and interfere with tumor growth through inhibiting angiogenesis [16].
+Conversely, autophagy promotes HNSCC progression and therapy resistance.
+During tumor development, it sustains metabolic function and energy homeostasis, facilitating cancer cell survival [17,18].
+Hypoxia-induced circCDR1as sponges miR-671-5p, inhibiting mTOR and activating AKT/ERK to induce pro-tumorigenic autophagy in HNSCC [19,20].
+TBC1D14 suppresses metastasis by downregulating the E3 ligase MAEA (an AMPK/PI3K/AKT pathway regulator), inhibiting autolysosome formation (reducing LC3-II, increasing p62) [21–23].
+While autophagy often confers radio/chemoresistance, context-specific effects exist: circPKD2 enhances cisplatin sensitivity in HNSCC by inhibiting miR-646, upregulating ATG13, and promoting LC3-II activation/autophagosome formation [24,25].Therefore, we speculate that inhibiting the occurrence of autophagy in cancer cells can delay the development of HNSCC and enhance its sensitivity to radiation and antitumor drugs, which may be a breaking point of effective treatment for HNSCC.
+Nitazoxanide (NTZ) is a first-in-class broad-spectrum antiviral drug, which is originally utilized as an oral antiparasitic agent [26].
+Considering the economic effects of drug development, drug repurposing has become an increasingly important direction in recent years [27].
+Increasing researches supported that it also works in treatment of tumors.
+Yi Qu et al. identified that Nitazoxanide may treat Wnt-pathway-associated cancer, like colorectal cancer, by inhibiting peptidyl arginine deiminase 2 (PAD2) in Wnt (wingless)/β-catenin signaling [28].
+Fan-Minogue et al. found out that Nitazoxanide downregulates c-Myc to suppress the progress of breast cancer [29].
+Khan et al. used a network pharmacology approach to investigate the potential to treat Hepatocellular carcinoma (HCC) of Nitazoxanide [30].
+Besides, Nitazoxanide is reported to upregulate ING1 via inhibition of autophagy and induces cell cycle arrest in glioblastoma [31].
+Additionally, nitazoxanide has been reported to modulate autophagy.
+Xiaokang Li et al. discovered that it is an autophagy activator that can increase the level of mTOR-dependent autophagy, and verified the effectiveness of this mechanism in treating Alzheimer’s disease in mice [32].
+However, its therapeutic function on HNSCC through regulating autophagy is not reported by now.
+This study pioneers the integration of bulk RNA-seq, single-cell, and spatial transcriptomics to evaluate Nitazoxanide in HNSCC, thereby resolving limitations of prior homogeneous models and enabling anatomically precise delivery strategies.
+In our study, information of 546 HNSCC samples were downloaded from TCGA website.
+On this mRNA expression data, we did differential expression analysis, functional enrichment analysis, construction of ARG-based risk prognostic model, construction of a nomogram model, GSEA, GSVA, WGCNA, mutation analysis and validation of ARGs expression.
+32 differentially expressed ARGs and 4 hub genes (NKX2-3,PINK1,BIRC5andCDKN2A) were screened out.
+The most significantly enriched pathways or terms include: IL6/JAK/STAT3 signaling pathway, interferon alpha response pathway and kras signaling in GSEA; epidermis development and neutrophil activation for BP, vesicle lumen for CC, cell adhesion molecule binding for MF in GO; MAPK signaling pathway in KEGG.
+Then we used L1000FWD analysis to find out potential drugs including Nitazoxanide.
+Lastly, experiments demonstrated the inhibit effect of Nitazoxanide on HNSCC.
+Two head and neck squamous cell carcinoma (HNSCC) cell lines, the SCC7 and UM-SCC-1 cell lines, were obtained from the American Type Culture Collection (ATCC).
+Cells were cultured in Dulbecco’s Modified Eagle Medium (DMEM, Meilunbio, China) supplemented with 10% fetal bovine serum (FBS, Meilunbio, China), 1% penicillin-streptomycin (Meilunbio, China), and maintained at 37 °C in a humidified atmosphere of 5% CO₂.
+The medium was changed every 2–3 days, and cells were passaged at 70–80% confluency using 0.25% trypsin-EDTA (Meilunbio, China).
+Nitazoxanide (Yuanye,S66442) was dissolved in DMSO to obtain a final solution with a concentration of 10mM.
+The concentration of 20µM was used for treatment.
+Cell viability was assessed using the Cell Counting Kit-8 (CCK-8, Meilunbio, China) according to the manufacturer’s instructions.
+SCC7 or UM-SCC-1 cells were seeded in 96-well plates at a density of 5000 cells/well and allowed to attach overnight.
+Cells were treated with various concentrations of Nitazoxanide (Nita) for 24, 48, and 72 h. After treatment, 10 µL of CCK-8 solution was added to each well, and the plates were incubated for an additional 2 h. Absorbance was measured at 450 nm using a microplate reader (Bio-Rad, USA).
+SCC7 cells were seeded in 6-well plates and grown to 90% confluence.
+A linear scratch was created in the cell monolayer using a sterile 200 µL pipette tip.
+The cells were then washed with PBS to remove debris and treated with Nitazoxanide in serum-free DMEM.
+Images of the wound area were captured at 0, 24, and 48 h using an inverted microscope (Olympus, Japan).
+The wound width was measured, and the percentage of wound closure was calculated.
+For migration assays, 8 μm pore size Transwell inserts (Meilunbio, China) were used.
+SCC7 cells (1 × 10⁵ cells/well) were resuspended in serum-free DMEM and added to the upper chamber, while the lower chamber was filled with DMEM containing 10% FBS.
+After 24 h of incubation, cells that migrated to the lower surface of the insert were fixed with 4% paraformaldehyde and stained with crystal violet.
+For invasion assays, the inserts were coated with Matrigel (BD Biosciences, USA) before adding the cells.
+The number of migrated or invaded cells was counted in five random fields per insert under a microscope.
+546 HNSCC samples with expression values and complete clinical information were obtained from TCGA website (https://portal.gdc.cancer.gov/repository), including 502 tumor samples and 44 paracancer samples.
+The data were divided into training group and the control group at a ratio of 7:3 (327/127) by caret package.
+232 ARGs were downloaded from HADb (http://www.autophagy.lu/).
+Thirty two differentially expressed autophage related genes (ARGs) were screened by “edgeR” package (https://bioconductor.org/biocLite.R).
+Before the heatmap analysis, the data were preprocessed with log.
+The heatmap was performed by using “pheatmap” package (https://cran.r-project.org/web/packages/pheatmap).
+Volcano map was made by the “ggplot2” package (http://docs.ggplot2.org/current/).
+Adj.P< 0.05 and | log2fold change (FC)| >1 were the standards.
+Gene ontology (GO) and Kyoto Encyclopedia of Genes and Genomes (KEGG) were conducted by “clusterProfiler”, “org.Hs.eg.db”, “enrichplot” packages in R to provide functional annotation and analyze pathway enrichment analyses.
+Adj.P< 0.05 was considered of statistical significance.
+The univariate Cox regression analysis was used to calculate a hazard ratio (HR) for univariable analysis, using “survminer” package and “survival” package (http://bioconductor.org/packages/survival/) with a p-value threshold of 0.05.
+The lasso Cox regression model was constructed with the prognostic metabolic genes screened by univariate Cox regression analysis and repeated 1,000 times to assess the robust of prognostic differentially expressed ARGs signature.
+Afterwards, the multivariable Cox regression analysis was used to obtain independent prognostic factor and to establish prognostic model.
+Receiver operating characteristics (ROC) analysis was used to evaluate the efficiency of the prognosis models that were predicted.
+Area under the curve (AUC) values were quantified by “pROC” R package.
+The risk curve was performed by a linear combination of the expression levels of the 4 genes.
+Through the Cox regression analysis, all independent prognostic factors were screened, and the nomogram in this study was created.
+The probability of 1-, 3- and 5-year OS in HNSCC patients was evaluated by “rms” package (https://cran.r-project.org/web/packages/rms/) and “survival” package.
+We drew calibration curves to assess the predicted probabilities and then compared them with the best predictive curve.
+GSEA (gene set enrichment analysis) and GSVA (gene set variation analysis) based on the risk score were algorithms for enrichment analysis that can be obtained using the “clusterProfiler” and “GSVA” package in R software.
+We selected hallmark gene set (h.all.v7.0.symbols.gmt) for GSEA and GSVA.
+For the previous data, the WGCNA package in R was used to construct the co-expression network.
+The genes whose variance was greater than the quartile of all variances, as well as the genes with larger difference and greater mean variation in different samples were screened out.
+Then analyze the expression data of the selected genes and cluster the samples to detect the outliers.
+Afterwards, according to the differences of clinical characteristics and risk score, the gene clustering module was determined.
+Finally, the pertinences between the eigengenes of these modules and clinical characteristics were counted.
+The highly relevant modules obtained were of great significance.
+The SNP data of HNSCC were downloaded from TCGA.
+The data processed by “varscan” showed that 129 samples were mutated in 464 samples of these genes.
+Waterfall maps of the genes obtained by univariate Cox regression analysis were performed using “GenVisR” and “respe2” packages.
+NKX2-3 was not analyzed due to lack of mutation data.
+The data are processed with “plyt” package, and then “ggpubr” was used to visualize the mutated gene expression in HNSCC samples and counterparts.
+The final result is presented in a violin diagram.
+Due to lack of mutation data of other genes, only 4 genes with more mutations were tested statistically.
+We obtained the tissue-specific proteomes and the overall survival curve of the genes from GEPIA database (http://gepia.cancer-pku.cn).
+Immunohistochemistry-based expression data was obtained from the Human Protein Atlas database (https://www.proteinatlas.org/).
+Single-cell and Spatially-resolved CAncer Resources (SCAR) database (http://www.scaratlas.com) was used for scRNA-seq analysis.
+The scRNA-seq data (SCAR_Atlas_0845) of head and neck squamous cell carcinoma including 5902 cells was analyzed.
+The feature plots showed the expression levels of hub genes in each cell type.
+Comprehensive repository of spatial transcriptomics (CROST) database (https://ngdc.cncb.ac.cn/crost/home) was used for spatial transcriptomics analysis.
+The data (VISDS000927) was selected for further analysis.
+Spatial plots were used to show the expression levels in the head and neck tissues.
+L1000 Fireworks Display (L1000FWD;https://maayanlab.cloud/l1000fwd/) is a web application, which provides information of drug-induced and small-molecules-induced gene expression signatures.
+In our study, it is adopted to predict the similarity of the obtained differentially expressed ARGs and to find compounds with the effect of reversing the expression signatures of them.
+All experiments had at least six replicates and one assay would replicate three times.
+The results were presented as mean ± SEM.
+Statistical significance was estimated with one-way ANOVA with Tukey’s multiple comparisons test for 3 or more groups or Student’s t test for 2 groups by R (version 4.3.0).
+Significance levels were set at *p< 0.05, **p< 0.01, and ***p< 0.001.
+The mRNA expression data and corresponding clinical information of 546 samples were obtained from the TCGA database and 464 samples were ultimately obtained after screening and matching with the data.
+No additional clustering of samples was found in the principal component analysis (PCA), and no obvious discrete values were found in the box plot, which proved that there was no inter-batch difference in the data (Supplementary Fig.1).
+32 differentially expressed ARGs were screened out, including 20 up-regulated ARGs and 12 down-regulated ARGs (P< 0.05, |log2FC| >1.0; Fig.1A).
+Differentially expressed ARGs were displayed in the heatmaps (Fig.1B) and the box plot, identifying evidently different expression between HNSCC tissues and paracancer tissues (Fig.1C).
+The result of GO and KEGG showed these ARGs were involved in autophagy, process utilizing autophagic mechanism, apoptosis and human cytomegalovirus infection, suggesting these ARGs might be associated with HNSCC-related biological process (Fig.1D–E).
+To establish an autophagy-related risk signature for the prognosis of HNSCC, the dataset was divided into a train dataset (n= 327) and a test dataset (n= 137) after excluding samples without survival information (Table1).
+Next, univariate Cox regression analysis was performed in the train dataset to evaluate relationship between 32 differentially expressed ARGs and OS in patients with HNSCC (Fig.2A).
+Totally, 9 prognosis-related differentially expressed ARGs were significantly correlated with the OS (P< 0.05).
+LASSO modeling was utilized to screen out 7 survival-related differentially expressed ARGs signature (Fig.2C).
+Subsequently, we performed multivariate Cox regression analysis to establish a predictive signature model.
+Only 4 ARGs (NKX2-3,PINK1,BIRC5andCDKN2A) had significant prognostic value for HNSCC (Fig.2B; Table2).
+The risk score for OS was calculated as follows: risk score = (−0.0852 X expression value ofNKX2−3) + (0.2007 X expression value ofPINK1) + (0.3259 X expression value ofBIRC5) + (−0.0531 X expression value ofCDKN2A).
+Then we used the risk model to generate a risk score for each patient.
+Taking the median risk score as the cutoff value, patients in training group were divided into a high-risk group (n= 163) and a low-risk group (n= 164), test group patients were assigned into a high-risk group (n= 81) and a low-risk group (n= 56).
+In addition, Kaplan–Meier curves showed that the survival time of patients with high risk score was significantly shorter than those with low risk score both in training and test group, identifying the prognosis value of the risk score in HNCSS patients (Fig.2D–E).
+The risk score, survival status and four prognostic ARGs expression profiles in these two groups were shown in Supplementary Fig.2.
+To investigate whether risk signature is an independent prognostic factor for HNSCC, we compared the prognosis value between the risk score and clinical parameters such as gender, age, stage, cigarettes and pathological.
+Both univariate Cox regression analysis and multivariate Cox regression analysis showed that M-stage, N-stage and risk score were significantly correlated with OS of HNSCC patients (P< 0.05, Supplementary Fig.3A, B).
+Then ROC curve analysis was used to assess the accuracy of the above results.
+The risk score of training group (AUC = 0.769) showed a perfect predicted effect of the survival rate of HNSCC patients in TCGA, which was higher than age (AUC = 0.623), M (AUC = 0.513), N (AUC = 0.518) and T (AUC = 0.484); and the test group obtained the similar results: the risk score (AUC = 0.767) exceed age (AUC = 0.501), M (AUC = 0.520), N (AUC = 0.538) and T (AUC = 0.537) (Supplementary Fig.3C, D).
+In summary, these data fully determined the independent role of the risk score on the prognosis of HNSCC.
+To better predict prognosis for HNSCC patients, we constructed nomograms with prognostic variables (gender, pathological, stage, cigarettes and risk score) based on TCGA training group.
+The 1-, 3- and 5- years survival probability was obtained through adding the points of each variable to total points (Fig.3A).
+The C-index of the nomogram was 0.669 and the calibration curve exhibited good consistency between nomogram predictions and actual OS observations (Fig.3B, C).
+To further identify related pathways, we firstly performed GSEA based on the risk score of autophagy-related risk signature.
+The most significantly enriched pathways of GSEA involved IL6/JAK/STAT3 signaling pathway, interferon alpha response pathway and kras signaling (Supplementary Fig. 4 A).
+Furthermore, GSVA was used to seek differentially activation or inhibition of pathway between high-risk and low-risk groups.
+Consistent with the result of GSEA, the results showed that the dysregulation of interferon alpha response pathway was closely connected to the development of HNSCC (Supplementary Fig. 4B).
+After selecting the first quarter of variance genes and excluding the outlier samples, 6107 genes and 454 samples were retained from a total of 24,428 genes and 463 samples.
+Whereafter, WGCNA package was performed to construct the weight gene co-expression network.
+The power of β = 10 was selected as the soft threshold and the fitting curve was close to 0.9 (Fig.4A).
+Afterwards, the topological matrix was converted to compute the dissimilarity degree (dissTOM).
+Based on dissTOM, we divided the genes into different co-expression modules and merged similar modules, finally obtained 14 co-expression modules (Fig.4B).
+The correlation between gene expression profile and clinical characteristics of each module was calculated, we found that the tan module was positively correlated with HNSCC risk score and tumor grade (Fig.4D).
+Simultaneously, the correlation analysis of the correlation between module membership and gene significant in tan module also obtained a high correlation coefficient (Fig.4C).
+Then, KEGG, GO enrichment analysis were used to further investigate the hub genes in tan module.
+The most significant top 15 GO terms were shown in Fig.4E, mainly including epidermis development and neutrophil activation for BP, vesicle lumen for CC, cell adhesion molecule binding for MF.
+Results of KEGG pathway enrichment analysis showed that MAPK signaling pathway was significantly enriched (Fig.4F).
+The SNP data of those 129 HNSCC patients were downloaded from TCGA data-portal.
+To investigate the association between prognosis-related genes and genetic variation, we employed mutation analysis of 8 genes obtained from univariate Cox regression analysis.
+The waterfall plot demonstrated that non-synonymous mutations are the major mutations affecting translation effects.
+Nonsense mutation and missense mutation were the main mutation types of these genes in 129 samples (Supplementary Fig.5A).CDKN2Awas mutated in 101 (78.3%) of the 129 HNSCC SNP samples,NRG3was mutated in 22 (17.1%) of the samples,EGFRwas mutated in 11 (8.5%) of the samples andITGA3had mutation in 5 (3.9%) of the samples.
+The violin plots represented expression of the first four genes with high mutation rates in HNSCC samples and normal structures (Supplementary Fig.5B).
+Firstly, we obtained immunohistochemistry images of 4 hub genes from the Human Protein Atlas Database, which revealed the strongly positive expression forBIRC5andCDKN2Abut negative or low expression forNKX2-3andPINK1in HNSCC tissues (Supplementary Fig.6A–D).
+Furthermore, the expressions of 4 hub genes (NKX2-3,PINK1,BIRC5andCDKN2A) in HNSCC and normal tissue were verified in the online database GEPIA.
+The results showed thatBIRC5andCDKN2Awere significantly high butNKX2-3andPINK1were particularly low in HNSCC relative to paracancer tissue (Supplementary Fig.6E–H).
+Moreover, survival analysis of the 4 ARGs were also performed by using patients with HNSCC from TCGA.
+Kaplan-Meier survival plot showed that the down-regulation ofBIRC5orPINK1, and the up-regulation ofCDKN2AorNKX2-3is associated with higher overall survival.
+The results of Logrank test confirmed the statistical significance of the association between these gene expression patterns and survival processes.
+The p values ofCDKN2A,NKX2-3andPINK1were less than 0.05.
+(p= 0.3 for lowBIRC5,p= 0.00021 for highCDKN2A,p= 0.0045 for highNKX2-3,p= 0.026 for lowPINK1) (Supplementary Fig.6I–L).
+Single-cell analysis revealed thatPINK1was predominantly expressed in stromal cells (e.g., endothelial cells and fibroblasts), whileNKX2-3was primarily localized to the Malignant_c16 subtype, andCDKN2AandBIRC5were enriched in malignant cells, withCDKN2Aalso detected in T cells (Fig.5A, B).
+AlthoughPINK1andNKX2-3were not captured in the spatial transcriptomic data, spatial transcriptomic analysis demonstrated that bothBIRC5andCDKN2Aexhibited elevated expression in cancer tissue compared to paracarcinoma tissue, further underscoring their tumor-associated roles (Fig.5C–E).
+Potential therapeutic intervention based on expression signature was analyzed by L1000FWD.
+Sorted by similarity score, p-value, q-value, Z-score and combined score, we got the top10 candidate drugs, including Nitazoxanide, BVT-948, Puromycin, Rilmenidine, Balsalazide, CD-437, Malonoben, Levonorgestrel, Aminopurvalanol-a and Bortezomib (Table3).
+These drugs have the potential to play a role in the treatment of HNSCC.
+Based on ranking and availability, we selected Nitazoxanide (PubChem CID: 41684), which ranked first in combined score, as a candidate for further study in HNSCC treatment.
+Furtherly, we used Autodock Vina to perform molecular docking of Nitazoxanide with the target protein.
+The combined score of Nitazoxanide is −5.32 kcal/mol, suggesting that Nitazoxanide has the ability to bind to the target protein and may play a role in it [33–35].
+We treated SCC7 cell line and UM-SCC-1 cell line with Nitazoxanide to demonstrate its biological role.
+Cell Counting Kit-8 (CCK-8) assay revealed that Nitazoxanide significantly attenuated the cell viability (Fig.6).
+Then, Transwell assays uncovered that Nitazoxanide could significantly inhibit the invasive ability of SCC7.
+Simultaneously, Wound healing assay showed that Nitazoxanide inhibited the migration of SCC7 (Fig.6).
+Therefore, these results suggested that Nitazoxanide contributed to the suppression of HNSCC.
+Nitazoxanide exerts broad-spectrum antitumor effects through multimodal mechanisms, including hepatoprotection mediated by ER stress modulation and apoptosis inhibition.
+It suppresses tumor proliferation and metastasis by targeting critical signaling pathways: notably downregulating β-catenin in the Wnt pathway to inhibit colorectal cancer [36], osteosarcoma [37], and reverse drug resistance [36].
+Concurrent AMPK activation potently inhibits mTORC1—blocking protein synthesis and cell growth—while suppressing HIF-1α to enhance autophagy [38].
+Its therapeutic potential in cell cycle targeting is evidenced by robust G1 arrest induction, primarily through AMPK-mediated CyclinD1 downregulation and disruption of CDK4/6-CyclinD complexes [38], complemented by PERK-CHOP axis-triggered p53-p21 pathway activation that elevates p21 expression and inhibits CDK2/4/6 activity [39].
+These mechanisms collectively halt DNA replication initiation and create pro-apoptotic synergies.
+Further pathway engagement includes TGF-β/Ac-KLF5 axis regulation [40], p53/caspase-dependent signaling [41], and KEAP1-NRF2 modulation [42], which collectively inhibit bone metastasis and drive diverse anticancer biological effects.
+Autophagy plays a significant function in tumorigenesis.
+The formation of autophagy requires the involvement of many autophagy-related genes, and these genes may hopefully serve as the promisingly potential targets for tumor therapy [43].
+This study used bioinformatics analysis and network pharmacology to identify hub genes related to autophagy involved in developing HNSCC.
+The direct evidence for this conclusion was obtained from animal experiments, where treatment with Nitazoxanide led to a significant reduction in autophagy.
+The medication effectiveness of Nitazoxanide was screened and experimentally verified using the network pharmacology method—medication effectiveness.
+Previous attempts to repurpose Nitazoxanide for oncology have primarily focused on bulk tumor responses, overlooking critical spatial heterogeneity in drug-target engagement.
+By integrating spatially resolved transcriptomics with autophagy mapping, this study reveals compartment-specific Nitazoxanide effects within HNSCC tumor architectures—unmasking microenvironmental barriers to efficacy that traditional approaches cannot capture.
+We identified the hub genes involved in autophagy involved in the occurrence of HNSCC, screened out the drug Nitazoxanide through network pharmacology, and verified the efficacy of the drug through experiments.
+In this study, we identified 4 hub genes (NKX2-3,PINK1,BIRC5andCDKN2A).NKX2-3is an important regulator in the development of the spleen and mucosal lymphoid tissues [44].
+Recent studies have shown that it also plays a crucial role in maintaining metabolic balance in HSCs by controlling the transcription ofULK1, a critical regulator of mitophagy [45].
+Moreover, regulating mitochondrial function,NXK2-3is a potential biomarker for pharmacological-based therapies in Head and Neck Squamous Cell Carcinoma pathogenesis [46].
+In mitophagy,PINK1and PRKN/Parkin work together to identify and target damaged mitochondria for lysosome degradation [47], which is closely related to the progression of Head and Neck Squamous Cell Carcinoma, breast cancer cells, and Lung Adenocarcinoma [48–51].
+TheBIRC5gene encodes the survivin protein, a member of the inhibitor of the apoptosis family and a promising prognostic biomarker [52–54].
+The overexpression ofCDKN2A’smRNA has been identified as a reliable marker for clinically aggressive meningiomas [55].
+In addition, crucial transcription factors (TFs) are believed to regulate autophagy by targeting their specific genes in Head and Neck Squamous Cell Carcinoma.
+These findings could potentially lead to more precise diagnosis and treatment options for patients dealing with these conditions.
+Above 4 biomarkers can be rapidly detected in biopsy specimens via IHC or RT-qPCR, enabling dynamic risk stratification.
+Spatial mapping further refines clinical deployment—BIRC5-enriched stromal niches correlate with radioresistance, guiding precise radiation field design.
+For treatment monitoring, serialPINK1expression tracking in liquid biopsies can detect emergent autophagy adaptation during Nitazoxanide therapy.
+In GO and KEGG analysis, ARGs were enriched in autophagy, process utilizing autophagic mechanism, apoptosis and human cytomegalovirus infection.
+The autophagy pathway maintains cell homeostasis by degrading and recycling cellular components in cells [56].
+And the apoptosis pathway plays an important role in regulating programmed cell death.
+The failure of the normal apoptosis process is one of the key mechanisms of tumor formation and development, and it is itself regulated by autophagy.
+Therefore, autophagy may affect the progression of HNSCC by regulating cell apoptosis [17].
+GSEA and GSVA analyses consistently pointed out that dysregulation of the interferon α response pathway was strongly associated with HNSCC.
+In addition, GSEA also identified the IL6/JAK/STAT3 signaling pathway and the kras signaling pathway.
+Interferon signaling exerts its biological effects through the JAK-STAT signaling pathway.
+The IL6/JAK/STAT3 signaling pathway plays an important role in regulating inflammatory responses and immune escape, and has been shown to promote tumor cell survival and proliferation in a variety of cancers [57,58].
+KRAS gene mutations and their downstream signaling pathways play a key role in a variety of cancers.
+Because it is closely related to the proliferation, survival and migration of tumor cells, it is a target of many cancer treatment strategies [59,60].
+Our analysis suggests that strategies to prevent HNSCC progression by regulating the above pathways are promising.
+We demonstrated that nitazoxanide is an effective treatment for HNSCC.
+While conventional HNSCC therapies (surgery, radiotherapy, chemotherapy, immunotherapy) remain cornerstone treatments, their limitations—including surgical morbidity, systemic toxicity of chemo/radiotherapy, and variable response rates to immunotherapy—highlight the need for novel targeted agents.
+Nitazoxanide emerges as a promising candidate.
+It is effective, cheap, and beneficial against various diseases, including Head and Neck Squamous Cell Carcinoma [61].
+Huang et al. showed that Nitazoxanide can modulate KLF5 function to mitigate prostate cancer [40].
+Nitazoxanide is an effective, affordable, and beneficial treatment for various diseases, including HNSCC [61].
+A study conducted by Huang et al. has proven that Nitazoxanide can mitigate prostate cancer by regulating KLF5 function [40].
+Moreover, a recent study has demonstrated that Nitazoxanide can induce cell cycle arrest and trigger cell death in colon cancer cells, either directly or as a sensitizer to other antitumor agents, particularly doxorubicin [62].
+Nitazoxanide is currently approved for clinical use in the treatment of protozoal diarrhea caused by Cryptosporidium, Giardia, and Amoeba parasites.
+Therefore, we speculate that Nitazoxanide might subsequently decrease Head and Neck Squamous Cell Carcinoma by triggering cell death.
+Our study still has limitations and needs further research.
+First, this study was mainly based on bioinformatics analysis, and only simple experiments were performed on in vitro monolayer culture systems established with SCC7 and UM-SCC-1 cell lines.
+In order to better confirm the role of Nitazoxanide in the complex HNSCC microenvironment, in vivo experiments are necessary.
+Although our analysis and in vitro experiments identified and validated the antitumor effect of nitazoxanide, we did not perform gene knockdown or rescue experiments to directly confirm the causal role of the identified core genes and pathways.
+Also, preclinical models, such as 3D cell culture models, organoids, and zebrafish patient-derived xenografts (zPDXs), will contribute to validation [63,64].
+Second, our study suggests that Nitazoxanide has the potential to treat HNSCC.
+Despite its favorable safety profile, clinical translation faces challenges: effective anticancer concentrations may exceed conventional dosing thresholds, necessitating oncology-specific tolerance evaluation.
+Furthermore, Nitazoxanide-induced hyperactivation of autophagy could paradoxically promote treatment resistance in HNSCC’s hypoxic microenvironment.
+Strategic combination with autophagy inhibitors and biomarker-driven patient stratification are essential to maximize therapeutic efficacy.
+Future efforts should prioritize validating these approaches in vivo.
+According to our bioinformatics and network pharmacology analysis, Nitazoxanide shows potential in the treatment of Head and Neck Squamous Cell Carcinoma (HNSCC).
+Our results suggest thatNKX2-3andCDKN2Amay be protective factors for HNSCC, whilePINK1andBIRC5may be risk factors.
+Nitazoxanide may prevent the progression of the disease by regulating these four hub genes.
+This suggests that Nitazoxanide could be a promising candidate drug for the treatment of HNSCC.
+These findings provide new insights for the development of new treatment strategies for HNSCC.
+As a drug already in clinical use, Nitazoxanide has a high degree of safety assurance and low development cost, which greatly increases its potential for entry into clinical trials for the treatment of HNSCC.
+We acknowledge the generous support of the HOME for researchers (https://www.home-for-researchers.com/static/index.html#/).

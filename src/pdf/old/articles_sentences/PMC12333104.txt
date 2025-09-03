@@ -1,0 +1,222 @@
+This study aims to develop and validate predictive models for postoperative complications and early recurrence in hepatocellular carcinoma (HCC) patients.
+In a 7:3 ratio, 633 post-hepatectomy HCC patients were modeled and validated.
+Using 1561 radiomic features from two-dimensional shear wave elastography (2D-SWE), predictive models for the Comprehensive Complication Index (CCI) and recurrence were constructed, refined by LASSO regression, and integrated with clinical and pathologic data.
+Model performance was assessed using calibration plots and AUCs.
+The CCI model included Rad signature (P< 0.001), platelet count (P= 0.012), neutrophil levels (P= 0.032), Emax (P= 0.023), and differentiation status (P= 0.045), with AUCs of 0.896 for the modeling cohort and 0.832 for validation.
+The recurrence model included Rad signature (P< 0.001), arginase (P= 0.038), patient age (P= 0.001), adjacent tissue’s Emean (P= 0.009), and blood flow (P= 0.03), with AUCs of 0.854 and 0.844 for modeling and validation cohorts, respectively.
+The Rad signature AUC of 0.884 surpassed the nomogram’s AUC of 0.854 in the modeling set.
+Radiomic-based CCI and recurrence models effectively predict complications and short-term recurrence in post-hepatectomy HCC patients, aiding in identifying high-risk individuals for timely intervention.
+The prevalence of hepatocellular carcinoma (HCC) has been on the rise annually, with hepatectomy currently standing as the main therapeutic approach for such malignancy [1,2].
+Following this surgical intervention, the challenges for patients extend beyond typical postoperative complications.
+They are additionally burdened with the heightened functional demand placed upon the residual liver tissue [3].
+Particularly for those already grappling with compromised liver functions, the surgical procedure might precipitate liver inadequacy or decompensation.
+This could further cascade into grave complications encompassing conditions like ascites, hepatic encephalopathy, and failures of the liver, kidney, and multiple organs [4,5].
+In patients undergoing initial hepatectomy for HCC, the recurrence rates within the first year show variation, and notably, early recurrence is associated with a more unfavorable prognosis than late recurrence [6–8].
+Recognizing the significance of this subject is growing, especially given that diverse factors influence the specific rate of recurrence.
+TACE has been shown to reduce the likelihood of recurrence in certain patient groups [9].
+Given these factors, it is imperative to pinpoint patients at heightened risk with precision.
+Presently, several prognostic models such as MELD (Model for End-Stage Liver Disease) [10], ALBI (Albumin–Bilirubin) [11,12], and POSSUM (Physiological and Operative Severity Score for the enumeration of Mortality and Morbidity) [13] are in use clinically to forecast severe complications and recurrence post-hepatectomy.
+Nonetheless, there is an evident gap in tools that synergize imaging metrics with clinical indices.
+Liver elasticity measurements might hold promise in disease forecasting [14,15].
+The field of radiomics has gained significant traction in the development of clinical prognostic models, showcasing several strengths [16,17].
+Particularly, the convergence of two-dimensional shear wave elastography (2D-SWE) with radiomics encapsulates the synergy of ultrasound elastography and radiomics methodologies.
+This combination offers a non-invasive approach that provides real-time imaging, precise quantification, and a comprehensive multi-parameter analysis.
+When these radiomic attributes are coalesced with clinical data, pathologic findings, immunohistochemical details, and other pertinent indicators, there is a notable enhancement in the precision of predictive models.
+To improve the predictive accuracy for patients undergoing hepatectomy, the Comprehensive Complication Index (CCI) model and the recurrence model have been formulated.
+These models incorporate the nuances of 2D-SWE radiomic features alongside other salient features.
+The potential enhancements within the realm of 2D-SWE radiomics in these specific domains are anticipated.
+The community looks forward to the subsequent external validation of these models.
+The research undertaken at the Eastern Hepatobiliary Surgery Hospital in China followed a prospective, single-center study design.
+Ethical clearance was granted by the institution's ethics committees under the approval number EHBHKY2021-K-011.
+Prior to their inclusion, every individual provided informed consent.
+From September 2021 to September 2023, 800 patients diagnosed with HCC––confirmed pathologically after surgery.
+However, specific criteria led to the exclusion of some patients, including those aged below 18 or above 75, those identified with distant metastasis through Contrast-enhanced computed tomography (CT) or magnetic resonance imaging (MRI), individuals who underwent preoperative interventions like radiation or chemotherapy, and those who received postoperative procedures like TACE.
+Following these criteria, 633 patients were deemed eligible for the study.
+These participants were then categorized into two groups, the modeling group and the validation group, in a 7:3 ratio, according to varied predictive outcomes (See Fig.1).
+The routine data acquisition for patients encompasses several key elements: (1) demographic details and clinical descriptors, capturing attributes like age, gender, existing health conditions, and any history of antiviral therapies; (2) results from various laboratory tests, notably full blood analysis, assessments of liver functionality, and coagulation metrics; (3) ultrasound-derived parameters such as count, dominant diameter, blood flow dynamics, echo characteristics, and rigidity evaluations; (4) determinants from pathological and immunohistochemical assessments that include differentiation levels, the presence of markers like arginase, GPC-3, and Hep-1; and (5) a meticulous record of the therapeutic interventions administered and subsequent monitoring sessions.
+In this research, the CCI serves as a tool for evaluating postoperative complications [18].
+Designed to gauge the collective impact of these complications on surgical patients, the CCI integrates both the severity and cumulative consequences on patient prognosis [19].
+This index operates through a bifurcated approach.
+Initially, it pinpoints and records all complications emerging within a defined period, often within the initial 30 days post-surgery.
+Subsequently, each of these complications receives a grade based on the Clavien–Dindo classification metrics [21].
+The CCI is derived by aggregating the values associated with every registered complication.
+When the CCI score surpasses a threshold, such as 26.2, it signifies a pronounced severity and comprehensive influence of the postoperative complications.
+Prior to embarking on hepatectomy procedures, a comprehensive assessment of hepatic function is mandatorily conducted by the designated surgeon.
+During the operation, meticulous attention ensures margins devoid of malignant remnants.
+The duration for hepatic inflow occlusion remains strictly capped at 20 min.
+Following the surgery, vigilant postoperative care is imperative, encompassing appropriate pain management, fluid balance regulation, and the deployment of prophylactic antibiotics.
+Utilizing the Acuson Sequoia diagnostic ultrasound apparatus (Siemens Healthineers, Mountain View, California, USA) paired with a 5C1 convex abdominal transducer, conventional ultrasound diagnostics were performed.
+Prior to the procedure, patients underwent a fasting period spanning a minimum of 8 h. Liver ultrasonography targeting solid liver anomalies was conducted by a seasoned sonographer boasting over a decade and a half in expertise.
+Subsequent to this standard ultrasound protocol, another specialist adept in ultrasound elastography executed 2D-SWE evaluations using the aforementioned apparatus and transducer.
+The procedure was carried out devoid of external pressure.
+With the activation of the 2D-SWE mode, visual representation of the targeted hepatic carcinoma anomaly emerged on the device screens.
+A delineated region of interest (ROI) was established, encapsulating both the anomaly and proximate hepatic tissue.
+A green representation of the lesion in the quality imagery signified attainment of the set quality threshold for the 2D-SWE illustration.
+Shear wave velocity measurements ranged from 0.5 to 4.0 m/s.
+Circular ROIs were positioned both at the densest segment of the tumor and its outer boundary.
+Peak ROI measurements were termed Emax, while the mean was designated Emean [22].
+For every anomaly, each lesion was evaluated three times [23].
+Refer to Fig.2for a visual illustration.
+When discrepancies in observations arose from the interpretation of identical images, including those of target anomalies, a trio of sonographers deliberated to attain a unanimous decision before embarking on ROI delineation.
+Using the freely available 3D Slicer software V4.10.2 (https://www.slicer.org/), a pair of sonographers delineated the ROIs for each target anomaly, as illustrated in Fig.3.
+To ensure consistency and objectivity, two experienced investigators (Radiologist A with 8 years of abdominal ultrasound experience and Radiologist B with 5 years of experience in hepatic imaging) were responsible for ROI segmentation and radiomic feature extraction.
+Both investigators were blinded to clinical outcomes and histopathological results during the segmentation process.
+To assess the reproducibility of radiomic feature extraction, inter-observer agreement was evaluated.
+A random subset of 30 cases was independently segmented by both investigators, and the extracted features were compared using the ICC.
+Features with ICC > 0.80 were considered to have good reliability and were retained for further analysis.
+The manually derived features encompass three distinct categories: (I) geometric attributes, (II) intensity parameters, and (III) texture descriptors.
+While geometric attributes elucidate the tumor's three-dimensional structural nuances, intensity parameters convey the primary statistical distribution associated with voxel intensities located within the tumor.
+Conversely, texture descriptors illuminate patterns or spatial configurations of secondary and more advanced intensity orders.
+Such texture descriptors undergo extraction through a variety of techniques, encompassing gray level co-occurrence matrix (GLCM), gray level run length matrix (GLRLM), gray level size zone matrix (GLSZM), and neighborhood gray tone difference matrix (NGTDM) methodologies.
+For the purposes of this study, the tumor's ROI encompassed its entire volumetric representation, evident in Fig.3.
+Leveraging the 3D Slicer software, equipped with the advanced PyRadiomics package plugin (https://www.radiomics.io/pyradiomics.html), a total of 1561 radiomic features underwent extraction for each delineated ROI.
+A statistical assessment using the Mann–Whitney U test was undertaken for all radiomic attributes.
+Radiomic characteristics with a significance level (P value) less than 0.05 were maintained for further analysis.
+When evaluating features known for their high reproducibility, the correlation among these features was determined using Spearman's rank correlation coefficient.
+From any pair of features with a correlation coefficient exceeding 0.9, only one was selected for retention.
+To ensure the most comprehensive representation of features, a methodical approach of greedy recursive elimination was employed.
+Specifically, during each iteration, the most redundant attribute from the current set was removed.
+To construct the signature, the Least Absolute Shrinkage and Selection Operator (LASSO) regression technique was applied to the detection dataset.
+LASSO aims to drive the regression coefficients toward zero based on the regulatory weight, which effectively zeroes out coefficients of less relevant attributes.
+The strategy involved using tenfold cross-validation, targeting the minimum criteria for determining an optimal regularization parameter, and this was pinpointed by noting the least cross-validation error.
+Subsequently, the attributes with coefficients that did not equate to zero were incorporated into the regression analysis and amalgamated to formulate a radiomics signature.
+A radiomics score was derived for every patient using a linear combination of the preserved attributes, adjusted using their respective coefficients from the model.
+For executing the LASSO regression, the scikit-learn library in Python was utilized.
+Following this approach, a subset of functions was preserved for further consideration (Fig.3).
+Following the feature selection process via LASSO, the refined features were incorporated into machine learning algorithms, notably SVM, LR, MLP, KNN, and XGBoost, to establish a risk model.
+Utilizing a five-fold cross-validation technique, a conclusive wheel signature was derived (Fig.3).
+For a comprehensive and effective appraisal of the added prognostic significance that the radiomics signature provided when juxtaposed with clinical risk factors, a radiomics nomogram was devised specifically for the validation dataset.
+This nomogram synthesized the insights from the radiomics signature and the clinical risk indicators as interpreted through SVM.
+To gauge the congruence between the nomogram's predicted outcomes post-hepatectomy and the genuine observed results, a calibration curve was formulated.
+The calibration capabilities of the nomogram were assessed using the Hosmer–Lemeshow test.
+Additionally, the decision curve analysis (DCA) was employed to determine the potential clinical benefit of the model.
+To prevent potential data leakage and ensure the methodological rigor of the analysis, the dataset was first randomly divided into a training (modeling) cohort and a validation cohort in a 7:3 ratio before any data preprocessing was performed.
+All subsequent preprocessing steps—including outlier detection, missing data imputation, and z-score standardization—were conducted exclusively within the training cohort.
+The imputation values and standardization parameters derived from the training set were subsequently applied to the validation cohort to maintain strict separation between the two datasets.
+Feature selection, including LASSO regression, as well as model construction, was also carried out solely within the training cohort.
+The final model’s predictive performance was evaluated using the independent validation cohort.
+This pipeline was specifically designed to avoid information leakage from the validation set into the model training process and to ensure a robust and generalizable evaluation of model performance.
+Every patient underwent consistent monitoring in the outpatient setting.
+Routine procedures entailed conducting physical evaluations and laboratory assays, of which alpha-fetoprotein (AFP) quantification and ultrasound evaluations stood out, occurring with a frequency spanning 3–6 months.
+Imaging studies, such as CT and MRI, were customarily scheduled semiannually.
+Tumor recurrence was defined as the appearance of new intrahepatic or extrahepatic lesions with arterial phase enhancement and portal venous washout, either at or near the primary tumor site.
+In cases where recurrence was suspected, treatment strategies such as TACE or radiofrequency/microwave ablation were selected based on tumor characteristics and patient condition.
+The criteria for recurrence encompassed the emergence of novel lesions proximal to the initial site or anywhere within hepatic or extrahepatic locations, which demonstrated arterial intensification and portal venous phase contrast clearance.
+Moreover, to address missing or incomplete follow-up data, patients lost to follow-up were censored at the time of their last documented visit.
+Data completeness was ensured by cross-checking hospital electronic medical records and, when necessary, contacting patients or their families by phone to verify outcomes.
+The statistical inferences were grounded on datasets accrued prior to September 1, 2023.
+For the data analytics, both IBM's SPSS Statistics 28 and the R software suite (version 4.0.3, sourced from the R Foundation for Statistical Computing in Vienna, Austria) were utilized.
+Continuous variables are expressed as mean ± standard deviation (SD) if they followed a normal distribution, and were compared using the independent samples t-test.
+For non-normally distributed data, the Mann–Whitney U test was applied.
+Categorical variables are summarized as counts and percentages, and were analyzed using either the chi-square test or Fisher’s exact test, depending on sample size and expected frequencies.
+Variables were stratified according to clinical outcomes to facilitate comparative analyses.
+To identify potential predictive factors, univariate analyses were first conducted.
+Variables with a P value < 0.05 were subsequently included in a multivariate stepwise logistic regression model to estimate odds ratios (ORs) and corresponding 95% confidence intervals (CIs).
+In addition, variables with an area under the receiver operating characteristic curve (AUC) greater than 0.7 were considered to have good predictive performance and included in the final nomogram.
+The predictive performance of the nomogram was evaluated using the concordance index (C-index), and its generalizability was assessed by validating the model in an independent validation cohort using R software.
+Furthermore, to explore machine learning-based risk modeling, support vector machine (SVM) and other algorithms were employed using selected features.
+The performance of each model was assessed using AUC and calibration metrics.
+An examination of clinical features was undertaken, spanning demographics, clinical data, laboratory findings, ultrasonic determinants, and the information derived from pathology and immunohistochemistry.
+To serve as focal points for this study, predictive frameworks were fashioned for both CCI and potential recurrence.
+Tables1and2portray a comparative overview of these clinical features within the training and validation cohorts.
+Notably, aspects such as age, BMI, and nationality displayed no significant variance between the two sets of patients, as evidenced by a P value exceeding 0.05.
+Thus, only those markers showing notable disparities underwent subsequent scrutiny.
+A total of 1561 hand-engineered features have been isolated for examination.
+This comprises 306 primary features, 14 delineating structural attributes, and the remaining identified as texture related.
+The extraction process for these hand-engineered attributes was facilitated through a specialized feature study tool, developed internally and anchored on Pyradiomics (refer tohttp://pyradiomics.readthedocs.io).
+All related feature statistics, inclusive of the P values, can be referenced in Table3.
+To enhance the interpretability of the selected radiomic features, we visualized the top-ranked features from both the CCI and recurrence models based on their LASSO coefficients.
+Among the 16 selected features in the CCI model, exponential_firstorder_Range represents the intensity spread in the exponential-transformed ultrasound image.
+This feature may reflect intra-tumoral heterogeneity related to necrosis, hemorrhage, or fibrosis, all of which are commonly observed in HCC and are known to increase the risk of postoperative complications.
+The lbp_3D_k_glszm_SmallAreaHighGrayLevelEmphasis feature indicates the presence of small, bright texture zones, which may correlate with microvascular invasion or necrosis patterns.
+In the recurrence model, features like exponential_glrlm_ShortRunLowGrayLevelEmphasis quantify the frequency of short homogeneous runs with low intensity, possibly reflecting irregular tumor margins or poor differentiation.
+These imaging-derived microstructural cues may reflect subtle biological processes such as angiogenesis, stromal remodeling, or satellite nodule formation that are difficult to assess visually but are captured quantitatively through radiomic analysis.
+Examining the Spearman correlation coefficients reveals the intrinsic relationships across clinical attributes.
+It becomes evident that parameters such as the long diameter, short diameter, and a general diameter exhibit the strongest correlation ties.
+Features with non-null coefficients were shortlisted for wheel score calculation, executed through the LASSO logistic regression methodology.
+The outcome of this, including coefficients and MSE from a tenfold validation process, is presented subsequently.
+A visual representation, Fig.3, depicts the wheel score, while a histogram, grounded on the chosen attributes, displays the coefficient values for the finalized non-null features.
+Within the cohort training the CCI model, notable associations emerged upon multivariate scrutiny.
+Specifically, associations with platelets (P= 0.012), neutrophils (P= 0.032), differentiation attributes (P= 0.045), and Emax (P= 0.023) were evident as depicted in Table S1.
+Similarly, when examining the training cohort for the recurrence model, distinct associations with factors like age (P= 0.001), arginase levels (P= 0.038), circulatory blood flow (P= 0.03), and the mean of paracancerous readings (P= 0.009) were brought to light in Table S2.
+The efficacy of the ultrasound signature was evaluated using several advanced machine learning algorithms.
+Among these, the SVM model emerged superior.
+In comparing this signature's efficacy against classifiers like KNN, ExtraTrees, XGBoost, and LightGBM, the optimal model was identified, with results given in Tables S3 and S4.
+Consequently, for the formulation of the clinical signature, the SVM was the chosen foundational model.
+Performance metrics indicated that for the CCI model, the SVM technique registered an AUC of 0.724 (95% CI 0.6538–0.7933) within the training dataset and an AUC of 0.647 (95% CI 0.5799–0.7142) in its validation counterpart.
+Meanwhile, in the replication framework, SVM's efficacy was marked by an AUC of 0.574 (95% CI 0.5012–0.6468) for the training set and an AUC of 0.552 (95% CI 0.4826–0.6209) for the validation dataset.
+Within the training set, both the clinical and wheel signatures achieved a good model fit, as depicted in Table4.
+Moving to the validation set, an overly precise fit was evident for the clinical signature, while the radical signature retained a robust fit.
+An analysis of AUC values across the two models for the wheel signature, within both training and validation cohorts, is visualized in Fig.4.
+A composite nomogram for the CCI model was developed integrating both the clinical and wheel signatures, with Fig.5B highlighting its superior performance.
+Similarly, an advanced nomogram for the recurrence model, designed with a prior integration of the clinical and wheel signatures, also displayed favorable performance in Fig.6B.
+The Delong test, applied to compare the clinical and wheel signatures, including the nomogram, is detailed in Table5.
+Nomogram calibration curves, spanning both the training and validation cohorts across two models, demonstrate solid agreement (Figs.5D,6D).
+Table S5 showcases the P values from the Hosmer–Lemeshow test, reviewing the clinical, wheel signatures, and nomogram, suggesting the seamless fit of the two model's nomograms across training and validation groups.
+Remarkably, in predicting recurrence, radiomics, when employed singly, displayed enhanced prognostic value over its combination with other metrics.
+Such a discovery paves the way for a potential hypothesis: elastography-centric radiomics might play a pivotal role in predicting post-hepatectomy recurrence in HCC, albeit the necessity to include other imaging benchmarks for a comprehensive comparison.
+DCA also came into play, assessing each model's merit.
+Figures5FG and6FG, respectively, present DCA for clinical, Rad signature, and the radiomic nomogram.
+The study further underscores the enhanced clinical relevance of 2D-SWE-centric radiomics in prognosticating high CCI and the likelihood of a recurrence within a year.
+The data suggest a compelling notion that primary reliance for post-hepatectomy recurrence prediction in hepatocellular carcinoma might be on radiomics grounded in elastography.
+Yet, it remains imperative to factor in alternative imaging indicators for a holistic assessment.
+In this research, the utility of DCA was tapped to scrutinize each model.
+Figures5FG and6FG illustrate the decision curve analytical outcomes for the clinical, wheel signatures, and the radiomic nomogram.
+Notably, the prognostic capabilities of radiomics anchored in 2D-SWE in forecasting elevated CCI and a one-year recurrence have been underscored.
+In treating HCC, hepatectomy has been established as a pivotal intervention, be it in early, moderate, or advanced stages [24–26].
+Challenges post-hepatectomy encompass perioperative complications [27] and heightened recurrence risks.
+Recognizing those at an elevated risk becomes imperative to facilitate timely interventions.
+A salient revelation from the present research suggests that radiomics rooted in elastography, when incorporated as a pivotal determinant, can effectively stratify patients susceptible to elevated CCI and recurrence risks.
+Emphasizing the comprehensive nature of CCI, it offers insights into the intensity of surgical complications.
+A direct correlation exists between the severity of surgical complications in HCC patients and the propensity for postoperative recurrence.
+Elevated CCI scores often signify intensified surgical complications, due to impaired physiological recovery and weakened immune function, thereby amplifying recurrence risks postoperatively [28].
+This research thus led to the formulation of distinct models for assessing CCI and recurrence, each exhibiting commendable prognostic capacities.
+In exploring the prognosis of high CCI following hepatectomy, a conspicuous positive correlation was established between liver stiffness and elevated CCI [29].
+Metrics embodying liver elasticity, notably Emax and Emean, serve as representational indicators in this study.
+Distinctly, within the training cohort, heightened values were evident in the recurrence group as opposed to its non-recurrence counterpart, harmonizing with prior scientific inquiries.
+Moreover, Emax emerged as an independent risk factor upon engaging multivariate regression analysis.
+The Aspartate aminotransferase-platelet ratio index (APRI) and platelet albumin score (PAL) have previously been implicated in associations with augmented perioperative mortality and diminished overall survival rates among patients subjected to hepatectomy [30,31].
+Presently, APRI is incorporated as a mortality-associated predictive factor in the hepatectomy selection process.
+Notably, this study has spotlighted platelet count as an autonomous risk factor, wherein a reduction in platelet counts correlates with a surge in CCI.
+The neutrophil count, acknowledged as an independent risk factor, is conversely linked with an unfavorable prognosis, an association potentially arising from liver infiltration by neutrophils, which further nurtures an inflammatory microenvironment and triggers immune cell activation [32].
+Ongoing research is notably steering toward neutrophil targeting as a prospective therapeutic strategy [33].
+In relation to poorly differentiated liver cancer, a significant association with suboptimal prognosis has been identified, potentially attributable to characteristic deep infiltration into liver tissue and vascular invasion, factors often contribute to disease progression after surgery and facilitate metastasis in alternate organs [34].
+Age delineates itself as a pivotal independent risk factor in forecasting relapse in postoperative contexts.
+Specifically, younger patients who undergo surgical intervention for liver cancer manifest a heightened susceptibility to recurrence, potentially attributable to the pronounced malignancy, expedited growth, and marked invasiveness of the tumor [35].
+This susceptibility might be intertwined with aspects like genetic mutations and aberrations in the signaling pathways of patients.
+This research underscores that the positive expression of arginase, a critical enzyme in modulating amino acid metabolism, portends an unfavorable prognosis [36].
+Antecedent studies have illuminated that arginase, through modulating amino acid metabolic processes, can instigate alterations therein, which, in turn, influence the energy metabolism and proliferative characteristics of tumor cells, fostering the recurrence of liver cancer in due course.
+An escalation in arginase levels might stifle immune functionality, thereby diminishing the immune cells' cytotoxic impacts on tumor entities [37], paving the way for liver cancer cells to circumvent immune detection and escalating the recurrence risk.
+The present study identifies elevated blood flow as an independent risk factor instrumental in precipitating early recurrence in HCC, potentially due to its role in delivering an abundance of nutrients and oxygen to the metabolically active and rapidly proliferating liver cancer cells, thereby fueling their growth and proliferative activities [38].
+Historical research data underscore that liver cancer recurrence can instigate tumor angiogenesis, frequently correlated with enhanced invasiveness and metastatic capability [39].
+2D-SWE radiomics melds the benefits of both 2D-SWE and radiomics, acting as an ultrasound-based image evaluation technique, which presently finds utility across varied facets of HCC.
+This method provides a conduit for diagnosing and distinguishing liver diseases by scrutinizing the elastic attributes of the lesion-involved tissue [40,41].
+Employing 2D-SWE radiomics for the quantitative gauging of elastic parameters enables the assessment of liver disease prognoses [42].
+Furthermore, this technique can facilitate the observation of the hepatic cancer response throughout the treatment process [43].
+Despite its capabilities, prior studies have predominantly leaned on hardness values, presenting a potential for operator-influenced subjectivity.
+The current research expands upon this by employing 2D-SWE radiomics for simultaneous prediction of complications and early recurrence episodes, yielding encouraging outcomes.
+Notably, the prognostic assessment efficacy of this methodology demonstrates substantial effectiveness.
+In developing radiomics-based prediction models, we addressed the challenges of high-dimensional data, particularly overfitting and feature instability, by applying LASSO regression.
+The optimal penalty parameter (λ) was selected via tenfold cross-validation to balance model complexity and generalizability.
+To ensure feature reproducibility, only radiomic features with high inter-observer agreement (ICC > 0.80) were retained, minimizing variability from ROI segmentation.
+These stable features were used to build models for predicting CCI and early recurrence.
+Model performance was evaluated not only by AUC but also by DCA.
+These strategies—including LASSO regularization, cross-validation, feature stability filtering, and multi-metric evaluation—were employed to reduce bias and enhance the reliability and clinical applicability of our models.
+Certain limitations within this study warrant attention and discussion.
+Initially, the findings elucidated herein originate from a dataset singularly derived from one center, thereby potentially circumscribing the results' applicability and generalizability to diverse populations and varied settings.
+Consequently, to affirm the robustness and application viability of the proffered models, external validation, facilitated by employing independent datasets sourced from several centers, becomes imperative.
+Additionally, the absence of data pertaining to long-term follow-up emerges as a subsequent limitation within the confines of this investigation.
+For a comprehensive evaluation of the recurrence model's predictive accuracy, securing and scrutinizing long-term outcome data remain paramount.
+Conclusively, the establishment of two predictive models, intricately built upon 2D-SWE radiomics signatures, has been executed in this investigation.
+Each model demonstrates notable predictive performance and exhibits commendable predictive value concerning the manifestation of severe complications subsequent to hepatectomy, as well as in relation to short-term recurrences among HCC patients.
+Noteworthy is the substantial proficiency showcased by the application of 2D-SWE radiomics features in isolation, particularly in forecasting early recurrence with notable precision.
+This approach not merely facilitates the identification of individuals at elevated risk following hepatectomy, warranting early intervention, but also minimizes errors in subjective assessment inherently tied to ultrasound imaging techniques.
+Hence, this potential highlights the considerable potential for broader clinical adoption in broader contexts.
+Prior to this study, predicting post-hepatectomy complications and early recurrence in hepatocellular carcinoma (HCC) patients remained challenging.
+Existing methods lacked the precision and effectiveness needed for timely medical responses in managing these patients post-surgery.
+This study introduces and validates new predictive models based on radiomic features from two-dimensional shear wave elastography (2D-SWE) for forecasting complications and early recurrence in HCC patients after hepatectomy.
+The Comprehensive Complication Index (CCI) and recurrence models demonstrated high predictive accuracy, with area under the receiver operating characteristic curve (AUC) values of 0.896 and 0.854, respectively.
+Notably, the 2D-SWE radiomic signature showed superior predictive capacity for short-term recurrences compared to the recurrence model alone.
+The findings from this study have significant implications for clinical practice in managing HCC patients.
+The models could be instrumental in identifying patients at elevated risk for postoperative complications and recurrence, allowing for more tailored and timely medical interventions.
+This approach may also guide future research in enhancing predictive methodologies and refining patient management strategies in HCC and other similar conditions.

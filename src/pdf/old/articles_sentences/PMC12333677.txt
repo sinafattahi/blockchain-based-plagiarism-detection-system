@@ -1,0 +1,246 @@
+The development of functional soft materials has motivated replacing rigid electronics with stretchable logic structures.
+However, soft logic gates for macroscopic soft robots usually operate at low frequencies (<5 hertz).
+Here, we present high-frequency soft logic gates based on soft electric switches with ultralow latency (2 milliseconds).
+Fast switching is achieved using a tailored piezoresistive material—graphite frameworks (GFs)/polydimethylsiloxane (PDMS) and dielectric elastomer actuators (DEAs).
+The GFs/PDMS strip exhibits a large resistance change within ~0.01% strain, allowing soft logic gates to operate up to 100 hertz.
+A soft oscillator is further developed using feedback control with a soft NOT gate and achieves autonomous deformation across ~1 to 78 hertz, demonstrating actuation, sensing, and feedback control capabilities.
+Compared to other soft electrical switches, this scheme also features a compact size (5 cubic centimeter) and low power consumption (0.4 milliwatts).
+This work enables fast, accurate control for electrostatic soft robots, enhancing their autonomy and interaction capabilities.
+Soft reconfigurable logic gates based on soft electric switches can operate at 100 Hz with an ultralow latency of 2 ms.
+Soft robots exhibit outstanding adaptability in unstructured environments due to their unique characteristics of material compliance and intrinsic safety (1,2).
+Despite tremendous progress in soft actuators, sensors, and power sources, most soft robots still use rigid silicon-based control schemes, such as the jumping robot (3), the crawling robot (4,5), and the undersea robot (6). Such a scheme ensures fast and accurate control of these soft robots.
+However, the presence of rigid electronics reduces the adaptability and compliance of the whole system and poses challenges for their mechanical integration.
+In contrast, controllers based on functional soft materials exploit the material and structural intelligence inherent in soft materials to perform logical operations, demonstrating robustness, easy structural integration, and excellent environmental adaptability (7–14).
+Nevertheless, there is still a need for further improvements in computational speed.
+Recent advancements in electronic-free soft robots have demonstrated the effectiveness of fluidic logic gates (7–19).
+Various mechanisms—such as the buckling of sheets (7), the snap-through instability of spherical shells (8,9), the bistability of membranes (10), and the interaction of tubes with pressurized chambers (11,12) and balloons (13,14)—have been used to create kinks in tubes (15), enabling control of fluid flow and constituting soft valves.
+Soft logic gates, oscillators, and pneumatic circuits based on these valves achieved high flow rates (~2 to 4 liter/min) (7,9,13–18).
+However, their large scale led to low operation frequencies (~0.1 to 15 Hz).
+To accommodate large flow rates and fast switching times, a four-terminal fluidic transistor with digital logic on a millimeter scale has been proposed (19), shortening the switching time to milliseconds while maintaining flow rates of liters per minute.
+Nonetheless, these designs only work for fluidic actuators.
+Many actuation mechanisms, such as shape memory alloys and electroactive polymers, still necessitate electrical feedback for operation (20).
+Two main approaches exist to implement control functions and make logic gates that could generate electrical logic signals for macroscale soft robots.
+One is directly embodying control functions into soft materials and actuators.
+A typical representative is mechanical logic gates, which encode computing information into deformed states of mechanical systems.
+Recent advances in embodying logic processing of mechanical stress inputs into digital electrical outputs were achieved by combining elastic instabilities in soft metamaterials with compliant conductors (20,21).
+In each building block, digital bits were defined according to reversible mechanical configurations.
+Stimuli-responsive materials allowed the electrical logic gates to respond to environmental changes, such as pH (22), light (23), and solvent (24). However, these schemes were usually designed for each individual case and functioned slowly, limiting their ability to respond promptly to complex surroundings (25). Another method embodies control of driving signals.
+Electrostatic soft actuators can generate reversible actuation under electric fields at a rapid response speed.
+To control electrical signals, soft electrical logic gates based on dielectric elastomer switches leveraged a mechanically sensitive material to convert the deformation of dielectric elastomer actuators (DEAs) into electrical signals.
+Although this was practical for controlling high voltage without rigid electronics, the large resistance of dielectric elastomer switches compromised the fast actuation speed of DEAs, limiting the computing speed of the soft logic gates to less than 0.5 Hz (26–29).
+Other soft electrical logic gates were fabricated on the basis of various electroactive materials, such as liquid crystal elastomers (30), liquid metal droplets (31), and conductive supercoiled polymers (32). However, they were typically bulky and processed signals at slow speeds (~0.1 to 5 Hz).
+Here, we introduce a soft electric switch as the basis for soft logic gates.
+This switch consists of two soft actuators (DEAs) and a functional piezoresistive material [graphite frameworks (GFs)/polydimethylsiloxane (PDMS)], which features a three-dimensional conductive network formed by overlapping graphite sheets.
+The resistance of the GFs/PDMS composite increased with strain until reaching a critical threshold.
+Beyond this point, the resistance increased by several orders of magnitude within a narrow strain range, shifting from a low-resistance to a high-resistance state.
+Upon release of strain, the resistance rapidly returned to its initial low-resistance state.
+Such a property, combined with the fast actuation of DEAs, endowed the soft electric switch with three key features: (i) an exceptional increase in resistance by a factor of over 107ohms (limit of the measurement range of the instrument); (ii) an ultrashort switching time of 2 ms; and (iii) a high reliability under high-frequency operation of over 1 million cycles.
+We demonstrated basic logic gates (NOT, AND, OR, NAND, and NOR) based on different combinations of soft electric switches with DEAs.
+These gates processed information swiftly at 100 Hz with negligible signal latency.
+Furthermore, a frequency-tunable soft oscillator based on a single NOT logic gate was shown, which illustrated the potential for making DEAs self-oscillating at a control signal.
+The proposed design of soft logic gates with outstanding performance is poised to elevate the functionality of soft controllers, thereby augmenting soft robots’ autonomous locomotion and interaction with dynamic and unstructured environments.
+The soft logic gates demonstrated in this paper were built on a soft electric switch.
+This switch consisted of a thin strip of GFs/PDMS and two high-speed DEAs, as shown inFig.
+1, A and B. The conducting three-dimensional (3D) GFs/PDMS strip was encapsulated by silicon (Ecoflex 00-10, Smooth-On) and placed between two rectangular DEAs, each of which was composed of a thin membrane of a dielectric elastomer (VHB 4910, 3M), sandwiched between two compliant electrodes (carbon conductive grease, MG Chemicals).
+To mitigate the impact of viscoelasticity on actuation speed (33), the DEAs were biaxially prestretched by 400%, which increased the membrane stiffness and significantly reduced their response time.
+Detailed fabrication of the DEAs is illustrated in fig. S1.
+For each DEA, upon application of voltage, positive and negative charges accumulate on the two electrodes, and an attraction (i.e., the Maxwell stress) is generated to compress the elastomer, leading to its areal expansion (34). Consequently, the elongation in the vertical direction stretches the GFs/PDMS strip.
+(A) Mechanism of the soft switch.
+It is composed of a GFs/PDMS strip and two high-speed DEAs.
+When no voltageVinis applied on the DEAs, the GFs/PDMS strip is conductive with a small resistance (RGFs/PDMS: ~102ohms), making the switch closed.
+WhenVinis larger than a threshold due to microcracks among internal graphite layers, the GFs/PDMS strip is nonconductive with a large resistance (RGFs/PDMS: >109ohms), making the switch open.
+The measurement range of the resistance meter is limited to 109ohms.
+GND, ground.
+(B) Images of the soft switch at two typical working states.
+(C) Experimentally measured resistanceRGFs/PDMSas the voltage applied on DEAsVinvaries.
+The ratio of resistance in the two states is more than 107.
+(D) Experimentally measured output voltage of a soft NOT logic gate that based on a soft electric switch asVinvaries, demonstrating that this soft logic gate can process signals at 100 Hz.
+(E) Using a soft electric switch to control an LED (movie S1).
+(F) Using a soft oscillator to control heart-shaped DEAs.
+The DEAs oscillate at 30 Hz, when connected to a DC voltage source (movie S2).
+When no voltage is applied to the DEAs, the resistance of the GFs/PDMS strip, denoted asRGFs/PDMS, is on the order of102ohms owing to the excellent electrical connection between adjacent graphite layers.
+As a result, the soft electric switch is closed in the circuit (state 1).
+When a high voltageVin(>4 kV) is applied, the DEAs expand and thus stretch the GFs/PDMS strip.
+Once the strip is stretched more than a threshold strain (~4.7%), microcracks between adjacent graphite layers form, electrically disconnecting internal conductive networks.
+Thus,RGFs/PDMSgrows rapidly to exceed 109ohms.
+As illustrated inFig.
+1A, the soft switch is open in the circuit (state 2).
+Figure 1Cdepicts the resistance change of the GFs/PDMS strip as a square voltage is applied to the DEAs.
+The resistanceRGFs/PDMSquickly followed the change ofVin, switching between102and 109ohms.
+We used a digital multimeter (970A, Keysight) to measure the resistance with a measurement limit of 109ohms, so that the maximum ratio for resistance variation is marked as 107.
+This resistance ratio is larger than those of dielectric elastomer switches reported in the literature (27–29).
+Furthermore, the sudden jumping between two typical states (states 1 and 2) can be achieved within a few milliseconds.
+The above experimental observations contribute to the fast signal processing or computational capability of soft logic gates, such as a NOT gate that functions well at 100 Hz (Fig. 1D).
+This high-frequency operation surpasses those of previous soft logic gates (20–24,26–32), as will be discussed later.
+With these prominent attributes, our soft logic gates can respond rapidly to external stimuli.
+We demonstrate the applications of a soft electric switch in controlling a light-emitting diode (LED) effectively (Fig. 1Eand movie S1) and a soft oscillator for stable and autonomous actuation under a constant voltage input (Fig. 1Fand movie S2).
+The GFs/PDMS strip is a piezoresistive material, which has great potential in the application of flexible electronics and devices due to their good processability, high sensitivity, mechanical flexibility, negligible hysteresis, and superior reliability (35). As shown inFig.
+2A, the expanded GFs exhibit a self-supporting and porous structure.
+The graphite sheets are vertically stacked and laterally overlapped across multiple layers, forming an interconnected network that ensures excellent initial electrical conductivity.
+The GFs/PDMS strip is obtained by impregnating PDMS into the GFs and cutting the composite into strips (Fig. 2B).
+The switching function of a GFs/PDMS strip is related to microcracks in the graphite networks caused by mechanical stretching, whereas the polymer matrix remains structurally intact (Fig. 2C) (36). As illustrated in the schematics, the internal conductive network is continuous and undivided before stretching (state I); The SEM image shows that adjacent graphite sheets tightly overlap.
+Because of the excellent electrical connection with negligible contact resistanceRj,RGFs/PDMSis ~102ohms (fig. S2, B and C, left).
+With increasing strain,Rjgradually rises due to the decreasing contact area between graphite sheets until the two sheets are shifted to the point where they are just contacting, as indicated by an extremely fine crack (state II).
+With further stretching, the deformed PDMS induces further sliding between the adjacent graphite sheets until cracks appear (state III), causingRGFs/PDMSto rapidly jump beyond 109ohms (fig. S2, B and C, right).
+As experimentally illustrated inFig.
+2D, the resistance of the GFs/PDMS strip gradually increases from state I to state II and then abruptly jumps to state III at the critical strain (~4.7%).
+The strain region in whichRGFs/PDMSrapidly increases is denoted as the active switching region (pink), which reflects the switching speed of the soft electric switch, while the low-resistance (blue) and high-resistance (gray) states correspond to the on and off states of the electric switch, respectively.
+The switching performance of the piezoresistive material could be effectively modulated by manipulating the microstructure of conducting networks and the macrostructure of conducting layers (37). For example, a narrow conductive path would more likely generate a large resistance change under a small strain because separated condition appears more easily.
+(A) Images of the GFs and its through-plane microstructure.
+(B) Image of the GFs/PDMS strip.
+(C) Schematics of the conductive networks within the GFs/PDMS strip at three states during stretching, accompanied by corresponding SEM images on the right.
+The dashed lines in state II are added for easy visualization of fine cracks between two sheets.
+(D) Experimentally measuredRGFs/PDMSas a function of strain for a GFs/PDMS strip.
+The resistance-strain curve of GFs/PDMS strip depicts three critical strain states (I, II, and III) and active switching behavior (pink) between low-resistance (on, blue) and high-resistance (off, gray) states.
+(E) Experimentally measuredRGFs/PDMSduring the stretching and releasing cycles of the GFs/PDMS strip.
+For both the rising and falling edges,RGFs/PDMSchanges by more than 104ohms in 2 ms. (F)RGFs/PDMSin response to an input square wave voltage applied to a soft electric switch, with switching occurring within 3 ms.
+The conducting network recovers its initial connected state from a disconnected state when the strain is reduced because of the excellent mechanical stability and flexibility of the materials (Fig. 2E).
+As shown in the zoomed-in views, the GFs/PDMS strip can achieve a fast transition between different states in milliseconds for both the rising and falling edges of the first cycle.
+The long-term durability of the GFs/PDMS strip was confirmed through cyclic loading and unloading tests more than 10,000 cycles (fig. S2D).
+We experimentally validated the detection capability of the GFs/PDMS strip by activating the soft electric switch with an external mechanical stimulus, which induced strain in the GFs/PDMS strip and triggered a resistance change (movie S3).
+When the DEAs are triggered by a step input of voltage, the soft electric switch can shift between on and off states in3ms, further demonstrating that the soft electric switch can react to external stimuli quickly (Fig. 2F).
+We fabricated a soft NOT logic gate based on the electric switch by connecting a resistor (Rseries, ~105ohms) in series with the GFs/PDMS strip in a 5-V circuit (Fig. 3A).
+In this voltage divider circuit,RGFs/PDMSvaried with the input voltageVin, which was controlled via LabVIEW and applied to actuate the DEAs, while the output voltageVoutwas measured acrossRseries.
+To interpret the mechanism of this soft logic gate, we assignVin<0.1kVthe binary value “0” andVin>4kVthe binary value “1” for the input terminal because these values correspond to the on and off states of the soft electric switch.
+Similarly, for the output terminal,Vout<0.5VandVout>4.5Vare defined as the binary values0and1, respectively.
+As illustrated inFig.
+3B, this soft NOT gate outputs the inverse of its input signal, i.e., given an input of1, the output is0, and vice versa.
+(A) Schematic of experimental setup and equivalent circuit diagram.
+(B) Symbol and truth table of the NOT logic gate.
+(CtoF) Experimentally measured input and output voltages of the NOT logic gate at various frequencies 0.1 Hz (C), 1 Hz (D), 10 Hz (E), and 100 Hz (F).
+The response time at 100 Hz is smaller than 2 ms. (G) Demonstration of the soft NOT logic gate at 100 Hz (movie S4).
+When the input voltage is0, the LED is on (left).
+Otherwise, the LED is off (right).
+We measuredVoutas a function ofVinat various frequencies 0.1, 1, 10, and 100 Hz, respectively.
+As shown inFig.
+3, C to F, a step change in input voltage can effectively invert the output voltage.
+Specifically, zooming into one cycle data of 100 Hz, for both the rising and falling edges, the response time is within 2 ms. Compared to the delay observed inFig.
+2F, where the soft electric switch operates at 1 Hz, the resistance variation is smaller at a higher frequency (100 Hz; fig. S3).
+When the DEAs are actuated at 100 Hz, deformation occurs rapidly near the active switching region (Fig. 2D, pink).
+In contrast, the DEAs experience a larger strain amplitude at 1 Hz, spanning the entire resistance changing range—including the low-resistance state (blue), active switching region (pink), and the high-resistance state (gray).
+Besides, power consumption remains stable at ~0.4 mW as the frequency increases from 0.1 to 100 Hz (fig. S4 and table S1).
+The efficient use of DEAs enables switching with low-power consumption.
+The functionality of this soft NOT gate is demonstrated by an LED, whose on/off state is consistent with the corresponding output voltage, where the switching frequency is 100 Hz, and the real-time frames representing two different states are spaced 2 ms apart (Fig. 3Gand movie S4).
+We also conducted a frequency response test at low temperature (fig. S5A).
+The output voltage was effectively controlled across a frequency range of 0.1 to 100 Hz at −13°C (fig. S5, B to E and movie S5).
+Furthermore, it successfully operated for over 105cycles at 10 Hz without failure after the temperature increased to 25°C, demonstrating the reliability of the design for logic computing.
+By optimizing the electrode configuration (38,39), we experimentally verified that the NOT gate can operate for more than 1 million cycles at 100 Hz without severe performance degradation, demonstrating the high durability of both the GFs/PDMS strip and DEAs (fig. S6).
+We designed different soft logic gates based on the soft electric switches.
+A NOR logic gate with two inputs can be fabricated by combining two switches in series, withVinAandVinBrepresenting two input terminals, respectively, andVoutthe voltage drops across a resistorRseries(Fig. 4A).
+For the NOR gate,Voutis0as long as at least one input terminal is1(Fig. 4B).
+When at least one switch is off, the sum ofRGFs/PDMSis far larger thanRseries, makingVout=0(Fig. 4C, except the first mode).
+Otherwise,Vout=1.Figure 4 (D and E)illustrates the functionality of the NOR gate at 100 Hz.
+WhenVinBis fixed at0andVinAis a square wave of 100 Hz, the NOR gate is equivalent to a NOT gate withVoutalways reversingVinA(Fig. 4D).
+WhenVinBis fixed at1, no matter whetherVinAis0or1,Voutremains0(Fig. 4E).
+(AtoE) NOR logic gate.
+(A) Mechanism and equivalent electrical circuit.
+(B) Symbols and truth table.
+(C) Four typical states.
+[(D) and (E)] Characterization by varying two terminals at 100 Hz independently.
+(FtoJ) NAND logic gate.
+(F) Mechanism and equivalent electrical circuit.
+(G) Symbols and truth table.
+(H) Four typical states.
+[(I) and (J)] Characterization by varying two terminals at 100 Hz independently.
+In a NAND gate, two soft electric switches are connected in parallel (Fig. 4F).
+Its output is0only when both input terminals are simultaneously1(Fig. 4, G and H).
+The results are experimentally verified inFigs.
+4I and J. WhenVinBis1,Voutis the reversal ofVinA(Fig. 4I).
+WhenVinBis0,Voutis always1, independently ofVinA(Fig. 4J).
+OR and AND gates can be designed based on the same configuration as the NOR and NAND gates, respectively, instead of employing additional modules.
+An OR gate can be constructed by using the same configuration as the NOR gate but using the voltage drops acrossRGFs/PDMSasVout(fig. S7).
+The AND logic gate employs the same configuration as the NAND gate using the voltage acrossRGFs/PDMSasVout(fig. S8).
+Details of additional combinational logic gates—including XOR, XNOR, half-adder, and full-adder—are provided in figs.
+S9 to S12.
+These circuits, constructed by reconfiguring multiple soft electronic switches, demonstrate effective integration and signal propagation between different logic gates.
+Soft oscillators, composed of an odd number of soft NOT logic gates, can generate periodic signals from a constant input signal, enabling coordinated actuation among soft actuators with less rigid electronics (7,8,18,40).
+We developed a soft oscillator based on the feedback control of a single NOT gate (Fig. 5A).
+The feedback circuit contains a constant voltage sourceVin, a voltage amplifier (AMPS-20B20, Matsusada), a MOSFET (IRF 520 N), and a charging resistorRc.
+The voltage onRseriesis used to control the ON/OFF state of a MOSFET, whose threshold voltage is2V.
+The MOSFET controls the input voltageVinto the voltage amplifier, which is used to actuate the DEAs.
+The resulting cyclic process can be interpreted as follows.
+Initially,RGFs/PDMSis far smaller thanRseries; thus, the voltage onRseries(5V) is high enough to turn MOSFET on, causing the actuator to be actuated (state 1).
+As the actuator expands,RGFs/PDMSincreases until the voltage across the resistorRseriesis lower than the threshold voltage, turning MOSFET off and causing the actuator to discharge and contract (state 2).
+WhenRGFs/PDMSdecreases, the MOSFET turns on again, and the oscillator recovers to state 1.
+(A) Mechanism of the soft oscillator.
+(B) Equivalent electrical circuit of the soft oscillator at a controlled input voltage.
+(CandD) Experimentally measuredVoutandDABwithRc=0or 109ohms, respectively.
+(E) Frequency as a function ofRcfor several levels ofVin.
+(F) Experimentally measured frequency as a function ofRcfor varied capacitance of DEAs.
+(G) Comparison of the natural frequency and volume of soft logic gates (NOT gate) (denoted as N) and oscillators (denoted as O), which could output electrical signals.
+Our NOT gate and oscillator exhibit high frequencies (100 and ~78 Hz) and a small volume of 5 cm3.
+Figure 5Bshows the equivalent circuit diagram for the system illustrated inFig.
+5A, whereRcis used to tune the oscillation frequency of the system according toRctime, which alters the charging time of soft capacitors (i.e., the DEAs).
+This observation is verified by the experimentally measured voltage for amplifierVoutat different frequencies through varyingRc(Fig. 5, C and D, and movie S6).
+The larger the value ofRc, the slower the natural frequency.
+Apart fromRc,Vinmay also affect the oscillation frequency (Fig. 5Eand movie S7).
+WhenRcis fixed, a higherVinleads to a higher frequency by enabling the DEAs to expand faster to the threshold strain.
+We applied three different input voltagesVin, leading to the oscillation frequency increasing from30to40Hz, whenRc=0ohm.
+In addition, we also investigated the impact of capacitance of DEAs on the oscillation frequency inFig.
+5Fand fig. S13.
+The DEAs with a larger area have a bigger capacitanceC; they show a slower oscillation frequency than those with a smaller area, whenRcandVinare kept the same.
+This observation is consistent for differentRc.
+As a result, the oscillator experimentally demonstrates a stable and controllable performance by tuningVin,Rc, andC.
+Movie S8 demonstrates a soft robot based on a deformable soft oscillator, in which the DEA is supported by a soft frame and thus becomes deformable, demonstrating the potential for integration with soft robotic systems.
+The scheme, based on the relationship between electrical signalsVinandVout, functions as a soft oscillator that can generate a periodic output from a dc input at a wide range of oscillation frequencies.
+From the aspect of actuation (experimentally measured distance between points A and BDABinFig.
+5, C and D), it could be regarded as a flexible actuator that achieves self-excited oscillation through self-sensing deformation states.
+In a word, this design can be considered as not only a soft controller but also an “intelligent” actuator, promising to enable soft robots with a simpler structure but more flexibility, intelligence, and autonomy.
+Figure 5Gsummarizes the reported highest operating frequencies of different types of soft electrical logic gates (NOT gate) and oscillators versus their volumes.
+The logic gates based on dielectric elastomer switches exhibited a relatively large design (~10 cm3) and low operational frequencies (<0.5 Hz) due to the viscoelastic behavior and slow charging/discharging rates of the structures (26–29).
+The logic gates leveraging liquid metal could achieve a small size of less than 1 cm3but was limited to a frequency of 3 Hz, as the liquid metal droplet required time to reset to its initial position for subsequent actuation cycles (31). Other electrically driven logic gates, such as those based on liquid crystal elastomers (30) and conductive super-coiled polymers (32), which constructed a mechanical-electrical network to modulate binary output signals, typically featured a large dimension (>20 cm3) and slow computational speeds (<0.5 Hz) due to the slow response and recovery times.
+This is also common for other soft logic gates that can output electrical signals but activated by different stimuli (<1 Hz, ~2 to 50 cm3), such as mechanical stress (20,21), pH (22), light (23), and solvent (24). The computation speed of soft logic gates determines the responsiveness of soft robots to their surroundings, while the oscillation frequency of soft oscillators influences their movement performance.
+The oscillators based on dielectric elastomer switches occupied large volumes due to the integration of three NOT gates with the highest operational frequency approximately reaching 7 Hz (40–43).
+In this study, we leveraged a GFs/PDMS strip and DEAs to endow a NOT gate with a fast-operating frequency (100 Hz) and a small volume (5 cm3).
+Both the rapid actuation speed of DEAs and the fast switching of the GFs/PDMS strip contribute to the process of an electrical stimulus in 2 ms. In addition, our soft oscillator exhibited a higher oscillation frequency based on the feedback control of a single NOT gate, allowing a wider tunable frequency range (from ~1 to 78 Hz).
+Furthermore, the maximum oscillatory frequency could be further improved by decreasing the capacitance and resistance of the oscillator.
+In summary, we introduced a customized piezoresistive material GFs/PDMS, whose resistance gradually changes with increasing strain in the low-resistance state and rapidly jumps through the active switching region to a high-resistance state, achieving an exceptional increase of the resistance by a factor of over 107ohms.
+Exploiting this property, we developed a soft electric switch, demonstrating extremely fast switching behavior when triggered by high-speed DEAs.
+Through the strategic reconfiguration of soft switches, we demonstrated a series of fundamental logic gates, i.e., AND, OR, NOT, NAND, and NOR, all functioning at high frequencies (100 Hz).
+These soft logic gates can serve as the cornerstone for the construction of more sophisticated signal processing modules, thereby empowering soft robots to execute swift computation, operation, and control.
+Furthermore, we showcased a soft oscillator consisting of a single NOT logic gate.
+Leveraging the formulation of voltage signal feedback, the DEA autonomously oscillated using a constant voltage input.
+The strategy of combining the DEAs with the GFs/PDMS strips also serves as a useful tool for designing autonomous soft robots (especially DEA-driven soft robots).
+On one hand, it capitalizes on the deformations of soft actuators to swiftly alter the states of soft logic modules, enabling rapid computation within milliseconds.
+On the other hand, the states of soft actuators can be promptly detected by the GFs/PDMS strips to facilitate subsequent deformations.
+Consequently, with the association of these smart strips, the soft actuators are capable of self-sensing deformation states and self-feedback controlling, paving the way for developing autonomous soft robots of simple design, compact structure, and fast response.
+Although the operating voltage of these soft logic gates remains at the kilovolt level, advancements in soft functional materials have reduced the driving voltage of dielectric elastomers to below 300 V and progressively expanded the range of available electrode options (44,45).
+It is promising to fabricate soft logic circuits functioning at both low voltage level and high speed, paving the way for autonomous soft robots to interact with environments flexibly and timely.
+Compared to traditional logic gates based on silicon, soft logic gates are still in their early infancy, especially in integration efficiency and computing speed.
+However, material compatibility and environmental adaptability distinguish them from these counterparts.
+In the future, soft electrical logic gates deserve further studies to enable effective interaction with diverse environmental conditions, integration with rubber-based transistors, and seamless incorporation into soft robotic platforms—advancing the adaptability and functional potential of soft robots (46–50).
+The soft electric switch used VHB 4910 (3M) as the dielectric elastomer.
+VHB 4910 was first prestretched and fixed onto an acrylic frame (50 mm by 50 mm by 2 mm).
+We put two electrode pattern molds on both sides of the membrane and used carbon conductive grease (MG Chemicals) as the compliant electrodes.
+After peeling off the molds, a GFs/PDMS strip was positioned between two negative electrode patterns, and conductive silver paste (3812, Ausbond) was used for electrical connections.
+The fabrication process is illustrated in fig. S1.
+All the basic logic gates were constructed using one or multiple soft electric switches by connecting the GFs/PDMS strip with a soft resistor (a strip of carbon black) in a 5-V circuit.
+The input voltage was generated via LabVIEW and amplified by a high-voltage source (AMPS-20B20, Matsusada), while the output voltage was measured across the GFs/PDMS strip or the voltage divider, depending on the logical function.
+Both the input and output signals were recorded by LabVIEW with a sampling frequency of 1 kHz.
+We used Camera (EOS7D, Canon) to record the NOT logic gate functioning at 0.1, 1, and 10 Hz, while actuation at 100 Hz was recorded using a high-speed camera (FASTCAM SA-Z, Photron).
+The conducting 3D GFs were constructed by a two-stage, economy, facile expansion process from commercial graphite paper (GP) (Guangshengjia New Material LLC, China).
+The GP (density of 990 mg/cm3) with the size of 30 mm by 5 mm by 2 mm was soaked in a mixed solution of concentrated sulfuric acid (H2SO4, 95.5 to 96.5%) (Xilong Science Co., ltd, China) and concentrated nitric acid (HNO3, 65 to 68%) (Xilong Science Co., ltd, China) with a volume ratio of 1:1.
+After expansion in acid solution for 60 min, the expanded GP was washed thoroughly with deionized water and dried in the oven for 2 hours.
+Afterward, the obtained samples were performed thermal expansion via high temperature heat treatment process at 800°C for 1 min.
+Finally, the 3D GFs with a self-supporting and porous structure were fabricated.
+Soft conducting composites consisting of GFs and viscoelastic PDMS were prepared by impregnating GFs in the PDMS prepolymer.
+After curing at 100°C for 2 hours, the GFs/PDMS composites were obtained.
+To achieve the final sample, we cut the composites into a strip of cross section area 0.5 mm by 0.5 mm and applied a thin layer of silicon solution (Ecoflex 00-10) (Smooth-On, USA) to encapsulate it.
+After curing at room temperature for 30 min, the soft and conducting GFs/PDMS strip was obtained.
+For the conducting characterization, conducting silver paste (Ausbond Co., ltd, China) was glued to the two ends of the composite strip to serve as the electrodes for electrical connection.
+To evaluate its repeatability and stability, the GFs/PDMS strip was subjected to cyclic loading with 10% strain for over 10,000 cycles, as illustrated in fig. S2D.
+The electromechanical property of the GFs/PDMS strip was characterized using a microcomputer-controlled electronic universal testing machine (LD22.203, Shanghai Lishi Instruments).
+Resistance changes were continuously monitored by a digital multimeter (DAQ970A, Keysight) and a data acquisition system (DAQM901A, Keysight).
+To investigate the switching performance of the composite, the electronic universal testing machine and digital multimeter were simultaneously controlled by a computer.
+The ends of the switch were fixed on the clamps of the tension machine using copper foil and silver paste for reliable electrical contact.
+The soft oscillator was configured on the basis of the feedback control of a soft NOT gate.
+The deformation of the oscillator was recorded using two laser displacement sensors (optoNCDT 2300, MICRO-EPSILON, and HL-G105, Panasonic) to measure the distance between the two farthest horizontal points (A and B) of the DEAs.
+All voltage signals were collected and recorded using LabVIEW (X Series Multifunction DAQ, NI).
+Funding:F.Z.
+acknowledges the support from the National Natural Science Foundation of China (52203103). C.K.
+acknowledges the support from the Max Planck Society, Germany.
+acknowledges the support from the National Natural Science Foundation of China (52105034) and the Guangdong Basic and Applied Basic Research Foundation (2024A1515012046).
+acknowledges the support from the National Natural Science Foundation of China (52372096). J.Z.
+acknowledges the support from the Start-up Funding at the Chinese University of Hong Kong, Shenzhen (UDF01001987), the Funding of Shenzhen Institute of Artificial Intelligence and Robotics for Society (AC01202201007-02), the Funding of Guangdong Province (2021CX02Z251), and the 2023 SZSTI stable support scheme.
+Competing interests:The authors declare that they have no competing interests.
+Data and materials availability:All data needed to evaluate the conclusions in the paper are present in the paper and/or the Supplementary Materials.

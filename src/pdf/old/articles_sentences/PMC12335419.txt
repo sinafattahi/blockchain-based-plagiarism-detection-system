@@ -1,0 +1,280 @@
+Develop a diagnostic model using common hematological and immunological indicators to assist in the early screening and differential diagnosis of Multiple Myeloma (MM) in clinical settings, reducing the risk of misdiagnosis.
+A retrospective analysis was conducted on 274 newly diagnosed and treated MM patients and 137 connective tissue disease patients treated at Zhejiang Provincial People’s Hospital from January 2008 to August 2023.
+Laboratory indicators, including complete blood count, biochemistry, coagulation function, and immunoglobulin markers, were collected.
+The cohort was randomly divided into a 70% training set and a 30% validation set.
+Relevant variables were selected through univariate and multivariate analyses in the training set.
+A discriminative diagnostic model was developed using a multivariate logistic regression algorithm.
+The model’s predictive accuracy and generalizability were evaluated by validating and conducting receiver operating characteristic (ROC) curves and calibration curves.
+The developed differential diagnostic model in this study included the following observed indicators: IgM, glomerular filtration rate, high-density lipoprotein, red cell distribution width, and thrombin time.
+The model demonstrated excellent discriminatory power and good calibration, with an area under the curve (AUC) value of 0.980 (95% CI: 0.967–0.994).
+Additionally, the model exhibited high sensitivity (0.963), specificity (0.938), accuracy (0.955).
+The validation set further confirmed the generalization and accuracy of the model, with an AUC value of 0.954 (95% CI: 0.961–0.992).
+The constructed differential diagnostic model in this study can accurately predict and differentiate MM patients and those with elevated Ig abnormalities, thereby enhancing the efficiency of clinical diagnostic decision-making.
+Multiple myeloma (MM) ranks as the second most common malignant tumor in the hematologic system, characterized by abnormal proliferation of monoclonal plasma cells secreting large amounts of monoclonal immunoglobulins (Ig) or their fragments (M protein) [1].
+The definitive etiology of multiple myeloma has yet to be fully characterized, while its pathogenesis is recognized as an intricate interplay of genomic instability, immune dysregulation, and dysregulation of the tumor microenvironment [2].
+In the United States, an estimated 34,920 people are diagnosed with MM annually, with approximately 588,161 new cases diagnosed globally each year.
+Moreover, there is a notable trend of earlier onset and increased incidence in recent years [3].
+Abnormally cloned plasma cells (PC) in the bone marrow produce excessive Ig, leading to damage to related tissues and organs.
+The constellation of symptoms, including bone pain, renal dysfunction, anemia, and elevated blood calcium, collectively referred to as “CRAB,” constitutes the typical tetrad of MM [3].
+However, due to the diverse initial presentations of MM and the complexity of clinical symptoms, coupled with a broad distribution across various medical departments for initial consultation, the diagnosis of MM is prone to misdiagnosis and missed diagnosis.
+Foreign studies have shown a misdiagnosis rate of up to 32.2%, with the time from initial medical consultation to diagnosis extending up to 17 months [4].
+Diagnostic delays result in missed optimal treatment opportunities, increased medical expenses, and dual economic and psychological losses.
+Therefore, early and accurate identification and diagnosis are crucial for the prognosis and survival of MM patients.
+The current diagnosis of MM is based on a combination of hematology, imaging, pathology, immunology, molecular genetics, and other factors.
+As a result, patients often need to visit medical institutions multiple times and may undergo invasive examinations [5,6].
+Bone marrow examination and/or tissue biopsy have long been recognized as the “gold” standard for MM diagnosis.
+Clinical diagnosis of MM can be achieved when the clonal PC proportion in the bone marrow exceeds 20% and/or when PC tumors are identified in tissue biopsy [7,8].
+Protein electrophoresis (PEP) and immunofixation electrophoresis (IFE) in serum and urine also play a crucial role in assisting MM diagnosis.
+However, these procedures are invasive, expensive, and demand a high level of overall medical technology, posing challenges for routine implementation in all regions.
+Furthermore, the trauma caused by bone marrow puncture and histopathological examinations, coupled with the cost and technological disparities between regions, limit the routine application of PEP, IFE, and bone marrow puncture.
+Performing invasive examinations on suspected patients may reduce their acceptance of early disease diagnosis.
+In contrast, hematological and immunological examinations are convenient, almost non-invasive, and more economical.
+This significantly reduces patients’ psychological resistance to clinical diagnosis.
+Hematological and immunological examinations can be completed without requiring prolonged hospitalization.
+Outpatient services in ordinary medical institutions are sufficient, making them the optimal choice for the initial screening of MM patients.
+A predominant clinical characteristic of MM patients is the secretion of monoclonal Ig.
+Ig molecules consist of two Ig heavy chains (IgH) and two Ig light chains (IgL), interconnected through disulfide bonds to form a structurally symmetrical configuration [9].
+Based on the type of abnormally secreted Ig and the type of light chains in serum and urine, MM is categorized into various subtypes, including IgG type (IgGκ/λ), IgA type (IgAκ/λ), IgM type (IgMκ/λ), IgD type (IgDκ/λ), IgE type (IgEκ/λ), light chain type (κ/λ), non-secreting type, biclonal type, and polyclonal type [10,11].
+Among all subtypes, IgG type is the most common, followed by IgA type, with IgM type being relatively rare in China, and IgE type being the rarest [11].
+M proteins, unique Ig secretions in MM patients, possess distinct structures that confer high specificity to each PC clone.
+The unique structures of M proteins often undergo changes with disease progression, leading to significant differences in clinical symptoms and prognosis among patients with different subtypes [12].
+The diverse classification of subtypes presents challenges in the diagnosis and monitoring of MM, and currently, there is no single detection method in clinical use that can reliably diagnose or monitor all MM patients.
+In MM treatment and prognosis, Ig levels are commonly used to assess the response and progression risk in active-phase patients.
+In most cases, Ig levels can indicate the tumor burden of patients.
+The content and subtype of Ig have crucial clinical significance in the treatment, prognosis, and recurrence of MM [13].
+Additionally, Ig holds significant clinical diagnostic value in MM.
+During the period of monoclonal gammopathy of undetermined significance (MGUS) and smoldering MM (SMM) before developing into active MM, patients may exhibit abnormal increases in M proteins.
+Although this period is challenging to notice due to the absence of apparent clinical symptoms, as Ig levels gradually rise, MGUS and SMM patients will eventually progress to active MM [14].
+Therefore, elevated Ig levels serve as a precursor to the occurrence and deterioration of active MM.
+It is evident that Ig levels play a crucial supportive role in the diagnosis of MM, offering essential guidance for more effective management of MM patients in clinical practice.
+Diseases exhibiting hypergammaglobulinemia are not exclusive to MM and can also be observed in various malignant B-cell and/or PC proliferative disorders.
+These include conditions such as MGUS, Primary Systemic Amyloidosis, Waldenström’s Macroglobulinemia (WM), Burkitt Lymphoma, Acute Myeloid Leukemia, and others [15].
+Additionally, elevated levels of high Ig can be seen in benign conditions such as autoimmune diseases, chronic inflammation, and renal dysfunction [16].
+Currently, patients with abnormal Ig elevation are diverse in number and present a wide range of diseases.
+These patients are often dispersed across multiple departments, such as neurology, rheumatology, immunology, and nephrology.
+It requires clinicians in various departments to have a high level of knowledge and sensitivity to hematological disorders in order to identify high-risk patients and make preliminary distinctions, especially in the case of MM.
+Furthermore, diseases manifesting as elevated Ig differ significantly in terms of the type of clonal proliferation of abnormal PCs, Ig synthesis, and secretion.
+The vast differences in pathogenic mechanisms result in variations in the choice of treatment strategies and prognosis assessment.
+Misdiagnosis and missed diagnosis of these diseases can significantly impact overall patient prognosis and survival.
+Faced with these challenges, rapid identification and referral for treatment are crucial for patients with suspected hematological malignancies during their initial clinical visits.
+However, some non-specialized doctors and primary healthcare institutions exhibit lower sensitivity in screening and diagnosing hematological disorders, leading to persistent difficulties in MM identification.
+Therefore, this study aims to construct a clinical early-detection model using immune-related and routine laboratory indicators.
+By utilizing easily accessible and non-invasive laboratory parameters such as complete blood counts, biochemistry, coagulation profiles, and Ig levels, the model seeks to facilitate the preliminary screening of patients with abnormally elevated Ig in clinical settings.
+This will aid non-hematology specialists and primary care physicians in the early identification of MM, reducing the risk of misdiagnosis and missed diagnosis.
+This study will analyze the immune subtypes and immune characteristics of newly diagnosed MM patients and establish a differential diagnostic model for MM using traditional machine learning algorithms (logistic regression).
+We will also explore the optimal cutoff values for diagnosing MM and the clinical diagnostic value of Ig and other indicators independently associated with disease diagnosis.
+This study conducted a retrospective analysis of 274 newly diagnosed and treated MM patients who attended outpatient clinics at Zhejiang Provincial People’s Hospital from January 2008 to August 2023.
+The control group consisted of 137 patients with connective tissue diseases (CTD) who visited the hospital outpatient clinic during the same period.
+The inclusion criteria for the MM group were as follows: (1) Compliance with the National Comprehensive Cancer Network (NCCN) guidelines for diagnosis and treatment (revised in 2022) [17]; (2) Newly diagnosed and untreated MM patients; (3) No missing clinical data.
+Exclusion criteria included: (1) Patients who had received special treatments such as radiotherapy or chemotherapy; (2) Patients with concomitant other diseases, such as malignant solid tumors, severe acute infections, concurrent other blood system disorders, or patients with severe organ (heart, liver, kidney) and nervous system diseases; (3) Patients with severe clinical data loss (missing data for 5 or more of the 5 observed indicators).
+The inclusion criteria for the control group were: (1) Meeting the diagnostic criteria for connective tissue diseases; (2) Having only one type of Ig subtype with abnormal elevation; (3) Uncertain diagnosis of a specific type of autoimmune disease; (4) First-time consultation; (5) No missing clinical data.
+Exclusion criteria included: (1) Having two or more Ig subtypes with abnormal elevation; (2) Patients with concomitant other diseases, such as malignant solid tumors, severe acute infections, undergoing radiotherapy and immunotherapy, or patients with severe organ (heart, liver, kidney) and nervous system diseases; (3) Patients with severe clinical data loss (missing data for 5 or more of the 5 observed indicators).
+The specific selection process for the overall sample is illustrated in Fig.1.
+This study received approval from the Ethics Committee of Zhejiang Province People’s Hospital, and the research was conducted in accordance with the principles outlined in the Declaration of Helsinki (Ethical approval code: QT2023128).
+A retrospective study was conducted on electronic medical records in this experiment, and all individuals had provided informed consent before being included in the study.
+This study retrospectively collected common laboratory indicators, including biochemical, hematological, coagulation function, and immunological examination indicators, from the electronic medical records database of Zhejiang People’s Hospital.
+All examination results were derived from blood specimens, which are readily available and cost-effective.
+Based on clinical diagnostic experience, the final selection included 31 observed indicators as follows: gender, age, albumin (Alb), globulin (Glo), albumin-to-globulin ratio (AGR), creatinine (Cr), serum calciumion (Ca), triglycerides (TG), total cholesterol (TCHO), high-density lipoprotein (HDL), low-density lipoprotein (LDL), lactate dehydrogenase (LDH), glomerular filtration rate (GFR), hemoglobin (Hb), hematocrit (HCT), red cell distribution width (RDW), platelet count (PLT), platelet distribution width (PDW), C-reactive protein (CRP), prothrombin time (PT), activated partial thromboplastin time (APTT), thrombin time (TT), fibrinogen (Fbg), D-dimer (D-D), subtypes, IgG level, IgA level, IgM level, β2microglobulin (β2MG), serum free light chains (S-LC, including S-κ and S-λ), and urine free light chains (U-LC, including U-κ and U-λ).
+This study utilized IBM SPSS Statistics 26.0, SAS 9.4, and R 4.0.2 software for statistical data analysis.
+Continuous variables in the samples were compared using independent samples t-tests (for normally distributed continuous variables) or independent Mann-Whitney U tests (for non-normally distributed continuous variables).
+Descriptive statistics were presented as “Mean ± Standard Deviation” or “[M(P25, P75)]” [Median (Interquartile Range, IQR)].
+Categorical variables in the samples were expressed as percentages and compared using the chi-square test.
+Unless otherwise specified, the significance level α was set at 0.10.
+Two-sidedP< 0.05 was considered statistically significant.
+A dual-threshold approach was applied based on the following principles: (1) Variable selection stage (exploratory analysis, α = 0.10): During the development of the MM differential diagnosis model, a preliminary screening of all candidate variables was conducted.
+Categorical variables in the sample were expressed as percentages and compared using the chi-square test, and a significance level of α = 0.10 was applied.
+This less stringent threshold was chosen to allow for the identification of variables that might be associated with MM, ensuring that potentially important diagnostic factors were not overlooked during the initial stage; (2) Model construction and validation stage (confirmatory analysis,P< 0.05): In the final multivariable analysis and model performance evaluation, a statistical significance criterion ofP< 0.05 was adopted to enhance model robustness and clinical interpretability.
+Stepwise regression and multivariable analysis were employed to refine the variable selection process, and only statistically significant and clinically relevant variables were retained in the final model.
+The study subjects were randomly divided into a training set and a testing set using a 7:3 ratio.
+The training set comprised 288 cases, and the testing set comprised 123 cases.
+Preliminary variable selection was performed through univariate analysis, selecting variables with significant statistical significance (P< 0.05).
+These selected variables were then incorporated into a multivariate logistic regression analysis using a stepwise method.
+The multivariate logistic regression analysis was employed to assess the correlation between various laboratory variables and MM, further refining the relatively important features.
+During the multivariate logistic regression modeling process, we employed a backward stepwise selection method, progressively eliminating variables with minimal contribution to the model, in order to optimize its robustness and generalization ability.
+Finally, the most crucial clinical features were used to establish an MM discrimination model based on a stepwise logistic regression algorithm.
+We performed 10-fold cross-validation within the training dataset to assess model stability and calculated the mean AUC to evaluate generalizability.
+The discriminative power of the model was evaluated by calculating the area under the Receiver Operating Characteristic (ROC) curve.
+The model fit was validated using the Hosmer-Lemeshow (HL) test.
+The HL test assesses the goodness of fit by indicating the degree of conformity between predicted and observed values.
+It is a test used to judge the fitting adequacy of the model.
+Additionally, the HL test was employed to determine the calibration of the model.
+A calibration curve was plotted to assess the predictive accuracy of the diagnostic model.
+Decision Curve Analysis (DCA) was used to evaluate the diagnostic value of the model in clinical applications.
+DCA is used to evaluate the net benefit of different probability thresholds and compare our model’s performance with “treat-all” (full screening) and “treat-none” (no screening) strategies.
+In this study, the X-axis represents the risk threshold, which corresponds to the probability at which hematologists consider further intervention (e.g., bone marrow biopsy or PET-CT).
+The Y-axis represents the net benefit, quantifying the improvement in clinical decision-making by reducing unnecessary procedures while minimizing missed diagnoses.
+The Clinical Impact Curve (CIC) was employed to analyze the ratio of losses and gains in clinical diagnosis at different probability thresholds.
+CIC further assesses the number of true MM cases identified among patients predicted as high-risk at different probability thresholds.
+In this study, the X-axis represents the probability threshold, indicating the decision threshold for further intervention.The Y-axis represents the number of high-risk MM cases.
+The upper curve denotes the total number of patients classified as high-risk.
+The lower curve represents the actual number of MM cases within the high-risk group.
+To explore the importance and weight of each indicator in the discrimination model, standardized regression coefficients were used to compare the magnitudes of the effects of different independent variables on the dependent variable, enabling comparability between different variables.
+Typically, emphasis is placed on the absolute value of standardized regression coefficients, with a larger absolute value indicating a greater impact on the dependent variable.
+In this study, MM patients were categorized into 6 subtypes: IgG, IgA, IgM, IgD, IgE, and light chain (LC) types.
+The IgG subtype had a total of 131 cases (47.81%), making it the most common type among all subtypes.
+Within the IgG subtype, IgGκ had 88 cases (67.17%), while IgGλ had 43 cases (32.83%).
+The overall median level of IgG in this subtype was 49.20 g/L.
+The IgA subtype had a total of 78 cases (28.47%), with IgAκ accounting for 43 cases (55.13%) and IgAλ accounting for 35 cases (44.87%).
+The overall median level of IgA in this subtype was 41.0 g/L.
+The IgM subtype had only 1 case (0.36%), which was IgMκ type (100%).
+The IgE subtype also had only 1 case (0.36%), which was IgEκ type (100%).
+The LC subtype comprised 51 cases (18.61%), with LC-κ type having 29 cases (56.86%) and LC-λ type having 22 cases (43.14%).
+The IgD subtype had 12 cases (0.36%), all of which were IgDλ type (100%).
+Among IgD subtype patients, the median level of β2MG was the highest among all subtypes, at 14.00 g/L, and the median level of U-λ was also the highest among all subtypes, at 6140.00 mg/L.
+In the control group, the IgG elevated subtype had 99 cases (74.44%), making it the most prevalent among all subtypes.
+The IgA elevated subtype had 21 cases (15.79%), and the IgM elevated subtype had 17 cases (12.78%).
+The analysis results in Table1indicate that U-κ, U-λ, S-κ, and β2MG showed statistically significant differences among different subtypes within the MM group (P< 0.05).
+Similarly, IgG, IgM, and IgA demonstrated statistically significant differences among subtypes within both the MM and control groups (P< 0.05).
+The characteristics of the Development cohort(Cohort 1)in our study.
+The overall baseline characteristics of the training set and validation set samples involved in this study are presented in Table2.
+In the development cohort, there were a total of 192 MM patients and 96 CTD patients, with 155 males (53.82%) and 133 females (46.18%), and a median age of 64 years.
+In the validation cohort, there were 82 MM patients and 41 CTD patients, with 74 males (60.16%) and 49 females (39.84%), and a median age of 62 years.
+U-κ and D-D levels showed the greatest differences among all observed indicators between the two cohorts.
+Statistical results indicated that only S-λ, β2MG, RDW, PT, APTT, and TT exhibited statistically significant differences between the two cohorts.
+Overall, there were no significant statistical differences between the two groups.
+The results of the single-factor analysis in this study are summarized in Table3.
+Various laboratory parameters of MM patients and CTD patients in the development cohort were compared using independent sample t-tests, rank-sum tests, and chi-square tests.
+The results of the single-factor analysis revealed 21 clinical features significantly associated with the diagnosis of MM in the development cohort.
+These features include Age, Gender, IgG, IgA, IgM, Alb, Glo, AGR, Cr, GFR, TCHO, HDL, LDL, LDH, Hb, HCT, RDW, PLT, PDW, PT, and TT (P< 0.05).
+On the other hand, Ca, TG, CRP, APTT, Fbg, and D-D showed no significant differences between the two groups, indicating a lack of correlation with the diagnosis of MM.
+The meaningful observation indicators identified through single-factor analysis were sequentially included in the stepwise multiple-factor logistic regression algorithm to analyze and determine the risk factors associated with the diagnosis of MM (inclusion criteria 0.05, exclusion criteria 0.1).
+After excluding variables with poor predictive performance or multicollinearity, five variables with predictive significance and significant statistical differences were identified: IgM, GFR, HDL, RDW, and TT.
+The logistic regression analysis results for these five predictive variables are presented in Table4.
+The meaningful observation indicators identified through single-factor analysis were sequentially included in the stepwise multiple-factor logistic regression algorithm to analyze and determine the risk factors associated with the diagnosis of MM (inclusion criteria 0.05, exclusion criteria 0.1).
+After excluding variables with poor predictive performance or multicollinearity, five variables with predictive significance and significant statistical differences were identified: IgM, GFR, HDL, RDW, and TT.
+The logistic regression analysis results for these five predictive variables are presented in Table4.
+In the fitting evaluation, the HL test yielded a P-value of 0.325 (P> 0.05), indicating that the constructed diagnostic model exhibits a good fitting effect.
+The model fitting results revealed that IgM, GFR, HDL, RDW, and TT are influencing factors for the occurrence of MM, and the probability of diagnosing MM increases with lower levels of IgM, GFR, and HDL, and higher levels of RDW and TT (Table4).
+The AUC values for IgM, GFR, HDL, RDW, and TT in the test set were 0.957 (95% CI: 0.932–0.982), 0.837 (95% CI: 0.788–0.886), 0.736 (95% CI: 0.674–0.798), 0.728 (95% CI: 0.668–0.788), and 0.753 (95% CI: 0.698–0.808), respectively.
+The visual representation of the AUC for each indicator is presented in Fig.2A.
+Among all indicators, IgM exhibited the best discriminatory performance with the highest AUC.
+The calibration curve for the constructed model is illustrated in Fig.2B, showing that the model curve closely aligns with the 45° reference line, indicating a high consistency between predicted values and actual values.
+To further validate the performance of the MM discrimination diagnostic model, the model was applied to the validation set, yielding an excellent AUC value of 0.954 (95% CI: 0.961–0.992) (Fig.3A).
+This suggests that our discrimination model has high discriminatory ability and accuracy.
+The calibration curve for the model in the validation set is shown in Fig.3B, with an H-L test result ofP= 0.527, indicating a high degree of conformity between fitted values and observed values.
+In order to further explore the diagnostic significance of each observational indicator in MM discrimination diagnosis, we utilized logistic regression analysis and ROC curve analysis.
+We determined the maximum Youden index for each relevant indicator after multifactorial selection.
+The optimal cutoff value was identified at the maximum Youden index, and the results are presented in Table5.
+From Table5, it can be observed that the optimal cutoff value for IgM is 0.67, with the highest AUC value (0.957), sensitivity (0.932), specificity (0.927), accuracy (0.930), positive predictive value (0.962), and negative predictive value (0.873) among all observational indicators.
+Additionally, the cutoff values for GFR, HDL, RDW, and TT are 91.966, 0.9, 13.8, and 18.6, respectively.
+Furthermore, when IgM < 0.67 g/L, GFR < 91.966 mL/min/1.73 m², HDL < 0.9 mmol/L, RDW > 13.8%, and TT > 18.6s, the probability of diagnosing MM will increase.
+Clinical Decision Curve (DCA) analysis demonstrates (Fig.4A) that the highest net benefit within the probability threshold range of 10–100%, meaning that within this range, the model can assist hematologists and primary care physicians in reducing unnecessary testing while ensuring that true MM cases are not overlooked.
+Clinical Impact Curve (CIC) analysis illustrates the clinical effectiveness of this predictive model (Fig.4B).
+Our CIC results demonstrate that when the predicted probability threshold exceeds 85%, the number of predicted high-risk MM cases closely matches the number of true MM cases.
+This finding confirms the model’s strong ability to distinguish between high- and low-risk individuals, supporting its clinical applicability.
+In Fig.2A; Table5, it can be observed that the AUC value of IgM is the highest among all the indicators, reaching 0.957.
+This strongly indicates that IgM has the highest importance weight in the diagnostic model.
+To further verify this, we standardized the regression coefficients (Beta values) to make the indicators comparable.
+The standardized regression coefficients for each indicator are shown in Fig.5.
+We can see that the absolute value of the coefficient for IgM is the largest among all indicators, at 7.57, confirming that IgM has the highest importance weight in the discrimination diagnostic model.
+The absolute value of the standardized regression coefficient for HDL is the smallest, at 0.35, indicating that HDL has the least importance weight in the discrimination diagnostic model.
+In recent years, the mortality rate of MM has shown a gradual increase.
+To change this situation, clinical practitioners mostly focus on early detection and intervention to reduce end-organ damage, improve adverse prognosis, and enhance survival for patients.
+Prevention and early diagnosis of MM have become crucial components of patient management, but early diagnosis remains a significant challenge [18].
+Firstly, early symptoms in patients are often subtle, and fatigue, weakness, bone pain, or anemia may only manifest when there is already end-organ damage.
+These symptoms can also be confused with those of other diseases.
+Additionally, patients often seek initial consultation outside hematological specialties, leading to potential misdiagnosis and underdiagnosis in the early stages of the disease [19,20].
+Secondly, confirming the diagnosis of MM often requires multiple tests, including routine laboratory examinations, bone marrow biopsies, urine protein electrophoresis, and other invasive and expensive procedures.
+Non-hematology specialists may find it challenging to make the diagnosis, and patients may face economic burdens [21].
+Moreover, aside from MM, there are various Ig proliferative diseases, primarily connective tissue diseases, further complicating the differential diagnosis of MM patients presenting with increased Ig.
+Due to the complexity of MM diagnosis and differential diagnosis, clinical data show that less than 50% of patients receive a definitive diagnosis within six months [22].
+By the time of diagnosis, some patients have already progressed to advanced stages, significantly impacting the treatment and prognosis of the disease [23].
+Therefore, there is an urgent need in clinical practice for a simple early screening and differential diagnostic method to guide non-hematology specialists in diagnosis and screening.
+In recent years, diagnostic models based on routine laboratory indicators and new biomarkers have gradually been recognized as important tools to improve the accuracy of early diagnosis of MM [24].
+For patients with a significant increase in immunoglobulins (Ig) in clinical practice, physicians can use such predictive methods to determine whether further invasive examinations, such as serum protein electrophoresis (SPEP), immunofixation electrophoresis (IFE),, and bone marrow biopsy, are needed to differentiate MM.
+This helps assess whether patients require referral to a hematological specialist for treatment.
+In this study, we developed and validated a differential diagnostic model based on immunological, biochemical, and routine laboratory indicators.
+All independent predictor variables included in the model are easily obtainable in clinical practice, with low time and economic costs, and the model demonstrates good internal validation results.
+Unlike previous researchers who constructed diagnostic models, we, in addition to routine laboratory tests, also focused on the indicator Ig in the differential diagnosis of MM.
+Ig is a crucial component of humoral immune responses, playing a role in immune defense through neutralizing antigens and mediating antibody-dependent cellular cytotoxicity (ADCC), complement-dependent cellular cytotoxicity (CDC), and antibody-dependent cellular phagocytosis (ADCP) [25].
+Ig, as a biomarker, holds significant clinical value in the differentiation and disease assessment of neoplastic disorders [26,27].
+For instance, patients with MGUS and SMM exhibit a large number of malignant proliferating PCs, leading to the production of abnormally secreted Ig and homogeneous M protein deposits in immunoelectrophoresis.
+The distinction from active MM and the assessment of overall disease progression can be made based on Ig levels and the presence of organ damage [28].
+Elevated Ig levels are also observed in other hematological disorders such as WM, AML, and Burkitt lymphoma, where Ig levels reflect the tumor burden [29,30].
+Moreover, in certain non-neoplastic conditions, Ig levels can serve as biomarkers in diseases with increased Ig, such as CTD.
+Data indicate that serum IgG and IgA concentrations in patients with mixed CTD are significantly higher than those in the normal control group, with increases of 98.0 g/L (p= 0.012) and 79.0 g/L (p= 0.114), respectively, suggesting that Ig levels can effectively reflect the immune dysregulation in CTD patients [31].
+In this study, we observed that IgM within the Ig profile serves as an early diagnostic marker for MM.
+Moreover, in diseases characterized by elevated Ig levels, the probability of diagnosing MM increases significantly when IgM is less than 0.67 g/L.
+IgM played a pivotal role in our developed differential diagnostic model, emphasizing its crucial value in the early diagnosis and differentiation of MM.
+Yao et al.‘s research identified quantitative Ig as an independent predictor for diagnosing MM, demonstrating a sensitivity of 76% and specificity of 61%, highlighting the positive significance of Ig in the early diagnosis of MM [32].
+Additionally, research results indicate that Ig serves as an independent indicator for MM prognosis, especially post-Autologous Stem Cell Transplantation (ASCT), making it an effective tool for assessing long-term outcomes [33].
+In another study, IgG was recognized as a risk factor for mortality in MM patients who had previously undergone bortezomib treatment, emphasizing the independent correlation between Ig levels and patient prognosis [34].
+Importantly, elevated Ig levels also exhibit significant diagnostic efficacy in other conditions with abnormal Ig elevation, underscoring the potential of Ig quantification as a biomarker for distinguishing and screening MM in diseases characterized by Ig elevation.
+Glomerular filtration rate (GFR) plays a pivotal role as a biochemical indicator in individuals with MM, serving as a key tool for assessing kidney function, screening for renal diseases, and clinically diagnosing and evaluating the effectiveness of active MM.
+In the clinical samples collected from patients exhibiting elevated immunoglobulins in this study, GFR emerges as a significant independent predictor for distinguishing MM.
+Furthermore, our findings indicate that the probability of diagnosing MM increases when GFR is below 91.966 mL/min.
+A regression study involving patients with hematologic malignancies demonstrated a notable association between decreased GFR and MM diagnosis (p= 0.008) [35], aligning with our results.
+Another multicenter study encompassing 3,405 MM patients in the Asian Myeloma Network unveiled that 23.4% of MM patients experienced renal insufficiency (Cr > 2 mg/dl) at the time of diagnosis, emphasizing the close correlation between GFR and MM diagnosis [36].
+Additionally, research suggests a correlation between the rate of renal injury in MM patients and disease subtypes.
+Patients with LC and IgD MM typically exhibit higher rates of renal injury than their counterparts, with nearly 50% of LC MM cases resulting in renal failure.
+Despite the low incidence of IgD MM (1%), over 90% of IgD MM patients face renal failure [37].
+Moreover, GFR holds significant prognostic value for MM, with severe renal impairment at the initial diagnosis identified as a critical adverse prognostic marker for Overall Survival (OS) [38].
+Studies have indicated that MM patients presenting with concurrent light chain deposition disease and severe renal disease (GFR < 30 mL/min) at the time of initial diagnosis tend to experience poorer OS [39].
+In clinical practice, high-risk patients suspected of having MM require regular monitoring of kidney function, particularly during disease progression.
+Therefore, based on the findings of this study, when an outpatient is found to have a GFR < 91.966 mL/min/1.73 m² in clinical practice, it may suggest the presence of MM-related renal impairment.
+Further evaluation of other MM-associated markers (e.g., serum free light chains, bone marrow biopsy) is warranted to determine whether MM-related disease is present.
+Monitoring GFR assists physicians in comprehending the patient’s renal function and evaluating treatment efficacy, proving essential for disease diagnosis, adjustments to treatment plans, and progress monitoring.
+High-density lipoprotein (HDL) possesses various protective characteristics in the human body, including antioxidant, anti-apoptotic, and anti-inflammatory effects.
+It was initially identified as a protective factor in atherosclerotic cardiovascular diseases [40].
+In recent years, numerous studies have indicated that HDL can also serve as a protective and anti-cancer factor in various cancers, such as digestive system tumors, breast cancer, lung cancer, Hodgkin’s lymphoma, and MM [41–43].
+Consistent with the aforementioned theories, this experiment found that HDL is one of the independent predictive factors for the early diagnosis of MM.
+Moreover, when HDL is below 0.9 mmol/L, the probability of diagnosing MM in populations with abnormal Ig levels is higher.
+In addition to its diagnostic role in MM, HDL holds significant value in the occurrence, development, and prognosis assessment of MM.
+Some researchers have observed a gradual decrease in HDL levels in certain patients before the diagnosis of MM [44].
+A systematic review and meta-analysis on HDL and MM elucidated HDL as a crucial feature in the development of MM.
+The results revealed a significant reduction in HDL levels in MM patients compared to the healthy control group (MD: −95.17 mg/dL, 83% CI: −8.32, −0.00001,p< 22.19) [45].
+Furthermore, research has suggested that HDL can serve as an alternative prognostic marker for MM [46].
+Therefore, clinical attention to the HDL indicator should be heightened.
+Considering the results of this study, we propose that HDL could be considered as one of the auxiliary indicators for the clinical diagnosis of MM.
+Red blood cell distribution width (RDW) is a parameter obtained from the complete blood count measured by an automated hematology analyzer, reflecting the degree of heterogeneity in red blood cell volume.
+It is considered an important inflammatory biomarker [47].
+Initially explored as a prognostic marker, RDW has been shown in many studies to be an adverse prognostic factor for progression-free survival (PFS) and OS in newly diagnosed MM patients, being significantly associated with poorer outcomes [48–50].
+A retrospective analysis also indicated that patients with low RDW at diagnosis had better OS compared to those with high RDW [51].
+However, in this study, we found that RDW can also serve as a diagnostic marker for MM disease discrimination, and the probability of diagnosing MM increases when RDW greater than 13.8%.
+This suggests that elevated RDW is not only an adverse prognostic factor but also an important factor in the diagnosis of MM.
+Although there is currently limited evidence demonstrating the diagnostic utility of RDW for MM, any changes in related indicators such as elevated RDW during the clinical diagnostic process should receive sufficient attention from physicians.
+This can aid in disease assessment and reduce the risk of misdiagnosis or overlooking MM.
+Further exploration through extensive experiments and data is needed to better understand the diagnostic relationship between RDW and MM.
+In the discriminative diagnostic model constructed in this study, thrombin time (TT) is also a significant component, and the probability of diagnosing MM increases when TT exceeds 18.6s.
+Other studies have reported that approximately 34.5% of MM patients exhibit prolonged TT at initial diagnosis, showing a significant statistical difference compared to the control group (P< 0.01) [52].
+Prolonged TT may be associated with manifestations such as thrombosis or bleeding complications in MM patients at the time of initial diagnosis, and screening for this at the time of diagnosis can help improve patient prognosis.
+Evidence also suggests a close correlation between the degree of TT abnormality in MM patients and disease subtypes, with a positive correlation between TT prolongation and the concentration of LC (P≤ 0.01), making LC MM patients more prone to TT prolongation than other subtypes [53].
+Additionally, in other indicators reflecting coagulation function, some researchers have found that prolonged PT or APTT is an independent adverse prognostic factor in newly diagnosed MM patients [54].
+In clinical practice, timely consultation and referral to the hematology department are essential for patients with elevated Ig and coagulation abnormalities to prevent misdiagnosis and oversight of MM.
+Additionally, bleeding complications in MM are primarily caused by primary hemostatic defects and are associated with the diagnosis and progression of the disease.
+Early attention to changes in coagulation parameters will aid in the prompt screening and mitigation of bleeding complications in patients, thereby slowing down the progression of the disease [55].
+Based on our findings, patients meeting criteria such as IgM < 0.67 g/L, GFR < 91.966 mL/min/1.73 m², HDL < 0.9 mmol/L, RDW > 13.8%, and TT > 18.6 s are at significantly increased risk for MM.
+This model can be translated into a practical risk scoring system to aid clinical decision-making.
+The more abnormal parameters a patient presents, the higher the likelihood of MM, warranting further confirmatory tests such as bone marrow biopsy, SPEP, IFE, and serum free light chain (sFLC) evaluation.
+Ultimately, our model facilitates earlier detection, reduces the risk of missed diagnoses, and enhances the diagnostic pathway for patients with suspected but undiagnosed MM.
+With the advancement of artificial intelligence algorithms, many hematologists have integrated machine learning methods into the diagnosis and prognosis research of MM, constructing various categories of discriminatory prediction models.
+For example, Wang et al. developed a screening model for the early diagnosis of multiple myeloma using artificial intelligence based on routine laboratory test results.
+The Gradient Boosting Decision Tree (GBDT) model they constructed achieved an impressive AUC of 0.975 [56].
+Lin et al. developed a non-invasive discriminatory diagnostic model for newly diagnosed MM patients with light chain cast nephropathy based on biochemical indicators, achieving a model AUC of 0.981, demonstrating excellent predictive performance [57].
+Another study utilized laboratory indicators such as Cr, Glo, and serum alkaline phosphatase to develop a discriminatory diagnostic model for distinguishing MM from bone metastasis, with a model AUC of 0.89 [58].
+Beyond laboratory indicators, some research has employed PET and CT imaging radiomics features to differentiate bone metastasis from MM, exhibiting more refined discriminatory diagnostic efficacy [59].
+Compared with the above-mentioned study, our diagnostic model offers several notable advantages.
+First, it relies solely on routinely available immunoglobulin measurements, making it easy to implement in diverse clinical settings without the need for specialized equipment or invasive procedures.
+Second, our model is simple and user-friendly, based exclusively on standard laboratory tests, which streamlines the diagnostic process and enhances its feasibility for widespread adoption—particularly in primary care settings and by non-specialist clinicians.
+Lastly, while many existing models focus on prognosis, our model specifically targets differential diagnosis.
+It is designed to distinguish MM from other conditions with overlapping clinical features.
+In summary, we have developed a cost-effective, non-invasive, and practical tool to support the differential diagnosis of high-risk MM patients.
+The primary limitations of this study are as follows: First, as a retrospective study, it is potentially subject to selection bias, information bias, and unmeasured confounding factors.
+Second, the study is based on a single-center dataset from Zhejiang Provincial People’s Hospital, with all participants being of Asian descent.
+The absence of external validation limits the generalizability of the model and its cutoff values to broader populations.
+Lastly, the representation of MM subtypes in this study was not comprehensive.
+The sample sizes for rare subtypes such as IgD and IgE MM were relatively small.
+Furthermore, the model may exhibit reduced sensitivity in detecting non-secretory, biclonal, and polyclonal MM cases.
+In future studies, we plan to adopt a prospective cohort design to systematically collect comprehensive clinical data, including comorbidities, medication history, and other relevant confounding variables, with the goal of improving data quality and reducing potential biases.
+To enhance the generalizability of our model, we will collaborate with multiple tertiary medical centers across different provinces in China to establish larger, multicenter datasets encompassing diverse ethnic and geographic populations.
+Additionally, efforts will be made to expand the spectrum and sample size of MM subtypes, particularly rare forms such as IgD, IgE, non-secretory, and biclonal MM, to ensure adequate representation and improve diagnostic sensitivity across all disease variants.
+We also aim to broaden the control group to include related plasma cell disorders such as MGUS, WM, and other hematologic malignancies, which will enable a more comprehensive assessment of the model’s specificity and real-world applicability.
+To further refine model performance and mitigate overfitting, we intend to incorporate advanced regularization techniques, such as Least Absolute Shrinkage and Selection Operator (LASSO) regression.
+Ultimately, we hope to develop a clinically applicable, user-friendly decision-support tool that integrates diagnostic and prognostic markers—including drug resistance-related molecular biomarkers—to facilitate early risk stratification and guide personalized therapeutic strategies in MM management [2,60].
+Despite these limitations, our study has established a novel diagnostic model, providing a non-invasive, quantitative, and cost-effective diagnostic tool for early screening of MM in patients with elevated immunoglobulins in clinical practice.
+It offers guidance for non-hematology specialists in early disease screening and holds clinical value for the subsequent examination choices and treatment strategy determination for suspected MM patients.
+The current epidemiological characteristics and diagnostic challenges of MM necessitate further in-depth research and more precise diagnostic methods for the early detection and treatment of this disease, aiming to improve patient survival rates and quality of life.
+Future research and clinical practices will continue to explore the pathogenesis and early diagnostic methods of MM, offering better diagnosis and treatment options for patients.
+This study developed and validated a differential diagnostic model for early screening of MM among a diverse population of patients with elevated Ig, using both immunologic and clinical laboratory indicators.
+The model offers a non-invasive, quantitative standard, and a visual tool for early screening of MM in patients with increased Ig, particularly benefiting primary healthcare institutions and non-hematology specialists.
+This tool aims to enhance the efficiency of MM diagnosis and screening, reduce the risk of misdiagnosis and missed diagnosis, and provide effective guidance for clinicians across various specialties in the diagnosis and differential diagnosis of MM.

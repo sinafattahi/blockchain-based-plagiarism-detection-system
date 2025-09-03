@@ -1,0 +1,467 @@
+Pathogenic variants inMED13LcauseMED13Lsyndrome, a well-defined neurodevelopmental disorder characterized by motor deficits, intellectual disability, and language delay, yet its underlying developmental and molecular mechanisms remain largely elusive.
+To address this gap, we generated a gene knockout mouse model ofMED13Lsyndrome.
+While homozygousMed13lknockout exhibit neonatal lethality accompanied by reduced brain volume and cortical thickness, heterozygous mice are viable and display hallmarks ofMED13Lsyndrome, including impaired learning and memory, reduced motor coordination, and heightened anxiety.
+Additionally, heterozygous mice show microcephaly with simplified neuronal morphology in the motor cortex.
+Single-cell transcriptomics and immunofluorescence reveal severe cortical neurogenesis deficits inMed13lknockout embryos, driven by impaired neural progenitor differentiation.
+Integrative multi-omics analyses reveal that MED13L orchestrates cortical neurogenesis by priming the transcriptional activation of key developmental genes, includingNeurod2, Sox5,Auts2, andNfib.
+This priming effect is mediated by MED13L binding to the core mediator complex, which facilitates the complex’s association with RNA Pol II and subsequent dissociation from MED13L.
+These findings uncover a pivotal role for MED13L in transcriptional regulation during brain development and highlight potential targets for restoring normal transcriptional programs inMED13Lsyndrome.
+Modeling Med13l deficiency in mice reveals that MED13L shapes cortical neurogenesis through a transcriptional priming effect on key developmental genes, offering mechanistic insight and potential therapeutic targets for MED13L syndrome.
+The mediator complex plays a central role in the regulation of gene transcription in eukaryotic organisms1.
+It consists of highly conserved subunits forming four functional modules: the head and middle modules that interact with RNA polymerase II (Pol II), the tail module that interacts with transcriptional activators and repressors, and the CDK8 kinase module (CKM) that dynamically regulates the mediator complex’s activity2.
+The CKM, comprising cyclin C, CDK8, MED12, and MED13 (or their paralogs CDK19, MED12L, and MED13L), was reported to disrupt the mediator complex’s interaction with Pol II, thereby repressing Pol II-mediated gene transcription3.
+This complex interplay between mediator’s various modules and their interactions with transcriptional regulators is crucial for finely tuning gene expression in response to diverse cellular signals.
+Mutations in mediator genes are associated with various developmental disorders and cancers4,5.
+Among these,MED13Lis notably one of the most frequently mutated in neurodevelopmental disorders6.MED13Lhaploinsufficiency syndrome, also known as Asadollahi-Rauch syndrome orMED13Lsyndrome, is characterized by a spectrum of symptoms, including moderate to severe intellectual disability (ID), delayed speech, motor developmental challenges (such as motor delay and ataxia), hypotonia, distinct facial features, and autism.
+Some patients also present with cardiac anomalies7,8.
+Despite extensive clinical documentation, the neurodevelopmental and molecular causes ofMED13Lsyndrome remain largely unexplored.
+MED13L, a large gene located on chromosome 12q24.21 of the human genome, spans 317 kb with 31 exons.
+It encodes a protein that includes the MID_MedPIWI domain, which is essential for binding double-stranded nucleic acids9.
+MED13L is considered to trigger the conformational switch of the CKM, thereby suppressing Pol II transcriptional activity3,10.
+However, this view contrasts with findings that CKM components can also enhance gene transcription in Arabidopsis11.
+Additionally, research indicates that the CKM—mediator complex can bind to CpG islands for developmental genes, priming them for transcriptional activation12,13.
+Notably expressed in the nervous system14,15, MED13L’s fundamental role in brain development is not yet fully understood.
+Pioneer studies inzebrafishindicated thatMed13b(thezebrafishequivalent ofMED13L) knockdown disrupts cranial neural crest cell migration, upregulates the transcription factor SP8, and alters FGF8 expression in the anterior neural ridge14.
+In human embryonic stem cell-derived neural progenitor cells (NPCs),MED13Lknockdown increased cell proliferation, suggesting involvement in Wnt and FGF signaling14.
+In cancer cells, MED13L inhibited Rb/E2F-induced cell growth16and disrupted the CDK8-Mediator association by targeting FBW7, a component of the tumor-suppressing SCF ubiquitin ligase17,18.
+Recent observations have linkedMED13Lmutations to mitochondrial dysfunction due to abnormal nuclear release of cyclin C (CCNC) in cultured fibroblasts and skeletal muscles19.
+However, howMED13Ldeficiency affects brain development and function, particularly in relation toMED13Lsyndrome’s clinical traits, remains unanswered.
+In this study, we investigated the neurodevelopmental and molecular mechanisms ofMED13Lsyndrome using gene knockout (KO) mouse models.
+We discovered that heterozygousMed13lKO mice exhibit behavioral and anatomical deficits consistent withMED13Lsyndrome.Med13lKO impairs cortical neurogenesis and dendrite development.
+Proteomic, transcriptomic, and single-cell RNA sequencing analyses suggested that MED13L serves as a priming factor for the transcriptional activation of key genes involved in neurogenesis in the developing cerebral cortex.
+We generated aMed13lKO mouse allele by CRISPR/Cas9-mediated ablation of exon 2, resulting in a frameshift and premature stop codon after exon 1 (Fig.1Aand Supplementary Fig.1A, B).Med13lgene KO in these mice was confirmed through RT-PCR and Western blotting (Supplementary Fig.1C–E).
+Newborn homozygous KO mice exhibited several phenotypic abnormalities, including an absence of stomach milk (Fig.1B), death within 24 hours (h) of birth (Fig.1C), and reduced body weight compared to wild-type (WT) and heterozygous KO (Het) littermates (Fig.1D).
+These mice had noticeably smaller brains, as indicated by measurements of brain width, diameter, and weight at birth (Fig.1E–G).
+Coronal brain sections revealed reduced thickness in the somatosensory and motor cortices, and decreased striatum volume in KO mice at postnatal day 0 (P0), with similar but less severe reductions in Het mice (Supplementary Fig.1F–J).
+Het mice survived to adulthood with minor reductions in brain weight and width (Supplementary Fig.1K–M).
+They exhibited reduced volumes in the cerebellum and striatum (Supplementary Fig.1N, O) and decreased thickness in the primary motor cortex (M1), whereas no changes were observed in the somatosensory cortex (S1ULP, S1BF) (Supplementary Fig.1P–S).
+ASchematic diagram of theMed13lknockout strategy.
+Guide RNAs (gRNAs) were designed to target exon 2 to delete a 238 bp fragment, generating an early stop codon (magenta arrow and star).BRepresentative photographs of wild-type (WT), heterozygous (Het), andMed13l-knockout (KO) mouse littermates at birth (P0).
+Arrows indicate the presence or absence of milk in the stomach.
+Scale bar, 10 mm.CSurvival rate of mice at P1.N= 33 (WT), 42 (Het), and 28 (KO).DBody weight of mice at P0.N= 11 (WT), 16 (Het), and 8 (KO).EDorsal view images of brains from mice of different genotypes at P0.
+LC longitudinal cortex length, WC1, transverse cortex width; WC2, transverse cerebellum width.
+Scale bar, 2 mm.FBrain weight of P0 mice of different genotypes.N= 11 (WT), 18 (Het), and 12 (KO).GComparison of the LC, WC1, and WC2 of P0 mice of different genotypes.N= 15 (WT), 19 (Het), and 10 (KO).HRepresentative images of P0 WT and KO brain sections stained for TBR1 (magenta) and CTIP2 (green), and with DAPI (blue).
+White dashed trapezoidal and rectangular boxes indicate the dorsolateral M1 region and dorsomedial ACC region, respectively, which are shown at higher magnification in (I).
+Scale bar, 500 μm.IHigh magnification images of the dorsolateral M1 region and dorsomedial ACC region of P0 mice stained for TBR1 and CTIP2, and with DAPI.
+Scale bar, 250 μm.JQuantitative analysis of the thickness of cortical layers of the dorsolateral M1 and dorsomedial ACC regions of the cortex.KRepresentative images of the VZ/SVZ region of P0 mouse brains stained for TBR2 (magenta) and DAPI (blue).
+Scale bar, 250 μm.LQuantitative analysis of the thickness of TBR2+cell layer in the cortical VZ/SVZ at P0.
+Quantitative data are presented as Mean ± SEM and analyzed using one-way ANOVA followed by Bonferroni test in (D,F,G), and two-tailed Student’st-test in (J,L).
+*p< 0.05; **p< 0.01; ***p< 0.001; ns not significant.
+Error bars represent SEM.
+Immunofluorescent staining of P0 cortical sections using specific cell markers (CTIP2 for layer V pyramidal neurons, TBR1 for layer VI pyramidal neurons, and TBR2 for intermediate neural progenitors (IPCs)) revealed significant reductions in the thickness of both upper (layers I-IV) and deep layers (layers V and VI) in KO mice (Fig.1H–J).
+The subventricular zone (SVZ), rich in TBR2+IPCs, was significantly thicker in KO mice compared to WT littermates at P0 (Fig.1K, L), suggesting impaired differentiation of IPCs into post-mitotic neurons in KO mice.
+Embryonic cortical development in mice spans approximately embryonic day 11.5 to 18.5 (E11.5–E18.5), during which radial glial cells (RGCs) in the ventricular zone (VZ) drive neurogenesis through self-renewal and differentiation into neurons or intermediate progenitors (IPs)20.
+To address how MED13L regulates cortical development, we performed bulk RNA sequencing on cortical tissues fromMed13lKO mice at E13.5, a stage that represents the peak period of deep-layer neuron generation and neural progenitor differentiation21.
+Altogether, we discovered 237 upregulated genes and 244 downregulated genes in homozygous KO mice compared to WT littermates (Fig.2A; Supplementary Data1).
+Several DEGs were selected for qPCR validation of their altered expression (Supplementary Fig.2A; Supplementary Data1).
+Most DEGs exhibited a similar but less prominent alteration in their expression in Het mice (Fig.2B; Supplementary Fig.2A–C), reflecting a dosage effect of MED13L on transcriptional regulation.
+Gene ontology (GO) enrichment analysis of DEGs highlights neurodevelopment-related pathways such as “cell differentiation”, “cell proliferation”, “cell fate commitment”, and “regulation of transcription by Pol II” (Fig.2C; Supplementary Data1), suggesting an important role of MED13L in the control of the proliferation, differentiation, and cell fate commitment of cortical NPCs.
+AVolcano plot displaying differentially expressed genes (DEGs) in the cortex of WT and KO mice at E13.5, as revealed by bulk RNA-seq.
+The vertical axis represents −Log10(p-value), while the horizontal axis shows the log2 fold change (KO/WT).
+DEGs: |log2 (fold change)| > 1,p< 0.05.BHeatmap showing the clustering of WT, Het, and KO samples based on the expression of DEGs in these samples.CThe Sankey diagram showing the representative GO entries of DEGs.
+Criteria for significant GO terms: FDR < 0.05.DUMAP graph showing clustering of cortical cells of E13.5 mice identified by single-cell sequencing (scRNA-seq).
+Cortical cells from both WT, Het, and KO mice are included in the UMAP graph.EBubble chart showing the expression of marker genes in the six cell clusters of the cortical pyramidal lineage at E13.5.
+Color represents the average expression level, and size represents the percentage of cells expressing each gene.FPseudo-time trajectory of the six cell clusters of the cortical pyramidal neuronal lineage in WT and KO mice at E13.5.
+Black arrows indicate the developmental trajectory.GComparison of the relative fractions of different cell clusters within the pyramidal lineage in WT and KO mice at E13.5.
+Chi-square test, ****p< 0.0001.HSignificant GO terms related to cell proliferation and differentiation for differentially expressed genes in each cell cluster of the pyramidal lineage at E13.5.
+Gene filtering criteria: |log2 (foldchange)| > 1,p< 0.05.
+Criteria for significant GO terms: FDR < 0.05.
+NE neuroepithelia, RGC radial glial cell, IPC intermediate progenitor cell, PyN pyramidal neuron.
+We further compared WT and KO cortical tissues at single-cell resolution using single-cell RNA sequencing (scRNA-seq) at E13.5.
+Altogether, we obtained the single-cell transcriptome of 25,606 cells (8133 cells from 5 WT embryos, 8972 cells from 5 Het embryos, and 8501 cells from 5 KO embryos) and discovered 23 cell clusters in E13.5 mouse cortex (Fig.2D; Supplementary Data2).
+We annotated the cell fate of each cluster based on the expression of marker genes (Fig.2E; Supplementary Data2).
+Pseudotime trajectory analysis (Monocle3) was performed on the six cell clusters of the cortical pyramidal lineage, including neuroepithelial cells (NEs), cycling and non-cycling radial glial cells (RGCs), cycling and non-cycling intermediate progenitor cells (IPCs), and post-mitotic pyramidal neurons (PyNs).
+Consistent with the well-established developmental process of cortical neurogenesis, the pseudotime trajectory analysis indicated a differentiation pathway of NEs → RGCs → IPCs → PyNs in both WT and KO embryos (Fig.2F).
+Chi-square test indicates a significant difference in the relative proportion of different cell clusters between WT and KO mice (Chi-square = 49.33, df= 5,p< 0.0001), with a marked decrease in the proportion of post-mitotic pyramidal neurons in the cortex of KO mice compared to WT counterparts (Fig.2G).
+This result suggests that MED13L deficiency impaired cortical neurogenesis.
+We analyzed DEGs in each pyramidal lineage cell type at single-cell resolution.
+GO enrichment analysis of DEGs in each cell cluster revealed significant GO terms related to cell proliferation and differentiation, specifically in cycling and non-cycling RGCs and pyramidal neurons (Fig.2H; Supplementary Data2).
+These findings highlight the crucial role of MED13L in regulating cell proliferation and differentiation within the cortical pyramidal lineage.
+Additionally, other significant GO terms, such as “regulation of the Wnt signaling pathway,” “axon development,” and “neuron projection development,” indicate a developmental role of MED13L across different pyramidal lineage populations (Fig.2H; Supplementary Data2).
+At E13.5, the surface area of the cortex was significantly reduced in KO embryos compared to WT counterparts (Fig.3A, B).
+Immunofluorescent staining of cortical sections was carried out to further examine whether cortical neurogenesis was impaired byMed13ldeficiency at E13.5, a developmental period crucial for the generation of deep-layer neurons of the cortex.
+Cortex from KO mice displayed a significant reduction in the density of TBR1+layer VI neurons (cell number within a 250 μm-wide column, Fig.3C, D) and the thickness of the layer of DCX+newborn neurons (Fig.3E, F), consistent with reduced neurogenesis revealed by the scRNA-seq.
+There was also a significant reduction in the density of TBR2+IPCs in the VZ/SVZ (Fig.3E, G), along with an increase in the thickness of PAX6+NPC layer in the VZ of KO mice (Fig.3H, I).
+These results suggest impairments in the differentiation of NPCs into either IPCs or deep-layer neurons at E13.5 caused byMed13ldeficiency.
+ARepresentative images of the dorsal view of the whole brains from WT and KO mice at E13.5.
+Scale bars, 1 mm.BQuantitative analysis of surface area of the cerebral cortex (outlined by the dashed lines in (A) of WT and KO mice at E13.5.N= 8 (WT), 4 (KO).CRepresentative images of WT and KO mouse brains at E13.5, stained for TBR1 (magenta) and DAPI (blue).
+Scale bars, 500 μm for the panoramic view and 100 μm for the local view.DComparison of the number of TBR1+cells in the cortex of WT and KO mice at E13.5.N= 9 (WT), 9 (KO).ERepresentative images of WT and KO mouse brains at E13.5, stained for DCX (magenta), TBR2 (green), and DAPI (blue).
+Scale bars, 500 μm for the panoramic view and 100 μm for the local view.F,GQuantitative analysis of the thickness of DCX+cell layer and the density of intermediate neural progenitor cells (TBR2+) in the cortex of WT and KO mice at E13.5.N= 6 (WT), 6 (KO) in (F);N= 7 (WT), 10 (KO) in (G).HRepresentative images of PAX6 (magenta) and DAPI (blue) staining in the cortex of WT and KO mice at E13.5.
+The selected regions (white rectangular dashed box) are shown at high magnification on the right.
+Scale bars, 500 μm and 100 μm for the low and high magnification images, respectively.IQuantitative analysis of the thickness of the neural progenitor cell layer (PAX6+) in the cortex at E13.5.N= 9 (WT), 8 (KO).JRepresentative images of Ki67 (green), BrdU (magenta), and DAPI (blue) staining in the cortex of mouse brains at E13.5, 24 h after the BrdU injection.
+Scale bar, 100 μm.KPercentage of cell-cycle exit (Q-fraction) in the VZ/SVZ of WT and KO mice at E13.5.N= 4 (WT), 4 (KO).
+Data are presented as mean ± SEM and analyzed by two-tailed Student’st-test in (B,D,F,G), and one-tailed Student’st-test in (I) and (K).
+*p< 0.05; **p< 0.01; ***p< 0.001; ns not significant.
+Error bars represent SEM.
+We further examined whetherMed13ldeficiency affects the cell-cycle exit of neural progenitors.
+Pregnant mice were injected with 5-bromo-2’-deoxyuridine (BrdU, 50 mg/kg) at E12.5, and embryos were harvested at E13.5 for immunostaining of both BrdU and the cell cycle marker Ki67 in the cortex.
+KO embryos exhibited a significant decrease in the percentage of BrdU+cells that had exited the cell cycle (Ki67-BrdU+/BrdU+× 100%, Q-fraction) in the VZ/SVZ compared to WT embryos (Fig.3J, K), suggesting impaired cell-cycle exit of neural progenitors.
+At embryonic day 16.5 (E16.5), a crucial stage for upper-layer neuron generation, KO embryos exhibited decreased cortical surface area (Supplementary Fig.3A, B) and reduced thickness in both dorsomedial and dorsolateral cortical regions compared to WT embryos (Supplementary Fig.3C, D, G).
+Further analysis showed a significant reduction in the thickness of the TBR1+layer VI and CTIP2+layer V (Supplementary Fig.3D, H, I) in the cortex of KO embryos.
+Additionally, there was a significant reduction in the thickness of DCX+cortical plate (CP) (Supplementary Fig.3E, J), as well as a significant reduction in the density of TBR2+IPCs in the intermediate zone (IZ), but not in the VZ/SVZ (Supplementary Fig.3E, K), indicating compromised differentiation of IPCs into upper-layer neurons.
+A significant reduction in the cell-cycle exit was also observed in KO embryos at E16.5 with BrdU administration at E15.5 (Supplementary Fig.3F, L), confirming the detrimental effect ofMed13ldeficiency on the differentiation of neural progenitors at this developmental stage.
+GivenMed13l’s high expression in the pyramidal lineage of developing cortex22, we further examined the effects ofMed13ldeficiency in this lineage using a conditional knockout mouse line, in which LoxP sites were inserted around exon 2 of theMed13lgene.
+We crossbred theseMed13l-floxed mice withEmx1-Cre mice, achieving pyramidal lineage-specific knockout in the forebrain (Emx1-Cre::Med13lflox/flox, cKO) (Supplementary Fig.4A, B).
+The efficiency of the conditional knockout was confirmed through qPCR and Western blotting (Supplementary Fig.4C–F).
+Adult cKO mice showed a similar reduction in the thickness of M1 cortex as KO mice, while there was no difference in the somatosensory cortex (S1ULP) (Supplementary Fig.4G, H).
+At E13.5, cKO mice showed a reduction in the density of Tbr1+deep-layer neurons (Supplementary Fig.4I, J) and the thickness of DCX+CP (Supplementary Fig.4K, N) compared to control mice, indicating an impairment in cortical neurogenesis.
+The density of TBR2+IPCs was also significantly reduced in the cKO cortex (Supplementary Fig.4K, O).
+In contrast, there was a significant increase in the number of PAX6+NPCs and an increase in the percentage of proliferating NPCs (BrdU+, Supplementary Fig.4L, P, Q), with a concomitant reduction in the differentiation of NPCs at the VZ/SVZ of cKO mice than control mice (Q-fraction, Supplementary Fig.4M, R).
+These results suggest a cell-autonomous role of MED13L in the differentiation of NPCs of the pyramidal lineage.
+To understand how MED13L regulates cortical neurogenesis, we performed co-immunoprecipitation (Co-IP) followed by mass spectrometry on cortical protein lysates from WT mice, using lysates from KO mice as a negative control.
+This analysis identified 39 proteins that interact with MED13L in E13.5 cortex (Fig.4A; Supplementary Data3).
+Selected MED13L-interacting proteins were validated through Western blotting after Co-IP (Fig.4B).
+We found that most MED13L-interacting proteins are components of the mediator complex, or proteins known to interact with the mediator complex to regulate gene transcription initiation or elongation, supported by GO analysis of the interacting proteins (Supplementary Data3).
+Notably, MED13, MED11, and MED26 were not detected in the MED13L interactome (Supplementary Data3), consistent with a mutual exclusive relationship between MED13 and MED13L within the CKM3and between MED26 and the CKM in interacting with the core mediator complex23.
+AVolcano plot showing differentially presented proteins that co-immunoprecipitated (Co-IP) with MED13L in the cortex of WT and KO mice at E13.5.
+The vertical axis represents −Log10 (p-value), and the horizontal axis represents the ratio of KO/WT.
+Red dots indicate differentially presented proteins meeting the filtering criteria: KO/WT < 0.5,p< 0.05.BWestern blotting of MED13L, MED12, TASP1, Pol II, and MED1 before (Input) and after immunoprecipitation (IP) in cortical protein lysates from WT and KO mice.C,GCo-IP using an anti-MED1 antibody showing reduced MED1-MED12 (C) and MED1-Pol II (G) associations inMed13lKO versus WT mice.
+Blots were probed with anti-MED12, anti-MED1, and anti-Pol II antibodies.
+Uncropped blots are shown in Supplementary Fig.8.D,J,KQuantitative analysis of MED12, MED1 and Pol II in lysates of the cortex (input) from WT and KO mice at E13.5.N= 7 (WT), 7 (KO) in (D) and (K);N= 5 (WT), 5 (KO) in (J).E,F,H,IQuantitative analysis of MED12, MED1 and Pol II levels in the MED1-IP products.N= 5 (WT), 5 (KO) inEandF; N = 3 (WT), 3 (KO) in (H);N= 7 (WT), 7 (KO) in (I).LCo-IP using an anti-Pol II antibody showing no interaction with MED12 in either WT orMed13lKO mice.
+IP products were probed with anti-Pol II and anti-MED12 antibodies.
+Uncropped blots are shown in Supplementary Fig.8.MSchematic diagram illustrating the MED13L-dependent priming of developmental genes by the mediator complex, facilitating the complex’s subsequent association with Pol II and the initiation of gene transcription.
+(Created by the authors).NTop-ranked transcription factors revealed by the ChEA for downregulated (left) and upregulated (right) genes in E13.5 cortex afterMed13lKO.OThe heatmap illustrates the spatio-temporal correlation between the mRNA level ofMED13Land ChEA-predicted transcription factors in the developing human cortex, with color coding representing the strength of their correlation.PThe number of potential target genes ofMed13lin different cell clusters of the pyramidal lineage.QClustering of ChEA-predicted transcriptional regulators of MED13L target genes based on their relative enrichment level across cell clusters.
+Data are presented as Mean ± SEM and analyzed by two-tailed Student’st-test in (D–F,H–K).
+*p< 0.05; **p< 0.01; ns not significant.
+Error bars represent SEM.
+In addition to mediator components, several unexpected proteins were discovered among MED13L-interacting proteins, such as FBXL19 (F-Box and Leucine-Rich Repeat Protein 19), TASP1 (Threonine Aspartase 1), ATF7IP (Activating Transcription Factor 7 Interacting Protein), ERCC1 (Excision Repair Cross-Complementation Group 1), and SENP2 (SUMO Specific Peptidase 2), as shown in Fig.4Aand detailed in Supplementary Data3.
+Of particular interest is FBXL19, a class II CXXC domain protein that specifically binds unmethylated CpG-containing DNA24and recruits the CKM-mediator complex to promoters of silent developmental genes, leading to their induction during the differentiation of embryonic stem cells12,13.
+Another MED13L-interacting protein TASP1 plays a role in proteolytic activation of the histone methyltransferase MLL1, which promotes the formation of the active gene transcription marker H3K4Me325.
+Notably, MLL1 is also a class II CXXC domain protein that binds to unmethylated CpG islands24.
+These findings suggest that MED13L may coordinate the epigenetic regulation of gene transcription.
+Western blot analysis revealed a significant reduction in the protein level of the CKM component MED12 in embryonic cortical tissues fromMed13lKO mice (Input; Fig.4C, D), suggesting that MED13L may play a role in stabilizing MED12.
+To investigate how MED13L regulates the interaction between the core mediator complex and Pol II in the embryonic cortex, we performed immunoprecipitation targeting MED1, a subunit of the core mediator.
+We found thatMed13lknockout significantly decreased the co-immunoprecipitation of Pol II by MED1 (Fig.4G–K), indicating that MED13L facilitates rather than suppresses the association of Pol II with the core mediator complex.
+Notably, neither MED13L nor MED12 interacts with Pol II (Fig.4B, L), suggesting that the CKM is released from the core mediator complex once it is associated with Pol II.
+Moreover, Co-IP using the anti-MED1 antibody demonstrated decreased association of MED12 with MED1 inMed13lKO cortices (IP; Fig.4C, E).
+The MED12 IP/Input ratio showed a trend of reduction (Fig.4F;p= 0.15), suggesting a potential weakening of the MED1-MED12 interaction followingMed13lKO.
+Collectively, these co-immunoprecipitation data and the MED13L interactome suggest that the association of MED13L/CKM with the core mediator complex is necessary for engaging Pol II, after which the CKM is subsequently released (Fig.4M).
+This finding, along with the essential role of Pol II–mediator complex in transcriptional initiation, suggests that MED13L is more likely to enhance transcriptional activation rather than inhibit it.
+To further test this hypothesis, we investigated potential downstream targets of MED13L.
+We first identified genes that show significant spatiotemporal co-expression with MED13L in the developing human brain, using the BrainSpan human brain transcriptome dataset26(correlation coefficientr> 0.3,p< 0.05).
+We next assessed how the expression of these co-expressed genes changes in the mouse cortex followingMed13lKO, noting those that were significantly downregulated (for positively co-expressed genes) or upregulated (for negatively co-expressed genes) (Supplementary Data1).
+These genes were categorized as either MED13L-activated (positively co-expressed and downregulated upon KO) or MED13L-suppressed (negatively co-expressed and upregulated upon KO).
+We then performed ChIP-X Enrichment Analysis (ChEA) to predict transcription factors (TFs) regulating these genes (Supplementary Data1).
+For MED13L-activated genes, significantly enriched TFs included FEZF2, NEUROD1/2/6, SCRT1, and MYT1L, known for roles in neuronal fate specification, differentiation, or maturation.
+Conversely, for MED13L-suppressed genes, key TFs were E2F1/2/8, MYBL2, and CENPA, which are associated with cell cycle regulation (Fig.4N, Supplementary Data1).
+Further analysis of the BrainSpan dataset revealed that neurogenic TFs like FEZF2, MYT1L, NEUROD2/6, and SCRT1 positively co-express with MED13L, while cell-cycle regulators such as E2F1/2/7/8, MYBL2, and CENPA negatively co-express with MED13L in the developing human cortex (Fig.4O; Supplementary Data1).
+Therefore, MED13L synergizes with a suite of neurogenic TFs to activate transcription of their target genes during cortical neurogenesis.
+Notably, MED13L-activated target genes include several key genes implicated in neurodevelopmental disorders, such asNeurod2(an epilepsy-associated regulator of neuronal differentiation),Cntn2(an axon guidance gene linked to epilepsy),Tbr1(a cortical neuron identity specifier associated with ASD and intellectual disability),Sox5(a layer specification factor implicated in ASD and ID),Nfib(a gliogenesis regulator linked to ASD and ID), andAuts2(an ASD-associated gene involved in neuronal migration) (Supplementary Table1).
+The convergent dysregulation of these genes inMed13lKO cortices provides mechanistic insights into MED13L-related pathologies.
+We next analyzed potential target genes of MED13L in each cell cluster of the pyramidal lineage based on the scRNA-seq.
+Potential downstream target genes of MED13L were identified as those positively correlated withMed13lexpression in WT cells and whose expression reduced afterMed13lKO, or those negatively correlated withMed13land whose expression increased afterMed13lKO (Fig.4P).
+We found that most downstream target genes in each cell cluster were positively correlated withMed13land showed reduced expression afterMed13lknockout (Fig.4P; Supplementary Data2), supporting the notion that MED13L primarily enhances the expression of its target genes rather than suppressing them, during cortical neurogenesis, potentially through a priming effect of MED13L on the transcriptional activation.
+For each pyramidal cell cluster, ChEA analysis was performed on potential MED13L target genes that were downregulated in KO mice to predict the transcriptional regulators governing their expression (Supplementary Data2).
+Distinct transcription regulators were identified for each cell cluster, with well-established neurogenic TFs enriched in NEs, NPCs, and IPCs (Fig.4Q).
+This is consistent with the idea that MED13L promotes the expression of genes regulated by these neurogenic transcription factors during the neurogenic differentiation of these progenitor populations.
+Taken together, the integrated multi-omics and biochemistry studies suggest that MED13L orchestrates with a cohort of neurogenic TFs to prime their target genes for subsequent transcriptional activation during the differentiation and neuronal fate specifical of cortical neural progenitors.
+In addition to its role in embryonic cortical neurogenesis, we investigated the impact ofMed13lheterozygous KO on adult cortical tissues.
+We conducted proteomic analysis on the adult M1 cortex of WT and Het mice, revealing that the differentially expressed proteins are enriched in axons, dendrites, and synapses (Fig.5A-D; Supplementary Data4).
+Golgi staining revealed that layer III pyramidal neurons in the M1 cortex of Het mice exhibited reduced dendritic length, branching, and complexity compared to WT mice, while the neuronal soma size remained unchanged (Fig.5E–I).
+Moreover, there was a significant reduction in the density of dendritic spines on basal dendrites but not apical dendrites of layer III pyramidal neurons in Het mice compared to WT mice (Fig.5J–L; Supplementary Fig.5A–C).
+Conditional knockout ofMed13lspecifically in the forebrain pyramidal lineage (cKO) resulted in similar dendritic simplification in layer III pyramidal neurons of the M1 cortex (Supplementary Fig.5D–G).
+AThree-dimensional PCA plot of differentially expressed proteins from the motor cortex of adult WT and Het mice.BVolcano plot illustrating differentially expressed proteins from motor cortex of WT and Het mice.
+Criteria for differentially expressed protein:p-value < 0.05, |log2Foldchange| ≥ 0.26.CHeatmap depicting the clustering of differentially expressed proteins in the motor cortex from WT and Het mice.DGO enrichment analysis of differentially expressed proteins in the motor cortex of WT and Het mice.
+Criteria for significant GO terms: FDR < 0.05.ERepresentative traces of pyramidal neuron dendrites revealed by Golgi staining in adult WT and Het mice.
+Scale bar, 100 μm.F–HStatistical analysis of total dendritic length (F), dendritic branch number (G), and soma area (H) of pyramidal neurons in adult WT and Het mice.ISholl analysis showing the dendritic complexity of cortical pyramidal neurons from WT and Het male mice.JRepresentative microscopic images (left) and schematic diagrams (right) of basal dendrites of layer III pyramidal neurons in adult WT and Het mice based on Golgi staining.
+Scale bars, 10 μm.
+Different types of dendritic spines are coded by different colors in the schematic diagrams.K,LStatistical analysis of the density of total dendritic spines (K) and the densities of different subtypes of dendritic spines (L) based on Golgi staining.
+ForF–IandK,L, data are presented as mean ± SEM and analyzed by two-tailed Student’st-test (F–HandK,L) or two-way ANOVA (I).N= 53 (WT), 48 (Het).
+Each point represents a neuron from 3 WT and 3 Het mice in (F–I).N= 39 (WT), 40 (Het).
+Each point represents a dendrite segment from 4 WT and 4 Het in (K,L).
+**p< 0.01; ***p< 0.001; ****p< 0.0001; ns not significant.
+Error bars represent SEM.
+To determine if Het mice exhibit behavioral characteristics indicative ofMED13Lsyndrome, we conducted behavioral assays on both male and female mice.
+In the open field test (OFT), adult male Het mice exhibited a significant reduction in center exploration and a markedly lower frequency of vertical exploration (up rearing) compared to their WT counterparts (Fig.6A), suggesting heightened anxiety levels.
+In contrast, adult female Het mice did not display any significant behavioral changes in the OFT (Fig.6A).
+In the balance beam test, male Het mice required significantly more time to traverse an ascending balance beam, whereas female Het mice performed similarly to WT controls (Fig.6B).
+Both male and female Het mice showed significantly reduced performance in the rotarod test, further indicating impairments in motor coordination (Fig.6C).
+In the Morris water maze (MWM) test, male Het mice demonstrated slower learning of the spatial location of the hidden platform and poorer memory retention compared to WT mice.
+Female Het mice, however, performed comparably to WT littermates in the MWM (Fig.6D).
+ARepresentative traces (left) and quantitative analyses (right) of the locomotion distance, time in the central zone, and the up-rearing events of male and female mice of different genotypes in the open field arena.BSchematic diagram of the ascending balance beam (left, created by the authors) and the comparison of the total latency for the mice to cross the ascending balance beam between control and Het mice of different sexes (right).CSchematic diagram of the rotarod test (left, created by the authors) and the maximal time of maintaining balance on the accelerating rotarod over seven consecutive days for male and female mice of different genotypes (right).DSchematic diagram of the Morris Water Maze (left, created by the authors) and the quantitative analyses of the latency to reach the hidden platform during the four consecutive training days (middle) as well as the number of target quadrant crossings during the test day for male and female mice of different genotypes.
+Each dot in histograms represents data from an individual mouse.
+Data are presented as mean ± SEM and analyzed by two-way ANOVA for (A,C), and (D) or two-tailed Student’st-test for (B) and (D).
+*p< 0.05; **p< 0.01; ***p< 0.001; ****p< 0.0001; ns not significant.
+Error bars represent SEM.
+In other behavioral assays, including the three-chamber sociability test, self-grooming test, grip strength test and hindlimb clasping test, both male and female Het mice performed normally (Supplementary Fig.6).
+Overall, Het mice replicate the core behavioral deficits associated withMED13Lsyndrome, such as intellectual disability and motor impairment.
+We further analyzed the impact of pyramidal lineage-specific knockout ofMed13l(cKO) on mouse behavior.
+We found that male cKO mice displayed significantly prolonged center exploration during the OFT compared to their littermates without gene ablation (Ctrl) (Supplementary Fig.7A).
+In contrast, female cKO mice demonstrated decreased locomotion and a diminished frequency of rearing behavior relative to Ctrl mice (Supplementary Fig.7A).
+Both male and female cKO mice exhibited significantly impaired performance in the balance beam and rotarod tests, indicative of substantial deficits in motor coordination and motor learning (Supplementary Fig.7B, D).
+Additionally, a notable proportion of cKO mice displayed rear paw clasping when suspended by the tail, further evidence of motor dysfunction (Supplementary Fig.7C).
+Grip strength and spatial learning and memory were unaffected in cKO mice (Supplementary Fig.7E, F).
+Collectively, these findings suggest that cKO mice manifest more severe motor deficits compared to Het mice but do not demonstrate the learning and memory impairments characteristic of Het mice.
+TheMED13Lsyndrome is mostly caused by haploinsufficiency of the gene.
+The present study showed that heterozygousMed13lKO mice (Het) exhibited heightened anxiety, impaired motor coordination, and deficits in learning and memory, mirroring core behavioral traits ofMED13Lsyndrome (Supplementary Table2).Med13lgene deficiency, particularly the homozygous KO, caused microcephaly, another anatomical abnormality associated with a subgroup of theMED13Lsyndrome.
+Thus, Het mice could serve as a valuable animal model for studying the neuropathological mechanisms underlyingMED13Lsyndrome and for exploring therapeutic strategies for this developmental disorder.
+Several brain structures engage in motor control, including the motor cortex, the striatum, and the cerebellum.
+We found that conditional knockout ofMed13lin the forebrain pyramidal lineage (cKO) caused more pronounced motor deficits compared to Het mice, indicating that aberrant cortical circuitry likely plays a significant role in the motor impairments associated withMED13Lsyndrome.
+Therefore, targeting the motor cortex could be a promising intervention strategy to mitigate motor deficits inMED13Lsyndrome, a hypothesis that warrants further investigation.
+However, sinceMed13lis also expressed in both the striatum and cerebellum, and dysplasia of these two brain regions occurred in homozygous KO mice (Supplementary Fig.1N, O), the potential involvement of developmental deficits in the cerebellum and striatum in these motor deficits in Het mice and inMED13Lsyndrome cannot be excluded.
+Interestingly, cKO mice did not exhibit the same learning and memory impairments as Het mice, suggesting that the neuronal basis of intellectual disability inMED13Lsyndrome is more complex than the motor deficits and may involve different neuronal populations from brain regions beyond the cortical pyramidal lineage.
+This complexity highlights the need for further studies to identify the specific brain regions and neuronal circuits contributing to the cognitive deficits observed inMED13Lsyndrome.
+AlthoughMED13Lis considered a high-risk gene for ASD, only 23% of individuals withMED13Lgene deficiency exhibit an autistic phenotype27.
+We did not see a statistically significant defect in the social interaction of Het mice, although a few such mice indeed displayed abnormal sociability.
+Considering the multigenic nature of ASD, it is likely thatMED13Lgene deficiency per se is not sufficient for causing ASD but could significantly increase the risk.
+Our findings underscore the essential role of MED13L in regulating neural progenitor proliferation and differentiation, which are pivotal processes for normal brain development.
+We found that KO mice are neonatally lethal with severe deficits in cortical development, including microcephaly and reduced cortex surface area and cortical thickness.
+Heterozygous KO mice survive to adulthood but display significant reductions in the sizes of multiple brain regions and cortical thinning, particularly in the primary motor cortex.
+These anatomical abnormalities parallel the functional impairments (motor deficits, intellectual disability) that characterizeMED13Lsyndrome, suggesting that defects in neural progenitor proliferation and differentiation may underlie the syndrome’s brain malformations.
+Several lines of evidence support a critical role of MED13L in the differentiation of cortical progenitors.
+The decreased presence of neurons in both deep and upper cortical layers at different developmental stages suggests that MED13L is necessary for the proper development of these layers.
+At E16.5, TBR2+IPCs in IZ reflect a population of differentiating IPCs migrating toward the CP.
+This IPC population is reduced in KO mice (Supplementary Fig.3F, K), indicating impaired differentiation of IPCs into post-mitotic neurons.
+Additionally, the thicker SVZ rich in Tbr2+cells in neonatal KO mice (Fig.1K, L) and the increased PAX6+NPC layer in the E13.5 VZ of KO and cKO mice (Fig.3H, I; Supplementary Fig.4L, P, Q) suggest an accumulation of progenitor cells that failed to differentiate into neurons or IPCs.
+This further reinforces the role of MED13L in promoting the differentiation of neural progenitors.
+Our scRNA-seq and immunofluorescent staining of E13.5 cortex showed a marked reduction in the proportion of pyramidal neurons (Fig.2G; Fig.3C–F), supporting impaired differentiation of neural progenitors into neurons.
+Cell cycle exit assays provided additional evidence of aberrant differentiation of progenitors in the embryonic cortex of KO and cKO mice (Fig.3J, K; Supplementary Fig.3F, L; Supplementary Fig.4M, R).
+Altogether, these findings suggest that MED13L promotes the fate switch from progenitor cells to differentiated cell types during embryonic development of the cortex, including the transitions from NPCs to IPCs and from IPCs to post-mitotic neurons.
+These results are consistent with previous studies indicating the involvement of MED13L in cell proliferation and differentiation pathways in cell culture14.
+In addition to its role in neurogenesis, we found that MED13L is crucial for proper dendrite development.
+Proteomic and neuronal morphometry analyses of cortical tissues from homozygous KO mice showed significant impairments in dendritic development of pyramidal neurons.
+These dendritic abnormalities in cortical pyramidal neurons of Het mice may underlie the motor coordination deficits observed in behavioral assays, linking structural brain defects to functional outcomes.
+Similar dendritic impairments in cortical pyramidal neurons were observed in mice with conditional knockout ofMed13lin cKO mice (Supplementary Fig.5D–G), underscoring the cell-autonomous role of MED13L in neuronal morphogenesis.
+This cell-autonomous action of MED13L in dendrite development is consistent with a recent report showing impaired dendrite arborization afterin-uteroelectroporation of different mutant forms of MED13L into cortical pyramidal neurons28.
+Further studies are needed to investigate whether axon projection and synapse formation are also affected byMED13Ldeficiency, as suggested by our transcriptomic analysis.
+Understanding these aspects could provide deeper insights into the full spectrum of MED13L’s role in neuronal development and its impact on neurological function.
+Our findings suggest that MED13L is co-expressed with a group of key neurogenic TFs and is required for gene expression under the control of these neurogenic TFs.
+The proper developmental expression of MED13L ensures that NPCs differentiate into distinct types of neurons at the appropriate times.
+The canonical Wnt/β-catenin pathway plays a well-established role in promoting cortical neurogenesis29–31.
+Crosstalk between mediator complex and the Wnt pathway has been frequently reported.
+A previous study in cultured human NPCs showed that knockdown ofMED13Lcaused a slight increase in the proliferation of NPCs, a process correlated with significant alteration in the expression of canonical Wnt pathway genes14.
+Genetic studies inDrosophilaandC.
+eleganshave revealed that mutations in other Mediator subunitsMed1,Med6,Med12,Med13andMed23variously affect developmental processes regulated by Wnt signaling32–36.
+MED12 has been shown to physically interact with β-catenin and was required for β-catenin-stimulated gene expression37.
+Notably, we found that MED13L is essential for maintaining MED12 protein levels in the developing cortex, providing a plausible mechanism by which MED13L regulates Wnt signaling via MED12.
+Although we did not discover β-catenin in the MED13L interactome in E13.5 cortical tissues, it cannot be ruled out that MED13L may regulate its target genes via crosstalk between CKM components and the canonical Wnt pathway.
+Consistent with this notion, our scRNA-seq at E13.5 cortex highlights aberrant expression of canonical Wnt pathway genes in radial glial cells (Fig.2H).
+The detailed molecular machinery underlying MED13L’s crosstalk with the Wnt pathway remains to be investigated.
+How does MED13L regulate its target genes during cortical development?
+We found that MED13L-interacting proteins are predominantly components of the mediator complex.
+The absence of MED13 and MED26 in MED13L interactome is consistent with the mutual exclusivity between MED13 and MED13L in the CKM3and between MED26-Mediator and CKM-Mediator23, supporting the reliability of our proteomic findings.
+MED13L is traditionally considered to suppress Pol II-mediated gene transcription by mediating the binding of CKM to the core mediator complex, thus interfering with its interaction with Pol II.
+However, components of the CKM, such as MED12 and MED13, have also been discovered to positively regulate gene expression.
+We discovered that FBXL19 and TASP1, both epigenetic regulators of transcriptional activation, are part of the MED13L interactome.
+Previous studies have demonstrated that FBXL19 recruits the CDK-Mediator complex to CpG island-associated promoters, priming genes for activation12,13.
+These findings suggest that MED13L enhances the expression of developmental genes through a priming effect of the CKM-Mediator complex on transcriptional activation during the cell fate specification of cortical NPCs.
+Consistent with this notion, genes whose expression was significantly reduced inMed13ldeficient cortex are predicted to be activated by a group of neurogenetic transcription factors that are known to regulate the neuronal fate specification in developing cerebral cortex.
+This notion is further supported by our scRNA-seq analysis, which shows that most target genes of MED13L are activated rather than repressed by MED13L.
+In conclusion,Med13ldeficiency results in profound structural and functional brain abnormalities, underscoring the pivotal role of MED13L in neuronal genesis and maturation within the cerebral cortex.
+Our findings highlight a priming effect of MED13L for the transcription of key developmental genes in coordination with a group of neurogenic transcription factors and epigenetic factors during the cell fate specification of cortical neural progenitor cells, advancing the understanding of MED13L’s critical function in cortical development and the molecular underpinnings of theMED13Lsyndrome.
+Housing, handling, and all experimental protocols for mice were performed in accordance with the Regulations for the Administration of Laboratory Animals of East China Normal University (ECNU) and were approved by the Animal Care and Use Committees of ECNU (Approval ID: 10269).
+We have complied with all relevant ethical regulations for animal use.
+Mice were housed in a certified specific-pathogen-free (SPF) facility under standardized conditions: housed in standard filter-top cages (3-5 animals per cage) with free access to water and food.
+They were maintained on a 12:12-h light/dark cycle (07:00 to 19:00 lighting) at 22°C with relative humidity of 50–60%.
+The noon of the day when the vaginal plug was found was counted as embryonic day (E) 0.5.
+Wild-type C57BL/6 J mice (MGI: 3028467) were purchased from Shanghai Jihui Laboratory Animal Care Co., Ltd. and ICR mice (CD-1, MGI:5649524) were obtained from Hunan SJA Laboratory Animal.Med13lknockout mice were generated by CRISPR/Cas9 in C57BL/6 N zygotes at Cyagen Biosciences (C57BL/6N-Med13lem1cya/Cya, Cyagen Ltd., Nanjing, China; Stock No. S-KO-14807; MGI: 7835672) and backcrossed > 5 generations to C57BL/6 J, then crossed with ICR mice to establish experimental breeding colonies.
+All KO experiments used littermate controls from these crosses.Med13l-floxed mice (C57BL/6JGpt-Med13lem1Gpt/Gpt; Gempharmatech Ltd., Nanjing, China; Stock No. T010181; MGI: 6426082), andEmx1-Cre mice (B6.129S2-Emx1tm1(cre)Krj/J; Jackson Laboratories, JAX: 005628, MGI: 3617405).
+Genotyping and sequencing primer sequences for all the aforementioned mouse lines are provided in Supplementary Data5.
+Med13lknockout mice were generated by CRISPR/Cas9-mediated gene editing in C57BL/6 N mouse zygotes38.
+Guide RNAs (gRNAs) were designed to target Exon 2 (gRNA1: 5′-GCACGTGGGCTGTTCGATACAGG-3′; gRNA2: 5′-GCTTCACACCACCTACGGTTTGG-3′) to delete a fragment of 238 bp.
+Specificity of the gRNA was evaluated using the online tool available atcrispr.mit.edu.
+A mix of Cas9 mRNA and gRNAs was microinjected into zygotes.
+An F0 founder carrying a 3187-bp deletion and an 8-bp insertion was identified by Sanger sequencing (Supplementary Fig.1A; primers listed in Supplementary Data5), resulting in complete deletion of Exon 2 and a frameshift that introduced a premature stop codon.
+For the floxed allele, gRNAs targeting Exon 2 (gRNA1: 5′-TAACCATCTGCAACCCAACC-3′; gRNA2: 5′-AGCACTCCCCACGGAGACAT-3′) were used with Cas9 mRNA and Flox Donor DNA;Med13l-floxed mice (Gempharmatech Stock No. T010181) were later crossed withEmx1-Cre (JAX: 005628) mice for forebrain-specific knockout.
+Genomic DNA was amplified by polymerase chain reaction (PCR), and the resulting products were purified and directly sequenced using an ABI PRISM 3730 automated sequencer.
+Sequencing chromatograms were aligned to the mouse reference genome using Chromas software.
+Due to the 3187-bp deletion, only the junction regions of the deleted allele are presented in Supplementary Fig.1A.
+For newborn mice (P0), the heads were removed after ice anesthesia, and the brains were dissected and photographed under a stereoscopic anatomical microscope (Leica M165 FC).
+For adult mice, animals were anesthetized by 0.7% (w/v) pentobarbital sodium solution at 5 mL/kg (35 mg/kg body weight), followed by perfused with precooled phosphate buffer (PBS, pH 7.4) and 4% paraformaldehyde (PFA).
+The brains were dissected and photographed.
+Morphological parameters measured included the width of cortex (WC1), longitudinal length of cortex (LC1), oblique length of cortex (LC2), and width of cerebellum (WC2).
+For brain slice preparation, brains were post-fixed in 4% PFA (pH 7.4) for 24 h.
+(P0) or overnight (adult), followed by dehydration in 20% and 30% sucrose solutions in PBS.
+Brains were embedded in OCT compound (SAKURA, USA).
+Coronal sections of 40-μm thickness were cut using a cryostat (Leica CM1950).
+Glass slides with brain sections were treated with Nissl staining solution for 15 min at 55 °C.
+Microscopic images of Nissl-stained brain slices were collected using the TissueFAXS Plus ST system (TissueGnostics GmbH, Vienna, Austria).
+The thickness of the motor cortex (M1) and primary somatosensory cortex (S1ULP/S1BF) were measured in microscopic images of Nissl-stained brain slices using Image J software.
+The volumes of the unilateral cerebellum or striatum were obtained by cumulative integration of areas of all brain slices encompassing the entire brain region.
+Glass slides with brain sections were washed with PBS (pH 7.4) three times and incubated for 15 min in 10 mM sodium citrate buffer (pH 6.0) at 99°C for antigen retrieval.
+Sections were then incubated in blocking buffer (5% BSA, 5% goat serum, and 0.25% Triton X-100 in PBS) for 2 h at room temperature.
+Subsequently, sections were incubated with specific primary antibodies for 48 h at 4 °C.
+For primary antibodies, we used mouse anti-BrdU (1:500, Cell Signaling, 5292S), rabbit anti-Pax6 (1:300, MBL, PD022), rabbit anti-Tbr1 (1:1000, Abcam, ab31940), rabbit anti-EOMES (1:1000, Abcam, ab183991), rat anti-EOMES (1:100, Invitrogen, 14-4875-82), rat anti-Ctip2 (1:1000, Abcam, ab18465), rabbit anti-DCX (1:800, Cell Signaling, 4604), rabbit anti-Ki67 (1:200, Cell Signaling, 12202).
+After rinsing in PBS three times, sections were incubated with secondary antibodies in the dark for 2 hr.
+at room temperature and then thoroughly rinsed.
+Secondary antibodies were: goat anti-rabbit, Alexa Fluor 546 (1:1000, Invitrogen, A11035), donkey anti-mouse, Alexa Fluor 647 (1:1000, Invitrogen, A32787), goat anti-rat, Alexa Fluor 647 (1:1000, Cell Signaling, 4418), goat anti-rabbit, Alexa Fluor 488 (1:1000, Invitrogen, A11008), goat anti-rabbit, Alexa Fluor 647 (1:1000, Cell Signaling, 4414).
+Nuclei were labeled by incubating sections in PBS containing 1 μg/ml 4’,6-diamidino-2-phenylindole (DAPI) (Thermo Fisher Scientific, 62248), and samples were mounted using ProLong Diamond Antifade Mountant (Thermo Fisher Scientific,P36970).
+For BrdU labeling, time-pregnant mice were intraperitoneally injected with 50 mg/kg body weight BrdU (Abcam, ab251467).
+After 1.5 h.
+(proliferation assay) or 24 h.
+(differentiation analysis), mice were anesthetized, and the brains of embryos were dissected on ice and fixed with 4% PFA for 4-6 h. Cryostat sections of 14-μm (1.5-h pulse) or 16-μm (24-h pulse) thickness were prepared.
+Sections were treated with 2 N HCl for 15 min at 37 °C before immunofluorescence staining.
+Fluorescence images of brain sections were collected using the TissueFAXS Plus ST system (TissueGnostics GmbH, Vienna, Austria) and further processed with Adobe Illustrator.
+For cell counting, a 250 μm wide rectangular column was placed perpendicular to the ventricular surface in the cortical area, and the cell number in the column was counted using the cell counter program of Image J software.
+Behavioral tests and data analyses were conducted according to previously described protocols39.
+Briefly, 17- to 20-week-old age-matched male and female mice were used.
+Mice were handled for 5 min each day for 3 days prior to the behavioral tests.
+All behavioral tests were conducted during the light cycle by an experimenter blind to the mouse genotypes.
+The surfaces of the behavioral apparatus were cleaned using 75% ethanol before each experiment and between trials, with at least a 5-min wait before the next test to allow ethanol evaporation and odor dissipation.
+The Panlab Infrared (IR) Actimeter system was used for the open-field test.
+The test mouse was gently placed near the wall-side of a 20 cm × 20 cm × 25 cm open-field arena and allowed to explore freely for 30 min.
+The movement of the mouse was recorded by a video camera and analyzed with the IR Actimeter.
+The total locomotion distance, the time exploring the central zone (10 cm × 10 cm), and the number of hindlimb rearing events in the central zone were measured.
+The experimental device consisted of a flat surface rod, 100 cm long and 1 cm wide, placed 50 cm above the ground with an upward angle of 30°.
+A target cage was placed at the upper end of the rod.
+The experiment was divided into a 3-day training phase and a testing phase.
+During the training phase, the tested mouse was guided to walk through the balance beam from the lower end toward the upper end once daily.
+On the fourth day, the mouse was tested, and the time required for each mouse to traverse the balance beam without guidance was recorded.
+Mouse movement was video recorded from the front of the balance beam for detailed analysis.
+The test was conducted using a 5-channel rotarod device (DigBehv-RRTM, Shanghai Jiliang Software Technology Co., Ltd., Shanghai, China).
+The total experiment spanned 7 days, with 4 trials per day and a 20-min interval between trials.
+The speed of the rotating rod was set to smoothly accelerate from 4 rpm to 40 rpm within 5 min.
+The maximum time and speed which the testing mice kept balance on the rotating rod were recorded.
+The hindlimb clasping test followed a 2-level scoring system40.
+Each mouse was tested three times, with each trial lasting 10 s. The tail of the mouse was gently lifted to suspend the mouse head down to observe whether the hind limbs moved closer to the abdomen.
+If the hind limbs were always stretched out away from the abdomen, with both legs open, a score of 0 was given.
+If the hind limbs moved close to the abdomen for more than 50% of the time, it was considered moderate paw clasping, and a score of 1 was given.
+The average score of each mouse was calculated.
+The experiment was conducted using a grasping net (100 cm × 50 cm) placed 50 cm above the ground.
+The mouse was placed on top of the net, which was then quickly and smoothly turned upside down, so the mouse hung under the net.
+The time from reversing the net to the mouse falling was recorded as the holding latency.
+Five repeated trials were performed for each mouse, with a 20-min interval between trials.
+For latencies longer than 120 s, a value of 120 s was recorded.
+The average latency of the 5 trials was calculated for each mouse.
+The standard Morris water maze was used to assess the spatial learning and memory abilities of the experimental mice.
+A stainless water-filled circular tank (210 cm in diameter and 50 cm in height) with non-reflective interior surfaces and ample visual cues was used.
+White edible emulsifier was added to the water to make it non-transparent.
+The pool was divided into four quadrants, with a circular hidden platform (13 cm in diameter) placed 2 cm below the water surface in the center of the target quadrant.
+The pool was surrounded by black shading curtains with spatial cues of different shapes and colors.
+The water temperature was maintained at 22–24 °C with a heating device.
+A camera above the pool recorded animal behavior, controlled by SuperMaze software.
+The experiment spanned 5 days, including 4 days for training and 1 day for testing.
+Each mouse trained with 4 trials per day, being gently released into the tank with its head toward the inner wall from a random quadrant.
+If the mouse found the platform within 60 s, the time was recorded, and the mouse stayed on the platform for 20 s. If the mouse did not find the platform within 60 s, it was guided to the platform and allowed to stay for 20 s, with a latency of 60 s recorded.
+On the 5th day, two independent 60-s tests were conducted without the hidden platform, recording the target quadrant entry times and total swimming time inside the target quadrant.
+After testing, mice were dried and returned to a dry cage to prevent stress from low body temperature.
+A modified three-chamber sociability test was conducted in a transparent rectangular chamber (40 cm × 30 cm × 25 cm) divided into three equal-sized chambers (13.3 cm × 30 cm × 25 cm) with two doors (3 cm × 5 cm) connecting the central chamber to the side chambers.
+The social partner mouse was tied in the corner of a side chamber with a 25 cm polyacrylonitrile string.
+In stage 1, the test mouse was placed in the central chamber and allowed to explore freely for 10 min to adapt.
+In stage 2, the test mouse was placed in the central chamber, a stranger mouse (stranger 1) was tied in one side chamber, and a mouse doll was placed in the other side chamber.
+The mouse’s behavior was recorded for 10 min.
+In stage 3, the doll was replaced by another stranger mouse (stranger 2), and behavior was recorded again.
+The total sniffing time of the test mouse on each stranger mouse or the doll was measured.
+Self-grooming was analyzed as described previously39.
+The test mouse was placed in the center of an open field arena (20 cm × 20 cm × 25 cm) and allowed to explore freely for 20 min.
+The first 10 min analyzed self-grooming in an unfamiliar environment, and the last 10 min analyzed self-grooming in a familiar environment.
+The self-grooming time and frequency were determined by manual review of the video recordings.
+Mice were sacrificed by cervical dislocation at the indicated time points.
+Total mRNA from mouse brain tissues was isolated using the RNAiso Plus kit (Takara, #9109) on ice.
+Phase separation was achieved with 200 µl or 100 µl chloroform.
+After centrifugation at 12,000 rpm for 20 min at 4 °C, RNA was precipitated by mixing the aqueous phase with equal volumes of isopropyl alcohol and 1 µl of 20 mg/ml glycogen.
+The RNA precipitates were dissolved in DNase/RNase-free water.
+cDNA was synthesized using a cDNA reverse transcription kit (KR116-02, Tiangen, China) from 1 µg of total RNA.
+qPCR was performed using the SYBR Green qPCR kit (AG11701, Accurate Biology, China) on a CFX96 Real-Time System (Bio-Rad).
+The thermal profile was 95 °C for 5 min, followed by 40 cycles of 95 °C for 10 s, 60°C for 20 s, and 70 °C for 30 s.Gapdhgene was used as the internal control.
+The relative expression level of target genes was normalized to the Ct value ofGapdhusing the 2−ΔΔCtrelative quantification method.
+The primers used are listed in Supplementary Data5.
+Total RNA was extracted as described above.
+Bulk RNA-seq was conducted by Shanghai Genergy Bio.
+Co., Ltd. The concentration and quality of RNA were measured using Qubit fluorometer (Thermo Fisher Scientific,Q33226).
+RNA-seq libraries were constructed using the VAHTS Universal V10 RNA-seq Library Prep Kit (Premixed Version, NR616).
+Briefly, mRNA was extracted using poly-A selection with magnetic beads with poly-T and then converted into cDNA through first and second-strand synthesis.
+The newly synthesized cDNA was purified using AMPure XP beads (1:1) and eluted in 50 μl of nucleotide-free water.
+RNA-seq libraries were sequenced on NovaSeq XPlus platform with paired-end reads of 150 bp, achieving a sequencing depth of 60 million reads per library.
+Quality control of the RNA-seq data was performed using FastQC (version 0.11.9).
+Paired-end reads were trimmed to remove adapters and low-quality reads using Skewer (version 0.2.2).
+Clean reads were aligned to UCSC mm10 mouse genome using STAR (version 25.2b) with default parameters.
+The number of mapped reads was counted using stringtie (version 2.2.1).
+The resulting read counts were processed with the R package DESeq2 (version 1.18.1) to identify differentially expressed genes (|log2 fold change| > 1 andp-value < 0.05) between groups.
+Gene expression levels were normalized by fragments per kilobase of transcript per million mapped reads (FPKM).
+Raw sequencing data were deposited in the Gene Expression Omnibus under accession numberGSE277054.
+The scRNA-seq was performed by Shanghai OriginGene-Tech Biotechnology Co., Ltd. Cortices from 5 embryos of the same genotype from 3 litters were pooled into 5 ml tissue storage solution (Miltenyi Biotec, Inc., MD, USA) on ice and carefully cut into small pieces of 1–3 mm.
+Tissue samples were subjected to enzymatic digestion with 0.25% Trypsin-EDTA (Thermo Fisher Scientific) at 37 °C for up to 30 min.
+Cell suspensions were centrifuged at 300×gfor 5 min at 4 °C.
+The pellets were further digested in basal media supplemented with 0.2% type II collagenase (Sigma-Aldrich) at 37 °C for up to 4 h. Isolated cells were filtered through 70 μm nylon filters (BD), washed twice with sterile PBS (pH 7.4).
+Samples with a cell density of 700–1200 cells/μl and a viability higher than 85% were proceeded for scRNA-seq.
+Droplet-based scRNA-seq was performed using the 10× Genomics Chromium Single Cell 3′ Reagents Kit (v3.1)41.
+The single-cell samples were passed through a 40 μm cell strainer and counted using a hemocytometer with trypan blue.
+Subsequently, the single-cell suspension, Gel Beads and Oil were added to the 10× Genomics single-cell A chip.
+After droplet generation, samples were transferred into PCR tubes and reverse transcription was performed using a T100 Thermal Cycler (Bio-Rad).
+After reverse transcription, cDNA was recovered using a recovery agent, provided by 10× Genomics, followed by silane DynaBead clean-up as outlined in the user guide.
+Before clean-up using SPRIselect beads, cDNA was amplified for 10 cycles.
+Libraries were submitted to 150 bp paired-end sequencing on an Illumina NovaSeq 6000 platform, yielding 150 Gb of sequencing data per sample.
+ScRNA-seq data are available in GEO under accession numberGSE277054.
+Data analysis was conducted according to previous studies42,43.
+CellRanger 6.6.1 was applied for preliminary data analysis.
+Raw data from single-cell RNA-seq libraries were first trimmed to remove the template switch oligo (TSO) sequence and poly(A) tail sequence.
+Reads with adaptor contaminants and low-quality bases were removed.
+Clean reads were aligned to the reference genome (GRCm39/mm39).
+Gene expression levels were quantified as transcripts per million (TPM).
+Valid barcodes and Unique Molecular Identifiers (UMIs) were used to generate the gene-barcode matrix for single cells.
+Seurat v4.1.1 was used for quality control and data analysis in R. Cells with fewer than 200 genes, more than 6,000 detected genes, or with more than 10% of transcripts from mitochondrial genes, were excluded to maintain data quality.
+Principal component analysis with variable genes was used to identify significant principal components (PCs) based on the JackStraw function.
+Twenty PCs were selected as the input for uniform manifold approximation and projection (UMAP) and t-distributed stochastic neighbor embedding (t-SNE) when statistically significant.
+Cell clusters were annotated manually based on marker gene expression and developmental information.
+Defined cell clusters included neuroepithelial cells (NEs), cycling and non-cycling radial glial cells (RGCs), cycling and non-cycling intermediate progenitors (IPCs), pyramidal neurons (PyNs), interneurons (INs), Cajal-Retzius cells, ependymal progenitors (EpPs), oligodendrocyte-astrocyte progenitor cells (OAPCs), and microglia, among others, based on their specific marker gene panels (detailed in Fig.2and Supplementary Data2).
+These clusters were assigned to broad lineages, such as the interneuron lineage, pyramidal lineage, NG2-oligodendrocyte lineage, or microglial lineage.
+The Monocle3 algorithm was used to infer the developmental trajectories of cell clusters within the pyramidal lineage, including NEs, cycling RGCs, non-cycling RGCs, cycling IPCs, non-cycling IPCs, and PyNs.
+Differential expression analysis was conducted independently for each cell cluster.
+Only genes with a minimum expression of 0.1 TPM and detected in at least 100 cells were included in the differential expression analysis.
+Significantly dysregulated genes were identified withp-value < 0.05 and log2 fold change (log2FC) > 1 or log2FC < −1.
+Gene ontology (GO) analysis was performed using Gene Ontology Resource (https://www.geneontology.org/) with the PANTHER overrepresentation test (Fisher’s exact test with FDR).
+For redundant/overlapping pathways identified by the GO analysis, only one representative GO entry was shown.
+For cell clusters within the pyramidal lineage, the transcriptional regulatory targets of MED13L in each cluster were further analyzed through three steps.
+Firstly,Med13l-correlated genes were identified as those with significant correlation in expression across all cells from WT mice, based on Spearman correlation analysis (p< 0.05), including both positively and negatively correlated genes.
+Secondly, for each cell cluster, significantly upregulated or downregulated genes in KO mice compared to WT mice were identified.
+Finally, the gene lists from Steps 1 and 2 were compared to identify overlapping genes as potential targets of MED13L, including positively correlated & down-regulated genes and negatively correlated & up-regulated genes.
+For Western blotting, brain tissues were homogenized in lysis buffer (P0013K, Beyotime Biotechnology, Shanghai, China).
+Proteins were separated by 6% SDS-PAGE and transferred onto a PVDF membrane.
+The blots were incubated in blocking buffer (5% non-fat dry milk in TBST) at room temperature for 2 h, followed by overnight incubation with the primary antibody (diluted in 0.05% TBST with 3% BSA).
+After thorough rinsing with TBST, the blots were incubated with HRP-conjugated secondary antibodies at room temperature for 2 h. Chemiluminescence detection of protein bands was performed using the BeyoECL Plus kit (Beyotime Biotechnology, P0018S).
+Western blot images were acquired using the UVP ChemStudio System (Analytik Jena GmbH Co. KG, Jena, Germany).
+The band intensity was analyzed using VisionWorks Software (VisionWorks 8.0 associated with the UVP ChemStudio System.
+For co-immunoprecipitation (Co-IP), cortical tissues from E13.5 embryos were homogenized in lysis buffer (50 mM Tris-HCl (pH 7.5), 150 mM NaCl, 0.5% NP-40, and 1 mM EDTA) containing protease and phosphatase inhibitors (P10008, Beyotime Biotechnology).
+Lysates (500 μl, approximately 800 μg total protein) were incubated with 10 μg MED13L antibody at 4 °C overnight to allow antibody-protein binding.
+Meanwhile, 25 μl protein-A magnetic beads (1008D, ThermoFisher) were incubated with 3% BSA at 4 °C overnight to block non-specific binding sites.
+The BSA-saturated magnetic beads were then added to the lysate and antibody mixture and incubated for 1 h. to capture the antibody-protein complex.
+Beads were washed with lysis buffer to remove any unbound proteins and contaminants.
+Finally, the immunoprecipitated proteins were eluted from the beads for further analysis using mass spectrometry or Western blotting.
+Primary antibodies used were rabbit anti-MED13L (1:1000, custom-developed via Abclonal, E19406; antigen: aa2000-2090), mouse anti-β-actin (1:5000, Proteintech, 66009-l-Ig), rabbit anti-α-Tubulin (1:5000, Proteintech, 11224-l-Ap), rabbit anti-MED12 (1:2000, Abcam, ab70842), mouse anti-Pol II (1:1000, Biolegend, 664906), rabbit anti-MED1 (1:1000, Cell Signaling, 51613S), rabbit anti-TASP1 (1:50, Santa Cruz, sc514677), rabbit anti-IgG (1:250, Invitrogen, 02-6102).
+Secondary antibodies were goat anti-mouse IgG(H + L)-HRP conjugate (1:5000, Absin, abs20163), goat ant-rabbit IgG(H + L)-HRP conjugate (1:5000, Absin, abs20147).
+Purified immunoprecipitated proteins were subjected to 4D-DIA LC-MS/MS analysis performed by PTM Bio.
+(Hangzhou) Co., Ltd. (Zhejiang, China).
+Briefly, tryptic peptides were dissolved in solvent A (0.1% formic acid, 2% acetonitrile in water) and directly loaded onto a homemade reversed-phase analytical column (25 cm length, 75/100 μm i.d.).
+Peptides were separated using a gradient from 6% to 24% solvent B (0.1% formic acid in acetonitrile) over 70 min, 24% to 35% in 14 min, and increasing to 80% in 3 min, holding at 80% for the final 3 min, all at a constant flow rate of 450 nL/min on a nanoElute UHPLC system (Bruker Daltonics, Massachusetts, USA).
+The peptides were ionized using a capillary source and analyzed with a timsTOF Pro (Bruker Daltonics) mass spectrometer.
+The electrospray voltage applied was 1.60 kV.
+Precursors and fragments were analyzed using the TOF detector, with an MS/MS scan range from 100 to 1700 m/z.
+The timsTOF Pro operated in parallel accumulation serial fragmentation (PASEF) mode, selecting precursors with charge states 0 to 5 for fragmentation, and acquiring 10 PASEF-MS/MS scans per cycle.
+The dynamic exclusion was set to 30 s.
+The DIA proteomics data were aligned to the Mus_musculus_10090_SP_20230103.fasta database using DIA-NN (v1.8) software.
+Data were filtered to pass quality control for both peptide length (typically 7–20 amino acids) and peptide counts (at least 2 peptides per protein).
+Pearson’s Correlation Coefficient, Principal Component Analysis, and relative standard deviation were applied to evaluate repeatability.
+To compare the normalized intensity of each protein between different groups, fold change (FC) was calculated and transformed to log2FC.
+Significantly different proteins were identified based on two criteria:p< 0.05 and KO/WT Ratio < 0.5.
+The results were visualized using a volcano plot.
+Identified proteins underwent Gene Ontology (GO) analysis, with the top 20 MED13L-related pathways presented in a bubble plot.
+Proteomic analysis of mouse motor cortex tissue was carried out by Shanghai Biotree Biotech Co., Ltd. Briefly, tissue samples were collected to perform protein extraction, followed by BCA measurement of protein concentration, acetone precipitation, protein reconstitution, reduction, alkylation, enzymatic hydrolysis, SDC removal, and peptide desalination.
+Then 200 ng of total peptide were separated using the Evosep One nano UPLC liquid phase system and analyzed using a mass spectrometer (timsTOF Pro2, Bruker Daltonics) with a nanoliter ion source.
+The mass spectrometer used the DDA PASEF (data dependent acquisition) mode for data acquisition, with a scanning range from 100–1700 m/z.
+Raw data files were searched using SpectroMine (4.2.230428.5,2329; Biognosys AG) software with the Pulsar search engine, followed by further qualitative and quantitative analyses.
+Proteomics data have been deposited to ProteomeXchange via PRIDE with identifiers PXD055474 and PXD055844.
+Gene Ontology (GO) enrichment analysis was performed using Gene Ontology Resource (https://www.geneontology.org/).
+A Sankey plot of the GO enrichment entries, clustering analysis heatmap, and volcano plots was generated using an online platform for data analysis and visualization (https://www.bioinformatics.com.cn).
+The bubble plot was created using the online tool Hiplot (https://hiplot.cn/).
+Transcription factor (TF) enrichment analysis of target genes was performed using the web-based tool ChEA3 (https://maayanlab.cloud/chea3/) as described previously44.
+The ChEA3 background database contains a collection of gene set libraries generated from multiple sources, including TF-gene co-expression from RNA-seq studies, TF-target associations from ChIP-seq experiments, and TF-gene co-occurrence computed from crowd-submitted gene lists.
+The analysis results were ranked based on Fisher’s Exact Testp-values (Score), where lower p-values indicate higher statistical significance and greater relevance to the transcriptional regulation of the target genes.
+For graphic presentation, top 15 TFs were shown in histograms.
+PCA plots were produced using the online tool BioLadder (https://www.bioladder.cn/web/#/pro/cloud).
+Gene co-expression analysis was performed as previously described39.
+Transcriptomes from different cortical regions, ranging from 8 PCW to 13 PCW, were obtained from the BrainSpan human developmental transcriptome dataset.
+Spearman’s correlation coefficient was computed between gene pairs to assess their co-expression levels.
+The gene co-expression matrix was generated using Hiplot.
+Data are presented as the mean ± SEM.
+All statistical analyses were performed using GraphPad Prism 9.
+The sample size “n” denotes biologically independent samples, with exact values reported in the figure legends.
+At least three biological replicates were analyzed in each experimental group to ensure reproducibility.
+Data normality was determined by the Shapiro-Wilk test.
+Statistical significance was determined using one-tailed or two-tailed Student’st-test for single comparisons and one-way ANOVA with two-tailed Bonferroni post-hoc tests for multiple comparisons.
+For GO enrichment analysis, statistical significance was set at FDR < 0.05 (with Benjamini-Hochberg correction).
+Statistical significance was set atp< 0.05 for all comparisons.
+Detailed test types (including tail specification fort-tests), allp-values, and group sizes are reported in the figure legends and Supplementary Data6.
+Further information on research design is available in theNature Portfolio Reporting Summarylinked to this article.
+We thank the ECNU Multifunctional Platform for Innovation (010 and 011) for their mouse breeding service.
+This work was supported by the National Key Research and Development Program of China grant 2022YFC2705200, National Natural Science Foundation of China grant 32271022, 31100273, and 81941013, National Natural Science Foundation of China and Israel Science Foundation Cooperative Research Project grant 32061143016, and Fundamental Research Funds for the Central Universities.

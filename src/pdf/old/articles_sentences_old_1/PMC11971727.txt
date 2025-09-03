@@ -1,0 +1,396 @@
+Many different transmit (Tx) coil concepts and designs for 7‐T magnetic resonance imaging of the head have been proposed.
+Most of them are placed close to the head and in combination with the receive coils creating a helmet‐like structure.
+This limits the space for additional equipment for external stimuli.
+A large diameter transmit coil can increase the ease using supplementary measurement devices.
+Therefore, this study systematically evaluated nine different Tx elements regarding their performance within a large diameter transmit coil with a diameter>350 mm.
+Each Tx element was examined regarding its power and specific absorption rate (SAR) efficiencies, its loading dependence, intrinsic decoupling, and its radio frequency (RF) shimming capability.
+Additionally, an experimental validation of|B1+|‐maps was performed.
+The loop‐based Tx elements (circular and rectangular loop) provided the highest power and SAR efficiency with at least 15.5% and 21.2% higher efficiencies for a single channel and 22.1% and 18.0% for the eight‐channel array, respectively.
+In terms of voxel‐wise power efficiency, the circular loop was the superior Tx element type within most of the head.
+Looking at the voxel‐wise SAR efficiency, the loop‐based elements manifest themselves as the most efficient type within most of the central brain.
+The mutual coupling was lowest for the passively fed dipole (−31.23 dB).
+The highest RF shimming capability in terms of sum of normalized singular values was calculated for the rectangular (4.21) and the circular loop (4.36), whereby the L‐curve results showed that the arrays have only minor|B1+|shimming performance differences for the transversal slice.
+For the hippocampus, the meander element provided the highest overall homogeneity with a minimal coefficient of variation (CoV) of 5.1%.
+This work provides extensive and unique data for single and eight‐channel Tx elements applying common performance benchmarks and enables further discourse on multi‐channel evaluations towards large diameter Tx coils at 7‐T head imaging.
+On the bases of the provided results, the preferable Tx element type for this specific application is loop‐based.
+This work compares nine different transmit element types towards their potential as large diameter (>350mm) transmit head coils in single channel and eight channel array configurations.
+For most of the ROIs within the human head, the loop‐based elements were superior, and the RF shimming capability differed only marginally; however, in the deeper brain regions, dipole‐based elements gained in efficiency.
+For this particular application, the loop‐based transmit elements were superior to the remaining elements.
+In recent years, new frontiers have been set in various aspects of magnetic resonance imaging (MRI).
+Modern hardware components improved image acquisition [1,2,3,4,5,6], and ultra‐high field (UHF) imaging withB0≥7Tallowed a huge increase in image quality [7,8,9].
+In the last decade, UHF imaging gained importance especially for neuro‐imaging [7,10,11,12] due to these advances.
+Furthermore, some 7‐T systems have received clinical clearance in the United States and in the European Union.
+Thus, the first UHF scanners are routinely used in clinical settings [13].
+To further advance neuro‐imaging using diffusion tensor imaging (DTI), the CONNECTOM project for 3 T has been initiated [14].
+A new series of 7‐T scanners use their exceptional gradient strength and in combination with the high static magnetic field strength of 7 T will break boundaries down to the microscopic scale.
+Despite several advantages, imaging at UHF comes with|B1+|‐field heterogeneities and specific absorption rate (SAR) constraints due to wavelength effects [9,15].
+These limitations result in reduced image quality or limited image acquisition capability.
+This can be addressed by substituting the classical transmit (Tx) coil architecture of a volume body coil with multiple smaller local Tx elements.
+These elements can be excited individually and are thereby combined to form a Tx coil array [16,17].
+The additional degrees of freedom create entirely new possibilities for image generation [18].
+For UHF Tx elements, many different design concepts have been introduced [19,20].
+Some concepts rely on a dipole or monopole as the Tx element [21,22,23,24,25,26].
+Others, specifically for head imaging, are loop‐based [3,5,6,27,28].
+Additionally, microstrip transmission line‐based Tx elements have been used for 7‐T Tx coils [29,30].
+Furthermore, more specialized concepts were introduced [31,32,33,34].
+Most of the designs target a specific application and shall be positioned close to the object.
+For head imaging, the radiofrequency (RF) Tx and receive (Rx) coils are placed as close to the head as possible to increase efficiency, thus generating a helmet like structure [3,5].
+This can increase the number of claustrophobic events and reduce space for external measurement equipment.
+In their cohort, Hudson et al. reported 0.76% of MRI examinations as incomplete due to claustrophobia related incidents [35].
+Although received coils are positioned closer to the patient and can increase the claustrophobia incident rate themselves [35], particularly, the local RF shield of some UHF Tx coils shows the potential of increasing the number of claustrophobic incidents, since it is a closed structure.
+Head Tx coils, specifically engineered to reduce claustrophobia, sit tight around the head [3,5], thereby restricting the space for supplementary measurement equipment.
+Incorporating devices such as EEG electrodes into conventional head coils typically necessitates additional modifications to the measurement hardware [36].
+Designing a Tx coil with an increased diameter offers a solution by providing additional space, facilitating easier access to the head for delivering external stimuli (visual [37,38,39], auditory [40,41], electric [42,43], olfactory [44,45], tactile [46]), to add further sensing equipment, such as for eye [47,48] or motion tracking [49,50,51], or to place local receive elements.
+At the same time, the patient discomfort is reduced.
+Ideally, the Tx coils are placed behind the boreliner.
+Thus, the scanning routines are much more convenient as only receive coils must be placed on the subject, comparable to 1.5‐T and 3‐T systems.
+The huge number of different Tx elements designed for diverse purposes, coupled with the numerous benchmarking methods available, complicates the selection of an appropriate Tx coil element based solely on a literature review.
+Moreover, the performance of different Tx element types in large‐diameter Tx coils, where the distance between the Tx elements and the target object increases, has not been thoroughly investigated.
+Consequently, selecting a suitable Tx element for this application based on existing studies remains challenging.
+A comprehensive list of benchmarks can be found in Choi et al. [52].
+This work presents a detailed evaluation of a set of different Tx element concepts dedicated towards large diameter Tx arrays for UHF MRI of the head at 7 T. On the basis of a single‐ and multi‐element comparison using electromagnetic (EM) simulations and scanner field maps, the power, SAR efficiency, the mutual coupling, loading dependence, and power balance as well as the RF shimming capability were examined.
+Thereby, the compared Tx element concepts were taken from the literature but adapted, built, and simulated for the described application.
+For this study, only Tx elements mentioned in the literature and designed for 7‐T imaging were evaluated.
+The following Tx elements were investigated: folded end dipole [21], meander element [53], fractionated dipole [54], regular dipole [55], rectangular loop [6], circular loop [56], passively fed dipole [26], bowtie antenna [57], and snake antenna [58].
+The Tx elements are depicted in Figure1.
+The elements were designed to fit into a circular array consisting of eight elements, constrained by a maximum element thickness of 20 mm due to geometrical limitations.
+The Tx element dimensions were adapted from their original designs but shortened to a maximum length of 250 mm.
+The width of the loop‐based Tx elements was calculated to fit a1×8cylindrical array with a diameter of 350 mm.
+In contrast, the dipole‐ and microstrip‐based Tx elements were not further shortened to ensure sufficient electrical length, which is necessary to limit the resulting conservative electric fields [54].
+Examined transmit elements with their geometries and matching circuits: folded end dipole, meander element, fractionated dipole, regular dipole, rectangular loop, circular loop, passively fed dipole, bowtie antenna, and snake antenna [59,60].
+Each Tx element was tuned and matched to 50Ωwith the use of lumped elements, achieving input reflections|S11|below−50 dB.
+The corresponding tuning and matching networks are depicted in Figure1.
+Lumped element capacitors were modeled as first‐order parasitic models, with their equivalent series resistance extracted from the datasheet of the 2 kV non‐magnetic capacitor series by Knowles Syfer, USA (Serial Number for 6.2 pF: 111122K06P20BQTAF9LM).
+The lumped element inductors were modeled as parasitic Q‐models, with quality factors taken from the datasheets of the 1111SQ and 1515SQ air core inductor series provided by Coilcraft, USA.
+The numerical EM full‐wave simulations were carried out in CST Studio Suite 2022's (D'Assault Systémes, Vélizy‐Villacoublay, France) time domain solver.
+The co‐simulation was facilitated by employing the internal schematic simulator.
+The meshing strategy ensured that the substrate and all critical structural components contained at least two mesh cells per corresponding structural element.
+The impedance at the input port of a Tx element is influenced by both the element's intrinsic properties and the radiation resistance, which is itself dependent on the loading experienced by the Tx element.
+Thus, changes in the loading alter the radiation resistance and consequently, the impedance at the Tx element's input port [61,62].
+As described in section2.1, the Tx elements were tuned and matched to 50Ω.
+Changing the loading will result in a mismatched, less efficient Tx element due to higher input reflections.
+The intended application of the evaluated Tx elements is head imaging, where patient‐specific variations in head size are well documented [63,64].
+Consequently, the loading dependence of each Tx element is a key performance benchmark for a reliable Tx coil.
+The assessment was performed using simulations and measurements.
+Each Tx element was positioned 65 mm above the GUFI‐phantom [65] and adjusted to achieve input reflections of less then−20 dB.
+To emulate variations in loading, the distance between the phantom and the Tx element was decreased by 20 mm.
+This setup is depicted in Figure2c.
+The change in|S11|resulting from this adjustment was determined by comparing the input reflection at the tuned state (−20 dB) with the reflection observed at the reduced distance.
+This difference was expressed as a percentage, representing the reduction in accepted power due to the change in loading.
+Simulation scenarios for the evaluation of the power and SAR efficiency for the single‐channel setup in (a)–(c).
+The Tx elements are marked as green lines with the feed port in red, exemplary visualized for the regular dipole.
+The dotted lines in (a) show the evaluation depths at 65 and 165 mm underneath the Tx element.
+In (b), the dashed lines show the positions 0°, 45°, and 90°, which were used to calculate the power and SAR efficiencies.
+The GUFI‐phantom [65] setup for the simulation and the measurement is depicted in (c).
+The eight element setup exemplary for the regular dipole is shown in (d) with the 440‐mm diameter shield [59].
+The dotted blue line describes the position of the central transversal slice and the blue rectangle the position of the shim volume for the hippocampus [59,60].
+The power balance provides information on how the power is distributed within Tx elements.
+Thus, it provides valuable information about the Tx elements' behavior.
+The nine Tx elements' power balance was evaluated for both the single element simulation and the eight‐channel array with a total stimulated power of 1 W employing the CST built‐in power loss calculation.
+It was thereby differentiated between the losses inside the lumped elements, the phantom, the substrate, and the radiation.
+Additionally, the losses due to coupling were included for the eight‐channel configurations.
+The reflected power was neglected in the calculations since the Tx elements were tuned to at least−50 dB resulting in only marginal residual reflected power.
+The eight‐channel array was excited in positive circular polarization (CP+) mode only.
+The CP+mode is a commonly used excitation mode and provides valuable information about the power balance of the array configurations, although different excitation modes will result in different power distributions [66].
+The CST power balance follows the logic described in [67].
+Since RF amplifier power is limited, to generate sufficient flip angles with short RF‐pulses, it is crucial that the Tx elements generate as much|B1+|‐field from the available power as possible [30,68].
+This power efficiency is the|B1+|‐field usually normalized to a stimulated input power of 1 kW or 1 W. Here, it is normalized to 1 W and represented by|B1+|/P.
+The SAR efficiency is based on the power efficiency combined with patient safety defined as the|B1+|‐field per square root of the peak local 10‐g SAR (|B1+|/pSAR).
+Here, the SAR is a measure accounting for patient heating and limits the patient risk [69,70].
+To examine the power and SAR efficiency, the use‐case of a large diameter Tx coil was considered with a Tx element‐phantom‐distance between 50 and 80 mm.
+Therefore, the examination was performed in simulations at three positions with respect to the head and shoulders of the Hugo body model (resolution5mm×5mm×5mm).
+The rest of the body was removed to reduce computational effort.
+Since research showed that including the shoulders positively impacts the simulation accuracy, they were included [71].
+For the first position, one single element was placed 65 mm above the head of the Hugo body model (see Figure2a,b).
+The nose faced the Tx element but was neglected regarding the distance [59].
+For the second and third positions, each Tx element was rotated by 45° and 90°, respectively.
+The setups are depicted in Figure2b.
+For all three positions (0°, 45°, and 90°), the power and SAR efficiency 65 and 165 mm underneath the Tx elements were examined [59].
+The SAR efficiency is based on the CST internal SAR calculation implementing IEC 62704‐1 [72].
+Constructed Tx elements (a) and the measurement setup for the|B1+|measurement from the top (top) and from the side (bottom) exemplary for the fractionated dipole during the tuning and matching in (b).
+AFI sequence parameters for the|B1+|‐map measurement.
+Abbreviations: FoV = field of view; RO = readout; TE = echo time; TR = repetition time.
+Here, 11.7μT is the|B1+|necessary to generate a 180° flip angle using a 1ms long rectangular excitation pulse [61].
+The measured and the nominal flip angle of the sequence are indicated byαmeasandαnom, respectively.
+The normalization to 1 W is performed by the denominator of the equation, wherebyVrefis the reference voltage of the sequence.
+The calculated|B1+|‐maps were evaluated using a plane through the center of the phantom.
+The plane is indicated by the dotted blue line in Figure3b.
+After the measurement, the setup was modeled in CST including the attenuation of the transmission line (TxRx switch, cable trap, and feed line) from the scanner to the element (see Figure2c).
+The measured attenuation was−1.23 dB.
+Each Tx element was tuned to the previously measured absoluteS‐parameters.
+The simulated|B1+|‐maps were calculated and compared to their measured equivalents.
+To evaluate the described transmit elements in a multi‐channel arrangement, eight of each Tx element types were arranged equidistantly around a cylinder with a 350‐mm diameter.
+Again, the Hugo voxel model was used and placed centrally in the arrays.
+A shield with a 440‐mm diameter was placed around the elements.
+It mimics the global RF shield of the IMPULSE head gradients or can be seen as a local shield of the Tx arrays when used in MRI systems with 600‐mm bores.
+The setup is depicted in Figure2d, exemplary for the regular dipole.
+Particularly for dense multi‐channel coils, the mutual coupling between elements is an important figure of merit.
+It describes how much power is coupled from one Tx element to the adjacent elements.
+The mutual coupling is usually characterized byS‐parameter matrices [3,21,74].
+It is important to keep the mutual coupling between adjacent elements is as low as possible, as the coupling decreases the power efficiency of the individual elements [75,76].
+If elements are insufficiently decoupled, further decoupling actions must be taken, which increases the complexity of the Tx coil [28] and introduces additional losses [76].
+The benchmark for the mutual coupling of two elements is the crosstalk between the input ports|Sxy|of the elements.|S21|describes the port interactions by providing information about the transferred power from the input port of element one to the port of element two.
+To evaluate the mutual coupling, the same setup as described in Section2.2.3was used (Figure2d).
+Thus, a center‐to‐center distance of 137.4 mm was created.
+All|Sxy|were examined, whereby no further decoupling methods were applied to the elements which were tuneable without decoupling.
+Only the rectangular loop and the circular loop were not tuneable without decoupling; therefore, capacitive decoupling was used.
+Further descriptions of the decoupling method are presented in the supporting information.
+Similar to the single element evaluation, the power and SAR efficiencies were examined in simulation.
+Therefore, the Tx arrays were excited in CP+mode and the maximum power and SAR efficiency, normalized to a total of 1‐W stimulated power, were evaluated.
+As for the single element comparison, the CST internal SAR calculation was used.
+Additionally, the maximum voxel‐wise power and SAR efficiencies were calculated for a central axial, sagittal, and coronal slice.
+The power efficiencies were calculated summing up theB1+distributions of all channels [76].
+The voxel‐wise SAR efficiencies were estimated employing an optimization based on the fmincon solver in Matlab 2021a.
+Using 200 random starting shim vectors, the maximum possible SAR efficiency for each voxel in the corresponding slice was calculated.
+Both provide information about the performance of each Tx element within the different regions of the head.
+For the optimizations, virtual observation points (VOPs) were used.
+They were calculated by using a compression followed by a post‐processing based on the algorithms described by Orzada et.
+al in [77].
+For each Tx array, 500±10% VOPs were calculated changing the maximum overestimation of the worst‐case 10‐g local SAR (wcSAR10g) accordingly.
+In addition, the actual relative errors between the SAR‐matrices and the resulting VOPs were calculated for one million random shims and the medians of the relative error were evaluated to quantify the quality of the VOPs.
+Furthermore, the wcSAR10gwas calculated for each array.
+As a measure for the RF shimming capability of the different Tx arrays, the sum of normalized singular values (SnSV) can be used to quantify the possible degrees of freedom [76,78,79].
+The SnSV describes the amount of new information provided by each additional Tx element.
+Furthermore, the smallest normalized singular value provides information about how close the whole array is to the optimum and whether new elements will add further RF shimming capabilities.
+Stelter et. al defined a value of 0.1 as the threshold for a negligible increase in SnSV [67].
+To calculate the SnSV,B1+‐maps for each channel were calculated, whereby each field is generated by one of the elements while the remaining elements were passive.
+The 3D‐B1+‐fields were mathematically rearranged into an8×number of voxelarray.
+A singular value decomposition was performed on this matrix.
+Finally, the resulting singular values were normalized to the maximum singular value and summed up to the SnSV [76,78,79], thereby providing information about the RF shimming capability of each array within the whole head.
+The column vectorvdescribes the complex excitation vector.
+TheB1+distributions of each channel are reorganized into column vectors and concatenated to the matrixB.
+The nonlinear equality constraint was set to a resulting mean|B1+|within the regions of interest (ROIs) of 5.85μT, which corresponds to a 90° flip angle using a 1‐ms long rectangular pulse.
+The linear constraint was set to a maximum power per channel of 1 kW.
+The ROIs for the optimizer were defined as the Hugo voxel models head at a central transversal slice and a cuboid volume covering the hippocampus.
+This is similar to the chosen L‐curve ROIs used in Fiedler et al. [80] and Stelter et al. [67].
+The transversal slice is thereby one slice of the brain.
+The hippocampus is a deep area of the brain with a lot of ongoing research.
+The loading dependence was evaluated in simulation and in measurements using the GUFI‐phantom.
+The evaluation showed that there was a general qualitative agreement between the simulated and measured loading dependence.
+However, quantitatively, it is visible that the simulation generally overestimated the loading dependence by 2.1% to 5.5% (neglecting the passively fed dipole due to its very low total loading dependence).
+The bowtie antenna had the highest loading dependence with a decrease in accepted power by 31.4% for simulation and 26.4% for the measurement between the initial tuned state and the decrease in Tx element‐phantom distance.
+With 0.9% (sim.) and 0.1% (meas.), the passively fed dipole showed the least loading dependence, whereby the folded end dipole (5.7% and 1.2%) and the meander element (4.2% and 0.3%) also showed only low loading dependence.
+The results of the loading dependence evaluation are summarized in Figure4.
+Measured (dark green) and simulated (light green) relative decrease in accepted power in % when changing the distance between the Tx element and the GUFI‐phantom from 65 to 45 mm.
+The power distribution results for the single‐channel evaluation extracted from the CST simulation are depicted in Figure5aand show that the elements induced between 31.5% and 41.3% of the input power to the head of the Hugo voxel model, except the passively fed dipole which provided much less power to the model (6.3%).
+At the same time, the passively fed dipole had the highest losses within the substrate, while radiating only 8.5% of the power.
+The highest radiation into the far field was generated by the folded end dipole with 54.6% and the least amount of lumped element losses occurred using the snake antenna.
+Single‐channel (a) and eight‐channel (b) power balance for the nine Tx elements normalized to 1‐W stimulated power.
+The power and SAR efficiency results were calculated using simulations with the head of the Hugo voxel model and are depicted in Figure6.
+Maximum power (a and b) and SAR (c and d) efficiencies for the nine Tx elements for the three positions (0°, 45°, and 90°) at the surface of the head (a and c) and at 100 mm inside the head (b and d).
+The peak power efficiencies of the nine different Tx elements are summarized in Figure6a,b.
+At 65 mm underneath the Tx elements at all three positions (0°, 45°, and 90°), the loop‐based Tx elements' rectangular loop and circular loop had the highest power efficiency with 1.05, 0.91, and 0.63μT/Wand 1.21, 1.04, and 0.69μT/W, respectively.
+The lowest power efficiency was shown by the passively fed dipole, which had only 21.5 % power efficiency of the circular loop for position 0°, 19.2% for position 45° and 18.8% for position 90°.
+All other Tx elements' power efficiencies were in between these boundaries, whereby the loop‐based Tx elements' efficiencies were at least 28.6% higher.
+All Tx elements showed the highest power efficiency for the 0° position and the lowest efficiency for the 90° position.
+At a distance of 165 mm, the most efficient Tx element was the circular loop with 0.40, 0.40, and 0.33μT/Wfor the 0°, 45°, and 90° positions, respectively.
+The passively fed dipole was the least efficient element with only 31.7%, 27.5%, and 33.3% compared to the circular loop at positions 0°, 45°, and 90°.
+In general, at a distance of 165 mm, the differences between the Tx elements were less significant, but the loop‐based Tx elements remained best with at least 15.5% higher power efficiency.
+Additionally, in difference to the evaluation at 65 mm, the highest power efficiency was not always shown at the 0° position.
+The SAR efficiency results for Tx elements are depicted in Figure6c,d.
+At a distance of 65 mm, all elements but the loop‐based elements and the meander element showed the highest SAR efficiency at position 90° and the lowest at 0°.
+The rectangular loop and circular loop had the highest SAR efficiency at position 0° and the lowest at position 90°, whereby the meander element peaked at 45°.
+In general, the dipole‐ and microstrip‐based structures provided similar SAR efficiency independent of the initial power efficiency.
+The overall highest SAR efficiency was generated by the circular loop with 1.91, 1.78, and 1.35μT/W/kg, whereby the rectangular loop showed only slightly less SAR efficiency.
+At position 0°, the lowest SAR efficiency with 0.50μT/W/kgwas generated by the bowtie antenna.
+At positions 45° and 90° with 0.71 and 0.74μT/W/kg, respectively, the snake antenna showed the lowest SAR efficiency.
+In general, the loop‐based Tx elements showed a at least 32.9% higher SAR efficiency than the remaining elements.
+At a distance of 165 mm underneath the element, the highest SAR efficiency was again shown by the loop‐based Tx elements, whereby the remaining elements show only minor differences.
+The overall highest SAR efficiency was shown by the rectangular loop with 0.68, 0.70, and 0.67μT/W/kgfor all three positions.
+The lowest SAR efficiency for position 0° was provided by the bowtie antenna (0.24μT/W/kg) and by the meander element for the remaining two positions (0.39 and 0.47μT/W/kg).
+Compared to the evaluation at 65 mm underneath the elements, with at least 21.2%, the difference in SAR efficiency between the loop‐based and the dipole as well as microstrip‐based elements was less significant.
+The comparison between simulated and measured|B1+|‐field distributions is depicted in Figure7.
+The Tx elements show good qualitative agreement.
+However, quantitatively, there was a discrepancy between simulation and measurement.
+It was highest for the meander element and the passively fed dipole with more than 30% difference.
+For these two elements, there is a constant offset between measurement and simulation.
+For the other Tx elements, the difference was at maximum 10% to 25%, whereby the deviation between measurement and simulation was lower for the loop‐based elements as for the dipole‐based elements.
+Simulated (1st row) versus measured (2nd row)|B1+|distributions normalized to 1 W for the Tx elements; the dotted white rectangle describes the outline of the GUFI‐phantom; the 3rd row depicts the relative difference between simulation and measurement.
+*Note that the colormap for the passively fed dipole was scaled to 0.2μT/Winstead of 0.7μT/Wfor better visualization and the scaling of the relative difference for the meander element and the passively fed dipole was increased from 0% to 60% for better visualization.
+Some parts of the eight‐channel results were already published in the following abstract: Hubmann et al. [60].
+The simulated mutual coupling between the eight individual elements of the nine Tx arrays using the head of the Hugo voxel model is depicted in Figure8.
+The strongest mutual coupling occurred for the snake antenna between channel (Ch) 6 and 7 (|S76|=−7.26dB).
+With a minimum of−31.23 dB, the individual elements of the passively fed dipole interacted the least.
+For the dipole‐based arrays, the mutual coupling was highest between adjacent elements.
+For the loop‐based arrays, the next‐neighboring elements were the critical points.
+The reason was the capacitive decoupling of adjacent elements.
+For the loop‐based arrays, the worst‐case interaction is between the identical elements (Ch2 and Ch4), whereas the position of the worst‐case interactions varied for the dipole‐based arrays.
+Intrinsic decoupling between the individual channels (Ch) of the nine Tx element arrays.
+The red rectangle marks the position with the highest mutual coupling.
+No additional decoupling was used except for the loop‐ based structures (rectangular loop, circular loop).
+The simulated power balance results for the eight‐channel arrays using the head of the Hugo voxel model are depicted in Figure5b.
+The elements transferred 29.1% (bowtie antenna) to 49.4% (circular loop) of the incident power to the phantom; with only 4.6%, the passively fed dipole stands out as a notable exception.
+At the same time, the passively fed dipole array radiated the least into the farfield (3.3%) as well as having the lowest coupling losses (0.1%), while experiencing the highest losses in the substrate (74.8%).
+As for the single‐channel power balance, the highest and lowest lumped element losses were calculated for the meander element (20%) and the snake antenna (0.1%), respectively.
+In the simulated CP+mode, again, the loop‐based elements' circular loop and rectangular loop achieved the highest power efficiency (0.73μT/W/kgand 0.69μT/W/kg, respectively), whereby the passively fed dipole with only 24.5% and 26.1% of the loop‐based elements', exhibited the lowest power efficiency.
+All other elements showed power efficiencies in between, and the meander element, fractionated dipole, regular dipole, bowtie antenna, and the snake antenna demonstrated similar values.
+The folded end dipole, however, with 0.60μT/W/kgwas more efficient.
+The simulation results are depicted in Figure9a.
+Generally, excluding the folded end dipole, the loop‐based elements achieved at minimum a 22.1% higher power efficiency compared to the dipole‐based elements.
+Considering the Tx elements' SAR, the rectangular loop and the circular loop achieved the highest simulated efficiency (1.37 and 1.39μT/W/kg), whereby the lowest SAR efficiency was produced by the bowtie antenna (0.90μT/W/kg).
+The SAR efficiency results for the CP+mode are depicted in Figure9b.
+It is visible that the dipole‐based Tx elements all showed a similar SAR efficiency.
+The loop‐based elements thereby have a 18.0% to 33.8% higher SAR efficiency.
+Maximum power efficiencies in (a) and maximum SAR efficiencies in (b) for the nine Tx element arrays exciting with a CP+mode.
+The necessary overestimations of the wcSAR10gto attain the goal of500±10% VOPs varied between 0.13% for the bowtie antenna and 1.35% for the circular loop.
+The calculation resulted in a maximum of 532 VOPs for the snake antenna and a minimum of 495 for the regular dipole.
+After post‐processing, the maximum relative overestimation for 1 million random shims ranged from 8.60% for the fractionated dipole to 14.57% for the passively fed dipole.
+The median of the relative overestimation calculated for 1 million random shims was in between 0.12% and 1.67% for the bowtie antenna and the circular loop, respectively.
+The detailed results are described in Table2.
+With 2.30W/kgthe highest and with 0.09W/kgthe lowest wcSAR10gwere constituted by the bowtie antenna and the passively fed dipole, respectively.
+The remaining Tx arrays produced SAR levels in between.
+Used number of VOPs (# VOPs), resulting overestimation of the wcSAR10gused for the VOP compression, maximum, and median of the relative overestimation of the final VOP sets calculated with 1 million random shims for the nine transmit elements, and wcSAR10gfor the nine Tx arrays.
+The simulated results of the voxel‐wise power efficiency using the head of the Hugo voxel model are depicted in Figure10.
+In the peripheral transversal regions of the head (Figure10c), a mean power efficiency of 0.85μT/Wcould be achieved by the circular loop as the most efficient element.
+In the center, 0.71μT/Wwas the maximum possible power efficiency, again generated by the circular loop.
+In the longitudinal periphery (Figure10a,b), the folded end dipole was the superior element, especially towards the neck area.
+However, the folded part is close to the shield; thus, the shield influence was strong.
+Excluding the folded end dipole from the evaluation, a more diverse pattern of superiority for the longitudinal peripheral regions was revealed, whereby the meander element was superior in the majority of the area.
+In the transversal slice, the circular loop provided a 37.62% for the periphery and a 23.2% for the center higher power efficiency than the second most efficient Tx element (folded end dipole).
+In the sagittal and coronal slices for the majority of the brain, the power efficiency of the circular loop was higher than that of the folded end dipole, as indicated by a positive difference (Figure10j,k).
+Towards the neck, the folded end dipole became more efficient resulting in negative differences.
+In the central region (see Figure10j,k) the circular loop had an average of 16.5% higher power efficiency, whereby in the remaining area the folded end dipole had an average of 51.7% higher power efficiency.
+Voxel‐wise power efficiency as the added up|B1+|of each channel of the circular loop for the central coronal (a), sagittal (b), and transversal slice (c).
+Voxel‐wise calculated most efficient Tx element out of the nine described elements for the same slices (coronal (d), sagittal (e), and transversal (f)) as well as without the folded end dipole (coronal (g), sagittal (h), transversal (i)).
+Relative difference between the most efficient element (circular loop) within the brain area and the most efficient element in the remaining area (folded end dipole) (coronal (j), sagittal (k), and transversal (l)).
+The dotted lines indicate the slice positions within the head and the solid lines differentiate between the slice selective defined peripheral and central areas.
+The center of each Tx element was positioned atz= 100 mm.
+The simulated results of the voxel‐wise SAR efficiency using the head of the Hugo voxel model are depicted in Figure11.
+It is shown that the SAR efficiency decreased from the outside of head towards deeper regions (Figure11a–c).
+In comparison to the power efficiency, there was no Tx element clearly superior to the other elements.
+For the majority of the central regions, the circular loop, the rectangular loop, or the bowtie antenna achieved the highest SAR efficiency.
+The peripheral regions, in transversal direction were dominated by the circular loop or the rectangular loop, whereby in most of the peripheral regions in sagittal and coronal direction, the folded end dipole or the meander element were dominant (Figure11d–i).
+In the central region of the transversal slice, the circular loop and rectangular loop reached a mean SAR efficiency of 1.45μT/W/kg, which was the highest for all elements (Figure11l) and corresponds to a 11.7% higher SAR efficiency compared to the next most efficient Tx array (bowtie antenna).
+In the sagittal slice, the superior elements for the central region were again the circular loop and the rectangular loop (1.25μT/W/kg).
+The same applies for the coronal slice (Figure11g, 1.09μT/W/kg).
+For both directions, the achieved|B1+|/pSARcorrespond to 4.8% and 9.8% higher SAR efficiency than the next most efficient Tx array, respectively.
+In the transversal periphery, the rectangular loop and circular loop reached a mean SAR efficiency of 2.32 and 2.35μT/W/kg, respectively, which was 37.2% and 38.0% higher compared to the 3rd most efficient Tx array (folded end dipole).
+In the sagittal periphery, the meander element achieved a mean SAR efficiency of 0.66μT/W/kgproviding 3.5% more|B1+|/pSARas the 2nd (folded end dipole) and 19.9% more as the 3rd most effective Tx array.
+In the coronal periphery, the meander element as well as the folded end dipole stood out with the highest SAR efficiency by reaching 0.64μT/W/kg.
+This was 13.4% higher than the 2nd most efficient Tx array (passively fed dipole).
+Simulated voxel‐wise SAR efficiency of the circular loop for the central coronal (a, d, g, j), sagittal (b, e, h, k), and transversal slice (c, f, i, l).
+Voxel‐wise calculated most SAR efficient Tx element out of the nine described elements for the slices (coronal (d), sagittal (e), and transversal (f)) and without the folded end dipole (coronal (g), sagittal (h), transversal (i)).
+Mean SAR efficiencies for the three slices (coronal (j), sagittal (k), and transversal (l)) for the corresponding central and peripheral regions.
+The dotted lines indicate the slice positions within the head and the solid lines differentiate between peripheral and central areas.
+The center of each Tx element is positioned at z = 100 mm.
+The results for the whole head of the Hugo voxel model of the SnSV evaluation are presented in Figure12a.
+The loop‐based elements provided a higher SnSV over the whole course of elements and the difference between circular loop and rectangular loop and the other elements remained approximately constant.
+With a SnSV of 4.36 and 4.21, respectively, for the total array with eight elements, the circular loop and rectangular loop had the highest SnSV and thereby provided the most degrees of freedom.
+The strongest limitation in RF shimming performance was shown by the snake antenna with an SnSV of 3.47.
+The smallest minimal normalized singular value was 0.11 for the passively fed dipole and the highest was 0.25 for the circular loop.
+This demonstrates that none of the Tx element arrays reached its optimal array count.
+Particularly, for the circular loop and rectangular loop, additional elements could further increase the RF shimming performance.
+However, due to geometrical constraints, the loops must then be reduced in size.
+RF shimming performance.
+In (a), the sum of normalized singular values and the Pareto front for the nine Tx element arrays for the transversal slice (b) and for the hippocampus (c) as the ROI; the passively fed dipole could not achieve the 5.85μT of mean|B1+|within the ROI.
+The results of the Pareto front examinations for the RF shimming capabilities within the defined ROIs of the Hugo voxel models head are depicted in Figure12band c as L‐curves.
+For the transversal slice, aiming for a mean|B1+|of 5.85μT, the minimum CoV was between 11.28% for the snake antenna and 12.64% for the circular loop.
+Generally, for a central transversal slice, all elements showed only minor differences in terms of homogeneity.
+For higher CoV (>16%), the circular loop and rectangular loop generated a lower maximum pSAR compared to the remaining arrays.
+For the hippocampus, which is a deep brain region close to the center of the head, the meander element provided the overall lowest minimum CoV (5.1%), while generating the a pSAR of 711W/kg.
+The highest minimum CoV was generated by the rectangular loop with 5.5% generating 371W/kgin pSAR.
+For strict SAR constraints the meander element provided the best trade‐off between SAR and CoV, as it provided the lowest pSAR for most of the CoVs.
+With the passively fed dipole, a mean|B1+|of 5.85μT could not be generated for most of the shim vectors at both of the ROIs due to the power constraints.
+In this work, nine different Tx element types for a 7‐T large diameter Tx head coil were evaluated in single‐ and eight‐channel configurations based on the power and SAR efficiencies, the mutual coupling, the loading dependence and the RF shimming capability using EM simulations.
+Furthermore, the results were validated using experimentally measured|B1+|‐maps.
+The loading dependence results showed good agreement between simulation and measurement with the built Tx elements having a lower loading dependence compared to the simulated elements and the bowtie antenna was the element with the strongest loading dependence.
+The power balance results showed that for single elements, all the Tx types transferred a similar amount of power to the phantom (31.5%–37.7%).
+Exceptions were the passively fed dipole with a lot less (6.3%) and the snake antenna with slightly more (41.3%) power into the phantom.
+For the eight‐channel configuration, the loop‐based elements transfer more power into the phantom than the remaining elements (46.8 % and 49.4 %).
+The mutual coupling results revealed that the snake antenna had the highest mutual coupling (|S76|=−7.26dB) and that the passively fed dipole coupled the least (|S76|=−31.23dB).
+The single element comparison revealed that the loop‐based Tx elements (circular loop and rectangular loop) provided the highest power and SAR efficiency with at least 15.5% and 21.2% larger efficiencies, respectively.
+This holds for the eight‐channel arrays in the CP+mode, where the loop‐based elements showed at least 22.1% higher power and 18.0% higher SAR efficiency.
+In terms of voxel‐wise power efficiency the circular loop was the superior Tx element type within most of the head.
+Only towards the neck area, the folded end dipole became the best element.
+Looking at the voxel‐wise SAR efficiency, the loop‐based elements manifest themselves as the most efficient type within most of the central brain area whereby in the periphery the folded end dipole and the meander element were superior.
+Within all the defined central areas, the loop‐based elements had the highest mean SAR efficiency as well as power efficiency.
+The evaluation of the RF shimming performance uncovered, that for the whole head, the calculated SnSV for the rectangular loop (4.21) and the circular loop (4.36) were highest whereby the L‐curve results showed that the arrays have only minor shimming performance differences for the transversal slice and the hippocampus.
+However, the loop‐based elements needed less SAR for CoVs>16% aiming for a central transversal slice.
+For the hippocampus, the meander element provided the highest overall CoV and showed the best trade‐off between it and the pSAR.
+The comparison between the measured and the simulated|B1+|‐maps showed good qualitative agreement; however, quantitatively, there was an offset between measurement and simulation.
+Many different decoupling methods for loop‐based Tx elements were introduced [19,28,81,82,83,84], whereby here the capacitive decoupling was chosen for simplicity.
+Elements with|S21|>−10dB generally require external decoupling.
+Therefore, the fractionated dipole, the bowtie antenna, and the snake antenna might also need further decoupling.
+However, this was not implemented for the presented arrays, since they were tunable without further decoupling.
+For these types of Tx elements, different decoupling methods were developed [30,85,86,87] as well.
+Consequently, the need for additional decoupling in loop‐based Tx element arrays is not necessarily a drawback.
+However, the rectangular loop might need further decoupling of the next‐neighboring elements as performed in [5].
+The Tx elements with higher coupling coefficients provided stronger losses due to coupling and vice versa, hence the decoupling results corresponded well to the calculated coupling losses.
+For this setup, the loop‐based elements turned out to be the superior elements.
+Thus, considering the dimensions of the human head phantom in use, the Larmor frequency, and the head‐element distance, the advantages of dipole‐based elements within deeper regions [88] do not yet come into play.
+Additionally, the classically used dipole‐ and microstrip‐based Tx elements (folded end dipole, meander element, fractionated dipole, regular dipole, bowtie antenna, and snake antenna) exhibited similar power and SAR efficiency.
+Hence, for Tx elements used at a distance to the subject larger than 65mm, actions to reduce the conservative electric fields, like using meanders [22] or special dielectrics [32,89,90] are unnecessary.
+The passively fed dipole showed less efficiency compared to prior reports [26] showed.
+However, this can be explained by the different phantom‐element distance, which impacts its performance.
+The power efficiency results using the GUFI‐phantom showed only a minor difference between the Tx elements (except the passively fed dipole), which contradicts the findings using the Hugo phantom.
+As Figure S4 shows, this variation can be explained by the different phantom geometries.
+The voxel‐wise power and SAR efficiencies were higher in the periphery compared to the center.
+This is reasonable, since higher|B1+|in the center necessitates increased input power, thus raising the pSAR.
+This is consistent with previously published work [67].
+Interestingly, in certain areas of the brain, the bowtie antenna array showed the highest voxel‐wise SAR efficiency, although it showed the lowest SAR efficiency in CP+.
+This can be explained by the varying locations of the pSAR for different shim vectors [6].
+Fiedler et al. [80] stated that transmit arrays with a high wcSAR10gcan be overestimated as stronger; thus, for arrays with a higher wcSAR10g, a lower overestimation factor can be used in order to generate an equal amount of VOPs.
+This was confirmed by the presented data.
+The RF shimming results were only obtained for a transversal slice and a cuboid volume covering the hippocampus.
+For other regions, for example, the whole brain, different results can be expected.
+Generally, for larger ROIs, the maximum achievable homogeneity decreases.
+None of the included elements were optimized for this application, and some of them were even designed for completely different setups and body regions.
+Still, the presented results lead to the conclusion that even with adapting and optimizing the presented elements, the loop‐based elements are likely to demonstrate superior performance compared to the other tested elements.
+The deviations between the measured and simulated|B1+|‐maps were within comparable validation accuracies [3,6,54,55,74].
+However, a deviation between measurement and simulation remained, representing an ongoing challenge within the scientific community.
+Some research groups introduce a scaling factor as proposed by Schmidt et al. [91] or adjust the Q‐factors of the elements.
+The assessment of loss mechanisms within Tx elements is ongoing research and is beyond the scope of this study.
+The difference between measured and simulated loading dependence arose from several factors.
+First, the measurement was prone to measurement errors and influenced by the environment surrounding the coils.
+The measurement was not performed in a truly absorbing environment, thus having slightly different boundary conditions than the simulation.
+Second, the remaining difference between measurement and simulation indicated additional losses inside the Tx elements, which are not yet fully understood [91].
+These losses can reduce the interaction with the loading and thereby explain the slightly lower loading dependence observed in the measurements.
+The single‐channel evaluations were conducted without an RF shield, whereas the eight‐channel simulations incorporated a shield.
+The presence of this shield significantly reduced radiation losses.
+However, the varying thicknesses of the Tx elements resulted in some being positioned closer to the shield than others, which caused stronger interactions and altered their performance.
+This effect was particularly evident for the folded end dipole, where the folded ends formed a capacitor with the shield.
+This interaction affected the current distribution, thereby influencing both the power and SAR efficiencies [92].
+The loop‐based Tx elements demonstrated substantially higher power and SAR efficiencies in both single‐channel and multi‐channel configurations.
+This indicates that single‐channel evaluations can provide meaningful insights into multi‐channel performance.
+Given that single‐channel simulations are significantly faster, they can expedite the design and optimization process for new Tx elements.
+The geometrical dimensions of the Tx elements varied, with loop‐based elements being notably smaller in thez‐direction.
+This accounted for the folded end dipole's superior performance in the neck region.
+However, within the brain, the chosen loop sizes of 125 mm×115 mm for the rectangular loop and 120 mm for the circular loop performed superior.
+As shown in Figure S5, a large rectangular loop would still perform superior to the dipole‐based elements.
+Further reducing the dipole length was not considered in this work.
+Inaccuracies in the measurement results of the|B1+|‐maps of the validation appeared due to gradient nonlinearity and drop‐outs from the receive performance.
+The higher deviation at high and low|B1+|values were related to the limited dynamic range of the AFI sequence [73].
+Furthermore, the GUFI phantom, which aged 6 years, may have experienced material property alterations, leading to inaccuracies in the assumed parameters [65].
+Thus, the assumed material properties might not be accurate anymore [65].
+Additionally, discrepancies between simulated and measured results were influenced by losses in the constructed Tx elements that differed from those assumed in simulations.
+This is highlighted by the similar accuracies observed among comparable elements (e.g., circular and rectangular loops or fractionated and regular dipoles).
+The greater deviation in dipole‐based elements likely originated from additional losses within the self‐wound tuning inductors, as the simulations relied on estimated losses derived from datasheets.
+The power distribution results revealed significant power losses in the substrate of the passively fed dipole.
+The used substrate was FR‐4, which has inconsistent properties due to the manufacturing variability.
+This inconsistency is the probable source of the higher error for this element.
+For the meander element, the high deviation between measurement and simulation is most likely a combination of different effects, which are currently undergoing further evaluation.
+But the deviation is almost constant over the measurable area; hence, the deviation most likely originates in additional losses inside the built meander element which the simulation did not account for.
+However, further assessing the loss mechanisms is not within the scope of this work.
+Additionally, neither the meander element nor the passively fed dipole turned out to be the superior Tx element type; thus, the deviation between measurement and simulation does not significantly affect the final conclusion of this work.
+The loop‐based Tx elements demonstrated a higher maximum SnSV, suggesting greater flexibility in sequence development as power and SAR constraints are less likely to be exceeded.
+However, the L‐curve results provide a contrasting perspective due to the lower CoV observed in the loop‐based elements.
+This discrepancy arises because the optimization focused on a central transversal slice and the hippocampus, whereas the SnSV was computed for the entire brain.
+Additionally, the SnSV metric exclusively consideredB1+distributions, neglecting SAR, while the L‐curve incorporated both|B1+|and SAR into its calculations.
+The passively fed dipole was unable to achieve the defined 5.85μT mean|B1+|within the target ROIs, rendering it unsuitable for this application.
+The evaluation of the minimal relative singular value indicated that none of the Tx elements reached the optimal element count for this specific setup.
+Geometrical constraints prevent the addition of more elements within a single ring for the loop‐based and meander elements.
+These limitations could be addressed by using a wider diameter or smaller elements, but such modifications would alter the overall arrangement and impact the results.
+It is important to note that the Tx elements varied in their manufacturing and handling complexities.
+Loop‐based elements required careful attention to the lumped components, while the passively fed dipole necessitated precise consideration of the substrate material and geometric arrangement.
+The handling of the meander element was much more convenient compared to the other elements, since it was insensitive to materials behind the ground plane.
+However, for the next generation of MRI scanners, due to the strong gradients, actions to avoid eddy currents must be considered.
+In this study, none of the Tx elements were specifically optimized for use in a large‐diameter Tx head coil.
+Future research should focus on optimizing these elements to enhance performance for the described application.
+This contribution provides a detailed comparison of different Tx elements for 7‐T head imaging using EM full‐wave simulations considering the application in a large diameter Tx head coil resembling a conventional body volume coil.
+The comparison was validated usingB1+measurements on a 7‐T MRI scanner.
+It was demonstrated that the highest power and SAR efficiencies were generated by the circular and rectangular loop, whereby the highest intrinsic decoupling was shown by the passively fed dipole.
+Additionally, the value of single element simulations was proven.
+In simulation as well as in measurement, the loading dependence was strongest for the bowtie antenna.
+The validation showed comparable agreement between measurement and simulation indicating proper coil construction as well as simulation.
+Considering the available decoupling methods and the results, head imaging at 7 T using a Tx array with an inner diameter larger than 350 mm for better patient comfort and more space for auxiliary material, loop‐based Tx elements might be the preferred option.
+This work provides extensive and unique data for single‐ and eight‐channel Tx elements applying common measures and enables further discourse on multi‐channel evaluations towards large diameter Tx coils at 7‐T head imaging.

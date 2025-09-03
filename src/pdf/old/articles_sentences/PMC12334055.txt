@@ -1,0 +1,278 @@
+Humans have achieved widespread cooperation, largely sustained by mechanisms such as indirect reciprocity, which relies on reputation and social norms.
+People are highly motivated to maintain a good reputation, and social norms play a critical role in reputation systems by defining acceptable behavior, helping prevent exploitation by free-riders.
+However, there is a gap between theory and experiment in handling reputation information, with experiments often failing to capture the complexity that theoretical models propose.
+Here, we address two key issues: what kind of information is needed to define reputation as a social norm and the appropriate level of granularity required for reputation information to function effectively.
+This paper combines scenario-based experiments and evolutionary game theory to investigate the social norms individuals adopt in real-world settings, aiming to uncover the stability of these norms.
+Our results show that reputations should be categorized into three levels good, neutral, and bad.
+Results suggest gradual reputation dynamics that increase and decrease gradually due to cooperation or defection.
+However, a person’s reputation remains unchanged only when they defect against a bad reputation.
+Our experimental and theoretical results support critical insights into the dynamics of reputation and social norms within indirect reciprocity, challenging traditional binary reputational evaluations.
+The gradual nature of reputation updating and the use of nuanced evaluations provide a more realistic model of reputation dynamics.
+While various species exhibit cooperative behaviors [1,2], no species has achieved the same level of widespread cooperation as humans [3].
+Among the mechanisms identified for the evolution of cooperation [4], indirect reciprocity [5,6] stands out as a particularly powerful factor in sustaining cooperation within large and dynamic societies.
+Indirect reciprocity, where individuals help others and receive help in return from different individuals, hinges on the crucial elements of reputation and the social norms that govern it.
+Social norms, which define what is considered “good” or “bad” behavior, are integral to the functioning of reputational systems.
+These norms help individuals discern who deserves cooperation and who does not, thereby preventing exploitation by free-riders.
+Extensive research across various fields, including biology, physics, economics, and psychology, has sought to identify which norms can sustain a stable cooperative society.
+For instance, norms such as “cooperation is good and defection is bad” [7,8], “cooperating with a bad person is bad, and defecting against a bad person is good” [9–12], and “even cooperating with a bad person is good, and defecting against a bad person is also good” [5,13,14] have been extensively studied.
+In this paper, we address two key issues in indirect reciprocity.
+The first concerns the role of higher-order information, which involves the complexity of reputation information used to evaluate social interactions.
+The second focuses on the granularity of reputation information, specifically how detailed or simplified reputation categories need to be for effective social norms to emerge.
+The importance of higher-order information has been emphasized in theoretical studies, which have proposed complex models that consider not only first-order information (the actor’s behavior) but also second-order (the recipient’s reputation) and even third-order information (the actor’s reputation).
+These models suggest that cooperation becomes more robust as higher-order information is incorporated [12,15–17].
+However, there is a significant gap between theory and experiment: while theoretical studies highlight the potential benefits of higher-order information, experimental studies often neglect these complexities.
+Some experimental findings suggest that humans prefer simpler, first-order information due to cognitive limitations [18], while others indicate that individuals are willing to use higher-order information despite its complexity and associated costs [19,20].
+However, existing studies have primarily focused on whether second-order information is used, without examining in detail how individuals incorporate such information into their reputation evaluations and decision-making processes.
+The gap underscores the need to further investigate how humans evaluate and utilize higher-order information in practice, particularly in scenarios where cooperation depends on such nuanced assessments.
+The granularity of reputation information refers to the degree of detail or resolution in the categories used to represent reputation.
+While theoretical models often simplify reputation into binary categories (e.g., good or bad) for analytical tractability [15], real-world interactions suggest a more nuanced approach is necessary.
+For example, recent studies indicate that people may use multi-valued reputations, such as including a “neutral” category alongside “good” and “bad” [21].
+Despite this, experimental research on the granularity of reputation information remains limited, with few studies providing empirical evidence to determine the appropriate level of granularity that can inform theoretical models.
+Moreover, from a methodological perspective, there is a significant gap between experimental and theoretical approaches.
+Although extensive literature has examined indirect reciprocity, most studies have employed experimental [18,22–26] or theoretical [14–16,27–30] approaches independently.
+Experimental studies often focus on how people evaluate others’ actions and assign reputations, yet these evaluations are not always grounded in theoretical analysis, making their evolutionary stability difficult to assess.
+Conversely, theoretical studies comprehensively analyze cooperation’s evolutionary stability but typically neglect the applicability of these findings to real-world behaviors.
+This disconnection limits our understanding of how social norms function and persist in human societies.
+In this paper, we address these gaps by combining experimental and theoretical approaches to investigate the social norms that individuals adopt and their evolutionary stability.
+To do so, first we conduct a scenario-based experiment under which reputation-determining information includes both the actor’s reputation (third-order information) and the recipient’s reputation (second-order information), with all reputation information being three-valued, i.e., good, neutral, and bad.
+This experiment is to investigate the social norms individuals adopt in real-world contexts, and the experimental scenarios systematically vary the actor’s behavior (cooperative or defective), the reputation of recipients (good, neutral, or bad), and the reputation of actors (good, neutral, or bad).
+After clarifying social norms employed in real-world contexts, we rigorously assess their evolutionary stability using mathematical analysis.
+We will analyze replicator dynamics using the framework of evolutionary game theory to determine whether the norm discovered in the experiment is evolutionarily stable.
+By combining these approaches, we aim to identify the social norms prevalent in real societies and provide a comprehensive understanding of why these norms emerge and persist.
+We designed a scenario-based experiment to elucidate how individuals apply evaluation rules in indirect reciprocity scenarios.
+The scenario involved two characters: one as the donor, who decided whether to cooperate with the recipient, and the other as the recipient, who requested cooperation from the donor.
+We characterized the donor and recipient through prior information for three types of reputation: “good reputation,” “bad reputation,” and “neutral (no reputation information).” In this study, we conducted an experiment in which neutral reputation conditions were represented by the absence of reputation information.
+However, the absence of reputation information does not necessarily equate to a neutral reputation.
+To determine whether having no reputation information corresponds to having a neutral reputation, we analyzed participants’ evaluations of recipients without reputation information.
+The results indicated that participants assigned neutral evaluations to recipients without reputation information (S2 Fig).
+The experiment featured 18 different scenarios, combining variations in donor behavior (cooperate or not), donor reputation (good, bad, or neutral), and recipient reputation (good, bad, or neutral), and it was executed using a between-subjects design.
+Our experimental setting builds upon the previous research [21].
+Previous research analyzed four specific cases in which a donor with a neutral reputation either cooperates with or defects against a recipient with a good or bad reputation.
+Participants were randomly assigned to one of 18 scenarios and gave their impressions of the donor’s behavior.
+The experimental results indicate that all 18 scenes can be categorized into three types of distributions: a right-skewed distribution (evaluated as bad), a left-skewed distribution (evaluated as good), and a distribution with a central peak (evaluated as neutral) (Fig 1).
+First, we conducted a cluster analysis using the Wasserstein distance to classify participants’ evaluations of the 18 scenes, resulting in three distinct clusters (S1 Fig).
+Next, to identify the characteristics of each cluster, we fitted three distributions, a normal distribution (interpreted as neutral), an exponential distribution (interpreted as bad), and an exponentially reversed distribution (interpreted as good), using the maximum likelihood estimation method.
+We determined the best-fitting distribution for each distribution using the Bayesian Information Criterion (BIC).
+The results (Table S2) indicated that the clusters could be characterized as a right-skewed distribution (bad), a left-skewed distribution (good), and a distribution with a central peak (neutral).Table 1presents the classification results for each scene, indicating that the reputation values were classified as “good”, “bad”, and “neutral”.
+These findings reveal that irrespective of the donor’s reputation, cooperative behavior consistently improved the rating by one level in a positive direction.
+In contrast, defection generally resulted in a downgrade of one level in the evaluation.
+However, defection against bad recipients was an exception, as their reputation remained unchanged.
+In other words, when a neutral donor engaged in justified defection, their reputation stayed neutral, whereas justified defection by a good donor was rated as good.
+These results suggest that justified defection is only acceptable when carried out by donors with a good reputation.
+Violin plots show distribution of donors’ behavior evaluations for each of 18 scenes.
+Red and blue correspond to defection and cooperation, respectively.
+The results inTable 1allow us to construct a state transition diagram that represents the dynamics of reputation (Fig 2).
+Participants exhibit three types of reputation towards others, good (G), neutral (N), and bad (B), and these reputations are evaluated by one point on the basis of observed behavior.
+Generally, cooperation and defection are evaluated as positive and negative, respectively.
+However, contrary to prior research assumptions, individuals apply a more moderate reputation updating rule.
+Specifically, defection against a bad donor does not alter the reputation.
+Justified defection is considered acceptable only for donors with a good reputation.
+Reputation updating occurs gradually, with no dramatic shifts, such as bad becoming good or good becoming bad.
+We refer to the social norm revealed by this experiment as “gradating”.
+This norm is characterized by gradated reputation updates and a neutral attitude towards justified defection, where reputation remains unchanged.
+These features can be viewed as an extension of the L1 norm from the “leading eight,” [15] applied to a multi-valued reputation system.
+Reputation improves by one step for cooperation and deteriorates by one step for defection.
+However, when defection (justified defection) occurs against bad recipient, donor’s reputation remains unchanged.
+Overall, the results suggest that reputation updates in social interactions are gradual.
+Justified defection is conditionally accepted on the basis of the donor’s given reputation, highlighting the importance of a given reputation status in evaluating subsequent actions.
+Although the cooperation of a donor with a good reputation is naturally rated as good, the five-point scale used in this experiment makes it unclear whether the evaluation has improved or simply remained good.
+The same applies to the defection of donors with a bad reputation.
+Theoretical research has explored various levels of reputational granularity [7,31], but the appropriate granularity of reputations remains controversial in experimental research.
+Future research should address whether reputation should be expressed using three values or extended to a more nuanced scale.
+Our experimental setting can be regarded as private in that observers independently evaluate the donor, while public in that the donor and recipient’s reputation are presented as shared information.
+The analytical model employs a public information structure.
+On the other hand, recent studies of indirect reciprocity have extensively employed private assessment models [28,29,32–34].
+The results of this study align with findings from private evaluation research, demonstrating that cooperation is consistently evaluated positively even when reputation is public.
+Future work should examine whether similar patterns emerge in experiments and simulations based on fully private assessment systems.
+We will examine whether the “gradating” social norm discovered in our experimental study can be accepted from a theoretical point of view.
+To do so, we consider evolutionary game theoretical analysis using replicator dynamics, to look for adaptive action rules keeping cooperative regimes, assuming that all players adopt the social norm discovered.
+First, we model the gradating social norm.
+The gradating uses a ternary reputation label, so we define a set of labels asR={0,1,2}where a reputation label{0,1,2}corresponds to bad, neutral, and good, respectively.
+Additionally, any action is binary, so we define that an action is 1 when one cooperates and that an action is 0 when one defects.
+In a social norm using a ternary reputation label, the number of configuration types of action rules is eight:A={a0,a1,…,a7}.
+The numbering of those eight types is denoted as a three-letter string.
+For example, action rulea3transforms its suffix to [011] by following a binary transformation.
+The meanings of each letter are as follows.
+The first letter is an action to someone with a 0 reputation label.
+The second and third letter are, respectively, an action to someone with a 1 and 2 reputation label.
+For example, if a player uses the action rulea3, the player cooperates with someone who has either a 1 or 2 reputation label only.
+Note that an unconditional cooperator corresponds to a player who adoptsa7while an unconditional defector corresponds to ana0player.
+Here, we model the evolutionary game for infinite well-mixed players.
+Let populationp=(p0,p1,…,p7)be the state in which the proportion of players adopting action ruleaiispi, where∑ipi=1, and0≤pi≤1.
+To explore the evolutionary dynamics of the reputation labels, we assume that the time scale for natural selection is much slower than that for social interactions and label updating [35].
+Therefore, we can assume that the frequency of labels is always at an equilibrium value, i.e., the expected probability of a player’s reputation label converges to a steady state.
+Letgr(ai|p)be the fraction of players with action ruleaihaving anrreputation label in populationp, where∑rgr(ai|p)=1, and0≤gr(ai|p)≤1for anyr∈Randai∈A.
+The system of equations for computing the equilibrium values ofgr(ai|p)and the results are shown in Methods.
+To explore adaptive action rules, all players change their own action rules following an evolutionary process.
+Replicator dynamics [36] models the natural assumption that players who obtain higher-than-average (expected) payoffs are more likely to increase their proportion, and it is suitable for exploring adaptive strategies through natural selection in biology and other fields.
+In addition to natural selection through replicator dynamics, here we consider a more realistic analysis by analyzing replicator dynamics with perturbations [37] that models the random entry of free strategies as a small percentage of mutations.
+where[i0i1i2]and[j0j1j2]are binary transformations ofiandj, respectively, i.e.,i=4i0+2i1+i2andj=4j0+2j1+j2.
+In this system, for a population ( =p) consisting of eight types of action rulesA= {ai}, the proportion of reputation labels of each action rule strategistgr(ai|p)is included as factors that constitute the payoffs of each action rule, so it is extremely difficult to calculate an analytically exact solution and determine which action rule is dominant for each population.
+However, what is important in the question of whether the social norm is theoretically possible is to examine the possibility of a stable population existing that can maintain a high cooperation rate.
+Therefore, we first consider the evolutionary stability (ESS) for a single population, that is, a population in which everyone adopts the same single action rule.
+As shown in Methods, the analysis when there are no errors (that is, whene= 0) revealed thata2is ESS.
+However, because the cooperation rate of the group consisting ofa2only reaches about one-third, this is not a desirable social norm in the sense that perfect cooperation is achieved.
+A more important problem is that the action rulea2is generally difficult to understand.
+In other words, this action rule is denoted as [010], and players choose to cooperate only with others whose reputation rule is 1 (neutral) and not cooperate with others whose reputation is good or bad.
+Note that, however, there are possible interpretations that can justify such action rules.
+For example, if a player has a good reputation, she or he may choose not to cooperate because her or his reputation will not be damaged immediately.
+whereU¯=∑ipiUi(p)and each action rule increases the quantity ofμ/|A|as a mutant in any period, and therefore, each should decrease the quantity ofμpiin order to replace the mutants.
+We are ready to analyze the model using numerical simulations.Fig 3shows the time-series performance and cooperation rate of the action rules using the replicator dynamics with perturbations.
+From the left panel, we can see that the dynamics has four time phases.
+First,a0or unconditional defectors gain power and drive many action strategies (especiallya4toa7) to extinction.
+Note that our dynamics model is perturbed so that a certain number of mutations can always be introduced, so no strategy is completely extinct.
+Next,a2, an odd action strategy that cooperates only with neutrals, forms the majority.
+At this time, the cooperation rate slowly rises to about 1/3.
+This is because this action strategy, if it forms a single population, will share the reputation information of good, neutral, and bad equally, with 1/3 (See the “fractions of reputation labels with each action rule” in Methods for details).
+In the second phase,a1, which is a strict rule that only cooperates with good, can invade because it has the same expected payoff (See the “ESS analysis in single population with(e,μ)=(0,0)” in Methods for details).
+When the population ofa1eventually exceeds that ofa2, the short third phase begins.
+At this time,a1suddenly becomes the majority, anda2is driven to extinction.
+In this third phase, thea3strategy, which is dominant overa1, rapidly increases the population, and the cooperation rate rises to nearly100%.
+Then, in the final phase, thea3strategy forms the majority, and the society becomes stable as a cooperative society.
+Thea3strategy can be said to be a tolerant rule in prosocial behavior because it cooperates with good and neutral.
+Each panel represents generational consequences of changing the fraction of all action rulesA=a0,a1,…,a7and the cooperation rate.
+The horizontal axis represents generations that update strategies.
+Parameters are set to(b,c)=(3,1)and(e,μ)is Left:(2%,2%), and Right:(5%,1%).
+The initial population is set top=(1/8,1/8,…,1/8).
+The dotted black line shows the cooperation ratio, and the solid colored lines show the population ratio of each action rules.
+Both panels ofFig 3show the performances with different parameters, and except for the slower phase transition, it basically has four phases, just like the left panel.
+In the right panel ofFig 3, only up to the second phase occurs.
+This is because whena2is the majority,a1can invade if the population ratio ofa2is not too high.
+In the right panel ofFig 3, the population ratio ofa2is too high, so the system converges before the third phase.
+In other words, depending on the parameters, there are two patterns: up to the second phase, wherea2converges with the majority, and reaching the fourth phase, wherea3converges with the majority.
+The point here is that whena3becomes the majority, the cooperation rate can reach almost100%, whereas whena2becomes the majority, the cooperation rate remains at about 1/3.
+In order for the system to maintain cooperative regimes,a3needs to form the majority.Fig 4shows which rules will become the majority depending on the parameters ofeandμ.
+While the results shown in Results simulate a dynamics from a specific initial population, the results are quite robust to the composition of the initial population, as shown in Methods.
+As shown inFig 3, the equilibrium state depends on the model parameters, particularly the error rate (e) and the mutation rate (μ).
+The system converges either to thea3regime, where the cooperation rate is nearly full anda3dominates the population (left panel ofFig 3), or to thea2regime, where the cooperation rate is approximately one-third anda2is most frequent (right panel ofFig 3).
+The figure indicates which regime emerges at equilibrium across different combinations of(e,μ)values, with yellow representing thea2regime and purple representing thea3regime.
+The parameters are set as(b,c)=(3,1).
+In his famousOthello, premiering in 1604, Shakespeare made Cassio say, “Reputation, reputation, reputation!
+O, I have lost my reputation!” As depicted in famous classics, people are greedy in acquiring a good reputation and feel great pain over losing a good reputation [38].
+It is well recognized that a significant portion of human communication centers on the exchange of reputational information [39,40].
+Reputation undeniably serves as a fundamental pillar of human society, yet research on reputation dynamics has often lacked a cohesive integration of theory and experimentation.
+Here, we clarify the dynamics of reputation that individuals adopt through experimental investigations, aiming to construct a theoretical model strongly supported by experimental evidence.
+We designed an experimental and theoretical framework that considers both higher-order information and a multi-value reputation.
+Our experiment categorized all cases containing third-order information into three reputation levels: good, bad, and neutral.
+The experimental results show that cooperative behavior always increases the donor’s reputation by one level, while defection generally decreases it by one level.
+However, defection against a bad recipient does not alter the donor’s reputation.
+Justified defection maintains the donor’s reputation, and if performed by someone with a good reputation, it continues to be evaluated positively.
+These findings suggest that reputation updates are gradual and that evaluations of cooperation and defection are influenced by situational factors.
+The results also align conceptually with previous theoretical studies that introduced ternary reputation systems [41,42], both of which demonstrated the evolutionary stability of cooperation under third-order norms within a ternary reputation framework.
+Our experimental results indicate that individuals adopt a more tolerant norm than that in the conventional ternary image scoring system [41].
+Consistent with previous findings [42], the neutral evaluation appears to function as a buffer, allowing cooperation to stabilize more flexibly than in binary reputation systems.
+Furthermore, we demonstrate that individuals adopt a neutral stance toward justified defection and stabilize cooperation under a tolerant ternary reputation framework.
+Our theoretical model based on evolutionary game theory has elucidated the mechanisms through which different action rules evolve and dominate the population in the gradating norm.
+Our analysis demonstrated that the system stabilizes a cooperative regime in the gradating norm.
+Additionally, the dominant behavioral rule was that of a tolerant discriminator, who only defects against individuals with bad reputations and cooperates with those with good or neutral reputations.
+The results of our study provide valuable insights into the complexities of reputation dynamics and social norms in indirect reciprocity.
+Our findings reveal several critical patterns in how individuals evaluate and update reputations, challenging some of the prevailing assumptions in the literature.
+First, our experiment confirmed that reputational evaluations are not strictly binary but can be categorized into good, bad, and neutral.
+This nuanced classification reflects a more sophisticated understanding of reputation, aligning with recent research that suggests individuals perceive reputations with greater granularity [21].
+The recognition of a neutral category alongside good and bad reputations provides a richer framework for understanding how people assess and react to others’ behaviors in real-world scenarios.
+Secondly, our findings also reveal a discrepancy between theoretical predictions and experimental observations regarding the updating rule of reputation.
+While theories propose that observers swiftly update a donor’s reputation as good or bad based on a single observation, our results indicate that individuals apply a gradual updating rule.
+Notably, we observe an intriguing result: individuals do not update their ratings in cases of justified defection.
+While a theoretical study suggests that people disregard all actions directed at recipients with bad reputations [43], our findings demonstrate that individuals perceive cooperation with bad recipients as a positive action.
+The fact that justified defection is not considered good may have important implications for punishment in society.
+Punishment is recognized as a straightforward yet effective mechanism for sustaining cooperation in social dilemmas [44,45].
+In indirect reciprocity, justified defection serves as a punishment that removes free riders.
+The second-order norm, which can maintain cooperation robustly, has often been associated with Stern Judging [9–12] and Simple Standing [5,13,14], both of which evaluate justified defection as good.
+By evaluating justified defection positively, these norms encourage punitive actions against free riders, thereby supporting the maintenance of cooperation.
+Anthropological research has further suggested that early-developing cognitive mechanisms may naturally lead individuals to view justified defection as morally acceptable [46].
+However, recent studies have shown that people tend to adopt a robustly neutral stance toward justified defection [21,47].
+This tendency reflects a psychological reluctance to assign moral approval to punitive behavior, even when such behavior is arguably warranted.
+Our findings are consistent with earlier work, which indicates that individuals who administer punishment, even when it is normatively justified, do not necessarily enjoy reputational benefits in human societies [48–52].
+Further research is needed to investigate the cultural specificity, contextual sensitivity, and developmental trajectory of attitudes toward justified defection.
+Several limitations of this study warrant careful consideration.
+First, we recruited participants from a Japanese crowdsourcing platform, resulting in a sample predominantly composed of Japanese adults.
+This raises the possibility that the social norms observed in this study may partly reflect cultural values specific to Japanese society [53].
+To assess the generalizability of the tolerant ternary norm identified here, future research should include cross-cultural samples, particularly from Western contexts.
+Second, in the present version of the theoretical analysis, we do not introduce assessment errors, and addressing this limitation should be a focus of future analyses.
+In fact, a system without assessment errors may fail to converge to a unique stationary state.
+Introducing a small assessment error could help ensure convergence to a unique stationary state, irrespective of the initial conditions.
+Third, while aggregating reputation into three values is statistically reasonable (S1 Fig), the granularity lost through this aggregation needs to be further investigated.
+A computational approach, such as modeling reputation with more finely graded scales, could provide valuable insights into how more detailed reputation information influences social evaluations and cooperative behavior.
+This study makes significant theoretical contributions by integrating higher-order information and multi-value reputation systems into the analysis of indirect reciprocity.
+Our results bridge the gap between experimental and theoretical approaches to reputation and social norm dynamics, offering a more comprehensive understanding of how cooperation can be sustained in complex social systems.
+Future research could explore the implications of these findings in real-world scenarios, where reputations are often multifaceted and influenced by a range of contextual factors.
+In the experiment, all 18 total conditions of three factors, donor’s reputation (good/bad/neutral), donor’s action (cooperation/defection), and recipient’s reputation (good/bad/neutral), were manipulated by using a between-subjects design.
+The experiment was conducted on 8th, November 2024, and a total of 1850 responses were collected.
+Participants were recruited using the website “Yahoo!
+Crowdsourcing” in Japan.
+An example of one of the scenarios is as follows.
+The participants were assumed to be workers in a restaurant.
+Assume that a colleague, Bob (recipient), asks another colleague, Alice (Donor), to take over the night shift, and Alice agrees (cooperation) or refuses (defection).
+We also controlled Alice and Bob’s reputation.
+Below is an example of a good reputation donor defecting against a bad reputation recipient.
+For additional cases, refer to the Supplementary Information.
+Alice works hard and is always willing to take over when others cannot come to do the night shift.
+That is why Alice is liked very much by colleagues in the restaurant including you.
+On the other hand, Bob is not serious about his work.
+Even when other employees ask him to cover for them on night shifts, he rarely agrees, even when he has the time.
+For this reason, Bob is not well thought of by colleagues in the restaurant including you.
+One day, Bob asked Alice to cover for him on the night shift because he wanted to go to a concert of his favorite singer.
+Although Alice had plenty of time, she declined Bob’s request.
+After reading the scenario, participants rated how they assessed the donor’s behavior from three viewpoints using a 5-point scale: “Alice is a reliable person”, “Do you like Alice?”, and “Alice is approachable.” The evaluation scores for the donor’s action were added and normalized after checking the one-factor structure, and we used them as the participants’ evaluation scores for the donor.
+In the actual experiment, the names of the donor and recipient were converted into common Japanese names.
+A score of 0.0 means that the participant rated the donor’s behavior most negatively, and 1.0 means that the participant rated the donor’s behavior most positively.
+The present series of experiments was approved by the Ethics Committee of Rissho University (Ethics approval number: 06-02) and conducted in accordance with the requirements of the Declaration of Helsinki.
+All participants were informed about the purpose of the study as well as the ways the data would be used.
+They agreed that the data would be used only for scientific research, that all data would be anonymized, and that they had the right to stop responding at any time.
+Informed consent was obtained from all participants.
+Letd′=(d,a,r)be the new reputation labeld′∈R, which is defined as the case where a donor with the reputation labeld∈Ractsa∈{0,1}toward a recipient with the reputation labelr∈R.
+In the social norm discovered in our experimental study,d′=min{d+1,2}whena= 1.
+Ifa= 0,d′=dwhenr= 0, andd′=max{0,d−1}whenr>0.
+We call the social norm “gradating” becausemax|d′−d|=1.
+We calculategr(ai|p)defined above.
+The simultaneous equations forgr(ai|p)are derived inEq (3).
+We explain the equation forg1(ai|p)as an example.
+The first term of the equation is for the case that the player’s reputation label is 0 (its probability isg0(ai|p)).
+In that case, the player’s reputation label will be updated to 1 if and only if the player cooperates.
+If the reputation label of the player’s potential recipient isr, the probability the player cooperates isir(1−e)(because whenir= 1, the player cooperates if and only if the implementation error does not occur, and whenir= 0, the player defects without errors) because one’s action rule isir.
+The potential recipient’s action rule isajwith the probabilitypj, and the reputation label isrwith the probabilitygr(aj|p).
+The second term of the definition is the case that the player’s reputation label is 1.
+In that case, the label keeps to 1 if and only if the player defects against someone with a 0 reputation label.
+Ifir= 1, which means that the player cooperates, the player defects when an implementation error occurs, and thus, the probability of defecting ise.
+Ifir= 0, which means that the player defects, the player absolutely defects.
+Therefore, the probability of defecting is integrated into1−ir+eir.
+The explanation of the third term is omitted.
+The 24 values expressed bygr(ai|p)are determined by the 24 simultaneous equations defined above (note that∑rgr(ai|p)=1), but analysis is generally difficult.
+Therefore, we introduce discrete time.
+Calculating the right side ofEq (3)as the value at timetand treating the result as a difference equation for timet+1, the solution can be found by numerical simulations.
+We analyze a special case where all players adopt the same action rule with no error, i.e., letgr(ai)=gr(ai|p), wherep=(0,0,…,1,…,0)(pi= 1), ande= 0.Table 2shows the values ofg(ai) which satisfyEq (3)for each action ruleaiinA.
+In the cases ofa2anda3, there is another solutiong=(1,0,0), but this solution has an unstable equilibrium, and we will show the proof in the case ofa3.
+Ifg0(t)<1 theng0(t) decreases over timetbecauseg0(t+1)=g0(t)2.
+Note that in the case ofa4, the definition ofg0yieldsg1=(g0)21−g0, and the definition ofg2yieldsg2=(g0)3(1−g0)2.
+Substituting them intog0+g1+g2=1,(g0)3−2(g0)2+3g0−1=0is yielded.
+There is only one solution,g0=g*, of this cubic function in0≤g0≤1.
+This is why a player with anxaction rule invades a population of players with ayaction rule if and only ifPx(x|y)>Py(x|y).
+We then define that an action rulexis evolutionarily stable ifPx(x|y)≥Py(x|y), andPx(x|y)=Py(x|y)→Px(y|x)>Py(y|x)for, in the case ofS(x|y), anyy∈A, andy≠x.
+Table 3shows the expected payoffs ofPx(x|y) inS(x|y).
+Note that inS(a0|a1), the equation system forgr*(a0|a1)does not determine any value, and thus,Pa0(a0|a1)=bg2*(a0|a1)for any0≤g2*(a0|a1)≤1, and thus, we setb/2 in that case.
+InTable 3, we use the values of(g0(a2),g1(a2),g2(a2))=(1/3,1/3,1/3).
+The values in the cases ofy∈{a4,a6}are approximated.
+Therefore, we prove that no action rules are evolutionarily stable except fora2.
+Note that, whena2forms the majority in the population,a1can invade isolatedly becausePa1(a1|a2)=Pa2(a2|a2).
+In the situationS(a2|a1),Pa2>Pa1, so a different strategy is required fora1to become the majority.
+The key point is a situation in whicha2is the majority in the population, buta1, who has gained citizenship as a neutral mutant, is present at a certain rate.
+In this situation,a3can invade because it can increase expected payoffs in thea1world.
+This is possible if mutants always invade.
+If there is a regime ofa3, botha1anda3can invade rapidly.
+This effect first allows the hegemony of the population to shift froma2toa1.
+Then, this regime change promotes the rapid proliferation ofa3, and like a phase transition, thea2hegemony era will be replaced by thea3hegemony era.
+This will realize a stable cooperative regime.
+Whena3forms the majority of the population,a5anda7(unconditional cooperators) can invade as neutral mutants (hence,a3is not an ESS).
+However, they are driven out bya0(unconditional traitors) who always invade in small numbers due to the effect of random drift, so only a small number can survive in the population at any one time.
+In Results, we analyzed whether there exists an action rule with evolutionary stability that satisfies a high cooperation rate in order to show the theoretical possibility of the social norm referred as gradating.
+For this reason, it is not necessary to show that the discovered action rulea3can invade any initial population.
+However, since the model we used for our analysis always has new invaders by mutation, no strategy can become 0, so it is clear that it can only have stable points inside the simplex dynamically.
+Empirically, this makes it easier to eliminate unstable equilibrium points occurring at the boundary and to reach a stable resting point.
+For these reasons, although we did not provide a rigorous proof in this paper due to analytical difficulties, the action rulea3discovered this time is highly likely to have global stability.
+To demonstrate this point, we additionally confirmed that even if the simulation was started from a different initial population,a3eventually forms a population as the majority.
+The specific simulation method is as follows.
+Parameters are set to(b,c,e,μ)=(3,1,3%,3%).
+An initial population consisting of a single action rule is set for each action rule.
+In this case, eight simulations are performed.
+In all of these,a3was confirmed to be the final winner.
+Each simulation shows thata3is reached even when a population generated during the simulation is used as the initial population, suggesting thata3is highly likely to have global asymptotic stability dynamically.
