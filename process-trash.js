@@ -30,37 +30,29 @@ const getConfig = () => ({
 });
 
 // ============================================
-// Cache Structure with Article Tracking + Vector Index
+// Cache Structure
 // ============================================
 let lshCache = {
   bands: {},
   sentences: {}, // sentenceHash -> sentence text
   signatureMap: {}, // sentenceHash -> signature
-  sentenceToArticle: {}, // sentenceHash -> articleId
-  sentenceEmbeddings: {}, // sentenceHash -> embedding
+  sentenceToArticle: {}, // sentenceHash -> articleId (NEW!)
+  sentenceEmbeddings: {},
   documentEmbeddings: {},
-  // ✅ NEW: Vector index for fast BERT similarity search
-  vectorIndex: {
-    hashes: [], // Array of sentence hashes
-    embeddings: [], // Array of embeddings (parallel to hashes)
-    needsRebuild: false, // Flag to rebuild index
-  },
 };
 
 // Statistics tracker
 let ratioStats = {};
 let bertStats = {
   totalVerifications: 0,
+  lshPassedBertFailed: 0,
   lshFailedBertPassed: 0,
   bothPassed: 0,
   avgBertTime: 0,
-  documentRejections: 0,
 };
 
 // Initialize BERT service
 let bertService = null;
-
-const tempNewEmbeddings = {};
 
 // ============================================
 // Initialization
@@ -96,7 +88,7 @@ async function init() {
 }
 
 // ============================================
-// Cache Management (FIXED)
+// Cache Management
 // ============================================
 const saveCache = async () => {
   await set("lshCache", lshCache);
@@ -112,24 +104,10 @@ const loadCache = async () => {
     bands: cached?.bands || {},
     sentences: cached?.sentences || {},
     signatureMap: cached?.signatureMap || {},
-    sentenceToArticle: cached?.sentenceToArticle || {},
+    sentenceToArticle: cached?.sentenceToArticle || {}, // ✅ Handle legacy caches
     sentenceEmbeddings: cached?.sentenceEmbeddings || {},
     documentEmbeddings: cached?.documentEmbeddings || {},
-    vectorIndex: cached?.vectorIndex || {
-      hashes: [],
-      embeddings: [],
-      needsRebuild: false,
-    },
   };
-
-  // ✅ Rebuild vector index if needed
-  if (
-    Object.keys(lshCache.sentenceEmbeddings).length > 0 &&
-    lshCache.vectorIndex.hashes.length === 0
-  ) {
-    console.log("🔨 Rebuilding vector index from cached embeddings...");
-    rebuildVectorIndex();
-  }
 
   const cachedStats = await get("ratioStats");
   ratioStats = cachedStats || {};
@@ -137,21 +115,21 @@ const loadCache = async () => {
   const cachedBertStats = await get("bertStats");
   bertStats = cachedBertStats || {
     totalVerifications: 0,
+    lshPassedBertFailed: 0,
     lshFailedBertPassed: 0,
     bothPassed: 0,
     avgBertTime: 0,
-    documentRejections: 0,
   };
 
   console.log("📂 Cache loaded:", {
     sentences: Object.keys(lshCache.sentences).length,
     bands: Object.keys(lshCache.bands).length,
-    articles: new Set(Object.values(lshCache.sentenceToArticle)).size,
+    articles: Object.keys(lshCache.sentenceToArticle).length,
   });
 };
 
 // ============================================
-// Statistics Functions (FIXED)
+// Statistics Functions
 // ============================================
 function addRatioToStats(ratio) {
   const roundedRatio = Math.round(ratio * 100) / 100;
@@ -167,18 +145,18 @@ async function printStatistics() {
   console.log("DETECTION STATISTICS");
   console.log("=".repeat(60));
 
-  // ✅ Article and Sentence Counts
   const totalSentences = Object.keys(lshCache.sentences).length;
-  const totalArticles = new Set(Object.values(lshCache.sentenceToArticle)).size;
+  const totalArticles = Object.values(lshCache.sentenceToArticle).reduce(
+    (set, id) => {
+      set.add(id);
+      return set;
+    },
+    new Set()
+  ).size;
 
   console.log("\n📚 Database Overview:");
   console.log(`  - Total Articles Processed: ${totalArticles}`);
   console.log(`  - Total Unique Sentences: ${totalSentences}`);
-  console.log(
-    `  - Avg Sentences/Article: ${
-      totalArticles > 0 ? (totalSentences / totalArticles).toFixed(1) : 0
-    }`
-  );
 
   // LSH Stats
   console.log("\n📊 LSH Configuration:");
@@ -187,61 +165,37 @@ async function printStatistics() {
   console.log(`  - Threshold: ${config.LSH_SIMILARITY_THRESHOLD}`);
 
   // BERT Stats
-  if (
-    config.BERT_VERIFICATION_ENABLED &&
-    (bertStats.totalVerifications > 0 || bertStats.documentRejections > 0)
-  ) {
+  if (config.BERT_VERIFICATION_ENABLED && bertStats.totalVerifications > 0) {
     console.log("\n🤖 BERT Verification Statistics:");
-
-    if (bertStats.documentRejections > 0) {
-      console.log(
-        `  - Document Rejections: ${bertStats.documentRejections} (full article duplicates)`
-      );
-    }
-
+    console.log(`  - Total Verifications: ${bertStats.totalVerifications}`);
+    console.log(`  - Both LSH & BERT Passed: ${bertStats.bothPassed}`);
     console.log(
-      `  - Total BERT Verifications: ${bertStats.totalVerifications}`
-    );
-    console.log(`  - LSH Found Duplicates: ${bertStats.bothPassed}`);
-    console.log(
-      `  - BERT Found (LSH Missed): ${bertStats.lshFailedBertPassed} ⭐`
+      `  - LSH Passed, BERT Failed: ${bertStats.lshPassedBertFailed}`
     );
     console.log(
-      `  - Avg BERT Time: ${bertStats.avgBertTime.toFixed(
-        2
-      )}ms per verification`
+      `  - LSH Failed, BERT Passed: ${bertStats.lshFailedBertPassed}`
     );
+    console.log(`  - Avg BERT Time: ${bertStats.avgBertTime.toFixed(2)}ms`);
 
-    if (bertStats.totalVerifications > 0) {
-      const totalDuplicates =
-        bertStats.bothPassed + bertStats.lshFailedBertPassed;
-      const bertContribution =
-        bertStats.lshFailedBertPassed > 0
-          ? ((bertStats.lshFailedBertPassed / totalDuplicates) * 100).toFixed(1)
-          : 0;
-      console.log(
-        `  - BERT's Extra Contribution: ${bertContribution}% of all duplicates found`
-      );
-    }
+    const accuracy = (
+      (bertStats.bothPassed / bertStats.totalVerifications) *
+      100
+    ).toFixed(2);
+    console.log(`  - LSH-BERT Agreement: ${accuracy}%`);
   }
 
   // Ratio Distribution
-  const ratioEntries = Object.entries(ratioStats);
-  if (ratioEntries.length > 0) {
-    console.log("\n📈 Ratio Distribution:");
-    console.log("  Ratio\t\tCount");
-    console.log("  " + "-".repeat(30));
+  console.log("\n📈 Ratio Distribution:");
+  console.log("  Ratio\t\tCount");
+  console.log("  " + "-".repeat(30));
 
-    const sortedRatios = ratioEntries.sort(
-      ([a], [b]) => parseFloat(a) - parseFloat(b)
-    );
+  const sortedRatios = Object.keys(ratioStats).sort(
+    (a, b) => parseFloat(a) - parseFloat(b)
+  );
 
-    sortedRatios.forEach(([ratio, count]) => {
-      console.log(`  ${ratio}\t\t${count}`);
-    });
-  } else {
-    console.log("\n📈 Ratio Distribution: No data yet");
-  }
+  sortedRatios.forEach((ratio) => {
+    console.log(`  ${ratio}\t\t${ratioStats[ratio]}`);
+  });
 
   console.log("=".repeat(60));
 }
@@ -250,17 +204,16 @@ function resetStatistics() {
   ratioStats = {};
   bertStats = {
     totalVerifications: 0,
+    lshPassedBertFailed: 0,
     lshFailedBertPassed: 0,
     bothPassed: 0,
     avgBertTime: 0,
-    documentRejections: 0,
   };
-  saveCache();
   console.log("✓ Statistics reset");
 }
 
 // ============================================
-// LSH Functions
+// LSH Functions (Original - Unchanged, with safety fixes)
 // ============================================
 function computeHash(sentence) {
   return utils.keccak256(utils.toUtf8Bytes(sentence));
@@ -269,7 +222,7 @@ function computeHash(sentence) {
 function normalizeSentence(sentence) {
   return sentence
     .toLowerCase()
-    .replace(/[^\w\s]/g, " ")
+    .replace(/[^^\w\s]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -429,8 +382,158 @@ function getBandHashes(signature) {
 }
 
 // ============================================
-// LSH Detection with Article-Aware Self-Match Prevention
+// HYBRID LSH + BERT Detection
 // ============================================
+async function findSimilarSentencesHybrid(
+  sentence,
+  sentenceHash,
+  signature,
+  articleId
+) {
+  const config = getConfig();
+
+  // Phase 1: LSH Detection with article awareness
+  const lshResult = findSimilarSentencesLSH(signature, sentenceHash, articleId);
+
+  console.log("LSH Result:", {
+    isDuplicate: lshResult.isDuplicate,
+    similarity: lshResult.similarity,
+    currentArticle: articleId,
+    matchedArticle: lshResult.matchedArticleId,
+  });
+
+  // If no LSH candidates or BERT disabled
+  if (
+    !lshResult.isDuplicate ||
+    !config.BERT_VERIFICATION_ENABLED ||
+    !bertService
+  ) {
+    return {
+      ...lshResult,
+      detectionMethod: "LSH",
+      bertVerified: false,
+    };
+  }
+
+  // ✅ Double-check: Ensure matched article is different
+  if (lshResult.matchedArticleId === articleId) {
+    console.warn("⚠️ LSH matched same article - should not happen!");
+    return {
+      isDuplicate: false,
+      detectionMethod: "LSH-SameArticle",
+      bertVerified: false,
+    };
+  }
+
+  // Phase 2: BERT Verification
+  const bertStart = performance.now();
+
+  try {
+    let currentEmbedding = lshCache.sentenceEmbeddings[sentenceHash];
+    if (!currentEmbedding) {
+      currentEmbedding = await bertService.getSentenceEmbedding(sentence);
+      lshCache.sentenceEmbeddings[sentenceHash] = currentEmbedding;
+    }
+
+    const matchedSentenceHash = lshResult.similarSentenceHash;
+    let matchedEmbedding = lshCache.sentenceEmbeddings[matchedSentenceHash];
+
+    if (!matchedEmbedding) {
+      const matchedSentence = lshCache.sentences[matchedSentenceHash];
+      if (!matchedSentence) {
+        console.warn("Matched sentence not in cache");
+        return {
+          ...lshResult,
+          detectionMethod: "LSH-NoText",
+          bertVerified: false,
+        };
+      }
+      matchedEmbedding = await bertService.getSentenceEmbedding(
+        matchedSentence
+      );
+      lshCache.sentenceEmbeddings[matchedSentenceHash] = matchedEmbedding;
+    }
+
+    const bertSimilarity = await bertService.calculateSimilarity(
+      currentEmbedding,
+      matchedEmbedding
+    );
+
+    const bertTime = performance.now() - bertStart;
+
+    // Update stats
+    bertStats.totalVerifications++;
+    bertStats.avgBertTime =
+      (bertStats.avgBertTime * (bertStats.totalVerifications - 1) + bertTime) /
+      bertStats.totalVerifications;
+
+    const bertPassed = bertSimilarity >= config.BERT_SENTENCE_THRESHOLD;
+    const lshPassed = lshResult.similarity >= config.LSH_SIMILARITY_THRESHOLD;
+
+    if (lshPassed && bertPassed) {
+      bertStats.bothPassed++;
+    } else if (lshPassed && !bertPassed) {
+      bertStats.lshPassedBertFailed++;
+      console.log(
+        `⚠️ LSH False Positive (LSH: ${lshResult.similarity.toFixed(
+          3
+        )}, BERT: ${bertSimilarity.toFixed(3)})`
+      );
+    } else if (!lshPassed && bertPassed) {
+      bertStats.lshFailedBertPassed++;
+    }
+
+    console.log("BERT Verification:", {
+      similarity: bertSimilarity,
+      threshold: config.BERT_SENTENCE_THRESHOLD,
+      passed: bertPassed,
+    });
+
+    // ✅ CRITICAL FIX: Use LSH result as baseline, BERT as verification
+    if (DetectionConfig.STRATEGY.BERT_FINAL_DECISION && bertPassed) {
+      return {
+        isDuplicate: true,
+        similarSentenceHash: lshResult.similarSentenceHash,
+        similarity: bertSimilarity,
+        matchedSentence: lshResult.matchedSentence,
+        matchedArticleId: lshResult.matchedArticleId,
+        detectionMethod: "BERT-Verified",
+        bertVerified: true,
+        lshSimilarity: lshResult.similarity,
+        bertTime,
+      };
+    } else if (DetectionConfig.STRATEGY.BERT_FINAL_DECISION && !bertPassed) {
+      return {
+        isDuplicate: false,
+        detectionMethod: "BERT-Rejected",
+        bertVerified: true,
+        lshSimilarity: lshResult.similarity,
+        bertSimilarity,
+        bertTime,
+      };
+    } else {
+      // Keep LSH decision, add BERT info
+      return {
+        ...lshResult,
+        detectionMethod: bertPassed ? "LSH+BERT-Agree" : "LSH-Only",
+        bertVerified: true,
+        bertSimilarity,
+        bertTime,
+      };
+    }
+  } catch (error) {
+    console.error("BERT verification failed:", error);
+    return {
+      ...lshResult,
+      detectionMethod: "LSH-BertError",
+      bertVerified: false,
+      bertError: error.message,
+    };
+  }
+}
+
+// Original LSH detection (renamed)
+// Now accepts currentSentenceHash to avoid self-matches
 function findSimilarSentencesLSH(
   signature,
   currentSentenceHash,
@@ -443,6 +546,7 @@ function findSimilarSentencesLSH(
   bandHashes.forEach((bandHash, bandIndex) => {
     if (lshCache.bands[bandIndex] && lshCache.bands[bandIndex][bandHash]) {
       lshCache.bands[bandIndex][bandHash].forEach((hash) => {
+        // ✅ FIXED: Only skip if it's the SAME sentence in the SAME article
         const candidateArticleId = lshCache.sentenceToArticle[hash];
         const isSameSentenceInSameArticle =
           hash === currentSentenceHash &&
@@ -473,7 +577,7 @@ function findSimilarSentencesLSH(
           similarSentenceHash: candidateHash,
           similarity,
           matchedSentence: lshCache.sentences[candidateHash],
-          matchedArticleId: candidateArticleId,
+          matchedArticleId: candidateArticleId, // Include source article
         };
       }
     }
@@ -482,87 +586,10 @@ function findSimilarSentencesLSH(
   return bestMatch;
 }
 
-// ============================================
-// Vector Index Functions (Fast BERT Search)
-// ============================================
-
-// Cosine similarity between two embeddings
-function cosineSimilarity(embedding1, embedding2) {
-  if (!embedding1 || !embedding2 || embedding1.length !== embedding2.length) {
-    return 0;
-  }
-
-  let dotProduct = 0;
-  let norm1 = 0;
-  let norm2 = 0;
-
-  for (let i = 0; i < embedding1.length; i++) {
-    dotProduct += embedding1[i] * embedding2[i];
-    norm1 += embedding1[i] * embedding1[i];
-    norm2 += embedding2[i] * embedding2[i];
-  }
-
-  const magnitude = Math.sqrt(norm1) * Math.sqrt(norm2);
-  return magnitude === 0 ? 0 : dotProduct / magnitude;
-}
-
-// Rebuild vector index from existing embeddings
-function rebuildVectorIndex() {
-  lshCache.vectorIndex.hashes = [];
-  lshCache.vectorIndex.embeddings = [];
-
-  for (const [hash, embedding] of Object.entries(lshCache.sentenceEmbeddings)) {
-    if (embedding && lshCache.sentenceToArticle[hash]) {
-      lshCache.vectorIndex.hashes.push(hash);
-      lshCache.vectorIndex.embeddings.push(embedding);
-    }
-  }
-
-  lshCache.vectorIndex.needsRebuild = false;
-  console.log(
-    `✓ Vector index rebuilt: ${lshCache.vectorIndex.hashes.length} embeddings`
-  );
-}
-
-// Add embedding to vector index
-function addToVectorIndex(sentenceHash, embedding) {
-  if (!lshCache.vectorIndex.hashes.includes(sentenceHash)) {
-    lshCache.vectorIndex.hashes.push(sentenceHash);
-    lshCache.vectorIndex.embeddings.push(embedding);
-  }
-}
-
-// // Fast approximate nearest neighbor search
-// function findNearestNeighbors(queryEmbedding, currentArticleId, k = 10) {
-//   const results = [];
-
-//   // Quick linear search (optimized with early stopping)
-//   for (let i = 0; i < lshCache.vectorIndex.hashes.length; i++) {
-//     const candidateHash = lshCache.vectorIndex.hashes[i];
-//     const candidateArticleId = lshCache.sentenceToArticle[candidateHash];
-
-//     // Skip same article
-//     if (candidateArticleId === currentArticleId) continue;
-
-//     const candidateEmbedding = lshCache.vectorIndex.embeddings[i];
-//     const similarity = cosineSimilarity(queryEmbedding, candidateEmbedding);
-
-//     results.push({
-//       hash: candidateHash,
-//       similarity: similarity,
-//       articleId: candidateArticleId,
-//     });
-//   }
-
-//   // Sort by similarity and return top k
-//   results.sort((a, b) => b.similarity - a.similarity);
-//   return results.slice(0, k);
-// }
-
 function storeSentenceInLSH(sentence, sentenceHash, signature, articleId) {
   lshCache.sentences[sentenceHash] = sentence;
   lshCache.signatureMap[sentenceHash] = signature;
-  lshCache.sentenceToArticle[sentenceHash] = articleId;
+  lshCache.sentenceToArticle[sentenceHash] = articleId; // ✅ Track article ownership
 
   const bandHashes = getBandHashes(signature);
   bandHashes.forEach((bandHash, bandIndex) => {
@@ -576,106 +603,6 @@ function storeSentenceInLSH(sentence, sentenceHash, signature, articleId) {
       lshCache.bands[bandIndex][bandHash].push(sentenceHash);
     }
   });
-}
-
-function findFirstBertMatch(queryEmbedding, currentArticleId) {
-  const config = getConfig();
-  const threshold = config.BERT_SENTENCE_THRESHOLD;
-  const { hashes, embeddings } = lshCache.vectorIndex;
-
-  // We loop through existing embeddings
-  // We go backwards (i--) to check the most recent sentences first (often more relevant)
-  for (let i = hashes.length - 1; i >= 0; i--) {
-    const candidateHash = hashes[i];
-    const candidateArticleId = lshCache.sentenceToArticle[candidateHash];
-
-    // Skip if it compares to itself or same article
-    if (candidateArticleId === currentArticleId) continue;
-
-    const candidateEmbedding = embeddings[i];
-
-    // Calculate Cosine Similarity
-    const similarity = cosineSimilarity(queryEmbedding, candidateEmbedding);
-
-    console.log(
-      `    BERT Checking: ${currentArticleId} vs ${candidateArticleId} => Similarity: ${similarity.toFixed(
-        3
-      )}`
-    );
-
-    // ✅ STOP IMMEDIATELY if we find a match
-    if (similarity >= threshold) {
-      return {
-        isDuplicate: true,
-        similarSentenceHash: candidateHash,
-        similarity: similarity,
-        matchedSentence: lshCache.sentences[candidateHash],
-        matchedArticleId: candidateArticleId,
-      };
-    }
-  }
-
-  // If loop finishes, no match found
-  return { isDuplicate: false };
-}
-
-// ============================================
-// MAXIMUM DETECTION: LSH filters, BERT catches everything else
-// ============================================
-async function findSimilarSentencesHybrid(
-  sentence,
-  sentenceHash,
-  signature,
-  articleId
-) {
-  const config = getConfig();
-
-  // 1. Run LSH
-  const lshResult = findSimilarSentencesLSH(signature, sentenceHash, articleId);
-
-  // ✅ If LSH finds a duplicate, STOP. We trust LSH.
-  if (lshResult.isDuplicate) {
-    return {
-      ...lshResult,
-      detectionMethod: "LSH-Found",
-      bertVerified: false,
-    };
-  }
-
-  // If BERT is disabled, return unique
-  if (!config.BERT_VERIFICATION_ENABLED || !bertService) {
-    return { isDuplicate: false, detectionMethod: "LSH-Only" };
-  }
-
-  // 2. LSH found nothing, so run BERT
-  try {
-    // Get embedding (generate if not in cache)
-    let currentEmbedding = lshCache.sentenceEmbeddings[sentenceHash];
-    if (!currentEmbedding) {
-      currentEmbedding = await bertService.getSentenceEmbedding(sentence);
-      lshCache.sentenceEmbeddings[sentenceHash] = currentEmbedding;
-    }
-
-    // ✅ Use the new "First Match" function (No sorting, No Nearest Neighbor list)
-    const bertResult = findFirstBertMatch(currentEmbedding, articleId);
-
-    if (bertResult.isDuplicate) {
-      return {
-        ...bertResult,
-        detectionMethod: "BERT-CaughtIt",
-        bertVerified: true,
-      };
-    } else {
-      return {
-        isDuplicate: false,
-        detectionMethod: "Unique",
-        bertVerified: true,
-      };
-    }
-  } catch (error) {
-    console.error("BERT Error:", error);
-    return { isDuplicate: false, detectionMethod: "Error" };
-  }
 }
 
 // ============================================
@@ -693,12 +620,14 @@ async function checkDocumentSimilarity(articleId, articleText) {
   }
 
   try {
+    // Get or compute document embedding
     let currentDocEmbedding = lshCache.documentEmbeddings[articleId];
     if (!currentDocEmbedding) {
       currentDocEmbedding = await bertService.getDocumentEmbedding(articleText);
       lshCache.documentEmbeddings[articleId] = currentDocEmbedding;
     }
 
+    // Check against all existing documents
     for (const [existingId, existingEmbedding] of Object.entries(
       lshCache.documentEmbeddings
     )) {
@@ -714,9 +643,6 @@ async function checkDocumentSimilarity(articleId, articleText) {
         console.log(`   Current: ${articleId}`);
         console.log(`   Similar to: ${existingId}`);
         console.log(`   Similarity: ${similarity.toFixed(3)}`);
-
-        bertStats.documentRejections++;
-        await saveCache();
 
         return {
           isDuplicate: true,
@@ -735,7 +661,7 @@ async function checkDocumentSimilarity(articleId, articleText) {
 }
 
 // ============================================
-// Scoring Function
+// Scoring Function (Original)
 // ============================================
 function computeScore(duplicateResults) {
   let score = 0;
@@ -771,32 +697,23 @@ function computeScore(duplicateResults) {
 }
 
 // ============================================
-// Main Process Article Function
+// Main Process Article Function (UPDATED)
 // ============================================
 async function processArticle(articleId, article, signer) {
-  const startTime = performance.now();
-
   console.log(`\n${"=".repeat(60)}`);
   console.log(`Processing Article ${articleId}`);
   console.log(`${"=".repeat(60)}`);
 
-  // ✅ Step 1: Document-level BERT check (fastest filter)
+  // Step 1: Document-level BERT check (fast early rejection)
   const docCheck = await checkDocumentSimilarity(articleId, article);
   if (docCheck.isDuplicate) {
     console.log(`⛔ Article ${articleId} is a document-level duplicate`);
     console.log(`   Similar to: ${docCheck.similarArticleId}`);
     console.log(`   Similarity: ${docCheck.similarity.toFixed(3)}`);
     console.log(`   Method: ${docCheck.method}`);
-    console.log(`   Time: ${(performance.now() - startTime).toFixed(0)}ms`);
     return false;
-  } else if (
-    docCheck.method !== "BERT-Disabled" &&
-    docCheck.method !== "Document-Check-Disabled"
-  ) {
-    console.log(`✅ Document-level check passed (not a full copy)`);
   }
 
-  // Step 2: Sentence-level processing
   const sentences = article.split("\n").filter((s) => s.trim().length > 0);
   const sentenceHashes = sentences.map(computeHash);
 
@@ -804,26 +721,26 @@ async function processArticle(articleId, article, signer) {
   const uniqueHashes = [];
   const uniqueSentences = [];
 
-  const totalStored = Object.keys(lshCache.sentences).length;
+  console.log(`📋 Total sentences in article: ${sentences.length}`);
   console.log(
-    `📋 Article sentences: ${sentences.length} | Database: ${totalStored} sentences`
+    `📚 Sentences already in cache: ${Object.keys(lshCache.sentences).length}`
   );
-
-  let lshDetections = 0;
-  let bertVerifications = 0;
-  let bertOverrides = 0;
-  let bertEmbeddingsCreated = 0;
 
   for (let i = 0; i < sentences.length; i++) {
     const sentence = sentences[i];
     const sentenceHash = sentenceHashes[i];
 
-    console.log(`\n[${i + 1}/${sentences.length}] Processing sentence...`);
+    console.log(
+      `\n[${i + 1}/${sentences.length}] Checking: "${sentence.substring(
+        0,
+        80
+      )}..."`
+    );
 
     const shingles = createShingles(sentence);
     const signature = generateSignature(shingles);
 
-    // Hybrid LSH + BERT detection
+    // ✅ Pass articleId for proper self-match detection
     const result = await findSimilarSentencesHybrid(
       sentence,
       sentenceHash,
@@ -833,118 +750,77 @@ async function processArticle(articleId, article, signer) {
 
     duplicateResults.push(result);
 
-    // Track detection methods
-    if (result.detectionMethod && result.detectionMethod.includes("LSH"))
-      lshDetections++;
-    if (result.detectionMethod && result.detectionMethod.includes("BERT"))
-      bertVerifications++;
-    if (result.detectionMethod === "BERT-Override") bertOverrides++;
-
     if (result.isDuplicate) {
-      console.log(`   ❌ DUPLICATE FOUND`);
-      console.log(`     Method: ${result.detectionMethod}`);
-      console.log(`     Similarity: ${result.similarity.toFixed(3)}`);
-      if (result.detectionMethod === "LSH-Found") {
-        console.log(`     Detection: LSH (fast)`);
-        bertStats.bothPassed++; // Count LSH detections
+      console.log(`   ❌ DUPLICATE DETECTED!`);
+      console.log(`      Method: ${result.detectionMethod}`);
+      console.log(
+        `      Matched from Article: ${result.matchedArticleId || "Unknown"}`
+      );
+      console.log(
+        `      LSH Similarity: ${(
+          result.lshSimilarity || result.similarity
+        ).toFixed(3)}`
+      );
+      if (result.bertSimilarity) {
+        console.log(
+          `      BERT Similarity: ${result.bertSimilarity.toFixed(3)}`
+        );
       }
       console.log(
-        `     Matched: "${(result.matchedSentence || "").substring(0, 60)}..."`
+        `      Matched Text: "${(result.matchedSentence || "").substring(
+          0,
+          60
+        )}..."`
       );
-      console.log(`     From Article: ${result.matchedArticleId}`);
     } else {
-      console.log(`   ✅ UNIQUE`);
-      if (!uniqueSentences.includes(sentence)) {
-        uniqueSentences.push(sentence);
-        uniqueHashes.push(sentenceHash);
-
-        // Pre-compute embedding for unique sentences (for future comparisons)
-        const config = getConfig();
-
-        if (config.BERT_VERIFICATION_ENABLED && bertService?.isInitialized) {
-          try {
-            // Check if we already calculated it in this loop to avoid double work
-            if (!tempNewEmbeddings[sentenceHash]) {
-              const embedding = await bertService.getSentenceEmbedding(
-                sentence
-              );
-
-              tempNewEmbeddings[sentenceHash] = embedding;
-              bertEmbeddingsCreated++;
-              console.log(`      📊 Computed BERT embedding (Held in temp)`);
-            }
-          } catch (err) {
-            console.error("Error creating embedding for unique sentence:", err);
-          }
-        }
-      }
+      console.log(`   ✅ UNIQUE - Will be stored`);
+      uniqueSentences.push(sentence);
+      uniqueHashes.push(sentenceHash);
     }
   }
 
-  // Step 3: Compute score and ratio
   const score = computeScore(duplicateResults);
   const ratio = sentences.length ? score / sentences.length : 0;
 
   addRatioToStats(ratio);
 
-  console.log(`\n${"=".repeat(60)}`);
-  console.log(`Article ${articleId} Summary:`);
-  console.log(`  - Total sentences: ${sentences.length}`);
-  console.log(`  - Unique sentences: ${uniqueSentences.length}`);
-  console.log(`  - Duplicate score: ${score}`);
-  console.log(`  - Duplication ratio: ${ratio.toFixed(3)}`);
-  console.log(`  - LSH detections: ${lshDetections}`);
-  console.log(`  - BERT verifications: ${bertVerifications}`);
-  console.log(`  - BERT overrides: ${bertOverrides}`);
-  console.log(`  - Unique embeddings created: ${bertEmbeddingsCreated}`);
   console.log(
-    `  - Processing time: ${(performance.now() - startTime).toFixed(0)}ms`
+    `  - Total: ${sentences.length}, Unique: ${uniqueSentences.length}`
   );
+  console.log(`  - Duplicate Score: ${score}, Ratio: ${ratio.toFixed(3)}`);
   console.log(`${"=".repeat(60)}`);
 
   if (ratio > 0.3) {
-    console.log(`⛔ Article ${articleId} REJECTED (ratio > 0.3)`);
-    await saveCache();
+    console.log(`⛔ REJECTED (ratio > 0.3)`);
     return false;
   }
 
-  // Step 4: Store unique sentences (LSH + BERT)
+  // ✅ Store unique sentences WITH article ID
   for (let i = 0; i < uniqueSentences.length; i++) {
     const sentence = uniqueSentences[i];
     const sentenceHash = uniqueHashes[i];
     const shingles = createShingles(sentence);
     const signature = generateSignature(shingles);
 
-    // 1. Commit LSH Data
     storeSentenceInLSH(sentence, sentenceHash, signature, articleId);
-
-    // 2. Commit BERT Data (✅ NOW WE SAVE IT HERE)
-    if (tempNewEmbeddings[sentenceHash]) {
-      const embedding = tempNewEmbeddings[sentenceHash];
-
-      // Save to main storage
-      lshCache.sentenceEmbeddings[sentenceHash] = embedding;
-
-      // Add to Vector Index
-      addToVectorIndex(sentenceHash, embedding);
-    }
   }
 
-  // Step 5: Store on IPFS and Blockchain
   try {
     const hashesData = JSON.stringify(uniqueHashes);
     const hashesBuffer = Buffer.from(hashesData);
     const ipfsCid = await uploadToIPFS(hashesBuffer);
-    console.log(`✓ Stored on IPFS: ${ipfsCid}`);
+    console.log(`✓ Stored hashes on IPFS with CID: ${ipfsCid}`);
 
     const contract = new Contract(contractAddress, contractAbi, signer);
     const tx = await contract.storeArticleCID(articleId, ipfsCid, {
       gasLimit: 1_000_000,
     });
     await tx.wait();
-    console.log(`✓ Stored on blockchain: ${tx.hash}`);
+    console.log(
+      `✓ Stored Article ${articleId} CID on blockchain, tx hash: ${tx.hash}`
+    );
   } catch (error) {
-    console.error("✗ Storage error:", error);
+    console.error("✗ Error in IPFS/Blockchain storage:", error);
     return false;
   }
 
@@ -954,7 +830,7 @@ async function processArticle(articleId, article, signer) {
 }
 
 // ============================================
-// Blockchain Functions
+// Blockchain Functions (Original)
 // ============================================
 const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 const provider = new ethers.providers.JsonRpcProvider("http://127.0.0.1:8545");
@@ -1012,6 +888,7 @@ export {
   printStatistics,
   resetStatistics,
   addRatioToStats,
+  // New exports
   bertStats,
   getConfig,
 };

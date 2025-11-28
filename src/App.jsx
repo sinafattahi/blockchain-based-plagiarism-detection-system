@@ -1,422 +1,13 @@
-// import "./App.css";
-// import { useState } from "react";
-// import { ethers } from "ethers";
-// import Greeter from "./artifacts/contracts/Greeter.sol/Greeter.json";
-// // import ArticleTree from "./artifacts/contracts/ArticleTree.sol/ArticleTree.json";
-// import ArticleTrees from "./artifacts/contracts/ArticleTrees.sol/ArticleTrees.json";
-
-// // Update with the contract address logged out to the CLI when it was deployed
-// const greeterAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
-// // const articleTreeAddress = "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e";
-// const articleTreesAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
-
-// function App() {
-//   // store greeting in local state
-//   const [greeting, setGreetingValue] = useState("");
-
-//   // article
-//   const [tree, setTree] = useState([]);
-//   const [treeId, setTreeId] = useState(0); // For adding new nodes
-
-//   // request access to the user's MetaMask account
-//   async function requestAccount() {
-//     await window.ethereum.request({ method: "eth_requestAccounts" });
-//   }
-
-//   // call the smart contract, read the current greeting value
-//   async function fetchGreeting() {
-//     if (typeof window.ethereum !== "undefined") {
-//       const provider = new ethers.providers.Web3Provider(window.ethereum);
-//       const contract = new ethers.Contract(
-//         greeterAddress,
-//         Greeter.abi,
-//         provider
-//       );
-//       try {
-//         const data = await contract.greet();
-//         console.log("data: ", data);
-//       } catch (err) {
-//         console.log("Error: ", err);
-//       }
-//     }
-//   }
-
-//   // call the smart contract, send an update
-//   async function setGreeting() {
-//     if (!greeting) return;
-//     if (typeof window.ethereum !== "undefined") {
-//       await requestAccount();
-//       const provider = new ethers.providers.Web3Provider(window.ethereum);
-//       const signer = provider.getSigner();
-//       const contract = new ethers.Contract(greeterAddress, Greeter.abi, signer);
-//       const transaction = await contract.setGreeting(greeting);
-//       await transaction.wait();
-//       fetchGreeting();
-//     }
-//   }
-
-//   async function addTree() {
-//     // Example node data (hardcoded for now)
-//     const ids = [7, 8, 9];
-//     const parentIds = [6, 6, 6];
-//     const values = ids.map((id) =>
-//       ethers.utils.keccak256(ethers.utils.toUtf8Bytes(`hash_${id}`))
-//     );
-
-//     if (typeof window.ethereum !== "undefined") {
-//       await requestAccount();
-//       const provider = new ethers.providers.Web3Provider(window.ethereum);
-//       const signer = provider.getSigner();
-//       const contract = new ethers.Contract(
-//         articleTreesAddress,
-//         ArticleTrees.abi,
-//         signer
-//       );
-
-//       try {
-//         const transaction = await contract.addTree(ids, parentIds, values, {
-//           gasLimit: 30000000,
-//         });
-//         await transaction.wait();
-//         console.log("Nodes added!");
-//         getTree(); // Refresh the nodes list after adding
-//       } catch (err) {
-//         console.error("Error adding nodes:", err);
-//       }
-//     }
-//   }
-
-//   // Fetch all nodes from the contract
-//   async function getTree() {
-//     if (typeof window.ethereum !== "undefined") {
-//       const provider = new ethers.providers.Web3Provider(window.ethereum);
-//       const contract = new ethers.Contract(
-//         articleTreesAddress,
-//         ArticleTrees.abi,
-//         provider
-//       );
-
-//       try {
-//         // const nodeCount = await contract.nodeCount(); // Assuming you have a function to get the total count of nodes
-//         // const firstTree = await contract.getTree(0);
-//         // const tree = await contract.getTree(parseInt(0));
-
-//         // console.log(treeId)
-//         const tree = await contract.getTree(treeId);
-
-//         // console.log(tree[2][0][2].toString())
-
-//         setTree(tree);
-//       } catch (err) {
-//         console.error("Error fetching nodes:", err);
-//       }
-//     }
-//   }
-
-//   // console.log(tree[2].toString());
-
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <button onClick={fetchGreeting}>Fetch Greeting</button>
-//         <button onClick={setGreeting}>Set Greeting</button>
-//         <input
-//           onChange={(e) => setGreetingValue(e.target.value)}
-//           placeholder="Set greeting"
-//         />
-
-//         <button onClick={addTree}>Add Nodes</button>
-//         <button onClick={getTree}>Show Nodes</button>
-//         <div>
-//           <h3>tree number {treeId}</h3>
-
-//           {/* {tree?.[2][0].toString()} */}
-
-//           {tree?.[2]?.map((item, index) => (
-//             <div key={index}>
-//               <div>
-//                 <span>id: </span>
-
-//                 <span>{item[0].toString()}</span>
-//               </div>
-
-//               <div>
-//                 <span>parentId: </span>
-
-//                 <span>{item[1].toString()}</span>
-//               </div>
-
-//               <div>
-//                 <span>value: </span>
-
-//                 <span>{item[2].toString()}</span>
-//               </div>
-//             </div>
-//           ))}
-
-//           {/* {
-//             tree[0]?.id
-//           } */}
-
-//           {/* const id = result[2][0].id.toString(); const value =
-//           result[2][0].value.toString(); const parent =
-//           result[2][0].parentId.toString(); */}
-//           {/* <ul>
-//             {nodes.length > 0 ? (
-//               nodes.map((node, index) => (
-//                 <li key={index}>
-//                   <strong>ID:</strong> {node} <strong>Parent ID:</strong>{" "}
-//                   {node.parentId} <strong>Value:</strong> {node.value}
-//                 </li>
-//               ))
-//             ) : (
-//               <p>No nodes added yet.</p>
-//             )}
-//           </ul> */}
-//         </div>
-
-//         <input
-//           onChange={(e) => setTreeId(e.target.value)}
-//           placeholder="Enter data for a new node (not used yet)"
-//         />
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
-
-// import { useState } from "react";
-// import { processText, provider } from "./process";
-
-// function App() {
-//   const [text, setText] = useState("");
-//   const [textId, setTextId] = useState(1);
-//   const [status, setStatus] = useState("Idle");
-//   const [results, setResults] = useState([]);
-
-//   async function requestAccount() {
-//     await window.ethereum.request({ method: "eth_requestAccounts" });
-//   }
-
-//   const handleProcess = async () => {
-//     if (!text.trim()) {
-//       alert("Please enter text");
-//       return;
-//     }
-//     setStatus(`Processing Text ${textId}...`);
-//     try {
-//       await requestAccount();
-//       const signer = provider.getSigner();
-//       const success = await processText(textId, text, signer);
-//       setResults([
-//         ...results,
-//         `Text ${textId}: ${success ? "Stored" : "Skipped"}`,
-//       ]);
-//       if (success) {
-//         setTextId(textId + 1);
-//         setText("");
-//       }
-//       setStatus("Idle");
-//     } catch (error) {
-//       console.error(error);
-//       setStatus("Error");
-//       setResults([...results, `Text ${textId}: Error`]);
-//     }
-//   };
-
-//   return (
-//     <div style={{ padding: "20px" }}>
-//       <h1>Article Processor</h1>
-//       <textarea
-//         rows="10"
-//         cols="50"
-//         value={text}
-//         onChange={(e) => setText(e.target.value)}
-//         placeholder="Enter text (one sentence per line)"
-//       />
-//       <br />
-//       <button onClick={handleProcess} disabled={status !== "Idle"}>
-//         Process Text {textId}
-//       </button>
-//       <p>Status: {status}</p>
-//       <h2>Results</h2>
-//       <ul>
-//         {results.map((result, i) => (
-//           <li key={i}>{result}</li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// }
-
-// export default App;
-
-// import { useEffect, useState } from "react";
-// import {
-//   processArticle,
-//   getStoredArticle,
-//   getTotalArticles,
-//   provider,
-// } from "./process";
-
-// function App() {
-//   const [fileName, setFileName] = useState("");
-//   const [articleId, setArticleId] = useState(1);
-//   const [status, setStatus] = useState("Idle");
-//   // const [results, setResults] = useState([]);
-//   const [loading, setLoading] = useState(false);
-//   const [readArticleId, setReadArticleId] = useState([]);
-//   const [storedSentences, setStoredSentences] = useState([]);
-
-//   const signer = provider.getSigner();
-
-//   async function requestAccount() {
-//     await window.ethereum.request({ method: "eth_requestAccounts" });
-//   }
-
-//   // const handleProcess = async () => {
-//   //   if (!text.trim()) {
-//   //     alert("Please enter some text");
-//   //     return;
-//   //   }
-
-//   //   setStatus(`Processing Article ${articleId}...`);
-//   //   try {
-//   //     await requestAccount();
-//   //     const success = await processArticle(articleId, text, signer);
-
-//   //     setResults((prev) => [
-//   //       ...prev,
-//   //       `Text ${articleId}: ${success ? "Stored" : "Skipped"}`,
-//   //     ]);
-
-//   //     if (success) {
-//   //       setArticleId((id) => id + 1);
-//   //       setText("");
-//   //       setStatus("Idle");
-//   //     } else {
-//   //       setStatus("skipped");
-//   //     }
-//   //   } catch (error) {
-//   //     console.error("Error:", error);
-//   //     setStatus("Error");
-//   //     setResults((prev) => [...prev, `Text ${articleId}: Error`]);
-//   //   }
-//   // };
-
-//   const handleProcess = async () => {
-//     if (!fileName.endsWith(".txt")) {
-//       setStatus("Please enter a valid .txt file name");
-//       return;
-//     }
-
-//     setLoading(true);
-//     try {
-//       const response = await fetch(`/paraphrasing/${fileName}`);
-//       if (!response.ok) {
-//         throw new Error("File not found");
-//       }
-
-//       const text = await response.text();
-
-//       const success = await processArticle(articleId, text, signer);
-
-//       setStatus(success ? "Article processed ✅" : "Article skipped ❌");
-//     } catch (err) {
-//       console.error(err);
-//       setStatus("Failed to load or process file");
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   const handleViewStored = async () => {
-//     await requestAccount();
-//     const storedSentences = await getStoredArticle(readArticleId, signer);
-//     if (storedSentences) {
-//       setStoredSentences(storedSentences);
-//     } else {
-//       console.log("No article found or error occurred.");
-//     }
-//   };
-
-//   useEffect(() => {
-//     async function fetchTotalArticles() {
-//       try {
-//         const total = await getTotalArticles(signer || provider);
-//         setArticleId(total + 1); // assuming new articleId = totalArticles
-//       } catch (error) {
-//         console.error("Failed to fetch total articles:", error);
-//       }
-//     }
-
-//     fetchTotalArticles();
-//   }, [signer]);
-
-//   return (
-//     <div style={{ padding: "20px" }}>
-//       <h1>Article Processor</h1>
-//       {/* <textarea
-//         rows="10"
-//         cols="50"
-//         value={text}
-//         onChange={(e) => setText(e.target.value)}
-//         placeholder="Enter one sentence per line"
-//       /> */}
-//       <input
-//         type="text"
-//         value={fileName}
-//         onChange={(e) => setFileName(e.target.value)}
-//         placeholder="Enter file name like 1.txt"
-//       />
-//       <br />
-//       <button
-//         onClick={handleProcess}
-//         // disabled={status !== "Idle" && status !== "skipped"}
-//       >
-//         {loading ? "Processing..." : "Process"} {articleId}
-//       </button>
-//       <p>Status: {status}</p>
-//       {/* <h2>Results</h2> */}
-//       {/* <ul>
-//         {results.map((result, i) => (
-//           <li key={i}>{result}</li>
-//         ))}
-//       </ul> */}
-
-//       <input
-//         type="number"
-//         onChange={(e) => {
-//           setReadArticleId(e.target.value);
-//         }}
-//       />
-
-//       <button onClick={handleViewStored} disabled={articleId <= 1}>
-//         show {readArticleId}
-//       </button>
-
-//       <h3>text number {readArticleId}</h3>
-
-//       <ul>
-//         {storedSentences.map((sentence, i) => {
-//           return <li key={i}>{sentence}</li>;
-//         })}
-//       </ul>
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import { useEffect, useState } from "react";
 import {
   processArticle,
   getStoredArticle,
   provider,
   init,
-  printRatioStatistics,
+  printStatistics,
+  resetStatistics,
 } from "./process";
+
 import IPFSUploader from "./components/IPFSUploader";
 import IPFSRetriever from "./components/IPFSRetriever";
 
@@ -426,11 +17,10 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [storedSentences, setStoredSentences] = useState([]);
   const [readArticleId, setReadArticleId] = useState("1");
-  const [currentCid, setCurrentCid] = useState(""); // Add state for current CID
+  const [currentCid, setCurrentCid] = useState("");
+  const [isInitialized, setIsInitialized] = useState(false); // ✅ اضافه شد
 
-  const randomNumber = Math.round(Math.random(3) * 1000);
-
-  console.log("randomNumber", randomNumber);
+  const randomNumber = Math.round(Math.random() * 1000);
 
   const signer = provider.getSigner();
 
@@ -441,13 +31,18 @@ function App() {
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   const handleProcessAll = async () => {
+    if (!isInitialized) {
+      setStatus("System is still initializing... Please wait.");
+      return;
+    }
+
     setLoading(true);
     setStatus("Processing all articles...");
 
     try {
       for (let i = 0; i < articleList.length; i++) {
         const fileName = i + randomNumber;
-        const response = await fetch(`/paraphrasing/${articleList[i]}`);
+        const response = await fetch(`/mainTestSet/${articleList[i]}`);
         if (!response.ok) {
           console.error(`Error fetching article ${fileName}: File not found`);
           continue;
@@ -477,12 +72,11 @@ function App() {
     }
 
     try {
-      // Updated to work with the new IPFS-based retrieval
       const result = await getStoredArticle(articleId, signer);
 
       if (result) {
         setStoredSentences(result.sentences);
-        setCurrentCid(result.cid); // Store the CID
+        setCurrentCid(result.cid);
         setStatus(
           `Successfully retrieved sentences for article ${articleId} (CID: ${result.cid})`
         );
@@ -499,114 +93,38 @@ function App() {
     }
   };
 
-  // debugPrintCache();
+  const handlePrintStats = () => {
+    printStatistics();
+  };
+
+  const handleResetStats = () => {
+    if (window.confirm("Are you sure you want to reset all statistics?")) {
+      resetStatistics();
+      setStatus("Statistics reset successfully!");
+    }
+  };
 
   useEffect(() => {
-    async function fetchArticleList() {
+    async function initialize() {
       try {
-        const response = await fetch("/paraphrasing/list.json");
+        setStatus("Initializing system...");
+
+        await init(); // منتظر BERT load شدن
+        setIsInitialized(true);
+        setStatus("System initialized successfully!");
+
+        // Fetch article list
+        const response = await fetch("/mainTestSet/list.json");
         const data = await response.json();
         setArticleList(data);
       } catch (err) {
-        console.error("Error loading article list:", err);
+        console.error("Error initializing:", err);
+        setStatus("Failed to initialize system");
       }
     }
 
-    init();
-    fetchArticleList();
+    initialize();
   }, []);
-
-  // const findDivisors = (num) => {
-  //   const divisors = [];
-  //   for (let i = 1; i <= num; i++) {
-  //     if (num % i === 0) {
-  //       divisors.push(i);
-  //     }
-  //   }
-  //   return divisors;
-  // };
-
-  // const predictPerformance = (k) => {
-  //   // const r = k / b;
-
-  //   // فاکتورهای مختلف کارایی
-  //   const accuracyFactor = Math.min(k / 100, 1); // دقت بالاتر با k بیشتر
-  //   const speedFactor = Math.max(1 - k / 200, 0.1); // سرعت کمتر با k بیشتر
-  //   // const balanceFactor = Math.max(1 - Math.abs(r - 8) / 10, 0.1); // r بهینه حول 8
-  //   // const thresholdFactor = Math.max(1 - Math.abs(threshold - 0.7) / 0.3, 0.1); // threshold بهینه 0.7
-
-  //   return (
-  //     accuracyFactor * 0.6 + speedFactor * 0.4
-  //     // balanceFactor * 0.3 +
-  //     // thresholdFactor * 0.2
-  //   );
-  // };
-
-  // const removeDuplicates = (combinations) => {
-  //   const seen = new Set();
-  //   return combinations.filter((combo) => {
-  //     const key = `${combo.NUM_HASH_FUNCTIONS}-${combo.NUM_BANDS}-${combo.SIMILARITY_THRESHOLD}`;
-  //     if (seen.has(key)) return false;
-  //     seen.add(key);
-  //     return true;
-  //   });
-  // };
-
-  // const generateSmartCombinations = () => {
-  //   const combinations = [];
-
-  //   // Target LSH similarity values based on detection requirements
-  //   const targetSimilarities = [0.3, 0.4, 0.5, 0.6, 0.7];
-
-  //   // Candidate numbers of hash functions (n)
-  //   const hashFunctions = [20, 30, 40, 50];
-
-  //   hashFunctions.forEach((k) => {
-  //     // Get all divisors of k (possible number of bands: b)
-  //     const divisors = findDivisors(k);
-
-  //     divisors.forEach((b) => {
-  //       const r = k / b; // Rows per band
-
-  //       // Logical limits for band count and size
-  //       if (b < 2 || r < 2) return;
-
-  //       // Compute theoretical LSH threshold: s ≈ (1/b)^(1/r)
-  //       const theoreticalThreshold = Math.pow(1 / b, 1 / r);
-
-  //       // Accept only target thresholds close to theoretical
-  //       targetSimilarities.forEach((targetThreshold) => {
-  //         const diff = Math.abs(theoreticalThreshold - targetThreshold);
-  //         if (diff <= 0.1) {
-  //           // tighter tolerance
-  //           combinations.push({
-  //             NUM_HASH_FUNCTIONS: k,
-  //             NUM_BANDS: b,
-  //             SIMILARITY_THRESHOLD: targetThreshold,
-  //             BAND_SIZE: r,
-  //             THEORETICAL_THRESHOLD: Number(theoreticalThreshold.toFixed(3)),
-  //             EXPECTED_PERFORMANCE: predictPerformance(k, b, targetThreshold),
-  //           });
-  //         }
-  //       });
-  //     });
-  //   });
-
-  //   return combinations;
-  // };
-
-  // const a = generateSmartCombinations();
-
-  // a.map((a) =>
-  //   console.log(
-  //     a.NUM_HASH_FUNCTIONS,
-  //     a.NUM_BANDS,
-  //     a.SIMILARITY_THRESHOLD,
-  //     a.BAND_SIZE,
-  //     a.THEORETICAL_THRESHOLD,
-  //     a.EXPECTED_PERFORMANCE
-  //   )
-  // );
 
   return (
     <div style={{ padding: "20px" }}>
@@ -614,6 +132,21 @@ function App() {
         <h1 className="text-3xl font-bold mb-8 text-center">
           IPFS + Blockchain Demo
         </h1>
+
+        {/* ✅ نمایش وضعیت initialization */}
+        {!isInitialized && (
+          <div
+            style={{
+              padding: "10px",
+              background: "#c03807ff",
+              borderRadius: "5px",
+              marginBottom: "20px",
+            }}
+          >
+            ⏳ System is initializing (loading BERT model)... Please wait.
+          </div>
+        )}
+
         <IPFSUploader />
         <IPFSRetriever />
       </div>
@@ -622,7 +155,7 @@ function App() {
 
       <button
         onClick={handleProcessAll}
-        disabled={loading || !articleList.length}
+        disabled={loading || !articleList.length || !isInitialized}
       >
         {loading ? "Processing all articles..." : "Process All Articles"}
       </button>
@@ -663,7 +196,16 @@ function App() {
         ))}
       </ul>
 
-      <button onClick={() => printRatioStatistics()}>print result</button>
+      <div style={{ marginTop: "20px", display: "flex", gap: "10px" }}>
+        <button onClick={handlePrintStats}>📊 Print Statistics</button>
+
+        <button
+          onClick={handleResetStats}
+          style={{ background: "#dc3545", color: "white" }}
+        >
+          🗑️ Reset Statistics
+        </button>
+      </div>
     </div>
   );
 }
