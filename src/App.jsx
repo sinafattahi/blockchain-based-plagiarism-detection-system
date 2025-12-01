@@ -42,7 +42,7 @@ function App() {
     try {
       for (let i = 0; i < articleList.length; i++) {
         const fileName = i + randomNumber;
-        const response = await fetch(`/mainTestSet/${articleList[i]}`);
+        const response = await fetch(`/test/${articleList[i]}`);
         if (!response.ok) {
           console.error(`Error fetching article ${fileName}: File not found`);
           continue;
@@ -114,7 +114,7 @@ function App() {
         setStatus("System initialized successfully!");
 
         // Fetch article list
-        const response = await fetch("/mainTestSet/list.json");
+        const response = await fetch("/test/list.json");
         const data = await response.json();
         setArticleList(data);
       } catch (err) {
