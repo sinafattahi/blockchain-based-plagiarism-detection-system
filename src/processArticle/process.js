@@ -1,12 +1,11 @@
-import { ethers, Contract } from "ethers";
-import { set, get } from "idb-keyval";
-import { CONTRACT_ABI } from "../constants";
-import { uploadToIPFS, getFromIPFS } from "../services/ipfsService";
 import { Buffer } from "buffer";
-// Import BERT service
-import { getBERTService } from "../services/bertService";
-// Import centralized configuration
+import { set, get } from "idb-keyval";
+import { ethers, Contract } from "ethers";
+
+import { CONTRACT_ABI } from "../constants";
 import DetectionConfig from "../detectionConfig";
+import { getBERTService } from "../services/bertService";
+import { uploadToIPFS, getFromIPFS } from "../services/ipfsService";
 import {
   computeHash,
   createShingles,

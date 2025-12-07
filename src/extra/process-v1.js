@@ -1,12 +1,12 @@
 import { ethers, Contract, utils } from "ethers";
 import { set, get } from "idb-keyval";
-import { CONTRACT_ABI } from "./constants";
-import { uploadToIPFS, getFromIPFS } from "./services/ipfsService";
+import { CONTRACT_ABI } from "../constants";
+import { uploadToIPFS, getFromIPFS } from "../services/ipfsService";
 import { Buffer } from "buffer";
 // Import BERT service
-import { getBERTService } from "./services/bertService";
+import { getBERTService } from "../services/bertService";
 // Import centralized configuration
-import DetectionConfig from "./detectionConfig";
+import DetectionConfig from "../detectionConfig";
 
 // ============================================
 // Dynamic Configuration (uses DetectionConfig)

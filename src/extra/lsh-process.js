@@ -1,7 +1,7 @@
 import { ethers, Contract, utils } from "ethers";
 import { set, get } from "idb-keyval";
-import { CONTRACT_ABI } from "./constants";
-import { uploadToIPFS, getFromIPFS } from "./services/ipfsService";
+import { CONTRACT_ABI } from "../constants";
+import { uploadToIPFS, getFromIPFS } from "../services/ipfsService";
 import { Buffer } from "buffer";
 
 // LSH Configuration - Optimized for better similarity detection

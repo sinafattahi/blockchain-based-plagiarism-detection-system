@@ -18,7 +18,7 @@ function App() {
   const [storedSentences, setStoredSentences] = useState([]);
   const [readArticleId, setReadArticleId] = useState("1");
   const [currentCid, setCurrentCid] = useState("");
-  const [isInitialized, setIsInitialized] = useState(false); // ✅ اضافه شد
+  const [isInitialized, setIsInitialized] = useState(false);
 
   const randomNumber = Math.round(Math.random() * 1000);
 
@@ -109,7 +109,7 @@ function App() {
       try {
         setStatus("Initializing system...");
 
-        await init(); // منتظر BERT load شدن
+        await init();
         setIsInitialized(true);
         setStatus("System initialized successfully!");
 
@@ -133,7 +133,6 @@ function App() {
           IPFS + Blockchain Demo
         </h1>
 
-        {/* ✅ نمایش وضعیت initialization */}
         {!isInitialized && (
           <div
             style={{
