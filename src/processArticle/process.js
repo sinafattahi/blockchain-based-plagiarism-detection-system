@@ -15,25 +15,20 @@ import {
   storeSentenceInLSH,
 } from "./lshFunctions";
 import {
-  addToVectorIndex,
   // checkDocumentSimilarity,
   findFirstBertMatch,
-  generateRandomPlanes,
-  getVectorIndexStats,
 } from "./bertFunctions";
 
 // ============================================
 // Cache Structure with Article Tracking + Vector Index
 // ============================================
-let lshCache = {
+let generalCache = {
   bands: {},
   sentences: {},
   signatureMap: {},
   sentenceToArticle: {},
   sentenceEmbeddings: {},
   documentEmbeddings: {},
-  randomPlanes: [],
-  vectorIndex: {},
 };
 
 // Statistics tracker
@@ -88,61 +83,24 @@ async function init() {
 // Cache Management (FIXED)
 // ============================================
 const saveCache = async () => {
-  await set("lshCache", lshCache);
+  // fix later
+  await set("lshCache", generalCache);
   await set("ratioStats", ratioStats);
   await set("bertStats", bertStats);
 };
 
 const loadCache = async () => {
+  // fix later
   const cached = await get("lshCache");
 
-  // ✅ Ensure all properties exist with proper defaults
-  lshCache = {
+  generalCache = {
     bands: cached?.bands || {},
     sentences: cached?.sentences || {},
     signatureMap: cached?.signatureMap || {},
     sentenceToArticle: cached?.sentenceToArticle || {},
     sentenceEmbeddings: cached?.sentenceEmbeddings || {},
     documentEmbeddings: cached?.documentEmbeddings || {},
-    randomPlanes: cached?.randomPlanes || (await generateRandomPlanes()),
-    vectorIndex: cached?.vectorIndex || {
-      buckets: {},
-    },
   };
-
-  // ✅ Rebuild vector index if needed
-  if (
-    Object.keys(lshCache.sentenceEmbeddings).length > 0 &&
-    Object.keys(lshCache.vectorIndex.buckets).length === 0
-  ) {
-    console.log("🔨 Rebuilding vector index buckets...");
-    rebuildVectorIndex();
-
-    const indexStats = getVectorIndexStats(lshCache);
-    console.log(`📊 Vector Index Stats:`, indexStats);
-
-    if (indexStats.totalBuckets === 1) {
-      console.warn(
-        "⚠️  WARNING: All embeddings in ONE bucket - regenerate random planes!"
-      );
-      lshCache.randomPlanes = await generateRandomPlanes(384);
-      rebuildVectorIndex();
-    }
-  }
-
-  function rebuildVectorIndex() {
-    lshCache.vectorIndex.buckets = {}; // Clear old buckets
-
-    for (const [hash, embedding] of Object.entries(
-      lshCache.sentenceEmbeddings
-    )) {
-      if (embedding && lshCache.sentenceToArticle[hash]) {
-        // Use the exported function to handle hashing + bucketing
-        addToVectorIndex(lshCache, hash, embedding);
-      }
-    }
-    console.log(`✓ Vector index rebuilt into buckets.`);
-  }
 
   const cachedStats = await get("ratioStats");
   ratioStats = cachedStats || {};
@@ -157,9 +115,10 @@ const loadCache = async () => {
   };
 
   console.log("📂 Cache loaded:", {
-    sentences: Object.keys(lshCache.sentences).length,
-    bands: Object.keys(lshCache.bands).length,
-    articles: new Set(Object.values(lshCache.sentenceToArticle)).size,
+    sentences: Object.keys(generalCache.sentences).length,
+    embeddings: Object.keys(generalCache.sentenceEmbeddings).length,
+    bands: Object.keys(generalCache.bands).length,
+    articles: new Set(Object.values(generalCache.sentenceToArticle)).size,
   });
 };
 
@@ -180,8 +139,9 @@ async function printStatistics() {
   console.log("=".repeat(60));
 
   // ✅ Article and Sentence Counts
-  const totalSentences = Object.keys(lshCache.sentences).length;
-  const totalArticles = new Set(Object.values(lshCache.sentenceToArticle)).size;
+  const totalSentences = Object.keys(generalCache.sentences).length;
+  const totalArticles = new Set(Object.values(generalCache.sentenceToArticle))
+    .size;
 
   console.log("\n📚 Database Overview:");
   console.log(`  - Total Articles Processed: ${totalArticles}`);
@@ -288,7 +248,7 @@ async function processArticle(articleId, article, signer) {
   // 🔴 STAGE 1: Document-Level BERT Check
   // ---------------------------------------------------------
   // const docCheck = await checkDocumentSimilarity(
-  //   lshCache,
+  //   generalCache,
   //   bertService,
   //   articleId,
   //   article
@@ -326,7 +286,7 @@ async function processArticle(articleId, article, signer) {
 
     // Check LSH
     const result = findSimilarSentencesLSH(
-      lshCache,
+      generalCache,
       signature,
       sentenceHash,
       articleId
@@ -363,33 +323,52 @@ async function processArticle(articleId, article, signer) {
   // 🟡 STAGE 3: Sentence-Level BERT Verification
   // ---------------------------------------------------------
   if (DetectionConfig.BERT.ENABLED && bertService) {
-    console.log("\n👉 STAGE 3: Running BERT on unique sentences...");
+    console.log("\n👉 STAGE 3: Running BERT verification...");
 
     for (let i = 0; i < sentences.length; i++) {
-      // Skip if LSH already caught it
-      if (sentenceResults[i].isDuplicate) continue;
+      if (sentenceResults[i].isDuplicate) {
+        bertStats.bothPassed++; // LSH caught it
+        continue;
+      }
 
       const sentence = sentences[i];
       const sentenceHash = sentenceHashes[i];
 
       try {
-        // 1. Get Embedding
-        let embedding = lshCache.sentenceEmbeddings[sentenceHash];
+        const bertStartTime = performance.now();
+
+        // Get or create embedding
+        let embedding = generalCache.sentenceEmbeddings[sentenceHash];
         if (!embedding) {
-          if (tempEmbeddings[sentenceHash]) {
-            embedding = tempEmbeddings[sentenceHash];
-          } else {
-            embedding = await bertService.getSentenceEmbedding(sentence);
-            tempEmbeddings[sentenceHash] = embedding; // Hold in temp
-          }
+          embedding = await bertService.getSentenceEmbedding(sentence);
+          tempEmbeddings[sentenceHash] = embedding;
         }
 
-        // 2. Check Vector Index
-        const bertResult = findFirstBertMatch(lshCache, embedding, articleId);
+        // ✅ Count every BERT verification
+        bertStats.totalVerifications++;
+
+        // Simple flat index check
+        const bertResult = findFirstBertMatch(
+          generalCache,
+          embedding,
+          articleId
+        );
+
+        const bertTime = performance.now() - bertStartTime;
+
+        // ✅ Update average time
+        bertStats.avgBertTime =
+          (bertStats.avgBertTime * (bertStats.totalVerifications - 1) +
+            bertTime) /
+          bertStats.totalVerifications;
 
         if (bertResult.isDuplicate) {
-          console.log(`   [BERT] Caught: "${sentence.substring(0, 30)}..."`);
-
+          console.log(
+            `   [BERT] Caught: "${sentence.substring(
+              0,
+              30
+            )}..." (${bertResult.similarity.toFixed(3)})`
+          );
           sentenceResults[i] = {
             ...sentenceResults[i],
             isDuplicate: true,
@@ -398,6 +377,8 @@ async function processArticle(articleId, article, signer) {
             detectionMethod: "BERT-CaughtIt",
           };
           bertDetections++;
+          bertStats.lshFailedBertPassed++;
+          bertStats.totalVerifications--;
         }
       } catch (err) {
         console.error(`   [BERT] Error:`, err);
@@ -431,7 +412,7 @@ async function processArticle(articleId, article, signer) {
 
   // 1. Store Document Embedding (Calculated in Stage 1)
   // if (docCheck.embedding) {
-  //   lshCache.documentEmbeddings[articleId] = docCheck.embedding;
+  //   generalCache.documentEmbeddings[articleId] = docCheck.embedding;
   // }
 
   const uniqueHashesToStore = [];
@@ -439,24 +420,20 @@ async function processArticle(articleId, article, signer) {
   for (let i = 0; i < sentenceResults.length; i++) {
     const res = sentenceResults[i];
 
-    // Only store UNIQUE sentences
     if (!res.isDuplicate) {
       uniqueHashesToStore.push(res.hash);
 
-      // 2. Store LSH Data
       storeSentenceInLSH(
-        lshCache,
+        generalCache,
         res.sentence,
         res.hash,
         res.signature,
         articleId
       );
 
-      // 3. Store BERT Data (from temp)
+      // ✅ Simple storage - no indexing overhead
       if (tempEmbeddings[res.hash]) {
-        const embedding = tempEmbeddings[res.hash];
-        lshCache.sentenceEmbeddings[res.hash] = embedding;
-        addToVectorIndex(lshCache, res.hash, embedding);
+        generalCache.sentenceEmbeddings[res.hash] = tempEmbeddings[res.hash];
       }
     }
   }
@@ -529,7 +506,7 @@ async function getStoredArticle(articleId, signer) {
     const hashes = JSON.parse(ipfsData.toString());
 
     const sentences = hashes.map(
-      (h) => lshCache.sentences[h] || "[Unknown Sentence]"
+      (h) => generalCache.sentences[h] || "[Unknown Sentence]"
     );
 
     return { sentences, cid };
@@ -540,7 +517,7 @@ async function getStoredArticle(articleId, signer) {
 }
 
 async function debugPrintCache() {
-  const cache = await get("lshCache");
+  const cache = await get("generalCache");
   console.log("LSH Cache:", cache);
   return cache;
 }

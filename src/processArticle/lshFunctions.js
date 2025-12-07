@@ -171,32 +171,32 @@ export function getBandHashes(signature) {
 }
 
 export function storeSentenceInLSH(
-  lshCache,
+  generalCache,
   sentence,
   sentenceHash,
   signature,
   articleId
 ) {
-  lshCache.sentences[sentenceHash] = sentence;
-  lshCache.signatureMap[sentenceHash] = signature;
-  lshCache.sentenceToArticle[sentenceHash] = articleId;
+  generalCache.sentences[sentenceHash] = sentence;
+  generalCache.signatureMap[sentenceHash] = signature;
+  generalCache.sentenceToArticle[sentenceHash] = articleId;
 
   const bandHashes = getBandHashes(signature);
   bandHashes.forEach((bandHash, bandIndex) => {
-    if (!lshCache.bands[bandIndex]) {
-      lshCache.bands[bandIndex] = {};
+    if (!generalCache.bands[bandIndex]) {
+      generalCache.bands[bandIndex] = {};
     }
-    if (!lshCache.bands[bandIndex][bandHash]) {
-      lshCache.bands[bandIndex][bandHash] = [];
+    if (!generalCache.bands[bandIndex][bandHash]) {
+      generalCache.bands[bandIndex][bandHash] = [];
     }
-    if (!lshCache.bands[bandIndex][bandHash].includes(sentenceHash)) {
-      lshCache.bands[bandIndex][bandHash].push(sentenceHash);
+    if (!generalCache.bands[bandIndex][bandHash].includes(sentenceHash)) {
+      generalCache.bands[bandIndex][bandHash].push(sentenceHash);
     }
   });
 }
 
 export function findSimilarSentencesLSH(
-  lshCache,
+  generalCache,
   signature,
   currentSentenceHash,
   currentArticleId
@@ -206,9 +206,9 @@ export function findSimilarSentencesLSH(
   const candidateHashes = new Set();
 
   bandHashes.forEach((bandHash, bandIndex) => {
-    if (lshCache.bands[bandIndex] && lshCache.bands[bandIndex][bandHash]) {
-      lshCache.bands[bandIndex][bandHash].forEach((hash) => {
-        const candidateArticleId = lshCache.sentenceToArticle[hash];
+    if (generalCache.bands[bandIndex] && generalCache.bands[bandIndex][bandHash]) {
+      generalCache.bands[bandIndex][bandHash].forEach((hash) => {
+        const candidateArticleId = generalCache.sentenceToArticle[hash];
         const isSameSentenceInSameArticle =
           hash === currentSentenceHash &&
           candidateArticleId === currentArticleId;
@@ -224,7 +224,7 @@ export function findSimilarSentencesLSH(
   let highestSimilarity = 0;
 
   for (const candidateHash of candidateHashes) {
-    const candidateSignature = lshCache.signatureMap[candidateHash];
+    const candidateSignature = generalCache.signatureMap[candidateHash];
     if (!candidateSignature) continue;
 
     const similarity = calculateSimilarity(signature, candidateSignature);
@@ -232,12 +232,12 @@ export function findSimilarSentencesLSH(
     if (similarity > highestSimilarity) {
       highestSimilarity = similarity;
       if (similarity >= DetectionConfig.LSH.SIMILARITY_THRESHOLD) {
-        const candidateArticleId = lshCache.sentenceToArticle[candidateHash];
+        const candidateArticleId = generalCache.sentenceToArticle[candidateHash];
         bestMatch = {
           isDuplicate: true,
           similarSentenceHash: candidateHash,
           similarity,
-          matchedSentence: lshCache.sentences[candidateHash],
+          matchedSentence: generalCache.sentences[candidateHash],
           matchedArticleId: candidateArticleId,
         };
       }

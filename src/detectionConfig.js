@@ -43,7 +43,7 @@ export const DetectionConfig = {
     DOCUMENT_THRESHOLD: 0.85,
 
     // Sentence-level threshold (for individual sentence similarity)
-    SENTENCE_THRESHOLD: 0.9,
+    SENTENCE_THRESHOLD: 0.8,
 
     // Batch size for processing multiple sentences
     BATCH_SIZE: 10,

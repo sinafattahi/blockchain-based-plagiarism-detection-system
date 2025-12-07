@@ -6,7 +6,7 @@ import {
   init,
   printStatistics,
   resetStatistics,
-} from "./process";
+} from "./processArticle/process";
 
 import IPFSUploader from "./components/IPFSUploader";
 import IPFSRetriever from "./components/IPFSRetriever";
@@ -42,7 +42,7 @@ function App() {
     try {
       for (let i = 0; i < articleList.length; i++) {
         const fileName = i + randomNumber;
-        const response = await fetch(`/test/${articleList[i]}`);
+        const response = await fetch(`/semanticChange/${articleList[i]}`);
         if (!response.ok) {
           console.error(`Error fetching article ${fileName}: File not found`);
           continue;
@@ -114,7 +114,7 @@ function App() {
         setStatus("System initialized successfully!");
 
         // Fetch article list
-        const response = await fetch("/test/list.json");
+        const response = await fetch("/semanticChange/list.json");
         const data = await response.json();
         setArticleList(data);
       } catch (err) {
