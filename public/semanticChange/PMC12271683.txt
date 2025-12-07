@@ -1,0 +1,229 @@
+Genomic selection (GS) is a predictive plant and animal methodology that allows the selection of plants and animals based on predictions without the need to measure the phenotype.
+However, its practical application requires challenging prediction accuracy due to the noise observations collected in experiments in these areas.
+Many strategies and approaches have been proposed to improve the prediction accuracy of this methodology.
+This paper explores the use of transfer learning in the context of GS.
+Transfer learning with (1) ridge regression (RR) (Transfer RR) and (2) analytic RR (ARR) (Transfer ARR) were applied from cultivars in the proxy environment to predict those cultivars in the goal environments.
+Also, we compared the performance of models RR and ARR without transfer learning.
+We used 11 real multi‐environment datasets (wheat and rice) and evaluated them in terms of Pearson's correlation (Cor) and normalized root mean square error (NRMSE).
+Our study shows empirical evidence that the Transfer RR or Transfer ARR approaches significantly enhanced predictive performance.
+Across the datasets, Transfer RR (or Transfer ARR) method improved Cor by 22.962% and NRMSE by 5.757%, in comparison to models RR and ARR.
+These results underscore the potential of Transfer RR (or Transfer ARR) when enhancing predictive accuracy in this context.
+Genomic selection is transforming plant breeding but still faces challenges in achieving high prediction accuracy with limited data.
+Transfer learning adapts models trained on one task to improve performance on a related task, enabling efficient learning with limited data.
+Transfer learning leverages knowledge from a well‐studied domain to enhance prediction in a related, data‐scarce domain.
+Genomic selection (GS) has revolutionized plant breeding by significantly lowering the expenses associated with phenotyping.
+This approach leverages machine learning models that are trained on a reference population with both phenotypic and genotypic information.
+Once trained, these models can predict phenotypic traits for a new population using only genotypic data (Montesinos‐López et al.,2022).
+As a result, GS is increasingly implemented in breeding programs, allowing for the early identification of promising candidate lines without the need for extensive phenotypic evaluation.
+GS has made significant progress in a wide array of crop breeding programs, driving notable improvements (Heffner et al.,2009).
+In maize, GS has played a critical role in increasing yields, bolstering resistance to diseases, and enhancing drought tolerance (Crossa et al.,2013).
+For wheat, this technique has led to advancements in grain yield, disease resistance, and quality traits (Crossa et al.,2013; Montesinos‐López et al.,2016).
+Rice breeding programs have also benefited from GS, which has contributed to better yields, improved resistance to pests and diseases, and greater adaptability to environmental conditions (Bartholomé et al.,2022; Spindel et al.,2015).
+In soybean, GS has optimized yield, disease resistance, and oil and protein content (Jean et al.,2021; J. Zhang et al.,2016).
+Barley has seen improved yield, malting quality, and disease resistance (Nielsen et al.,2016), while GS in cassava has boosted yield, disease resistance, and nutritional value (Long et al.,2023; Yonis et al.,2020).
+Potato breeding has similarly benefited, with increases in yield, tuber quality, and disease resistance (Adams et al.,2023; Habyarimana et al.,2017).
+These examples highlight GS's widespread impact in advancing essential traits across diverse crops.
+However, GS is not yet fully optimized for all plant breeding programs due to several factors that influence its prediction accuracy (Montesinos López et al.,2022).
+Key challenges include the level of relatedness between training and testing populations, the quality and density of genetic markers, population size and structure, the heritability of the traits being predicted, and the choice of prediction models (Alemu et al.,2024).
+Additionally, the goals of prediction—whether focusing on tested lines in tested environments, untested lines in tested environments, or even untested lines in untested environments—can also impact accuracy.
+Factors such as genetic architecture further complicate the achievement of consistent results (Alemu et al.,2024).
+To further improve the practical utility of GS, research is continuously aimed at enhancing its predictive accuracy.
+A diverse range of statistical and machine learning techniques has been investigated, including linear models, mixed models, random forests, support vector machines, Bayesian approaches, and deep learning (Montesinos‐López et al.,2022).
+Each one of these methods brings distinct advantages, from the simplicity and interpretability of linear and mixed models to the flexibility and power of more complex algorithms such as random forests and deep learning.
+Despite these advancements, the inherent noise and complexity in the data collected through plant breeding programs continue to represent significant challenges.
+The presence of environmental variability, genotype‐by‐environment interactions, and incomplete or imprecise phenotypic data introduces uncertainty that often limits the accuracy of predictions (Crossa et al.,2013).
+This issue is particularly pronounced when the models are applied to untested lines or environments, where the lack of direct phenotypic information complicates prediction efforts.
+As a result, there is a growing need for novel approaches that can better handle these complexities and reduce prediction errors.
+These may include hybrid models that combine the strengths of multiple techniques, more sophisticated feature selection methods, and advanced algorithms that are better equipped to manage noise and uncertainty in large, complex datasets.
+Some types of hybrid models are ensembles and transfer learning.
+Recently authors have demonstrated that combining predictions from different models using simple ensemble approaches results in better prediction accuracy than using any one of the models separately from the others (Kick & Washburn,2023).
+Tomura et al. (2023) applied the concept of an ensemble to predict several traits in crop breeding.
+Authors found that the prediction accuracy in the ensemble approach outperformed other models in most cases.
+While in the context of genomic predictions Washburn et al. (2021) showed that transfer learning methods can enhance genomic prediction accuracy.
+Furthermore, integrating multi‐omics data—such as genomic, transcriptomic, and metabolomic information—into GS models is promising in terms of capturing a more complete picture of trait inheritance and expression.
+Such innovations are essential to push the boundaries of GS and make it a more reliable and robust tool for plant breeding programs.
+Transfer learning is a statistical machine learning technique where a model developed for one task is adapted to a different, but related, task (Pan & Yang,2010).
+The key principle behind transfer learning is the reuse of knowledge, in the form of learned features or parameters, from a source domain or dataset to improve learning efficiency and performance in a target domain.
+This is particularly useful in situations in which the target domain has limited data, since the model can leverage patterns or insights gained from a larger, related dataset (Pan & Yang,2010).
+Transfer learning is often used in scenarios such as natural language processing, image recognition, and regression tasks.
+The technique typically involves pre‐training a model on a broad dataset, followed by fine‐tuning or adjustment of the model parameters to suit the specific requirements of the target task.
+By initializing the model with pre‐learned knowledge, transfer learning can reduce training time, enhance model accuracy, and help overcome challenges related to data scarcity or computational constraints (Weiss et al.,2016).
+Although transfer learning has been applied in genomic prediction to leverage information from related datasets or populations, its use has not been as extensively explored or rigorously implemented as required to fully harness its potential (Washburn et al.,2020).
+This limitation highlights the need for more systematic studies and innovative approaches to adapt transfer learning methodologies for genomic prediction tasks effectively (Montesinos‐López, Montesinos‐López, Pérez‐Rodríguez, et al.,2021; Montesinos‐López, Montesinos‐López, Hernandez‐Suarez, et al.,2021).
+In regression contexts, transfer learning can involve the transfer of parameter estimates from previous models, which can act as starting points for new models.
+However, when complete parameter estimates are unavailable or incompatible, techniques like penalized estimation are used to refine these initial estimates, improving the model's performance in the target domain (van Wieringen & Binder,2020).
+Furthermore, the study of Tang and de Sa (2020) addresses the computational challenges of fine‐tuning deep neural networks for transfer learning by leveraging the low‐rank properties of feature vectors produced by these networks.
+The authors demonstrate success in both supervised and semi‐supervised transfer learning tasks.
+Moreover, transfer learning with random coefficient RR was analyzed by H. Zhang and Li (2023), which proposes estimators that combine ridge estimates from both target and source models, with weights determined by minimizing empirical estimation or prediction risks.
+Their approach is applied to predicting polygenic risk scores for lipid traits, demonstrating improved prediction errors compared to single sample or Lasso‐based transfer learning methods.
+For the reasons outlined above, this study investigated the potential of transfer learning in GS within a RR framework.
+This evaluation was conducted using 11 multi‐environment real datasets.
+In this context, we applied transfer learning by leveraging information from one environment (proxy) to improve predictions in another environment (target).
+The results of transfer learning were compared to those obtained without applying the transfer process, using cross‐validation to assess predictive performance.
+The evaluation of the prediction models was conducted using two metrics: the average Pearson's correlation (Cor) and the average normalized root mean square error (NRMSE).
+Genomic selection is transforming plant breeding but still faces challenges in achieving high prediction accuracy with limited data.
+Transfer learning adapts models trained on one task to improve performance on a related task, enabling efficient learning with limited data.
+Transfer learning leverages knowledge from a well‐studied domain to enhance prediction in a related, data‐scarce domain.
+Table1outlines the general information of the 11 multi‐environment datasets used in this study.
+A total of nine datasets are from wheat trials and two belong to rice sets.
+Also, it is important to point out that the 11 datasets are divided into two subgroups.
+Subgroup G1 contains all those datasets that share the same lines in all its environments (Prop.
+shared lines = 1) while subgroup G2 are those datasets that share less than 100% of lines between environments (Prop.
+shared lines < 1).
+For this reason, the environments of subgroup G1 are more related than those of subgroup G2.
+Note that Indica and Japonica datasets pertain to rice, whereas the remaining datasets are related to wheat.
+Detailed information about the Indica and Japonica datasets can be found in Monteverde et al. (2019).
+Note: Prop.
+shared lines denotes the average proportion of lines shared between environments.
+Subgroup G1 are those datasets that share the same lines (100% sharing) in all environments within a year, whereas in Subgroup G2, the proportion of shared lines is less than 1 (or 100%).
+For Datasets 1–3 (EYT_1, EYT_2, EYT_3), data are obtained from elite variety trials from CIMMYT from the past wheat breeding program where large trials were established each year under several environments (3–5) under bed planting, irrigated, drought, semi‐drought, late planting, and early planting.
+Trials in environments within a year combination are the same but different between years.
+Traits usually collected are days to maturity, days to heading, plant height, and grain yield).
+Wheat_1 to Wheat_6 are wheat trials from CIMMYT to assess bread wheat quality and it comprises trials across 2 years under irrigated conditions with a varying number of wheat cultivar repeated across years.
+Data from EYTs conducted by International Maize and Wheat Improvement Center (CIMMYT) are established annually across three to five different environments, encompassing diverse conditions such as varied planting methods, irrigation (IR), drought, semi‐drought, late planting, and early planting.
+The experimental designs for all trials follow an alpha‐lattice structure with three replicates, and spatial analysis is performed to control for plot‐to‐plot variability in each trial.
+Traits such as grain yield, heading, lodging, and maturity are typically collected and analyzed.
+All wheat cultivars included in an EYT (conducted within a single year) are tested across all environments for that year, but none are included in EYTs conducted in subsequent years.
+EYT includes multiple EYTs, such as EYT_1, EYT_2, and EYT_3 (Juliana et al.,2018).
+The datasets Wheat_1 through Wheat_6 represent trials conducted to assess the bread‐making quality of CIMMYT wheat varieties.
+These trials include some varieties tested under irrigated conditions across different years, with only a subset being repeated between two consecutive years.
+While the original study by Ibba et al. (2020) analyzed five datasets, this study reorganized some of the cultivars measured across 2 years, expanding the analysis to six datasets.
+Each dataset focuses on a single trait, with varying numbers of cultivars tested in 2 years (environments).
+The statistical analysis of each EYT and wheat is carried out in two stages.
+In the first stage, the experimental design is accounted for, and spatial analyses are performed to recover inter‐block information and improve capturing plot‐to‐plot variability, respectively.
+Best linear unbiased estimates (BLUEs) are calculated for each wheat cultivar during this stage.
+In the second stage, the BLUEs are used for further analysis, where transfer learning with RR is applied.
+Similar procedure is applied to Wheat_1 throughout Wheat_6 trials but only under irrigated environment in several years.
+Here,εirepresents a random error term with mean 0,E(εi) = 0, and is assumed to be independent ofxi.
+This error term accounts for measurement errors and the influence of unobserved explanatory variables that may also contribute to explaining the response.
+The conditional mean of the model is given byE(yi|xi)=β0+∑j=1pxijβj, where the conditional distribution ofyi, givenxi, is determined solely by the information contained inxi.
+Here,λ≥0represents the regularization parameter, which controls the extent to which the beta coefficients shrunk toward zero.
+Whenλ=0, the solution for the beta coefficients corresponds to the ordinary least squares (OLS) method.
+However, asλincreases, the penalized residual sum of squaresPRSSλ(β)becomes dominated by the penalty term, forcing the penalized solution to shrink toward zero (Christensen,2011).
+Generally, when the number of parameters exceeds the number of observations, the OLS estimator becomes invalid.
+A way to address this issue is by constraining the sum of squares of the beta coefficients, thereby regularizing the estimation process (Wakefield,2013).
+When the optimization of Equation (2) was carried out using the library glmnet (Friedman et al.,2010), this method was denoted as the standard RR model, whereas when the optimization of Equation (2) was performed manually (writing our own R code) estimating the beta coefficients asβ^=(XTX+λI)−1XTy, this method was called the analytic RR (ARR) model.
+In the context oftransfer learningapplied to variety trials in environments, thegoal environmentsrefer to the specific environmental conditions or sites where improved predictions or insights are desired.
+For example, if the breeding program focuses on improving performance underdrought‐prone environments, these drought‐prone conditions would be thegoalenvironments, whereas data fromwell‐irrigated or semi‐drought environmentsmight serve asproxyenvironments for transfer learning.
+The aim is to predict cultivar performance in thegoalenvironments with higher accuracy, even if direct trials in these environments are sparse or absent.
+Using Equation (2) and the complete data of the proxy environments, we compute aβ^pthat denotes the beta coefficients of the proxy data.
+Then, to the response variable (trait of interest with phenotypic values) of the goal data, we subtract theXgβ^pand denote this modified response variable asy*=yg−Xgβ^p.
+Next, we compute the transfer learning beta coefficients asβ^g=β^p+γ^.
+When the optimization of Equation (3) was performed with the library glmnet (Friedman et al.,2010), we called this method Transfer RR, whereas when the optimization of Equation (3) was performed manually (writing our own R code) for estimating the gamma coefficients asγ^=(XgTXg+λI)−1XgTy*, this method was namedanalytic transfer RR (Transfer ARR).
+The four methods evaluated were implemented in the R statistical software (R Core Team,2024).
+The proposed transfer learning methods require information of two environments, one served as the goal (target) environment and the other as the proxy environment.
+All possible combinations of environment pairs were considered to implement the transfer methods (Transfer RR and Transfer ARR), the results for each dataset reflect the performance across all such combinations.
+During training, conventional methods and transfer learning methods utilized the same training subset of the goal environment, but the transfer methods were enriched with beta coefficients computed from the entire proxy environment during its training process.
+In contrast, the RR methods were implemented only using the corresponding training subset of the goal environment without the enrichment of its beta coefficients.
+The study employed a dual cross‐validation approach to evaluate and optimize models.
+Inner cross‐validation was used within the training data of the outer cross‐validation to optimize the regularization parameter (λ).
+Each outer training set was further divided into an inner training set (80%) and a validation set (20%) using 10 random partitions.
+Hyperparameters were selected based on average mean square error (MSE) since this is the default in glmnet library.
+It is important to point out that for selecting the hyperparameter, only the inner training was used for the training process for selecting the optimal hyperparameter.
+Outer cross‐validation assessed the genomic prediction accuracy.
+A 10‐random partition strategy was used, where each partition allocated 80% of the data for training and 20% for testing.
+Models were trained on for each partition with 80% of the data and the remaining 20% were used as testing set, and this process was done with each of the 10 partitions.
+Prediction accuracy was reported as the average Cor and NRMSE across the 10 partitions (Montesinos‐López et al.,2022).
+In the outer cross‐validation the whole training set is used in the training process after the inner training process was used to select the optimal hyperparameter, and this training process used the optimal hyperparameter estimated in the inner training process.
+This approach ensured a clear distinction between tuning hyperparameters (inner cross‐validation) and evaluating model performance on independent data (outer cross‐validation).
+We reported average Cor and NRMSE as performance metrics in the outer cross‐validation because they are widely used in genomic prediction and because they are not scale dependent, and while other metrics are available, these two were considered sufficient and appropriate for the objectives of this study (Montesinos‐López et al.,2022).
+However, for inner cross‐validations, we used MSE since this is the default metric for glmnet in which the RR and Transfer RR methods were computed using the observed and predicted values.
+Note that the size of the training sets used in all models were identical and belong only to a subset of the goal environment.
+Consequently, both inner and outer cross‐validation processes were conducted under the same conditions.
+However, when training the transfer models, an adjusted response variable was used instead of the original response variable.
+This adjusted variable incorporates the beta coefficients computed using the complete data from the proxy environments.
+For further details, refer to Steps 1 through 5 of the Transfer RR and Transfer ARR models.
+To facilitate the comparisons, we computed the average Cor values of the conventional (RR and ARR) models [AvgCor(RR, ARR)] without the transfer methods and compared them with the average Cor values of the transfer methods [AvgCor(Transfer_RR, Transfer_ARR)] via the relative efficiency computed as[(AvgCor{Transfer_RR,Transfer_ARR})(AvgCor{RR,ARR})−1]×100.
+Similarly, we compared the average NRMSE values of the conventional (RR and ARR) models [AvgNRMSE(RR, ARR)] with the average NRMSE values of the transfer models [AvgNRMSE(Transfer_RR, Transfer_ARR)] via the computation of the relative efficiency as[(AvgNRMSE{RR,ARR})(AvgNRMSE{Transfer_RR,Transfer_ARR})−1]×100.
+We divided the results displayed into five sections which contain the results ofEYT_1,EYT_2,Wheat_2,Wheat_6,and across all the datasets, presented in Figures1and2and Tables2,3,4,5,6.
+The results of the remaining datasets (EYT_3,Japonica,Indica,Wheat_1,Wheat_3,Wheat_4,and Wheat_5) are presented in theAppendix, which contains TablesA1,A2,A3,A4,A5,A6,A7and FiguresA1,A2,A3,A4,A5,A6,A7.
+In each section, we compare the performance of the traditional ridge models (RR and ARR) with the performance of the transfer models (Transfer_RR and Transfer_ARR) in terms of two metrics Cor and NRMSE.
+The results presented in this section were selected as a representative sample of the results of the datasets, the first two datasets (EYT_1 and EYT_2) with good performance, the third (Wheat_2) with regular performance, and the last one (Wheat_6) with the worst performance.
+For this reason, we provided the across datasets that offer a general view on the performance of the proposed models across all datasets evaluated.
+Prediction performance across traits and environments in terms of Pearson's correlation (Cor; A) and normalized root mean square error (NRMSE; B) for the EYT_1, EYT_2, Wheat_2, and Wheat_6 datasets.
+The models evaluated were ridge regression (RR), analytic ridge regression (ARR), Transfer_RR, and Transfer_ARR.
+Prediction performance across traits, environments, and datasets in terms of Pearson's correlation (Cor; A) and normalized root mean square error (NRMSE; B) for each model (ridge regression [RR], analytic ridge regression [ARR], Transfer_RR, and Transfer_ARR).
+Thex‐axis shows the prediction performance for each subgroup.
+Across_All are the results across the 11 datasets, Across_G1 are the results across datasets EYT_1, EYT_2, EYT_3, and Indica, and Across_G2 are the results across the remaining datasets that are not included in Across_G1.
+Prediction performance across traits and environments in terms of normalized root mean square error (NRMSE) and Pearson's correlation (Cor) for the EYT_1 dataset.
+Note: NRMSE_SD denotes the standard deviation of NRMSE and Cor_SD denotes the standard deviation of Cor.
+Abbreviations: ARR, analytic ridge regression; RR, ridge regression.
+Prediction performance across traits and environments in terms of normalized root mean square error (NRMSE) and Pearson's correlation (Cor) for the EYT_2 dataset.
+Note: NRMSE_SD denotes the standard deviation of NRMSE and Cor_SD denotes the standard deviation of Cor.
+Abbreviations: ARR, analytic ridge regression; RR, ridge regression.
+Prediction performance across traits and environments in terms of normalized root mean square error (NRMSE) and Pearson's correlation (Cor) for the Wheat_2 dataset.
+Note: NRMSE_SD denotes the standard deviation of NRMSE and Cor_SD denotes the standard deviation of Cor.
+Abbreviations: ARR, analytic ridge regression; RR, ridge regression.
+Prediction performance across traits and environments in terms of normalized root mean square error (NRMSE) and Pearson's correlation (Cor) for the Wheat_6 dataset.
+Note: NRMSE_SD denotes the standard deviation of NRMSE and Cor_SD denotes the standard deviation of Cor.
+Abbreviations: ARR, analytic ridge regression; RR, ridge regression.
+Prediction performance across traits; environments; and across subgroups G1, G2, and across all datasets for the proposed transfer learning methods and conventional ridge regression (RR) approaches in terms of normalized root mean square error (NRMSE) and Pearson's correlation (Cor) across the 11 datasets.
+Note: NRMSE_SD denotes the standard deviation of NRMSE and Cor_SD denotes the standard deviation of Cor.
+Box plots of Pearson's correlation (Cor) and normalized root mean square error (NRMSE) for the “EYT_3″datasetare presented in the top and bottom graphs, respectively.
+Each blue dot represents a data point per partition and trait.
+Thex‐axis shows each model evaluated (ridge regression [RR], analytic ridge regression [ARR], Transfer_RR, and Transfer_ARR).
+One box plot is presented for each transfer with the label “Env1‐ Env2” to represent the fact that Env1 is the environment used as a proxy and Env2 is the environment used as goal.
+(a) Box plot correlation of the transfer from environment Bed2IR to Bed5IR.
+(b) Box plot correlation of the transfer from environment Bed5IR to Flat5IR.
+(c) Box plot correlation of the transfer from environment Flat5IR to FlatDrip.
+(d) Box plot NRMSE of the transfer from environment Bed2IR to Bed5IR.
+(e) Box plot NRMSE of the transfer from environment Bed5IR to Flat5IR.
+(f) Box plot NRMSE of the transfer from environment Flat5IR to FlatDrip.
+Box plots of Pearson's correlation (Cor) and normalized root mean square error (NRMSE) for the “Indica”datasetare presented in the top and bottom graphs, respectively.
+Each blue dot represents a data point per partition and trait.
+Thex‐axis shows each model evaluated (ridge regression [RR], analytic ridge regression [ARR], Transfer_RR, and Transfer_ARR).
+One box plot is presented for each transfer with the label “Env1‐ Env2” to represent the fact that Env1 is the environment used as a proxy and Env2 is the environment used as goal.
+(a) Box plot correlation of the transfer from environment 2010 to 2011.
+(b) Box plot correlation of the transfer from environment 2011 to 2012.
+(c) Box plot NRMSE of the transfer from environment 2010 to 2011.
+(d) Box plot NRMSE of the transfer from environment 2011 to 2012.
+Box plots of Pearson's correlation (Cor) and normalized root mean square error (NRMSE) for the “Japonica”datasetare presented in the top and bottom graphs, respectively.
+Each blue dot represents a data point per partition and trait.
+Thex‐axis shows each model evaluated (ridge regression [RR], analytic ridge regression [ARR], Transfer_RR, and Transfer_ARR).
+One box plot is presented for each transfer with the label “Env1‐ Env2” to represent the fact that Env1 is the environment used as proxy and Env2 is the environment used as goal.
+(a) Box plot correlation of the transfer from environment 2009 to 2010.
+(b) Box plot correlation of the transfer from environment 2010 to 2011.
+(c) Box plot correlation of the transfer from environment 2011 to 2012.
+(d) Box plot correlation of the transfer from environment 2012 to 2013.
+(e) Box plot NRMSE of the transfer from environment 2009 to 2010.
+(f) Box plot NRMSE of the transfer from environment 2010 to 2011.
+(g) Box plot NRMSE of the transfer from environment 2011 to 2012.
+(h) Box plot NRMSE of the transfer from environment 2012 to 2013.
+Box plots of Pearson's correlation (Cor) and normalized root mean square error (NRMSE) for the “Wheat_1”datasetare presented in the top and bottom graphs, respectively.
+Each blue dot represents a data point per partition and trait.
+Thex‐axis shows each model evaluated (ridge regression [RR], analytic ridge regression [ARR], Transfer_RR, and Transfer_ARR).
+One box plot is presented for each transfer with the label “Env1‐ Env2” to represent the fact that Env1 is the environment used as a proxy and Env2 is the environment used as goal.
+(a) Box plot correlation of the transfer from environment YT_13_14 to YT_14_15.
+(b) Box plot correlation of the transfer from environment YT_14_15 to YT_13_14.
+(c) Box plot NRMSE of the transfer from environment YT_13_14 to YT_14_15.
+(d) Box plot NRMSE of the transfer from environment YT_14_15 to YT_13_14.
+Box plots of Pearson's correlation (Cor) and normalized root mean square error (NRMSE) for the “Wheat_3”datasetare presented in the top and bottom graphs, respectively.
+Each blue dot represents a data point per partition and trait.
+Thex‐axis shows each model evaluated (ridge regression [RR], analytic ridge regression [ARR], Transfer_RR, and Transfer_ARR).
+One box plot is presented for each transfer with the label “Env1‐ Env2” to represent the fact that Env1 is the environment used as a proxy and Env2 is the environment used as goal.
+(a) Box plot correlation of the transfer from environment YT_15_16 to YT_16_17.
+(b) Box plot correlation of the transfer from environment YT_16_17 to YT_15_16.
+(c) Box plot NRMSE of the transfer from environment YT_15_16 to YT_16_17.
+(d) Box plot NRMSE of the transfer from environment YT_16_17 to YT_15_16.
+Box plots of Pearson's correlation (Cor) and normalized root mean square error (NRMSE) for the “Wheat_4” dataset are presented in the top and bottom graphs, respectively.
+Each blue dot represents a data point per partition and trait.
+Thex‐axis shows each model evaluated (ridge regression [RR], analytic ridge regression [ARR], Transfer_RR, and Transfer_ARR).
+One box plot is presented for each transfer with the label “Env1‐ Env2” to represent the fact that Env1 is the environment used as a proxy and Env2 is the environment used as goal.
+(a) Box plot correlation of the transfer from environment YT_16_17 to YT_17_18.
+(b) Box plot correlation of the transfer from environment YT_17_18 to YT_16_17.
+(c) Box plot NRMSE of the transfer from environment YT_16_17 to YT_17_18.
+(d) Box plot NRMSE of the transfer from environment YT_17_18 to YT_16_17.
+Box plots of Pearson's correlation (Cor) and normalized root mean square error (NRMSE) for the “Wheat_5” dataset are presented in the top and bottom graphs, respectively.
+Each blue dot represents a data point per partition and trait.
+Thex‐axis shows each model evaluated (ridge regression [RR], analytic ridge regression [ARR], Transfer_RR, and Transfer_ARR).
+One box plot is presented for each transfer with the label “Env1‐ Env2” to represent the fact that Env1 is the environment used as a proxy and Env2 is the environment used as goal.
+(a) Box plot correlation of the transfer from environment YT_17_18 to YT_18_19.
+(b) Box plot correlation of the transfer from environment YT_18_19 to YT_17_18.
+(c) Box plot NRMSE of the transfer from environment YT_17_18 to YT_18_19.
+(d) Box plot NRMSE of the transfer from environment YT_18_19 to YT_17_18
+≈40 extractions per minute were performed by the sample probe (Figure S1) and corresponding fluctuations in intensity (arbitrary units, AU) are shown in the total ion chromatogram (TIC) (Figure S2).
+SRS is frequently challenging to diagnose due to its nonspecific clinical manifestations and the absence of definitive radiological findings.
+Management strategies range from conservative therapies to surgical intervention.
+The traditional surgical approach often involves complete rib resection, which may be associated with prolonged postoperative recovery and a non-negligible risk of complications; therefore, surgical treatment is generally approached with caution.
+Nonetheless, recent studies have emphasized the efficacy of minimally invasive surgical techniques that preserve the rib structure.
+Madekaet al[4] describe a technique involving isolated cartilaginous rib excision (CRE), performed through a limited incision along the inferior costal margin.

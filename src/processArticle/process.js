@@ -13,13 +13,10 @@ import {
   generateSignature,
   storeSentenceInLSH,
 } from "./lshFunctions";
-import {
-  // checkDocumentSimilarity,
-  findFirstBertMatch,
-} from "./bertFunctions";
+import { checkDocumentSimilarity, findFirstBertMatch } from "./bertFunctions";
 
 // ============================================
-// Cache Structure with Article Tracking + Vector Index
+// Cache Structure with Article Tracking
 // ============================================
 let generalCache = {
   bands: {},
@@ -83,14 +80,14 @@ async function init() {
 // ============================================
 const saveCache = async () => {
   // fix later
-  await set("lshCache", generalCache);
+  await set("generalCache", generalCache);
   await set("ratioStats", ratioStats);
   await set("bertStats", bertStats);
 };
 
 const loadCache = async () => {
   // fix later
-  const cached = await get("lshCache");
+  const cached = await get("generalCache");
 
   generalCache = {
     bands: cached?.bands || {},
@@ -246,21 +243,21 @@ async function processArticle(articleId, article, signer) {
   // ---------------------------------------------------------
   // 🔴 STAGE 1: Document-Level BERT Check
   // ---------------------------------------------------------
-  // const docCheck = await checkDocumentSimilarity(
-  //   generalCache,
-  //   bertService,
-  //   articleId,
-  //   article
-  // );
+  const docCheck = await checkDocumentSimilarity(
+    generalCache,
+    bertService,
+    articleId,
+    article
+  );
 
-  // if (docCheck.isDuplicate) {
-  //   console.log(
-  //     `⛔ Article REJECTED (Document Similarity > ${DetectionConfig.BERT.DOCUMENT_THRESHOLD})`
-  //   );
-  //   bertStats.documentRejections++;
-  //   await saveCache(); // Save stats
-  //   return false;
-  // }
+  if (docCheck.isDuplicate) {
+    console.log(
+      `⛔ Article REJECTED (Document Similarity > ${DetectionConfig.BERT.DOCUMENT_THRESHOLD})`
+    );
+    bertStats.documentRejections++;
+    await saveCache(); // Save stats
+    return false;
+  }
 
   // ---------------------------------------------------------
   // 🟠 STAGE 2: LSH Sentence Scan
@@ -410,9 +407,9 @@ async function processArticle(articleId, article, signer) {
   console.log(`\n💾 Storing data...`);
 
   // 1. Store Document Embedding (Calculated in Stage 1)
-  // if (docCheck.embedding) {
-  //   generalCache.documentEmbeddings[articleId] = docCheck.embedding;
-  // }
+  if (docCheck.embedding) {
+    generalCache.documentEmbeddings[articleId] = docCheck.embedding;
+  }
 
   const uniqueHashesToStore = [];
 
