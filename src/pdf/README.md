@@ -1,17 +1,70 @@
-https://catgpt.com/share/680028ef-2970-8013-8d22-bf1046589af8
+حق با شماست، من بد متوجه شدم و چند تیکه فرستادم. معذرت می‌خوام.
 
-https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=OPEN_ACCESS:Y&format=json&pageSize=100
+این کل محتوای فایل `README.md` در **یک باکس واحد** است. دکمه کپی گوشه سمت راست بالای همین یک باکس را بزنید و تمام:
 
+````markdown
+# Open Access Article Processing Pipeline
 
-1) download_articles -> دانلود مقالات از سایت pmc
+This project automates the workflow of downloading open-access scientific articles from Europe PMC, processing them into text, and preparing them for analysis.
 
-2) a -> تبدیل مقالات به پاراگراف
+## 📋 Requirements
 
-3) حذف دستی مقالات معیوب -> ۶۵ مقاله باقیمانده
+Install the necessary Python libraries:
 
-source venv/bin/activate
+```bash
+pip install requests beautifulsoup4 lxml nltk
+```
+````
 
+## 🚀 Workflow Steps
+
+Run the scripts in the following order:
+
+### 1. Download Articles
+
+Fetches HTML articles based on the query (`OPEN_ACCESS:Y`) and saves them to the `articles_html/` directory.
+
+```bash
 python download_articles.py
+```
 
-شماره های اردر رو درواردیم
-بقیه تو کد
+### 2. Extract Paragraphs
+
+Converts HTML files to clean text, removing irrelevant sections (references, authors, etc.), and saves them to `articles_paragraphs_text/`.
+
+```bash
+python extract_paragraphs.py
+```
+
+### 3. Manual Review (Important)
+
+Check the `articles_paragraphs_text/` folder manually. Delete any files that are empty or contain invalid data to ensure the dataset is clean.
+
+### 4. Extract Sentences
+
+Converts the paragraph text into a line-by-line sentence format using NLTK (handling abbreviations correctly) and saves them to `articles_sentences/`.
+
+```bash
+python extract_sentences.py
+```
+
+### 5. Generate File List
+
+Creates a `list.json` file containing the filenames. This list is used by the frontend or analysis scripts to iterate through the articles.
+
+```bash
+python generateList.py
+```
+
+---
+
+## 📂 Directory Structure
+
+- **articles_html/**: Raw HTML files downloaded from the API.
+- **articles_paragraphs_text/**: Cleaned text files (organized by paragraphs).
+- **articles_sentences/**: Processed text files (one sentence per line).
+- **list.json**: JSON index of the available text files.
+
+```
+
+```

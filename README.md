@@ -1,23 +1,9 @@
-how to run the code:
-
-npx hardhat node
-
-npx hardhat compile
-
-npx hardhat run scripts/deploy.js --network localhost
-
-npm run dev
 
 <!-- semantic query -->
 
 <!-- I want to give you some sentences and I want you to change them semantically and i want each sentence in one line.
 convert each sentence to another sentence not 2 or more sentences
  -->
-
-
-This response provides a `README.md` file in English, detailing the operational workflow based on the information available in the sources. Since the sources provide specific command-line instructions for execution, the workflow is focused on the setup and running of the project's source code (`src`).
-
-***
 
 # README.md
 
@@ -67,7 +53,3 @@ To successfully set up, compile, and run the `blockchain-based-plagiarism-detect
     ```bash
     npm run dev
     ```
-
-### Documentation Workflow (`pdf` Documentation)
-
-The sources do not contain information regarding the creation, location, or usage workflow of a specific `pdf` file or official documentation. If formal documentation (such as a whitepaper or user guide in PDF format) were included, its workflow would typically involve either generating it from source files (e.g., Markdown or LaTeX) or linking to a pre-existing document.
