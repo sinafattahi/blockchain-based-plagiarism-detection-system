@@ -1,8 +1,3 @@
-حق با شماست، من بد متوجه شدم و چند تیکه فرستادم. معذرت می‌خوام.
-
-این کل محتوای فایل `README.md` در **یک باکس واحد** است. دکمه کپی گوشه سمت راست بالای همین یک باکس را بزنید و تمام:
-
-````markdown
 # Open Access Article Processing Pipeline
 
 This project automates the workflow of downloading open-access scientific articles from Europe PMC, processing them into text, and preparing them for analysis.
@@ -14,7 +9,6 @@ Install the necessary Python libraries:
 ```bash
 pip install requests beautifulsoup4 lxml nltk
 ```
-````
 
 ## 🚀 Workflow Steps
 
