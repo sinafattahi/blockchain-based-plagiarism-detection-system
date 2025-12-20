@@ -236,6 +236,17 @@ function computeScore(duplicateResults) {
   return score;
 }
 
+function hasCitation(text) {
+  // الگوی 1: براکت مثل [1]، [12]، [1-3]، [1, 5]
+  const bracketRegex = /\[\s*\d+(?:\s*[-,\u2013]\s*\d+)*\s*\]/;
+
+  // الگوی 2: پرانتز شامل سال میلادی مثل (Smith, 2020) یا (2019)
+  // دنبال پرانتزی می‌گردد که داخلش عددی بین 1900 تا 2099 باشد
+  const yearRegex = /\([^)]*\b(?:19|20)\d{2}\b[^)]*\)/;
+
+  return bracketRegex.test(text) || yearRegex.test(text);
+}
+
 // ============================================
 // ✅ MAIN PROCESS: Doc Check -> LSH -> BERT -> Save
 // ============================================
@@ -267,6 +278,18 @@ async function processArticle(articleId, sentenceText, paragraphText, signer) {
 
   for (let i = 0; i < sentences.length; i++) {
     const sentence = sentences[i];
+
+    if (hasCitation(sentence)) {
+      sentenceResults[i] = {
+        isDuplicate: false,
+        hash: computeHash(sentence),
+        sentence: sentence,
+        signature: [],
+        skipped: true,
+      };
+      continue;
+    }
+
     const sentenceHash = sentenceHashes[i];
     const shingles = createShingles(sentence);
     const signature = generateSignature(shingles);
@@ -328,6 +351,13 @@ async function processArticle(articleId, sentenceText, paragraphText, signer) {
 
   if (DetectionConfig.BERT.ENABLED && paragraphs.length > 0) {
     for (const para of paragraphs) {
+      if (hasCitation(para)) {
+        console.log(
+          `   ⏩ Skipped cited paragraph: "${para.substring(0, 20)}..."`
+        );
+        continue;
+      }
+
       const paraHash = computeHash(para);
 
       const embedding = await bertService.getDocumentEmbedding(para);
