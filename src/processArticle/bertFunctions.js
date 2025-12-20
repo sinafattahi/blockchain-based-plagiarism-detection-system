@@ -17,7 +17,11 @@ function cosineSimilarity(embedding1, embedding2) {
  * Find best BERT match using simple linear search with optimizations
  * This is FASTER than complex indexing for <50k vectors
  */
-export function findFirstBertMatch(generalCache, queryEmbedding, currentArticleId) {
+export function findFirstBertMatch(
+  generalCache,
+  queryEmbedding,
+  currentArticleId
+) {
   const embeddings = generalCache.sentenceEmbeddings;
   const sentenceToArticle = generalCache.sentenceToArticle;
 
@@ -136,4 +140,31 @@ export async function checkDocumentSimilarity(
     console.error("Document check failed:", error);
     return { isDuplicate: false, embedding: null };
   }
+}
+
+export function findBestParagraphMatch(generalCache, queryEmbedding) {
+  const embeddings = generalCache.paragraphEmbeddings;
+
+  if (!embeddings || Object.keys(embeddings).length === 0) {
+    return { isDuplicate: false };
+  }
+
+  let bestMatch = { isDuplicate: false, similarity: 0 };
+  const threshold = DetectionConfig.BERT.PARAGRAPH_THRESHOLD;
+
+  for (const [hash, embedding] of Object.entries(embeddings)) {
+    const similarity = cosineSimilarity(queryEmbedding, embedding);
+
+    if (similarity > bestMatch.similarity) {
+      bestMatch = {
+        isDuplicate: similarity >= threshold,
+        similarity: similarity,
+        matchedHash: hash,
+      };
+
+      if (similarity > 0.98) break;
+    }
+  }
+
+  return bestMatch;
 }

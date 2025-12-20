@@ -42,6 +42,8 @@ export const DetectionConfig = {
     // Document-level threshold (for full article similarity)
     DOCUMENT_THRESHOLD: 0.85,
 
+    PARAGRAPH_THRESHOLD: 0.8,
+
     // Sentence-level threshold (for individual sentence similarity)
     SENTENCE_THRESHOLD: 0.8,
 

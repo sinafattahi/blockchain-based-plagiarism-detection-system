@@ -41,15 +41,38 @@ function App() {
 
     try {
       for (let i = 0; i < articleList.length; i++) {
-        const fileName = i + randomNumber;
-        const response = await fetch(`/semanticChange/${articleList[i]}`);
-        if (!response.ok) {
-          console.error(`Error fetching article ${fileName}: File not found`);
-          continue;
+        const fileName = articleList[i];
+        const articleId = i + randomNumber;
+
+        const sentenceRes = await fetch(`/test/articles_sentences/${fileName}`);
+        if (!sentenceRes.ok) continue;
+        const sentenceText = await sentenceRes.text();
+
+        const paragraphRes = await fetch(
+          `/test/articles_paragraphs_text/${fileName}`
+        );
+        let paragraphText = "";
+        if (paragraphRes.ok) {
+          paragraphText = await paragraphRes.text();
+        } else {
+          console.warn(`No paragraph file found for ${fileName}`);
         }
 
-        const text = await response.text();
-        const success = await processArticle(fileName, text, signer);
+        const success = await processArticle(
+          articleId,
+          sentenceText,
+          paragraphText,
+          signer
+        );
+
+        // const response = await fetch(`/semanticChange/${articleList[i]}`);
+        // if (!response.ok) {
+        //   console.error(`Error fetching article ${fileName}: File not found`);
+        //   continue;
+        // }
+
+        // const text = await response.text();
+        // const success = await processArticle(fileName, text, signer);
         console.log(`Article ${fileName} processed: ${success ? "✅" : "❌"}`);
         await delay(500);
       }
@@ -114,7 +137,7 @@ function App() {
         setStatus("System initialized successfully!");
 
         // Fetch article list
-        const response = await fetch("/semanticChange/list.json");
+        const response = await fetch("/test/list.json");
         const data = await response.json();
         setArticleList(data);
       } catch (err) {
