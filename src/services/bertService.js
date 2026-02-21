@@ -23,7 +23,6 @@ class BERTService {
       this.modelPath = modelName;
       console.log(`📁 Using local model: ${this.modelPath}`);
     } else {
-      console.log("heloooo");
       // Remote model (from Hugging Face CDN)
       this.modelName = `Xenova/${modelName}`;
       this.modelPath = null;

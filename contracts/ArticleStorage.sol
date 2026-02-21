@@ -1,27 +1,37 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
+// قرارداد هوشمند جهت مدیریت اصالت و یکپارچگی منابع آموزشی
 contract ArticleStorage {
-    // Mapping from articleId to IPFS CID (stored as string)
-    mapping(uint256 => string) public articleCIDs;
+    // IPFS تعریف ساختار داده برای نگاشت شناسه مقاله به آدرس
+    mapping(uint256 => string) private articleLinks;
+    uint256 public totalRecords;
 
-    uint256 public totalArticles;
+    // P2P رویداد جهت انتشار خبر ثبت مقاله در سراسر شبکه
+    event RecordFinalized(uint256 indexed id, string ipfsAddress);
 
-    event ArticleCIDStored(uint256 indexed articleId, string cid);
+    /**
+     * @dev IPFS تابع ثبت پیوند میان مقاله و هویت دیجیتال آن در
+     * این تابع پس از تایید اصالت در لایه مدل زبانی فراخوانی می‌شود.
+     */
+    function storeIntegrityLink(uint256 _articleId, string memory _cid) public {
+        // شرط عدم وجود سابقه قبلی برای جلوگیری از جعل مالکیت
+        require(bytes(articleLinks[_articleId]).length == 0, "Error: Proof already exists!");
+        // شرط معتبر بودن آدرس فایل
+        require(bytes(_cid).length > 0, "Error: Invalid CID!");
 
-    function storeArticleCID(uint256 articleId, string calldata cid) external {
-        require(bytes(articleCIDs[articleId]).length == 0, "Article already stored for articleId");
-        require(bytes(cid).length > 0, "CID cannot be empty");
+        // ثبت نهایی در لایه ذخیره‌سازی بلاک‌چین (تغییر ناپذیر)
+        articleLinks[_articleId] = _cid;
+        totalRecords++;
 
-        articleCIDs[articleId] = cid;
-
-        totalArticles += 1;
-
-        emit ArticleCIDStored(articleId, cid);
+        // صدور رویداد جهت ثبت در تاریخچه بلوک‌ها
+        emit RecordFinalized(_articleId, _cid);
     }
 
-    function getArticleCID(uint256 articleId) external view returns (string memory) {
-        require(bytes(articleCIDs[articleId]).length > 0, "Article does not exist");
-        return articleCIDs[articleId];
+    /**
+     * @dev تابع استعلام و بازخوانی پیوند جهت داوری در شبکه
+     */
+    function verifyIntegrity(uint256 _articleId) external view returns (string memory) {
+        return articleLinks[_articleId];
     }
 }

@@ -18,11 +18,14 @@ import {
   findFirstBertMatch,
   findBestParagraphMatch,
 } from "./bertFunctions";
+import { metricsCollector } from "./metricsCollector";
+
+const globalMetricsBackup = [];
 
 // ============================================
 // Cache Structure with Article Tracking
 // ============================================
-let generalCache = {
+let general2Cache = {
   bands: {},
   sentences: {},
   signatureMap: {},
@@ -59,10 +62,10 @@ async function init() {
       console.log("✓ BERT Service initialized successfully");
       console.log(`  Model: ${DetectionConfig.BERT.MODEL_NAME}`);
       console.log(
-        `  Document Threshold: ${DetectionConfig.BERT.DOCUMENT_THRESHOLD}`
+        `  Document Threshold: ${DetectionConfig.BERT.DOCUMENT_THRESHOLD}`,
       );
       console.log(
-        `  Sentence Threshold: ${DetectionConfig.BERT.SENTENCE_THRESHOLD}`
+        `  Sentence Threshold: ${DetectionConfig.BERT.SENTENCE_THRESHOLD}`,
       );
     } catch (error) {
       console.error("✗ Failed to initialize BERT:", error);
@@ -85,16 +88,16 @@ async function init() {
 // ============================================
 const saveCache = async () => {
   // fix later
-  await set("generalCache", generalCache);
+  await set("general2Cache", general2Cache);
   await set("ratioStats", ratioStats);
   await set("bertStats", bertStats);
 };
 
 const loadCache = async () => {
   // fix later
-  const cached = await get("generalCache");
+  const cached = await get("general2Cache");
 
-  generalCache = {
+  general2Cache = {
     bands: cached?.bands || {},
     sentences: cached?.sentences || {},
     signatureMap: cached?.signatureMap || {},
@@ -117,10 +120,10 @@ const loadCache = async () => {
   };
 
   console.log("📂 Cache loaded:", {
-    sentences: Object.keys(generalCache.sentences).length,
-    embeddings: Object.keys(generalCache.sentenceEmbeddings).length,
-    bands: Object.keys(generalCache.bands).length,
-    articles: new Set(Object.values(generalCache.sentenceToArticle)).size,
+    sentences: Object.keys(general2Cache.sentences).length,
+    embeddings: Object.keys(general2Cache.sentenceEmbeddings).length,
+    bands: Object.keys(general2Cache.bands).length,
+    articles: new Set(Object.values(general2Cache.sentenceToArticle)).size,
   });
 };
 
@@ -141,8 +144,8 @@ async function printStatistics() {
   console.log("=".repeat(60));
 
   // ✅ Article and Sentence Counts
-  const totalSentences = Object.keys(generalCache.sentences).length;
-  const totalArticles = new Set(Object.values(generalCache.sentenceToArticle))
+  const totalSentences = Object.keys(general2Cache.sentences).length;
+  const totalArticles = new Set(Object.values(general2Cache.sentenceToArticle))
     .size;
 
   console.log("\n📚 Database Overview:");
@@ -151,7 +154,7 @@ async function printStatistics() {
   console.log(
     `  - Avg Sentences/Article: ${
       totalArticles > 0 ? (totalSentences / totalArticles).toFixed(1) : 0
-    }`
+    }`,
   );
 
   // LSH Stats
@@ -169,21 +172,21 @@ async function printStatistics() {
 
     if (bertStats.documentRejections > 0) {
       console.log(
-        `  - Document Rejections: ${bertStats.documentRejections} (full article duplicates)`
+        `  - Document Rejections: ${bertStats.documentRejections} (full article duplicates)`,
       );
     }
 
     console.log(
-      `  - Total BERT Verifications: ${bertStats.totalVerifications}`
+      `  - Total BERT Verifications: ${bertStats.totalVerifications}`,
     );
     console.log(`  - LSH Found Duplicates: ${bertStats.bothPassed}`);
     console.log(
-      `  - BERT Found (LSH Missed): ${bertStats.lshFailedBertPassed} ⭐`
+      `  - BERT Found (LSH Missed): ${bertStats.lshFailedBertPassed} ⭐`,
     );
     console.log(
       `  - Avg BERT Time: ${bertStats.avgBertTime.toFixed(
-        2
-      )}ms per verification`
+        2,
+      )}ms per verification`,
     );
 
     if (bertStats.totalVerifications > 0) {
@@ -194,7 +197,7 @@ async function printStatistics() {
           ? ((bertStats.lshFailedBertPassed / totalDuplicates) * 100).toFixed(1)
           : 0;
       console.log(
-        `  - BERT's Extra Contribution: ${bertContribution}% of all duplicates found`
+        `  - BERT's Extra Contribution: ${bertContribution}% of all duplicates found`,
       );
     }
   }
@@ -253,19 +256,20 @@ function hasCitation(text) {
 async function processArticle(articleId, sentenceText, paragraphText, signer) {
   const startTime = performance.now();
 
+  const cacheSizeBefore = JSON.stringify(general2Cache).length;
+
   console.log(`\n${"=".repeat(60)}`);
   console.log(`Processing Article ${articleId}`);
   console.log(`${"=".repeat(60)}`);
 
   const sentences = sentenceText.split("\n").filter((s) => s.trim().length > 0);
   const sentenceHashes = sentences.map(computeHash);
-
   const paragraphs = paragraphText
     ? paragraphText.split("\n\n").filter((p) => p.trim().length > 50)
     : [];
 
   console.log(
-    `Input: ${sentences.length} Sentences | ${paragraphs.length} Paragraphs`
+    `Input: ${sentences.length} Sentences | ${paragraphs.length} Paragraphs`,
   );
 
   // ---------------------------------------------------------
@@ -296,10 +300,10 @@ async function processArticle(articleId, sentenceText, paragraphText, signer) {
 
     // LSH Check
     const result = findSimilarSentencesLSH(
-      generalCache,
+      general2Cache,
       signature,
       sentenceHash,
-      articleId
+      articleId,
     );
 
     sentenceResults[i] = {
@@ -318,8 +322,8 @@ async function processArticle(articleId, sentenceText, paragraphText, signer) {
 
   console.log(
     `   [LSH Result] Detections: ${lshDetections} | Ratio: ${lshRatio.toFixed(
-      3
-    )}`
+      3,
+    )}`,
   );
 
   if (lshRatio > 0.3) {
@@ -331,10 +335,10 @@ async function processArticle(articleId, sentenceText, paragraphText, signer) {
   // 2️⃣ STAGE 2: Document-Level BERT
   // =========================================================
   const docCheck = await checkDocumentSimilarity(
-    generalCache,
+    general2Cache,
     bertService,
     articleId,
-    sentenceText
+    sentenceText,
   );
 
   if (docCheck.isDuplicate) {
@@ -353,7 +357,7 @@ async function processArticle(articleId, sentenceText, paragraphText, signer) {
     for (const para of paragraphs) {
       if (hasCitation(para)) {
         console.log(
-          `   ⏩ Skipped cited paragraph: "${para.substring(0, 20)}..."`
+          `   ⏩ Skipped cited paragraph: "${para.substring(0, 20)}..."`,
         );
         continue;
       }
@@ -363,31 +367,31 @@ async function processArticle(articleId, sentenceText, paragraphText, signer) {
       const embedding = await bertService.getDocumentEmbedding(para);
       tempParaEmbeddings[paraHash] = embedding;
 
-      const match = findBestParagraphMatch(generalCache, embedding, articleId);
+      const match = findBestParagraphMatch(general2Cache, embedding, articleId);
 
       if (match.isDuplicate) {
         console.log(
-          `   [PARA] Duplicate found (${match.similarity.toFixed(2)})`
+          `   [PARA] Duplicate found (${match.similarity.toFixed(2)})`,
         );
         paraDetections++;
       }
     }
   } else {
     console.log(
-      "   ⚠️ Skipping Paragraph Check (BERT disabled or no paragraphs)"
+      "   ⚠️ Skipping Paragraph Check (BERT disabled or no paragraphs)",
     );
   }
 
   const paraRatio = paragraphs.length ? paraDetections / paragraphs.length : 0;
   console.log(
     `   [Para Result] Detections: ${paraDetections} | Ratio: ${paraRatio.toFixed(
-      3
-    )}`
+      3,
+    )}`,
   );
 
   if (paraRatio > 0.3) {
     console.log(
-      `⛔ Article REJECTED by Paragraph Check (Ratio: ${paraRatio.toFixed(2)})`
+      `⛔ Article REJECTED by Paragraph Check (Ratio: ${paraRatio.toFixed(2)})`,
     );
     return false;
   }
@@ -404,14 +408,14 @@ async function processArticle(articleId, sentenceText, paragraphText, signer) {
       if (sentenceResults[i].isDuplicate) continue;
 
       const sentenceHash = sentenceHashes[i];
-      let embedding = generalCache.sentenceEmbeddings[sentenceHash];
+      let embedding = general2Cache.sentenceEmbeddings[sentenceHash];
 
       if (!embedding) {
         embedding = await bertService.getSentenceEmbedding(sentences[i]);
         tempSentenceEmbeddings[sentenceHash] = embedding;
       }
 
-      const bertResult = findFirstBertMatch(generalCache, embedding, articleId);
+      const bertResult = findFirstBertMatch(general2Cache, embedding, articleId);
 
       if (bertResult.isDuplicate) {
         console.log(`   [BERT] Caught: "${sentences[i].substring(0, 30)}..."`);
@@ -428,7 +432,7 @@ async function processArticle(articleId, sentenceText, paragraphText, signer) {
   const finalRatio = sentences.length ? finalScore / sentences.length : 0;
 
   console.log(
-    `\n📊 Final Results: LSH: ${lshDetections} | Para: ${paraDetections} | BERT-Sent: ${bertSentenceDetections}`
+    `\n📊 Final Results: LSH: ${lshDetections} | Para: ${paraDetections} | BERT-Sent: ${bertSentenceDetections}`,
   );
   console.log(`   Final Ratio: ${finalRatio.toFixed(3)}`);
 
@@ -440,11 +444,11 @@ async function processArticle(articleId, sentenceText, paragraphText, signer) {
   console.log(`\n💾 Storing data...`);
 
   if (docCheck.embedding) {
-    generalCache.documentEmbeddings[articleId] = docCheck.embedding;
+    general2Cache.documentEmbeddings[articleId] = docCheck.embedding;
   }
 
   for (const [hash, emb] of Object.entries(tempParaEmbeddings)) {
-    generalCache.paragraphEmbeddings[hash] = emb;
+    general2Cache.paragraphEmbeddings[hash] = emb;
   }
 
   const uniqueHashesToStore = [];
@@ -454,19 +458,21 @@ async function processArticle(articleId, sentenceText, paragraphText, signer) {
       uniqueHashesToStore.push(res.hash);
 
       storeSentenceInLSH(
-        generalCache,
+        general2Cache,
         res.sentence,
         res.hash,
         res.signature,
-        articleId
+        articleId,
       );
 
       if (tempSentenceEmbeddings[res.hash]) {
-        generalCache.sentenceEmbeddings[res.hash] =
+        general2Cache.sentenceEmbeddings[res.hash] =
           tempSentenceEmbeddings[res.hash];
       }
     }
   }
+
+  let metrics = null;
 
   // 4. IPFS & Blockchain
   try {
@@ -480,20 +486,105 @@ async function processArticle(articleId, sentenceText, paragraphText, signer) {
     });
     await tx.wait();
     console.log(`✓ Stored on Blockchain: ${tx.hash}`);
+
+    // 📊 دریافت receipt برای gasUsed
+    const receipt = await provider.getTransactionReceipt(tx.hash);
+    const gasUsed = receipt?.gasUsed?.toString() || "0";
+
+    // 📊 اندازه‌گیری کش بعد از پردازش
+    const cacheSizeAfter = JSON.stringify(general2Cache).length;
+    const cacheGrowth = cacheSizeAfter - cacheSizeBefore;
+
+    // 🎯 ایجاد آبجکت متریک‌ها
+    metrics = {
+      articleId,
+      accepted: finalRatio <= 0.3,
+      processingTime: performance.now() - startTime,
+      rejectionReason:
+        finalRatio > 0.3
+          ? lshRatio > 0.3
+            ? "lsh"
+            : docCheck?.isDuplicate
+            ? "document"
+            : paraRatio > 0.3
+            ? "paragraph"
+            : "final"
+          : null,
+      lshDetections,
+      bertDetections: bertSentenceDetections,
+      paraDetections,
+      finalRatio,
+      uniqueHashesCount: uniqueHashesToStore.length,
+      ipfsSize: hashesBuffer.length,
+      ipfsCID: ipfsCid,
+      gasUsed: gasUsed,
+      txHash: tx.hash,
+      cacheSizeBefore,
+      cacheSizeAfter,
+      cacheGrowth,
+      sentencesCount: sentences.length,
+      paragraphsCount: paragraphs.length,
+    };
+
+    console.log(`📊 Metrics recorded for article ${articleId}:`, {
+      processingTime: metrics.processingTime.toFixed(0) + "ms",
+      cacheGrowth: metrics.cacheGrowth + " bytes",
+      ipfsSize: metrics.ipfsSize + " bytes",
+      gasUsed: metrics.gasUsed,
+    });
+
+    // 💾 ذخیره در کلکتور (اگر وجود دارد)
+    if (metricsCollector) {
+      metricsCollector.recordArticle(articleId, metrics);
+      metricsCollector.saveToLocalStorage();
+    } else {
+      // ✅ ذخیره در backup
+      globalMetricsBackup.push(metrics);
+      console.log("📝 Metrics saved to backup array:", metrics.articleId);
+    }
   } catch (error) {
     console.error("✗ Storage error:", error);
-    return false;
+
+    const errorMetrics = {
+      articleId,
+      accepted: false,
+      processingTime: performance.now() - startTime,
+      rejectionReason: "storage_error",
+      error: error.message,
+      cacheSizeBefore,
+      cacheSizeAfter: JSON.stringify(general2Cache).length,
+    };
+
+    // ذخیره خطا هم در backup
+    globalMetricsBackup.push(errorMetrics);
+
+    // حتی در صورت خطا، کش رو ذخیره کن
+    await saveCache();
+    return { success: false, error: error.message, metrics: errorMetrics };
   }
 
   // 5. Final Save to Disk
   await saveCache();
 
-  console.log(`✅ Article ${articleId} ACCEPTED.`);
   console.log(
-    `   Total Time: ${(performance.now() - startTime).toFixed(0)}ms\n`
+    `✅ Article ${articleId} ${finalRatio <= 0.3 ? "ACCEPTED" : "REJECTED"}.`,
+  );
+  console.log(
+    `   Total Time: ${(performance.now() - startTime).toFixed(0)}ms\n`,
   );
 
-  return true;
+  return {
+    success: finalRatio <= 0.3,
+    metrics: metrics, // متریک‌ها رو هم برگردون
+  };
+}
+
+function getBackupMetrics() {
+  return globalMetricsBackup;
+}
+
+function clearBackupMetrics() {
+  globalMetricsBackup.length = 0;
 }
 
 function resetStatistics() {
@@ -536,7 +627,7 @@ async function getStoredArticle(articleId, signer) {
     const hashes = JSON.parse(ipfsData.toString());
 
     const sentences = hashes.map(
-      (h) => generalCache.sentences[h] || "[Unknown Sentence]"
+      (h) => general2Cache.sentences[h] || "[Unknown Sentence]",
     );
 
     return { sentences, cid };
@@ -547,7 +638,7 @@ async function getStoredArticle(articleId, signer) {
 }
 
 async function debugPrintCache() {
-  const cache = await get("generalCache");
+  const cache = await get("general2Cache");
   console.log("LSH Cache:", cache);
   return cache;
 }
@@ -568,4 +659,6 @@ export {
   resetStatistics,
   addRatioToStats,
   bertStats,
+  getBackupMetrics,
+  clearBackupMetrics,
 };

@@ -6,6 +6,7 @@ import {
   init,
   printStatistics,
   resetStatistics,
+  getBackupMetrics,
 } from "./processArticle/process";
 
 import IPFSUploader from "./components/IPFSUploader";
@@ -44,13 +45,11 @@ function App() {
         const fileName = articleList[i];
         const articleId = i + randomNumber;
 
-        const sentenceRes = await fetch(`/test/articles_sentences/${fileName}`);
+        const sentenceRes = await fetch(`/mainTestSet/${fileName}`);
         if (!sentenceRes.ok) continue;
         const sentenceText = await sentenceRes.text();
 
-        const paragraphRes = await fetch(
-          `/test/articles_paragraphs_text/${fileName}`
-        );
+        const paragraphRes = await fetch(`/mainParagraphs/${fileName}`);
         let paragraphText = "";
         if (paragraphRes.ok) {
           paragraphText = await paragraphRes.text();
@@ -62,7 +61,7 @@ function App() {
           articleId,
           sentenceText,
           paragraphText,
-          signer
+          signer,
         );
 
         // const response = await fetch(`/semanticChange/${articleList[i]}`);
@@ -78,6 +77,27 @@ function App() {
       }
 
       setStatus("All articles processed!");
+
+      const backupMetrics = getBackupMetrics();
+      console.log("📊 Backup metrics collected:", backupMetrics.length);
+
+      // تحلیل ساده:
+      const total = backupMetrics.length;
+      const accepted = backupMetrics.filter((m) => m.accepted).length;
+      const avgTime =
+        backupMetrics.reduce((sum, m) => sum + m.processingTime, 0) / total;
+
+      console.log(`
+📈 Simple Analysis:
+- Total: ${total}
+- Accepted: ${accepted} (${((accepted / total) * 100).toFixed(1)}%)
+- Avg Time: ${avgTime.toFixed(0)}ms
+- Total IPFS Size: ${(
+        backupMetrics.reduce((sum, m) => sum + (m.ipfsSize || 0), 0) /
+        1024 /
+        1024
+      ).toFixed(2)} MB
+`);
     } catch (err) {
       console.error(err);
       setStatus("Failed to process articles");
@@ -101,7 +121,7 @@ function App() {
         setStoredSentences(result.sentences);
         setCurrentCid(result.cid);
         setStatus(
-          `Successfully retrieved sentences for article ${articleId} (CID: ${result.cid})`
+          `Successfully retrieved sentences for article ${articleId} (CID: ${result.cid})`,
         );
       } else {
         setStoredSentences([]);
@@ -111,7 +131,7 @@ function App() {
     } catch (err) {
       console.error("Error retrieving article:", err);
       setStatus(
-        `Failed to retrieve sentences for article ${articleId}: ${err.message}`
+        `Failed to retrieve sentences for article ${articleId}: ${err.message}`,
       );
     }
   };
@@ -137,7 +157,7 @@ function App() {
         setStatus("System initialized successfully!");
 
         // Fetch article list
-        const response = await fetch("/test/list.json");
+        const response = await fetch("/mainTestSet/list.json");
         const data = await response.json();
         setArticleList(data);
       } catch (err) {
