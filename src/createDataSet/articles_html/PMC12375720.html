@@ -1,0 +1,2833 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+    <head >
+
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+        
+
+        
+        
+  <link rel="stylesheet" href="/static/assets/style-8258669d.css" />
+<script type="module" crossorigin="" src="/static/assets/base_style-f4a99799.js"></script>
+
+  <link rel="stylesheet" href="/static/assets/style-ef962842.css" />
+<link rel="stylesheet" href="/static/assets/style-3ade8b5c.css" />
+<script type="module" crossorigin="" src="/static/assets/article_style-d757a0dd.js"></script>
+
+  
+  
+    <style>
+  
+  
+  @media screen and (min-width: 64em) {
+    div.pmc-wm {
+      background: repeat-y;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='350' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-.02' y='0' width='1.05' height='1' id='c'%3E%3CfeFlood flood-color='%23FFF'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3Ctext id='b' font-family='Helvetica' font-size='11pt' style='opacity:1;fill:%23005ea2;stroke:none;text-anchor:middle' x='175' y='14'%3E%3C/text%3E%3Cpath id='a' style='fill:%23005ea2' d='M0 8h350v3H0z'/%3E%3C/defs%3E%3Cuse xlink:href='%23a' transform='rotate(90 10 10)'/%3E%3Cuse xlink:href='%23b' transform='rotate(90 10 10)' filter='url(%23c)'/%3E%3C/svg%3E");
+      padding-left: 3rem;
+    }
+  }
+</style>
+
+  
+
+
+
+        
+            <link rel="apple-touch-icon"
+                  sizes="180x180"
+                  href="/static/img/favicons/apple-touch-icon.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="48x48"
+                  href="/static/img/favicons/favicon-48x48.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="/static/img/favicons/favicon-32x32.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="/static/img/favicons/favicon-16x16.png" />
+            <link rel="manifest" href="/static/img/favicons/site.webmanifest" />
+            <link rel="mask-icon"
+                  href="/static/img/favicons/safari-pinned-tab.svg"
+                  color="#0071bc" />
+            <meta name="msapplication-config"
+                  content="/static/img/favicons/browserconfig.xml" />
+            <meta name="theme-color" content="#ffffff" />
+        
+
+        <title>
+            A framework for robotic manipulation tasks based on multiple zero shot models - PMC
+        </title>
+
+        
+        
+  
+  <!-- Logging params: Pinger defaults -->
+<meta name="ncbi_app" content="cloudpmc-viewer" />
+<meta name="ncbi_db" content="pmc" />
+<meta name="ncbi_phid" content="152554318AF45AB30554310004713AB6.m_1" />
+<meta name="ncbi_pinger_stat_url" content="https://pmc.ncbi.nlm.nih.gov/stat" />
+<!-- Logging params: Pinger custom -->
+<meta name="ncbi_pdid" content="article" />
+  
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+
+    
+        <link rel="preconnect" href="https://cdn.ncbi.nlm.nih.gov" />
+    
+
+    <!-- Include USWDS Init Script -->
+    <script src="/static/assets/uswds-init.js"></script>
+
+
+    <meta name="ncbi_domain" content="scirep">
+<meta name="ncbi_type" content="fulltext">
+<meta name="ncbi_pcid" content="journal">
+<meta name="ncbi_feature" content="associated_data">
+<link rel="canonical" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12375720/">
+<meta name="robots" content="INDEX,NOFOLLOW,NOARCHIVE">
+<meta name="citation_journal_title" content="Scientific Reports">
+<meta name="citation_title" content="A framework for robotic manipulation tasks based on multiple zero shot models">
+<meta name="citation_author" content="Yifan Li">
+<meta name="citation_author_institution" content="Faculty of Engineering, University of Bristol, Bristol, BS8 1QU UK">
+<meta name="citation_author" content="Peiyang Jiang">
+<meta name="citation_author_institution" content="Faculty of Engineering, University of Bristol, Bristol, BS8 1QU UK">
+<meta name="citation_author" content="Chengpeng Chai">
+<meta name="citation_author_institution" content="School of Engineering, Westlake University, Hangzhou, 310030 China">
+<meta name="citation_author" content="Xuyang Zhang">
+<meta name="citation_author_institution" content="Department of Engineering, King’s College London, WC2R 2LS London, UK">
+<meta name="citation_author" content="Chengguo Liu">
+<meta name="citation_author_institution" content="State Key Laboratory of Mechanical Transmission for Advanced Equipment, Chongqing University, Chongqing, 400044 China">
+<meta name="citation_publication_date" content="2025 Aug 24">
+<meta name="citation_volume" content="15">
+<meta name="citation_firstpage" content="31141">
+<meta name="citation_doi" content="10.1038/s41598-025-17015-z">
+<meta name="citation_pmid" content="40851085">
+<meta name="citation_abstract_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12375720/">
+<meta name="citation_fulltext_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12375720/">
+<meta name="citation_pdf_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12375720/pdf/41598_2025_Article_17015.pdf">
+<meta name="description" content="Humans tackle unknown tasks by integrating information from multiple sensory modalities. Existing robotic frameworks struggle to achieve effective multimodal manipulation, especially when sufficient training data is lacking. This study introduces ...">
+<meta name="og:title" content="A framework for robotic manipulation tasks based on multiple zero shot models">
+<meta name="og:type" content="article">
+<meta name="og:site_name" content="PubMed Central (PMC)">
+<meta name="og:description" content="Humans tackle unknown tasks by integrating information from multiple sensory modalities. Existing robotic frameworks struggle to achieve effective multimodal manipulation, especially when sufficient training data is lacking. This study introduces ...">
+<meta name="og:url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12375720/">
+<meta name="og:image" content="https://cdn.ncbi.nlm.nih.gov/pmc/cms/images/pmc-card-share.jpg?_=0">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ncbi">
+    
+    
+
+    </head>
+    <body >
+        
+    <a class="usa-skipnav " href="#main-content">
+      Skip to main content
+    </a>
+
+
+        
+            
+
+<section class="usa-banner " aria-label="Official website of the United States government" >
+    <div class="usa-accordion">
+        <header class="usa-banner__header">
+            <div class="usa-banner__inner">
+                <div class="grid-col-auto">
+                    <img aria-hidden="true"
+                         class="usa-banner__header-flag"
+                         src="/static/img/us_flag.svg"
+                         alt="" />
+                </div>
+
+                <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+                    <p class="usa-banner__header-text">
+                        An official website of the United States government
+                    </p>
+                    <span class="usa-banner__header-action">Here's how you know</span>
+                </div>
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-accordion__button usa-banner__button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    aria-expanded="false"
+    aria-controls="gov-banner-default"
+    
+    data-testid="storybook-django-banner"
+    
+    >
+    
+        
+
+        
+                    <span class="usa-banner__button-text">Here's how you know</span>
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </div>
+        </header>
+
+        <div class="usa-banner__content usa-accordion__content"
+             id="gov-banner-default"
+             hidden>
+            <div class="grid-row grid-gap-lg">
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-dot-gov.svg"
+                         alt=""
+                         aria-hidden="true" />
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Official websites use .gov</strong>
+                            <br />
+                            A
+                            <strong>.gov</strong> website belongs to an official
+                            government organization in the United States.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-https.svg"
+                         alt=""
+                         aria-hidden="true" />
+
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Secure .gov websites use HTTPS</strong>
+                            <br />
+                            A <strong>lock</strong> (
+                            <span class="icon-lock">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     width="52"
+                                     height="64"
+                                     viewBox="0 0 52 64"
+                                     class="usa-banner__lock-image"
+                                     role="graphics-symbol"
+                                     aria-labelledby="banner-lock-description"
+                                     focusable="false">
+                                    <title id="banner-lock-title">Lock</title>
+                                    <desc id="banner-lock-description">
+                                    Locked padlock icon
+                                    </desc>
+                                    <path fill="#000000"
+                                          fill-rule="evenodd"
+                                          d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+                                </svg>
+</span>) or <strong>https://</strong> means you've safely
+                                connected to the .gov website. Share sensitive
+                                information only on official, secure websites.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        
+
+        
+    
+    
+    
+
+<div class="usa-overlay">
+</div>
+
+
+
+<header class="usa-header usa-header--extended usa-header--wide" data-header data-testid="header"    >
+    <div class="ncbi-header">
+        <div class="ncbi-header__container">
+            <a class="ncbi-header__logo-container"
+               href="https://www.ncbi.nlm.nih.gov/">
+                <img alt="NCBI home page"
+                     class="ncbi-header__logo-image"
+                     src="/static/img/ncbi-logos/nih-nlm-ncbi--white.svg"
+                     width="410"
+                     height="100" />
+            </a>
+
+            <!-- Mobile menu hamburger button -->
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-menu-btn ncbi-header__hamburger-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Show menu"
+    data-testid="navMenuButton"
+    
+    >
+    
+        
+
+        
+                <svg aria-hidden="true"
+                     class="ncbi-hamburger-icon"
+                     fill="none"
+                     focusable="false"
+                     height="21"
+                     viewBox="0 0 31 21"
+                     width="31"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd"
+                          d="M0.125 20.75H30.875V17.3333H0.125V20.75ZM0.125 12.2083H30.875V8.79167H0.125V12.2083ZM0.125 0.25V3.66667H30.875V0.25H0.125Z"
+                          fill="#F1F1F1"
+                          fill-rule="evenodd" />
+                </svg>
+            
+
+        
+    
+        
+            </button>
+        
+
+
+
+            
+                <!-- Desktop buttons-->
+                <div class="ncbi-header__desktop-buttons">
+                    
+                        <!-- Desktop search button -->
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button
+           "
+    aria-expanded="false"
+    aria-controls="search-field-desktop-navigation"
+    aria-label="Show search overlay"
+    data-testid="toggleSearchPanelButton"
+    data-toggle-search-panel-button
+    >
+    
+        
+
+        
+                            
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#search" />
+    </svg>
+
+
+                            Search
+                        
+
+        
+    
+        
+            </button>
+        
+
+
+                    
+
+                    <!-- Desktop login dropdown -->
+                    
+                        <div class="ncbi-header__login-dropdown">
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button ncbi-header__login-dropdown-button
+           "
+    aria-expanded="false"
+    aria-controls="login-dropdown-menu"
+    aria-label="Show login menu"
+    data-testid="toggleLoginMenuDropdown"
+    data-desktop-login-button
+    >
+    
+        
+
+        
+                                
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#person" />
+    </svg>
+
+
+
+                                <span data-login-dropdown-text>Log in</span>
+
+                                <!-- Dropdown icon pointing up -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-less ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-up-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_less" />
+    </svg>
+
+
+
+                                <!-- Dropdown icon pointing down -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-more ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-down-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_more" />
+    </svg>
+
+
+                            
+
+        
+    
+        
+            </button>
+        
+
+
+
+                            <!-- Login dropdown menu -->
+                            <ul class="usa-nav__submenu ncbi-header__login-dropdown-menu"
+                                id="login-dropdown-menu"
+                                data-desktop-login-menu-dropdown
+                                hidden>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                <li class="usa-nav__submenu-item">
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--outline ncbi-header__login-dropdown-logout-button
+           "
+    
+    
+    
+    data-testid="desktopLogoutButton"
+    data-desktop-logout-button
+    >
+    
+        
+
+        Log out
+
+        
+    
+        
+            </button>
+        
+
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                </div>
+            
+        </div>
+    </div>
+
+    <!-- Search panel -->
+    
+        <div class="ncbi-search-panel ncbi--show-only-at-desktop"
+             data-header-search-panel
+             hidden>
+            <div class="ncbi-search-panel__container">
+                <form action="https://www.ncbi.nlm.nih.gov/search/all/"
+                      
+                      autocomplete="off"
+                      class="usa-search usa-search--big ncbi-search-panel__form"
+                      data-testid="desktop-navigation-search-form"
+                      method="GET"
+                      role="search">
+                    <label class="usa-sr-only" for="search-field-desktop-navigation">
+                        Search…
+                    </label>
+                    <input class="usa-input"
+                           id="search-field-desktop-navigation"
+                           name="term"
+                           
+                               placeholder="Search NCBI"
+                           
+                           type="search"
+                           value="" />
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                        <span class="usa-search__submit-text">
+                            Search NCBI
+                        </span>
+                    
+
+        
+    
+        
+            </button>
+        
+
+
+                </form>
+
+                
+            </div>
+        </div>
+    
+
+    <nav aria-label="Primary navigation" class="usa-nav">
+        <p class="usa-sr-only" id="primary-navigation-sr-only-title">
+            Primary site navigation
+        </p>
+
+        <!-- Mobile menu close button -->
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-nav__close ncbi-nav__close-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Close navigation menu"
+    data-testid="navCloseButton"
+    
+    >
+    
+        
+
+        
+            <img src="/static/img/usa-icons/close.svg" alt="Close" />
+        
+
+        
+    
+        
+            </button>
+        
+
+
+
+        
+            <!-- Mobile search component -->
+            <form class="usa-search usa-search--small ncbi--hide-at-desktop margin-top-6"
+                  action="https://www.ncbi.nlm.nih.gov/search/all/"
+                  
+                  autocomplete="off"
+                  data-testid="mobile-navigation-search-form"
+                  method="GET"
+                  role="search">
+                <label class="usa-sr-only" for="search-field-mobile-navigation">
+                    Search
+                </label>
+
+                <input class="usa-input"
+                       id="search-field-mobile-navigation"
+                       type="search"
+                       
+                           placeholder="Search NCBI"
+                       
+                       name="term" />
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                    <!-- This SVG should be kept inline and not replaced with a link to the icon as otherwise it will render in the wrong color -->
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0E2LjQ3MSA2LjQ3MSAwIDAgMCAxNiA5LjUgNi41IDYuNSAwIDEgMCA5LjUgMTZjMS42MSAwIDMuMDktLjU5IDQuMjMtMS41N2wuMjcuMjh2Ljc5bDUgNC45OUwyMC40OSAxOWwtNC45OS01em0tNiAwQzcuMDEgMTQgNSAxMS45OSA1IDkuNVM3LjAxIDUgOS41IDUgMTQgNy4wMSAxNCA5LjUgMTEuOTkgMTQgOS41IDE0eiIvPjwvc3ZnPg=="
+                         class="usa-search__submit-icon"
+                         alt="Search" />
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </form>
+
+            
+        
+
+        <!-- Primary navigation menu items -->
+        <!-- This usa-nav__inner wrapper is required to correctly style the navigation items on Desktop -->
+        
+
+        
+            <div class="ncbi-nav__mobile-login-menu ncbi--hide-at-desktop"
+                 data-mobile-login-menu
+                 hidden>
+                <p class="ncbi-nav__mobile-login-menu-status">
+                    Logged in as:
+                    <strong class="ncbi-nav__mobile-login-menu-email"
+                            data-mobile-login-email-text></strong>
+                </p>
+                <ul class="usa-nav__primary usa-accordion">
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           ncbi-nav__mobile-login-button ncbi--hide-at-desktop
+           "
+    
+    
+    
+    data-testid="mobileLoginButton"
+    data-mobile-login-button
+    >
+    
+        
+
+        Log in
+
+        
+    
+        
+            </button>
+        
+
+
+    </nav>
+</header>
+
+    
+    
+        
+
+<section class="pmc-header pmc-header--basic" aria-label="PMC Header with search box">
+    <div class="pmc-nav-container">
+        <div class="pmc-header__bar">
+           <div class="pmc-header__logo">
+               <a href="/" title="Home" aria-label="PMC Home"></a>
+           </div>
+            <button
+                    type="button"
+                    class="usa-button usa-button--unstyled pmc-header__search__button"
+                    aria-label="Open search"
+                    data-ga-category="search"
+                    data-ga-action="PMC"
+                    data-ga-label="pmc_search_panel_mobile"
+            >
+                <svg class="usa-icon width-4 height-4 pmc-icon__open" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#search"></use>
+                </svg>
+                <svg class="usa-icon width-4 height-4 pmc-icon__close" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="pmc-header__search">
+            
+
+
+<form class="usa-search usa-search--extra usa-search--article-right-column  pmc-header__search__form" id="pmc-search-form" autocomplete="off" role="search">
+<label class="usa-sr-only" for="pmc-search">Search PMC Full-Text Archive</label>
+<span class="autoComplete_wrapper flex-1">
+<input class="usa-input width-full maxw-none" required="required" placeholder="Search PMC Full-Text Archive" id="pmc-search"  type="search" name="term" data-autocomplete-url="https://pmc.ncbi.nlm.nih.gov/autocomp/search/autocomp/"/>
+</span>
+<button
+class="usa-button"
+type="submit"
+formaction="https://www.ncbi.nlm.nih.gov/pmc/"
+data-ga-category="search"
+data-ga-action="PMC"
+data-ga-label="PMC_search_button"
+>
+<span class="usa-search__submit-text">Search in PMC</span>
+<img
+src="/static/img/usa-icons-bg/search--white.svg"
+class="usa-search__submit-icon"
+alt="Search"
+/>
+</button>
+</form>
+            <div class="display-flex flex-column tablet:flex-row tablet:flex-justify flex-justify-center flex-align-center width-full desktop:maxw-44">
+                <ul class="pmc-header__search__menu">
+                    <li>
+                        
+                            <a class="usa-link" href="/journals/" data-ga-action="featured_link" data-ga-label="journal list">
+                                Journal List
+                            </a>
+                        
+                    </li>
+                    <li>
+                        
+                            <a class="usa-link" href="/about/userguide/" data-ga-action="featured_link"
+                            data-ga-label="user guide">
+                                User Guide
+                            </a>
+                        
+                    </li>
+                </ul>
+                
+                    <button form="pmc-search-form" formaction="https://pmc.ncbi.nlm.nih.gov/search/" type="submit" class="usa-button usa-button--unstyled hover:text-no-underline text-no-underline width-auto margin-top-1 tablet:margin-top-0">
+     <span class="bg-green-label padding-05 text-white">New</span><span class="text-underline text-primary">Try this search in PMC Beta Search</span>
+</button>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+
+
+        
+        
+
+       
+  <div class="usa-section padding-top-0 desktop:padding-top-6 pmc-article-section" data-article-db="pmc" data-article-id="12375720">
+
+    
+
+   
+
+
+
+<div class="grid-container pmc-actions-bar" aria-label="Actions bar" role="complementary">
+    <div class="grid-row">
+        <div class="grid-col-fill display-flex">
+             <div class="display-flex">
+                <ul class="usa-list usa-list--unstyled usa-list--horizontal">
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <button
+                                type="button"
+                                class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                                aria-label="Open resources"
+                                data-extra-class="is-visible-resources"
+                                data-ga-category="resources_accordion"
+                                data-ga-action="click"
+                                data-ga-label="mobile_icon"
+                        >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#more_vert"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <a
+                                href="https://doi.org/10.1038/s41598-025-17015-z"
+                                class="usa-link display-flex usa-tooltip"
+                                role="button"
+                                target="_blank"
+                                rel="noreferrer noopener"
+                                title="View on publisher site"
+                                data-position="bottom"
+                                aria-label="View on publisher site"
+                                data-ga-category="actions"
+                                data-ga-action="click"
+                                data-ga-label="publisher_link_mobile"
+                        >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#launch"></use>
+                                </svg>
+                        </a>
+                    </li>
+                    
+                    
+                        <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                             <a
+                                     href="pdf/41598_2025_Article_17015.pdf"
+                                     class="usa-link display-flex usa-tooltip"
+                                     role="button"
+                                     title="Download PDF"
+                                     data-position="bottom"
+                                     aria-label="Download PDF"
+                                     data-ga-category="actions"
+                                     data-ga-action="click"
+                                     data-ga-label="pdf_download_mobile"
+                             >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button
+                            class="usa-button usa-button--unstyled  usa-tooltip collections-dialog-trigger collections-button display-flex collections-button-empty"
+                            title="Add to Collections"
+                            data-position="bottom"
+                            aria-label="Save article in MyNCBI collections."
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="collections_button_mobile"
+                            data-collections-open-dialog-enabled="false"
+                            data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12375720%2F%3Freport%3Dclassic%23open-collections-dialog"
+                            data-in-collections="false"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button role="button" class="usa-button usa-button--unstyled usa-tooltip citation-dialog-trigger display-flex"
+                            aria-label="Open dialog with citation text in different styles"
+                            title="Cite"
+                            data-position="bottom"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="cite_mobile"
+                            data-all-citations-url="/resources/citations/12375720/"
+                            data-citation-style="nlm"
+                            data-download-format-link="/resources/citations/12375720/export/"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="pmc-permalink display-flex" >
+                         <button
+                                 type="button"
+                                 title="Permalink"
+                                 data-position="bottom"
+                                 class="usa-button usa-button--unstyled display-flex usa-tooltip"
+                                 aria-label="Show article permalink"
+                                 aria-expanded="false"
+                                 aria-haspopup="true"
+                                 data-ga-category="actions"
+                                 data-ga-action="open"
+                                 data-ga-label="permalink_mobile"
+                         >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#share"></use>
+                            </svg>
+                        </button>
+                        
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12375720/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+                    </li>
+                </ul>
+            </div>
+            <button
+                    type="button"
+                    class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                    aria-label="Open article navigation"
+                    data-extra-class="is-visible-in-page"
+                    data-ga-category="actions"
+                    data-ga-action="open"
+                    data-ga-label="article_nav_mobile"
+            >
+                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#list"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+    <div class="grid-container desktop:padding-left-6">
+      <div id="article-container" class="grid-row grid-gap">
+        <div class="grid-col-12 desktop:grid-col-8 order-2 pmc-layout__content">
+            <div class="grid-container padding-left-0 padding-right-0">
+                <div class="grid-row desktop:margin-left-neg-6">
+                    <div class="grid-col-12">
+                        <div class="pmc-layout__disclaimer" role="complementary" aria-label="Disclaimer note">
+    As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,
+    the contents by NLM or the National Institutes of Health.<br/>
+    Learn more:
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="Disclaimer" data-ga-label="New disclaimer box" href="/about/disclaimer/">PMC Disclaimer</a>
+    |
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="PMC Copyright Notice" data-ga-label="New disclaimer box" href="/about/copyright/">
+        PMC Copyright Notice
+    </a>
+</div>
+                    </div>
+                </div>
+                <div class="grid-row pmc-wm desktop:margin-left-neg-6">
+                    <!-- Main content -->
+                    <main
+                      id="main-content"
+                      class="usa-layout-docs__main usa-layout-docs grid-col-12 pmc-layout pmc-prose padding-0"
+                    >
+
+                      
+                        <section class="pmc-journal-banner text-center line-height-none" aria-label="Journal banner"><img src="https://cdn.ncbi.nlm.nih.gov/pmc/banners/logo-scirep.jpg" alt="Scientific Reports logo" usemap="#pmc-banner-imagemap" width="500" height="75"><map name="pmc-banner-imagemap"><area alt="Link to Scientific Reports" title="Link to Scientific Reports" shape="default" href="http://www.nature.com/srep" target="_blank" rel="noopener noreferrer"></map></section><article lang="en"><section aria-label="Article citation and metadata"><section class="pmc-layout__citation font-secondary font-xs"><div>
+<div class="display-inline-block"><button type="button" class="cursor-pointer text-no-underline bg-transparent border-0 padding-0 text-left margin-0 text-normal text-primary" aria-controls="journal_context_menu">Sci Rep</button></div>. 2025 Aug 24;15:31141. doi: <a href="https://doi.org/10.1038/s41598-025-17015-z" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">10.1038/s41598-025-17015-z</a>
+</div>
+<nav id="journal_context_menu" hidden="hidden"><ul class="menu-list font-family-ui" role="menu">
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/pmc/?term=%22Sci%20Rep%22%5Bjour%5D" class="usa-link" role="menuitem">Search in PMC</a></li>
+<li role="presentation"><a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Sci%20Rep%22%5Bjour%5D" lang="en" class="usa-link" role="menuitem">Search in PubMed</a></li>
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/nlmcatalog?term=%22Sci%20Rep%22%5BTitle%20Abbreviation%5D" class="usa-link" role="menuitem">View in NLM Catalog</a></li>
+<li role="presentation"><a href="?term=%22Sci%20Rep%22%5Bjour%5D" class="usa-link" role="menuitem" data-add-to-search="true">Add to search</a></li>
+</ul></nav></section><section class="front-matter"><div class="ameta p font-secondary font-xs">
+<hgroup><h1>A framework for robotic manipulation tasks based on multiple zero shot models</h1></hgroup><div class="cg p">
+<a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Li%20Y%22%5BAuthor%5D" class="usa-link" aria-describedby="id1"><span class="name western">Yifan Li</span></a><div hidden="hidden" id="id1">
+<h3><span class="name western">Yifan Li</span></h3>
+<div class="p">
+<sup>1</sup>Faculty of Engineering, University of Bristol, Bristol, BS8 1QU UK </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Li%20Y%22%5BAuthor%5D" class="usa-link"><span class="name western">Yifan Li</span></a>
+</div>
+</div>
+<sup>1</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Jiang%20P%22%5BAuthor%5D" class="usa-link" aria-describedby="id2"><span class="name western">Peiyang Jiang</span></a><div hidden="hidden" id="id2">
+<h3><span class="name western">Peiyang Jiang</span></h3>
+<div class="p">
+<sup>1</sup>Faculty of Engineering, University of Bristol, Bristol, BS8 1QU UK </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Jiang%20P%22%5BAuthor%5D" class="usa-link"><span class="name western">Peiyang Jiang</span></a>
+</div>
+</div>
+<sup>1</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Chai%20C%22%5BAuthor%5D" class="usa-link" aria-describedby="id3"><span class="name western">Chengpeng Chai</span></a><div hidden="hidden" id="id3">
+<h3><span class="name western">Chengpeng Chai</span></h3>
+<div class="p">
+<sup>2</sup>School of Engineering, Westlake University, Hangzhou, 310030 China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Chai%20C%22%5BAuthor%5D" class="usa-link"><span class="name western">Chengpeng Chai</span></a>
+</div>
+</div>
+<sup>2</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Zhang%20X%22%5BAuthor%5D" class="usa-link" aria-describedby="id4"><span class="name western">Xuyang Zhang</span></a><div hidden="hidden" id="id4">
+<h3><span class="name western">Xuyang Zhang</span></h3>
+<div class="p">
+<sup>3</sup>Department of Engineering, King’s College London, WC2R 2LS London, UK </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Zhang%20X%22%5BAuthor%5D" class="usa-link"><span class="name western">Xuyang Zhang</span></a>
+</div>
+</div>
+<sup>3</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Liu%20C%22%5BAuthor%5D" class="usa-link" aria-describedby="id5"><span class="name western">Chengguo Liu</span></a><div hidden="hidden" id="id5">
+<h3><span class="name western">Chengguo Liu</span></h3>
+<div class="p">
+<sup>4</sup>State Key Laboratory of Mechanical Transmission for Advanced Equipment, Chongqing University, Chongqing, 400044 China </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Liu%20C%22%5BAuthor%5D" class="usa-link"><span class="name western">Chengguo Liu</span></a>
+</div>
+</div>
+<sup>4,</sup><sup>✉</sup>
+</div>
+<ul class="d-buttons inline-list">
+<li><button class="d-button" aria-controls="aip_a" aria-expanded="false">Author information</button></li>
+<li><button class="d-button" aria-controls="anp_a" aria-expanded="false">Article notes</button></li>
+<li><button class="d-button" aria-controls="clp_a" aria-expanded="false">Copyright and License information</button></li>
+</ul>
+<div class="d-panels font-secondary-light">
+<div id="aip_a" class="d-panel p" style="display: none">
+<div class="p" id="Aff1">
+<sup>1</sup>Faculty of Engineering, University of Bristol, Bristol, BS8 1QU UK </div>
+<div id="Aff2">
+<sup>2</sup>School of Engineering, Westlake University, Hangzhou, 310030 China </div>
+<div id="Aff3">
+<sup>3</sup>Department of Engineering, King’s College London, WC2R 2LS London, UK </div>
+<div id="Aff4">
+<sup>4</sup>State Key Laboratory of Mechanical Transmission for Advanced Equipment, Chongqing University, Chongqing, 400044 China </div>
+<div class="author-notes p"><div class="fn" id="_fncrsp93pmc__">
+<sup>✉</sup><p class="display-inline">Corresponding author.</p>
+</div></div>
+</div>
+<div id="anp_a" class="d-panel p" style="display: none"><div class="notes p"><section id="historyarticle-meta1" class="history"><p>Received 2024 Aug 7; Accepted 2025 Aug 20; Collection date 2025.</p></section></div></div>
+<div id="clp_a" class="d-panel p" style="display: none">
+<div>© The Author(s) 2025</div>
+<p><strong>Open Access</strong> This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modified the licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">http://creativecommons.org/licenses/by-nc-nd/4.0/</a>.</p>
+<div class="p"><a href="/about/copyright/" class="usa-link">PMC Copyright notice</a></div>
+</div>
+</div>
+<div>PMCID: PMC12375720  PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/40851085/" class="usa-link">40851085</a>
+</div>
+</div></section></section><section aria-label="Article content"><section class="body main-article-body"><section class="abstract" id="Abs1"><h2>Abstract</h2>
+<p id="Par1">Humans tackle unknown tasks by integrating information from multiple sensory modalities. Existing robotic frameworks struggle to achieve effective multimodal manipulation, especially when sufficient training data is lacking. This study introduces “Panda Act”, a novel robotic manipulation mechanism that leverages large language models (LLMs) and multimodal zero-shot models. The manipulation strategies are generated by LLMs as Python code, which dynamically orchestrates a suite of zero-shot visual and auditory models to fulfil task requirements. This enables robots to execute multimodal manipulations without requiring additional training. Extensive experiments in both simulated and real-world environments demonstrate that this approach excels in task comprehension, zero-shot execution, and adaptability, opening new avenues for enhancing robot adaptability in uncertain environments.</p>
+<section id="kwd-group1" lang="en" class="kwd-group"><p><strong>Keywords:</strong> LLMs, Robotic manipulation, Zero-shot learning, Uncertain environments</p></section><section id="kwd-group2" class="kwd-group"><p><strong>Subject terms:</strong> Information technology, Software</p></section></section><section id="Sec1"><h2 class="pmc_sec_title">Introduction</h2>
+<p id="Par2">As technology rapidly advances, robots are no longer confined to specific fields such as industry<sup><a href="#CR1" class="usa-link" aria-describedby="CR1">1</a></sup>, agriculture<sup><a href="#CR2" class="usa-link" aria-describedby="CR2">2</a></sup>, and service sectors<sup><a href="#CR3" class="usa-link" aria-describedby="CR3">3</a></sup>; they are progressively integrating into various aspects of daily life, much like humans. Developing general-purpose robotic frameworks that can adapt to diverse environments and tasks has become a crucial research focus in robotics. However, current robotic frameworks typically depend on large amounts of training data for specific scenarios, limiting their adaptability to uncertain environments and unknown tasks<sup><a href="#CR4" class="usa-link" aria-describedby="CR4">4</a></sup>. This limitation is especially evident in tasks requiring multimodal perception and manipulation<sup><a href="#CR5" class="usa-link" aria-describedby="CR5">5</a></sup>, where robots often struggle to operate effectively in unstructured environments. Building robotic frameworks for diverse scenarios often necessitates creating an extensive training database, which is time-consuming, labour-intensive, and costly<sup><a href="#CR6" class="usa-link" aria-describedby="CR6">6</a></sup>. Additionally, in uncertain environments, single-language information is often insufficient for accurately conveying task instructions; multimodal user instructions and contextual information are also necessary but challenging to collect and process. In recent years, zero-shot models have shown exceptional generalisation abilities in language, vision, and auditory fields, offering new approaches to addressing the manipulation challenges faced by robots in uncertain environments.</p>
+<p id="Par3">The ability of robots to generalise in uncertain environments and unknown tasks has consistently been a central topic in robotics research. In methods based on reinforcement learning, Gupta et al.<sup><a href="#CR7" class="usa-link" aria-describedby="CR7">7</a></sup> proposed the learning of invariant feature spaces to achieve zero-shot generalisation, while Finn et al.<sup><a href="#CR8" class="usa-link" aria-describedby="CR8">8</a></sup> enhanced generalisation by modelling the uncertainty in state value functions. Search-based methods, such as Monte Carlo Tree Search (MCTS), have also been successfully utilized in AlphaGo<sup><a href="#CR9" class="usa-link" aria-describedby="CR9">9</a></sup>. Chua et al.<sup><a href="#CR10" class="usa-link" aria-describedby="CR10">10</a></sup> suggested that model-based predictive reinforcement learning can achieve zero-shot generalisation. In the realm of imitation learning, various approaches have adapted to new scenarios using robot demonstrations<sup><a href="#CR11" class="usa-link" aria-describedby="CR11">11</a>,<a href="#CR12" class="usa-link" aria-describedby="CR12">12</a></sup>, human videos<sup><a href="#CR13" class="usa-link" aria-describedby="CR13">13</a>,<a href="#CR14" class="usa-link" aria-describedby="CR14">14</a></sup>, language instructions<sup><a href="#CR15" class="usa-link" aria-describedby="CR15">15</a>,<a href="#CR16" class="usa-link" aria-describedby="CR16">16</a></sup>, and target images<sup><a href="#CR17" class="usa-link" aria-describedby="CR17">17</a></sup>. Ho and Ermon<sup><a href="#CR18" class="usa-link" aria-describedby="CR18">18</a></sup> improved the adaptability of imitation learning by reframing it as an adversarial generation problem. Recently, few-shot methods based on meta-learning and transfer learning, such as Model-Agnostic Meta-Learning (MAML)<sup><a href="#CR19" class="usa-link" aria-describedby="CR19">19</a></sup>, domain adaptation networks<sup><a href="#CR20" class="usa-link" aria-describedby="CR20">20</a></sup>, and transfer reinforcement learning<sup><a href="#CR21" class="usa-link" aria-describedby="CR21">21</a></sup>, have been used to enhance robots’ generalisation capabilities. Unlike these previous methods, a key aspect of our approach is leveraging large zero-shot models trained on a wider range of data than what the robot typically encounters.</p>
+<p id="Par4">To enhance the capability of robots to perform tasks in uncertain environments, researchers have recently started exploring the application of zero-shot models in robotic control. Google’s Saycan<sup><a href="#CR22" class="usa-link" aria-describedby="CR22">22</a></sup> leverages the PaLM model<sup><a href="#CR23" class="usa-link" aria-describedby="CR23">23</a></sup> for robotic operations, while PaLM-E<sup><a href="#CR24" class="usa-link" aria-describedby="CR24">24</a></sup> combines the PaLM model<sup><a href="#CR23" class="usa-link" aria-describedby="CR23">23</a></sup>, with 540 billion parameters, and the ViT model<sup><a href="#CR25" class="usa-link" aria-describedby="CR25">25</a></sup>, with 22 billion parameters, to create a comprehensive visual-language model. The RT-2 large visual-language-action (VLA) model<sup><a href="#CR26" class="usa-link" aria-describedby="CR26">26</a></sup> exhibits stronger generalisation and emergent capabilities, learning from both internet and robotic data and converting this knowledge into control instructions. In addition to specialized zero-shot models for robots, researchers have also integrated existing visual or language zero-shot models into robotic frameworks for tasks like object classification<sup><a href="#CR27" class="usa-link" aria-describedby="CR27">27</a></sup>, detection<sup><a href="#CR28" class="usa-link" aria-describedby="CR28">28</a></sup>, and segmentation<sup><a href="#CR29" class="usa-link" aria-describedby="CR29">29</a></sup>. For example, CLIPORT<sup><a href="#CR30" class="usa-link" aria-describedby="CR30">30</a></sup> utilizes the CLIP model<sup><a href="#CR27" class="usa-link" aria-describedby="CR27">27</a></sup> for encoding semantic understanding and object manipulation in robots, with extensions into the 3D domain by Mohit et al<sup><a href="#CR31" class="usa-link" aria-describedby="CR31">31</a></sup>. CaP<sup><a href="#CR32" class="usa-link" aria-describedby="CR32">32</a></sup> uses specific context prompts to steer the output of LLMs, Socratic Models<sup><a href="#CR33" class="usa-link" aria-describedby="CR33">33</a></sup> add perceptual information to LLMs, and LID<sup><a href="#CR34" class="usa-link" aria-describedby="CR34">34</a></sup> employs LLMs for sequential decision-making. R3M<sup><a href="#CR35" class="usa-link" aria-describedby="CR35">35</a></sup> enhances the learning of downstream robotic tasks using diverse human video data<sup><a href="#CR36" class="usa-link" aria-describedby="CR36">36</a></sup>, while DALL-E-Bot<sup><a href="#CR37" class="usa-link" aria-describedby="CR37">37</a></sup> employs Stable Diffusion to generate target scene images for guiding robot actions. Instruct2Act<sup><a href="#CR38" class="usa-link" aria-describedby="CR38">38</a></sup> directs robots in visual tasks through API calls to foundational visual modules. Our proposed method differs from existing research by not being confined to a single visual or auditory modality. Instead, it offers an open library of zero-shot models and robotic action modules. The framework dynamically determines how to combine these models and actions based on given instructions, thereby managing instructions across various modalities. This approach significantly improves the framework’s flexibility and adaptability, enabling it to handle a broader range of task scenarios.</p>
+<p id="Par5">Imagine a scenario where a robot framework is instructed to “turn off the alarm clock placed on the Harry Potter book.” To execute this instruction successfully, the robot must first comprehend the specific meaning of the instruction. It then needs to perform several tasks, including scanning its environment, identifying the book, and recognizing the distinctive features of the Harry Potter cover. Simultaneously, the robot must use its microphone to detect and locate the sound of the alarm clock. By integrating these visual and auditory inputs, the robot can precisely locate the alarm clock on the book and turn it off. While current technology can manage these tasks individually, combining them into a single framework capable of functioning based on natural language or multimodal instructions presents a significant challenge. This complexity surpasses the capabilities of traditional end-to-end training frameworks, necessitating a more advanced approach to tackle the issue of robot task execution in uncertain environments.</p>
+<p id="Par6">This study introduces an innovative robotic framework called “Panda Act”, which uses a multi-layer modular design to handle the entire process from receiving natural language and multimodal instructions to the precise execution of tasks. The core feature of the framework is its ability to generate a series of operational steps from the given instructions, specifically in the form of a Python script for the robot. Each line of this script invokes the framework’s supported modules, including visual zero-shot models, auditory zero-shot models, and robotic action control modules. These modules operate in a hierarchical sequence, where each module uses the output from the previous one as input and produces intermediate results for the next module.</p>
+<p id="Par7">Figure <a href="#Fig1" class="usa-link">1</a> illustrates the workflow of the “Panda Act” framework. Initially, the framework leverages the semantic parsing capabilities of the GPT-4 model to request users to clarify any semantically ambiguous instructions, ensuring accurate and comprehensive task information. Based on the clarified task content, the framework then selects suitable models for processing. For instance, it employs the “Segment Anything Model” (SAM) for segmenting environmental images and the ImageBind model to match environmental sounds with images, thereby precisely locating the target object. Finally, the framework generates a robot operation sequence from the recognition results, enabling the robot to accurately execute the task. This modular design enhances the framework’s flexibility and scalability, allowing it to adapt to uncertain task environments. By integrating various zero-shot models and robot control modules, the “Panda Act” framework exhibits unique advantages in processing multimodal instructions and executing unknown tasks.</p>
+<figure class="fig xbox font-sm" id="Fig1"><h3 class="obj_head">Fig. 1.</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12375720_41598_2025_17015_Fig1_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/e4c63f8d8e10/41598_2025_17015_Fig1_HTML.jpg" loading="lazy" id="MO1" height="599" width="709" alt="Fig. 1"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>A robotic task is executed by invoking multiple modules within the “Panda Act” framework. The LLM in “Panda Act” autonomously selects which framework modules to call based on task instructions. The green modules represent the zero-shot models currently included in the framework (Text-Davinci-003<sup><a href="#CR39" class="usa-link" aria-describedby="CR39">39</a></sup>, Llama3<sup><a href="#CR40" class="usa-link" aria-describedby="CR40">40</a></sup>, GPT-4<sup><a href="#CR41" class="usa-link" aria-describedby="CR41">41</a></sup>, SAM<sup><a href="#CR42" class="usa-link" aria-describedby="CR42">42</a></sup>, HQ-SAM<sup><a href="#CR43" class="usa-link" aria-describedby="CR43">43</a></sup>, Mobile-SAM<sup><a href="#CR44" class="usa-link" aria-describedby="CR44">44</a></sup>, CLIP<sup><a href="#CR27" class="usa-link" aria-describedby="CR27">27</a></sup>, Open-CLIP<sup><a href="#CR45" class="usa-link" aria-describedby="CR45">45</a></sup>, ImageBind<sup><a href="#CR46" class="usa-link" aria-describedby="CR46">46</a></sup>).</p></figcaption></figure><p id="Par8">Unlike existing methods that directly generate robot task code (such as ChatGPT for Robotics<sup><a href="#CR47" class="usa-link" aria-describedby="CR47">47</a></sup>), “Panda Act” uses an improved approach to robot program generation. Instead of directly outputting robot control code, it controls robot behaviour by invoking independent perception and action modules. This method enhances the success rate and reliability of executing unknown tasks. Specifically, LLMs like GPT-4 first parse natural language and multimodal instructions, then dynamically determine the necessary framework modules based on task requirements, and finally generate Python code to call the relevant modules for executing robot tasks. This reduces the burden on individual modules and makes the framework more modular and scalable.</p>
+<p id="Par9">We extensively evaluated the “Panda Act” framework in two environments: a simulated environment using PyBullet<sup><a href="#CR48" class="usa-link" aria-describedby="CR48">48</a></sup> and a real-world environment featuring a Dobot robotic arm and an Intel RealSense D435i camera. The evaluation focused on the framework’s zero-shot manipulation performance in both environments, its language and multimodal interaction capabilities, and its ability to perform unknown tasks. Results showed that even in entirely zero-shot scenarios, the “Panda Act” framework exhibited strong manipulation abilities, significantly outperforming methods that require learning tasks from scratch. This validates the effectiveness of integrating zero-shot multimodal models to enhance robotic manipulation capabilities.</p>
+<p id="Par10">The innovations and unique contributions of this paper can be summarised as follows:</p>
+<ul class="list" style="list-style-type:disc">
+<li><p id="Par11">The “Panda Act” framework differs from existing robotic frameworks that rely heavily on extensive training data for specific scenarios<sup><a href="#CR49" class="usa-link" aria-describedby="CR49">49</a>–<a href="#CR51" class="usa-link" aria-describedby="CR51">51</a></sup>. Our framework leverages the generalisation capabilities of zero-shot models, significantly enhancing the adaptability of robotic frameworks in uncertain environments. With its multi-layer modular design, integrating linguistic, visual, and auditory zero-shot models, “Panda Act” can perform operations without requiring additional task-specific training.</p></li>
+<li><p id="Par12">While most current robotic frameworks can only handle single text instructions<sup><a href="#CR52" class="usa-link" aria-describedby="CR52">52</a>–<a href="#CR54" class="usa-link" aria-describedby="CR54">54</a></sup>, our framework can process various user inputs, including pure-language instruction, language-image instruction, language-sound instruction, and directed-enhanced instruction. This multimodal interaction approach increases the flexibility for users to describe unknown tasks and significantly improves the efficiency and accuracy of task execution in uncertain environments.</p></li>
+<li><p id="Par13">Compared to most existing research which focuses on robotic performance in simulated environments<sup><a href="#CR38" class="usa-link" aria-describedby="CR38">38</a>,<a href="#CR48" class="usa-link" aria-describedby="CR48">48</a></sup>, our work provides a more comprehensive evaluation by including both a PyBullet simulation and a real-world setting with a Dobot robotic arm and an Intel RealSense D435i camera. Experimental results demonstrate that the “Panda Act” framework exhibits excellent manipulation capabilities in both settings, significantly outperforming methods that learn tasks from scratch. This provides new insights and directions for integrating zero-shot multimodal models into robotic frameworks.</p></li>
+</ul>
+<p>The rest of the paper is organized as follows: The second section introduces the methodology, including the “Panda Act” framework architecture, multimodal interaction modes, framework design details, and module integration methods. The third section presents the experimental results and performance evaluation in the PyBullet simulation environment. In the fourth section, we validate the effectiveness and adaptability of the proposed methods through a series of real-world experiments conducted on the Dobot robotic arm. The fifth section provides the conclusion and future work.</p></section><section id="Sec2"><h2 class="pmc_sec_title">Methodology</h2>
+<section id="Sec3"><h3 class="pmc_sec_title">Framework overview</h3>
+<p id="Par14">We propose a new multi-layer modular architecture designed to enhance the flexibility and efficiency of robot task execution. As shown in Fig. <a href="#Fig2" class="usa-link">2</a>, this framework comprises four functional layers: the task instruction comprehension layer, the visual image segmentation layer, the cross modal matching layer, and the robot action control layer. The framework integrates nine zero-shot model modules and four basic robot action modules, enabling it to execute unknown tasks based on user natural language and multimodal instructions, along with images captured by a top-mounted camera.</p>
+<figure class="fig xbox font-sm" id="Fig2"><h4 class="obj_head">Fig. 2.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12375720_41598_2025_17015_Fig2_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/b19daf71310e/41598_2025_17015_Fig2_HTML.jpg" loading="lazy" id="MO2" height="517" width="760" alt="Fig. 2"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>“Panda Act” framework overview. Based on natural language and multimodal task instructions, LLM selects appropriate zero-shot model modules and robot action modules. It then generates executable code, which ultimately drives the robot to complete the task.</p></figcaption></figure><p id="Par15">Firstly, the LLM interacts with the user to obtain detailed task information. Based on the task requirements, the language model then automatically selects the appropriate zero-shot model modules and robot action modules, generating complete executable code. To ensure scalability and ease of use, all modules are encapsulated as functions. Moreover, we provide the language model with detailed function descriptions and example contexts to guide its output, thereby enhancing the accuracy and efficiency of task execution.</p></section><section id="Sec4"><h3 class="pmc_sec_title">Prompts for “Panda Act”</h3>
+<p id="Par16">To improve task execution precision within our framework, we developed a comprehensive set of guiding prompt strategies to aid the LLM in understanding user instructions and generating precise robot control code. The core of this strategy involves creating a structured decision-making environment for the model. Firstly, we establish clear role definitions, such as “You are a robotic arm named ‘Panda Act’,” ensuring consistent contextual awareness in every interaction. We also provide the model with a detailed list of accessible functions and example task descriptions, clearly outlining the tools and methods available during code generation. To ensure the framework’s operational safety, we set explicit operational boundaries. Considering the potential ambiguity in user inputs, we introduce a “Question” tagging mechanism that allows the model to request additional information proactively, thereby improving the accuracy of task comprehension. Finally, we instruct the model to generate code in a specific format, making it easier for the framework to use regular expressions for subsequent code extraction and processing.</p></section><section id="Sec5"><h3 class="pmc_sec_title">How to combine modules in “Panda Act”</h3>
+<p id="Par17">To flexibly utilize diverse modules for unknown robotic tasks, we devised a comprehensive robotic task processing pipeline with standardized input and output parametric at each layer, guiding robots to execute tasks based on natural language and multimodal instructions.</p>
+<p id="Par18"><strong>Task instruction understanding layer:</strong> The standardised input encompasses task-oriented natural language and multimodal directives, producing outputs of textual features <em>T</em>, image features <em>I</em>, and audio features <em>A</em>, as extracted by LLMs. Depending on the task requirements, different LLMs can be utilized. For example, tasks demanding straightforward, rapid, and economically efficient solutions can leverage Text-Davinci-003 models. For tasks requiring higher levels of reasoning, more expensive but more powerful GPT-4 models can be employed. Additionally, for tasks requiring local execution to ensure privacy, Llama-3 models should be selected.</p>
+<p id="Par19"><strong>Visual image segmentation layer:</strong> The standard input is the environmental image <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq1"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/25050449d7de/41598_2025_17015_Article_IEq1.gif" loading="lazy" alt="Inline graphic"></span>, with the output being its corresponding features <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq2"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/9527fd80070b/41598_2025_17015_Article_IEq2.gif" loading="lazy" alt="Inline graphic"></span>. Once the robot captures a scene image, the visual segmentation model delineates masks for potential objects based on this input, subsequently cropping the images at these mask locations to obtain a series of environment image features <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq3"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/9527fd80070b/41598_2025_17015_Article_IEq2.gif" loading="lazy" alt="Inline graphic"></span>.</p>
+<p id="Par20"><strong>Cross modal matching layer:</strong> With task features and environmental image features as standard inputs, the output is the task’s target image <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq4"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/b5906116d186/41598_2025_17015_Article_IEq4.gif" loading="lazy" alt="Inline graphic"></span>. Textual <em>T</em>, image <em>I</em>, and audio <em>A</em> features, alongside the environmental image features <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq5"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/9527fd80070b/41598_2025_17015_Article_IEq2.gif" loading="lazy" alt="Inline graphic"></span>, are routed to their respective matching models, yielding corresponding matched image results. Currently, CLIP models are used for image-text matching, Open-CLIP model for image-image matching, and ImageBind model for image-sound matching.</p>
+<p id="Par21"><strong>Robotic action control layer:</strong> The standard input is the task’s target image <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq6"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/b5906116d186/41598_2025_17015_Article_IEq4.gif" loading="lazy" alt="Inline graphic"></span>, which outputs the robot’s action. Employing the robot’s hand-eye calibration module, the target image’s central point is mapped to its actual position in the robot’s coordinate framework and subsequently relayed to the relevant action module to initiate the task.</p>
+<p id="Par22">However, the contemporary visual zero-shot segmentation model, the “Segment Anything Model” (SAM), is plagued with limited segmentation accuracy and prolonged response times. This frequently results in the framework receiving incomplete scene images or enduring excessive operation durations. To mitigate the challenges induced by the SAM model, we integrated the Mobile-SAM and HQ-SAM models into the framework. When tasks are time-sensitive, the LLM leverages the five times faster<sup><a href="#CR44" class="usa-link" aria-describedby="CR44">44</a></sup> Mobile-SAM model, while when tasks are precision-sensitive, the LLM will use the HQ-SAM model with higher accuracy.</p>
+<p id="Par23">The LLM serves as the central decision-making component that analyzes task instructions and determines the appropriate module selection and execution sequence. The process involves three key steps: (1) the LLM classifies the input into one of four interaction modes (pure-language, language-image, language-sound, or directed-enhanced), (2) based on keywords such as “hurry up” or “precisely”, it selects the appropriate segmentation model (Mobile-SAM for speed, HQ-SAM for precision, or standard SAM for balanced performance), and (3) it constructs and executes the processing pipeline where each module’s output serves as input to the next module in the sequence. This systematic approach ensures consistent task execution while maintaining framework flexibility across diverse scenarios.</p></section><section id="Sec6"><h3 class="pmc_sec_title">Flexible modal inputs in “Panda Act”</h3>
+<p id="Par24">The “Panda Act” framework is capable of flexibly handling various types of input. Based on the natural language instructions provided by users, our LLM can autonomously determine specific interaction patterns. To accommodate different interaction needs, we have designed four interaction modes for the “Panda Act”: pure-language interaction, language-image interaction, language-sound interaction, and directed-enhanced interaction.</p>
+<p id="Par25"><strong>Pure-language instruction:</strong> LLMs are capable of extracting key information from users’ descriptive instructions, including requirements for segmentation speed and accuracy, characteristics of target objects and objects, and potential operational behaviours. For instance, when a user inputs instructions such as “Hurry up and put the apples in the fruit basket,” the framework infers that the task involves rapidly locating and grasping apples, then placing them into the fruit basket. To achieve this goal, the framework calls on the Mobile-SAM model with a faster response time to segment the image. Subsequently, it utilizes the CLIP model to separately extract text features of “apples” and “fruit basket” from the image, then compares these features with the image features, calculates their similarity, and thus precisely locates the position of the apples and fruit basket. Finally, the framework calls on the pick-and-place action, which controls the mechanical arm to grasp the apples and place them in the specified position of the fruit basket.</p>
+<p id="Par26"><strong>Language-image instruction:</strong> Under this mode, instructions are used to describe the target object by referring to images, guiding the framework to complete robot tasks. For example, when the input instruction is “Place the object in image 1 on image 2,” in which image 1 and image 2 represent the addresses of the sample images, the LLM identifies this as an image-based interaction task. If no speed or accuracy requirements are explicitly stated by the user, the framework defaults to using the standard SAM model for image segmentation. Subsequently, the framework inputs both the sample image and the current scene image into the Open-CLIP model, determining the corresponding relationship between the sample image and the target object in the scene based on the similarity of their feature vectors.</p>
+<p id="Par27"><strong>Language-sound instruction:</strong> Under this mode, the instructions require the robot to act according to the surrounding sounds. For example, when the instruction is “rotate the ringing alarm clock by 90 degrees”, the specific object “ringing alarm clock” is explicitly mentioned in the instruction. The framework automatically records the sound of the environment for approximately 10 seconds. Then, the current scenario image and the recorded environmental sound are input into the ImageBind model to pinpoint the sound-emitting object by comparing feature embeddings.</p>
+<p id="Par28"><strong>Directed-enhanced instruction:</strong> When the target object cannot be described in words or multi-modal information, directed enhanced instructions provide an effective alternative. For this mode, we have designed a separate GUI interface for users to click or select the target object. When the instruction content includes phrases such as “I don’t know how to describe this object”, the framework will automatically launch the GUI interface for clicking/selecting the target object. Users can then click or select the target object using this interface. The framework will transmit the click/select coordinates to the HQ-SAM model, prompting the model to segment and localise the selected object.</p></section></section><section id="Sec7"><h2 class="pmc_sec_title">Simulations</h2>
+<section id="Sec8"><h3 class="pmc_sec_title">Simulation environment construction</h3>
+<p id="Par30">A virtual simulation environment has been established using PyBullet and the Universal Robot UR5 robotic arm. The operational workspace of this environment spans dimensions of 0.5m x 1m, employing the VIMABench simulation suite<sup><a href="#CR48" class="usa-link" aria-describedby="CR48">48</a></sup>. As depicted in Fig. <a href="#Fig3" class="usa-link">3</a>, this suite comprises an extensible collection of 3D objects and textures.</p>
+<figure class="fig xbox font-sm" id="Fig3"><h4 class="obj_head">Fig. 3.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12375720_41598_2025_17015_Fig3_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/c58fd3a1c7e6/41598_2025_17015_Fig3_HTML.jpg" loading="lazy" id="MO3" height="408" width="699" alt="Fig. 3"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig3/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>3D objects and textures in the simulated environment.</p></figcaption></figure><p id="Par31">Within the virtual simulation environment, two observational perspectives are provided: a frontal view and a top-down view, with the latter being primarily employed in this study. The end-effector of the robotic arm utilizes a suction cup. Moreover, the simulation environment incorporates fundamental operational actions such as “pick and place”, “rotation”, and “pushing”.</p>
+<p id="Par32">Figure <a href="#Fig4" class="usa-link">4</a> provides a detailed illustration of the virtual simulation environment constructed in this paper. On the left, the robotic arm operation scenario is depicted, which encompasses a Universal Robot UR5 arm, an operation console, and various objects of diverse morphologies. The UR5 arm includes six rotational joints, enabling it to perform a wide range of operations in the simulated environment. The right side of Fig. <a href="#Fig4" class="usa-link">4</a> represents the camera perspective in the virtual milieu, employing a top-down viewpoint. This perspective vividly captures the geometry, texture, and relative positioning of each object, offering a comprehensive understanding of the scene’s layout for the framework.</p>
+<figure class="fig xbox font-sm" id="Fig4"><h4 class="obj_head">Fig. 4.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12375720_41598_2025_17015_Fig4_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/2bb73861cf71/41598_2025_17015_Fig4_HTML.jpg" loading="lazy" id="MO4" height="298" width="749" alt="Fig. 4"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig4/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Simulated experimental environment. The left image is the simulated environment, and the right is the top camera view.</p></figcaption></figure></section><section id="Sec9"><h3 class="pmc_sec_title">Zero-shot robotic tasks evaluation</h3>
+<p id="Par33">The zero-shot robotic tasks performance of the framework is evaluated using the VIMABench suite of tasks<sup><a href="#CR48" class="usa-link" aria-describedby="CR48">48</a></sup>. VIMABench encompasses six categories and 17 task templates, with PyBullet selected as the backend and the default renderer for the evaluation benchmarks. As illustrated in Fig. <a href="#Fig5" class="usa-link">5</a>, the paper selects representative meta-tasks from the suite, such as visual manipulation, scene comprehension, and rotational operations, to comprehensively assess the “Panda Act” framework’s zero-shot robotic task capabilities.</p>
+<figure class="fig xbox font-sm" id="Fig5"><h4 class="obj_head">Fig. 5.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12375720_41598_2025_17015_Fig5_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/cb6690665ef7/41598_2025_17015_Fig5_HTML.jpg" loading="lazy" id="MO5" height="535" width="749" alt="Fig. 5"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig5/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Evaluate the “Panda Act” framework with the VIMABench evaluation suite.</p></figcaption></figure><p id="Par34">We selected four representative meta-tasks (Task 1, Task 2, Task 3, and Task 4) from VIMABench, encompassing everything from simple object manipulation to visual reasoning, thoroughly assessing the performance of the “Panda Act” framework in zero-shot robotic tasks. The following is a detailed description of these tasks:</p>
+<ul class="list" style="list-style-type:disc">
+<li><p id="Par35"><strong><em>Task 1</em></strong>: Identify and select a designated object, subsequently placing it into a specific container. The task is deemed successful only when all specified objects are situated within the container.</p></li>
+<li><p id="Par36"><strong><em>Task 2</em></strong>: Insert objects with distinct textures into containers of a specified hue. Success is achieved once all objects bearing the designated texture are housed within containers of the stipulated colour.</p></li>
+<li><p id="Par37"><strong><em>Task 3</em></strong>: Rotate an object clockwise along the Z-axis to a specified angle. The task is considered successful only when the object’s position aligns with its original, and its orientation corresponds with the predetermined post-rotation angle.</p></li>
+<li><p id="Par38"><strong><em>Task 4</em></strong>: Learn the relationships of novel vocabulary terms. The task is successful when all target objects lie within the domain of the container.</p></li>
+</ul>
+<p>For our experiments, we employed GPT-4 as the language model. The framework autonomously chooses the appropriate image segmentation and multimodal perception zero-shot models based on task prompts. The framework controls the model’s output solely through limited prompts to GPT-4, without any training or fine-tuning for the tasks.</p>
+<p id="Par39">To evaluate the performance of the “Panda Act” framework, we conducted experiments using the VIMABench benchmark and compared the results with current methods that learn tasks from scratch. Table <a href="#Tab1" class="usa-link">1</a> presents the evaluation results of the PandaAct framework against other baseline methods on VIMABench. To ensure a fair comparison, we selected models with the largest number of parameters, specifically those with 200 million parameters, from among these methods. Our comparison baselines include the following task-learning methods from scratch:</p>
+<section class="tw xbox font-sm" id="Tab1"><h4 class="obj_head">Table 1.</h4>
+<div class="caption p"><p>Simulation results for all methods (Success Rates in %).</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1">Method</th>
+<th align="left" colspan="1" rowspan="1">Task 01</th>
+<th align="left" colspan="1" rowspan="1">Task 02</th>
+<th align="left" colspan="1" rowspan="1">Task 03</th>
+<th align="left" colspan="1" rowspan="1">Task 04</th>
+<th align="left" colspan="1" rowspan="1">Average</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">Gato-200M</td>
+<td align="left" colspan="1" rowspan="1">79.0</td>
+<td align="left" colspan="1" rowspan="1">68.0</td>
+<td align="left" colspan="1" rowspan="1">91.5</td>
+<td align="left" colspan="1" rowspan="1">74.0</td>
+<td align="left" colspan="1" rowspan="1">78.1</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Flamingo-200M</td>
+<td align="left" colspan="1" rowspan="1">56.0</td>
+<td align="left" colspan="1" rowspan="1">58.5</td>
+<td align="left" colspan="1" rowspan="1">63.0</td>
+<td align="left" colspan="1" rowspan="1">62.5</td>
+<td align="left" colspan="1" rowspan="1">60.0</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">GPT-200M</td>
+<td align="left" colspan="1" rowspan="1">62.0</td>
+<td align="left" colspan="1" rowspan="1">57.5</td>
+<td align="left" colspan="1" rowspan="1">41.0</td>
+<td align="left" colspan="1" rowspan="1">54.5</td>
+<td align="left" colspan="1" rowspan="1">53.8</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Panda Act</td>
+<td align="left" colspan="1" rowspan="1">92.4</td>
+<td align="left" colspan="1" rowspan="1">85.2</td>
+<td align="left" colspan="1" rowspan="1">98.5</td>
+<td align="left" colspan="1" rowspan="1">94.2</td>
+<td align="left" colspan="1" rowspan="1">92.6</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<div class="tw-foot p"><div class="fn" id="_fn_p58"><p>Task 01: Object identification and placement; Task 02: Texture-based categorization; Task 03: Object rotation; Task 04: Novel-vocabulary learning.</p></div></div></section><p id="Par40"><strong>Gato</strong> is a model that only has a decoder, trained using pure supervised learning. Gato predicts actions in an autoregressive manner, with different tasks specified by providing the model with the corresponding initial token sequence<sup><a href="#CR55" class="usa-link" aria-describedby="CR55">55</a></sup>.</p>
+<p id="Par41"><strong>Flamingo</strong> is a vision-language model that embeds a variable number of hint images into a fixed number of tokens through the Perceiver Resampler module, associating it with the language encoder through cross-attention to the encoded hints<sup><a href="#CR56" class="usa-link" aria-describedby="CR56">56</a></sup>.</p>
+<p id="Par42"><strong>GPT</strong> is a behaviour cloning agent based on the GPT architecture, conditioned through tokenised multimodal hints. It decodes the next step of action autoregressively based on the multimodal hints and interaction history<sup><a href="#CR57" class="usa-link" aria-describedby="CR57">57</a></sup>.</p>
+<p id="Par43">We employed four meta-tasks to assess these techniques, with each evaluation conducted on 150 instances, utilising the task success rate as a metric for measurement. This evaluation was determined by the VIMABench simulator based on the configuration. Table <a href="#Tab1" class="usa-link">1</a> showcases the evaluation results of the “Panda Act” framework on VIMABench, where each reported success rate represents the mean performance across multiple evaluation runs with standard deviations of ±2.1% for Task 1, ±1.8% for Task 2, ±1.5% for Task 3, and ±2.3% for Task 4. We directly employed different baseline experimental results from<sup><a href="#CR48" class="usa-link" aria-describedby="CR48">48</a></sup>. The results indicate that our approach significantly outperforms three other strategies. This underscores the “Panda Act” framework’s exceptional performance in comprehending intricate instructions and executing precise operations. It is noteworthy that our framework is entirely zero-shot, having undergone no specific training, relying solely on task information and prompts from an LLM without the involvement of other technologies or data. To further validate our methodology, we conducted an ablation study on the “Panda Act” framework.</p></section><section id="Sec10"><h3 class="pmc_sec_title">Ablation analysis</h3>
+<section id="Sec11"><h4 class="pmc_sec_title">LLMs</h4>
+<p id="Par45">In the “Panda Act” framework, the language model serves as a central component. To delve deeper into the efficacy of LLMs within the framework, this study utilises both the GPT-4, Llama-3 and Text-Davinci-003 models for comparative testing experiments within the VIMABench task suite. The outcomes are depicted in Fig. <a href="#Fig6" class="usa-link">6</a>a.</p>
+<figure class="fig xbox font-sm" id="Fig6"><h5 class="obj_head">Fig. 6.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12375720_41598_2025_17015_Fig6_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/45ae033fc1eb/41598_2025_17015_Fig6_HTML.jpg" loading="lazy" id="MO6" height="173" width="667" alt="Fig. 6"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig6/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Comparison of success rates across different models.</p></figcaption></figure><p id="Par46">The results reveal that the GPT-4 model demonstrates superior performance compared to the Llama-3 and Text-Davinci-003 models, indicating that LLMs play a pivotal role in the success of the experiments. Upon further analysis of the code generated by three language models, this study identifies two primary causative factors for the disparities:</p>
+<ul class="list" style="list-style-type:disc">
+<li><p id="Par47"><strong><em>Hallucination</em></strong>: In certain experiments, Llama-3 and Text-Davinci-003 models produced outputs that were either irrelevant to the actual task or logically incongruent, a phenomenon attributed to the hallucination tendencies of LLMs.</p></li>
+<li><p id="Par48"><strong><em>Omission</em></strong>: The tests indicate that, in comparison to the GPT-4 model, Llama-3 and Text-Davinci-003 models are more prone to overlooking or forgetting crucial operational steps or information, leading to the framework’s inability to execute tasks accurately.</p></li>
+</ul>
+<p>To provide a more comprehensive evaluation, we also analysed the response time performance of different LLMs across all meta-tasks, as shown in Table <a href="#Tab2" class="usa-link">2</a>.</p>
+<section class="tw xbox font-sm" id="Tab2"><h5 class="obj_head">Table 2.</h5>
+<div class="caption p"><p>Response time comparison of different LLMs (Seconds).</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1">Model</th>
+<th align="left" colspan="1" rowspan="1">Task 01</th>
+<th align="left" colspan="1" rowspan="1">Task 02</th>
+<th align="left" colspan="1" rowspan="1">Task 03</th>
+<th align="left" colspan="1" rowspan="1">Task 04</th>
+<th align="left" colspan="1" rowspan="1">Average</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">GPT-4</td>
+<td align="left" colspan="1" rowspan="1">
+<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq7"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/689334438d16/41598_2025_17015_Article_IEq7.gif" loading="lazy" alt="Inline graphic"></span>
+</td>
+<td align="left" colspan="1" rowspan="1">
+<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq8"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/9c974ed25517/41598_2025_17015_Article_IEq8.gif" loading="lazy" alt="Inline graphic"></span>
+</td>
+<td align="left" colspan="1" rowspan="1">
+<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq9"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/02e6cdae18e2/41598_2025_17015_Article_IEq9.gif" loading="lazy" alt="Inline graphic"></span>
+</td>
+<td align="left" colspan="1" rowspan="1">
+<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq10"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/5333812cbfb6/41598_2025_17015_Article_IEq10.gif" loading="lazy" alt="Inline graphic"></span>
+</td>
+<td align="left" colspan="1" rowspan="1">
+<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq11"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/2305323d4545/41598_2025_17015_Article_IEq11.gif" loading="lazy" alt="Inline graphic"></span>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Llama-3</td>
+<td align="left" colspan="1" rowspan="1">
+<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq12"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/49bf094c1414/41598_2025_17015_Article_IEq12.gif" loading="lazy" alt="Inline graphic"></span>
+</td>
+<td align="left" colspan="1" rowspan="1">
+<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq13"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/51138d85db14/41598_2025_17015_Article_IEq13.gif" loading="lazy" alt="Inline graphic"></span>
+</td>
+<td align="left" colspan="1" rowspan="1">
+<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq14"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/eefffb015fbf/41598_2025_17015_Article_IEq14.gif" loading="lazy" alt="Inline graphic"></span>
+</td>
+<td align="left" colspan="1" rowspan="1">
+<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq15"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/631c206eae6d/41598_2025_17015_Article_IEq15.gif" loading="lazy" alt="Inline graphic"></span>
+</td>
+<td align="left" colspan="1" rowspan="1">
+<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq16"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/b07ee2f5f3b9/41598_2025_17015_Article_IEq16.gif" loading="lazy" alt="Inline graphic"></span>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Text-Davinci-003</td>
+<td align="left" colspan="1" rowspan="1">
+<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq17"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/b6b671587610/41598_2025_17015_Article_IEq17.gif" loading="lazy" alt="Inline graphic"></span>
+</td>
+<td align="left" colspan="1" rowspan="1">
+<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq18"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/64a4d8711974/41598_2025_17015_Article_IEq18.gif" loading="lazy" alt="Inline graphic"></span>
+</td>
+<td align="left" colspan="1" rowspan="1">
+<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq19"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/34af8af97eee/41598_2025_17015_Article_IEq19.gif" loading="lazy" alt="Inline graphic"></span>
+</td>
+<td align="left" colspan="1" rowspan="1">
+<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq20"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/87c5955baf6c/41598_2025_17015_Article_IEq20.gif" loading="lazy" alt="Inline graphic"></span>
+</td>
+<td align="left" colspan="1" rowspan="1">
+<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq21"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/64a4d8711974/41598_2025_17015_Article_IEq18.gif" loading="lazy" alt="Inline graphic"></span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<div class="tw-foot p"><div class="fn" id="_fn_p70"><p>Task 01: Object identification and placement; Task 02: Texture-based categorization; Task 03: Object rotation; Task 04: Novel-vocabulary learning</p></div></div></section><p id="Par49">The response time analysis reveals interesting trade-offs between different models. Text-Davinci-003 demonstrates the fastest response times with an average of 3.1 s, followed by GPT-4 at 3.7 s, while Llama-3 shows the slowest performance at 5.1 s. However, this speed advantage of Text-Davinci-003 comes at the cost of reduced task accuracy due to the omission issues mentioned above. GPT-4 provides the optimal balance between response time and task completion accuracy. The slower response time of Llama-3 can be attributed to its increased computational complexity and the additional processing overhead required for local execution.</p></section><section id="Sec12"><h4 class="pmc_sec_title">Zero-shot models</h4>
+<p id="Par50">The operation of the “Panda Act” framework is also intricately linked to its zero-shot models. To elucidate the impact of these zero-shot models on the framework’s overarching performance, this study conducted a comprehensive ablation experiment.</p>
+<p id="Par51">As depicted in Fig. <a href="#Fig6" class="usa-link">6</a>b and c, this study further contrasts the success rates of different zero-shot visual models and multimodal perceptual models in the Experiment. The findings underscore that variances in zero-shot models have a significant influence on success rates. More specifically, there is a positive correlation between the performance of zero-shot models and the success rate of the experiments. Compared to the multimodal perceptual models, the quality of image segmentation from the visual segmentation models has a more pronounced impact on the framework’s overall performance. This study postulates that this might be due to the visual segmentation model’s outputs directly influencing the matching results of the multimodal perceptual models, and there exists a sequential relationship between the two.</p></section></section></section><section id="Sec13"><h2 class="pmc_sec_title">Experiment I: tests of interaction modes</h2>
+<p id="Par52">In this section, we evaluated our framework in a real-world environment. Our real-world platform comprises a Dobot Magician robotic arm and an Intel RealSense D435i depth camera capturing RGB-D images at a resolution of 1280 × 720.</p>
+<section id="Sec14"><h3 class="pmc_sec_title">Case I: pure-language interaction</h3>
+<p id="Par53">As depicted in Fig. <a href="#Fig7" class="usa-link">7</a>a, this study tested and validated the pure language interaction model under actual conditions. The test environment consisted of a robotic arm, dishes, and green vegetables. The framework captured scene images via a RealSense camera installed at the top.</p>
+<figure class="fig xbox font-sm" id="Fig7"><h4 class="obj_head">Fig. 7.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12375720_41598_2025_17015_Fig7_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/ad6a4322d847/41598_2025_17015_Fig7_HTML.jpg" loading="lazy" id="MO7" height="197" width="668" alt="Fig. 7"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig7/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Tests of interaction modes.</p></figcaption></figure><p id="Par54">The test employed “Put the greens on the plate” as the language instruction.</p>
+<p id="Par55">The movement of robots in the testing process is divided into three stages:</p>
+<ol class="list" style="list-style-type:decimal">
+<li><p id="Par56">Firstly, the LLM extracts segmentation speed and accuracy requirements, the target object and object information, and potential action information from the user’s descriptive sentences.</p></li>
+<li><p id="Par57">Then, the LLM calls upon the segmentation base model, such as SAM, based on “greens” and “plate”, and calls upon the image-text matching base model, such as Clip, based on “put” and “on”.</p></li>
+<li><p id="Par58">Finally, the LLM determines whether to use the Pick and Place action based on “put” and “on”, generates executable Python code, segments the image, obtains the object position, and sends it to the robot for execution.</p></li>
+</ol>
+<p>Through natural language instructions, users can use this framework without any additional learning or training. Furthermore, the GPT-4 model can provide feedback to users, enabling human-in-the-loop control. This enhances the smoothness and user experience of interaction. This validates that the framework can correctly understand and execute pure language instructions in a real environment.</p></section><section id="Sec15"><h3 class="pmc_sec_title">Case II: language-image interaction</h3>
+<p id="Par59">As illustrated in Fig. <a href="#Fig7" class="usa-link">7</a>b, this study conducted an empirical test on the language-image instruction in the actual environment. The test scenario included a pizza and a banana. To validate this interaction pattern, we adopted the “Place the Image1(Banana Image) on the Image2(Pizza Image)” as the interaction instruction, where Image1 represents the image path of the banana locally loaded and Image2 represents the image path of the pizza.</p>
+<p id="Par60">The movement of robots during testing is divided into the following stages:</p>
+<ol class="list" style="list-style-type:decimal">
+<li><p id="Par61">Firstly, through the parsing of “image1” and “image2”, LLMs are able to identify that the user’s intention is to engage in image interaction.</p></li>
+<li><p id="Par62">Next, it extracts the address information of the example image from the user input.</p></li>
+<li><p id="Par63">If the user does not specify specific speed and precision requirements, the framework will default to a general image segmentation model, such as the SAM model.</p></li>
+<li><p id="Par64">When in the image interaction mode, the LLM will invoke the image-image matching base model, such as ImageBind.</p></li>
+<li><p id="Par65">Based on the instructions of “Place” and “on”, the LLM determines to execute the Pick and Place action.</p></li>
+<li><p id="Par66">Finally, the LLM generates executable Python code for image segmentation, object location acquisition, and transmission to the robot to execute corresponding actions.</p></li>
+</ol>
+<p>This interaction pattern significantly reduces the challenges faced by users when describing the target, reduces misunderstandings caused by semantic ambiguity, and ensures that the framework can accurately identify target objects in uncertain environments.</p></section><section id="Sec16"><h3 class="pmc_sec_title">Case III: language-sound interaction</h3>
+<p id="Par67">As shown in Fig. <a href="#Fig7" class="usa-link">7</a>c, we have designed a language-sound interaction mode to address specific scenarios that require sound localisation. In the experiment, we set up test scenarios including a mechanical arm, a plate, and a clock that is ringing.</p>
+<p id="Par68">The testing employed the “Put the ringing alarm clock on a plate” as the interaction instruction. The framework automatically recognized this instruction as a language-sound interaction task and recorded the environmental audio for 10 seconds.</p>
+<p id="Par69">The movement of robots during testing is divided into the following stages:</p>
+<ol class="list" style="list-style-type:decimal">
+<li><p id="Par70">Firstly, the LLM identified the language-sound interaction as the task by analyzing the instructions and subsequently recorded 10 seconds of environmental sounds for analysis.</p></li>
+<li><p id="Par71">Subsequently, the LLM employed the default split model, such as the SAM model, to extract visual features of the target object.</p></li>
+<li><p id="Par72">The large model then leveraged the image-sound matching model, such as ImageBind, to precisely locate the sound source position.</p></li>
+<li><p id="Par73">Based on the instructions such as “Put” and “On”, the LLM determined to adopt the “Pick and place” action sequence.</p></li>
+<li><p id="Par74">Ultimately, the LLM generated executable Python code for image segmentation, and object location recognition and sent the corresponding instructions to the robot to perform the corresponding actions.</p></li>
+</ol>
+<p>By equipping robots with the ability to perceive sound, they can respond flexibly to various uncertain operational environments, especially when sound information is more important than visual information.</p></section><section id="Sec17"><h3 class="pmc_sec_title">Case IV: directed-enhanced interaction</h3>
+<p id="Par76">As illustrated in Fig. <a href="#Fig7" class="usa-link">7</a>d, the test environment is composed of a series of disorganized objects. When the user indicates that they cannot accurately describe the target through language or images. The framework immediately identifies this input as an instruction enhancement task and prompts a GUI interface to guide the user in identifying the target object via clicking or encircling, as shown in Fig. <a href="#Fig8" class="usa-link">8</a>. Given the clarity of the task objective, the framework does not activate the multimodal perception module; instead directly segments the target object based on the selected area and drives the mechanical arm to execute the required operation, significantly enhancing the operational performance of the robot in uncertain environments.</p>
+<figure class="fig xbox font-sm" id="Fig8"><h4 class="obj_head">Fig. 8.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12375720_41598_2025_17015_Fig8_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/a2d35402357d/41598_2025_17015_Fig8_HTML.jpg" loading="lazy" id="MO8" height="407" width="749" alt="Fig. 8"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig8/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>GUI interface for directed-enhanced interaction.</p></figcaption></figure><p id="Par77">The movement of robots during testing is divided into the following stages:</p>
+<ol class="list" style="list-style-type:decimal">
+<li><p id="Par78">Firstly, the users express their needs through natural language, such as “I don’t know how to describe this object” or “Can I click/select the object for operation?”</p></li>
+<li><p id="Par79">Subsequently, the LLM identifies the user’s need and determines to use the directed-enhanced mode, thereby initiating the click/select interface.</p></li>
+<li><p id="Par80">The user selects the object they want to operate by clicking or selecting.</p></li>
+<li><p id="Par81">The click/select coordinates of the user are transferred to the segmentation model, which generates a high-quality segmentation of the object and determines its location.</p></li>
+<li><p id="Par82">Finally, based on the position information, executable instructions are generated, which are then sent to the underlying controller. The robot then executes the corresponding action.</p></li>
+</ol>
+<p>The directed-enhanced interaction mode provides a more intuitive and flexible operation method for the user. It is particularly suitable for uncertain scenarios that are difficult to describe through language. This model adopts only high-precision segmentation models, thus significantly enhancing the robot’s response speed and accuracy. To evaluate the usability of this interaction mode, we conducted preliminary tests with 5 research team members, each performing 8–10 trials of object selection and manipulation tasks. The results showed consistent performance across users with success rates ranging from 85 to 95% (mean: 91.2%, standard deviation: ±3.8%), indicating the framework’s robustness to different user interaction styles.</p></section></section><section id="Sec18"><h2 class="pmc_sec_title">Experiment II: tests of adaptability</h2>
+<section id="Sec19"><h3 class="pmc_sec_title">Case I: zero-shot robotic tasks</h3>
+<p id="Par84">We constructed a sample set of 50 one-shot English instructions for three typical basic tasks: placing, rotating, and picking, with each task type tested 15 times to calculate reliable success rates and analyse the reasons for task failure. The reported success rates (76% for placing, 84% for rotating, 80% for picking) represent mean values across these trials with standard deviations of ±4.2%, ±3.8%, and ±5.1% respectively.</p>
+<p id="Par85">As shown in Fig. <a href="#Fig9" class="usa-link">9</a>, overall, our approach shows good generalisation ability on different tasks with an average success rate between 75% and 85%, note that our approach is directly transferred from a simulated environment to a real one without any training and data fine-tuning. By further analysing the experimental results, we find that code generation errors are the main cause of failure, and we speculate that the main reason is due to the uncontrollable nature of the output of the LLM. To provide concrete insights into these failures, we present typical code generation error examples.</p>
+<figure class="fig xbox font-sm" id="Fig9"><h4 class="obj_head">Fig. 9.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12375720_41598_2025_17015_Fig9_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/b5c93ece3fd1/41598_2025_17015_Fig9_HTML.jpg" loading="lazy" id="MO9" height="595" width="748" alt="Fig. 9"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig9/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Test of zero-shot robotic tasks.</p></figcaption></figure><figure class="fig xbox font-sm" id="Figa"><p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12375720_41598_2025_17015_Figa_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/27d0e446ba95/41598_2025_17015_Figa_HTML.jpg" loading="lazy" id="MO10" height="66" width="691" alt="graphic file with name 41598_2025_17015_Figa_HTML.jpg"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Figa/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p><strong>Example 1.</strong> Missing essential processing steps.</p></figcaption></figure><figure class="fig xbox font-sm" id="Figb"><p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12375720_41598_2025_17015_Figb_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/b0e200464897/41598_2025_17015_Figb_HTML.jpg" loading="lazy" id="MO11" height="139" width="691" alt="graphic file with name 41598_2025_17015_Figb_HTML.jpg"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Figb/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p><strong>Example 2.</strong> Incorrect parameter matching.</p></figcaption></figure><p id="Par86">Error Example 1 demonstrates critical pipeline incompleteness where the LLM bypasses essential processing steps, including image segmentation, object cropping, and coordinate transformation, resulting in attempting to pass raw image data directly to CLIP and subsequently to the action module without proper object localisation. Error Example 2 shows parameter type mismatching where the LLM incorrectly assigns audio data to the CLIP module, which is designed for text-image matching, instead of using the ImageBind module for audio-visual correspondence.</p>
+<p id="Par87">Potential strategies to address these limitations include implementing pipeline integrity checking, parameter type validation, and template-based error recovery mechanisms with human-in-the-loop intervention when automatic correction fails. We also found that the number of actions in a robot’s task also has an impact on the task success rate. Tasks with fewer actions usually have a higher success rate, possibly due to reduced code complexity, which in turn increases the task success rate.</p></section><section id="Sec20"><h3 class="pmc_sec_title">Case II: colour understanding tasks</h3>
+<p id="Par89">To evaluate the framework’s capacity to understand colours, this article constructed a scenario comprising five differently coloured cubes, as depicted in Fig. <a href="#Fig10" class="usa-link">10</a>. The framework issued the instructions “Pick up the yellow cube” and “Pick up the blue cube”. It successfully identified the cubes corresponding to the specified colours and accomplished the tasks. This indicates that the framework can comprehend the association between colour terms and their corresponding scenarios, effectively responding to task directives.</p>
+<figure class="fig xbox font-sm" id="Fig10"><h4 class="obj_head">Fig. 10.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12375720_41598_2025_17015_Fig10_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/8cd4bd9bd541/41598_2025_17015_Fig10_HTML.jpg" loading="lazy" id="MO12" height="221" width="739" alt="Fig. 10"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig10/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Test of colour understanding tasks.</p></figcaption></figure></section><section id="Sec21"><h3 class="pmc_sec_title">Case III: new conceptual understanding tasks</h3>
+<p id="Par91">This paper also assessed the framework’s understanding of novel concepts and its ability to generalise these to tasks. As depicted in Fig. <a href="#Fig11" class="usa-link">11</a>, the task instructions were “The red cube is for ketchup and the green cube is for vegetables. Now please put the ketchup on the burger.” and “The red cube is for flame, the blue cube is for water. Now, please extinguish the flame.” The framework was required to learn that the red cube represented ketchup, the green cube represented vegetables, the red square represented fire, and the blue cube represented water.</p>
+<figure class="fig xbox font-sm" id="Fig11"><h4 class="obj_head">Fig. 11.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12375720_41598_2025_17015_Fig11_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c705/12375720/caa3d2cf8a94/41598_2025_17015_Fig11_HTML.jpg" loading="lazy" id="MO13" height="402" width="730" alt="Fig. 11"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig11/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Test of new conceptual understanding tasks.</p></figcaption></figure></section></section><section id="Sec22"><h2 class="pmc_sec_title">Safety and ethical considerations</h2>
+<p id="Par92">Unlike rule-based systems, LLMs may occasionally produce outputs that are syntactically correct but semantically inconsistent, or misinterpret user intentions in ambiguous instructions. In real-world robotic control, such issues could lead to undesired behaviours, unintended motion, or in extreme cases, hardware damage or safety risks.</p>
+<p id="Par93">To mitigate these risks, our current framework enforces strict constraints on executable functions by limiting LLM outputs to a predefined and verified function library. All experiments were conducted under human supervision in controlled environments using non-critical objects and low-force robotic arms.</p></section><section id="Sec23"><h2 class="pmc_sec_title">Limitations and future work</h2>
+<p id="Par94">While the “Panda Act” framework demonstrates significant advantages in zero-shot robotic manipulation, several key limitations must be acknowledged that provide directions for future research.</p>
+<p id="Par95"><strong>Computational and Performance Limitations:</strong> The framework faces substantial computational demands due to its reliance on multiple large-scale models, including GPT-4, various zero-shot vision models (SAM, HQ-SAM, Mobile-SAM), and multimodal perception models (CLIP, Open-CLIP, ImageBind). The sequential processing of these models creates inherent latency with computational bottlenecks primarily occurring in LLM reasoning, code generation, and visual segmentation processes. Additionally, dependency on cloud-based LLMs introduces network latency and reliability concerns for industrial applications.</p>
+<p id="Par96"><strong>Experimental scope limitations:</strong> Our current real-world experiments primarily focus on static environments with clearly visible objects, which limits the demonstration of the framework’s capabilities in more complex practical scenarios.</p>
+<p id="Par97"><strong>Interactive capabilities limitations:</strong> While our framework supports initial user interaction through multimodal instructions and GUI-based object selection, it lacks mechanisms for online re-planning and partial code re-generation during execution, limiting its adaptability to unexpected situations or real-time user corrections.</p>
+<p id="Par98"><strong>Future research directions:</strong> To address these limitations, future work will focus on: (1) computational efficiency improvements through model compression techniques, heterogeneous computing architectures, and edge computing integration; (2) expanded experimental validation including dynamic environments, occlusion handling, and interactive user feedback loops; (3) enhanced human-robot interaction capabilities with execution state monitoring, real-time error correction, and dynamic re-planning mechanisms; and (4) comprehensive user studies with formal experimental protocols to systematically evaluate user experience across different populations.</p></section><section id="Sec24"><h2 class="pmc_sec_title">Conclusions</h2>
+<p id="Par99">Traditional robot frameworks often rely heavily on extensive training for specific tasks and environments, limiting their generalisation ability. Recently, large language models (LLMs) and zero-shot models have shown strong generalisation across domains, offering new avenues to address this limitation. In this study, we explore the use of multiple zero-shot models to solve the generalisation problem of robots in uncertain environments. We built a robot framework named “Panda Act”, integrating language, vision, and auditory zero-shot models. This framework is not constrained by the environment and does not require specific scene learning, but rather utilizes the generalisation capacity of multimodal zero-shot models. The framework flexibly processes language and multimodal instructions, generating executable code that dynamically invokes the appropriate zero-shot models based on parsed task intent. This approach avoids specific task training and allows the framework to understand and execute instructions and scenes it has never seen before, significantly outperforming methods that require learning tasks from scratch. Notably, our method also exhibits good generalisation in real robot environments and enables the execution of tasks with complex semantic meanings.</p></section><section id="notes1"><h2 class="pmc_sec_title">Author contributions</h2>
+<p>Y.L.: Conceptualization; Methodology; Software; Validation; Formal analysis; Investigation; Data Curation; Visualization; Writing-Original Draft; Writing-Review &amp; Editing. P.J.: Software; Validation; Investigation; Writing-Review &amp; Editing. C.C.: Investigation; Data Curation; Writing-Review &amp; Editing. X.Z.: Writing-Review &amp; Editing. C.L.: Conceptualization; Supervision; Writing-Review &amp; Editing. All authors have read and agreed to the published version of the manuscript.</p></section><section id="notes2"><h2 class="pmc_sec_title">Data availability</h2>
+<p>The data and models used or analyzed in this paper are available from the corresponding author upon a reasonable request.</p></section><section id="notes3"><h2 class="pmc_sec_title">Code availability</h2>
+<p>The related code is available at: <a href="https://github.com/evannli1/Panda-Act-Framework" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://github.com/evannli1/Panda-Act-Framework</a>.</p></section><section id="FPar2"><h2 class="pmc_sec_title">Competing interests</h2>
+<p id="Par104">The authors declare no competing interests.</p></section><section id="fn-group1" class="fn-group"><h2 class="pmc_sec_title">Footnotes</h2>
+<div class="fn-group p font-secondary-light font-sm"><div class="fn p" id="fn1">
+<p><strong>Publisher’s note</strong></p>
+<p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</div></div></section><section id="Bib1" class="ref-list"><h2 class="pmc_sec_title">References</h2>
+<section id="Bib1_sec2"><ul class="ref-list font-sm" style="list-style-type:none">
+<li id="CR1">
+<span class="label">1.</span><cite>Ivanov, V., Andrusyshyn, V., Pavlenko, I., Pitel’, J. &amp; Bulej, V. New classification of industrial robotic gripping systems for sustainable production. <em>Sci. Rep.</em><strong>14</strong>, 295 (2024).
+</cite> [<a href="https://doi.org/10.1038/s41598-023-50673-5" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC10762192/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/38167572/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Ivanov,%20V.,%20Andrusyshyn,%20V.,%20Pavlenko,%20I.,%20Pitel%E2%80%99,%20J.%20&amp;%20Bulej,%20V.%20New%20classification%20of%20industrial%20robotic%20gripping%20systems%20for%20sustainable%20production.%20Sci.%20Rep.14,%20295%20(2024)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR2">
+<span class="label">2.</span><cite>Alaaudeen, K., Selvarajan, S., Manoharan, H. &amp; Jhaveri, R. H. Intelligent robotics harvesting system process for fruits grasping prediction. <em>Sci. Rep.</em><strong>14</strong>, 2820 (2024).
+</cite> [<a href="https://doi.org/10.1038/s41598-024-52743-8" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC10837192/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/38307901/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Alaaudeen,%20K.,%20Selvarajan,%20S.,%20Manoharan,%20H.%20&amp;%20Jhaveri,%20R.%20H.%20Intelligent%20robotics%20harvesting%20system%20process%20for%20fruits%20grasping%20prediction.%20Sci.%20Rep.14,%202820%20(2024)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR3">
+<span class="label">3.</span><cite>Abdi, E., Tojib, D., Seong, A. K., Pamarthi, Y. &amp; Millington-Palmer, G. A study on the influence of service robots’ level of anthropomorphism on the willingness of users to follow their recommendations. <em>Sci. Rep.</em><strong>12</strong>, 15266 (2022).
+</cite> [<a href="https://doi.org/10.1038/s41598-022-19501-0" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC9463504/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/36088470/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Abdi,%20E.,%20Tojib,%20D.,%20Seong,%20A.%20K.,%20Pamarthi,%20Y.%20&amp;%20Millington-Palmer,%20G.%20A%20study%20on%20the%20influence%20of%20service%20robots%E2%80%99%20level%20of%20anthropomorphism%20on%20the%20willingness%20of%20users%20to%20follow%20their%20recommendations.%20Sci.%20Rep.12,%2015266%20(2022)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR4">
+<span class="label">4.</span><cite>Chen, A. S., Nair, S. &amp; Finn, C. Learning generalizable robotic reward functions from “in-the-wild” human videos. ArXiv <strong>abs/2103.16817</strong>, 10.15607/RSS.2021.XVII.012 (2021).</cite>
+</li>
+<li id="CR5">
+<span class="label">5.</span><cite>Jiang, Y. et al. Vima: General robot manipulation with multimodal prompts. ArXiv <strong>abs/2210.03094</strong>, 10.48550/arXiv.2210.03094 (2022).</cite>
+</li>
+<li id="CR6">
+<span class="label">6.</span><cite>Escontrela, A., Yu, G., Xu, P., Iscen, A. &amp; Tan, J. Zero-shot terrain generalization for visual locomotion policies. ArXiv <strong>abs/2011.05513</strong> (2020).</cite>
+</li>
+<li id="CR7">
+<span class="label">7.</span><cite>Gupta, A., Devin, C., Liu, Y., Abbeel, P. &amp; Levine, S. Learning invariant feature spaces to transfer skills with reinforcement learning. arXiv preprint <a href="http://arxiv.org/abs/1703.02949" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:1703.02949</a> (2017).</cite>
+</li>
+<li id="CR8">
+<span class="label">8.</span><cite>Finn, C., Xu, K. &amp; Levine, S. Probabilistic model-agnostic meta-learning. <em>Adv. Neural. Inf. Process. Syst.</em><strong>31</strong>, 856 (2018).</cite> [<a href="https://scholar.google.com/scholar_lookup?Finn,%20C.,%20Xu,%20K.%20&amp;%20Levine,%20S.%20Probabilistic%20model-agnostic%20meta-learning.%20Adv.%20Neural.%20Inf.%20Process.%20Syst.31,%20856%20(2018)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR9">
+<span class="label">9.</span><cite>Silver, D. et al. Mastering the game of go with deep neural networks and tree search. <em>Nature</em><strong>529</strong>, 484–489 (2016).
+</cite> [<a href="https://doi.org/10.1038/nature16961" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/26819042/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Silver,%20D.%20et%20al.%20Mastering%20the%20game%20of%20go%20with%20deep%20neural%20networks%20and%20tree%20search.%20Nature529,%20484%E2%80%93489%20(2016)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR10">
+<span class="label">10.</span><cite>Chua, K., Calandra, R., McAllister, R. &amp; Levine, S. Deep reinforcement learning in a handful of trials using probabilistic dynamics models. <em>Adv. Neural. Inf. Process. Syst.</em><strong>31</strong>, 856 (2018).</cite> [<a href="https://scholar.google.com/scholar_lookup?Chua,%20K.,%20Calandra,%20R.,%20McAllister,%20R.%20&amp;%20Levine,%20S.%20Deep%20reinforcement%20learning%20in%20a%20handful%20of%20trials%20using%20probabilistic%20dynamics%20models.%20Adv.%20Neural.%20Inf.%20Process.%20Syst.31,%20856%20(2018)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR11">
+<span class="label">11.</span><cite>Finn, C., Yu, T., Zhang, T., Abbeel, P. &amp; Levine, S. One-shot visual imitation learning via meta-learning. In <em>Conference on Robot Learning</em> 357–368 (PMLR, 2017).</cite>
+</li>
+<li id="CR12">
+<span class="label">12.</span><cite>James, S., Bloesch, M. &amp; Davison, A. J. Task-embedded control networks for few-shot imitation learning. In <em>Conference on Robot Learning</em> 783–795 (PMLR, 2018).</cite>
+</li>
+<li id="CR13">
+<span class="label">13.</span><cite>Yu, T. et al. One-shot imitation from observing humans via domain-adaptive meta-learning. arXiv preprint <a href="http://arxiv.org/abs/1802.01557" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:1802.01557</a> (2018).</cite>
+</li>
+<li id="CR14">
+<span class="label">14.</span><cite>Bonardi, A., James, S. &amp; Davison, A. J. Learning one-shot imitation from humans without humans. <em>IEEE Robot. Autom. Lett.</em><strong>5</strong>, 3533–3539 (2020).</cite> [<a href="https://scholar.google.com/scholar_lookup?Bonardi,%20A.,%20James,%20S.%20&amp;%20Davison,%20A.%20J.%20Learning%20one-shot%20imitation%20from%20humans%20without%20humans.%20IEEE%20Robot.%20Autom.%20Lett.5,%203533%E2%80%933539%20(2020)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR15">
+<span class="label">15.</span><cite>Stepputtis, S. et al. Language-conditioned imitation learning for robot manipulation tasks. <em>Adv. Neural. Inf. Process. Syst.</em><strong>33</strong>, 13139–13150 (2020).</cite> [<a href="https://scholar.google.com/scholar_lookup?Stepputtis,%20S.%20et%20al.%20Language-conditioned%20imitation%20learning%20for%20robot%20manipulation%20tasks.%20Adv.%20Neural.%20Inf.%20Process.%20Syst.33,%2013139%E2%80%9313150%20(2020)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR16">
+<span class="label">16.</span><cite>Lynch, C. &amp; Sermanet, P. Language conditioned imitation learning over unstructured data. arXiv preprint <a href="http://arxiv.org/abs/2005.07648" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:2005.07648</a> (2020).</cite>
+</li>
+<li id="CR17">
+<span class="label">17.</span><cite>Pathak, D. et al. Zero-shot visual imitation. In <em>Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition Workshops</em> 2050–2053 (2018).</cite>
+</li>
+<li id="CR18">
+<span class="label">18.</span><cite>Ho, J. &amp; Ermon, S. Generative adversarial imitation learning. <em>Adv. Neural. Inf. Process. Syst.</em><strong>29</strong>, 856 (2016).</cite> [<a href="https://scholar.google.com/scholar_lookup?Ho,%20J.%20&amp;%20Ermon,%20S.%20Generative%20adversarial%20imitation%20learning.%20Adv.%20Neural.%20Inf.%20Process.%20Syst.29,%20856%20(2016)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR19">
+<span class="label">19.</span><cite>Al-Shedivat, M. et al. Continuous adaptation via meta-learning in nonstationary and competitive environments. arXiv preprint <a href="http://arxiv.org/abs/1710.03641" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:1710.03641</a> (2017).</cite>
+</li>
+<li id="CR20">
+<span class="label">20.</span><cite>Ganin, Y. et al. Domain-adversarial training of neural networks. <em>J. Mach. Learn. Res.</em><strong>1505</strong>, 07818 (2016).</cite> [<a href="https://scholar.google.com/scholar_lookup?Ganin,%20Y.%20et%20al.%20Domain-adversarial%20training%20of%20neural%20networks.%20J.%20Mach.%20Learn.%20Res.1505,%2007818%20(2016)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR21">
+<span class="label">21.</span><cite>Taylor, M. E. &amp; Stone, P. Transfer learning for reinforcement learning domains: a survey. <em>J. Mach. Learn. Res.</em><strong>10</strong>, 856 (2009).</cite> [<a href="https://scholar.google.com/scholar_lookup?Taylor,%20M.%20E.%20&amp;%20Stone,%20P.%20Transfer%20learning%20for%20reinforcement%20learning%20domains:%20a%20survey.%20J.%20Mach.%20Learn.%20Res.10,%20856%20(2009)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR22">
+<span class="label">22.</span><cite>Ahn, M. et al. Do as i can, not as i say: Grounding language in robotic affordances. arXiv preprint <a href="http://arxiv.org/abs/2204.01691" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:2204.01691</a> (2022).</cite>
+</li>
+<li id="CR23">
+<span class="label">23.</span><cite>Chowdhery, A. et al. Palm: scaling language modeling with pathways. arXiv preprint <a href="http://arxiv.org/abs/2204.02311" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:2204.02311</a> (2022).</cite>
+</li>
+<li id="CR24">
+<span class="label">24.</span><cite>Driess, D. et al. Palm-e: an embodied multimodal language model. arXiv preprint <a href="http://arxiv.org/abs/2303.03378" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:2303.03378</a> (2023).</cite>
+</li>
+<li id="CR25">
+<span class="label">25.</span><cite>Dehghani, M. et al. Scaling vision transformers to 22 billion parameters. In <em>International Conference on Machine Learning</em> 7480–7512 (PMLR, 2023).</cite>
+</li>
+<li id="CR26">
+<span class="label">26.</span><cite>Brohan, A. et al. Rt-2: Vision-language-action models transfer web knowledge to robotic control. arXiv preprint <a href="http://arxiv.org/abs/2307.15818" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:2307.15818</a> (2023).</cite>
+</li>
+<li id="CR27">
+<span class="label">27.</span><cite>Radford, A. et al. Learning transferable visual models from natural language supervision. <em>PMLR</em><strong>2103</strong>, 00020 (2021).</cite> [<a href="https://scholar.google.com/scholar_lookup?Radford,%20A.%20et%20al.%20Learning%20transferable%20visual%20models%20from%20natural%20language%20supervision.%20PMLR2103,%2000020%20(2021)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR28">
+<span class="label">28.</span><cite>Gu, X., Lin, T.-Y., Kuo, W. &amp; Cui, Y. Open-vocabulary object detection via vision and language knowledge distillation. arXiv preprint <a href="http://arxiv.org/abs/2104.13921" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:2104.13921</a> (2021).</cite>
+</li>
+<li id="CR29">
+<span class="label">29.</span><cite>Ghiasi, G., Gu, X., Cui, Y. &amp; Lin, T.-Y. Scaling open-vocabulary image segmentation with image-level labels. In <em>European Conference on Computer Vision</em> 540–557 (Springer, 2022).</cite>
+</li>
+<li id="CR30">
+<span class="label">30.</span><cite>Shridhar, M., Manuelli, L. &amp; Fox, D. Cliport: What and where pathways for robotic manipulation. In <em>Conference on Robot Learning</em> 894–906 (PMLR, 2022).</cite>
+</li>
+<li id="CR31">
+<span class="label">31.</span><cite>Shridhar, M., Manuelli, L. &amp; Fox, D. Perceiver-actor: a multi-task transformer for robotic manipulation. In <em>Conference on Robot Learning</em> 785–799 (PMLR, 2023).</cite>
+</li>
+<li id="CR32">
+<span class="label">32.</span><cite>Liang, J. et al. Code as policies: Language model programs for embodied control. In <em>2023 IEEE International Conference on Robotics and Automation (ICRA)</em> 9493–9500 (IEEE, 2023).</cite>
+</li>
+<li id="CR33">
+<span class="label">33.</span><cite>Zeng, A. et al. Socratic models: Composing zero-shot multimodal reasoning with language. arXiv preprint <a href="http://arxiv.org/abs/2204.00598" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:2204.00598</a> (2022).</cite>
+</li>
+<li id="CR34">
+<span class="label">34.</span><cite>Li, S. et al. Pre-trained language models for interactive decision-making. <em>Adv. Neural. Inf. Process. Syst.</em><strong>35</strong>, 31199–31212 (2022).</cite> [<a href="https://scholar.google.com/scholar_lookup?Li,%20S.%20et%20al.%20Pre-trained%20language%20models%20for%20interactive%20decision-making.%20Adv.%20Neural.%20Inf.%20Process.%20Syst.35,%2031199%E2%80%9331212%20(2022)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR35">
+<span class="label">35.</span><cite>Nair, S., Rajeswaran, A., Kumar, V., Finn, C. &amp; Gupta, A. R3m: A universal visual representation for robot manipulation. arXiv preprint <a href="http://arxiv.org/abs/2203.12601" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:2203.12601</a> (2022).</cite>
+</li>
+<li id="CR36">
+<span class="label">36.</span><cite>Grauman, K. et al. Ego4d: around the world in 3,000 hours of egocentric video. In <em>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</em> 18995–19012 (2022).</cite>
+</li>
+<li id="CR37">
+<span class="label">37.</span><cite>Kapelyukh, I. &amp; Vosylius, V. Introducing web-scale diffusion models to robotics. <em>IEEE Robot. Autom. Lett.</em><strong>2023</strong>, 562 (2023).</cite> [<a href="https://scholar.google.com/scholar_lookup?Kapelyukh,%20I.%20&amp;%20Vosylius,%20V.%20Introducing%20web-scale%20diffusion%20models%20to%20robotics.%20IEEE%20Robot.%20Autom.%20Lett.2023,%20562%20(2023)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR38">
+<span class="label">38.</span><cite>Huang, S. et al. Instruct2act: Mapping multi-modality instructions to robotic actions with large language model. arXiv preprint <a href="http://arxiv.org/abs/2305.11176" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:2305.11176</a> (2023).</cite>
+</li>
+<li id="CR39">
+<span class="label">39.</span><cite>OpenAI. Text-davinci-003 model documentation (2023, accessed 29 Aug 2023).</cite>
+</li>
+<li id="CR40">
+<span class="label">40.</span><cite>Touvron, H. et al. Llama: Open and efficient foundation language models. arXiv preprint <a href="http://arxiv.org/abs/2302.13971" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:2302.13971</a> (2023).</cite>
+</li>
+<li id="CR41">
+<span class="label">41.</span><cite>OpenAI. Gpt-4 (2023, accessed 29 Aug 2023).</cite>
+</li>
+<li id="CR42">
+<span class="label">42.</span><cite>Kirillov, A. et al. Segment anything. arXiv preprint <a href="http://arxiv.org/abs/2304.02643" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:2304.02643</a> (2023).</cite>
+</li>
+<li id="CR43">
+<span class="label">43.</span><cite>Ke, L. et al. Segment anything in high quality. arXiv preprint <a href="http://arxiv.org/abs/2306.01567" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:2306.01567</a> (2023).</cite>
+</li>
+<li id="CR44">
+<span class="label">44.</span><cite>Zhang, C. et al. Faster segment anything: Towards lightweight sam for mobile applications. arXiv preprint <a href="http://arxiv.org/abs/2306.14289" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:2306.14289</a> (2023).</cite>
+</li>
+<li id="CR45">
+<span class="label">45.</span><cite>Ilharco, G. et al. Openclip. 10.5281/zenodo.5143773 (2021). If you use this software, please cite it as below.</cite>
+</li>
+<li id="CR46">
+<span class="label">46.</span><cite>Girdhar, R. et al. Imagebind: One embedding space to bind them all. In <em>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</em> 15180–15190 (2023).</cite>
+</li>
+<li id="CR47">
+<span class="label">47.</span><cite>Vemprala, S., Bonatti, R., Bucker, A. &amp; Kapoor, A. Chatgpt for robotics: design principles and model abilities. <em>IEEE Access</em><strong>2306</strong>, 17582 (2023).</cite> [<a href="https://scholar.google.com/scholar_lookup?Vemprala,%20S.,%20Bonatti,%20R.,%20Bucker,%20A.%20&amp;%20Kapoor,%20A.%20Chatgpt%20for%20robotics:%20design%20principles%20and%20model%20abilities.%20IEEE%20Access2306,%2017582%20(2023)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR48">
+<span class="label">48.</span><cite>Jiang, Y. et al. Vima: general robot manipulation with multimodal prompts (2023). 2210.03094.</cite>
+</li>
+<li id="CR49">
+<span class="label">49.</span><cite>Finn, C., Abbeel, P. &amp; Levine, S. Model-agnostic meta-learning for fast adaptation of deep networks. In <em>Proceedings of the 34th International Conference on Machine Learning-Volume 70</em> 1126–1135 (JMLR. org, 2017).</cite>
+</li>
+<li id="CR50">
+<span class="label">50.</span><cite>Levine, S., Pastor, P., Krizhevsky, A. &amp; Quillen, D. Learning hand-eye coordination for robotic grasping with deep learning and large-scale data collection. <em>Int. J. Robot. Res.</em><strong>37</strong>, 421–436 (2018).</cite> [<a href="https://scholar.google.com/scholar_lookup?Levine,%20S.,%20Pastor,%20P.,%20Krizhevsky,%20A.%20&amp;%20Quillen,%20D.%20Learning%20hand-eye%20coordination%20for%20robotic%20grasping%20with%20deep%20learning%20and%20large-scale%20data%20collection.%20Int.%20J.%20Robot.%20Res.37,%20421%E2%80%93436%20(2018)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR51">
+<span class="label">51.</span><cite>Pinto, L. &amp; Gupta, A. Supersizing self-supervision: Learning to grasp from 50k tries and 700 robot hours. In <em>2016 IEEE International Conference on Robotics and Automation (ICRA)</em> 3406–3413 (IEEE, 2016).</cite>
+</li>
+<li id="CR52">
+<span class="label">52.</span><cite>Shridhar, M. et al. Alfred: A benchmark for interpreting grounded instructions for everyday tasks. In <em>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</em> 10740–10749 (2020).</cite>
+</li>
+<li id="CR53">
+<span class="label">53.</span><cite>Tellex, S. et al. Understanding natural language commands for robotic navigation and mobile manipulation. In <em>Proceedings of the National Conference on Artificial Intelligence</em> 1507–1514 (2011).</cite>
+</li>
+<li id="CR54">
+<span class="label">54.</span><cite>Misra, D., Sung, J., Lee, K. &amp; Saxena, A. Tell me dave: Context-sensitive grounding of natural language to manipulation instructions. In <em>2016 IEEE International Conference on Robotics and Automation (ICRA)</em> 5688–5695 (IEEE, 2016).</cite>
+</li>
+<li id="CR55">
+<span class="label">55.</span><cite>Reed, S. et al. A generalist agent. arXiv preprint <a href="http://arxiv.org/abs/2205.06175" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:2205.06175</a> (2022).</cite>
+</li>
+<li id="CR56">
+<span class="label">56.</span><cite>Alayrac, J.-B. et al. Flamingo: a visual language model for few-shot learning. <em>Adv. Neural. Inf. Process. Syst.</em><strong>35</strong>, 23716–23736 (2022).</cite> [<a href="https://scholar.google.com/scholar_lookup?Alayrac,%20J.-B.%20et%20al.%20Flamingo:%20a%20visual%20language%20model%20for%20few-shot%20learning.%20Adv.%20Neural.%20Inf.%20Process.%20Syst.35,%2023716%E2%80%9323736%20(2022)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR57">
+<span class="label">57.</span><cite>Chen, M. et al. Evaluating large language models trained on code. arXiv preprint <a href="http://arxiv.org/abs/2107.03374" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:2107.03374</a> (2021).</cite>
+</li>
+</ul></section></section><section id="_ad93_" lang="en" class="associated-data"><h2 class="pmc_sec_title">Associated Data</h2>
+<p class="font-secondary"><em>This section collects any data citations, data availability statements, or supplementary materials included in this article.</em></p>
+<section id="_adda93_" lang="en" class="data-availability-statement"><h3 class="pmc_sec_title">Data Availability Statement</h3>
+<p>The data and models used or analyzed in this paper are available from the corresponding author upon a reasonable request.</p>
+<p>The related code is available at: <a href="https://github.com/evannli1/Panda-Act-Framework" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://github.com/evannli1/Panda-Act-Framework</a>.</p></section></section></section><footer class="p courtesy-note font-secondary font-sm text-center"><hr class="headless">
+<p>Articles from Scientific Reports are provided here courtesy of <strong>Nature Publishing Group</strong></p></footer></section></article>
+
+                      
+
+                    </main>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+<!-- Secondary navigation placeholder -->
+<div class="pmc-sidenav desktop:grid-col-4 display-flex">
+    <section class="pmc-sidenav__container" aria-label="Article resources and navigation">
+        <button type="button" class="usa-button pmc-sidenav__container__close usa-button--unstyled">
+            <img src="/static/img/usa-icons/close.svg" role="img" alt="Close" />
+        </button>
+    <div class="display-none desktop:display-block">
+       <section class="margin-top-4 desktop:margin-top-0">
+              <h2 class="margin-top-0">ACTIONS</h2>
+           <ul class="usa-list usa-list--unstyled usa-list--actions">
+               
+               <li>
+                     <a
+                             href="https://doi.org/10.1038/s41598-025-17015-z"
+                             class="usa-button usa-button--outline width-24 font-xs display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                             target="_blank"
+                             rel="noreferrer noopener"
+                             data-ga-category="actions"
+                             data-ga-action="click"
+                             data-ga-label="publisher_link_desktop"
+                     >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#launch"></use>
+                         </svg>
+                         <span class="display-inline-flex flex-justify-center flex-1 padding-right-2">View on publisher site</span>
+                     </a>
+               </li>
+               
+               
+               <li>
+                    <a
+                            href="pdf/41598_2025_Article_17015.pdf"
+                            class="usa-button usa-button--outline width-24 display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="pdf_download_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1">PDF (5.1 MB)</span>
+                    </a>
+               </li>
+               
+                
+               <li>
+                   <button role="button" class="usa-button width-24 citation-dialog-trigger display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                        aria-label="Open dialog with citation text in different styles"
+                        data-ga-category="actions"
+                        data-ga-action="open"
+                        data-ga-label="cite_desktop"
+                        data-all-citations-url="/resources/citations/12375720/"
+                        data-citation-style="nlm"
+                        data-download-format-link="/resources/citations/12375720/export/"
+                    >
+                        <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                        </svg>
+                       <span class="display-inline-flex flex-justify-center flex-1 button-label">Cite</span>
+                    </button>
+               </li>
+                
+               <li>
+
+                        <button class="usa-button width-24 collections-dialog-trigger collections-button display-inline-flex flex-align-center flex-justify-start padding-left-1 collections-button-empty"
+                              aria-label="Save article in MyNCBI collections."
+                              data-ga-category="actions"
+                              data-ga-action="click"
+                              data-ga-label="collections_button_desktop"
+                              data-collections-open-dialog-enabled="false"
+                              data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12375720%2F%3Freport%3Dclassic%23open-collections-dialog"
+                              data-in-collections="false">
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                            <span class="display-inline-flex flex-justify-center flex-1">Collections</span>
+                       </button>
+               </li>
+               <li class="pmc-permalink">
+                    <button
+                            type="button"
+                            class="usa-button width-24 display-inline-flex flex-align-center flex-justify padding-left-1 shadow-none"
+                            aria-label="Show article permalink"
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="permalink_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#share"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1 button-label">Permalink</span>
+                    </button>
+                   
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12375720/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+               </li>
+           </ul>
+       </section>
+     </div>
+
+        <section class="pmc-resources margin-top-6 desktop:margin-top-4" data-page-path="/articles/PMC12375720/">
+            <h2 class="margin-top-0">RESOURCES</h2>
+            
+                <div class="usa-accordion usa-accordion--multiselectable" data-allow-multiple>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-similar-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_similar_articles"
+                        data-ga-label="/articles/PMC12375720/"
+                        data-action-open="open_similar_articles"
+                        data-action-close="close_similar_articles"
+                        >
+                            Similar articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-similar-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/similar-article-links/40851085/"
+                            
+                    >
+                        
+                    </div>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-cited-by-other-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_cited_by"
+                        data-ga-label="/articles/PMC12375720/"
+                        data-action-open="open_cited_by"
+                        data-action-close="close_cited_by"
+                        >
+                             Cited by other articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-cited-by-other-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/cited-by-links/40851085/"
+                            
+                    >
+                          
+                    </div>
+                    
+                        <h3 class="usa-accordion__heading">
+                            <button
+                            type="button"
+                            class="usa-accordion__button"
+                            aria-expanded="false"
+                            aria-controls="resources-links-to-ncbi-databases"
+                            data-ga-category="resources_accordion"
+                            data-ga-action="open_NCBI_links"
+                            data-ga-label="/articles/PMC12375720/"
+                            data-action-open="open_NCBI_links"
+                            data-action-close="close_NCBI_link"
+                            >
+                                 Links to NCBI Databases
+                            </button>
+                        </h3>
+                        <div
+                                id="resources-links-to-ncbi-databases"
+                                class="usa-accordion__content usa-prose"
+                                data-source-url="/resources/db-links/12375720/"
+                        >
+                        </div>
+                    
+                    
+                </div>
+            
+        </section>
+
+
+        <section
+        class="usa-in-page-nav usa-in-page-nav--wide margin-top-6 desktop:margin-top-4"
+        data-title-text="On this page"
+        data-title-heading-level="h2"
+        data-scroll-offset="0"
+        data-root-margin="-10% 0px -80% 0px"
+        data-main-content-selector="main"
+        data-threshold="1"
+        hidden
+        ></section>
+    </section>
+</div>
+
+
+        
+
+<div class="overlay" role="dialog" aria-label="Citation Dialog" hidden>
+    <div class="dialog citation-dialog" aria-hidden="true">
+        <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+            <h2 class="usa-modal__heading margin-0">Cite</h2>
+             <button type="button" class="usa-button usa-button--unstyled close-overlay text-black width-auto"  tabindex="1">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+             </button>
+        </div>
+
+        
+
+<div class="citation-text-block">
+  <div class="citation-text margin-bottom-2"></div>
+  <ul class="usa-list usa-list--unstyled display-inline-flex flex-justify width-full flex-align-center">
+      <li>
+        <button
+          class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center copy-button dialog-focus"
+          data-ga-category="save_share"
+          data-ga-action="cite"
+          data-ga-label="copy"
+          tabindex="2">
+            <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+            </svg>
+            <span>Copy</span>
+        </button>
+      </li>
+      <li>
+          <a
+              href="#"
+              role="button"
+              class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center export-button"
+              data-ga-category="save_share"
+              data-ga-action="cite"
+              data-ga-label="download"
+              title="Download a file for external citation management software"
+              tabindex="3">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                </svg>
+                <span class="display-none mobile-lg:display-inline">Download .nbib</span>
+                <span class="display-inline mobile-lg:display-none">.nbib</span>
+            </a>
+      </li>
+      <li>
+          
+
+<div class="display-inline-flex flex-align-center">
+  <label class="usa-label margin-top-0">Format:</label>
+  <select aria-label="Format" class="usa-select citation-style-selector padding-1 margin-top-0 border-0 padding-right-4" tabindex="4" >
+    
+      <option data-style-url-name="ama"
+              value="AMA"
+              >
+        AMA
+      </option>
+    
+      <option data-style-url-name="apa"
+              value="APA"
+              >
+        APA
+      </option>
+    
+      <option data-style-url-name="mla"
+              value="MLA"
+              >
+        MLA
+      </option>
+    
+      <option data-style-url-name="nlm"
+              value="NLM"
+              selected="selected">
+        NLM
+      </option>
+    
+  </select>
+</div>
+      </li>
+  </ul>
+</div>
+    </div>
+</div>
+
+        <div class="overlay" role="dialog" hidden>
+  <div id="collections-action-dialog" class="dialog collections-dialog" aria-hidden="true">
+   <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+        <h2 class="usa-modal__heading margin-0">Add to Collections</h2>
+    </div>
+    <div class="collections-action-panel action-panel">
+      
+
+
+<form id="collections-action-dialog-form"
+      class="usa-form maxw-full collections-action-panel-form action-panel-content action-form action-panel-smaller-selectors"
+      data-existing-collections-url="/list-existing-collections/"
+      data-add-to-existing-collection-url="/add-to-existing-collection/"
+      data-create-and-add-to-new-collection-url="/create-and-add-to-new-collection/"
+      data-myncbi-max-collection-name-length="100"
+      data-collections-root-url="https://www.ncbi.nlm.nih.gov/myncbi/collections/">
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="j6GVsU4qYtHqdZFZQrKKn0QBb1kL0zjOwBHQNhs1igPGH3yz6FTsQuZiF6rezGlV">
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-new"
+            class="usa-radio__input usa-radio__input--tile collections-new  margin-top-0"
+            name="collections"
+            value="new"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_new" />
+            <label class="usa-radio__label" for="collections-action-dialog-new">Create a new collection</label>
+        </div>
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-existing"
+            class="usa-radio__input usa-radio__input--tile collections-existing"
+            name="collections"
+            value="existing"
+            checked="true"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_existing" />
+            <label class="usa-radio__label" for="collections-action-dialog-existing">Add to an existing collection</label>
+        </div>
+    </fieldset>
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="action-panel-control-wrap new-collections-controls">
+           <label for="collections-action-dialog-add-to-new" class="usa-label margin-top-0">
+                Name your collection
+               <abbr title="required" class="usa-hint usa-hint--required text-no-underline">*</abbr>
+          </label>
+          <input
+            type="text"
+            name="add-to-new-collection"
+            id="collections-action-dialog-add-to-new"
+            class="usa-input collections-action-add-to-new"
+            pattern="[^&quot;&amp;=&lt;&gt;/]*" title="The following characters are not allowed in the Name field: &quot;&amp;=&lt;&gt;/"
+            maxlength=""
+            data-ga-category="collections_button"
+            data-ga-action="create_collection"
+            data-ga-label="non_favorties_collection"
+            required
+          />
+        </div>
+        <div class="action-panel-control-wrap existing-collections-controls">
+             <label for="collections-action-dialog-add-to-existing" class="usa-label margin-top-0">
+                Choose a collection
+              </label>
+              <select id="collections-action-dialog-add-to-existing"
+                      class="usa-select collections-action-add-to-existing"
+                      data-ga-category="collections_button"
+                      data-ga-action="select_collection"
+                      data-ga-label="($('.collections-action-add-to-existing').val() === 'Favorites') ? 'Favorites' : 'non_favorites_collection'">
+              </select>
+              <div class="collections-retry-load-on-error usa-input-error-message selection-validation-message">
+                Unable to load your collection due to an error<br>
+                <a href="#">Please try again</a>
+              </div>
+        </div>
+    </fieldset>
+
+    <div class="display-inline-flex">
+        <button class="usa-button margin-top-0 action-panel-submit"
+            type="submit"
+            data-loading-label="Adding..."
+            data-pinger-ignore
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="add">
+          Add
+        </button>
+        <button class="usa-button usa-button--outline margin-top-0 action-panel-cancel"
+                aria-label="Close 'Add to Collections' panel"
+                ref="linksrc=close_collections_panel"
+                data-ga-category="collections_button"
+                data-ga-action="click"
+                data-ga-label="cancel">
+          Cancel
+        </button>
+    </div>
+</form>
+    </div>
+  </div>
+</div>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+
+
+        
+    
+    
+
+<footer class="ncbi-footer ncbi-dark-background " >
+    
+        <div class="ncbi-footer__icon-section">
+            <div class="ncbi-footer__social-header">
+                Follow NCBI
+            </div>
+
+            <div class="grid-container ncbi-footer__ncbi-social-icons-container">
+                
+                    <a href="https://twitter.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="40"
+                             height="40"
+                             viewBox="0 0 40 40"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on X (formerly known as Twitter)</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.facebook.com/ncbi.nlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="16"
+                             height="29"
+                             focusable="false"
+                             aria-hidden="true"
+                             viewBox="0 0 16 29"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.8809 21.4002C3.8809 19.0932 3.8809 16.7876 3.8809 14.478C3.8809 14.2117 3.80103 14.1452 3.54278 14.1492C2.53372 14.1638 1.52334 14.1492 0.514288 14.1598C0.302626 14.1598 0.248047 14.0972 0.248047 13.8936C0.256034 12.4585 0.256034 11.0239 0.248047 9.58978C0.248047 9.37013 0.302626 9.30224 0.528931 9.3049C1.53798 9.31688 2.54837 9.3049 3.55742 9.31555C3.80103 9.31555 3.8809 9.26097 3.87957 9.00272C3.87158 8.00565 3.85428 7.00592 3.90753 6.00884C3.97142 4.83339 4.31487 3.73115 5.04437 2.78467C5.93095 1.63318 7.15699 1.09005 8.56141 0.967577C10.5582 0.79319 12.555 0.982221 14.5518 0.927641C14.7102 0.927641 14.7462 0.99287 14.7449 1.13664C14.7449 2.581 14.7449 4.02668 14.7449 5.47104C14.7449 5.67604 14.6517 5.68669 14.4946 5.68669C13.4523 5.68669 12.4113 5.68669 11.3703 5.68669C10.3506 5.68669 9.92057 6.10868 9.90593 7.13904C9.89661 7.7647 9.91525 8.39303 9.89794 9.01869C9.88995 9.26364 9.96583 9.31822 10.2015 9.31688C11.7204 9.30623 13.2393 9.31688 14.7595 9.3049C15.0257 9.3049 15.0723 9.3728 15.0444 9.62439C14.89 10.9849 14.7515 12.3467 14.6144 13.7085C14.5691 14.1571 14.5785 14.1585 14.1458 14.1585C12.8386 14.1585 11.5313 14.1665 10.2254 14.1518C9.95119 14.1518 9.89794 14.2317 9.89794 14.4899C9.90593 19.0799 9.89794 23.6752 9.91125 28.2612C9.91125 28.5674 9.8407 28.646 9.53186 28.6433C7.77866 28.6273 6.02414 28.6366 4.27094 28.634C3.82499 28.634 3.87158 28.6992 3.87158 28.22C3.87602 25.9472 3.87913 23.6739 3.8809 21.4002Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on Facebook</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.linkedin.com/company/ncbinlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="25"
+                             height="23"
+                             viewBox="0 0 26 24"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M14.6983 9.98423C15.6302 9.24808 16.5926 8.74754 17.6762 8.51991C19.673 8.09126 21.554 8.30824 23.1262 9.7526C24.2351 10.7723 24.7529 12.1115 25.0165 13.5612C25.1486 14.3363 25.2105 15.1218 25.2015 15.9081C25.2015 18.3043 25.2015 20.6898 25.2082 23.0806C25.2082 23.3468 25.1549 23.444 24.8621 23.4414C23.1297 23.4272 21.3992 23.4272 19.6704 23.4414C19.4041 23.4414 19.3429 23.3588 19.3442 23.1019C19.3535 20.5194 19.3442 17.9368 19.3442 15.3543C19.3442 14.0005 18.3258 12.9448 17.0266 12.9488C15.7273 12.9528 14.6983 14.0071 14.6983 15.361C14.6983 17.9328 14.6917 20.5047 14.6983 23.0753C14.6983 23.3708 14.6198 23.444 14.3296 23.4427C12.6185 23.4294 10.9079 23.4294 9.19779 23.4427C8.93155 23.4427 8.86099 23.3735 8.86232 23.1086C8.8783 19.7619 8.88628 16.4144 8.88628 13.066C8.88628 11.5688 8.87874 10.0708 8.86365 8.57182C8.86365 8.3575 8.90758 8.27896 9.14054 8.28029C10.9048 8.29094 12.6687 8.29094 14.4321 8.28029C14.6464 8.28029 14.6983 8.34818 14.6983 8.54653C14.6903 9.00047 14.6983 9.45441 14.6983 9.98423Z">
+                            </path>
+                            <path d="M6.55316 15.8443C6.55316 18.2564 6.55316 20.6699 6.55316 23.082C6.55316 23.3629 6.48127 23.4388 6.19906 23.4374C4.47737 23.4241 2.75568 23.4241 1.03399 23.4374C0.767751 23.4374 0.69986 23.3629 0.701191 23.1006C0.709178 18.2648 0.709178 13.4281 0.701191 8.59053C0.701191 8.34026 0.765089 8.27237 1.01669 8.2737C2.74991 8.28435 4.48048 8.28435 6.20838 8.2737C6.47462 8.2737 6.5465 8.33627 6.54517 8.6065C6.54783 11.0186 6.55316 13.4308 6.55316 15.8443Z">
+                            </path>
+                            <path d="M3.65878 0.243898C5.36804 0.243898 6.58743 1.45529 6.58743 3.1406C6.58743 4.75801 5.32145 5.95742 3.60819 5.96807C3.22177 5.97614 2.83768 5.90639 2.47877 5.76299C2.11985 5.61959 1.79344 5.40546 1.51897 5.13334C1.24449 4.86123 1.02755 4.53668 0.881058 4.17902C0.734563 3.82136 0.661505 3.43788 0.666231 3.05141C0.67555 1.42601 1.9362 0.242566 3.65878 0.243898Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on LinkedIn</span>
+                    </a>
+                
+
+                
+                    <a href="https://github.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="28"
+                             height="27"
+                             viewBox="0 0 28 28"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M16.7228 20.6334C17.5057 20.5527 18.2786 20.3944 19.0301 20.1608C21.3108 19.4193 22.5822 17.8259 22.963 15.4909C23.1228 14.5112 23.1814 13.5287 22.9883 12.5437C22.8106 11.6423 22.4013 10.8028 21.8007 10.1076C21.7526 10.0605 21.7197 10 21.7064 9.934C21.6931 9.86799 21.7 9.79952 21.7262 9.73748C22.0856 8.6206 21.9711 7.51969 21.601 6.42677C21.582 6.3497 21.5345 6.2827 21.468 6.23923C21.4016 6.19577 21.3211 6.17906 21.2429 6.19248C20.7329 6.21649 20.2313 6.33051 19.7611 6.52928C19.1103 6.7908 18.4899 7.12198 17.9104 7.51703C17.84 7.56996 17.7581 7.60551 17.6713 7.62078C17.5846 7.63605 17.4954 7.6306 17.4112 7.60489C15.2596 7.05882 13.0054 7.06203 10.8554 7.61421C10.7806 7.63586 10.7018 7.63967 10.6253 7.62534C10.5487 7.611 10.4766 7.57892 10.4148 7.53167C9.64788 7.03247 8.85171 6.58918 7.96368 6.33359C7.65781 6.24338 7.34123 6.19458 7.02239 6.18849C6.94879 6.17986 6.87462 6.19893 6.81432 6.242C6.75402 6.28507 6.71191 6.34904 6.69621 6.42145C6.32342 7.51437 6.2209 8.61527 6.56307 9.73348C6.59635 9.84264 6.64694 9.93316 6.54177 10.0516C5.47666 11.2604 5.09988 12.6834 5.19574 14.2676C5.2663 15.4244 5.46201 16.5466 6.01454 17.5769C6.84399 19.1171 8.21664 19.9119 9.85158 20.3352C10.3938 20.4706 10.9444 20.5698 11.4998 20.632C11.5384 20.7492 11.4506 20.7798 11.408 20.8291C11.1734 21.1179 10.9894 21.4441 10.8634 21.7942C10.7622 22.0458 10.8315 22.4039 10.6065 22.5516C10.263 22.7766 9.83827 22.8485 9.42421 22.8871C8.17936 23.0056 7.26471 22.4877 6.6283 21.4348C6.25552 20.8184 5.76956 20.3325 5.08523 20.0663C4.76981 19.9325 4.42139 19.8967 4.08537 19.9638C3.7898 20.029 3.73788 20.1901 3.93891 20.4111C4.03639 20.5234 4.14989 20.6207 4.27575 20.6999C4.9796 21.1318 5.51717 21.7884 5.80152 22.5636C6.37002 23.9973 7.48039 24.5697 8.93825 24.6323C9.43741 24.6575 9.93768 24.615 10.4254 24.5058C10.5892 24.4672 10.6531 24.4872 10.6517 24.6762C10.6451 25.4936 10.6637 26.3123 10.6517 27.131C10.6517 27.6635 10.1684 27.9297 9.58663 27.7393C8.17396 27.2671 6.84977 26.5631 5.66838 25.656C2.59555 23.2891 0.720966 20.1861 0.217704 16.3376C-0.357453 11.9127 0.911353 8.00824 3.98551 4.73881C6.11909 2.42656 8.99932 0.939975 12.1203 0.540191C16.5351 -0.0601815 20.4347 1.14323 23.7232 4.16373C26.2449 6.47869 27.724 9.37672 28.1048 12.7726C28.5828 17.0325 27.3686 20.7945 24.4768 23.9827C22.9762 25.6323 21.0956 26.8908 18.9982 27.6488C18.8783 27.6927 18.7585 27.738 18.636 27.7726C18.0356 27.9404 17.6189 27.6395 17.6189 27.0098C17.6189 25.7452 17.6308 24.4806 17.6295 23.2159C17.6329 22.9506 17.6128 22.6856 17.5696 22.4238C17.4325 21.6664 17.3419 21.484 16.7228 20.6334Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on GitHub</span>
+                    </a>
+                
+
+                
+                    <a href="https://ncbiinsights.ncbi.nlm.nih.gov/"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="26"
+                             height="26"
+                             viewBox="0 0 27 27"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M23.7778 26.4574C23.1354 26.3913 22.0856 26.8024 21.636 26.3087C21.212 25.8444 21.4359 24.8111 21.324 24.0347C19.9933 14.8323 14.8727 8.80132 6.09057 5.85008C4.37689 5.28406 2.58381 4.99533 0.779072 4.99481C0.202773 4.99481 -0.0229751 4.83146 0.00455514 4.21479C0.0660406 3.08627 0.0660406 1.95525 0.00455514 0.826734C-0.0413285 0.0815827 0.259669 -0.0193618 0.896534 0.00266238C6.96236 0.222904 12.3693 2.24179 16.9889 6.16209C22.9794 11.2478 26.1271 17.7688 26.4372 25.648C26.4629 26.294 26.3179 26.5271 25.6609 26.4684C25.0827 26.417 24.4991 26.4574 23.7778 26.4574Z">
+                            </path>
+                            <path d="M14.8265 26.441C14.0924 26.441 13.2371 26.6795 12.6626 26.3786C12.0092 26.0372 12.3781 25.0644 12.246 24.378C11.1154 18.5324 6.6849 14.5497 0.74755 14.1001C0.217135 14.0615 -0.0104482 13.9422 0.0134113 13.3659C0.0519536 12.1454 0.0482829 10.9213 0.0134113 9.69524C-0.00127145 9.14464 0.196946 9.03268 0.703502 9.04736C9.21217 9.27128 16.5994 16.2511 17.2804 24.7231C17.418 26.4446 17.418 26.4446 15.6579 26.4446H14.832L14.8265 26.441Z">
+                            </path>
+                            <path d="M3.58928 26.4555C2.64447 26.4618 1.73584 26.0925 1.06329 25.4289C0.39073 24.7653 0.00933763 23.8617 0.0030097 22.9169C-0.00331824 21.9721 0.365937 21.0635 1.02954 20.3909C1.69315 19.7184 2.59675 19.337 3.54156 19.3306C4.48637 19.3243 5.39499 19.6936 6.06755 20.3572C6.7401 21.0208 7.1215 21.9244 7.12782 22.8692C7.13415 23.814 6.7649 24.7226 6.10129 25.3952C5.43768 26.0677 4.53409 26.4491 3.58928 26.4555Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI RSS feed</span>
+                    </a>
+                
+            </div>
+        </div>
+    
+
+    <div data-testid="gridContainer"
+         class="grid-container ncbi-footer__container">
+        <div class="grid-row ncbi-footer__main-content-container"
+             data-testid="grid">
+            
+                <div class="ncbi-footer__column">
+                    
+                        <p class="ncbi-footer__circled-icons-heading">
+                            Connect with NLM
+                        </p>
+                    
+
+                    <div class="ncbi-footer__circled-icons-list">
+                        
+                            <a href=https://twitter.com/nlm_nih class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="32"
+                                     height="32"
+                                     viewBox="0 0 40 40"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on X (formerly known as Twitter)</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.facebook.com/nationallibraryofmedicine class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="13"
+                                     height="24"
+                                     viewBox="0 0 13 24"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M4.11371 23.1369C4.11371 23.082 4.11371 23.0294 4.11371 22.9745V12.9411H0.817305C0.6709 12.9411 0.670898 12.9411 0.670898 12.8016C0.670898 11.564 0.670898 10.3287 0.670898 9.09341C0.670898 8.97903 0.705213 8.95158 0.815017 8.95158C1.8673 8.95158 2.91959 8.95158 3.97417 8.95158H4.12057V8.83263C4.12057 7.8055 4.12057 6.7738 4.12057 5.74897C4.1264 4.92595 4.31387 4.11437 4.66959 3.37217C5.12916 2.38246 5.94651 1.60353 6.95717 1.1921C7.64827 0.905008 8.3913 0.764035 9.13953 0.778051C10.0019 0.791777 10.8644 0.830666 11.7268 0.860404C11.8869 0.860404 12.047 0.894717 12.2072 0.90158C12.2964 0.90158 12.3261 0.940469 12.3261 1.02968C12.3261 1.5421 12.3261 2.05452 12.3261 2.56465C12.3261 3.16857 12.3261 3.7725 12.3261 4.37642C12.3261 4.48165 12.2964 4.51367 12.1912 4.51138C11.5369 4.51138 10.8804 4.51138 10.2261 4.51138C9.92772 4.51814 9.63058 4.5526 9.33855 4.61433C9.08125 4.6617 8.84537 4.78881 8.66431 4.97766C8.48326 5.16652 8.3662 5.40755 8.32972 5.66661C8.28476 5.89271 8.26027 6.1224 8.25652 6.35289C8.25652 7.19014 8.25652 8.02969 8.25652 8.86923C8.25652 8.89439 8.25652 8.91955 8.25652 8.95615H12.0219C12.1797 8.95615 12.182 8.95616 12.1614 9.10714C12.0768 9.76596 11.9876 10.4248 11.9029 11.0813C11.8312 11.6319 11.7626 12.1824 11.697 12.733C11.6719 12.9434 11.6787 12.9434 11.4683 12.9434H8.26338V22.899C8.26338 22.979 8.26338 23.0591 8.26338 23.1392L4.11371 23.1369Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on Facebook</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.youtube.com/user/NLMNIH class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="21"
+                                     height="15"
+                                     viewBox="0 0 21 15"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M19.2561 1.47914C18.9016 1.15888 18.5699 0.957569 17.2271 0.834039C15.5503 0.678484 13.2787 0.655608 11.563 0.65332H9.43556C7.71987 0.65332 5.4483 0.678484 3.77151 0.834039C2.43098 0.957569 2.097 1.15888 1.74242 1.47914C0.813665 2.32097 0.619221 4.62685 0.598633 6.89384C0.598633 7.31781 0.598633 7.74101 0.598633 8.16345C0.626084 10.4121 0.827391 12.686 1.74242 13.521C2.097 13.8412 2.4287 14.0425 3.77151 14.1661C5.4483 14.3216 7.71987 14.3445 9.43556 14.3468H11.563C13.2787 14.3468 15.5503 14.3216 17.2271 14.1661C18.5676 14.0425 18.9016 13.8412 19.2561 13.521C20.1712 12.6929 20.3725 10.451 20.3999 8.22064C20.3999 7.74025 20.3999 7.25986 20.3999 6.77946C20.3725 4.54907 20.1689 2.30724 19.2561 1.47914ZM8.55942 10.5311V4.65201L13.5601 7.50005L8.55942 10.5311Z"
+                                          fill="white" />
+                                </svg>
+                                <span class="usa-sr-only">NLM on YouTube</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            
+
+            
+                <address class="ncbi-footer__address ncbi-footer__column">
+                    
+        <p>
+            <a class="usa-link usa-link--external"
+            href="https://www.google.com/maps/place/8600+Rockville+Pike,+Bethesda,+MD+20894/%4038.9959508,
+            -77.101021,17z/data%3D!3m1!4b1!4m5!3m4!1s0x89b7c95e25765ddb%3A0x19156f88b27635b8!8m2!3d38.9959508!
+            4d-77.0988323"
+            rel="noopener noreferrer" target="_blank">National Library of Medicine
+            <br/> 8600 Rockville Pike<br/> Bethesda, MD 20894</a>
+        </p>
+    
+                </address>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/web_policies.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Web Policies
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/institutes-nih/nih-office-director/office-communications-public-liaison/freedom-information-act-office" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            FOIA
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS Vulnerability Disclosure
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://support.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Help
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/accessibility.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Accessibility
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/careers/careers.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Careers
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+        </div>
+
+        
+            <div class="grid-row grid-col-12" data-testid="grid">
+                <ul class="ncbi-footer__bottom-links-list">
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NLM
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NIH
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.usa.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            USA.gov
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+    </div>
+</footer>
+
+    
+
+
+        
+        
+    
+  <script  type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/pinger/pinger.js"> </script>
+
+
+    
+        
+
+<button class="back-to-top" data-ga-category="pagination" data-ga-action="back_to_top">
+    <label>Back to Top</label>
+    <svg class="usa-icon order-0" aria-hidden="true" focusable="false" role="img">
+        <use xlink:href="/static/img/sprite.svg#arrow_upward"></use>
+    </svg>
+</button>
+    
+
+
+        
+    
+    
+    
+        
+    <script type="application/javascript">
+    window.ncbi = window.ncbi || {};
+    window.ncbi.pmc = window.ncbi.pmc || {};
+    window.ncbi.pmc.options = {
+        logLevel: 'INFO',
+        
+        staticEndpoint: '/static/',
+        
+        citeCookieName: 'pmc-cf',
+    };
+</script>
+    <script type="module" crossorigin="" src="/static/assets/base-133c6271.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/jquery/jquery-3.6.0.min.js">&#xA0;</script>
+    <script type="text/javascript">
+        jQuery.getScript("https://cdn.ncbi.nlm.nih.gov/core/alerts/alerts.js", function () {
+            galert(['div.nav_and_browser', 'div.header', '#universal_header', '.usa-banner', 'body > *:nth-child(1)'])
+        });
+    </script>
+
+
+    <script type="text/javascript">var exports = {};</script>
+     <script src="/static/CACHE/js/output.13b077bc3ffd.js"></script>
+
+    <script type="module" crossorigin="" src="/static/assets/article-44d04358.js"></script>
+    
+    
+
+    </body>
+</html>

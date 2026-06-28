@@ -1,0 +1,281 @@
+Unintended islanding presents substantial operational and safety risks in modern electrical distribution networks, particularly as distributed generation (DG) sources increasingly match or nearly match local load requirements. Conventional islanding detection schemes (IDS) often fail under balanced load-generation conditions, resulting in significant undetected events, commonly referred to as the non-detection zone (NDZ). This research addresses these critical limitations by introducing a novel, highly reliable, and robust machine learning-based islanding detection scheme. The proposed approach innovatively utilizes Histogram of Oriented Gradient (HOG) features derived from scalogram images, which are generated through Continuous Wavelet Transform (CWT) of the total harmonic distortion (THD) signals from three-phase voltages and currents. The HOG descriptors effectively capture the intricate patterns and subtle signal changes associated with islanding conditions. A Random Forest classifier, selected for its robustness against noise and minimal parameter tuning, is trained and validated extensively using these descriptors. Comprehensive performance assessments under various noise conditions and challenging scenarios demonstrate that this methodology significantly surpasses existing state-of-the-art methods in terms of accuracy, precision, recall, F1-score, and reduced misclassification errors. Furthermore, real-time testing using the OPAL-RT platform confirms the practical applicability, reliability, and robustness of the proposed system. This work significantly advances the capabilities of islanding detection, providing a highly effective solution to enhance grid stability and ensure safety in contemporary power systems.
+
+As distributed generation (DG) sources proliferate within grid systems, certain challenges arise that directly affect the system’s operational capability, safety, and manageability. One of the prominent challenges is islanding detection. Islanding occurs whenever a DG source independently powers a microgrid without being connected to the primary utility supply grid. Notably, deliberate islanding can pose significant risks to workers and system safety, even if it does not present an immediate threat1,2. Consequently, numerous islanding detection schemes (IDSs) have been documented extensively in academic literature. Accurately estimating the current IDS population is challenging due to the rapidly evolving nature of this research area, with new islanding detection methods continuously emerging. IDSs are typically classified into various groups based on specific criteria. Primarily, IDS categorization can be viewed from two perspectives: firstly, based on how the signal is directly utilized, IDSs are categorized into active, passive, hybrid, and remote methods. Secondly, classification is based on the technical approach used to process the signal data, including techniques such as artificial intelligence, deep learning, machine learning, and signal processing. The subsequent discussion explores the advantages and limitations of each category, providing a comprehensive overview of all reported IDS methodologies.
+
+As the name implies, passive islanding detection schemes (PIDSs) measure electrical properties at the point of common coupling (PCC) and evaluate them against predetermined thresholds. Consequently, if a recorded electrical parameter exceeds the threshold value, an islanding event is identified. Criteria used in PIDSs, as reported in the literature, include phase jump detection3, under/over frequency and under/over voltage conditions4, voltage imbalance2, rate of change of power5, rate of change of power over frequency6, and rate of change of frequency7. Passive IDSs offer the advantages of fast detection times and system effectiveness. However, most passive IDSs struggle to identify balanced islanding occurrences, situations where the power of the load and the DG remain equal, making detection particularly challenging.
+
+Despite their rapid detection capabilities, PIDSs have notable limitations, including the presence of a non-detection zone (NDZ) and challenges associated with determining appropriate threshold values for islanding identification. Specifically, setting a slightly higher threshold might result in islanding events going undetected, whereas a lower threshold could lead to nuisance tripping. Active islanding detection schemes (AIDSs) address these limitations inherent in PIDSs by periodically injecting disturbances into the grid and monitoring the system’s response. An alteration in the system’s response typically indicates an islanding event, usually occurring when the connection to the main grid is lost8–15.
+
+Active IDSs effectively mitigate the NDZ issue, thereby enhancing detection accuracy. However, because these methods rely on injecting external signals into the grid, they can adversely affect system power quality. To minimize the continual introduction of external disturbances, hybrid approaches are recommended. Hybrid IDSs integrate advantageous features from both passive and active IDSs16–18. Although hybrid IDSs demonstrate significant utility for complex systems and offer reduced NDZ, they still pose potential power quality concerns and may result in considerably longer detection times.
+
+To detect islanding, remote IDSs (RIDSs) rely on communication between the utility grid and DG sources. While RIDSs effectively eliminate the NDZ problem, their implementation can be expensive, particularly in scenarios involving multiple DG units19. Passive IDSs (PIDTs) typically provide rapid response times but suffer from an excessively wide NDZ. Conversely, active IDSs (AIDSs) are less affected by the NDZ but introduce varying degrees of power quality disturbances into the grid. By effectively reducing their NDZ, passive IDSs can significantly enhance their efficacy, thereby potentially gaining a competitive advantage over active IDS approaches.
+
+Signal processing-based islanding detection schemes (SPIDSs) are employed to derive latent features from electrical parameters measured at the PCC. These extracted features are then analyzed to determine whether islanding events have occurred. Various signal processing methods reported in the literature include wavelet transform20, Goertzel algorithm21, wavelet singular entropy22, mathematical morphology23, and S-transform24. Signal processing techniques enhance functionality, accelerate detection time, and reduce the NDZ typically associated with passive IDSs by extracting hidden features from collected signals to accurately identify islanding conditions. Despite these advantages, signal processing methods have inherent limitations, including restricted capability to extract narrow frequency bands, computational complexity, and susceptibility to noise25. To detect islanding issues in AC microgrids, a wavelet-based hybrid islanding detection system (WB-HIDS) utilizing an enhanced CWT approach (RT-CWT) was proposed. This method analyzes non-stationary signals to generate power quality indices such as event duration, voltage amplitude, imbalance degree, grid impedance, system frequency, and power angle. Concurrent utilization of these indices considerably reduces NDZ-related errors. However, this method does not account for scenarios involving DG cut-in events26. Another study introduces a two-level island detection technique analyzing the rate of voltage and active power signal changes, capable of distinguishing islanding from non-islanding scenarios within 0.51 s. This method benefits from independently adjustable thresholds, a simple and economical design, and minimal impact on power quality27. The author presented an approach using Wavelet Transform to analyze DG output voltages and calculate indices based on wavelet singular entropy, particularly effective when traditional relays such as ROCOF and dv/dt fail due to small active and reactive power differences22. The author proposed a two-level detection method based on threshold values and frequency change rate, providing high reliability, low computational complexity, negligible NDZ, and preservation of grid power quality, although this approach does not address DG cut-in events28.
+
+As DG systems grow in complexity, robust intrusion detection systems (IDSs) are crucial for effectively managing scaling-related challenges. Furthermore, with the rising adoption of smart grids and renewable energy sources, these applications play a vital role in enhancing grid reliability, security, and efficiency, ultimately contributing to a more sustainable energy future29–33. integrating intelligent IDSs is crucial for comprehensive protection, monitoring, and control. Several intelligent technique-based IDSs have been reported in the literature, including random forest34, decision tree35, fuzzy rule-driven methods36, support vector machines (SVM)37,38, and multiple feature-based SVMs39. Additionally, convolutional neural network (CNN)-based IDSs have been discussed40,41. Intelligent IDSs differ from communication or signal processing approaches as they do not require predefined criteria. Intelligent methods aim to minimize NDZ while reducing the adverse impact on power quality, achieving high-precision classification42. These advanced techniques effectively address multiobjective problems (MOPs) that conventional methods cannot solve. Supervised machine learning techniques have also found extensive application across numerous fields of research and technology43–50.
+
+An anti-islanding technique based on Support Vector Machines (SVM) is presented by author. Seven signals, frequency, root mean square, reactive power, active power, and total harmonic distortion (THD), were used to determine islanding scenarios, subsequently employed in training and evaluating the SVM classifier. This method achieves remarkable accuracy and ensures effective detection of islanding; however, it suffers from a relatively large NDZ51. The authors introduced a novel islanding detection approach combining deep learning techniques with Continuous Wavelet Transform (CWT). Specifically, thirty-one features were extracted from local system measurements via CWT, and the resulting scalogram magnitude coefficients were used as input data for the deep learning model. However, this method was not evaluated across multiple DG systems52. The authors discussed an adaptive neuro-fuzzy inference technique designed to detect islanding events in inverter-interfaced distribution grids. Although this method does not negatively impact power quality, its primary limitations include a wide NDZ and relatively poor detection precision53. The researcher presents an islanding identification technique employing neural networks combined with wavelet transform, where signal energies in frequency and temporal domains are calculated and subsequently used for neural network training and assessment. A key advantage of this method is its relatively small NDZ (approximately 6%), though it has not been evaluated across multiple DG scenarios54. The author proposes an evolutionary algorithm to select optimal local input variables for an SVM classifier based on islanding detection accuracy and speed55. The researcher utilized Multi-Layer Perceptron (MLP) neural networks for training a classifier aimed at islanding detection. Despite its effectiveness, this method requires significant computational resources and is limited to synchronous generators, rendering it potentially unsuitable for renewable-based DER equipped with inverters, which pose additional detection complexities56.
+
+The author introduces a wavelet-based islanding detection method that combines wavelet analysis with a filtering window technique to estimate phasors using voltage parameters57. Additionally, parametric analysis of time-frequency data and an ideal probabilistic neural network-based approach for islanding detection are also presented in literature58,59. For a comprehensive overview of various islanding detection schemes, readers may refer the literature60.
+
+To address the issues highlighted earlier, we propose a novel method for identifying islanding that effectively handles large volumes of data. Our detection technique leverages image classification machine learning algorithms to distinguish between islanding and non-islanding events. Initially, one-dimensional electrical parameters measured at the PCC are converted into two-dimensional scalogram images representing frequency and time data. Subsequently, patterns are extracted from these time-frequency images using the HOG scheme, a powerful method for image feature extraction. Finally, the extracted HOG features serve as input data for a machine learning classifier, distinguishing islanding occurrences from non-islanding ones.
+
+The efficacy of our method arises from the scalogram representations’ inherent capability to capture abrupt signal changes and disturbances effectively. These representations offer comprehensive insights into frequency and time variations, thus accurately identifying islanding incidents. Additionally, HOG features proficiently capture gradient orientation arrangements, highlighting unique patterns within scalogram images. A significant advantage is that HOG characteristics remain consistent regardless of the specific distributed energy source type, rendering our method universally applicable to any distributed generation system. Furthermore, since HOG features focus on general shapes and structural variations, they exhibit strong resistance to noise.
+
+Utilizing image-based attributes, rather than raw numerical data, substantially enhances machine learning algorithm effectiveness. By adopting recent advancements in image classification and computer vision technologies within machine learning frameworks, our system addresses the islanding detection problem effectively. Time-frequency representations mitigate the limitations associated with manually created features, potentially increasing detection accuracy by enriching the analysis of electrical parameters. By transforming time series data into scalogram images before extracting HOG features, a more detailed and comprehensive characterization of signal properties is achieved. The combination of time-frequency analysis and HOG-based image features significantly improves the detection capabilities of the proposed technique, particularly in photovoltaic (PV) grid-tied systems, enhancing both accuracy and noise robustness. However, relying exclusively on electrical parameter-based feature extraction might accelerate processing but typically reduces sensitivity and effectiveness when handling complex signal variations.
+
+Development of a novel islanding detection method that transforms one-dimensional electrical parameters measured at the point of common coupling into two-dimensional scalogram images through continuous wavelet transform.
+
+Application of HOG features extracted from scalogram images to capture distinctive patterns associated with islanding events.
+
+Integration of machine learning algorithms, specifically the random forest classifier, trained on these features to accurately differentiate between islanding and non-islanding scenarios.
+
+Comprehensive evaluation of the proposed method under various noise conditions, demonstrating significant improvement in detection accuracy and robustness compared to state-of-the-art methods.
+
+Validation of the method’s effectiveness and practical applicability through real-time simulations using the OPAL-RT platform, confirming its reliability and precision in real-world operational conditions.
+
+The remainder of this paper is structured as follows. SectionPre-requisitesdetails the essential preliminary steps, specifically the transformation process from time-series (1-D) data to time-frequency (2-D) representations and the HOG feature extraction process. SectionSystem Model and Dataset Creationpresents the machine learning classification approach used in this study. SectionProposed Methodologyelaborates on the simulation and experimental setup. Results and detailed analysis are also presented in Sect.Proposed Methodology. SectionResults and Discussionsprovides comprehensive discussions, comparing the proposed method with existing methods, and finally, Sect.Real-Time Validation of Proposed Techniqueconcludes the study and suggests potential future research directions.
+
+This section outlines the fundamental concepts and parameters necessary for the implementation of the proposed islanding detection method. It provides an overview of the key electrical parameters utilized in the dataset and explains the transformation of time-series data into meaningful visual representations for machine learning processing.
+
+Accurate dataset generation is crucial for training an effective islanding detection system. This subsection discusses the selection of electrical parameters, particularly THD of three-phase voltage and current signals, which serve as critical indicators for distinguishing islanding from non-islanding events.
+
+The behavior of current and voltage parameters undergoes significant alterations during disturbances in the distribution network. However, minor fluctuations may not be easily noticeable or immediately detectable. Despite this, even slight variations can substantially impact the THD of voltage and current, which serve as key indicators of power quality. Therefore, in this study, continuous time-varying THD i.e. sliding window based THD time series signal is computed using voltage and current signals recorded at the PCC.
+
+whereandrepresent the root mean square (RMS) current and voltage of thenth harmonic, respectively, whileanddenote the RMS current and voltage of the fundamental frequency.
+
+The proposed method relies on six THD features obtained from voltage and current measurements under different conditions. Measurements were conducted to analyze how these characteristics fluctuate in response to various events, including islanding and non-islanding scenarios. Table1summarizes the parameters selected for dataset creation and the respective number of cases considered for islanding and grid-connected conditions. This table provides a structured overview of the THD parameters used in dataset generation, categorizing cases based on islanding and grid-connected conditions.
+
+Selected parameters and corresponding cases for dataset generation.
+
+Machine learning models often require structured and meaningful data representations to achieve high classification accuracy. This subsection presents the methodology for converting time-series electrical signals into two-dimensional image representations. Specifically, it explains the use of scalogram images generated through wavelet transforms and the extraction of HOG features, which enhance the detection and classification of islanding events.
+
+whererepresents the ‘mother wavelet’, and the asterisk (*) denotes the complex conjugate. The parametersuandare the scaling and translation factors, respectively. The scaling parameterudetermines the wavelet’s length and oscillation frequency, while the translation parametersgoverns its shifting position.
+
+The wavelet transform is visually represented by a scalogram, where the z-axis represents magnitude and is displayed as a color gradient, while the x-axis and y-axis correspond to time and frequency, respectively61,62. A sample scalogram, generated using the time-series data obtained from Eq. (4) over a one-second duration, is depicted in Fig.1. This representation includes two frequency components, 20 Hz and 60 Hz, with respective magnitudes of 5 and 10. These frequency values were arbitrarily chosen for illustrative purposes. The scalogram in Fig.1indicates that the two bars correspond to the selected frequencies (60 Hz and 20 Hz), while the magnitude is visually represented using different colors (yellow for 10 and blue for 5).
+
+For nearly two decades, the Histogram of Oriented Gradients (HOG), also referred to as HOG descriptors or HOG features, has been widely utilized in computer vision and human detection applications. HOG features have demonstrated remarkable effectiveness in reliably identifying objects, even in noisy environments. The concept of HOG descriptors was first introduced by63.
+
+The following steps outline the procedure for computing HOG features. To simplify the explanation, HOG descriptors are computed using a 16 × 16 pixel image, as illustrated in Fig.2. Initially, the image is partitioned into blocks and cells. In this study, each cell has a resolution of 8 × 8 pixels, while each block consists of 2 × 2 cells, as depicted in Fig.3. These values can be adjusted depending on the specific requirements and applications.
+
+The magnitude assigned to a specific bin is determined by the direction angle. In this case, θ = 45°. The bins in Fig.2are defined in the range of 30° to 50°. The magnitude is distributed across these bins based on proximity to the bin center. That is, bins closer to the actual gradient direction receive a larger proportion of the magnitude.
+
+In Fig.3, the bins at 30° and 50° are 15° and 5° away from the actual angle, respectively. Based on this distribution, the bin centered at 50° receives ¾ of the magnitude, while the bin at 30° receives ¼ of the magnitude. This procedure is repeated for all 64 pixels within a given 8 × 8 cell. The HOG block corresponding to cell C11 is denoted as HC11.
+
+A single 8 × 8 pixel HOG block, which initially contained only nine features, can now include up to 128 features, composed of 64 magnitudes and 64 orientations. In a 16 × 16 region, which consists of 256 pixels, up to 512 features can be extracted. These 512 features are represented as a HOG feature vector, composed of four HOG blocks, each containing nine 36-dimensional features.
+
+The same process is applied to cells C12, C21, and C22. Finally, the HOG feature vectors from HC11, HC21, HC12, and HC22are concatenated to form the final feature vector, as depicted in Fig.4. This HOG feature vector is then used as input for the machine learning classifier to distinguish between islanding and non-islanding events.
+
+HOG feature vector representation for a 16 × 16 pixel image.
+
+The schematic diagram of a 100 kW grid-tied solar PV system used in this study is illustrated in Fig.5. The system is modeled with a series-parallel R-L-C load to simulate realistic operating conditions. During different islanding and non-islanding events, voltage and current THD values are measured at the PCC. These parameters serve as inputs to the proposed classification model for detecting islanding occurrences.
+
+The system depicted in Fig.5is a MATLAB Simulink model, adapted from64with necessary modifications to align with the requirements of this study. At 0.5 s, an islanding event is triggered, and three-phase voltages (V1, V2, V3) and three-phase currents (I1, I2, I3) at the PCC are recorded over 35 cycles at a sampling rate of 1000 samples per second. The continuous time series THD signal for each phase voltage (V1(THD), V2(THD), V3(THD)) and phase current (I1(THD), I2(THD), I3(THD)) are computed from the collected data. These parameters are then transformed into scalogram images for further processing in the proposed machine learning-based islanding detection system.
+
+Therefore, Fig.5provides a comprehensive representation of the grid-tied solar PV system and the islanding detection methodology. The upper section illustrates the physical components, including the solar PV array, DC-DC converter, DC-AC inverter, transformers, circuit breaker, and the grid utility, forming a 100 kW grid-connected system. The PCC serves as the key monitoring point where voltage and current signals are captured. The lower section of Fig.5outlines the data processing framework. The measured three-phase voltage (V1, V2, V3) and current (I1, I2, I3) are used to compute their respective continuous time series THD values. These continuous time series THD values are then converted into scalogram images using the CWT, which provides a time-frequency representation of the signals. The HOG feature extraction process is then applied to identify key patterns within these scalograms. The extracted features are fed into a machine learning classifier, which accurately differentiates between islanding and non-islanding conditions.
+
+A flowchart of the proposed islanding detection system using an image classification-based machine learning (ML) classifier is illustrated in Fig.6. The detection process begins by collecting three-phase voltages (V1, V2, V3) and three-phase currents (I1, I2, I3) from the PCC.
+
+Flowchart of the proposed islanding detection technique.
+
+Real-world conditions introduce challenges such as sampling noise and harmonics in voltage measurements, which may affect the accuracy of electrical characteristics65. To mitigate this issue, the voltage and current signals are first normalized to reduce harmonic distortions and high-frequency noise. Next, the THD for both voltage and current is computed. The computed THD is continuous over time derived from sliding windows. Static THD values are scalar and absolutely not time varying. And since for generation of scalogram images, time series data of continuous time varying THD signal is required. Hence, a sliding window based THD time series signal is computed for each three phase voltage and current signals.
+
+Following noise reduction, the given electrical parameters measured at the PCC are taken for computation of continuous time series THD parameters. Then scalogram images are generated as time-frequency representations for each of the six computed continuous time series THD parameters. The squared magnitude of the CWT coefficients is computed to create a scalogram image, which visually represents signal energy distribution across time and frequency. These scalogram images are then scaled to 16 × 16 pixels and converted to grayscale.
+
+Basically, the computed continuous time series THD parameters, each representing a 1-D time series, are subjected to CWT. The output of the CWT is a time-frequency matrix, where the energy distribution over scales and time is represented. This matrix is then plotted as a scalogram, forming a 2-D image.
+
+To extract meaningful patterns, HOG descriptors are computed from the scalogram images. The HOG feature vectors, containing extracted features from multiple islanding and non-islanding scenarios, are then concatenated to form a comprehensive feature dataset. By employing robust feature extraction and normalization techniques, the HOG extraction process enhances resilience against residual noise. This HOG feature dataset serves as the input vector for training, testing, and validating the ML classifier. Ultimately, the trained ML model is used for islanding detection in real-time scenarios.
+
+Three-phase voltage signals (V1, V2, V3) and three-phase current signals (I1, I2, I3) are measured at the PCC.
+
+The continuous time series THD for all three-phase voltages and currents is calculated.
+
+The CWT is applied to transform THD time-series signals into scalogram images, providing a time-frequency representation of the signals.
+
+HOG descriptors are computed from scalogram images to capture distinguishing features in frequency patterns.
+
+The extracted HOG features from different scenarios (islanding and non-islanding cases) are concatenated into a structured dataset.
+
+The Random Forest (RF) classifier is trained using the HOG feature dataset.
+
+The classifier is then tested and validated for accurate classification of islanding events.
+
+The trained ML model evaluates new input data and determines whether an islanding event has occurred.
+
+If islanding is detected, the system flags it; otherwise, the condition is classified as non-islanding.
+
+For scalogram image computation, the complex Morlet wavelet is primarily used due to its ability to capture both frequency and temporal characteristics effectively. Additionally, other wavelet functions, such as Daubechies, Coiflet, Symlet, Biorthogonal, and Haar, are considered to improve robustness, Morlet offers a better trade-off between time and frequency resolution. The Morlet wavelet is chosen as the mother wavelet in the CWT due to its superior ability to capture both transient and oscillatory components in non-stationary signals. This makes it especially effective in representing subtle waveform distortions associated with islanding events in the time-frequency domain. Preliminary tests with alternative wavelets confirmed that Morlet provided clearer scalogram patterns and contributed to higher classification accuracy.
+
+Robustness to noise and strong performance on high dimensional input feature vector, and.
+
+The trained RF classifier effectively differentiates between islanding and non-islanding conditions, making it a robust and reliable approach for real-world deployment. The RF model is configured with 100 decision trees and a maximum tree depth of 10. The Gini index is selected as the splitting criterion. The model is trained and validated using 5-fold cross-validation to ensure generalizability and robustness, especially under noisy conditions.
+
+While the present study focuses on islanding detection for solar PV system grid tied system, the proposed approach is fundamentally data-driven and does not depend on PV-specific characteristics. The framework leverages time-domain signal transformation and image-based feature learning, which can be applied to other types of DERs, provided that appropriate THD data is available for implementing proposed methodology. The general feature extraction and classification methodology can thus be adapted for broader grid-integration scenarios with minimal modifications.
+
+To evaluate the performance of the proposed IDS, a dataset is created using simulated islanding and grid-connected cases. The dataset consists of 235 scenarios, with 100 cases representing islanding events and 135 cases corresponding to grid-connected conditions. Table2provides a detailed summary of the simulated parameters used for dataset creation.
+
+Detecting islanding events is particularly challenging when there is a minimal difference between load power consumption and DG power output. To ensure robustness, the dataset includes such challenging cases. For classifier training and evaluation, 80% of the dataset (188 cases) is used for training, while the remaining 20% (47 cases) is reserved for testing. The RF ML classifier is trained on the selected data, ensuring that it has no prior knowledge of the test dataset, thereby providing an unbiased assessment of its generalization capabilities.
+
+tpandtndenote the true positive and true negative classifications, respectively.
+
+fpandfnrepresent false positive and false negative classifications, respectively.
+
+To further evaluate the classification performance, a confusion matrix is analyzed for each trained ML classifier. The confusion matrix provides insights into the number of correctly and incorrectly classified cases for each category, offering a comprehensive assessment of classifier performance. The presence of zero false positives and zero false negatives in the confusion matrix validates the classifier’s ability to accurately detect islanding events while minimizing misclassification errors. Table2presents the simulated parameters used to generate the dataset, along with the corresponding number of islanding and grid-connected cases.
+
+To compute HOG characteristics, it is essential to determine appropriate block and cell sizes, as discussed in Sect. 2. Using smaller cell sizes allows for the extraction of finer features; however, this increases computational complexity and expands the feature vector size. Conversely, larger cell sizes reduce computational load and result in a smaller feature vector, but may lead to loss of critical details necessary for accurate classification.
+
+The choice of block and cell sizes depends on the nature of the input data. Hence, determining the optimal sizes is the first critical step in feature extraction. Figure7(a) illustrates the variation in HOG feature vector size with respect to different block and cell sizes. It is evident that feature vector size decreases significantly as cell size increases.
+
+Influence of cell and block sizes, (a) Variation in HOG feature vector size for different block and cell sizes, (b) Accuracy plot for optimal block and cell sizes39.
+
+In addition to feature vector size, detection accuracy must also be considered when selecting cell and block sizes. Figure7(b) demonstrates the impact of cell and block sizes on classification accuracy. The results indicate that with cell sizes of 10 and corresponding block sizes ranging from 12 to 8, the detection accuracy reaches its peak, approaching 100% accuracy. Based on this analysis, a block and cell size of 10 was selected as the optimal configuration for feature extraction. Although 10-pixel cells are not an exact divisor of 16, the small image size allows sufficient spatial information to be retained for meaningful gradient computation, while also minimizing the computational cost—particularly critical for real-time implementations and large dataset processing. Smaller image sizes reduce memory footprint and processing time, which is vital when dealing with large numbers of images. The essential edge and orientation information necessary for effective HOG feature extraction is preserved in the 16 × 16 resolution due to the nature of the scalogram, which emphasizes dominant frequency structures. Hence, even with coarse spatial resolution, useful local gradient patterns are retained. The research conducted confirms that cell and block sizes of ~ 10 are optimal even when used within a 16 × 16 image framework. This indicates that the feature content at 16 × 16 resolution is sufficient for reliable classification, justifying its use in the final architecture.
+
+After the HOG features are extracted, the RF ML classifier is trained. The dataset used for training and evaluation represents a diverse set of scenarios, including challenging islanding and non-islanding conditions, to rigorously assess the classifier’s performance.
+
+To further evaluate the robustness of the proposed IDS, noise and uncertainty were deliberately introduced into the training and testing datasets. This approach ensured a rigorous testing process under real-world conditions.
+
+Noise was applied to all original signals, and the dataset was processed accordingly to analyze the effectiveness of the RF classifier under noisy conditions.
+
+The significant variations in total continuous time series THD that occur during an islanding event are illustrated in Fig.8. These variations provide crucial insights into the behavior of voltage and current signals when the DG system is disconnected from the main grid.
+
+Output waveform during islanding situation, (a) continuous time series THD of three-phase voltages, (b) continuous time series THD of three-phase currents.
+
+Figure8(a) depicts the changes in continuous time series THD of the three-phase voltages (V1, V2, and V3). Before islanding (i.e., prior to 0.5 s), the continuous time series THD dynamic values remain relatively stable at minimal levels. However, immediately after 0.5 s, when the islanding event occurs, a sharp and noticeable increase in THD is observed. This sudden increase indicates a shift in system dynamics due to the absence of grid synchronization, leading to significant harmonic distortions.
+
+Similarly, Fig.8(b) presents the variations in continuous time series THD of the three-phase currents (I1, I2, and I3). Before islanding, the THD levels exhibit a stable trend. However, after 0.5 s, the continuous time series THD values experience a substantial fluctuation, showing the system’s response to the islanding event. The noticeable peak in THD immediately after islanding confirms the system’s inability to maintain its previous harmonic profile without grid support. Eventually, the THD levels stabilize again as the system adapts to the new operating conditions.
+
+The sudden increase in voltage THD immediately after 0.5 s indicates the presence of islanding, making THD a reliable feature for islanding detection.
+
+The current THD exhibits a sharp fluctuation following the disconnection, suggesting that THD-based classification can be effective in identifying islanding conditions.
+
+The variations in both voltage and current THD reaffirm that time-frequency analysis of THD signals provides distinct patterns that can be leveraged for machine learning-based classification.
+
+Thus, Fig.8confirms that the proposed methodology effectively detects islanding events through continuous time series THD variations, supporting the use of HOG feature extraction and ML classification in islanding detection systems.
+
+Table3presents the various islanding and grid-connected scenarios considered for training and evaluating the RF ML classifier. The dataset incorporates a range of operational conditions, ensuring that the classifier is robust against different types of disturbances.
+
+This dataset ensures that the RF classifier is trained on a diverse range of operational conditions, improving its ability to generalize and accurately distinguish islanding events from non-islanding disturbances. The inclusion of a variety of non-islanding cases, such as short-circuit faults, sudden load changes, capacitor bank switching, and reactive load variations, ensures that the classifier is capable of differentiating between genuine islanding events and other grid disturbances. The balance between islanding and non-islanding cases in the dataset also minimizes bias, providing a more accurate assessment of the classifier’s real-world applicability.
+
+Figure9presents the scalogram images corresponding to islanding scenarios under non-noisy conditions for all derived parameters, including V1(THD), V2(THD), V3(THD), I1(THD), I2(THD),and I3(THD). These scalogram representations provide a time-frequency analysis of the THD variations, enabling a visual understanding of the impact of islanding events on electrical signals. For each scenario, six scalogram images (V1(THD), V2(THD), V3(THD), I1(THD), I2(THD), and I3(THD)) are used, each contributing 36 HOG features, resulting in a 216-dimensional feature vector per scenario. Hence providing a 216 × 235 HOG feature vector input matrix.
+
+Scalogram images of islanding situations under noise-free environment, (a) V1(THD), (b) V2(THD), (c) V3(THD), (d) I1(THD), (e) I2(THD), and (f) I3(THD).
+
+These findings confirm the effectiveness of scalogram transformations in converting time-domain signals into rich visual representations that facilitate machine learning-based islanding detection.
+
+Output signal and corresponding scalogram images under islanding situation at 20 dB noise, (a) V1(THD), (b) V2(THD), (c) V3(THD), (d) I1(THD), (e) I2(THD), and (f) I3(THD).
+
+Thus, Fig.10demonstrates the effectiveness of the scalogram-based approach in distinguishing between islanding and non-islanding events, even under noisy conditions, reinforcing its suitability for real-world deployment.
+
+Output signal and corresponding scalogram images under Islanding situation at 30 dB noise, (a) V1(THD), (b) V2(THD), (c) V3(THD), (d) I1(THD), (e) I2(THD), and (f) I3(THD).
+
+Thus, Fig.11further reinforces the efficacy of the scalogram-based method in distinguishing islanding events, even when subjected to moderate noise levels (30 dB SNR), ensuring reliable machine learning-based classification.
+
+Figure12presents the scalogram images corresponding to various non-islanding grid-connected situations for all derived parameters (V1(THD), V2(THD), V3(THD), I1(THD), I2(THD)and I3(THD)). These scalogram representations demonstrate how the system responds to abnormal but non-islanding disturbances, ensuring that the proposed RF ML classifier is capable of distinguishing true islanding events from other grid disturbances.
+
+Scalogram images of non-islanding situations in a noise-free environment, (a) Reactive load switching, (b) Capacitor bank switching, and (c) Short circuit fault (Line-to-Ground).
+
+Thus, Fig.12validates that the proposed methodology effectively differentiates between different types of non-islanding scenarios which are often misclassified as islanding scenarios, providing robust feature representations for machine learning-based classification.
+
+The RF ML classifier is trained and tested using HOG features extracted from 1,410 scalogram images. To evaluate its generalization capability and mitigate the risks of overfitting and underfitting, a 5-fold cross-validation technique is employed. This ensures that the model is effectively trained and tested across different subsets of data, providing a balanced performance assessment.
+
+The classification performance is evaluated against the IEEE-1547 standard, which requires a maximum islanding detection time of 2 s. The proposed method successfully meets this requirement, reinforcing its suitability for real-time deployment.
+
+Trade-off between time-frequency resolution and processing efficiency.
+
+Hardware constraints, such as processor speed and memory availability.
+
+Image resizing to 16 × 16 pixels and grayscale conversion, reducing computational overhead.
+
+HOG feature descriptor extraction, ensuring efficient and robust feature representation for the RF ML classifier.
+
+Algorithm optimization and parameter tuning to accelerate processing.
+
+Parallel processing and hardware acceleration to reduce latency.
+
+Downsampling techniques to maintain feature integrity while lowering computational load.
+
+Data caching and storage strategies to reuse computed scalograms for similar input signals, minimizing redundant computations.
+
+By implementing these strategies, the proposed islanding detection system maintains high detection accuracy while ensuring computational feasibility, making it suitable for real-world smart grid applications.
+
+The baseline results used for comparison in this study were extracted from existing literature of Manikonda et al. (2020). These results were not re-implemented in this work but were taken directly from the existing literature to provide context and demonstrate the relative performance improvements of the proposed method.
+
+Table4provides a comprehensive comparison of classification performance metrics across varying noise levels, demonstrating the model’s ability to maintain high accuracy and low misclassification rates even in noisy environments. The metrics used for evaluation include accuracy, precision, recall, area under the curve (AUC), F1-score, and misclassification error. To visually illustrate the impact of noise on classification performance, Fig.13visually illustrates how noise levels (20 dB and 30 dB) impact classification performance, highlighting the robustness of the proposed method.
+
+Performance metrics for RF ML classifier in case of original signal and across different noise levels.
+
+Comparison of RF ML classifier performance across different noise levels.
+
+The proposed methodology is computationally efficient, as it processes continuous time series THD values and transforms them into 16 × 16-pixel grayscale scalogram images using CWT. This compact image representation allows for the extraction of low-dimensional HOG features, significantly reducing the computational burden.
+
+Moreover, the use of a RF classifier—known for its high speed during both training and inference—ensures the system’s ability to scale effectively across large smart grid networks. Since each instance generates only one feature vector, the memory and processing requirements remain minimal. This low-complexity pipeline makes the approach suitable for real-time islanding detection in embedded or edge-computing environments commonly used in grid-connected systems.
+
+To validate the feasibility of real-time islanding detection, the proposed model was implemented on a system equipped with an Intel Core i7-1255U processor (4.70 GHz) and 16 GB RAM using MATLAB 2023a. The RF ML classifier achieves an impressive detection time of 167 milliseconds, significantly faster than the IEEE-1547 standard limit of 2 s. The memory footprint of the algorithm, including scalogram, HOG feature extraction, and RF classification, remained below 50 MB during runtime on a system. These results affirm that the proposed approach is not only highly accurate but also computationally lightweight and scalable for real-time deployment in distributed energy resource (DER) monitoring frameworks. The proposed IDS using RF ML classifier demonstrates exceptional classification accuracy even under noisy conditions. The scalogram-based feature extraction combined with HOG descriptors ensures that islanding and non-islanding events are effectively distinguished, reducing false positives and false negatives. By maintaining high detection accuracy, precision, and recall, the proposed methodology is highly reliable for real-time smart grid applications.
+
+These results affirm that the proposed approach is not only highly accurate but also computationally lightweight and scalable for real-time deployment in distributed energy resource (DER) monitoring frameworks.
+
+While the presented study is based on a single-DG solar PV-based simulation setup, the approach is scalable to multi-DG systems, provided each DG unit is monitored independently or collectively through synchronized sampling. The feature extraction technique using THD-based scalograms remains valid irrespective of the number of DGs and type of DG, although retraining of the classifier might be needed for generalization across diverse topologies.
+
+To ensure the practicality and real-world applicability of the proposed IDS, real-time validation was performed using the OPAL-RT’s RT-LAB simulator (OP4512). OPAL-RT provides a high-fidelity digital simulation environment that enables parallel computation and real-time execution, ensuring that the system operates in sync with actual grid conditions. The experimental setup, shown in Fig.14, consists of an oscilloscope, an OPAL-RT digital simulator, and a host computer equipped with RT-LAB software for real-time monitoring and analysis.
+
+Hardware experimental setup to validate the proposed IDS in real time using OPAL-RT.
+
+The proposed islanding detection model was tested in a real-time environment using OPAL-RT, which supports hardware-in-the-loop (HIL) simulations. This setup ensures that the proposed IDS can operate effectively under real-time conditions, making it a viable solution for smart grid applications.
+
+Host Computer: Runs the real-time simulation and processes the data.
+
+OPAL-RT Digital Simulator: Simulates the electrical grid conditions and generates voltage/current waveforms.
+
+Oscilloscope: Captures and visualizes the time varying THD of voltage and current signals in real time.
+
+Test System with RT-LAB Interface: Provides a graphical representation of the grid behavior, including islanding and non-islanding events.
+
+Figure14illustrates the physical arrangement of the experimental setup, highlighting the real-time data acquisition and processing environment.
+
+To evaluate the real-time response of the proposed IDS, an islanding event was triggered att= 0.75 s. The system’s response to this event was captured and analyzed using continuous THD measurements at the PCC.
+
+Figure15(a) presents the continuous time series THD waveform of the three-phase voltages, clearly showing a sharp increase immediately after the islanding event occurs.
+
+Figure15(b) displays the continuous time series THD waveform of the three-phase currents, illustrating significant variations as the system transitions into an islanding condition.
+
+Experimental results of the real-time oscilloscope measurements during islanding situation, (a) continuous time series THD of three phase voltages, and (b) continuous time series THD of three phase currents of THD variations during islanding events.
+
+These experimental results confirm that the proposed IDS can accurately detect islanding events in real-time, reinforcing the feasibility of implementing the system in practical grid-tied PV and DG systems.
+
+To benchmark the performance of the proposed method against existing islanding detection techniques, a comparative analysis was conducted, as summarized in Table5.
+
+Comparative analysis of the proposed method against existing IDS models.
+
+High accuracy (100%), ensuring reliable islanding detection.
+
+Low misclassification rate, reducing false alarms and erroneous detections.
+
+Fast detection time (167 ms), making it suitable for real-time deployment.
+
+Efficient feature extraction using HOG descriptors, enhancing model performance.
+
+Scalability for different DG and PV grid configurations, ensuring adaptability to diverse grid environments.
+
+The real-time validation of the proposed RF ML-based IDS using OPAL-RT confirms its effectiveness and practicality for islanding detection in smart grid environments. The experimental results demonstrate that the proposed method consistently outperforms existing islanding detection systems (IDSs) in terms of accuracy, detection time, and robustness to noise. With an islanding detection time of 167 ms, the system operates well within the IEEE-1547 standard limit of 2 s, ensuring a rapid and reliable response in real-world applications.
+
+The findings further validate that HOG feature extraction from scalogram images provides highly discriminative characteristics, allowing for effective differentiation between islanding and non-islanding events. This ensures that the methodology remains robust even under noisy conditions, making it a viable candidate for real-world deployment in smart grid systems. The comparative study (Table V) highlights the superior performance of the proposed RF ML-based IDS over other machine learning-based IDS techniques, such as SVM, CNN, and ANN, many of which either suffer from higher computational complexity or lower accuracy.
+
+Additionally, the parallel computation capability of OPAL-RT, along with its real-time digital simulation framework, facilitates the seamless execution of the proposed method without latency issues. This confirms that the proposed IDS can be efficiently integrated into modern distributed generation systems for enhanced power system security and reliability.
+
+Overall, the RF ML-based IDS emerges as a highly scalable, efficient, and adaptable solution for islanding detection. Future work could explore further optimization of feature extraction, integration with edge computing for improved processing speed, and deployment in large-scale distributed energy networks.
+
+This study presented an intelligent islanding detection scheme based on RF ML classification, leveraging scalogram-based feature extraction and HOG descriptors. The proposed method effectively transformed one-dimensional electrical signals from the PCC into two-dimensional time-frequency representations using CWT. The extracted HOG features provided robust and discriminative information for training the RF ML classifier, enabling highly reliable classification of islanding and non-islanding events. The performance evaluation demonstrated that the proposed RF ML classifier achieved 100% classification accuracy in a noise-free environment, while maintaining an average accuracy of 99.35% under noisy conditions (20 dB and 30 dB). The model was validated using 5-fold cross-validation, ensuring robustness and generalization capability. Additionally, the real-time implementation on OPAL-RT confirmed its practical feasibility, achieving an islanding detection time of 167 milliseconds, which is well within the IEEE-1547 standard limit of 2 s. It is important to clarify that field data from actual DERs were not used in this study. Future research will involve deployment in live grid environments to further evaluate performance under true operational uncertainties and noise measurement. A comparative analysis against existing state-of-the-art IDS techniques highlighted the superiority of the proposed approach over conventional methods. The results confirmed that scalogram-based feature extraction combined with HOG descriptors significantly improved classification accuracy, robustness to noise, and computational efficiency, making the RF ML classifier an optimal solution for real-time islanding detection in modern smart grids.
+
+Future studies could explore deploying the IDS on edge computing platforms, FPGAs, or GPUs to further optimize computational speed and reduce latency.
+
+Investigating the performance of the IDS in large-scale distributed generation systems, including hybrid renewable energy sources, could provide valuable insights into its adaptability for complex grid environments.
+
+Incorporating adaptive learning techniques, such as online learning and reinforcement learning, could enhance the IDS’s capability to dynamically adjust to grid variations.
+
+Future research could assess the resilience of the proposed IDS against adversarial attacks, ensuring its security and reliability within smart grid cybersecurity frameworks.
+
+The IDS could be extended to seamlessly integrate with smart grid communication protocols (e.g., IEC 61850 and SCADA systems) for automated islanding detection and response mechanisms.
+
+Consequently, the RF ML-based IDS introduced in this study demonstrated exceptional classification accuracy, noise resilience, and real-time operational efficiency, making it a strong candidate for practical deployment in modern power grids. By leveraging advanced feature extraction techniques and machine learning models, the proposed approach effectively enhanced the reliability and efficiency of islanding detection mechanisms. With further optimizations, this technique could play a significant role in ensuring the stability and security of future smart grid infrastructures.
+
+The authors would like to acknowledge the Princess Nourah bint Abdulrahman University Researchers Supporting Project number (PNURSP2025R66), Princess Nourah bint Abdulrahman University, Riyadh, Saudi Arabia. The authors would like to thank the Automated Systems and Computing Lab (ASCL) at Prince Sultan University, Riyadh, Saudi Arabia, for their support to this work. In addition, the authors wish to acknowledge the editor and anonymous reviewers for their insightful comments, which have improved the quality of this publication.

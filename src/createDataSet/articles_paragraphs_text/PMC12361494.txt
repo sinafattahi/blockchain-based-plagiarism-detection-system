@@ -1,0 +1,121 @@
+Keywords:Personalized recommendation, Knowledge Graph,  Graph Convolution Networks.
+
+The rapid development of online education platforms has led to a variety of massive open online courses (MOOCs), including Chinese University MOOCs, Xuetang Online, and E-Cloud Classes. These platforms offer rich online learning resources, attract an increasing number of users, and provide fair and open educational opportunities for both college students and lifelong learners.
+
+In the vast landscape of online education resources, the way users select courses that meet their specific knowledge needs is crucial, as it directly impacts the completion and dropout rates of learners1. As illustrated in Fig.1, the average interaction of user-item (learner-course) for online courses is significantly lower compared to traditional recommendation scenarios, such as those for books, food, and movies. Given that course learning is often a lengthy and somewhat tedious process, this discrepancy has led to a contradiction between the proliferation of online courses and the noticeable lack of interaction. To address the issue of ‘’information overload’’, providing users with personalized courses becomes particularly important2,47. In light of this challenge, the recommendation algorithms used by online education platforms have increasingly become a focal point in educational research, attracting significant attention from scholars. Traditional recommendation algorithms typically rely on using side information to enhance the accuracy and effectiveness of recommendations50. For example, social network data3, image features4, contextual information5,51, and item attributes6,46are widely utilized to boost the performance of recommendation systems. The aforementioned recommendation methods, although they improve recommendation performance to some extent, still struggle to effectively address key issues such as data sparsity and the difficulty of providing explainable recommendations in the MOOC environment. In contrast to these information, knowledge graph (KG) inherently offers the advantage of revealing connections between learners and course entities, thus providing implicit feedback on diverse intentions of users. Consequently, many scholars have introduced KG into their recommendation tasks7,48,49.
+
+Interaction-avg shows the average interaction count in the MOOCs dataset in comparison with the four other commonly used datasets.
+
+The toy example of a KGCN-UP course recommendation for each user.
+
+This model traverses all courses with which the user has historically interacted and propagates through various relationship chains in the KG to get courses that the user is likely to be interested in. We define this process as the user preference propagation module. Similarly, the model starts with candidate courses and traverses related courses adjacent to these, enhancing the representation of the candidate courses. This forms what we call the item neighbor enhancement module. This approach not only enriches the user representation but also effectively utilizes the relational chain information in the KG, thereby addressing the issue of ‘’information overload’’ and improving the model’s performance.
+
+We systematically analyze the sparsity of user interaction data in MOOCs scenarios. Based on these characteristics, we propose a model named KGCN-UP that enhances user and item representations to predict course click probabilities, addressing data sparsity in MOOCs.
+
+To improve the use of heterogeneous information in the knowledge graph, we design a novel approach to item representation. It traverses entities related to the candidate item and applies message passing to aggregate neighbor information for the final representation.
+
+Extensive experiments demonstrate that KGCN-UP outperforms leading benchmark models on educational, book, and music recommendation tasks, with ablation studies confirming the effectiveness of both key model components.
+
+The structure of this paper is organized as follows: “PROBLEM DEFINITION” section introduces the purpose of the recommendation task and related definitions. “RELATED WORKS” section introduces the relevant research on recommendation models based on KG. Afterwards, the proposed method is introduced in detail in “METHODS” section. Experimental results and related discussions are then presented in “EXPERIMENT”. we summarize the findings of this paper and outline our plans for future research in “CONCLUSION” section.
+
+A variety of methods have been developed to introduce KG into recommendation systems. We categorize these methods into four types based on the different uses of additional information from the KG: Embedding-based8–10, Path-based14–16, GNN-based18–22and Contrastive Learning-based27–29.
+
+Embedding-based methods8–10utilize knowledge graph embeddings (KGE)11,12to process KG information, aiming to incorporate both entity and relation embeddings into recommendation systems. CKE8uses the TransR11algorithm to extract the structured information of items, integrating it into the collaborative filtering module. DKN9aggregates target items by combining entity embeddings and word embeddings through the TransD13algorithm. RippleNet10propagates entities from previous user interactions within the KG, modeling the relationships between users and items. These models primarily focus on the semantic relevance between items, but they fall short in capturing complex high-order relationships between users and items, and are more commonly used in prediction tasks.
+
+Contrastive-learning based methods27–29involve comparing positive and negative samples, positioning the positive samples in the feature embedding space, while further separating the negative samples from the positive ones. The goal is to maximize the distance between different samples, improving node representation learning through supervised learning from the data itself. KGCL27aims to suppress the noise generated in the information aggregation process of KG by introducing SGL30into recommendation systems, utilizing self-supervised signals to enhance the representations of users and items. MCCLK28conducts contrastive learning (CL) from both local and global perspectives, enhancing node representations through multiple views. KGrec29calculates scores for each triplet, aligning signals from KGs and interaction graphs to mask the KG.
+
+In this section, we define the recommendation task and introduce related concepts. Following that, we describe our proposed KGCN-UP model, which efficiently captures high-order interaction information between users and items, thereby improving the use of side information in the KG.
+
+In this paper, we follow the general setup of mainstream recommendation systems. We define two types of structured data required by the course recommendation system: the user-course interaction dataset and the KG. Finally, we formulate the problem statement.
+
+1) Interaction Data. Letrepresent a set ofusers, and letrepresent a set ofcourses. Thus, the user-course interaction matrix can be defined as, whereanddenote the sets of users and courses. In this interaction matrix, if userinteracts with course, such as by clicking, adding, or purchasing, then, otherwise.
+
+2) Knowledge Graph. KGs include much side information. We formally define it aswhereandrepresent the head and the relation of the knowledge triplet, respectively, andrepresents the tail. A KG is composed of many such knowledge triplets, which are the basic units of the graph. For example, the triplet (Nanjing University. Operating System, course. teacher, Luo Bin) describes the fact that the course on Computer Operating Systems is taught by Professor Luo Bin. To align more closely with real recommendation scenarios, We ensure that each coursecorresponds to one entityin the KG, establishing a set of item-entity alignment pairsThis alignment between courses and entities in the KG provides rich semantic information for interaction data.
+
+3) Problem Statement. The primary goal of the online course recommendation problem is to predict whether a useris interested in a coursethat they have not yet interacted with, using the interaction matrixand the knowledge graph. The main task of the model is to construct a prediction function, whererepresents the predicted likelihood of studentengaging with course,denotes the functional form of the model, andrepresents the parameter of the function.
+
+The proposed KGCN-UP model is illustrated, consisting of three modules: the user preference propagation module, the item neighbor enhancement module, and the prediction module.
+
+differs fromin that each element of serves as the head entity in the set oftriples. The setexplore additional related items by traversing various relationship chains in the KG to find other related items, this process is crucial for MOOC recommendations.
+
+For a given userand a candidate course, tail entities can be expressed by different head entities via various relationship chains. For instance, the course ‘’Bioinformatics’’ may be offered by ‘’Central South University’’ or taught by ‘’Tong Jianbin’’. Therefore, the semantics of tail entities, derived from different head entities and relationship chains, vary across different triples. To more finely represent the relationship between the varying semantics of tail entities and the candidate course, it is necessary to perform a weighted representation of the resulting tail entities within the given grouping setand across different triples. This approach aims to calculate the similarity of candidate courses to the courses that users interact with through different relationship chains.
+
+Therefore, we have determined which type of course knowledge the learners focus on more.
+
+where​ represents the set of first-order neighbors of the candidate course.
+
+As shown in Fig.3, inspired by graph sampling37,45, the message passing process spreads from the outermost to the innermost layer. Through aggregation at each layer, the inner layers near the itemaggregates features from outer item entities, ultimately converging at the central node. This process yields the feature vectorfor the final candidate coursec, capturing the higher-order semantic information from the KG.
+
+On one hand, it is considered that the actual sizes ofin real-world KGs vary; on the other hand, if a candidate item aggregates too many neighbors, it will significantly increase the computational load on the model. Considering these factors, we fixed the number of first-order neighbors sampled randomly for each candidate course. The resulting set of neighbor entities denoted as​, do not include all neighboring entities, thus enabling more efficient and manageable computations. Specifically, the subset​ for a candidate can be defined as, whereandis a configurable constant, set to 2.
+
+The summation aggregator combines two vectors by addition, whererepresents a nonlinear activation function,is the linear transformation matrix, andis the bias term.
+
+With the addition of iterative layers, the model can progressively extract information across multiple hops and integrate it into the course, obtaining the final embedding representation through the item neighbor enhancement module.
+
+Where the functionrepresents the cross-entropy loss.denotes the interactions in which the user actually selects or shows interest,represents the set of all negative user-course interactions, andis assumed to follow a uniform distribution.
+
+Whererepresents the slice of the tensorcorresponding to relationin the KG, andis the embedding matrix of entities.
+
+Where​ andare hyperparameters that help prevent overfitting.
+
+To verify the effectiveness of the proposed model in online course recommendations, we conducted experiments using the MOOCCube open dataset. Additionally, to ensure the fairness of the results, we also performed comparative experiments on two other public datasets, Movielens-1 M and Book-Crossing, to assess the model’s universality in the recommendation scenario.
+
+1)MOOCCube: It is a large-scale and open-source educational dataset that not only includes 706 real courses and nearly 38,000 videos, but also provides additional information for course recommendations.
+
+2)MovieLens-1 M: This dataset, widely used for movie recommendations, includes display ratings from 6,036 users for 2,445 movies, with ratings on a scale of 1 to 5.
+
+3)Book-Crossing: It collects reviews of 2,445 books from 17,860 readers across communities (on a scale of 0 to 1).
+
+We preprocessed the MOOCCube open dataset with specific steps to enhance data quality and relevance. Initially, we filtered the interactive data collected between July 1, 2017, and October 1, 2017. We removed records where learners selected fewer than 10 courses to reduce data sparsity and ensure a sufficient amount of interactive information. Subsequently, we extracted all course names from the dataset, maintaining the historical sequence of learners’ course clicks. Regarding the construction of the sub-KG, we start from the course entity and expand into various course-related knowledge triples through different relationships, until the tail entity points back to the course entity.
+
+For the interaction data from the MovieLens-1 M and Book-Crossing datasets, which exhibit explicit feedback, we adopted the RippleNet10approach to convert this data into implicit feedback, thus capturing user-item interactions. For MovieLens-1 M, we set a positive sample threshold of 4; for Book-Crossing, we did not set a specific threshold due to its sparse data. A user’s engagement with an item is quantified such that a positive interaction is assigned a score of 1, whereas the absence of interaction or a low rating is assigned a score of 0. Negative samples are randomly selected from unobserved items for each user, ensuring the number of negative samples equals the number of positive samples. In terms of sub-KG construction, we followed the KGCN18methodology and utilized Microsoft’s Satori4business KG to construct the sub-KG for the MovieLens-1 M and Book-Crossing datasets. To create the sub-KG, we first filter out low-confidence triples from the original knowledge graph (KG) by selecting only those with a confidence level greater than 0.9. This pruning step helps eliminate noisy or unreliable data. For the remaining triples, we extract the Satori IDs of all valid movies and books by matching their names with the tail of the triples, such as (head, film.film.name, tail) and (head, book.book.title, tail). To further reduce noise, we exclude items that either match multiple entities or have no valid match at all, ensuring that only clear and unambiguous entities are retained. Table1presents the statistics for these three datasets.
+
+To ensure the fairness of the experiments, we standardized the model’s dimension at 64 and the batch size at 512. The dataset was randomly divided into training, testing, and validation sets in a 6:2:2 ratio to facilitate hyperparameter tuning. The model parameters were initialized using the Xavier38method, and the model was optimized with the ADAM optimizer39. The hyperparameters that need to be fine-tuned are as follows: evaluate learning rates among {0.0001, 0.001, 0.01, 0.1}, check regularization coefficients among {10−7,10−6,10−5,10−4,10−3,10−2,10−1} explore the maximum number of hops L among {1, 2, 3, 4, 5}, and find the appropriate number of neighbors D among {2, 3, 4, 5, 6, 7, 8}. Training was halted if the model’s loss on the validation set did not improve significantly over five consecutive validation cycles. The final results were averaged from the best outcomes across five model runs. Table2lists the specific hyperparameter settings for our model, while the hyperparameters for other baseline models are set based on experience or in accordance with the settings in the original papers to ensure optimal performance. The experiments were conducted on hardware equipped with NVIDIA GeForce RTX 4050 GPUs, with all models implemented in Pytorch and sharing the same hardware for acceleration.
+
+Statistics hyper-parameter settings for the datasets.
+
+To evaluate the performance of the proposed method, we predict user clicks by using the trained model and assess the effectiveness of the click-through rate (CTR) prediction by employing two common evaluation metrics: AUC (Area Under Curve) and F1 score. AUC is an evaluation index that measures the performance of a recommendation system on a scale from 0 to 1, with higher values indicating better performance. The F1 score is an indicator that balances precision and recall, also ranging from 0 to 1, where a higher value indicates better performance.
+
+1) LFM40: A collaborative filtering (CF) method that utilizes Alternating Least Squares (ALS) decomposition to derive implicit factors for users and items, constructing an interaction matrix that represents user ratings of items.
+
+3) CKE41: An embedding-based approach that integrates KG into the recommender system using the TransR [] algorithm to extract structured knowledge, which is then fused with CF techniques.
+
+4) MKR42: An embedding-based method that performs recommendation prediction tasks concurrently with knowledge graph embedding (KGE), using cross compression units that are updated synchronously to enhance recommendation outcomes.
+
+6) PER14: A path-based method that represents user-item connections by calculating path similarity between items to derive preference scores, forming a user preference diffusion matrix.
+
+7) KGCN18: A graph neural network (GNN)-based approach that enriches item representations by capturing higher-order semantic information in the KG through recursive message aggregation.
+
+8) KGAT20: The embeddings of neighbor nodes are recursively updated while adopting an attention mechanism to dynamically adjust the weights of each neighbor, thereby distinguishing the importance of different neighbors in node embeddings.
+
+9) CKAN21: A GNN-based approach that introduces a novel dissemination strategy combining collaborative and knowledge information, dynamically adjusting the weight of each neighbor node through an attention mechanism to enhance recommendations.
+
+10) KGIN43: A GNN-based method that extracts rich semantic information from the KG by constructing relational path perceptions, refining key user intent features, and enriching the embedded representations of users and items.
+
+12) KGCCL44: A CL-based method that combines interaction graphs and KGs. By contrasting local and global level, it uses noise enhancement to improve the representations of users and items.
+
+13) KGRec29: A CL-based method that calculates high-scoring triplets and then masks the KG by aligning signals from both the KG and the interaction graph.
+
+2) The introduction of KG information not always enhances the recommender system. Compared to traditional recommendation algorithms like LFM and BPRMF, the CKE model, which embeds knowledge information into matrix factorization, shows a notable performance improvement. This indicates the effectiveness of incorporating knowledge information, aligning with conclusions from previous studies7.While PER performs worse than BPRMF, this indicates that the model’s performance can only improve by incorporating appropriate knowledge. This highlights the critical role of knowledge sampling and knowledge denoising. This proves that the method we proposed can effectively handle the application of knowledge graph auxiliary information without turning it into a burden that leads to performance degradation.
+
+3) GNN-based methods exhibit stronger performance. Most of the GNN-based methods outperform embedding-based and path-based methods. This highlights the importance of information propagation between graph nodes and suggests that enhancing the representation of users and items can improve model performance, especially in scenarios with sparser interaction data. This also proves that propagating user preference information can achieve good performance in the sparse MOOC scenario.
+
+Our proposed KGCN-UP model involves several hyperparameters, as detailed in Fig.4. We will specifically discuss how these parameters affect the model’s performance.
+
+1) Impact of Embedding Dimension (). We investigated the impact of the embedding dimension on the performance of the KGCN-UP model. As shown in Fig.4, model performance initially tends to increase with an increase in. This improvement is mainly because the model can encode more information from users and entities. However, beyond a certain point, an increase instarts to decrease performance, likely due to higher dimensions introducing excessive noise, which leads to model overfitting and adversely affects performance.
+
+2) Impact of Number of Neighbors (). We investigated the impact on the performance of the KGCN-UP model by adjusting the size of neighbors. As shown in Fig.4, the optimal performance of the KGCN-UP model is achieved whenn= 8. This may be because ifis too small, the model cannot acquire enough neighbor information, while a largemay introduce excessive noise, leading to interference in the feature representation of the target entity. Therefore, finding an appropriate number of neighbors is crucial for the effectiveness of the model.
+
+3) Impact of Triplet Size (). We further investigated the robustness of the model by varying the size of each triplet in the path grouping propagation ensemble. As shown in Fig.4, an initial increase insignificantly improves model performance, as it allows the model to encode more knowledge from the KG. However, extracting too much information can cause the number of parameters to skyrocket, increasing the training time and potentially reducing model performance whenis too large.
+
+4) Impact of Different Hop Numbers (). We modified the numbers of hop in our experiments to investigate its impact on model performance. The results, as shown in Fig.4, indicate that the optimal performance is achieved whenis set to 2. Analysis of this phenomenon suggests that a largerenhances the model’s ability to explore information from distant nodes within the KG, but it also introduces a significant amount of noise. This noise can overwhelm valuable signals, thereby negatively affecting the model’s performance. Conversely, settingtoo small limits the model’s ability to utilize the relevancy between nodes in the graph, which similarly impairs performance.
+
+KGCN-UP1: A variant of KGCN-UP that removes the user preference propagation module.
+
+KGCN-UP2: A variant of KGCN-UP that removes the item neighbor enhancement module.
+
+2) Removing the item neighbor enhancement module also leads to a performance decline, highlighting the importance of capturing high-order semantic information in the KG.
+
+The case study of KGCN-UP. The blue labels indicate the types of entities the user is interested in, while the green labels further refine the focus of attention.
+
+The attention-based preference selection of the KGCN-UP model.

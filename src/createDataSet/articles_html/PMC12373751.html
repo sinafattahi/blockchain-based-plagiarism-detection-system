@@ -1,0 +1,2907 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+    <head >
+
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+        
+
+        
+        
+  <link rel="stylesheet" href="/static/assets/style-8258669d.css" />
+<script type="module" crossorigin="" src="/static/assets/base_style-f4a99799.js"></script>
+
+  <link rel="stylesheet" href="/static/assets/style-ef962842.css" />
+<link rel="stylesheet" href="/static/assets/style-3ade8b5c.css" />
+<script type="module" crossorigin="" src="/static/assets/article_style-d757a0dd.js"></script>
+
+  
+  
+    <style>
+  
+  
+  @media screen and (min-width: 64em) {
+    div.pmc-wm {
+      background: repeat-y;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='350' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-.02' y='0' width='1.05' height='1' id='c'%3E%3CfeFlood flood-color='%23FFF'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3Ctext id='b' font-family='Helvetica' font-size='11pt' style='opacity:1;fill:%23005ea2;stroke:none;text-anchor:middle' x='175' y='14'%3E%3C/text%3E%3Cpath id='a' style='fill:%23005ea2' d='M0 8h350v3H0z'/%3E%3C/defs%3E%3Cuse xlink:href='%23a' transform='rotate(90 10 10)'/%3E%3Cuse xlink:href='%23b' transform='rotate(90 10 10)' filter='url(%23c)'/%3E%3C/svg%3E");
+      padding-left: 3rem;
+    }
+  }
+</style>
+
+  
+
+
+
+        
+            <link rel="apple-touch-icon"
+                  sizes="180x180"
+                  href="/static/img/favicons/apple-touch-icon.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="48x48"
+                  href="/static/img/favicons/favicon-48x48.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="/static/img/favicons/favicon-32x32.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="/static/img/favicons/favicon-16x16.png" />
+            <link rel="manifest" href="/static/img/favicons/site.webmanifest" />
+            <link rel="mask-icon"
+                  href="/static/img/favicons/safari-pinned-tab.svg"
+                  color="#0071bc" />
+            <meta name="msapplication-config"
+                  content="/static/img/favicons/browserconfig.xml" />
+            <meta name="theme-color" content="#ffffff" />
+        
+
+        <title>
+            Machine learning enhanced expert system for detecting heart failure decompensation using patient reported vitals and electronic health records - PMC
+        </title>
+
+        
+        
+  
+  <!-- Logging params: Pinger defaults -->
+<meta name="ncbi_app" content="cloudpmc-viewer" />
+<meta name="ncbi_db" content="pmc" />
+<meta name="ncbi_phid" content="AE532CF78AF1FC13052CF70013E6A584.m_1" />
+<meta name="ncbi_pinger_stat_url" content="https://pmc.ncbi.nlm.nih.gov/stat" />
+<!-- Logging params: Pinger custom -->
+<meta name="ncbi_pdid" content="article" />
+  
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+
+    
+        <link rel="preconnect" href="https://cdn.ncbi.nlm.nih.gov" />
+    
+
+    <!-- Include USWDS Init Script -->
+    <script src="/static/assets/uswds-init.js"></script>
+
+
+    <meta name="ncbi_domain" content="scirep">
+<meta name="ncbi_type" content="fulltext">
+<meta name="ncbi_pcid" content="journal">
+<meta name="ncbi_feature" content="associated_data">
+<link rel="canonical" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12373751/">
+<meta name="robots" content="INDEX,NOFOLLOW,NOARCHIVE">
+<meta name="citation_journal_title" content="Scientific Reports">
+<meta name="citation_title" content="Machine learning enhanced expert system for detecting heart failure decompensation using patient reported vitals and electronic health records">
+<meta name="citation_author" content="Shumit Saha">
+<meta name="citation_author_institution" content="Centre for Digital Therapeutics, Techna Institute, University Health Network, Toronto, ON Canada">
+<meta name="citation_author_institution" content="Institute of Health Policy, Management, and Evaluation, Dalla Lana School of Public Health, University of Toronto, Toronto, ON Canada">
+<meta name="citation_author_institution" content="Department of Biomedical Data Science, School of Applied Computational Sciences, Meharry Medical College, Nashville, TN USA">
+<meta name="citation_author" content="Heather Ross">
+<meta name="citation_author_institution" content="Ted Rogers Centre for Heart Research, University Health Network, Toronto, ON Canada">
+<meta name="citation_author_institution" content="Department of Medicine, University of Toronto, Toronto, ON Canada">
+<meta name="citation_author_institution" content="Peter Munk Cardiac Centre, University Health Network, Toronto, ON Canada">
+<meta name="citation_author" content="Pedro Elkind Velmovitsky">
+<meta name="citation_author_institution" content="Centre for Digital Therapeutics, Techna Institute, University Health Network, Toronto, ON Canada">
+<meta name="citation_author" content="Chloe X Wang">
+<meta name="citation_author_institution" content="Peter Munk Cardiac Centre, University Health Network, Toronto, ON Canada">
+<meta name="citation_author" content="Julie K K Vishram-Nielsen">
+<meta name="citation_author_institution" content="Ted Rogers Centre for Heart Research, University Health Network, Toronto, ON Canada">
+<meta name="citation_author_institution" content="Department of Cardiology, Zealand University Hospital, Roskilde, Denmark">
+<meta name="citation_author" content="Cedric Manlhiot">
+<meta name="citation_author_institution" content="Ted Rogers Centre for Heart Research, University Health Network, Toronto, ON Canada">
+<meta name="citation_author" content="Bo Wang">
+<meta name="citation_author_institution" content="Peter Munk Cardiac Centre, University Health Network, Toronto, ON Canada">
+<meta name="citation_author_institution" content="Vector Institute, Toronto, ON Canada">
+<meta name="citation_author_institution" content="Department of Computer Science, University of Toronto, Toronto, ON Canada">
+<meta name="citation_author_institution" content="Department of Laboratory Medicine and Pathobiology, University of Toronto, Toronto, ON Canada">
+<meta name="citation_author" content="Joseph A Cafazzo">
+<meta name="citation_author_institution" content="Centre for Digital Therapeutics, Techna Institute, University Health Network, Toronto, ON Canada">
+<meta name="citation_author_institution" content="Institute of Health Policy, Management, and Evaluation, Dalla Lana School of Public Health, University of Toronto, Toronto, ON Canada">
+<meta name="citation_author_institution" content="Department of Computer Science, University of Toronto, Toronto, ON Canada">
+<meta name="citation_author_institution" content="Institute of Biomedical Engineering, University of Toronto, Toronto, ON Canada">
+<meta name="citation_publication_date" content="2025 Aug 22">
+<meta name="citation_volume" content="15">
+<meta name="citation_firstpage" content="30979">
+<meta name="citation_doi" content="10.1038/s41598-025-16376-9">
+<meta name="citation_pmid" content="40846740">
+<meta name="citation_abstract_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12373751/">
+<meta name="citation_fulltext_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12373751/">
+<meta name="citation_pdf_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12373751/pdf/41598_2025_Article_16376.pdf">
+<meta name="description" content="Heart failure (HF) is a condition with periods of stability interrupted by periods of worsening symptoms, known as decompensation episodes. Digital interventions are promising tools to alleviate burdens on HF management through automated alerts at ...">
+<meta name="og:title" content="Machine learning enhanced expert system for detecting heart failure decompensation using patient reported vitals and electronic health records">
+<meta name="og:type" content="article">
+<meta name="og:site_name" content="PubMed Central (PMC)">
+<meta name="og:description" content="Heart failure (HF) is a condition with periods of stability interrupted by periods of worsening symptoms, known as decompensation episodes. Digital interventions are promising tools to alleviate burdens on HF management through automated alerts at ...">
+<meta name="og:url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12373751/">
+<meta name="og:image" content="https://cdn.ncbi.nlm.nih.gov/pmc/cms/images/pmc-card-share.jpg?_=0">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ncbi">
+    
+    
+
+    </head>
+    <body >
+        
+    <a class="usa-skipnav " href="#main-content">
+      Skip to main content
+    </a>
+
+
+        
+            
+
+<section class="usa-banner " aria-label="Official website of the United States government" >
+    <div class="usa-accordion">
+        <header class="usa-banner__header">
+            <div class="usa-banner__inner">
+                <div class="grid-col-auto">
+                    <img aria-hidden="true"
+                         class="usa-banner__header-flag"
+                         src="/static/img/us_flag.svg"
+                         alt="" />
+                </div>
+
+                <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+                    <p class="usa-banner__header-text">
+                        An official website of the United States government
+                    </p>
+                    <span class="usa-banner__header-action">Here's how you know</span>
+                </div>
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-accordion__button usa-banner__button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    aria-expanded="false"
+    aria-controls="gov-banner-default"
+    
+    data-testid="storybook-django-banner"
+    
+    >
+    
+        
+
+        
+                    <span class="usa-banner__button-text">Here's how you know</span>
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </div>
+        </header>
+
+        <div class="usa-banner__content usa-accordion__content"
+             id="gov-banner-default"
+             hidden>
+            <div class="grid-row grid-gap-lg">
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-dot-gov.svg"
+                         alt=""
+                         aria-hidden="true" />
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Official websites use .gov</strong>
+                            <br />
+                            A
+                            <strong>.gov</strong> website belongs to an official
+                            government organization in the United States.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-https.svg"
+                         alt=""
+                         aria-hidden="true" />
+
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Secure .gov websites use HTTPS</strong>
+                            <br />
+                            A <strong>lock</strong> (
+                            <span class="icon-lock">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     width="52"
+                                     height="64"
+                                     viewBox="0 0 52 64"
+                                     class="usa-banner__lock-image"
+                                     role="graphics-symbol"
+                                     aria-labelledby="banner-lock-description"
+                                     focusable="false">
+                                    <title id="banner-lock-title">Lock</title>
+                                    <desc id="banner-lock-description">
+                                    Locked padlock icon
+                                    </desc>
+                                    <path fill="#000000"
+                                          fill-rule="evenodd"
+                                          d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+                                </svg>
+</span>) or <strong>https://</strong> means you've safely
+                                connected to the .gov website. Share sensitive
+                                information only on official, secure websites.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        
+
+        
+    
+    
+    
+
+<div class="usa-overlay">
+</div>
+
+
+
+<header class="usa-header usa-header--extended usa-header--wide" data-header data-testid="header"    >
+    <div class="ncbi-header">
+        <div class="ncbi-header__container">
+            <a class="ncbi-header__logo-container"
+               href="https://www.ncbi.nlm.nih.gov/">
+                <img alt="NCBI home page"
+                     class="ncbi-header__logo-image"
+                     src="/static/img/ncbi-logos/nih-nlm-ncbi--white.svg"
+                     width="410"
+                     height="100" />
+            </a>
+
+            <!-- Mobile menu hamburger button -->
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-menu-btn ncbi-header__hamburger-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Show menu"
+    data-testid="navMenuButton"
+    
+    >
+    
+        
+
+        
+                <svg aria-hidden="true"
+                     class="ncbi-hamburger-icon"
+                     fill="none"
+                     focusable="false"
+                     height="21"
+                     viewBox="0 0 31 21"
+                     width="31"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd"
+                          d="M0.125 20.75H30.875V17.3333H0.125V20.75ZM0.125 12.2083H30.875V8.79167H0.125V12.2083ZM0.125 0.25V3.66667H30.875V0.25H0.125Z"
+                          fill="#F1F1F1"
+                          fill-rule="evenodd" />
+                </svg>
+            
+
+        
+    
+        
+            </button>
+        
+
+
+
+            
+                <!-- Desktop buttons-->
+                <div class="ncbi-header__desktop-buttons">
+                    
+                        <!-- Desktop search button -->
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button
+           "
+    aria-expanded="false"
+    aria-controls="search-field-desktop-navigation"
+    aria-label="Show search overlay"
+    data-testid="toggleSearchPanelButton"
+    data-toggle-search-panel-button
+    >
+    
+        
+
+        
+                            
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#search" />
+    </svg>
+
+
+                            Search
+                        
+
+        
+    
+        
+            </button>
+        
+
+
+                    
+
+                    <!-- Desktop login dropdown -->
+                    
+                        <div class="ncbi-header__login-dropdown">
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button ncbi-header__login-dropdown-button
+           "
+    aria-expanded="false"
+    aria-controls="login-dropdown-menu"
+    aria-label="Show login menu"
+    data-testid="toggleLoginMenuDropdown"
+    data-desktop-login-button
+    >
+    
+        
+
+        
+                                
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#person" />
+    </svg>
+
+
+
+                                <span data-login-dropdown-text>Log in</span>
+
+                                <!-- Dropdown icon pointing up -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-less ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-up-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_less" />
+    </svg>
+
+
+
+                                <!-- Dropdown icon pointing down -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-more ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-down-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_more" />
+    </svg>
+
+
+                            
+
+        
+    
+        
+            </button>
+        
+
+
+
+                            <!-- Login dropdown menu -->
+                            <ul class="usa-nav__submenu ncbi-header__login-dropdown-menu"
+                                id="login-dropdown-menu"
+                                data-desktop-login-menu-dropdown
+                                hidden>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                <li class="usa-nav__submenu-item">
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--outline ncbi-header__login-dropdown-logout-button
+           "
+    
+    
+    
+    data-testid="desktopLogoutButton"
+    data-desktop-logout-button
+    >
+    
+        
+
+        Log out
+
+        
+    
+        
+            </button>
+        
+
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                </div>
+            
+        </div>
+    </div>
+
+    <!-- Search panel -->
+    
+        <div class="ncbi-search-panel ncbi--show-only-at-desktop"
+             data-header-search-panel
+             hidden>
+            <div class="ncbi-search-panel__container">
+                <form action="https://www.ncbi.nlm.nih.gov/search/all/"
+                      
+                      autocomplete="off"
+                      class="usa-search usa-search--big ncbi-search-panel__form"
+                      data-testid="desktop-navigation-search-form"
+                      method="GET"
+                      role="search">
+                    <label class="usa-sr-only" for="search-field-desktop-navigation">
+                        Search…
+                    </label>
+                    <input class="usa-input"
+                           id="search-field-desktop-navigation"
+                           name="term"
+                           
+                               placeholder="Search NCBI"
+                           
+                           type="search"
+                           value="" />
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                        <span class="usa-search__submit-text">
+                            Search NCBI
+                        </span>
+                    
+
+        
+    
+        
+            </button>
+        
+
+
+                </form>
+
+                
+            </div>
+        </div>
+    
+
+    <nav aria-label="Primary navigation" class="usa-nav">
+        <p class="usa-sr-only" id="primary-navigation-sr-only-title">
+            Primary site navigation
+        </p>
+
+        <!-- Mobile menu close button -->
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-nav__close ncbi-nav__close-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Close navigation menu"
+    data-testid="navCloseButton"
+    
+    >
+    
+        
+
+        
+            <img src="/static/img/usa-icons/close.svg" alt="Close" />
+        
+
+        
+    
+        
+            </button>
+        
+
+
+
+        
+            <!-- Mobile search component -->
+            <form class="usa-search usa-search--small ncbi--hide-at-desktop margin-top-6"
+                  action="https://www.ncbi.nlm.nih.gov/search/all/"
+                  
+                  autocomplete="off"
+                  data-testid="mobile-navigation-search-form"
+                  method="GET"
+                  role="search">
+                <label class="usa-sr-only" for="search-field-mobile-navigation">
+                    Search
+                </label>
+
+                <input class="usa-input"
+                       id="search-field-mobile-navigation"
+                       type="search"
+                       
+                           placeholder="Search NCBI"
+                       
+                       name="term" />
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                    <!-- This SVG should be kept inline and not replaced with a link to the icon as otherwise it will render in the wrong color -->
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0E2LjQ3MSA2LjQ3MSAwIDAgMCAxNiA5LjUgNi41IDYuNSAwIDEgMCA5LjUgMTZjMS42MSAwIDMuMDktLjU5IDQuMjMtMS41N2wuMjcuMjh2Ljc5bDUgNC45OUwyMC40OSAxOWwtNC45OS01em0tNiAwQzcuMDEgMTQgNSAxMS45OSA1IDkuNVM3LjAxIDUgOS41IDUgMTQgNy4wMSAxNCA5LjUgMTEuOTkgMTQgOS41IDE0eiIvPjwvc3ZnPg=="
+                         class="usa-search__submit-icon"
+                         alt="Search" />
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </form>
+
+            
+        
+
+        <!-- Primary navigation menu items -->
+        <!-- This usa-nav__inner wrapper is required to correctly style the navigation items on Desktop -->
+        
+
+        
+            <div class="ncbi-nav__mobile-login-menu ncbi--hide-at-desktop"
+                 data-mobile-login-menu
+                 hidden>
+                <p class="ncbi-nav__mobile-login-menu-status">
+                    Logged in as:
+                    <strong class="ncbi-nav__mobile-login-menu-email"
+                            data-mobile-login-email-text></strong>
+                </p>
+                <ul class="usa-nav__primary usa-accordion">
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           ncbi-nav__mobile-login-button ncbi--hide-at-desktop
+           "
+    
+    
+    
+    data-testid="mobileLoginButton"
+    data-mobile-login-button
+    >
+    
+        
+
+        Log in
+
+        
+    
+        
+            </button>
+        
+
+
+    </nav>
+</header>
+
+    
+    
+        
+
+<section class="pmc-header pmc-header--basic" aria-label="PMC Header with search box">
+    <div class="pmc-nav-container">
+        <div class="pmc-header__bar">
+           <div class="pmc-header__logo">
+               <a href="/" title="Home" aria-label="PMC Home"></a>
+           </div>
+            <button
+                    type="button"
+                    class="usa-button usa-button--unstyled pmc-header__search__button"
+                    aria-label="Open search"
+                    data-ga-category="search"
+                    data-ga-action="PMC"
+                    data-ga-label="pmc_search_panel_mobile"
+            >
+                <svg class="usa-icon width-4 height-4 pmc-icon__open" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#search"></use>
+                </svg>
+                <svg class="usa-icon width-4 height-4 pmc-icon__close" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="pmc-header__search">
+            
+
+
+<form class="usa-search usa-search--extra usa-search--article-right-column  pmc-header__search__form" id="pmc-search-form" autocomplete="off" role="search">
+<label class="usa-sr-only" for="pmc-search">Search PMC Full-Text Archive</label>
+<span class="autoComplete_wrapper flex-1">
+<input class="usa-input width-full maxw-none" required="required" placeholder="Search PMC Full-Text Archive" id="pmc-search"  type="search" name="term" data-autocomplete-url="https://pmc.ncbi.nlm.nih.gov/autocomp/search/autocomp/"/>
+</span>
+<button
+class="usa-button"
+type="submit"
+formaction="https://www.ncbi.nlm.nih.gov/pmc/"
+data-ga-category="search"
+data-ga-action="PMC"
+data-ga-label="PMC_search_button"
+>
+<span class="usa-search__submit-text">Search in PMC</span>
+<img
+src="/static/img/usa-icons-bg/search--white.svg"
+class="usa-search__submit-icon"
+alt="Search"
+/>
+</button>
+</form>
+            <div class="display-flex flex-column tablet:flex-row tablet:flex-justify flex-justify-center flex-align-center width-full desktop:maxw-44">
+                <ul class="pmc-header__search__menu">
+                    <li>
+                        
+                            <a class="usa-link" href="/journals/" data-ga-action="featured_link" data-ga-label="journal list">
+                                Journal List
+                            </a>
+                        
+                    </li>
+                    <li>
+                        
+                            <a class="usa-link" href="/about/userguide/" data-ga-action="featured_link"
+                            data-ga-label="user guide">
+                                User Guide
+                            </a>
+                        
+                    </li>
+                </ul>
+                
+                    <button form="pmc-search-form" formaction="https://pmc.ncbi.nlm.nih.gov/search/" type="submit" class="usa-button usa-button--unstyled hover:text-no-underline text-no-underline width-auto margin-top-1 tablet:margin-top-0">
+     <span class="bg-green-label padding-05 text-white">New</span><span class="text-underline text-primary">Try this search in PMC Beta Search</span>
+</button>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+
+
+        
+        
+
+       
+  <div class="usa-section padding-top-0 desktop:padding-top-6 pmc-article-section" data-article-db="pmc" data-article-id="12373751">
+
+    
+
+   
+
+
+
+<div class="grid-container pmc-actions-bar" aria-label="Actions bar" role="complementary">
+    <div class="grid-row">
+        <div class="grid-col-fill display-flex">
+             <div class="display-flex">
+                <ul class="usa-list usa-list--unstyled usa-list--horizontal">
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <button
+                                type="button"
+                                class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                                aria-label="Open resources"
+                                data-extra-class="is-visible-resources"
+                                data-ga-category="resources_accordion"
+                                data-ga-action="click"
+                                data-ga-label="mobile_icon"
+                        >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#more_vert"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <a
+                                href="https://doi.org/10.1038/s41598-025-16376-9"
+                                class="usa-link display-flex usa-tooltip"
+                                role="button"
+                                target="_blank"
+                                rel="noreferrer noopener"
+                                title="View on publisher site"
+                                data-position="bottom"
+                                aria-label="View on publisher site"
+                                data-ga-category="actions"
+                                data-ga-action="click"
+                                data-ga-label="publisher_link_mobile"
+                        >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#launch"></use>
+                                </svg>
+                        </a>
+                    </li>
+                    
+                    
+                        <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                             <a
+                                     href="pdf/41598_2025_Article_16376.pdf"
+                                     class="usa-link display-flex usa-tooltip"
+                                     role="button"
+                                     title="Download PDF"
+                                     data-position="bottom"
+                                     aria-label="Download PDF"
+                                     data-ga-category="actions"
+                                     data-ga-action="click"
+                                     data-ga-label="pdf_download_mobile"
+                             >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button
+                            class="usa-button usa-button--unstyled  usa-tooltip collections-dialog-trigger collections-button display-flex collections-button-empty"
+                            title="Add to Collections"
+                            data-position="bottom"
+                            aria-label="Save article in MyNCBI collections."
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="collections_button_mobile"
+                            data-collections-open-dialog-enabled="false"
+                            data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12373751%2F%3Freport%3Dclassic%23open-collections-dialog"
+                            data-in-collections="false"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button role="button" class="usa-button usa-button--unstyled usa-tooltip citation-dialog-trigger display-flex"
+                            aria-label="Open dialog with citation text in different styles"
+                            title="Cite"
+                            data-position="bottom"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="cite_mobile"
+                            data-all-citations-url="/resources/citations/12373751/"
+                            data-citation-style="nlm"
+                            data-download-format-link="/resources/citations/12373751/export/"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="pmc-permalink display-flex" >
+                         <button
+                                 type="button"
+                                 title="Permalink"
+                                 data-position="bottom"
+                                 class="usa-button usa-button--unstyled display-flex usa-tooltip"
+                                 aria-label="Show article permalink"
+                                 aria-expanded="false"
+                                 aria-haspopup="true"
+                                 data-ga-category="actions"
+                                 data-ga-action="open"
+                                 data-ga-label="permalink_mobile"
+                         >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#share"></use>
+                            </svg>
+                        </button>
+                        
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12373751/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+                    </li>
+                </ul>
+            </div>
+            <button
+                    type="button"
+                    class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                    aria-label="Open article navigation"
+                    data-extra-class="is-visible-in-page"
+                    data-ga-category="actions"
+                    data-ga-action="open"
+                    data-ga-label="article_nav_mobile"
+            >
+                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#list"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+    <div class="grid-container desktop:padding-left-6">
+      <div id="article-container" class="grid-row grid-gap">
+        <div class="grid-col-12 desktop:grid-col-8 order-2 pmc-layout__content">
+            <div class="grid-container padding-left-0 padding-right-0">
+                <div class="grid-row desktop:margin-left-neg-6">
+                    <div class="grid-col-12">
+                        <div class="pmc-layout__disclaimer" role="complementary" aria-label="Disclaimer note">
+    As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,
+    the contents by NLM or the National Institutes of Health.<br/>
+    Learn more:
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="Disclaimer" data-ga-label="New disclaimer box" href="/about/disclaimer/">PMC Disclaimer</a>
+    |
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="PMC Copyright Notice" data-ga-label="New disclaimer box" href="/about/copyright/">
+        PMC Copyright Notice
+    </a>
+</div>
+                    </div>
+                </div>
+                <div class="grid-row pmc-wm desktop:margin-left-neg-6">
+                    <!-- Main content -->
+                    <main
+                      id="main-content"
+                      class="usa-layout-docs__main usa-layout-docs grid-col-12 pmc-layout pmc-prose padding-0"
+                    >
+
+                      
+                        <section class="pmc-journal-banner text-center line-height-none" aria-label="Journal banner"><img src="https://cdn.ncbi.nlm.nih.gov/pmc/banners/logo-scirep.jpg" alt="Scientific Reports logo" usemap="#pmc-banner-imagemap" width="500" height="75"><map name="pmc-banner-imagemap"><area alt="Link to Scientific Reports" title="Link to Scientific Reports" shape="default" href="http://www.nature.com/srep" target="_blank" rel="noopener noreferrer"></map></section><article lang="en"><section aria-label="Article citation and metadata"><section class="pmc-layout__citation font-secondary font-xs"><div>
+<div class="display-inline-block"><button type="button" class="cursor-pointer text-no-underline bg-transparent border-0 padding-0 text-left margin-0 text-normal text-primary" aria-controls="journal_context_menu">Sci Rep</button></div>. 2025 Aug 22;15:30979. doi: <a href="https://doi.org/10.1038/s41598-025-16376-9" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">10.1038/s41598-025-16376-9</a>
+</div>
+<nav id="journal_context_menu" hidden="hidden"><ul class="menu-list font-family-ui" role="menu">
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/pmc/?term=%22Sci%20Rep%22%5Bjour%5D" class="usa-link" role="menuitem">Search in PMC</a></li>
+<li role="presentation"><a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Sci%20Rep%22%5Bjour%5D" lang="en" class="usa-link" role="menuitem">Search in PubMed</a></li>
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/nlmcatalog?term=%22Sci%20Rep%22%5BTitle%20Abbreviation%5D" class="usa-link" role="menuitem">View in NLM Catalog</a></li>
+<li role="presentation"><a href="?term=%22Sci%20Rep%22%5Bjour%5D" class="usa-link" role="menuitem" data-add-to-search="true">Add to search</a></li>
+</ul></nav></section><section class="front-matter"><div class="ameta p font-secondary font-xs">
+<hgroup><h1>Machine learning enhanced expert system for detecting heart failure decompensation using patient reported vitals and electronic health records</h1></hgroup><div class="cg p">
+<a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Saha%20S%22%5BAuthor%5D" class="usa-link" aria-describedby="id1"><span class="name western">Shumit Saha</span></a><div hidden="hidden" id="id1">
+<h3><span class="name western">Shumit Saha</span></h3>
+<div class="p">
+<sup>1</sup>Centre for Digital Therapeutics, Techna Institute, University Health Network, Toronto, ON Canada </div>
+<div class="p">
+<sup>2</sup>Institute of Health Policy, Management, and Evaluation, Dalla Lana School of Public Health, University of Toronto, Toronto, ON Canada </div>
+<div class="p">
+<sup>3</sup>Department of Biomedical Data Science, School of Applied Computational Sciences, Meharry Medical College, Nashville, TN USA </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Saha%20S%22%5BAuthor%5D" class="usa-link"><span class="name western">Shumit Saha</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>2,</sup><sup>3,</sup><sup>✉</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Ross%20H%22%5BAuthor%5D" class="usa-link" aria-describedby="id2"><span class="name western">Heather Ross</span></a><div hidden="hidden" id="id2">
+<h3><span class="name western">Heather Ross</span></h3>
+<div class="p">
+<sup>4</sup>Ted Rogers Centre for Heart Research, University Health Network, Toronto, ON Canada </div>
+<div class="p">
+<sup>6</sup>Department of Medicine, University of Toronto, Toronto, ON Canada </div>
+<div class="p">
+<sup>7</sup>Peter Munk Cardiac Centre, University Health Network, Toronto, ON Canada </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Ross%20H%22%5BAuthor%5D" class="usa-link"><span class="name western">Heather Ross</span></a>
+</div>
+</div>
+<sup>4,</sup><sup>6,</sup><sup>7</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Velmovitsky%20PE%22%5BAuthor%5D" class="usa-link" aria-describedby="id3"><span class="name western">Pedro Elkind Velmovitsky</span></a><div hidden="hidden" id="id3">
+<h3><span class="name western">Pedro Elkind Velmovitsky</span></h3>
+<div class="p">
+<sup>1</sup>Centre for Digital Therapeutics, Techna Institute, University Health Network, Toronto, ON Canada </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Velmovitsky%20PE%22%5BAuthor%5D" class="usa-link"><span class="name western">Pedro Elkind Velmovitsky</span></a>
+</div>
+</div>
+<sup>1</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Wang%20CX%22%5BAuthor%5D" class="usa-link" aria-describedby="id4"><span class="name western">Chloe X Wang</span></a><div hidden="hidden" id="id4">
+<h3><span class="name western">Chloe X Wang</span></h3>
+<div class="p">
+<sup>7</sup>Peter Munk Cardiac Centre, University Health Network, Toronto, ON Canada </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Wang%20CX%22%5BAuthor%5D" class="usa-link"><span class="name western">Chloe X Wang</span></a>
+</div>
+</div>
+<sup>7</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Vishram-Nielsen%20JKK%22%5BAuthor%5D" class="usa-link" aria-describedby="id5"><span class="name western">Julie K K Vishram-Nielsen</span></a><div hidden="hidden" id="id5">
+<h3><span class="name western">Julie K K Vishram-Nielsen</span></h3>
+<div class="p">
+<sup>4</sup>Ted Rogers Centre for Heart Research, University Health Network, Toronto, ON Canada </div>
+<div class="p">
+<sup>5</sup>Department of Cardiology, Zealand University Hospital, Roskilde, Denmark </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Vishram-Nielsen%20JKK%22%5BAuthor%5D" class="usa-link"><span class="name western">Julie K K Vishram-Nielsen</span></a>
+</div>
+</div>
+<sup>4,</sup><sup>5</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Manlhiot%20C%22%5BAuthor%5D" class="usa-link" aria-describedby="id6"><span class="name western">Cedric Manlhiot</span></a><div hidden="hidden" id="id6">
+<h3><span class="name western">Cedric Manlhiot</span></h3>
+<div class="p">
+<sup>4</sup>Ted Rogers Centre for Heart Research, University Health Network, Toronto, ON Canada </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Manlhiot%20C%22%5BAuthor%5D" class="usa-link"><span class="name western">Cedric Manlhiot</span></a>
+</div>
+</div>
+<sup>4</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Wang%20B%22%5BAuthor%5D" class="usa-link" aria-describedby="id7"><span class="name western">Bo Wang</span></a><div hidden="hidden" id="id7">
+<h3><span class="name western">Bo Wang</span></h3>
+<div class="p">
+<sup>7</sup>Peter Munk Cardiac Centre, University Health Network, Toronto, ON Canada </div>
+<div class="p">
+<sup>8</sup>Vector Institute, Toronto, ON Canada </div>
+<div class="p">
+<sup>9</sup>Department of Computer Science, University of Toronto, Toronto, ON Canada </div>
+<div class="p">
+<sup>10</sup>Department of Laboratory Medicine and Pathobiology, University of Toronto, Toronto, ON Canada </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Wang%20B%22%5BAuthor%5D" class="usa-link"><span class="name western">Bo Wang</span></a>
+</div>
+</div>
+<sup>7,</sup><sup>8,</sup><sup>9,</sup><sup>10</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Cafazzo%20JA%22%5BAuthor%5D" class="usa-link" aria-describedby="id8"><span class="name western">Joseph A Cafazzo</span></a><div hidden="hidden" id="id8">
+<h3><span class="name western">Joseph A Cafazzo</span></h3>
+<div class="p">
+<sup>1</sup>Centre for Digital Therapeutics, Techna Institute, University Health Network, Toronto, ON Canada </div>
+<div class="p">
+<sup>2</sup>Institute of Health Policy, Management, and Evaluation, Dalla Lana School of Public Health, University of Toronto, Toronto, ON Canada </div>
+<div class="p">
+<sup>9</sup>Department of Computer Science, University of Toronto, Toronto, ON Canada </div>
+<div class="p">
+<sup>11</sup>Institute of Biomedical Engineering, University of Toronto, Toronto, ON Canada </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Cafazzo%20JA%22%5BAuthor%5D" class="usa-link"><span class="name western">Joseph A Cafazzo</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>2,</sup><sup>9,</sup><sup>11</sup>
+</div>
+<ul class="d-buttons inline-list">
+<li><button class="d-button" aria-controls="aip_a" aria-expanded="false">Author information</button></li>
+<li><button class="d-button" aria-controls="anp_a" aria-expanded="false">Article notes</button></li>
+<li><button class="d-button" aria-controls="clp_a" aria-expanded="false">Copyright and License information</button></li>
+</ul>
+<div class="d-panels font-secondary-light">
+<div id="aip_a" class="d-panel p" style="display: none">
+<div class="p" id="Aff1">
+<sup>1</sup>Centre for Digital Therapeutics, Techna Institute, University Health Network, Toronto, ON Canada </div>
+<div id="Aff2">
+<sup>2</sup>Institute of Health Policy, Management, and Evaluation, Dalla Lana School of Public Health, University of Toronto, Toronto, ON Canada </div>
+<div id="Aff3">
+<sup>3</sup>Department of Biomedical Data Science, School of Applied Computational Sciences, Meharry Medical College, Nashville, TN USA </div>
+<div id="Aff4">
+<sup>4</sup>Ted Rogers Centre for Heart Research, University Health Network, Toronto, ON Canada </div>
+<div id="Aff5">
+<sup>5</sup>Department of Cardiology, Zealand University Hospital, Roskilde, Denmark </div>
+<div id="Aff6">
+<sup>6</sup>Department of Medicine, University of Toronto, Toronto, ON Canada </div>
+<div id="Aff7">
+<sup>7</sup>Peter Munk Cardiac Centre, University Health Network, Toronto, ON Canada </div>
+<div id="Aff8">
+<sup>8</sup>Vector Institute, Toronto, ON Canada </div>
+<div id="Aff9">
+<sup>9</sup>Department of Computer Science, University of Toronto, Toronto, ON Canada </div>
+<div id="Aff10">
+<sup>10</sup>Department of Laboratory Medicine and Pathobiology, University of Toronto, Toronto, ON Canada </div>
+<div id="Aff11">
+<sup>11</sup>Institute of Biomedical Engineering, University of Toronto, Toronto, ON Canada </div>
+<div class="author-notes p"><div class="fn" id="_fncrsp93pmc__">
+<sup>✉</sup><p class="display-inline">Corresponding author.</p>
+</div></div>
+</div>
+<div id="anp_a" class="d-panel p" style="display: none"><div class="notes p"><section id="historyarticle-meta1" class="history"><p>Received 2025 Jan 13; Accepted 2025 Aug 14; Collection date 2025.</p></section></div></div>
+<div id="clp_a" class="d-panel p" style="display: none">
+<div>© The Author(s) 2025</div>
+<p><strong>Open Access</strong> This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modified the licensed material. You do not have permission under this licence to share adapted material derived from this article or parts of it. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">http://creativecommons.org/licenses/by-nc-nd/4.0/</a>.</p>
+<div class="p"><a href="/about/copyright/" class="usa-link">PMC Copyright notice</a></div>
+</div>
+</div>
+<div>PMCID: PMC12373751  PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/40846740/" class="usa-link">40846740</a>
+</div>
+</div></section></section><section aria-label="Article content"><section class="body main-article-body"><section class="abstract" id="Abs1"><h2>Abstract</h2>
+<p id="Par18">Heart failure (HF) is a condition with periods of stability interrupted by periods of worsening symptoms, known as decompensation episodes. Digital interventions are promising tools to alleviate burdens on HF management through automated alerts at the earliest decompensation sign. To accomplish this, our lab developed Medly, an expert system-enhanced digital therapeutic program for HF patients. Medly’s algorithm is a knowledge-based system that analyzes weight, blood pressure, and heart rate and sends automated alerts to clinicians and patients if deterioration is identified. Rules were set conservatively to account for false negatives. However, reducing false negatives resulted in an increase in false positives, which can lead to unnecessary clinical workload. Further, patients’ electronic health records (EHR) were not used when developing the rules-based algorithm. This study aimed to enhance Medly’s performance with machine learning and include a richer set of data, including EHR, for predicting decompensated HF episodes. We performed a retrospective study using XGBoost for the binary classification of whether the patient needed to be contacted for a possible decompensation episode. Features included blood pressure, weight change, heart rate, and EHR data (e.g., blood work, medication history). We further performed interpretability analysis to investigate the importance of including EHR data in the model. The enhanced algorithm achieved 98.08% accuracy, 95.26% sensitivity, 98.86% specificity, and a PPV of 88.18% – a marked improvement over the 55.8% in the rules-based algorithm. EHR data, mainly B-type natriuretic peptide (BNP) and total cholesterol, was crucial in predicting decompensation and correcting false-positive alerting.</p>
+<section id="kwd-group1" lang="en" class="kwd-group"><p><strong>Keywords:</strong> Heart failure, Decompensated HF, Machine learning, Electronic health records, EHR</p></section><section id="kwd-group2" class="kwd-group"><p><strong>Subject terms:</strong> Cardiology, Machine learning</p></section></section><section id="Sec1"><h2 class="pmc_sec_title">Introduction</h2>
+<p id="Par19">Heart failure (HF) is a progressive condition with periods of stability interrupted by periods of worsening symptoms and instability<sup><a href="#CR1" class="usa-link" aria-describedby="CR1">1</a></sup>, known as decompensation. Without immediate intervention decompensated HF significantly impacts patients quality of life and frequently leads to hospitalization<sup><a href="#CR2" class="usa-link" aria-describedby="CR2">2</a></sup>. The course of HF may include multiple episodes of decompensation separated by stable periods of varying duration<sup><a href="#CR3" class="usa-link" aria-describedby="CR3">3</a></sup>. Therefore, a primary goal of HF management is to maintain stability. However, maintaining stability in HF patients requires frequent follow-up with clinicians. Further, failure to have early follow-up post hospital discharge is one of the most common reasons for HF-related re-hospitalization<sup><a href="#CR4" class="usa-link" aria-describedby="CR4">4</a></sup>. Studies have shown that the 30-day readmission rate after a HF-related hospitalization is 22%<sup><a href="#CR5" class="usa-link" aria-describedby="CR5">5</a></sup>, increasing to over 50% within six months<sup><a href="#CR3" class="usa-link" aria-describedby="CR3">3</a></sup>. Re-hospitalization makes HF one of the costliest chronic diseases, consuming significant healthcare resources<sup><a href="#CR6" class="usa-link" aria-describedby="CR6">6</a></sup>. Therefore, an efficient tool is required in HF management to maintain stability, thereby improving quality of life and reducing hospital admission, by predicting and preventing episodes of decompensation.</p>
+<p id="Par20">Digital Health interventions, combined with an expert system, are promising tools that can potentially alleviate some of the burdens of HF management by empowering patients to engage in self-care and enabling efficient clinical care through automated alerts at the earliest sign of decompensation episodes<sup><a href="#CR7" class="usa-link" aria-describedby="CR7">7</a></sup>. To accomplish this, experts from the University Health Network (UHN) developed Medly; a digital therapeutic program for patients with HF<sup><a href="#CR8" class="usa-link" aria-describedby="CR8">8</a>,<a href="#CR9" class="usa-link" aria-describedby="CR9">9</a></sup>. Using Medly, patients capture daily weight, blood pressure, heart rate, and symptoms either manually or via Bluetooth through the Medly application on a mobile phone or tablet<sup><a href="#CR8" class="usa-link" aria-describedby="CR8">8</a></sup>. Automated alerts are sent to nurse coordinators and the patient themselves if any deterioration is identified through the rules-based expert system that analyzes their measurements and symptoms<sup><a href="#CR8" class="usa-link" aria-describedby="CR8">8</a></sup>. Moreover, a single nurse can support more than 250 patients with the Medly platform, depending on the mix of patient acuity. Medly has shown success in HF management by significantly improves HF-related quality of life and self-care maintenance and management<sup><a href="#CR9" class="usa-link" aria-describedby="CR9">9</a>–<a href="#CR12" class="usa-link" aria-describedby="CR12">12</a></sup>. Further, a recent study by Ware et al. demonstrated that the use of Medly led to a 50% reduction in HF-related hospitalizations and a 24% reduction in all-cause hospitalizations<sup><a href="#CR11" class="usa-link" aria-describedby="CR11">11</a></sup>.</p>
+<p id="Par21">However, a limitation of the Medly rules-based algorithm is that its development was conservative, sacrificing its positive predictive value, for ensuring safety and avoiding false negatives. This resulted in the rules-based algorithm having a higher number of false positives, resulting in additional clinical follow-up caused by alerts. The rules-based algorithm also relies only on most recent 2 day weight delta, and the current day’s heart rate, blood pressure, and reported symptoms in making its determination. By adding the patient’s clinical history within the electronic health record (EHR), including lab results, medication history, and other chronic disease history, there may be room to improve the current rules-based algorithm by reducing false positives, improving clinic efficiency, and determining the importance of incorporating EHR data.</p>
+<p id="Par22">The purpose of this study was to implement a machine learning-enhanced expert system algorithm that includes EHR data in addition to the original rules-based expert system algorithm for predicting decompensated episodes of HF through Medly. Furthermore, we attempted to answer two crucial questions in this study while implementing the machine learning algorithm: (a) what clinical inputs are most important to predict the decompensation episodes, (b) how much of the medical history from the EHR can help reduce false positives experienced with the rules-based algorithm.</p></section><section id="Sec2"><h2 class="pmc_sec_title">Methods</h2>
+<section id="Sec3"><h3 class="pmc_sec_title">Ethics tatement</h3>
+<p id="Par23">The study was approved by the Research Ethics Board of the University Health Network (UHN), Toronto, Canada. All participants gave written consent before participating in the study (REB No: 19-5213). The study was performed in accordance with the approved guidelines and regulations.</p></section><section id="Sec4"><h3 class="pmc_sec_title">Study participants</h3>
+<p id="Par24">This was a single-center retrospective cohort study. We used historical Medly data (From August 2016 to August 2019) collected through the clinical Medly program at UHN. The eligibility criteria for enrolling into the Medly Program were: age 18 years or older, diagnosed with HF and were followed by a cardiologist at the HF clinic, able to speak and read English (or have an informal caregiver who did) to understand the text adequately in the Medly app, and able to comply with using Medly-generated instructions and alerts<sup><a href="#CR11" class="usa-link" aria-describedby="CR11">11</a></sup>. As the Medly program has been implemented as part of the standard of care, there were no explicit exclusion criteria for participating in the program.</p></section><section id="Sec5"><h3 class="pmc_sec_title">The medly program</h3>
+<p id="Par25">Medly is an expert system-enhanced digital therapeutic platform for patients with HF. The application is a Health Canada-cleared, Class 2 medical device. In the standard protocol of Medly, the application collects the vital signs (i.e., weight, blood pressure, heart rate, and symptoms) of each patient, each morning<sup><a href="#CR11" class="usa-link" aria-describedby="CR11">11</a>,<a href="#CR12" class="usa-link" aria-describedby="CR12">12</a></sup>. Data are automatically transmitted to a data server. An in-app rules-based expert system algorithm generates an alert of possible decompensation based on the morning entry. When an alert is generated, a message is sent to the patient’s mobile phone along with a notification to the most responsible clinician<sup><a href="#CR8" class="usa-link" aria-describedby="CR8">8</a></sup>. Based on the level of the alert, appropriate counseling is provided to the patient from the app. Since the Medly program is integrated as part of the standard of care, all patients enrolled into the study were monitored through Medly.</p></section><section id="Sec6"><h3 class="pmc_sec_title">Medly’s rules-based algorithm</h3>
+<p id="Par26">Seto et al., developed a rule set based on extensive inputs from HF clinicians to generate alerts and instructions for patients<sup><a href="#CR8" class="usa-link" aria-describedby="CR8">8</a></sup>. The alerts and instructions were generated based on the patient’s daily measurements of weight, blood pressure, heart rate, and symptoms. A matrix of possible outcome states from the measurements was defined in the rules-based system. The set of rules and alert messages and actions associated with the outcome states were defined and validated based on interviews with ten HF clinicians. Details of the algorithm are presented in our previous work<sup><a href="#CR8" class="usa-link" aria-describedby="CR8">8</a></sup>.</p></section></section><section id="Sec7"><h2 class="pmc_sec_title">Data analysis</h2>
+<section id="Sec8"><h3 class="pmc_sec_title">Input variables</h3>
+<p id="Par27">The rules-based algorithm used the morning measurements of blood pressure, weight change, heart rate, and symptoms to generate an alert for the same day. To improve the rules-based algorithm, we added the previous 2-days morning measurements of the parameters along with the same day measurement for a total of 3 consecutive days. Furthermore, we included information on the laboratory investigations of each patient. The laboratory investigations included complete blood count (CBC), lipid profile, serum electrolytes, renal function test, serum urea, serum creatinine, B-type natriuretic peptide (BNP), serum creatinine. We also included patients’ medication history, their other co-morbid conditions, and their smoking history. Table <a href="#Tab1" class="usa-link">1</a> shows the complete set of input variables were used in the analysis.</p>
+<section class="tw xbox font-sm" id="Tab1"><h4 class="obj_head">Table 1.</h4>
+<div class="caption p"><p>Input Variables.</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1">Feature Type</th>
+<th align="left" colspan="1" rowspan="1"></th>
+<th align="left" colspan="1" rowspan="1"></th>
+<th align="left" colspan="1" rowspan="1"># Of Features (variable type)</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">Age</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Sex</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">1 (categorical)</td>
+</tr>
+<tr>
+<td align="left" rowspan="4" colspan="1">Same day features</td>
+<td align="left" colspan="1" rowspan="1">Blood pressure (systolic and diastolic)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">2 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Heart rate</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Weight change</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Symptoms (unusual heartbeat, tiredness, shortness of breath, light-headedness, chest pain, reduced activities, icd fired, night breathing worsened, swollen ankles)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">10 (categorical-yes/no)</td>
+</tr>
+<tr>
+<td align="left" rowspan="4" colspan="1">Previous 2-day features</td>
+<td align="left" colspan="1" rowspan="1">Blood pressure (systolic and diastolic)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">4 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Heart rate</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">2 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Weight change</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">2 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Symptoms (unusual heartbeat, tiredness, shortness of breath, light-headedness, chest pain, reduced activities, icd fired, night breathing worsened, swollen ankles)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">20 (categorical-yes/no)</td>
+</tr>
+<tr>
+<td align="left" rowspan="25" colspan="1">EHR</td>
+<td align="left" rowspan="9" colspan="1">Complete blood count (CBC):</td>
+<td align="left" colspan="1" rowspan="1">Platelets (109 Cells/L)</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">RBC (1012 Cells/L)</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">WBC/Leukocytes</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">HCT</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Neutrophils/Polys</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Lymphocytes (109 Cells/L)</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Monocytes (109 Cells/L)</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Eosinophils (109 Cells/L)</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Basophils (109 Cells/L)</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" rowspan="2" colspan="1">Renal function test:</td>
+<td align="left" colspan="1" rowspan="1">E-GFR(ml/min/1.73m2)</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">African EGFR (ml/min/1.73m2)</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" rowspan="4" colspan="1">Lipid profile:</td>
+<td align="left" colspan="1" rowspan="1">Total Cholesterol (Mmol/L)</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">HDL-C (Mmol/L)</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">LDL-C (Mmol/L),</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Triglycerides (Mmol/L)</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" rowspan="6" colspan="1">Serum electrolytes:</td>
+<td align="left" colspan="1" rowspan="1">Sodium (Mmol/L)</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Potassium (Mmol/L)</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Chloride (Mmol/L)</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Calcium (Mmol/L)</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Phosphate (Mmol/L)</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Magnesium (Mmol/L)</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Serum Urea (Mmol/L)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Serum Creatinine (µmol/L)</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">b-type natriuretic peptide:</td>
+<td align="left" colspan="1" rowspan="1">BNP (Pg/Ml)</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Hemoglobin:</td>
+<td align="left" colspan="1" rowspan="1">Hgb (G/L)</td>
+<td align="left" colspan="1" rowspan="1">1 (continuous)</td>
+</tr>
+<tr>
+<td align="left" rowspan="11" colspan="1"></td>
+<td align="left" rowspan="4" colspan="1">Drug history:</td>
+<td align="left" colspan="1" rowspan="1">ACEI</td>
+<td align="left" colspan="1" rowspan="1">1 (categorical-yes/no)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Beta-blocker</td>
+<td align="left" colspan="1" rowspan="1">1 (categorical-yes/no)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">MRA</td>
+<td align="left" colspan="1" rowspan="1">1 (categorical-yes/no)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Diuretics</td>
+<td align="left" colspan="1" rowspan="1">1 (categorical-yes/no)</td>
+</tr>
+<tr>
+<td align="left" rowspan="6" colspan="1">Other disease history</td>
+<td align="left" colspan="1" rowspan="1">Hypertension</td>
+<td align="left" colspan="1" rowspan="1">1 (categorical-yes/no)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Diabetes</td>
+<td align="left" colspan="1" rowspan="1">1 (categorical-yes/no)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Atrial fibrillation</td>
+<td align="left" colspan="1" rowspan="1">1 (categorical-yes/no)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">COPD</td>
+<td align="left" colspan="1" rowspan="1">1 (categorical-yes/no)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Chronic respiratory disease (CRD)</td>
+<td align="left" colspan="1" rowspan="1">1 (categorical-yes/no)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Cancer</td>
+<td align="left" colspan="1" rowspan="1">1 (categorical-yes/no)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Other history</td>
+<td align="left" colspan="1" rowspan="1">Smoking</td>
+<td align="left" colspan="1" rowspan="1">1 (categorical-yes/no)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">
+<strong>Total Features</strong>
+</td>
+<td align="left" colspan="1" rowspan="1"></td>
+<td align="left" colspan="1" rowspan="1">81</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></section></section><section id="Sec9"><h3 class="pmc_sec_title">Outcome measure</h3>
+<p id="Par29">Medly’s rules-based algorithm outputs different alerts. A total of eight alerts were generated based on patients’ vitals, where 1 corresponds to ‘everything is normal,’ and 8 corresponds to ‘high-level emergency or call 911’<sup><a href="#CR8" class="usa-link" aria-describedby="CR8">8</a></sup>. In the rules-based output, alert numbers 1–3 corresponded to no contact needed with the physicians or clinic. However, alerts number 4–8 were associated with some warning, diuretic instructions, and required contact with the corresponding clinic. For simplification purposes, we classified these eight alerts into 2 classes: “Contact” or “No Contact”. If the patient was asked to contact the care team at any stage, that alert was categorized as a “Contact”. Otherwise, all other alerts were classified as “No Contact”. Furthermore, clinician experts J. K. K. V-N and C.M. trained and oversaw 3 highly qualified personnel in.</p>
+<p id="Par30">evaluating all alerts manually, using clinical data, to determine the true positives, true negatives, false positives, and false negatives for our evaluation system. The definition of the true positives, true negatives, false positives, and false negatives for our system are as follows:</p>
+<ol class="list" style="list-style-type:lower-alpha">
+<li><p id="Par32">True Positive: The rules-based algorithm generated a “Contact” alert deemed appropriate by the cardiologist (change in treatment, counseling provided, or care escalation).</p></li>
+<li><p id="Par33">True Negative: Rules-based algorithm did not generate a “Contact” alert, and the patient remained stable (no emergency visit or critical clinical deterioration within the next 24 h).</p></li>
+<li><p id="Par34">False Positive: Rules-based algorithm generated a “Contact” alert that was deemed inappropriate by the cardiologist (no change in treatment, counseling provided, or care escalation).</p></li>
+<li><p id="Par35">False Negative: Rules-based algorithm did not generate a “Contact” alert, but the patient experienced clinical deterioration within the next 24 h and/or received emergency care.</p></li>
+</ol></section><section id="Sec10"><h3 class="pmc_sec_title">HF decompensation episodes Estimation</h3>
+<section id="Sec11"><h4 class="pmc_sec_title">Model development</h4>
+<p id="Par36">The predictive model was developed using the XGBoost framework, employing a gradient-boosted decision tree ensemble with a binary logistic objective function<sup><a href="#CR13" class="usa-link" aria-describedby="CR13">13</a></sup>. One main advantage of XGBoost is that it provides a parallel tree boosting that solves many data science problems quickly and accurately. For these reasons, XGBoost has been widely used in solving several healthcare-related classification and regression problems<sup><a href="#CR14" class="usa-link" aria-describedby="CR14">14</a>–<a href="#CR19" class="usa-link" aria-describedby="CR19">19</a></sup>. The XGBoost Python implementation was used (<a href="https://xgboost.readthedocs.io/en/stable/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://xgboost.readthedocs.io/en/stable/</a>), version 1.4.2.</p>
+<p id="Par37">Hyperparameter tuning was conducted through a randomized grid search to optimize model performance while preventing overfitting. The search explored combinations of key hyperparameters, including tree depth, learning rate, column subsampling ratio, class weighting to address imbalance, and the number of boosting rounds. Each configuration was evaluated using five-fold stratified cross-validation, with area under the receiver operating characteristic curve (AUC) as the scoring metric.</p>
+<p id="Par38">Following hyperparameter optimization, the best parameter set was merged with a fixed baseline configuration that included the use of the GBTree booster, subsampling of training instances, and a fixed random seed for reproducibility. The final model was trained on the full training dataset, with performance monitored on a held-out validation set using AUC as the evaluation criterion. Early stopping with a patience of 30 iterations was employed to terminate training once validation performance plateaued, enhancing generalizability and reducing the risk of overfitting.</p>
+<p id="Par39">To handle missing data, the model leveraged XGBoost’s native mechanism, which automatically learns the optimal split direction for missing values during tree construction. All continuous variables were standardized prior to training to mitigate the influence of outliers and ensure numerical stability. Categorical variables were one-hot encoded, and features derived from patient-reported daily measures, rolling summaries of prior days’ vitals, and laboratory-based EHR values were included in the model without manual feature selection, allowing the algorithm to learn relevant feature interactions directly.</p>
+<p id="Par40">We used the feature set from Table <a href="#Tab1" class="usa-link">1</a>. In conjunction with the feature set, we used the output from the Medly rules-based algorithm and used it as an input to the XGBoost classifier. Overall, the model’s input was: Same day features + previous two days features + Medly rules-based algorithm output + EHR data (Fig. <a href="#Fig1" class="usa-link">1</a>).</p>
+<figure class="fig xbox font-sm" id="Fig1"><h5 class="obj_head">Fig. 1.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12373751_41598_2025_16376_Fig1_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/53bc/12373751/ee4d656e1217/41598_2025_16376_Fig1_HTML.jpg" loading="lazy" id="d33e830" height="297" width="669" alt="Fig. 1"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Algorithm flow: This diagram illustrates the overall architecture of the proposed XGBoost-based prediction pipeline. Input data includes same-day vital signs and symptoms (e.g., blood pressure, heart rate, weight change), two-day historical trends of these vitals, and EHR data such as lab results and comorbidity history. The output from the Medly rules-based algorithm is also included as an input feature, leveraging clinical knowledge. The integration of these data sources into the XGBoost model reflects our approach to enhancing prediction accuracy while maintaining alignment with real-world clinical data availability.</p></figcaption></figure></section><section id="Sec12"><h4 class="pmc_sec_title">Validation and evaluation</h4>
+<p id="Par42">The dataset was divided into training and test sets. Our dataset consisted of 342 patients who had daily measurements for 1 to 3 years. We first split the dataset by 80:20 ratio into the training and testing sets on a patient level, such that the training and testing sets did not have overlapping patients. The resulting training set contains 52,932 incidents, and the testing set contains 11,161 incidents (labeled by 3 highly qualified personnel, as previously mentioned). However, in the training dataset, we had an overall “No Contact” to “Contact” ratio of 10:1. To alleviate the effect of class imbalance on model training, in the training set we randomly subsampled the “No Contact” incidents to match with the “Contact” incidents to a ratio of 0.75. This results in 11,636 incidents used in training. The “Contact” to “No Contact” ratio in the testing set remained unchanged. The parameter search was performed in 5-fold cross-validation only on the training set. After the best parameters were obtained, the model was trained with the training set. All data was standardized using the Standard Scaler class of sci-kit learn’s library to handle outliers and make the process more efficient. Any missing medication dosage information was considered as no prescription given.</p>
+<p id="Par43">We evaluated the performance of the architectures in the testing set and calculated the sensitivity, specificity, positive predictive value (PPV), negative predictive value (NPV), and accuracy. Furthermore, we calculated the precision, recall, and F1 score to assess the performance of the model. To ensure fair comparisons with the Medly rules-based algorithm, we further selected classification thresholds based on the Medly rules-based algorithm’s true positive rate. By holding the true positive rate at the same level, we assessed changes in PPV, which would allow us to investigate improvements in PPV without sacrificing sensitivity.</p></section></section><section id="Sec13"><h3 class="pmc_sec_title">Interpretability analysis</h3>
+<p id="Par44">We further conducted feature importance analyses to determine which features played a significant role in predicting the decompensation episodes and correcting the false positives from the rules-based algorithm. To accomplish this, we performed three analyses: (a) the SHAP summary plot of the model, (b) ablation studies and (c) performance analysis of the addition of the EHR data between the original Medly rules-based algorithm vs. XGBoost algorithm. Each of these strategies for interpretability of the model, and feature importance, are detailed below.</p>
+<section id="Sec14"><h4 class="pmc_sec_title">SHAP summary</h4>
+<p id="Par45">We used the SHAP method to investigate the feature importance<sup><a href="#CR20" class="usa-link" aria-describedby="CR20">20</a></sup>. The SHAP method evaluates the relative contribution of each feature to the model prediction and assigns a Shapley score to each feature as a measure of its importance. We used the SHAP summary plot to visualize the feature importance<sup><a href="#CR20" class="usa-link" aria-describedby="CR20">20</a></sup>. SHAP summary plot is superior to standard feature importance bar charts, which do not represent the range and distribution of the importance on the model’s output. Alternatively, the SHAP summary plot represents feature importance as feature effects on the model. In the SHAP summary plot, each point represents a sample. The X-axis represents the Shapley value, and the color of the points (i.e., Y-axis) represents the feature value. The X-axis indicates the Shapley value of each sample (&gt; 0: contribution towards positive prediction; &lt;0: contribution towards negative prediction). The red color indicates a higher feature value, while the blue color indicates a lower feature value.</p>
+<p id="Par46">We used SHAP’s Python implementation (<a href="https://shap.readthedocs.io/en/latest/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://shap.readthedocs.io/en/latest/</a>), version 0.39.0.</p></section><section id="Sec15"><h4 class="pmc_sec_title">Ablation studies</h4>
+<p id="Par47">We further performed several ablation studies to check the feature importance. We applied several combinations of input features to the XGBoost model and checked the performance of the algorithm. The hypothesis was that if removing a set of features reduced the PPV rate, then that set of features played a significant role in reducing the false positives. The list of ablation studies is given below:</p>
+<ol class="list" style="list-style-type:lower-alpha">
+<li><p id="Par49">Ablation Study 1: Same day Features.</p></li>
+<li><p id="Par50">Ablation Study 2: Same day features + Medly rules-based algorithm output.</p></li>
+<li><p id="Par51">Ablation Study 3: Same day features + Medly rules-based algorithm output + EHR data.</p></li>
+<li><p id="Par52">Ablation Study 4: Same day features + Previous 2 days features.</p></li>
+<li><p id="Par53">Ablation Study 5: Same day features + Previous 2 days features + Medly rules-based algorithm output.</p></li>
+</ol>
+<p id="Par54">Evaluation of these ablation studies was performed based on PPV, NPV, sensitivity, and specificity.</p>
+<p id="Par55">After the first set of ablation studies, we performed another set on the EHR data. Here, we removed one-by-one each continuous variable from the EHR data set, re-trained the model, and tested the performance on the test data. In addition, we evaluated the PPV and F1-score (harmonic mean between precision and recall) after removing the variables. The hypothesis was that if the PPV and F1 score were reduced from the overall score after removing the variable, that variable might play an essential role in reducing the false positives. Thus, we performed 25 ablation studies and compared the performance of the algorithm in each instance.</p></section><section id="Sec16"><h4 class="pmc_sec_title">Performance analysis of the use of EHR data between medly rules-based vs. XGBoost algorithm</h4>
+<p id="Par56">We calculated the average and standard deviation of each continuous EHR data variable for estimated true negative, false positives, true positives, and false negatives for both Medly rules-based algorithm and the XGBoost algorithm. Then, we compared the trend of change in the EHR value between the false positives estimated by rules-based and XGboost algorithms. When the average value of an EHR value increased in the estimated false positives from rules-based to XGBoost, this indicated the fact that XGBoost considered the lower values of that variable in the process of correcting false positives.</p></section></section></section><section id="Sec17"><h2 class="pmc_sec_title">Results</h2>
+<section id="Sec18"><h3 class="pmc_sec_title">Dataset</h3>
+<p id="Par57">We had 11,636 and 11,161 incidents in the training and testing sets, respectively. Of the 11,636 incidents in the training set, 6,649 incidents were marked as “No Contact”, and 4,987 points were scored as “Contact”. In the 11,161 incidents in the testing set, 10,252 incidents were marked as “No Contact”, and 909 points were scored as a “Contact”.</p></section><section id="Sec19"><h3 class="pmc_sec_title">Results of medly rules-based algorithm</h3>
+<p id="Par58">The original rule-based algorithm obtained 93.6% accuracy with 94% sensitivity and 93% specificity. However, the PPV was 55.8%, as the original rules-based algorithm was deliberately conservative in nature to ensure it would minimize missing decompensation episodes (Fig. <a href="#Fig2" class="usa-link">2</a>).</p>
+<figure class="fig xbox font-sm" id="Fig2"><h4 class="obj_head">Fig. 2.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12373751_41598_2025_16376_Fig2_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/53bc/12373751/eb0ec246312b/41598_2025_16376_Fig2_HTML.jpg" loading="lazy" id="d33e922" height="338" width="669" alt="Fig. 2"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Performance comparison between Medly rules-based algorithm vs. XGBoost algorithm shows that XGBoost can improve the positive predictive value (PPV) while maintaining similar sensitivity and accuracy.</p></figcaption></figure></section><section id="Sec20"><h3 class="pmc_sec_title">Results of XGBoost algorithm</h3>
+<p id="Par60">The XGBoost algorithm obtained 98.08% accuracy with 95.26% sensitivity and 98.86% specificity. The PPV was 88.18%. The confusion matrix showed that the false positive value was 116, while the false positive was 684 in the rules-based algorithm. Thus, it was evident that the XGBoost algorithm reduced the false positives with the aid of EHR data or the previous 2-days measurements (Fig. <a href="#Fig2" class="usa-link">2</a>).</p></section><section id="Sec21"><h3 class="pmc_sec_title">Interpretability analysis</h3>
+<p id="Par61">Below are the results of each of the interpretability analyses, providing more details on the contributions and importance of each feature.</p>
+<section id="Sec22"><h4 class="pmc_sec_title">SHAP summary</h4>
+<p id="Par62">We used a SHAP summary plot to investigate the relationship between the value of a feature and the impact on the prediction (Fig. <a href="#Fig3" class="usa-link">3</a>-a). From the summary plot, it was clear that the Medly Rules-based algorithm played a dominant role in the final prediction from the XGBoost model.</p>
+<figure class="fig xbox font-sm" id="Fig3"><h5 class="obj_head">Fig. 3.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12373751_41598_2025_16376_Fig3_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/53bc/12373751/55a05e456817/41598_2025_16376_Fig3_HTML.jpg" loading="lazy" id="d33e957" height="186" width="669" alt="Fig. 3"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig3/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>(<strong>a</strong>) SHAP summary plot: SHAP summary plot showing the relative importance of input features. The Medly rules-based output is the top contributor, followed by key EHR markers like BNP and phosphate. The plot also shows directional effects of each feature (e.g., higher BNP increases likelihood of decompensation). (<strong>b</strong>) Ablation study results: Results of ablation studies comparing different input feature configurations. The inclusion of EHR data leads to notable improvement in PPV (from 0.69 to 0.86), and adding previous 2-day vitals further boosts performance to 0.88. This analysis supports the additive value of each feature category, particularly for reducing false positives.</p></figcaption></figure><p id="Par64">From the EHR data, we found that higher BNP, lower platelets, having a history of chronic respiratory disease, lower total cholesterol, and lower LDL were associated with a greater likelihood of decompensation episodes (Fig. <a href="#Fig3" class="usa-link">3</a>).</p>
+<p id="Par65">From the previous 2-days measurements, we found that the weight change, blood pressure, and heart rate played a vital role in predicting the risk of decompensation episodes.</p></section><section id="Sec23"><h4 class="pmc_sec_title">Ablation studies</h4>
+<p id="Par66">From the ablation studies, we found that the existing Medly Rules-based algorithm output was significant in obtaining the high sensitivity and specificity from the XGBoost algorithm (Fig. <a href="#Fig3" class="usa-link">3</a>-b). However, we obtained the PPV rate of 0.69 when using only same-day features + rules-based algorithm as input to the XGBoost model (Fig. <a href="#Fig3" class="usa-link">3</a>-b, 3rd column). After adding the EHR data as an input with the same-day features and rules-based algorithm, the PPV value increased to 0.86 (Figs. <a href="#Fig3" class="usa-link">3</a>-b and 4th column). As well, adding the previous 2-day measurements with the same-day features and rules-based algorithm and EHR data (current proposed algorithm, Fig. <a href="#Fig3" class="usa-link">3</a>-b, 1 st column) improved the PPV from 0.86 to 0.88. Overall, it was evident that EHR data variables may play a pivotal role in improving the PPV rate, compared to the previous 2-day measurements.</p>
+<p id="Par67">In the next set of ablation studies, we removed one-by-one each continuous variable from the EHR data and evaluated the PPV and F1-score after removing the variables (Fig. <a href="#Fig4" class="usa-link">4</a>-a and b). While using all variables, the PPV and F1 scores were 0.867 and 0.908, respectively. After removing BNP and phosphate, the PPV and F1 score reduced to 0.83 and 0.89, respectively. However, eliminating total cholesterol and platelets did not reduce the PPV rate.</p>
+<figure class="fig xbox font-sm" id="Fig4"><h5 class="obj_head">Fig. 4.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12373751_41598_2025_16376_Fig4_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/53bc/12373751/efce9d544250/41598_2025_16376_Fig4_HTML.jpg" loading="lazy" id="d33e1002" height="369" width="669" alt="Fig. 4"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig4/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Finer ablation studies: Change in PPV when each EHR variable is individually removed. Removal of BNP causes the largest decline, confirming its strong predictive value; (<strong>b</strong>) Corresponding drop in F1 score (harmonic mean of precision and recall), again highlighting BNP and phosphate as critical variables; (<strong>c</strong>) Mean BNP values in incidents classified as false positives by both the Medly rules-based and XGBoost models. The increase in BNP among false positives identified by XGBoost indicates that the model correctly deprioritizes alerts when BNP levels are low, improving precision.</p></figcaption></figure></section><section id="Sec24"><h4 class="pmc_sec_title">Performance analysis of the use of EHR data between medly rules-based vs. XGBoost algorithm</h4>
+<p id="Par69">We found that the proposed XGBoost algorithm reduced the false positives from the rules-based algorithm in estimating the decompensation episodes by incorporating the EHR data. Therefore, we compared how the XGBoost was using EHR data in the process of correcting the false positives from the Medly rules-based algorithm. We found that the average BNP value in the false-positive incidents for XGBoost was higher than the rules-based algorithm (Fig. <a href="#Fig4" class="usa-link">4</a>-c). The average went higher since the lower values of the BNP were removed in the estimated false positives incidents. This indicated the fact that XGBoost considered the lower values of BNP in the process of correcting false positives.</p></section></section></section><section id="Sec25"><h2 class="pmc_sec_title">Discussion</h2>
+<p id="Par70">The most significant findings of this study were that implementing a machine learning enhanced expert system with EHR data in Medly improved the overall predictive ability of HF decompensation episodes. As shown in Fig. <a href="#Fig4" class="usa-link">4</a>-c, BNP and phosphate played vital roles in predicting decompensation episodes and correcting the false-positive incidents generated by the original Medly rules-based algorithm. Overall, our study has demonstrated the concept that EHR data should be incorporated in enhancing rules-based expert systems for the daily prediction of HF decompensation.</p>
+<p id="Par71">This approach presents some advantages over using machine learning or an expert system approach exclusively. Domain knowledge can be explicitly incorporated into the algorithm, improving its explainability and making the output more deterministic. This in turn, it creates more flexibility of updating the model and as demonstrated, improving the robustness model.</p>
+<p id="Par72">Such approaches are not new, and have been demonstrated in heart disease prediction<sup><a href="#CR21" class="usa-link" aria-describedby="CR21">21</a></sup>, brain tumor classification<sup><a href="#CR22" class="usa-link" aria-describedby="CR22">22</a></sup>, and autism diagnosis<sup><a href="#CR23" class="usa-link" aria-describedby="CR23">23</a></sup>, incorporating other methods such as fuzzy logic and particle swarm optimization. It should also be noted that the machine learning component of the Medly AI algorithm is designed to use the most recent available laboratory results and continue to rely on them until the next scheduled test becomes available. This design ensures that the model functions entirely within existing clinical care pathways, without necessitating additional or more frequent testing. As a result, the model avoids introducing any added burden to patients or clinicians in terms of care demands, logistical complexity, or cost. This integration is particularly important in outpatient or ambulatory care settings, where lab tests may not be performed routinely, and real-time availability of EHR data can be limited. This approach will enhance decision-making and clinical efficiency without introducing friction into the care process or increasing the burden on the healthcare system.</p>
+<p id="Par73">HF is one of the most expensive chronic diseases<sup><a href="#CR24" class="usa-link" aria-describedby="CR24">24</a></sup>. An analysis in 2012 showed that the global cost of HF management was $108 billion per annum<sup><a href="#CR25" class="usa-link" aria-describedby="CR25">25</a></sup>, with $65 billion attributed to direct costs and $43 billion to indirect costs<sup><a href="#CR25" class="usa-link" aria-describedby="CR25">25</a></sup>. In the USA, the total cost of care (direct and indirect costs) for HF in 2020 is estimated at $43.6 billion, with over 70% of costs attributed to medical costs<sup><a href="#CR26" class="usa-link" aria-describedby="CR26">26</a></sup>. The majority of this cost is driven by hospitalization due to HF decompensation episodes<sup><a href="#CR24" class="usa-link" aria-describedby="CR24">24</a></sup>. HF decompensation also carries significant mortality with 22–42% of patients dying within 1 to 5 years from the first HF-related hospitalization<sup><a href="#CR27" class="usa-link" aria-describedby="CR27">27</a></sup>. These outcomes can be improved with proper patient self-care and active clinical monitoring. A recent meta-analysis has shown that self-management interventions can reduce HF-related hospitalization or all cause death and improve HF-related quality of life<sup><a href="#CR28" class="usa-link" aria-describedby="CR28">28</a></sup>. Proper self-care support can be achieved by accurately predicting HF decompensation on a daily basis while the patient is at home. Taken together, accurate prediction of HF decompensation is essential for better management of HF, which may reduce HF-related hospitalization and mortality.</p>
+<p id="Par74">Accurate prediction of HF decompensation can be achieved with automated computerized decision support systems, such as Medly. Furthermore, with the aid of machine learning and appropriate data, this type of clinical decision support system can be better equipped to handle the level of complexity inherent to patients with HF. Thus, a machine learning approach could potentially have a large impact on improving HF management. However, machine learning approaches in the field of HF have largely focused on predicting outcomes (such as medication adherence<sup><a href="#CR29" class="usa-link" aria-describedby="CR29">29</a>,<a href="#CR30" class="usa-link" aria-describedby="CR30">30</a></sup>, and hospital readmission<sup><a href="#CR31" class="usa-link" aria-describedby="CR31">31</a>–<a href="#CR35" class="usa-link" aria-describedby="CR35">35</a></sup> in retrospective patient cohorts. To the best of our knowledge, no previous studies have used machine learning to optimize the management of patients with HF either in-hospital or using remote management strategies on a daily basis.</p>
+<p id="Par75">In this study, we improved the performance of an existing rules-based expert system and demonstrated the importance of integrating EHR data into the analysis. Our findings suggest that implementing the machine learning algorithm improved the overall accuracy and overall sensitivity and specificity of the current Medly rules-based algorithm. Most importantly, the implementation of the machine learning algorithm improved the PPV from 0.55 to 0.88, indicating a significant reduction in false positives, while not increasing the false negatives. A reduction in false positives could improve the overall clinic efficiency, while at the same time, not compromising safety as no associated increase in false negatives was observed. Moreover, it may reduce the consumption of healthcare resources, including nurses, physicians, and unnecessary follow-ups. Taken together, these findings suggest that the implementation of a machine learning algorithm with the aid of EHR data and previous day data improves the overall performance of Medly’s HF decompensation estimation.</p>
+<p id="Par76">We further performed the interpretability analysis of our results to understand which features played a significant role in predicting decompensation episodes and reducing the false positives. Based on the Shapley summary analysis, we found that both same day and the previous 2-day weight changes, heart rate, and blood pressure play a significant role in predicting decompensation episodes. These findings were in line with previous studies which showed that blood pressure, weight, and heart rate can have ability to predict the early onset of a decompensation episode<sup><a href="#CR36" class="usa-link" aria-describedby="CR36">36</a>–<a href="#CR39" class="usa-link" aria-describedby="CR39">39</a></sup>. Overall, it was evident that weight changes, heart rate, and blood pressure were the most important features in predicting the decompensation episodes in this model.</p>
+<p id="Par77">Among EHR data, higher BNP, phosphate, lower platelets, lower LDL, lower total cholesterol, and having history of cardiorespiratory diseases were important features in predicting decompensation episodes. It is well known that BNP levels increase in line with HF severity<sup><a href="#CR40" class="usa-link" aria-describedby="CR40">40</a></sup>. Myocardial stretch is a major element in the stimulation of BNP secretion. Physiological effects of BNP are associated with vasodilation, natriuresis, and inhibition of the sympathetic nervous system and renin-angiotensin-aldosterone which are highly associated with HF. Taken together, it is evident that BNP is a useful marker of the heart’s status during treatment for heart failure. On the same token, high phosphate levels contribute to heart failure, having been shown to influence mitochondrial dysfunction and myocardial energy metabolism remodeling<sup><a href="#CR41" class="usa-link" aria-describedby="CR41">41</a></sup>. Thus, the inclusions of BNP and phosphate in an automation algorithm are important and justified.</p>
+<p id="Par78">Previous studies have shown that lower total cholesterol, LDL, and HDL were associated with worse symptoms of HF and higher in-hospital mortality<sup><a href="#CR42" class="usa-link" aria-describedby="CR42">42</a>,<a href="#CR43" class="usa-link" aria-describedby="CR43">43</a></sup>. Although it was not clear why lower total cholesterol is associated with HF decompensation, it is thought that multiple factors such as malnutrition and inflammation could be the underlying reasons. Overall, total cholesterol and LDL are important EHR data variables that should be considered in predicting worsening HF.</p>
+<p id="Par79">It should be noted that only diuretics, among other treatment options, was relevant in correcting false positives based on SHAP analysis.</p>
+<p id="Par80">Although previous day measurements and EHR played a vital role in predicting decompensated episodes, data from the EHR played a more significant role in reducing the false positives of the Medly rules-based algorithm. Our analysis revealed that lower values of BNP were accounted in the machine learning algorithm, which was helpful to correct the false positives of the rules-based algorithm. This analysis further justified the importance of incorporating EHR data variables in predicting HF decompensation.</p>
+<p id="Par81">Our study is subject to some limitations. We used a retrospective dataset to develop and validate the machine learning algorithm. Hence, it will be essential to further validate this algorithm in a new prospective dataset before implementing it in the Medly platform.</p>
+<p id="Par82">Overall, this study showed the importance of implementing a machine learning algorithm for predicting HF decompensation. Furthermore, we demonstrated the importance of incorporating EHR data, especially BNP and cholesterol, to predict decompensation episodes. Furthermore, incorporating such EHR data lowered the false positives of the rules-based algorithm. Lowering false positives may significantly reduce the use of healthcare resources. Once validated in a prospective dataset, this algorithm could prove very useful in the management of HF patients.</p></section><section id="ack1" class="ack"><h2 class="pmc_sec_title">Acknowledgements</h2>
+<p>The authors would like to acknowledge the support of the Vector Institute Pathfinder project and the Wolfond Chair in Digital Health.</p></section><section id="notes1"><h2 class="pmc_sec_title">Author contributions</h2>
+<p>Conceptualization: SS, HR, BW, JCData curation: CW, JV, PEV, CMFormal analysis: SS, CWFunding acquisition: HR, BW, JCInvestigation: SS, HR, BW, JCMethodology: SS, HR, BW, JCProject administration: SSResources, software: BW, JCSupervision: HR, BW, JCValidation, Visualization: SS, CWWriting – original draft: SSWriting– review &amp; editing: SS, HR, E, CW, BW, JC.</p></section><section id="notes2"><h2 class="pmc_sec_title">Funding</h2>
+<p>Vector Institute Pathfinder Program, Wolfond Chair in Digital Health.</p></section><section id="notes3"><h2 class="pmc_sec_title">Data availability</h2>
+<p>The datasets generated and/or analysed during the current study are not publicly available due to containing personal health information, but are available from the corresponding author on reasonable request”.</p></section><section id="notes4"><h2 class="pmc_sec_title">Declarations</h2>
+<section id="FPar1"><h3 class="pmc_sec_title">Competing interests</h3>
+<p id="Par83">The authors declare no competing interests.</p></section><section id="FPar2"><h3 class="pmc_sec_title">Conflict of interest</h3>
+<p id="Par84">Members of the research team (JC and HJR) have intellectual property rights of the Medly system.</p></section><section id="FPar3"><h3 class="pmc_sec_title">Ethics statement</h3>
+<p id="Par85">All participants gave written informed consent before participating in the study (REB No: 19-5213). The study was performed in accordance with the approved guidelines and regulations.</p></section></section><section id="fn-group1" class="fn-group"><h2 class="pmc_sec_title">Footnotes</h2>
+<div class="fn-group p font-secondary-light font-sm"><div class="fn p" id="fn1">
+<p><strong>Publisher’s note</strong></p>
+<p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</div></div></section><section id="Bib1" class="ref-list"><h2 class="pmc_sec_title">References</h2>
+<section id="Bib1_sec2"><ul class="ref-list font-sm" style="list-style-type:none">
+<li id="CR1">
+<span class="label">1.</span><cite>Cowie, M. R. et al. Improving care for patients with acute heart failure: before, during and after hospitalization. <em>ESC Heart Fail.</em><strong>1</strong> (2), 110–145 (2014).
+</cite> [<a href="https://doi.org/10.1002/ehf2.12021" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/28834628/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Cowie,%20M.%20R.%20et%20al.%20Improving%20care%20for%20patients%20with%20acute%20heart%20failure:%20before,%20during%20and%20after%20hospitalization.%20ESC%20Heart%20Fail.1%20(2),%20110%E2%80%93145%20(2014)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR2">
+<span class="label">2.</span><cite>Gheorghiade, M. et al. Acute heart failure syndromes: current state and framework for future research. <em>Circulation</em><strong>112</strong> (25), 3958–3968 (2005).
+</cite> [<a href="https://doi.org/10.1161/CIRCULATIONAHA.105.590091" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/16365214/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Gheorghiade,%20M.%20et%20al.%20Acute%20heart%20failure%20syndromes:%20current%20state%20and%20framework%20for%20future%20research.%20Circulation112%20(25),%203958%E2%80%933968%20(2005)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR3">
+<span class="label">3.</span><cite>Desai, A. S. &amp; Stevenson, L. W. Rehospitalization for heart failure: predict or prevent? <em>Circulation</em><strong>126</strong> (4), 501–506 (2012).
+</cite> [<a href="https://doi.org/10.1161/CIRCULATIONAHA.112.125435" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/22825412/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Desai,%20A.%20S.%20&amp;%20Stevenson,%20L.%20W.%20Rehospitalization%20for%20heart%20failure:%20predict%20or%20prevent?%20Circulation126%20(4),%20501%E2%80%93506%20(2012)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR4">
+<span class="label">4.</span><cite>White, M., Garbez, R., Carroll, M., Brinker, E. &amp; Howie-Esquivel, J. Is teach-back associated with knowledge retention and hospital readmission in hospitalized heart failure patients? <em>J. Cardiovasc. Nurs.</em><strong>28</strong> (2), 137–146 (2013).
+</cite> [<a href="https://doi.org/10.1097/JCN.0b013e31824987bd" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/22580624/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?White,%20M.,%20Garbez,%20R.,%20Carroll,%20M.,%20Brinker,%20E.%20&amp;%20Howie-Esquivel,%20J.%20Is%20teach-back%20associated%20with%20knowledge%20retention%20and%20hospital%20readmission%20in%20hospitalized%20heart%20failure%20patients?%20J.%20Cardiovasc.%20Nurs.28%20(2),%20137%E2%80%93146%20(2013)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR5">
+<span class="label">5.</span><cite>Cox, Z. L., Lai, P., Lewis, C. M. &amp; Lenihan, D. J. Centers for medicare and medicaid services’ readmission reports inaccurately describe an institution’s decompensated heart failure admissions. <em>Clin. Cardiol.</em><strong>40</strong> (9), 620–625 (2017).
+</cite> [<a href="https://doi.org/10.1002/clc.22711" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC6490358/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/28471510/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Cox,%20Z.%20L.,%20Lai,%20P.,%20Lewis,%20C.%20M.%20&amp;%20Lenihan,%20D.%20J.%20Centers%20for%20medicare%20and%20medicaid%20services%E2%80%99%20readmission%20reports%20inaccurately%20describe%20an%20institution%E2%80%99s%20decompensated%20heart%20failure%20admissions.%20Clin.%20Cardiol.40%20(9),%20620%E2%80%93625%20(2017)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR6">
+<span class="label">6.</span><cite>Rosseter, R. <em>Nursing Shortage Fact Sheet</em> (American Association of Colleges of Nursing, 2014).</cite>
+</li>
+<li id="CR7">
+<span class="label">7.</span><cite>Ong, M. K. et al. Effectiveness of remote patient monitoring after discharge of hospitalized patients with heart failure: the better effectiveness after transition–heart failure (BEAT-HF) randomized clinical trial. <em>JAMA Intern. Med.</em><strong>176</strong> (3), 310–318 (2016).
+</cite> [<a href="https://doi.org/10.1001/jamainternmed.2015.7712" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC4827701/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/26857383/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Ong,%20M.%20K.%20et%20al.%20Effectiveness%20of%20remote%20patient%20monitoring%20after%20discharge%20of%20hospitalized%20patients%20with%20heart%20failure:%20the%20better%20effectiveness%20after%20transition%E2%80%93heart%20failure%20(BEAT-HF)%20randomized%20clinical%20trial.%20JAMA%20Intern.%20Med.176%20(3),%20310%E2%80%93318%20(2016)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR8">
+<span class="label">8.</span><cite>Seto, E. et al. Developing healthcare rule-based expert systems: case study of a heart failure telemonitoring system. <em>Int. J. Med. Informatics</em>. <strong>81</strong> (8), 556–565 (2012).</cite> [<a href="https://doi.org/10.1016/j.ijmedinf.2012.03.001" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/22465288/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Seto,%20E.%20et%20al.%20Developing%20healthcare%20rule-based%20expert%20systems:%20case%20study%20of%20a%20heart%20failure%20telemonitoring%20system.%20Int.%20J.%20Med.%20Informatics.%2081%20(8),%20556%E2%80%93565%20(2012)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR9">
+<span class="label">9.</span><cite>Seto, E. et al. Mobile phone-based telemonitoring for heart failure management: a randomized controlled trial. <em>J. Med. Internet. Res.</em><strong>14</strong> (1), e31 (2012).
+</cite> [<a href="https://doi.org/10.2196/jmir.1909" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC3374537/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/22356799/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Seto,%20E.%20et%20al.%20Mobile%20phone-based%20telemonitoring%20for%20heart%20failure%20management:%20a%20randomized%20controlled%20trial.%20J.%20Med.%20Internet.%20Res.14%20(1),%20e31%20(2012)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR10">
+<span class="label">10.</span><cite>Ware, P. et al. Patient adherence to a mobile Phone–Based heart failure telemonitoring program: A longitudinal Mixed-Methods study. <em>JMIR mHealth uHealth</em>. <strong>7</strong> (2), e13259 (2019).
+</cite> [<a href="https://doi.org/10.2196/13259" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC6412156/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/30806625/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Ware,%20P.%20et%20al.%20Patient%20adherence%20to%20a%20mobile%20Phone%E2%80%93Based%20heart%20failure%20telemonitoring%20program:%20A%20longitudinal%20Mixed-Methods%20study.%20JMIR%20mHealth%20uHealth.%207%20(2),%20e13259%20(2019)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR11">
+<span class="label">11.</span><cite>Ware, P. et al. Outcomes of a heart failure telemonitoring program implemented as the standard of care in an outpatient heart function clinic: Pretest-Posttest pragmatic study. <em>J. Med. Internet. Res.</em><strong>22</strong> (2), e16538 (2020).
+</cite> [<a href="https://doi.org/10.2196/16538" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC7055875/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/32027309/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Ware,%20P.%20et%20al.%20Outcomes%20of%20a%20heart%20failure%20telemonitoring%20program%20implemented%20as%20the%20standard%20of%20care%20in%20an%20outpatient%20heart%20function%20clinic:%20Pretest-Posttest%20pragmatic%20study.%20J.%20Med.%20Internet.%20Res.22%20(2),%20e16538%20(2020)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR12">
+<span class="label">12.</span><cite>Ware, P., Ross, H. J., Cafazzo, J. A., Laporte, A. &amp; Seto, E. Implementation and evaluation of a smartphone-based telemonitoring program for patients with heart failure: mixed-methods study protocol. <em>JMIR Res. Protcols</em>. <strong>7</strong> (5), e121 (2018).</cite> [<a href="https://doi.org/10.2196/resprot.9911" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC5958281/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/29724704/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Ware,%20P.,%20Ross,%20H.%20J.,%20Cafazzo,%20J.%20A.,%20Laporte,%20A.%20&amp;%20Seto,%20E.%20Implementation%20and%20evaluation%20of%20a%20smartphone-based%20telemonitoring%20program%20for%20patients%20with%20heart%20failure:%20mixed-methods%20study%20protocol.%20JMIR%20Res.%20Protcols.%207%20(5),%20e121%20(2018)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR13">
+<span class="label">13.</span><cite>Chen, T. &amp; Guestrin, C. (eds) Xgboost: A scalable tree boosting system. Proceedings of the 22nd acm sigkdd international conference on knowledge discovery and data mining; (2016).</cite>
+</li>
+<li id="CR14">
+<span class="label">14.</span><cite>Li, M., Fu, X. &amp; Li, D. (eds) Diabetes prediction based on xgboost algorithm. IOP Conference Series: Materials Science and Engineering; : IOP Publishing. (2020).</cite>
+</li>
+<li id="CR15">
+<span class="label">15.</span><cite>Li, S. &amp; Zhang, X. Research on orthopedic auxiliary classification and prediction model based on XGBoost algorithm. <em>Neural Comput. Appl.</em><strong>32</strong>(7), 1–9 (2019).</cite>
+</li>
+<li id="CR16">
+<span class="label">16.</span><cite>Luckner, M., Topolski, B. &amp; Mazurek, M. (eds) Application of XGBoost algorithm in fingerprinting localisation task. IFIP International Conference on Computer Information Systems and Industrial Management; : Springer. (2017).</cite>
+</li>
+<li id="CR17">
+<span class="label">17.</span><cite>Ogunleye, A. &amp; Wang, Q-G. XGBoost model for chronic kidney disease diagnosis. <em>IEEE/ACM Trans. Comput. Biology Bioinf.</em><strong>17</strong> (6), 2131–2140 (2019).</cite> [<a href="https://doi.org/10.1109/TCBB.2019.2911071" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/30998478/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Ogunleye,%20A.%20&amp;%20Wang,%20Q-G.%20XGBoost%20model%20for%20chronic%20kidney%20disease%20diagnosis.%20IEEE/ACM%20Trans.%20Comput.%20Biology%20Bioinf.17%20(6),%202131%E2%80%932140%20(2019)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR18">
+<span class="label">18.</span><cite>Torlay, L., Perrone-Bertolotti, M., Thomas, E. &amp; Baciu, M. Machine learning–XGBoost analysis of Language networks to classify patients with epilepsy. <em>Brain Inf.</em><strong>4</strong> (3), 159–169 (2017).</cite> [<a href="https://doi.org/10.1007/s40708-017-0065-7" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC5563301/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/28434153/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Torlay,%20L.,%20Perrone-Bertolotti,%20M.,%20Thomas,%20E.%20&amp;%20Baciu,%20M.%20Machine%20learning%E2%80%93XGBoost%20analysis%20of%20Language%20networks%20to%20classify%20patients%20with%20epilepsy.%20Brain%20Inf.4%20(3),%20159%E2%80%93169%20(2017)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR19">
+<span class="label">19.</span><cite>Zhang, H. et al. Novel framework for image attribute annotation with gene selection XGBoost algorithm and relative attribute model. <em>Appl. Soft Comput.</em><strong>80</strong>, 57–79 (2019).</cite> [<a href="https://scholar.google.com/scholar_lookup?Zhang,%20H.%20et%20al.%20Novel%20framework%20for%20image%20attribute%20annotation%20with%20gene%20selection%20XGBoost%20algorithm%20and%20relative%20attribute%20model.%20Appl.%20Soft%20Comput.80,%2057%E2%80%9379%20(2019)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR20">
+<span class="label">20.</span><cite>Lundberg, S. M. &amp; Lee, S-I. (eds) A unified approach to interpreting model predictions. Proceedings of the 31st international conference on neural information processing systems; (2017).</cite>
+</li>
+<li id="CR21">
+<span class="label">21.</span><cite>Al Bataineh, A. &amp; Manacek, S. MLP-PSO hybrid algorithm for heart disease prediction. <em>J. Pers. Med.</em><strong>12</strong>(8), 1208 (2022).</cite> [<a href="https://doi.org/10.3390/jpm12081208" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC9394266/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/35893302/" class="usa-link">PubMed</a>]</li>
+<li id="CR22">
+<span class="label">22.</span><cite>Celik, M. &amp; Inik, O. Development of hybrid models based on deep learning and optimized machine learning algorithms for brain tumor Multi-Classification. <em>Expert Syst. Appl.</em><strong>238</strong>, 122159 (2024).</cite>
+</li>
+<li id="CR23">
+<span class="label">23.</span><cite>Algaysi, M. E., Albahri, A. S. &amp; Hamid, R. A. Evaluation and benchmarking of hybrid machine learning models for autism spectrum disorder diagnosis using a 2-tuple linguistic neutrosophic fuzzy sets-based decision-making model. <em>Neural Comput. Appl.</em><strong>36</strong> (29), 18161–18200 (2024).</cite> [<a href="https://scholar.google.com/scholar_lookup?Algaysi,%20M.%20E.,%20Albahri,%20A.%20S.%20&amp;%20Hamid,%20R.%20A.%20Evaluation%20and%20benchmarking%20of%20hybrid%20machine%20learning%20models%20for%20autism%20spectrum%20disorder%20diagnosis%20using%20a%202-tuple%20linguistic%20neutrosophic%20fuzzy%20sets-based%20decision-making%20model.%20Neural%20Comput.%20Appl.36%20(29),%2018161%E2%80%9318200%20(2024)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR24">
+<span class="label">24.</span><cite>Savarese, G. &amp; Lund, L. H. Global public health burden of heart failure. <em>Cardiac Fail. Rev.</em><strong>3</strong> (1), 7 (2017).</cite> [<a href="https://doi.org/10.15420/cfr.2016:25:2" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC5494150/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/28785469/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Savarese,%20G.%20&amp;%20Lund,%20L.%20H.%20Global%20public%20health%20burden%20of%20heart%20failure.%20Cardiac%20Fail.%20Rev.3%20(1),%207%20(2017)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR25">
+<span class="label">25.</span><cite>Cook, C., Cole, G., Asaria, P., Jabbour, R. &amp; Francis, D. P. The annual global economic burden of heart failure. <em>Int. J. Cardiol.</em><strong>171</strong> (3), 368–376 (2014).
+</cite> [<a href="https://doi.org/10.1016/j.ijcard.2013.12.028" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/24398230/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Cook,%20C.,%20Cole,%20G.,%20Asaria,%20P.,%20Jabbour,%20R.%20&amp;%20Francis,%20D.%20P.%20The%20annual%20global%20economic%20burden%20of%20heart%20failure.%20Int.%20J.%20Cardiol.171%20(3),%20368%E2%80%93376%20(2014)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR26">
+<span class="label">26.</span><cite>Heidenreich, P. A. et al. Forecasting the impact of heart failure in the united states: a policy statement from the American heart association. <em>Circulation Heart Fail.</em><strong>6</strong> (3), 606–619 (2013).</cite> [<a href="https://doi.org/10.1161/HHF.0b013e318291329a" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC3908895/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/23616602/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Heidenreich,%20P.%20A.%20et%20al.%20Forecasting%20the%20impact%20of%20heart%20failure%20in%20the%20united%20states:%20a%20policy%20statement%20from%20the%20American%20heart%20association.%20Circulation%20Heart%20Fail.6%20(3),%20606%E2%80%93619%20(2013)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR27">
+<span class="label">27.</span><cite>Bytyçi, I. &amp; Bajraktari, G. Mortality in heart failure patients. <em>Anatol. J. Cardiol.</em><strong>15</strong> (1), 63 (2015).
+</cite> [<a href="https://doi.org/10.5152/akd.2014.5731" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC5336901/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/25550250/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Byty%C3%A7i,%20I.%20&amp;%20Bajraktari,%20G.%20Mortality%20in%20heart%20failure%20patients.%20Anatol.%20J.%20Cardiol.15%20(1),%2063%20(2015)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR28">
+<span class="label">28.</span><cite>Jonkman, N. H. et al. Do self-management interventions work in patients with heart failure? An individual patient data meta-analysis. <em>Circulation</em><strong>133</strong> (12), 1189–1198 (2016).
+</cite> [<a href="https://doi.org/10.1161/CIRCULATIONAHA.115.018006" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC5180429/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/26873943/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Jonkman,%20N.%20H.%20et%20al.%20Do%20self-management%20interventions%20work%20in%20patients%20with%20heart%20failure?%20An%20individual%20patient%20data%20meta-analysis.%20Circulation133%20(12),%201189%E2%80%931198%20(2016)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR29">
+<span class="label">29.</span><cite>Son, Y-J., Kim, H-G., Kim, E-H., Choi, S. &amp; Lee, S-K. Application of support vector machine for prediction of medication adherence in heart failure patients. <em>Healthc. Inf. Res.</em><strong>16</strong> (4), 253–259 (2010).</cite> [<a href="https://doi.org/10.4258/hir.2010.16.4.253" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC3092139/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/21818444/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Son,%20Y-J.,%20Kim,%20H-G.,%20Kim,%20E-H.,%20Choi,%20S.%20&amp;%20Lee,%20S-K.%20Application%20of%20support%20vector%20machine%20for%20prediction%20of%20medication%20adherence%20in%20heart%20failure%20patients.%20Healthc.%20Inf.%20Res.16%20(4),%20253%E2%80%93259%20(2010)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR30">
+<span class="label">30.</span><cite>Karanasiou, G. S. et al. Predicting adherence of patients with HF through machine learning techniques. <em>Healthc. Technol. Lett.</em><strong>3</strong> (3), 165–170 (2016).
+</cite> [<a href="https://doi.org/10.1049/htl.2016.0041" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC5048333/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/27733922/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Karanasiou,%20G.%20S.%20et%20al.%20Predicting%20adherence%20of%20patients%20with%20HF%20through%20machine%20learning%20techniques.%20Healthc.%20Technol.%20Lett.3%20(3),%20165%E2%80%93170%20(2016)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR31">
+<span class="label">31.</span><cite>Koulaouzidis, G., Iakovidis, D. &amp; Clark, A. Telemonitoring predicts in advance heart failure admissions. <em>Int. J. Cardiol.</em><strong>216</strong>, 78–84 (2016).
+</cite> [<a href="https://doi.org/10.1016/j.ijcard.2016.04.149" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/27140340/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Koulaouzidis,%20G.,%20Iakovidis,%20D.%20&amp;%20Clark,%20A.%20Telemonitoring%20predicts%20in%20advance%20heart%20failure%20admissions.%20Int.%20J.%20Cardiol.216,%2078%E2%80%9384%20(2016)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR32">
+<span class="label">32.</span><cite>Mortazavi, B. J. et al. Analysis of machine learning techniques for heart failure readmissions. <em>Circulation: Cardiovasc. Qual. Outcomes</em>. <strong>9</strong> (6), 629–640 (2016).</cite> [<a href="https://doi.org/10.1161/CIRCOUTCOMES.116.003039" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC5459389/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/28263938/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Mortazavi,%20B.%20J.%20et%20al.%20Analysis%20of%20machine%20learning%20techniques%20for%20heart%20failure%20readmissions.%20Circulation:%20Cardiovasc.%20Qual.%20Outcomes.%209%20(6),%20629%E2%80%93640%20(2016)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR33">
+<span class="label">33.</span><cite>Zheng, B. et al. Predictive modeling of hospital readmissions using metaheuristics and data mining. <em>Expert Syst. Appl.</em><strong>42</strong> (20), 7110–7120 (2015).</cite> [<a href="https://scholar.google.com/scholar_lookup?Zheng,%20B.%20et%20al.%20Predictive%20modeling%20of%20hospital%20readmissions%20using%20metaheuristics%20and%20data%20mining.%20Expert%20Syst.%20Appl.42%20(20),%207110%E2%80%937120%20(2015)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR34">
+<span class="label">34.</span><cite>Frizzell, J. D. et al. Prediction of 30-Day All-Cause readmissions in patients hospitalized for heart failure: comparison of machine learning and other statistical approaches. <em>JAMA Cardiol.</em><strong>2</strong> (2), 204–209 (2017).
+</cite> [<a href="https://doi.org/10.1001/jamacardio.2016.3956" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/27784047/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Frizzell,%20J.%20D.%20et%20al.%20Prediction%20of%2030-Day%20All-Cause%20readmissions%20in%20patients%20hospitalized%20for%20heart%20failure:%20comparison%20of%20machine%20learning%20and%20other%20statistical%20approaches.%20JAMA%20Cardiol.2%20(2),%20204%E2%80%93209%20(2017)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR35">
+<span class="label">35.</span><cite>Tripoliti, E. E., Papadopoulos, T. G., Karanasiou, G. S., Naka, K. K. &amp; Fotiadis, D. I. Heart failure: diagnosis, severity Estimation and prediction of adverse events through machine learning techniques. <em>Comput. Struct. Biotechnol. J.</em><strong>15</strong>, 26–47 (2017).
+</cite> [<a href="https://doi.org/10.1016/j.csbj.2016.11.001" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC5133661/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/27942354/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Tripoliti,%20E.%20E.,%20Papadopoulos,%20T.%20G.,%20Karanasiou,%20G.%20S.,%20Naka,%20K.%20K.%20&amp;%20Fotiadis,%20D.%20I.%20Heart%20failure:%20diagnosis,%20severity%20Estimation%20and%20prediction%20of%20adverse%20events%20through%20machine%20learning%20techniques.%20Comput.%20Struct.%20Biotechnol.%20J.15,%2026%E2%80%9347%20(2017)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR36">
+<span class="label">36.</span><cite>Joshi, R. &amp; Gyllensten, I. C. Changes in daily measures of blood pressure and heart rate improve weight-based detection of heart failure deterioration in patients on telemonitoring. <em>IEEE J. Biomedical Health Inf.</em><strong>23</strong> (3), 1041–1048 (2018).</cite> [<a href="https://doi.org/10.1109/JBHI.2018.2856916" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/30028715/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Joshi,%20R.%20&amp;%20Gyllensten,%20I.%20C.%20Changes%20in%20daily%20measures%20of%20blood%20pressure%20and%20heart%20rate%20improve%20weight-based%20detection%20of%20heart%20failure%20deterioration%20in%20patients%20on%20telemonitoring.%20IEEE%20J.%20Biomedical%20Health%20Inf.23%20(3),%201041%E2%80%931048%20(2018)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR37">
+<span class="label">37.</span><cite>Zhang, J., Goode, K. M., Cuddihy, P. E., Cleland, J. G. &amp; Investigators, T. H. Predicting hospitalization due to worsening heart failure using daily weight measurement: analysis of the Trans-European Network‐Home‐Care management system (TEN‐HMS) study. <em>Eur. J. Heart Fail.</em><strong>11</strong> (4), 420–427 (2009).
+</cite> [<a href="https://doi.org/10.1093/eurjhf/hfp033" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/19252210/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Zhang,%20J.,%20Goode,%20K.%20M.,%20Cuddihy,%20P.%20E.,%20Cleland,%20J.%20G.%20&amp;%20Investigators,%20T.%20H.%20Predicting%20hospitalization%20due%20to%20worsening%20heart%20failure%20using%20daily%20weight%20measurement:%20analysis%20of%20the%20Trans-European%20Network%E2%80%90Home%E2%80%90Care%20management%20system%20(TEN%E2%80%90HMS)%20study.%20Eur.%20J.%20Heart%20Fail.11%20(4),%20420%E2%80%93427%20(2009)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR38">
+<span class="label">38.</span><cite>Henriques, J. et al. Prediction of heart failure decompensation events by trend analysis of telemonitoring data. <em>IEEE J. Biomedical Health Inf.</em><strong>19</strong> (5), 1757–1769 (2014).</cite> [<a href="https://doi.org/10.1109/JBHI.2014.2358715" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/25248206/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Henriques,%20J.%20et%20al.%20Prediction%20of%20heart%20failure%20decompensation%20events%20by%20trend%20analysis%20of%20telemonitoring%20data.%20IEEE%20J.%20Biomedical%20Health%20Inf.19%20(5),%201757%E2%80%931769%20(2014)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR39">
+<span class="label">39.</span><cite>Hasan, A. &amp; Paul, V. Telemonitoring in chronic heart failure. <em>Eur. Heart J.</em><strong>32</strong> (12), 1457–1464 (2011).
+</cite> [<a href="https://doi.org/10.1093/eurheartj/ehr005" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/21289040/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Hasan,%20A.%20&amp;%20Paul,%20V.%20Telemonitoring%20in%20chronic%20heart%20failure.%20Eur.%20Heart%20J.32%20(12),%201457%E2%80%931464%20(2011)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR40">
+<span class="label">40.</span><cite>Yoshimura, M., Yasue, H. &amp; Ogawa, H. Pathophysiological significance and clinical application of ANP and BNP in patients with heart failure. <em>Can. J. Physiol. Pharmacol.</em><strong>79</strong> (8), 730–735 (2001).
+</cite> [<a href="https://pubmed.ncbi.nlm.nih.gov/11558682/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Yoshimura,%20M.,%20Yasue,%20H.%20&amp;%20Ogawa,%20H.%20Pathophysiological%20significance%20and%20clinical%20application%20of%20ANP%20and%20BNP%20in%20patients%20with%20heart%20failure.%20Can.%20J.%20Physiol.%20Pharmacol.79%20(8),%20730%E2%80%93735%20(2001)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR41">
+<span class="label">41.</span><cite>Turner, M. E. et al. Phosphate in cardiovascular disease: from new insights into molecular mechanisms to clinical implications. <em>Arterioscler. Thromb. Vasc Biol.</em><strong>44</strong> (3), 584–602 (2024).
+</cite> [<a href="https://doi.org/10.1161/ATVBAHA.123.319198" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC10922848/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/38205639/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Turner,%20M.%20E.%20et%20al.%20Phosphate%20in%20cardiovascular%20disease:%20from%20new%20insights%20into%20molecular%20mechanisms%20to%20clinical%20implications.%20Arterioscler.%20Thromb.%20Vasc%20Biol.44%20(3),%20584%E2%80%93602%20(2024)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR42">
+<span class="label">42.</span><cite>Horwich, T. B., Hernandez, A. F., Dai, D., Yancy, C. W. &amp; Fonarow, G. C. Cholesterol levels and in-hospital mortality in patients with acute decompensated heart failure. <em>Am. Heart J.</em><strong>156</strong> (6), 1170–1176 (2008).
+</cite> [<a href="https://doi.org/10.1016/j.ahj.2008.07.004" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/19033015/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Horwich,%20T.%20B.,%20Hernandez,%20A.%20F.,%20Dai,%20D.,%20Yancy,%20C.%20W.%20&amp;%20Fonarow,%20G.%20C.%20Cholesterol%20levels%20and%20in-hospital%20mortality%20in%20patients%20with%20acute%20decompensated%20heart%20failure.%20Am.%20Heart%20J.156%20(6),%201170%E2%80%931176%20(2008)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR43">
+<span class="label">43.</span><cite>Rauchhaus, M. et al. The relationship between cholesterol and survival in patients with chronic heart failure. <em>J. Am. Coll. Cardiol.</em><strong>42</strong> (11), 1933–1940 (2003).
+</cite> [<a href="https://doi.org/10.1016/j.jacc.2003.07.016" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/14662255/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Rauchhaus,%20M.%20et%20al.%20The%20relationship%20between%20cholesterol%20and%20survival%20in%20patients%20with%20chronic%20heart%20failure.%20J.%20Am.%20Coll.%20Cardiol.42%20(11),%201933%E2%80%931940%20(2003)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+</ul></section></section><section id="_ad93_" lang="en" class="associated-data"><h2 class="pmc_sec_title">Associated Data</h2>
+<p class="font-secondary"><em>This section collects any data citations, data availability statements, or supplementary materials included in this article.</em></p>
+<section id="_adda93_" lang="en" class="data-availability-statement"><h3 class="pmc_sec_title">Data Availability Statement</h3>
+<p>The datasets generated and/or analysed during the current study are not publicly available due to containing personal health information, but are available from the corresponding author on reasonable request”.</p></section></section></section><footer class="p courtesy-note font-secondary font-sm text-center"><hr class="headless">
+<p>Articles from Scientific Reports are provided here courtesy of <strong>Nature Publishing Group</strong></p></footer></section></article>
+
+                      
+
+                    </main>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+<!-- Secondary navigation placeholder -->
+<div class="pmc-sidenav desktop:grid-col-4 display-flex">
+    <section class="pmc-sidenav__container" aria-label="Article resources and navigation">
+        <button type="button" class="usa-button pmc-sidenav__container__close usa-button--unstyled">
+            <img src="/static/img/usa-icons/close.svg" role="img" alt="Close" />
+        </button>
+    <div class="display-none desktop:display-block">
+       <section class="margin-top-4 desktop:margin-top-0">
+              <h2 class="margin-top-0">ACTIONS</h2>
+           <ul class="usa-list usa-list--unstyled usa-list--actions">
+               
+               <li>
+                     <a
+                             href="https://doi.org/10.1038/s41598-025-16376-9"
+                             class="usa-button usa-button--outline width-24 font-xs display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                             target="_blank"
+                             rel="noreferrer noopener"
+                             data-ga-category="actions"
+                             data-ga-action="click"
+                             data-ga-label="publisher_link_desktop"
+                     >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#launch"></use>
+                         </svg>
+                         <span class="display-inline-flex flex-justify-center flex-1 padding-right-2">View on publisher site</span>
+                     </a>
+               </li>
+               
+               
+               <li>
+                    <a
+                            href="pdf/41598_2025_Article_16376.pdf"
+                            class="usa-button usa-button--outline width-24 display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="pdf_download_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1">PDF (1.4 MB)</span>
+                    </a>
+               </li>
+               
+                
+               <li>
+                   <button role="button" class="usa-button width-24 citation-dialog-trigger display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                        aria-label="Open dialog with citation text in different styles"
+                        data-ga-category="actions"
+                        data-ga-action="open"
+                        data-ga-label="cite_desktop"
+                        data-all-citations-url="/resources/citations/12373751/"
+                        data-citation-style="nlm"
+                        data-download-format-link="/resources/citations/12373751/export/"
+                    >
+                        <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                        </svg>
+                       <span class="display-inline-flex flex-justify-center flex-1 button-label">Cite</span>
+                    </button>
+               </li>
+                
+               <li>
+
+                        <button class="usa-button width-24 collections-dialog-trigger collections-button display-inline-flex flex-align-center flex-justify-start padding-left-1 collections-button-empty"
+                              aria-label="Save article in MyNCBI collections."
+                              data-ga-category="actions"
+                              data-ga-action="click"
+                              data-ga-label="collections_button_desktop"
+                              data-collections-open-dialog-enabled="false"
+                              data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12373751%2F%3Freport%3Dclassic%23open-collections-dialog"
+                              data-in-collections="false">
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                            <span class="display-inline-flex flex-justify-center flex-1">Collections</span>
+                       </button>
+               </li>
+               <li class="pmc-permalink">
+                    <button
+                            type="button"
+                            class="usa-button width-24 display-inline-flex flex-align-center flex-justify padding-left-1 shadow-none"
+                            aria-label="Show article permalink"
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="permalink_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#share"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1 button-label">Permalink</span>
+                    </button>
+                   
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12373751/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+               </li>
+           </ul>
+       </section>
+     </div>
+
+        <section class="pmc-resources margin-top-6 desktop:margin-top-4" data-page-path="/articles/PMC12373751/">
+            <h2 class="margin-top-0">RESOURCES</h2>
+            
+                <div class="usa-accordion usa-accordion--multiselectable" data-allow-multiple>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-similar-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_similar_articles"
+                        data-ga-label="/articles/PMC12373751/"
+                        data-action-open="open_similar_articles"
+                        data-action-close="close_similar_articles"
+                        >
+                            Similar articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-similar-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/similar-article-links/40846740/"
+                            
+                    >
+                        
+                    </div>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-cited-by-other-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_cited_by"
+                        data-ga-label="/articles/PMC12373751/"
+                        data-action-open="open_cited_by"
+                        data-action-close="close_cited_by"
+                        >
+                             Cited by other articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-cited-by-other-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/cited-by-links/40846740/"
+                            
+                    >
+                          
+                    </div>
+                    
+                        <h3 class="usa-accordion__heading">
+                            <button
+                            type="button"
+                            class="usa-accordion__button"
+                            aria-expanded="false"
+                            aria-controls="resources-links-to-ncbi-databases"
+                            data-ga-category="resources_accordion"
+                            data-ga-action="open_NCBI_links"
+                            data-ga-label="/articles/PMC12373751/"
+                            data-action-open="open_NCBI_links"
+                            data-action-close="close_NCBI_link"
+                            >
+                                 Links to NCBI Databases
+                            </button>
+                        </h3>
+                        <div
+                                id="resources-links-to-ncbi-databases"
+                                class="usa-accordion__content usa-prose"
+                                data-source-url="/resources/db-links/12373751/"
+                        >
+                        </div>
+                    
+                    
+                </div>
+            
+        </section>
+
+
+        <section
+        class="usa-in-page-nav usa-in-page-nav--wide margin-top-6 desktop:margin-top-4"
+        data-title-text="On this page"
+        data-title-heading-level="h2"
+        data-scroll-offset="0"
+        data-root-margin="-10% 0px -80% 0px"
+        data-main-content-selector="main"
+        data-threshold="1"
+        hidden
+        ></section>
+    </section>
+</div>
+
+
+        
+
+<div class="overlay" role="dialog" aria-label="Citation Dialog" hidden>
+    <div class="dialog citation-dialog" aria-hidden="true">
+        <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+            <h2 class="usa-modal__heading margin-0">Cite</h2>
+             <button type="button" class="usa-button usa-button--unstyled close-overlay text-black width-auto"  tabindex="1">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+             </button>
+        </div>
+
+        
+
+<div class="citation-text-block">
+  <div class="citation-text margin-bottom-2"></div>
+  <ul class="usa-list usa-list--unstyled display-inline-flex flex-justify width-full flex-align-center">
+      <li>
+        <button
+          class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center copy-button dialog-focus"
+          data-ga-category="save_share"
+          data-ga-action="cite"
+          data-ga-label="copy"
+          tabindex="2">
+            <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+            </svg>
+            <span>Copy</span>
+        </button>
+      </li>
+      <li>
+          <a
+              href="#"
+              role="button"
+              class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center export-button"
+              data-ga-category="save_share"
+              data-ga-action="cite"
+              data-ga-label="download"
+              title="Download a file for external citation management software"
+              tabindex="3">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                </svg>
+                <span class="display-none mobile-lg:display-inline">Download .nbib</span>
+                <span class="display-inline mobile-lg:display-none">.nbib</span>
+            </a>
+      </li>
+      <li>
+          
+
+<div class="display-inline-flex flex-align-center">
+  <label class="usa-label margin-top-0">Format:</label>
+  <select aria-label="Format" class="usa-select citation-style-selector padding-1 margin-top-0 border-0 padding-right-4" tabindex="4" >
+    
+      <option data-style-url-name="ama"
+              value="AMA"
+              >
+        AMA
+      </option>
+    
+      <option data-style-url-name="apa"
+              value="APA"
+              >
+        APA
+      </option>
+    
+      <option data-style-url-name="mla"
+              value="MLA"
+              >
+        MLA
+      </option>
+    
+      <option data-style-url-name="nlm"
+              value="NLM"
+              selected="selected">
+        NLM
+      </option>
+    
+  </select>
+</div>
+      </li>
+  </ul>
+</div>
+    </div>
+</div>
+
+        <div class="overlay" role="dialog" hidden>
+  <div id="collections-action-dialog" class="dialog collections-dialog" aria-hidden="true">
+   <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+        <h2 class="usa-modal__heading margin-0">Add to Collections</h2>
+    </div>
+    <div class="collections-action-panel action-panel">
+      
+
+
+<form id="collections-action-dialog-form"
+      class="usa-form maxw-full collections-action-panel-form action-panel-content action-form action-panel-smaller-selectors"
+      data-existing-collections-url="/list-existing-collections/"
+      data-add-to-existing-collection-url="/add-to-existing-collection/"
+      data-create-and-add-to-new-collection-url="/create-and-add-to-new-collection/"
+      data-myncbi-max-collection-name-length="100"
+      data-collections-root-url="https://www.ncbi.nlm.nih.gov/myncbi/collections/">
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="M7TFO4k5UYv9BYNL40i5YVagHZCIIjiGDCNiv6BtiOJnQwgRmC4EB5vm0NyiMhhv">
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-new"
+            class="usa-radio__input usa-radio__input--tile collections-new  margin-top-0"
+            name="collections"
+            value="new"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_new" />
+            <label class="usa-radio__label" for="collections-action-dialog-new">Create a new collection</label>
+        </div>
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-existing"
+            class="usa-radio__input usa-radio__input--tile collections-existing"
+            name="collections"
+            value="existing"
+            checked="true"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_existing" />
+            <label class="usa-radio__label" for="collections-action-dialog-existing">Add to an existing collection</label>
+        </div>
+    </fieldset>
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="action-panel-control-wrap new-collections-controls">
+           <label for="collections-action-dialog-add-to-new" class="usa-label margin-top-0">
+                Name your collection
+               <abbr title="required" class="usa-hint usa-hint--required text-no-underline">*</abbr>
+          </label>
+          <input
+            type="text"
+            name="add-to-new-collection"
+            id="collections-action-dialog-add-to-new"
+            class="usa-input collections-action-add-to-new"
+            pattern="[^&quot;&amp;=&lt;&gt;/]*" title="The following characters are not allowed in the Name field: &quot;&amp;=&lt;&gt;/"
+            maxlength=""
+            data-ga-category="collections_button"
+            data-ga-action="create_collection"
+            data-ga-label="non_favorties_collection"
+            required
+          />
+        </div>
+        <div class="action-panel-control-wrap existing-collections-controls">
+             <label for="collections-action-dialog-add-to-existing" class="usa-label margin-top-0">
+                Choose a collection
+              </label>
+              <select id="collections-action-dialog-add-to-existing"
+                      class="usa-select collections-action-add-to-existing"
+                      data-ga-category="collections_button"
+                      data-ga-action="select_collection"
+                      data-ga-label="($('.collections-action-add-to-existing').val() === 'Favorites') ? 'Favorites' : 'non_favorites_collection'">
+              </select>
+              <div class="collections-retry-load-on-error usa-input-error-message selection-validation-message">
+                Unable to load your collection due to an error<br>
+                <a href="#">Please try again</a>
+              </div>
+        </div>
+    </fieldset>
+
+    <div class="display-inline-flex">
+        <button class="usa-button margin-top-0 action-panel-submit"
+            type="submit"
+            data-loading-label="Adding..."
+            data-pinger-ignore
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="add">
+          Add
+        </button>
+        <button class="usa-button usa-button--outline margin-top-0 action-panel-cancel"
+                aria-label="Close 'Add to Collections' panel"
+                ref="linksrc=close_collections_panel"
+                data-ga-category="collections_button"
+                data-ga-action="click"
+                data-ga-label="cancel">
+          Cancel
+        </button>
+    </div>
+</form>
+    </div>
+  </div>
+</div>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+
+
+        
+    
+    
+
+<footer class="ncbi-footer ncbi-dark-background " >
+    
+        <div class="ncbi-footer__icon-section">
+            <div class="ncbi-footer__social-header">
+                Follow NCBI
+            </div>
+
+            <div class="grid-container ncbi-footer__ncbi-social-icons-container">
+                
+                    <a href="https://twitter.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="40"
+                             height="40"
+                             viewBox="0 0 40 40"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on X (formerly known as Twitter)</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.facebook.com/ncbi.nlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="16"
+                             height="29"
+                             focusable="false"
+                             aria-hidden="true"
+                             viewBox="0 0 16 29"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.8809 21.4002C3.8809 19.0932 3.8809 16.7876 3.8809 14.478C3.8809 14.2117 3.80103 14.1452 3.54278 14.1492C2.53372 14.1638 1.52334 14.1492 0.514288 14.1598C0.302626 14.1598 0.248047 14.0972 0.248047 13.8936C0.256034 12.4585 0.256034 11.0239 0.248047 9.58978C0.248047 9.37013 0.302626 9.30224 0.528931 9.3049C1.53798 9.31688 2.54837 9.3049 3.55742 9.31555C3.80103 9.31555 3.8809 9.26097 3.87957 9.00272C3.87158 8.00565 3.85428 7.00592 3.90753 6.00884C3.97142 4.83339 4.31487 3.73115 5.04437 2.78467C5.93095 1.63318 7.15699 1.09005 8.56141 0.967577C10.5582 0.79319 12.555 0.982221 14.5518 0.927641C14.7102 0.927641 14.7462 0.99287 14.7449 1.13664C14.7449 2.581 14.7449 4.02668 14.7449 5.47104C14.7449 5.67604 14.6517 5.68669 14.4946 5.68669C13.4523 5.68669 12.4113 5.68669 11.3703 5.68669C10.3506 5.68669 9.92057 6.10868 9.90593 7.13904C9.89661 7.7647 9.91525 8.39303 9.89794 9.01869C9.88995 9.26364 9.96583 9.31822 10.2015 9.31688C11.7204 9.30623 13.2393 9.31688 14.7595 9.3049C15.0257 9.3049 15.0723 9.3728 15.0444 9.62439C14.89 10.9849 14.7515 12.3467 14.6144 13.7085C14.5691 14.1571 14.5785 14.1585 14.1458 14.1585C12.8386 14.1585 11.5313 14.1665 10.2254 14.1518C9.95119 14.1518 9.89794 14.2317 9.89794 14.4899C9.90593 19.0799 9.89794 23.6752 9.91125 28.2612C9.91125 28.5674 9.8407 28.646 9.53186 28.6433C7.77866 28.6273 6.02414 28.6366 4.27094 28.634C3.82499 28.634 3.87158 28.6992 3.87158 28.22C3.87602 25.9472 3.87913 23.6739 3.8809 21.4002Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on Facebook</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.linkedin.com/company/ncbinlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="25"
+                             height="23"
+                             viewBox="0 0 26 24"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M14.6983 9.98423C15.6302 9.24808 16.5926 8.74754 17.6762 8.51991C19.673 8.09126 21.554 8.30824 23.1262 9.7526C24.2351 10.7723 24.7529 12.1115 25.0165 13.5612C25.1486 14.3363 25.2105 15.1218 25.2015 15.9081C25.2015 18.3043 25.2015 20.6898 25.2082 23.0806C25.2082 23.3468 25.1549 23.444 24.8621 23.4414C23.1297 23.4272 21.3992 23.4272 19.6704 23.4414C19.4041 23.4414 19.3429 23.3588 19.3442 23.1019C19.3535 20.5194 19.3442 17.9368 19.3442 15.3543C19.3442 14.0005 18.3258 12.9448 17.0266 12.9488C15.7273 12.9528 14.6983 14.0071 14.6983 15.361C14.6983 17.9328 14.6917 20.5047 14.6983 23.0753C14.6983 23.3708 14.6198 23.444 14.3296 23.4427C12.6185 23.4294 10.9079 23.4294 9.19779 23.4427C8.93155 23.4427 8.86099 23.3735 8.86232 23.1086C8.8783 19.7619 8.88628 16.4144 8.88628 13.066C8.88628 11.5688 8.87874 10.0708 8.86365 8.57182C8.86365 8.3575 8.90758 8.27896 9.14054 8.28029C10.9048 8.29094 12.6687 8.29094 14.4321 8.28029C14.6464 8.28029 14.6983 8.34818 14.6983 8.54653C14.6903 9.00047 14.6983 9.45441 14.6983 9.98423Z">
+                            </path>
+                            <path d="M6.55316 15.8443C6.55316 18.2564 6.55316 20.6699 6.55316 23.082C6.55316 23.3629 6.48127 23.4388 6.19906 23.4374C4.47737 23.4241 2.75568 23.4241 1.03399 23.4374C0.767751 23.4374 0.69986 23.3629 0.701191 23.1006C0.709178 18.2648 0.709178 13.4281 0.701191 8.59053C0.701191 8.34026 0.765089 8.27237 1.01669 8.2737C2.74991 8.28435 4.48048 8.28435 6.20838 8.2737C6.47462 8.2737 6.5465 8.33627 6.54517 8.6065C6.54783 11.0186 6.55316 13.4308 6.55316 15.8443Z">
+                            </path>
+                            <path d="M3.65878 0.243898C5.36804 0.243898 6.58743 1.45529 6.58743 3.1406C6.58743 4.75801 5.32145 5.95742 3.60819 5.96807C3.22177 5.97614 2.83768 5.90639 2.47877 5.76299C2.11985 5.61959 1.79344 5.40546 1.51897 5.13334C1.24449 4.86123 1.02755 4.53668 0.881058 4.17902C0.734563 3.82136 0.661505 3.43788 0.666231 3.05141C0.67555 1.42601 1.9362 0.242566 3.65878 0.243898Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on LinkedIn</span>
+                    </a>
+                
+
+                
+                    <a href="https://github.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="28"
+                             height="27"
+                             viewBox="0 0 28 28"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M16.7228 20.6334C17.5057 20.5527 18.2786 20.3944 19.0301 20.1608C21.3108 19.4193 22.5822 17.8259 22.963 15.4909C23.1228 14.5112 23.1814 13.5287 22.9883 12.5437C22.8106 11.6423 22.4013 10.8028 21.8007 10.1076C21.7526 10.0605 21.7197 10 21.7064 9.934C21.6931 9.86799 21.7 9.79952 21.7262 9.73748C22.0856 8.6206 21.9711 7.51969 21.601 6.42677C21.582 6.3497 21.5345 6.2827 21.468 6.23923C21.4016 6.19577 21.3211 6.17906 21.2429 6.19248C20.7329 6.21649 20.2313 6.33051 19.7611 6.52928C19.1103 6.7908 18.4899 7.12198 17.9104 7.51703C17.84 7.56996 17.7581 7.60551 17.6713 7.62078C17.5846 7.63605 17.4954 7.6306 17.4112 7.60489C15.2596 7.05882 13.0054 7.06203 10.8554 7.61421C10.7806 7.63586 10.7018 7.63967 10.6253 7.62534C10.5487 7.611 10.4766 7.57892 10.4148 7.53167C9.64788 7.03247 8.85171 6.58918 7.96368 6.33359C7.65781 6.24338 7.34123 6.19458 7.02239 6.18849C6.94879 6.17986 6.87462 6.19893 6.81432 6.242C6.75402 6.28507 6.71191 6.34904 6.69621 6.42145C6.32342 7.51437 6.2209 8.61527 6.56307 9.73348C6.59635 9.84264 6.64694 9.93316 6.54177 10.0516C5.47666 11.2604 5.09988 12.6834 5.19574 14.2676C5.2663 15.4244 5.46201 16.5466 6.01454 17.5769C6.84399 19.1171 8.21664 19.9119 9.85158 20.3352C10.3938 20.4706 10.9444 20.5698 11.4998 20.632C11.5384 20.7492 11.4506 20.7798 11.408 20.8291C11.1734 21.1179 10.9894 21.4441 10.8634 21.7942C10.7622 22.0458 10.8315 22.4039 10.6065 22.5516C10.263 22.7766 9.83827 22.8485 9.42421 22.8871C8.17936 23.0056 7.26471 22.4877 6.6283 21.4348C6.25552 20.8184 5.76956 20.3325 5.08523 20.0663C4.76981 19.9325 4.42139 19.8967 4.08537 19.9638C3.7898 20.029 3.73788 20.1901 3.93891 20.4111C4.03639 20.5234 4.14989 20.6207 4.27575 20.6999C4.9796 21.1318 5.51717 21.7884 5.80152 22.5636C6.37002 23.9973 7.48039 24.5697 8.93825 24.6323C9.43741 24.6575 9.93768 24.615 10.4254 24.5058C10.5892 24.4672 10.6531 24.4872 10.6517 24.6762C10.6451 25.4936 10.6637 26.3123 10.6517 27.131C10.6517 27.6635 10.1684 27.9297 9.58663 27.7393C8.17396 27.2671 6.84977 26.5631 5.66838 25.656C2.59555 23.2891 0.720966 20.1861 0.217704 16.3376C-0.357453 11.9127 0.911353 8.00824 3.98551 4.73881C6.11909 2.42656 8.99932 0.939975 12.1203 0.540191C16.5351 -0.0601815 20.4347 1.14323 23.7232 4.16373C26.2449 6.47869 27.724 9.37672 28.1048 12.7726C28.5828 17.0325 27.3686 20.7945 24.4768 23.9827C22.9762 25.6323 21.0956 26.8908 18.9982 27.6488C18.8783 27.6927 18.7585 27.738 18.636 27.7726C18.0356 27.9404 17.6189 27.6395 17.6189 27.0098C17.6189 25.7452 17.6308 24.4806 17.6295 23.2159C17.6329 22.9506 17.6128 22.6856 17.5696 22.4238C17.4325 21.6664 17.3419 21.484 16.7228 20.6334Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on GitHub</span>
+                    </a>
+                
+
+                
+                    <a href="https://ncbiinsights.ncbi.nlm.nih.gov/"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="26"
+                             height="26"
+                             viewBox="0 0 27 27"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M23.7778 26.4574C23.1354 26.3913 22.0856 26.8024 21.636 26.3087C21.212 25.8444 21.4359 24.8111 21.324 24.0347C19.9933 14.8323 14.8727 8.80132 6.09057 5.85008C4.37689 5.28406 2.58381 4.99533 0.779072 4.99481C0.202773 4.99481 -0.0229751 4.83146 0.00455514 4.21479C0.0660406 3.08627 0.0660406 1.95525 0.00455514 0.826734C-0.0413285 0.0815827 0.259669 -0.0193618 0.896534 0.00266238C6.96236 0.222904 12.3693 2.24179 16.9889 6.16209C22.9794 11.2478 26.1271 17.7688 26.4372 25.648C26.4629 26.294 26.3179 26.5271 25.6609 26.4684C25.0827 26.417 24.4991 26.4574 23.7778 26.4574Z">
+                            </path>
+                            <path d="M14.8265 26.441C14.0924 26.441 13.2371 26.6795 12.6626 26.3786C12.0092 26.0372 12.3781 25.0644 12.246 24.378C11.1154 18.5324 6.6849 14.5497 0.74755 14.1001C0.217135 14.0615 -0.0104482 13.9422 0.0134113 13.3659C0.0519536 12.1454 0.0482829 10.9213 0.0134113 9.69524C-0.00127145 9.14464 0.196946 9.03268 0.703502 9.04736C9.21217 9.27128 16.5994 16.2511 17.2804 24.7231C17.418 26.4446 17.418 26.4446 15.6579 26.4446H14.832L14.8265 26.441Z">
+                            </path>
+                            <path d="M3.58928 26.4555C2.64447 26.4618 1.73584 26.0925 1.06329 25.4289C0.39073 24.7653 0.00933763 23.8617 0.0030097 22.9169C-0.00331824 21.9721 0.365937 21.0635 1.02954 20.3909C1.69315 19.7184 2.59675 19.337 3.54156 19.3306C4.48637 19.3243 5.39499 19.6936 6.06755 20.3572C6.7401 21.0208 7.1215 21.9244 7.12782 22.8692C7.13415 23.814 6.7649 24.7226 6.10129 25.3952C5.43768 26.0677 4.53409 26.4491 3.58928 26.4555Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI RSS feed</span>
+                    </a>
+                
+            </div>
+        </div>
+    
+
+    <div data-testid="gridContainer"
+         class="grid-container ncbi-footer__container">
+        <div class="grid-row ncbi-footer__main-content-container"
+             data-testid="grid">
+            
+                <div class="ncbi-footer__column">
+                    
+                        <p class="ncbi-footer__circled-icons-heading">
+                            Connect with NLM
+                        </p>
+                    
+
+                    <div class="ncbi-footer__circled-icons-list">
+                        
+                            <a href=https://twitter.com/nlm_nih class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="32"
+                                     height="32"
+                                     viewBox="0 0 40 40"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on X (formerly known as Twitter)</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.facebook.com/nationallibraryofmedicine class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="13"
+                                     height="24"
+                                     viewBox="0 0 13 24"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M4.11371 23.1369C4.11371 23.082 4.11371 23.0294 4.11371 22.9745V12.9411H0.817305C0.6709 12.9411 0.670898 12.9411 0.670898 12.8016C0.670898 11.564 0.670898 10.3287 0.670898 9.09341C0.670898 8.97903 0.705213 8.95158 0.815017 8.95158C1.8673 8.95158 2.91959 8.95158 3.97417 8.95158H4.12057V8.83263C4.12057 7.8055 4.12057 6.7738 4.12057 5.74897C4.1264 4.92595 4.31387 4.11437 4.66959 3.37217C5.12916 2.38246 5.94651 1.60353 6.95717 1.1921C7.64827 0.905008 8.3913 0.764035 9.13953 0.778051C10.0019 0.791777 10.8644 0.830666 11.7268 0.860404C11.8869 0.860404 12.047 0.894717 12.2072 0.90158C12.2964 0.90158 12.3261 0.940469 12.3261 1.02968C12.3261 1.5421 12.3261 2.05452 12.3261 2.56465C12.3261 3.16857 12.3261 3.7725 12.3261 4.37642C12.3261 4.48165 12.2964 4.51367 12.1912 4.51138C11.5369 4.51138 10.8804 4.51138 10.2261 4.51138C9.92772 4.51814 9.63058 4.5526 9.33855 4.61433C9.08125 4.6617 8.84537 4.78881 8.66431 4.97766C8.48326 5.16652 8.3662 5.40755 8.32972 5.66661C8.28476 5.89271 8.26027 6.1224 8.25652 6.35289C8.25652 7.19014 8.25652 8.02969 8.25652 8.86923C8.25652 8.89439 8.25652 8.91955 8.25652 8.95615H12.0219C12.1797 8.95615 12.182 8.95616 12.1614 9.10714C12.0768 9.76596 11.9876 10.4248 11.9029 11.0813C11.8312 11.6319 11.7626 12.1824 11.697 12.733C11.6719 12.9434 11.6787 12.9434 11.4683 12.9434H8.26338V22.899C8.26338 22.979 8.26338 23.0591 8.26338 23.1392L4.11371 23.1369Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on Facebook</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.youtube.com/user/NLMNIH class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="21"
+                                     height="15"
+                                     viewBox="0 0 21 15"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M19.2561 1.47914C18.9016 1.15888 18.5699 0.957569 17.2271 0.834039C15.5503 0.678484 13.2787 0.655608 11.563 0.65332H9.43556C7.71987 0.65332 5.4483 0.678484 3.77151 0.834039C2.43098 0.957569 2.097 1.15888 1.74242 1.47914C0.813665 2.32097 0.619221 4.62685 0.598633 6.89384C0.598633 7.31781 0.598633 7.74101 0.598633 8.16345C0.626084 10.4121 0.827391 12.686 1.74242 13.521C2.097 13.8412 2.4287 14.0425 3.77151 14.1661C5.4483 14.3216 7.71987 14.3445 9.43556 14.3468H11.563C13.2787 14.3468 15.5503 14.3216 17.2271 14.1661C18.5676 14.0425 18.9016 13.8412 19.2561 13.521C20.1712 12.6929 20.3725 10.451 20.3999 8.22064C20.3999 7.74025 20.3999 7.25986 20.3999 6.77946C20.3725 4.54907 20.1689 2.30724 19.2561 1.47914ZM8.55942 10.5311V4.65201L13.5601 7.50005L8.55942 10.5311Z"
+                                          fill="white" />
+                                </svg>
+                                <span class="usa-sr-only">NLM on YouTube</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            
+
+            
+                <address class="ncbi-footer__address ncbi-footer__column">
+                    
+        <p>
+            <a class="usa-link usa-link--external"
+            href="https://www.google.com/maps/place/8600+Rockville+Pike,+Bethesda,+MD+20894/%4038.9959508,
+            -77.101021,17z/data%3D!3m1!4b1!4m5!3m4!1s0x89b7c95e25765ddb%3A0x19156f88b27635b8!8m2!3d38.9959508!
+            4d-77.0988323"
+            rel="noopener noreferrer" target="_blank">National Library of Medicine
+            <br/> 8600 Rockville Pike<br/> Bethesda, MD 20894</a>
+        </p>
+    
+                </address>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/web_policies.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Web Policies
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/institutes-nih/nih-office-director/office-communications-public-liaison/freedom-information-act-office" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            FOIA
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS Vulnerability Disclosure
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://support.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Help
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/accessibility.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Accessibility
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/careers/careers.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Careers
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+        </div>
+
+        
+            <div class="grid-row grid-col-12" data-testid="grid">
+                <ul class="ncbi-footer__bottom-links-list">
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NLM
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NIH
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.usa.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            USA.gov
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+    </div>
+</footer>
+
+    
+
+
+        
+        
+    
+  <script  type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/pinger/pinger.js"> </script>
+
+
+    
+        
+
+<button class="back-to-top" data-ga-category="pagination" data-ga-action="back_to_top">
+    <label>Back to Top</label>
+    <svg class="usa-icon order-0" aria-hidden="true" focusable="false" role="img">
+        <use xlink:href="/static/img/sprite.svg#arrow_upward"></use>
+    </svg>
+</button>
+    
+
+
+        
+    
+    
+    
+        
+    <script type="application/javascript">
+    window.ncbi = window.ncbi || {};
+    window.ncbi.pmc = window.ncbi.pmc || {};
+    window.ncbi.pmc.options = {
+        logLevel: 'INFO',
+        
+        staticEndpoint: '/static/',
+        
+        citeCookieName: 'pmc-cf',
+    };
+</script>
+    <script type="module" crossorigin="" src="/static/assets/base-133c6271.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/jquery/jquery-3.6.0.min.js">&#xA0;</script>
+    <script type="text/javascript">
+        jQuery.getScript("https://cdn.ncbi.nlm.nih.gov/core/alerts/alerts.js", function () {
+            galert(['div.nav_and_browser', 'div.header', '#universal_header', '.usa-banner', 'body > *:nth-child(1)'])
+        });
+    </script>
+
+
+    <script type="text/javascript">var exports = {};</script>
+     <script src="/static/CACHE/js/output.13b077bc3ffd.js"></script>
+
+    <script type="module" crossorigin="" src="/static/assets/article-44d04358.js"></script>
+    
+    
+
+    </body>
+</html>

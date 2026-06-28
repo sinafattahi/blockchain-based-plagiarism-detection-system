@@ -1,0 +1,2601 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+    <head >
+
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+        
+
+        
+        
+  <link rel="stylesheet" href="/static/assets/style-8258669d.css" />
+<script type="module" crossorigin="" src="/static/assets/base_style-f4a99799.js"></script>
+
+  <link rel="stylesheet" href="/static/assets/style-ef962842.css" />
+<link rel="stylesheet" href="/static/assets/style-3ade8b5c.css" />
+<script type="module" crossorigin="" src="/static/assets/article_style-d757a0dd.js"></script>
+
+  
+  
+    <style>
+  
+  
+  @media screen and (min-width: 64em) {
+    div.pmc-wm {
+      background: repeat-y;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='350' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-.02' y='0' width='1.05' height='1' id='c'%3E%3CfeFlood flood-color='%23FFF'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3Ctext id='b' font-family='Helvetica' font-size='11pt' style='opacity:1;fill:%23005ea2;stroke:none;text-anchor:middle' x='175' y='14'%3E%3C/text%3E%3Cpath id='a' style='fill:%23005ea2' d='M0 8h350v3H0z'/%3E%3C/defs%3E%3Cuse xlink:href='%23a' transform='rotate(90 10 10)'/%3E%3Cuse xlink:href='%23b' transform='rotate(90 10 10)' filter='url(%23c)'/%3E%3C/svg%3E");
+      padding-left: 3rem;
+    }
+  }
+</style>
+
+  
+
+
+
+        
+            <link rel="apple-touch-icon"
+                  sizes="180x180"
+                  href="/static/img/favicons/apple-touch-icon.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="48x48"
+                  href="/static/img/favicons/favicon-48x48.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="/static/img/favicons/favicon-32x32.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="/static/img/favicons/favicon-16x16.png" />
+            <link rel="manifest" href="/static/img/favicons/site.webmanifest" />
+            <link rel="mask-icon"
+                  href="/static/img/favicons/safari-pinned-tab.svg"
+                  color="#0071bc" />
+            <meta name="msapplication-config"
+                  content="/static/img/favicons/browserconfig.xml" />
+            <meta name="theme-color" content="#ffffff" />
+        
+
+        <title>
+            Digital twins as self-models for intelligent structures - PMC
+        </title>
+
+        
+        
+  
+  <!-- Logging params: Pinger defaults -->
+<meta name="ncbi_app" content="cloudpmc-viewer" />
+<meta name="ncbi_db" content="pmc" />
+<meta name="ncbi_phid" content="1525519E8AF4335305519E000909D537.m_1" />
+<meta name="ncbi_pinger_stat_url" content="https://pmc.ncbi.nlm.nih.gov/stat" />
+<!-- Logging params: Pinger custom -->
+<meta name="ncbi_pdid" content="article" />
+  
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+
+    
+        <link rel="preconnect" href="https://cdn.ncbi.nlm.nih.gov" />
+    
+
+    <!-- Include USWDS Init Script -->
+    <script src="/static/assets/uswds-init.js"></script>
+
+
+    <meta name="ncbi_domain" content="scirep">
+<meta name="ncbi_type" content="fulltext">
+<meta name="ncbi_pcid" content="journal">
+<meta name="ncbi_feature" content="associated_data">
+<link rel="canonical" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12365160/">
+<meta name="robots" content="INDEX,NOFOLLOW,NOARCHIVE">
+<meta name="citation_journal_title" content="Scientific Reports">
+<meta name="citation_title" content="Digital twins as self-models for intelligent structures">
+<meta name="citation_author" content="Xiaoxue Shen">
+<meta name="citation_author_institution" content="The Alan Turing Institute, London, NW1 2DB UK">
+<meta name="citation_author" content="David J Wagg">
+<meta name="citation_author_institution" content="The Alan Turing Institute, London, NW1 2DB UK">
+<meta name="citation_author_institution" content="School of Mechanical, Aerospace and Civil Engineering, University of Sheffield, Sheffield, S1 3JD UK">
+<meta name="citation_author" content="Matthew Tipuric">
+<meta name="citation_author_institution" content="The Alan Turing Institute, London, NW1 2DB UK">
+<meta name="citation_author_institution" content="School of Mechanical, Aerospace and Civil Engineering, University of Sheffield, Sheffield, S1 3JD UK">
+<meta name="citation_author" content="Matthew S Bonney">
+<meta name="citation_author_institution" content="School of Aerospace, Civil, Electrical and Mechanical Engineering, Swansea University, Swansea, SA1 8EN UK">
+<meta name="citation_publication_date" content="2025 Aug 19">
+<meta name="citation_volume" content="15">
+<meta name="citation_firstpage" content="30327">
+<meta name="citation_doi" content="10.1038/s41598-025-14347-8">
+<meta name="citation_pmid" content="40830380">
+<meta name="citation_abstract_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12365160/">
+<meta name="citation_fulltext_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12365160/">
+<meta name="citation_pdf_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12365160/pdf/41598_2025_Article_14347.pdf">
+<meta name="description" content="A self-model is an artificial intelligence that is able to create a continuously updated internal representation of itself. In this paper we use an agent-based architecture to create a ‘digital twin self-model’, using the example of a small-scale ...">
+<meta name="og:title" content="Digital twins as self-models for intelligent structures">
+<meta name="og:type" content="article">
+<meta name="og:site_name" content="PubMed Central (PMC)">
+<meta name="og:description" content="A self-model is an artificial intelligence that is able to create a continuously updated internal representation of itself. In this paper we use an agent-based architecture to create a ‘digital twin self-model’, using the example of a small-scale ...">
+<meta name="og:url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12365160/">
+<meta name="og:image" content="https://cdn.ncbi.nlm.nih.gov/pmc/cms/images/pmc-card-share.jpg?_=0">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ncbi">
+    
+    
+
+    </head>
+    <body >
+        
+    <a class="usa-skipnav " href="#main-content">
+      Skip to main content
+    </a>
+
+
+        
+            
+
+<section class="usa-banner " aria-label="Official website of the United States government" >
+    <div class="usa-accordion">
+        <header class="usa-banner__header">
+            <div class="usa-banner__inner">
+                <div class="grid-col-auto">
+                    <img aria-hidden="true"
+                         class="usa-banner__header-flag"
+                         src="/static/img/us_flag.svg"
+                         alt="" />
+                </div>
+
+                <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+                    <p class="usa-banner__header-text">
+                        An official website of the United States government
+                    </p>
+                    <span class="usa-banner__header-action">Here's how you know</span>
+                </div>
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-accordion__button usa-banner__button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    aria-expanded="false"
+    aria-controls="gov-banner-default"
+    
+    data-testid="storybook-django-banner"
+    
+    >
+    
+        
+
+        
+                    <span class="usa-banner__button-text">Here's how you know</span>
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </div>
+        </header>
+
+        <div class="usa-banner__content usa-accordion__content"
+             id="gov-banner-default"
+             hidden>
+            <div class="grid-row grid-gap-lg">
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-dot-gov.svg"
+                         alt=""
+                         aria-hidden="true" />
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Official websites use .gov</strong>
+                            <br />
+                            A
+                            <strong>.gov</strong> website belongs to an official
+                            government organization in the United States.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-https.svg"
+                         alt=""
+                         aria-hidden="true" />
+
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Secure .gov websites use HTTPS</strong>
+                            <br />
+                            A <strong>lock</strong> (
+                            <span class="icon-lock">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     width="52"
+                                     height="64"
+                                     viewBox="0 0 52 64"
+                                     class="usa-banner__lock-image"
+                                     role="graphics-symbol"
+                                     aria-labelledby="banner-lock-description"
+                                     focusable="false">
+                                    <title id="banner-lock-title">Lock</title>
+                                    <desc id="banner-lock-description">
+                                    Locked padlock icon
+                                    </desc>
+                                    <path fill="#000000"
+                                          fill-rule="evenodd"
+                                          d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+                                </svg>
+</span>) or <strong>https://</strong> means you've safely
+                                connected to the .gov website. Share sensitive
+                                information only on official, secure websites.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        
+
+        
+    
+    
+    
+
+<div class="usa-overlay">
+</div>
+
+
+
+<header class="usa-header usa-header--extended usa-header--wide" data-header data-testid="header"    >
+    <div class="ncbi-header">
+        <div class="ncbi-header__container">
+            <a class="ncbi-header__logo-container"
+               href="https://www.ncbi.nlm.nih.gov/">
+                <img alt="NCBI home page"
+                     class="ncbi-header__logo-image"
+                     src="/static/img/ncbi-logos/nih-nlm-ncbi--white.svg"
+                     width="410"
+                     height="100" />
+            </a>
+
+            <!-- Mobile menu hamburger button -->
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-menu-btn ncbi-header__hamburger-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Show menu"
+    data-testid="navMenuButton"
+    
+    >
+    
+        
+
+        
+                <svg aria-hidden="true"
+                     class="ncbi-hamburger-icon"
+                     fill="none"
+                     focusable="false"
+                     height="21"
+                     viewBox="0 0 31 21"
+                     width="31"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd"
+                          d="M0.125 20.75H30.875V17.3333H0.125V20.75ZM0.125 12.2083H30.875V8.79167H0.125V12.2083ZM0.125 0.25V3.66667H30.875V0.25H0.125Z"
+                          fill="#F1F1F1"
+                          fill-rule="evenodd" />
+                </svg>
+            
+
+        
+    
+        
+            </button>
+        
+
+
+
+            
+                <!-- Desktop buttons-->
+                <div class="ncbi-header__desktop-buttons">
+                    
+                        <!-- Desktop search button -->
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button
+           "
+    aria-expanded="false"
+    aria-controls="search-field-desktop-navigation"
+    aria-label="Show search overlay"
+    data-testid="toggleSearchPanelButton"
+    data-toggle-search-panel-button
+    >
+    
+        
+
+        
+                            
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#search" />
+    </svg>
+
+
+                            Search
+                        
+
+        
+    
+        
+            </button>
+        
+
+
+                    
+
+                    <!-- Desktop login dropdown -->
+                    
+                        <div class="ncbi-header__login-dropdown">
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button ncbi-header__login-dropdown-button
+           "
+    aria-expanded="false"
+    aria-controls="login-dropdown-menu"
+    aria-label="Show login menu"
+    data-testid="toggleLoginMenuDropdown"
+    data-desktop-login-button
+    >
+    
+        
+
+        
+                                
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#person" />
+    </svg>
+
+
+
+                                <span data-login-dropdown-text>Log in</span>
+
+                                <!-- Dropdown icon pointing up -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-less ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-up-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_less" />
+    </svg>
+
+
+
+                                <!-- Dropdown icon pointing down -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-more ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-down-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_more" />
+    </svg>
+
+
+                            
+
+        
+    
+        
+            </button>
+        
+
+
+
+                            <!-- Login dropdown menu -->
+                            <ul class="usa-nav__submenu ncbi-header__login-dropdown-menu"
+                                id="login-dropdown-menu"
+                                data-desktop-login-menu-dropdown
+                                hidden>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                <li class="usa-nav__submenu-item">
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--outline ncbi-header__login-dropdown-logout-button
+           "
+    
+    
+    
+    data-testid="desktopLogoutButton"
+    data-desktop-logout-button
+    >
+    
+        
+
+        Log out
+
+        
+    
+        
+            </button>
+        
+
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                </div>
+            
+        </div>
+    </div>
+
+    <!-- Search panel -->
+    
+        <div class="ncbi-search-panel ncbi--show-only-at-desktop"
+             data-header-search-panel
+             hidden>
+            <div class="ncbi-search-panel__container">
+                <form action="https://www.ncbi.nlm.nih.gov/search/all/"
+                      
+                      autocomplete="off"
+                      class="usa-search usa-search--big ncbi-search-panel__form"
+                      data-testid="desktop-navigation-search-form"
+                      method="GET"
+                      role="search">
+                    <label class="usa-sr-only" for="search-field-desktop-navigation">
+                        Search…
+                    </label>
+                    <input class="usa-input"
+                           id="search-field-desktop-navigation"
+                           name="term"
+                           
+                               placeholder="Search NCBI"
+                           
+                           type="search"
+                           value="" />
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                        <span class="usa-search__submit-text">
+                            Search NCBI
+                        </span>
+                    
+
+        
+    
+        
+            </button>
+        
+
+
+                </form>
+
+                
+            </div>
+        </div>
+    
+
+    <nav aria-label="Primary navigation" class="usa-nav">
+        <p class="usa-sr-only" id="primary-navigation-sr-only-title">
+            Primary site navigation
+        </p>
+
+        <!-- Mobile menu close button -->
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-nav__close ncbi-nav__close-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Close navigation menu"
+    data-testid="navCloseButton"
+    
+    >
+    
+        
+
+        
+            <img src="/static/img/usa-icons/close.svg" alt="Close" />
+        
+
+        
+    
+        
+            </button>
+        
+
+
+
+        
+            <!-- Mobile search component -->
+            <form class="usa-search usa-search--small ncbi--hide-at-desktop margin-top-6"
+                  action="https://www.ncbi.nlm.nih.gov/search/all/"
+                  
+                  autocomplete="off"
+                  data-testid="mobile-navigation-search-form"
+                  method="GET"
+                  role="search">
+                <label class="usa-sr-only" for="search-field-mobile-navigation">
+                    Search
+                </label>
+
+                <input class="usa-input"
+                       id="search-field-mobile-navigation"
+                       type="search"
+                       
+                           placeholder="Search NCBI"
+                       
+                       name="term" />
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                    <!-- This SVG should be kept inline and not replaced with a link to the icon as otherwise it will render in the wrong color -->
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0E2LjQ3MSA2LjQ3MSAwIDAgMCAxNiA5LjUgNi41IDYuNSAwIDEgMCA5LjUgMTZjMS42MSAwIDMuMDktLjU5IDQuMjMtMS41N2wuMjcuMjh2Ljc5bDUgNC45OUwyMC40OSAxOWwtNC45OS01em0tNiAwQzcuMDEgMTQgNSAxMS45OSA1IDkuNVM3LjAxIDUgOS41IDUgMTQgNy4wMSAxNCA5LjUgMTEuOTkgMTQgOS41IDE0eiIvPjwvc3ZnPg=="
+                         class="usa-search__submit-icon"
+                         alt="Search" />
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </form>
+
+            
+        
+
+        <!-- Primary navigation menu items -->
+        <!-- This usa-nav__inner wrapper is required to correctly style the navigation items on Desktop -->
+        
+
+        
+            <div class="ncbi-nav__mobile-login-menu ncbi--hide-at-desktop"
+                 data-mobile-login-menu
+                 hidden>
+                <p class="ncbi-nav__mobile-login-menu-status">
+                    Logged in as:
+                    <strong class="ncbi-nav__mobile-login-menu-email"
+                            data-mobile-login-email-text></strong>
+                </p>
+                <ul class="usa-nav__primary usa-accordion">
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           ncbi-nav__mobile-login-button ncbi--hide-at-desktop
+           "
+    
+    
+    
+    data-testid="mobileLoginButton"
+    data-mobile-login-button
+    >
+    
+        
+
+        Log in
+
+        
+    
+        
+            </button>
+        
+
+
+    </nav>
+</header>
+
+    
+    
+        
+
+<section class="pmc-header pmc-header--basic" aria-label="PMC Header with search box">
+    <div class="pmc-nav-container">
+        <div class="pmc-header__bar">
+           <div class="pmc-header__logo">
+               <a href="/" title="Home" aria-label="PMC Home"></a>
+           </div>
+            <button
+                    type="button"
+                    class="usa-button usa-button--unstyled pmc-header__search__button"
+                    aria-label="Open search"
+                    data-ga-category="search"
+                    data-ga-action="PMC"
+                    data-ga-label="pmc_search_panel_mobile"
+            >
+                <svg class="usa-icon width-4 height-4 pmc-icon__open" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#search"></use>
+                </svg>
+                <svg class="usa-icon width-4 height-4 pmc-icon__close" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="pmc-header__search">
+            
+
+
+<form class="usa-search usa-search--extra usa-search--article-right-column  pmc-header__search__form" id="pmc-search-form" autocomplete="off" role="search">
+<label class="usa-sr-only" for="pmc-search">Search PMC Full-Text Archive</label>
+<span class="autoComplete_wrapper flex-1">
+<input class="usa-input width-full maxw-none" required="required" placeholder="Search PMC Full-Text Archive" id="pmc-search"  type="search" name="term" data-autocomplete-url="https://pmc.ncbi.nlm.nih.gov/autocomp/search/autocomp/"/>
+</span>
+<button
+class="usa-button"
+type="submit"
+formaction="https://www.ncbi.nlm.nih.gov/pmc/"
+data-ga-category="search"
+data-ga-action="PMC"
+data-ga-label="PMC_search_button"
+>
+<span class="usa-search__submit-text">Search in PMC</span>
+<img
+src="/static/img/usa-icons-bg/search--white.svg"
+class="usa-search__submit-icon"
+alt="Search"
+/>
+</button>
+</form>
+            <div class="display-flex flex-column tablet:flex-row tablet:flex-justify flex-justify-center flex-align-center width-full desktop:maxw-44">
+                <ul class="pmc-header__search__menu">
+                    <li>
+                        
+                            <a class="usa-link" href="/journals/" data-ga-action="featured_link" data-ga-label="journal list">
+                                Journal List
+                            </a>
+                        
+                    </li>
+                    <li>
+                        
+                            <a class="usa-link" href="/about/userguide/" data-ga-action="featured_link"
+                            data-ga-label="user guide">
+                                User Guide
+                            </a>
+                        
+                    </li>
+                </ul>
+                
+                    <button form="pmc-search-form" formaction="https://pmc.ncbi.nlm.nih.gov/search/" type="submit" class="usa-button usa-button--unstyled hover:text-no-underline text-no-underline width-auto margin-top-1 tablet:margin-top-0">
+     <span class="bg-green-label padding-05 text-white">New</span><span class="text-underline text-primary">Try this search in PMC Beta Search</span>
+</button>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+
+
+        
+        
+
+       
+  <div class="usa-section padding-top-0 desktop:padding-top-6 pmc-article-section" data-article-db="pmc" data-article-id="12365160">
+
+    
+
+   
+
+
+
+<div class="grid-container pmc-actions-bar" aria-label="Actions bar" role="complementary">
+    <div class="grid-row">
+        <div class="grid-col-fill display-flex">
+             <div class="display-flex">
+                <ul class="usa-list usa-list--unstyled usa-list--horizontal">
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <button
+                                type="button"
+                                class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                                aria-label="Open resources"
+                                data-extra-class="is-visible-resources"
+                                data-ga-category="resources_accordion"
+                                data-ga-action="click"
+                                data-ga-label="mobile_icon"
+                        >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#more_vert"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <a
+                                href="https://doi.org/10.1038/s41598-025-14347-8"
+                                class="usa-link display-flex usa-tooltip"
+                                role="button"
+                                target="_blank"
+                                rel="noreferrer noopener"
+                                title="View on publisher site"
+                                data-position="bottom"
+                                aria-label="View on publisher site"
+                                data-ga-category="actions"
+                                data-ga-action="click"
+                                data-ga-label="publisher_link_mobile"
+                        >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#launch"></use>
+                                </svg>
+                        </a>
+                    </li>
+                    
+                    
+                        <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                             <a
+                                     href="pdf/41598_2025_Article_14347.pdf"
+                                     class="usa-link display-flex usa-tooltip"
+                                     role="button"
+                                     title="Download PDF"
+                                     data-position="bottom"
+                                     aria-label="Download PDF"
+                                     data-ga-category="actions"
+                                     data-ga-action="click"
+                                     data-ga-label="pdf_download_mobile"
+                             >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button
+                            class="usa-button usa-button--unstyled  usa-tooltip collections-dialog-trigger collections-button display-flex collections-button-empty"
+                            title="Add to Collections"
+                            data-position="bottom"
+                            aria-label="Save article in MyNCBI collections."
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="collections_button_mobile"
+                            data-collections-open-dialog-enabled="false"
+                            data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12365160%2F%3Freport%3Dclassic%23open-collections-dialog"
+                            data-in-collections="false"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button role="button" class="usa-button usa-button--unstyled usa-tooltip citation-dialog-trigger display-flex"
+                            aria-label="Open dialog with citation text in different styles"
+                            title="Cite"
+                            data-position="bottom"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="cite_mobile"
+                            data-all-citations-url="/resources/citations/12365160/"
+                            data-citation-style="nlm"
+                            data-download-format-link="/resources/citations/12365160/export/"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="pmc-permalink display-flex" >
+                         <button
+                                 type="button"
+                                 title="Permalink"
+                                 data-position="bottom"
+                                 class="usa-button usa-button--unstyled display-flex usa-tooltip"
+                                 aria-label="Show article permalink"
+                                 aria-expanded="false"
+                                 aria-haspopup="true"
+                                 data-ga-category="actions"
+                                 data-ga-action="open"
+                                 data-ga-label="permalink_mobile"
+                         >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#share"></use>
+                            </svg>
+                        </button>
+                        
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12365160/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+                    </li>
+                </ul>
+            </div>
+            <button
+                    type="button"
+                    class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                    aria-label="Open article navigation"
+                    data-extra-class="is-visible-in-page"
+                    data-ga-category="actions"
+                    data-ga-action="open"
+                    data-ga-label="article_nav_mobile"
+            >
+                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#list"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+    <div class="grid-container desktop:padding-left-6">
+      <div id="article-container" class="grid-row grid-gap">
+        <div class="grid-col-12 desktop:grid-col-8 order-2 pmc-layout__content">
+            <div class="grid-container padding-left-0 padding-right-0">
+                <div class="grid-row desktop:margin-left-neg-6">
+                    <div class="grid-col-12">
+                        <div class="pmc-layout__disclaimer" role="complementary" aria-label="Disclaimer note">
+    As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,
+    the contents by NLM or the National Institutes of Health.<br/>
+    Learn more:
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="Disclaimer" data-ga-label="New disclaimer box" href="/about/disclaimer/">PMC Disclaimer</a>
+    |
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="PMC Copyright Notice" data-ga-label="New disclaimer box" href="/about/copyright/">
+        PMC Copyright Notice
+    </a>
+</div>
+                    </div>
+                </div>
+                <div class="grid-row pmc-wm desktop:margin-left-neg-6">
+                    <!-- Main content -->
+                    <main
+                      id="main-content"
+                      class="usa-layout-docs__main usa-layout-docs grid-col-12 pmc-layout pmc-prose padding-0"
+                    >
+
+                      
+                        <section class="pmc-journal-banner text-center line-height-none" aria-label="Journal banner"><img src="https://cdn.ncbi.nlm.nih.gov/pmc/banners/logo-scirep.jpg" alt="Scientific Reports logo" usemap="#pmc-banner-imagemap" width="500" height="75"><map name="pmc-banner-imagemap"><area alt="Link to Scientific Reports" title="Link to Scientific Reports" shape="default" href="http://www.nature.com/srep" target="_blank" rel="noopener noreferrer"></map></section><article lang="en"><section aria-label="Article citation and metadata"><section class="pmc-layout__citation font-secondary font-xs"><div>
+<div class="display-inline-block"><button type="button" class="cursor-pointer text-no-underline bg-transparent border-0 padding-0 text-left margin-0 text-normal text-primary" aria-controls="journal_context_menu">Sci Rep</button></div>. 2025 Aug 19;15:30327. doi: <a href="https://doi.org/10.1038/s41598-025-14347-8" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">10.1038/s41598-025-14347-8</a>
+</div>
+<nav id="journal_context_menu" hidden="hidden"><ul class="menu-list font-family-ui" role="menu">
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/pmc/?term=%22Sci%20Rep%22%5Bjour%5D" class="usa-link" role="menuitem">Search in PMC</a></li>
+<li role="presentation"><a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Sci%20Rep%22%5Bjour%5D" lang="en" class="usa-link" role="menuitem">Search in PubMed</a></li>
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/nlmcatalog?term=%22Sci%20Rep%22%5BTitle%20Abbreviation%5D" class="usa-link" role="menuitem">View in NLM Catalog</a></li>
+<li role="presentation"><a href="?term=%22Sci%20Rep%22%5Bjour%5D" class="usa-link" role="menuitem" data-add-to-search="true">Add to search</a></li>
+</ul></nav></section><section class="front-matter"><div class="ameta p font-secondary font-xs">
+<hgroup><h1>Digital twins as self-models for intelligent structures</h1></hgroup><div class="cg p">
+<a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Shen%20X%22%5BAuthor%5D" class="usa-link" aria-describedby="id1"><span class="name western">Xiaoxue Shen</span></a><div hidden="hidden" id="id1">
+<h3><span class="name western">Xiaoxue Shen</span></h3>
+<div class="p">
+<sup>1</sup>The Alan Turing Institute, London, NW1 2DB UK </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Shen%20X%22%5BAuthor%5D" class="usa-link"><span class="name western">Xiaoxue Shen</span></a>
+</div>
+</div>
+<sup>1</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Wagg%20DJ%22%5BAuthor%5D" class="usa-link" aria-describedby="id2"><span class="name western">David J Wagg</span></a><div hidden="hidden" id="id2">
+<h3><span class="name western">David J Wagg</span></h3>
+<div class="p">
+<sup>1</sup>The Alan Turing Institute, London, NW1 2DB UK </div>
+<div class="p">
+<sup>2</sup>School of Mechanical, Aerospace and Civil Engineering, University of Sheffield, Sheffield, S1 3JD UK </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Wagg%20DJ%22%5BAuthor%5D" class="usa-link"><span class="name western">David J Wagg</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>2,</sup><sup>✉</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Tipuric%20M%22%5BAuthor%5D" class="usa-link" aria-describedby="id3"><span class="name western">Matthew Tipuric</span></a><div hidden="hidden" id="id3">
+<h3><span class="name western">Matthew Tipuric</span></h3>
+<div class="p">
+<sup>1</sup>The Alan Turing Institute, London, NW1 2DB UK </div>
+<div class="p">
+<sup>2</sup>School of Mechanical, Aerospace and Civil Engineering, University of Sheffield, Sheffield, S1 3JD UK </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Tipuric%20M%22%5BAuthor%5D" class="usa-link"><span class="name western">Matthew Tipuric</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>2</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Bonney%20MS%22%5BAuthor%5D" class="usa-link" aria-describedby="id4"><span class="name western">Matthew S Bonney</span></a><div hidden="hidden" id="id4">
+<h3><span class="name western">Matthew S Bonney</span></h3>
+<div class="p">
+<sup>3</sup>School of Aerospace, Civil, Electrical and Mechanical Engineering, Swansea University, Swansea, SA1 8EN UK </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Bonney%20MS%22%5BAuthor%5D" class="usa-link"><span class="name western">Matthew S Bonney</span></a>
+</div>
+</div>
+<sup>3</sup>
+</div>
+<ul class="d-buttons inline-list">
+<li><button class="d-button" aria-controls="aip_a" aria-expanded="false">Author information</button></li>
+<li><button class="d-button" aria-controls="anp_a" aria-expanded="false">Article notes</button></li>
+<li><button class="d-button" aria-controls="clp_a" aria-expanded="false">Copyright and License information</button></li>
+</ul>
+<div class="d-panels font-secondary-light">
+<div id="aip_a" class="d-panel p" style="display: none">
+<div class="p" id="Aff1">
+<sup>1</sup>The Alan Turing Institute, London, NW1 2DB UK </div>
+<div id="Aff2">
+<sup>2</sup>School of Mechanical, Aerospace and Civil Engineering, University of Sheffield, Sheffield, S1 3JD UK </div>
+<div id="Aff3">
+<sup>3</sup>School of Aerospace, Civil, Electrical and Mechanical Engineering, Swansea University, Swansea, SA1 8EN UK </div>
+<div class="author-notes p"><div class="fn" id="_fncrsp93pmc__">
+<sup>✉</sup><p class="display-inline">Corresponding author.</p>
+</div></div>
+</div>
+<div id="anp_a" class="d-panel p" style="display: none"><div class="notes p"><section id="historyarticle-meta1" class="history"><p>Received 2025 Apr 10; Accepted 2025 Jul 30; Collection date 2025.</p></section></div></div>
+<div id="clp_a" class="d-panel p" style="display: none">
+<div>© The Author(s) 2025</div>
+<p><strong>Open Access</strong> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <a href="https://creativecommons.org/licenses/by/4.0/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">http://creativecommons.org/licenses/by/4.0/</a>.</p>
+<div class="p"><a href="/about/copyright/" class="usa-link">PMC Copyright notice</a></div>
+</div>
+</div>
+<div>PMCID: PMC12365160  PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/40830380/" class="usa-link">40830380</a>
+</div>
+</div></section></section><section aria-label="Article content"><section class="body main-article-body"><section class="abstract" id="Abs1"><h2>Abstract</h2>
+<p id="Par1">A self-model is an artificial intelligence that is able to create a continuously updated internal representation of itself. In this paper we use an agent-based architecture to create a ‘digital twin self-model’, using the example of a small-scale three-story building. The architecture is based on a set of heterogeneous digital components, each managed by an agent. The agents can be orchestrated to perform a specific workflow, or collaborate with a human user to perform requested tasks. The digital twin architecture enables multiple complex behaviors to be represented via a time-evolving dynamic assembly of the digital components, that also includes the encoding of a self-model in a knowledge graph as well as producing quantitative outputs. Four operational modes are defined for the digital twin and the example shown here demonstrates an offline mode that executes a predefined workflow with five agents. The digital twin has an information management system which is coordinated using a dynamic knowledge graph that encodes the self-model. Users can visualize the knowledge graph via a web-based user interface and also input natural language queries. Retrieval augmented generation is used to give a response to the queries using both the local knowledge graph and a large language model.</p>
+<section id="kwd-group1" lang="en" class="kwd-group"><p><strong>Keywords:</strong> Digital twin, Self-model, Agent, Structure</p></section><section id="kwd-group2" class="kwd-group"><p><strong>Subject terms:</strong> Engineering, Civil engineering, Mechanical engineering</p></section></section><section id="Sec1"><h2 class="pmc_sec_title">Introduction</h2>
+<p id="Par2">In this paper, we consider how a digital twin might be used as a <em>self-model</em> in the context of structural engineering. The motivation is to move towards the idea of so called ‘intelligent’ (or ‘smart’) structures — something that has been an aspiration of engineers since the 1980s<sup><a href="#CR1" class="usa-link" aria-describedby="CR1">1</a></sup>. Up until now ‘low-level’ forms of intelligence have been developed, based on using material and control design (and more recently machine learning) to enable structures, such as buildings, bridges, or aircraft, to sense and respond to their environments<sup><a href="#CR2" class="usa-link" aria-describedby="CR2">2</a>–<a href="#CR5" class="usa-link" aria-describedby="CR5">5</a></sup>. In this paper we consider a different aspect of intelligence applied to structural engineering, that of the <em>self-model</em><sup><a href="#CR6" class="usa-link" aria-describedby="CR6">6</a></sup>. More specifically, we argue that a digital twin can be used as a <em>self-model</em> for an intelligent structure.</p>
+<p id="Par3">Self-modeling is the process whereby an intelligent agent learns to model its own time evolving behavior. Self-modeling occurs in intelligent lifeforms (e.g. in humans and animals) and is a desirable attribute for entities with artificial intelligence (AI), such as robots<sup><a href="#CR7" class="usa-link" aria-describedby="CR7">7</a></sup>. We will define a self-model as an artificial intelligence capable of creating a continuously updated internal representation of itself. In this context, we propose to use a digital twin as the self-model for an intelligent structure.</p>
+<p id="Par4">Digital twins are virtual representations of a physical object or process called the physical twin, with the capacity for bi-directional data-exchange between the digital and physical domains<sup><a href="#CR8" class="usa-link" aria-describedby="CR8">8</a></sup>. In this work we will make an explicit distinction between the physical twin (we use a small-scale building as the example) and its surrounding physical environment<sup><a href="#CR9" class="usa-link" aria-describedby="CR9">9</a></sup>. The digital twin will be developed as a self-model of the physical twin, and the surrounding physical environment can then be considered either as a world-model<sup><a href="#CR10" class="usa-link" aria-describedby="CR10">10</a></sup> in which the self-model operates or (as here) simply as an assumed boundary with the self-model. We therefore create a world-self-model system<sup><a href="#CR9" class="usa-link" aria-describedby="CR9">9</a></sup>, where the digital twin acts as the self-model. Our approach is distinct from previous work which typically considers digital twins as creating a complete interconnected virtual representation of the physical world, such as the ‘world avatar’ concept<sup><a href="#CR11" class="usa-link" aria-describedby="CR11">11</a>–<a href="#CR13" class="usa-link" aria-describedby="CR13">13</a></sup>.</p>
+<p id="Par5">To demonstrate an initial version of the concept, we focus on creating a self-model that is an informational representation consisting of ‘self-knowledge’ and ‘memory’. The self-knowledge and memory are contained in an information management system<sup><a href="#CR14" class="usa-link" aria-describedby="CR14">14</a>–<a href="#CR17" class="usa-link" aria-describedby="CR17">17</a></sup> that allows the digital twin to accumulate knowledge and also respond to queries from human users and agents. In this paper, the information management system for the digital twin is coordinated using a knowledge graph that is implemented using the Neo4j graph database package<sup><a href="#CR18" class="usa-link" aria-describedby="CR18">18</a></sup>. On first launch of the digital twin, the knowledge graph is built based on an initially available set of information. Following that, subsequent actions taken by the agents (or human users) are recorded as events in a dynamically updated version of the knowledge graph. In this way, the self-model is encoded in the knowledge graph.</p>
+<section id="Sec2"><h3 class="pmc_sec_title">Choice of example structure</h3>
+<p id="Par6">Building structures form part of the built environment, and are often surrounded by many other similar structures in urban areas and cities<sup><a href="#CR19" class="usa-link" aria-describedby="CR19">19</a>,<a href="#CR20" class="usa-link" aria-describedby="CR20">20</a></sup>. Buildings are also complex systems in their own right, requiring increasingly advanced forms of asset management to optimize functions such as energy use based on human occupation<sup><a href="#CR21" class="usa-link" aria-describedby="CR21">21</a></sup>. Here we use a small-scale building as the example physical twin, because the system can be complex in its own right, but also part of a bigger more complex system<sup><a href="#CR22" class="usa-link" aria-describedby="CR22">22</a></sup>. Thus, we make a distinction between the self-model of the building itself, and a world-model of the environment surrounding the building.</p>
+<p id="Par7">To charactierize the level of intelligence, we adopt a four-level system where Level-0 means no intelligence, and Levels 1–3 progressively introduce aspects of intelligence<sup><a href="#CR9" class="usa-link" aria-describedby="CR9">9</a></sup>. In this work, the most important aspects of Level 1–3 intelligence are that the digital twin (i) has a goal, (ii) can receive, process &amp; output information to pursue the goal, (iii) has an informational representation of itself &amp; the world, (iv) can self-update, (v) can abstract information from physical reality &amp; transfer information into physical actions, and (vi) is able to interact with the physical world.</p>
+<p id="Par8">In order to demonstrate the concept, we will focus on aspect (iii), which is creating an informational representation of itself &amp; the world. In our study the informational representation is limited to a system of self-knowledge about the constituent parts and behaviors of the structure including ‘memory’ of events that occur during a prescribed timeline. To achieve this, we use an architecture based on a set of ‘components’, each managed by an intelligent agent that can perceive information (across a communication network) and respond by taking actions. Each of the agents has responsibility for curating a component, and by orchestrating the agents together the components can be ‘assembled’ into a digital twin<sup><a href="#CR23" class="usa-link" aria-describedby="CR23">23</a></sup>.</p>
+<p id="Par9">The approach we take here is that the entire architecture of the digital twin is designed as a network of collaborating agents to enable both the dynamic assembly of components and the construction of a self-model which can maintain an updated internal representation of itself. Sample results are presented in the Results Section to show how the overall process works for the example system.</p></section><section id="Sec3"><h3 class="pmc_sec_title">Related work</h3>
+<p id="Par10">Self-models have a long history of development in cognitive science and philosophy<sup><a href="#CR24" class="usa-link" aria-describedby="CR24">24</a></sup> and more recently in AI and robotics<sup><a href="#CR6" class="usa-link" aria-describedby="CR6">6</a>,<a href="#CR7" class="usa-link" aria-describedby="CR7">7</a></sup>. In a different context from this work, agent-based models within digital twins have already been considered by several authors, typically by using agent-based modeling to capture some process of interest within the digital twin<sup><a href="#CR19" class="usa-link" aria-describedby="CR19">19</a>,<a href="#CR25" class="usa-link" aria-describedby="CR25">25</a>–<a href="#CR28" class="usa-link" aria-describedby="CR28">28</a></sup>. More broadly, intelligent agents are an important tool in AI applications<sup><a href="#CR29" class="usa-link" aria-describedby="CR29">29</a>–<a href="#CR34" class="usa-link" aria-describedby="CR34">34</a></sup>. There are multiple interpretations and definitions of ‘agent’ including the rapidly developing topic of agentic systems where, for example, large language models (LLMs) are used as the agents<sup><a href="#CR35" class="usa-link" aria-describedby="CR35">35</a></sup>. Other approaches to building digital twins using graphical models, have also been developed<sup><a href="#CR36" class="usa-link" aria-describedby="CR36">36</a>,<a href="#CR37" class="usa-link" aria-describedby="CR37">37</a></sup>.</p>
+<p id="Par11">There is a wide literature relating to knowledge modeling<sup><a href="#CR38" class="usa-link" aria-describedby="CR38">38</a>–<a href="#CR41" class="usa-link" aria-describedby="CR41">41</a></sup> for AI systems. Both knowledge graphs and LLMs have been developed extensively in the domain<sup><a href="#CR12" class="usa-link" aria-describedby="CR12">12</a>,<a href="#CR42" class="usa-link" aria-describedby="CR42">42</a>,<a href="#CR43" class="usa-link" aria-describedby="CR43">43</a></sup>. Digital twins including knowledge graphs have been developed, for example as part of the ‘world avatar’ concept<sup><a href="#CR11" class="usa-link" aria-describedby="CR11">11</a>–<a href="#CR13" class="usa-link" aria-describedby="CR13">13</a></sup>.</p>
+<p id="Par12">We note that there is no single definition of intelligence in the context of AI<sup><a href="#CR44" class="usa-link" aria-describedby="CR44">44</a></sup>, so here we adopt a four-level system previously described in the context of world-self-models<sup><a href="#CR9" class="usa-link" aria-describedby="CR9">9</a></sup>.</p></section></section><section id="Sec4"><h2 class="pmc_sec_title">Results</h2>
+<section id="Sec5"><h3 class="pmc_sec_title">Agent-based workflow</h3>
+<p id="Par13">A sample result of creating the digital twin self-model for the three-story building example is shown in Fig. <a href="#Fig1" class="usa-link">1</a>. In this example, a predefined workflow (Fig. <a href="#Fig1" class="usa-link">1</a>b) has been designed for the three-story building digital twin. The workflow has a sequential structure, and will be started by the human user, after which there are a sequence of five requests to Agents 1 to 5. Each of the digital twin components (Fig. <a href="#Fig1" class="usa-link">1</a>a) in this example are managed by Agents 1 to 5.</p>
+<figure class="fig xbox font-sm" id="Fig1"><h4 class="obj_head">Fig. 1.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12365160_41598_2025_14347_Fig1_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/0418b45bcb21/41598_2025_14347_Fig1_HTML.jpg" loading="lazy" id="MO1" height="606" width="777" alt="Fig. 1"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Creating a digital twin (DT) self-model from a predefined workflow for the three-story building example, showing <strong>a</strong> the DT components, <strong>b</strong> the predefined workflow, <strong>c</strong> the knowledge graph which encodes the self-model, <strong>d</strong> additional data sources, <strong>e</strong> the physical twin (PT), <strong>f</strong> a sample of the measured data from the PT, and (g) quantitative outputs. The solid arrows show initial data flows and the dashed lines show dynamically updated data/information flows into the knowledge graph.</p></figcaption></figure><p id="Par14">Agents 1 and 2 are designed to deal with the geometric complexity in this particular example. The information generated by Agents 1 &amp; 2 is then passed onto the knowledge graph (Fig. <a href="#Fig1" class="usa-link">1</a>c) and Agent 3 which deals with an aspect of the behavioral complexity for this example. Agent 3 also requires additional inputs that define the material properties, boundary conditions (eg the interface with the world model) and other details of the physical twin. This is provided using tabulated information based on the design and manufacture of the building (Fig. <a href="#Fig1" class="usa-link">1</a>d). Outputs from Agent 3 include parameter matrices than can be used by Agents 4 and 5 which ultimately create the required quantitative and visual outputs that can be returned to the human user (Fig. <a href="#Fig1" class="usa-link">1</a>g). Further details of the workflow, including architecture and implementation, are given in the Methods Section.</p></section><section id="Sec6"><h3 class="pmc_sec_title">Encoding the self-model within the knowledge graph</h3>
+<p id="Par15">The time-evolving knowledge graph is initially seeded from the available information (Fig. <a href="#Fig1" class="usa-link">1</a>d) to represent the initial parameters and inputs of the building structure. As the workflow proceeds, the knowledge graph is updated in parallel (dashed lines in Fig. <a href="#Fig1" class="usa-link">1</a>) to record the outputs from each Agent as entities and relationships in the knowledge graph. Seeding the knowledge graph requires context specific inputs from the digital twin designer (or a human user), which includes the initial computer-aided-design (CAD) geometry, and tabulated information about the material properties, joints, sensors, actuators &amp; loads (often collated into a ‘bill of materials’), other boundary conditions (eg the interface with the world model) including parameters such as temperature etc. After seeding, and as the workflow progresses, each time an agent performs a task it also triggers an update to the knowledge graph, which evolves dynamically as the workflow progresses. The knowledge graph therefore essentially encodes the self-model, meaning it contains the knowledge representation of the physical twin and the associated computational agents, which can then be used as part of a query system for human users.</p></section><section id="Sec7"><h3 class="pmc_sec_title">User query results</h3>
+<p id="Par16">In terms of what the human user experiences, an example user interface is shown in Fig. <a href="#Fig2" class="usa-link">2</a>a, which in this case is a web browser window. The user interface can be customized to suit the particular application of the digital twin. In this case the user interface is designed as a proof-of-concept that showcases just a small number of desirable functionalities. For example, the interface shown on the left of Fig. <a href="#Fig2" class="usa-link">2</a> can be used to visualize the knowledge graph and interact with a chatbot-like query system.</p>
+<figure class="fig xbox font-sm" id="Fig2"><h4 class="obj_head">Fig. 2.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12365160_41598_2025_14347_Fig2_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/6aa6046c5dfa/41598_2025_14347_Fig2_HTML.jpg" loading="lazy" id="MO2" height="405" width="778" alt="Fig. 2"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Screenshots of the user interface of the three-story building digital twin. <strong>a</strong> The web-page that forms the user-interface in this example, where a visualization of the knowledge graph is shown and the user can also input queries. Note that when the user’s cursor hovers over the agent node, the node dynamically enlarges, and the output generated by the agent is displayed adjacent to it (in this case the Gmsh image). This output visualization persists only during the hover interaction and is concealed once the cursor moves away from the node. The query system uses a form of retrieval augmented generation (RAG) to combine the local knowledge graph with a large language model (LLM). <strong>b</strong> A query which is answered using information from the local knowledge graph (the cursor response is RAG). <strong>c</strong> A query which is answered using information from the LLM (cursor shows as LLM).</p></figcaption></figure><p id="Par17">The chat interface allows users to send questions via a text input field and receive responses from a server endpoint. Answers to the chat interface are provided by a combined knowledge graph and language model (LLM)-based question-answering system. The combination of knowledge graph and LLM is a form of retrieval augmented generation (RAG) that sends the user query to both the local knowledge graph and the LLM (which in this case is Chat-GPT<sup><a href="#CR43" class="usa-link" aria-describedby="CR43">43</a></sup>).</p>
+<p id="Par18">Examples of a human user making queries via the query box in the user interface are shown on the right side of Fig. <a href="#Fig2" class="usa-link">2</a>. Figure <a href="#Fig2" class="usa-link">2</a>b illustrates the results obtained when querying information explicitly available within the knowledge graph, such as the properties of material AL6082, the agents in the digital twin and their respective names. Conversely, Fig. <a href="#Fig2" class="usa-link">2</a>c illustrates the outcome of queries for information that is absent from the local knowledge graph. In such cases, the query system switches to the external LLM API to retrieve data from internet-based sources, ensuring the provision of comprehensive responses when local graph data are incomplete or unavailable. The user interface indicates which system is answering by prefixing the response with ‘RAG:’ when the local knowledge graph responds and ‘LLM:’ when the LLM API responds.</p>
+<p id="Par19">This example is designed to demonstrate how a self-model can be used to enable increased intelligence (Level-1 in this case<sup><a href="#CR9" class="usa-link" aria-describedby="CR9">9</a></sup>) in a digital twin of a structure. Specifically, the goal was to build a system of self-knowledge (e.g., the knowledge graph within the IMS) that can respond to natural language queries accurately and efficiently via RAG<sup><a href="#CR45" class="usa-link" aria-describedby="CR45">45</a>,<a href="#CR46" class="usa-link" aria-describedby="CR46">46</a></sup>.</p></section></section><section id="Sec8"><h2 class="pmc_sec_title">Methods</h2>
+<section id="Sec9"><h3 class="pmc_sec_title">Digital twin architecture and implementation</h3>
+<p id="Par20">The overall architecture of the digital twin is shown schematically in Fig. <a href="#Fig3" class="usa-link">3</a>. In this architecture, the digital twin is composed of three main parts that enable a connection between the physical twin and the human user(s). Firstly, there is a user interface through which human users give inputs and view the outputs of the digital twin, as shown in Fig. <a href="#Fig2" class="usa-link">2</a>. The user interface directs the input to and outputs from the two other main parts. These parts are, firstly a network of <em>N</em> collaborative agents which are used to perform specific tasks within the digital twin. Each agent is responsible for ‘curating’ a specific component in the digital twin, where curating in this context means maintaining and updating the component. The agents communicate across a network, and each agent has a set of potential actions it can take, depending on the task at hand. All actions across the network are logged, and recorded as events in the temporal part of the information management system (IMS) which is coordinated using the knowledge graph. The numbered circles in Fig. <a href="#Fig3" class="usa-link">3</a> denote the main points of information exchange.</p>
+<figure class="fig xbox font-sm" id="Fig3"><h4 class="obj_head">Fig. 3.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12365160_41598_2025_14347_Fig3_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/81ac6e6fe86b/41598_2025_14347_Fig3_HTML.jpg" loading="lazy" id="MO3" height="413" width="750" alt="Fig. 3"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig3/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>The overall architecture of the digital twin. <em>N</em>-agents are used to perform specific computational tasks within the digital twin. The agents communicate across a network. The information management system is coordinated with a dynamic knowledge graph, and the user interface allows the user to interact with the digital twin. The physical twin has local edge hardware such that data can be collected, and control actions taken to adjust the behavior of the physical twin. The numbered circles denote the main points of information exchange. Specifically <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq1"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/2b3e700b38c1/d33e529.gif" loading="lazy" id="d33e529" alt="Inline graphic"></span> is the data exchange between the physical and digital twin, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq2"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/6b10184f05ee/d33e535.gif" loading="lazy" id="d33e535" alt="Inline graphic"></span> is the exchange between the <em>N</em> agents and the IMS, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq3"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/4cef37f7176d/d33e544.gif" loading="lazy" id="d33e544" alt="Inline graphic"></span> is the UI interface with the agents, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq4"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/8c89c5a1e746/d33e551.gif" loading="lazy" id="d33e551" alt="Inline graphic"></span> the UI and IMS and finally <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq5"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/fc81bdc153f0/d33e557.gif" loading="lazy" id="d33e557" alt="Inline graphic"></span> is the human user interaction with the digital twin.</p></figcaption></figure><p id="Par21">In the current context, it is important to understand the possible <em>modes of operation</em> for the digital twin, which are shown schematically in Fig. <a href="#Fig4" class="usa-link">4</a>a. In this case, the modes of operation for the digital twin are a combination of the ‘connectivity modes’ and ‘work modes’. Note that ‘online’ means the digital and physical twins are actively connected over a network (via data flow <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq6"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/2b3e700b38c1/d33e591.gif" loading="lazy" id="d33e591" alt="Inline graphic"></span> in Fig. <a href="#Fig3" class="usa-link">3</a>), whereas ‘offline’ means that there is not an active connection between physical and digital twins. During the offline mode data flows are still possible via <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq7"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/6b10184f05ee/d33e600.gif" loading="lazy" id="d33e600" alt="Inline graphic"></span>, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq8"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/4cef37f7176d/d33e607.gif" loading="lazy" id="d33e607" alt="Inline graphic"></span>, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq9"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/8c89c5a1e746/d33e613.gif" loading="lazy" id="d33e613" alt="Inline graphic"></span> and <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq10"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/fc81bdc153f0/d33e619.gif" loading="lazy" id="d33e619" alt="Inline graphic"></span> shown in Fig. <a href="#Fig3" class="usa-link">3</a>. The cases shown in in Fig. <a href="#Fig4" class="usa-link">4</a>a are: </p>
+<ol class="list" style="list-style-type:decimal">
+<li><p id="Par22"><em>online mode with agent orchestration</em>; e.g. to carry out automated processes related to monitoring and control of the physical twin,</p></li>
+<li><p id="Par23"><em>online mode with the human user and agents collaborating</em>; e.g. to respond to urgent situations and take command of the situation,</p></li>
+<li><p id="Par24"><em>offline mode with agent-based orchestration</em>; e.g. to carry out predefined background processes and workflows, and</p></li>
+<li><p id="Par25"><em>offline mode with the human user and agents collaborating</em>; e.g. to carry out bespoke analyses and maintenance that isn’t in a predefined workflow.</p></li>
+</ol>
+<p>Normally agents are considered to be taking actions into an ‘environment’ and then learning from the feedback from the action taken. In the architecture proposed in Fig. <a href="#Fig3" class="usa-link">3</a>, the agent will only be able to take actions that influence the physical twin (e.g. the physical ‘environment’) during the online connectivity modes. In offline mode, the agents will interact with either prerecorded and/or simulated (e.g synthetic) data. In other words, the agents interact with a virtual environment<sup><a href="#CR47" class="usa-link" aria-describedby="CR47">47</a></sup> only when in offline mode. The example chosen here falls into mode (3), it is an offline mode with a pre-defined, agent orchestrated workflow.</p>
+<figure class="fig xbox font-sm" id="Fig4"><h4 class="obj_head">Fig. 4.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12365160_41598_2025_14347_Fig4_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/f058e23a483e/41598_2025_14347_Fig4_HTML.jpg" loading="lazy" id="MO4" height="338" width="778" alt="Fig. 4"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig4/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p><strong>a</strong> Modes of operation for the digital twin as a combination of the connectivity modes and work modes. The cases are (1) online mode with agent orchestration, (2) online mode with the human user and agents collaborating, (3) offline mode with agent-based orchestration, and (4) offline mode with the human user and agents collaborating. <strong>b</strong> A schematic diagram of the structure of an intelligent agent within the digital twin.</p></figcaption></figure><p id="Par26">To create a digital twin self model the agents we use need to have some level of intelligence<sup><a href="#CR9" class="usa-link" aria-describedby="CR9">9</a></sup>. The specific details of the agents used in this work are considered next.</p></section><section id="Sec10"><h3 class="pmc_sec_title">Agents</h3>
+<p id="Par27">The detailed layout of the agent structure used here is shown schematically in Fig. <a href="#Fig4" class="usa-link">4</a>b. The <em>n</em>th agent structure can be represented as a tuple <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq11"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/e9c77ff4adb9/d33e698.gif" loading="lazy" id="d33e698" alt="Inline graphic"></span> with <em>P</em> inputs, <em>S</em> agent states, <em>C</em> component states, and <em>A</em> output actions. The agent receives inputs from human users and/or other agents in addition to sensor data across the network <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq12"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/22617de2706f/d33e717.gif" loading="lazy" id="d33e717" alt="Inline graphic"></span>. Then the agent uses predefined logic to make a decision on what corresponding sequence of output actions is required <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq13"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/a40c25b91d93/d33e723.gif" loading="lazy" id="d33e723" alt="Inline graphic"></span>. The decision making process iterates the agent states <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq14"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/4c50f10dd47b/d33e729.gif" loading="lazy" id="d33e729" alt="Inline graphic"></span> and relevant DT component states <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq15"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/72916e217c8c/d33e735.gif" loading="lazy" id="d33e735" alt="Inline graphic"></span>.</p>
+<p id="Par28">Each agent is given responsibility for curating (e.g. managing and maintaining) a specific digital twin component. These components are a heterogeneous set of ‘digital objects’<sup><a href="#CR23" class="usa-link" aria-describedby="CR23">23</a></sup> that relate to the specific context of the digital twin, as shown in Fig. <a href="#Fig1" class="usa-link">1</a>a. In terms of software architecture, each agent manages a digital object that is located in a software container. Containers are widely used in software development, and have also been using in building digital twins<sup><a href="#CR11" class="usa-link" aria-describedby="CR11">11</a></sup>. The container network is used to communicate between agents.</p>
+<p id="Par29">To demonstrate the implementation and potential use of agents, the example case in Fig. <a href="#Fig1" class="usa-link">1</a> will be explained further in this section. The workflow in Fig. <a href="#Fig1" class="usa-link">1</a> proceeds as follows. Agent 1 is used to build/upload the computer-aided design (CAD) files representing the geometric complexity of the building, considered to be input <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq16"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/37a1d78ddbdb/d33e762.gif" loading="lazy" id="d33e762" alt="Inline graphic"></span>. The output from Agent 1 is a set of STL (stereolithography CAD<sup><a href="#CR48" class="usa-link" aria-describedby="CR48">48</a></sup>) files of the individual components, as well as the assembled building structure. Each STL file describes a raw, unstructured triangulated surface by the unit normal and vertices of the triangles using a three-dimensional Cartesian coordinate system. For this demonstration, we utilize Blender, an open-source CAD software tool; however, STL is a widely used standardized format across most CAD software tools.</p>
+<p id="Par30">The STL files serve both as the output of the Agent 1 and as the input of the Agent 2, in the form of a mapping <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq17"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/e25ca43e54a7/d33e774.gif" loading="lazy" id="d33e774" alt="Inline graphic"></span>. The process carried out by Agent 2 using the Python library Gmsh<sup><a href="#CR49" class="usa-link" aria-describedby="CR49">49</a></sup> is outlined in Algorithm A shown in Figure <a href="#Fig5" class="usa-link">5</a>. After initializing Gmsh and setting the meshing parameters, the system merges the STL files stored in the digital twin system. The geometric information is then classified to redefine the surfaces, followed by the creation of discrete curves and surfaces in the mesh. Once these surfaces are created, a volume defined by these surfaces will be prepared for meshing with the specified meshing parameters. For simple geometries, this process can be fully automated.</p>
+<figure class="fig xbox font-sm" id="Fig5"><h4 class="obj_head">Fig. 5.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12365160_41598_2025_14347_Fig5_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/76a8dbba2e22/41598_2025_14347_Fig5_HTML.jpg" loading="lazy" id="MO5" height="316" width="778" alt="Fig. 5"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig5/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Sample pseudo-code for the algorithms for parts of the agent process. Shown here are: <strong>A</strong> Gmsh meshing process, and <strong>B</strong> workflow of the knowledge graph.</p></figcaption></figure><p id="Par31">Finally, Agent 2 converts the mesh to XDMF<sup><a href="#CR50" class="usa-link" aria-describedby="CR50">50</a></sup> format so that it can be recognized by the open-source FEA tool FEniCSx<sup><a href="#CR51" class="usa-link" aria-describedby="CR51">51</a></sup>. This process first determines the topological dimension of the existing mesh, the types of cells and facets are defined. These are then extracted from the structured information and reconstructed as a MeshIO mesh in the mapping <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq18"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/7c94a9cfc146/d33e811.gif" loading="lazy" id="d33e811" alt="Inline graphic"></span>.</p>
+<p id="Par32">In addition to the mesh, the boundary conditions (type and coordinates), mesh specifications (size), and material properties (density, Young’s modulus, and Poisson’s ratio) are also required as the inputs for Agent 3 (e.g. Fig. <a href="#Fig1" class="usa-link">1</a>d) which manages FEniCSx, the finite element analysis (FEA) component. Agent 3 captures the behavioral complexity via two types of analysis: modal analysis and steady-state analysis. In this modal analysis case, the eigenfrequencies and mode shapes are compared with the data from the physical twin. The results of Agent 3 are then mapped to the input of Agent 4, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq19"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/92627b4f40da/d33e822.gif" loading="lazy" id="d33e822" alt="Inline graphic"></span> where they are verified against a reduced order ordinary differential equation model<sup><a href="#CR8" class="usa-link" aria-describedby="CR8">8</a></sup>. Lastly, with mapping <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq20"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/353cfefa2552/d33e832.gif" loading="lazy" id="d33e832" alt="Inline graphic"></span>, Agent 5 performs Bayesian calibration<sup><a href="#CR52" class="usa-link" aria-describedby="CR52">52</a></sup> that can calibrate the model parameters of Agent 4, using data measured from the physical twin<sup><a href="#CR8" class="usa-link" aria-describedby="CR8">8</a></sup>.</p></section><section id="Sec11"><h3 class="pmc_sec_title">Example of calculating quantitative outputs</h3>
+<p id="Par33">To demonstrate a quantitative result of the digital twin, an estimation of the parametric uncertainty of the stiffness parameters <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq21"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/c6623ae69c31/d33e851.gif" loading="lazy" id="d33e851" alt="Inline graphic"></span> from Agent 4, was carried out using Agent 5. A uniform prior distribution ranging from <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq22"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/a1980fafbae6/d33e857.gif" loading="lazy" id="d33e857" alt="Inline graphic"></span>N/m is set as the initial estimate for the prior distributions of the parameters <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq23"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/c6623ae69c31/d33e863.gif" loading="lazy" id="d33e863" alt="Inline graphic"></span>. Agent 5, Bayesian model calibration method, was then used to calibrate the analytical model by inferring the parameters <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq24"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/c6623ae69c31/d33e869.gif" loading="lazy" id="d33e869" alt="Inline graphic"></span><sup><a href="#CR8" class="usa-link" aria-describedby="CR8">8</a>,<a href="#CR52" class="usa-link" aria-describedby="CR52">52</a></sup>, and the results are shown as quantitative and visual outputs in Fig. <a href="#Fig1" class="usa-link">1</a>g. The discrepancy between the inferred (red line distributions) and the “ground truth” values (vertical black lines) in Fig. <a href="#Fig1" class="usa-link">1</a>g is less than 200 N/m, which can be taken to be a reasonable result considering the range of the uniform prior distribution.</p>
+<p id="Par34">As the workflow progresses, the agents’ outputs are dynamically updated both in the knowledge graph and the relational database, and the results will be displayed via the user interface as shown in Fig. <a href="#Fig2" class="usa-link">2</a>.</p></section><section id="Sec12"><h3 class="pmc_sec_title">Information management system</h3>
+<p id="Par35">The information management system (IMS)<sup><a href="#CR16" class="usa-link" aria-describedby="CR16">16</a></sup> coordinates all data, information and knowledge within the digital twin. All the knowledge of these digital assets is modeled through a structured, ontology-based approach. Rooted in the philosophical exploration of being, existence, and reality, the term <em>ontology</em> has been adapted in information technology to describe a structured framework of concepts used to model a particular domain of knowledge. In the context of this digital twin, the ontology functions as a foundational blueprint that defines the classification, attributes, and interrelationships of entities across all components of the digital twin. For the example structure described in this paper, a more detailed ontology, including geometrical and behavioral, is described in the authors’ previous work<sup><a href="#CR53" class="usa-link" aria-describedby="CR53">53</a></sup>. Note that, we have chosen to develop a custom domain ontology in Neo4j because they can carry rich contextual information, including timestamps, values, and other attributes, which are not natively supported in other ontology models.</p>
+<p id="Par36">In this digital twin, the IMS consists of a knowledge graph and two relational databases. The first relational database contains information on material properties, joints, sensors, actuators, loads, boundary conditions, and conditions of the test environment (e.g. Fig. <a href="#Fig1" class="usa-link">1</a>d). The second relational database contains the sensor data recorded from the physical twin (e.g., Fig. <a href="#Fig1" class="usa-link">1</a>f).</p></section><section id="Sec13"><h3 class="pmc_sec_title">Structure and time evolution of the knowledge graph</h3>
+<p id="Par37">The knowledge graph was built using Neo4j<sup><a href="#CR18" class="usa-link" aria-describedby="CR18">18</a></sup>, and in this example is a property graph<sup><a href="#CR41" class="usa-link" aria-describedby="CR41">41</a></sup> denoted as the tuple <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq25"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/290f7e089762/d33e928.gif" loading="lazy" id="d33e928" alt="Inline graphic"></span> where <em>V</em> is the set of entities (graph nodes), <em>E</em> is the set of relationships (graph edges), <em>L</em> the labels, <em>U</em> are property-value pairs and <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq26"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/5911253b456f/d33e947.gif" loading="lazy" id="d33e947" alt="Inline graphic"></span> are mappings within the graph. Specifically, <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq27"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/942eccd67fa5/d33e953.gif" loading="lazy" id="d33e953" alt="Inline graphic"></span> is the mapping that defines each of the labels in <em>L</em> to the elements in <em>V</em> and <em>E</em>. Then <em>e</em> maps the relationships (edges) <em>E</em> to a pair of entities (nodes) in <em>V</em>. Finally, <em>r</em> maps entities and relationships to property-value pairs defined in <em>U</em> — see Algorithm B in Fig. <a href="#Fig5" class="usa-link">5</a>.</p>
+<p id="Par38">A section of the resulting graph built from Algorithm B is shown in Fig. <a href="#Fig6" class="usa-link">6</a>a, where circles represent entities and the relationships are shown using labeled single-direction arrows — note that a number of entities and relationships have been removed from Fig. <a href="#Fig6" class="usa-link">6</a>a to make it readable. The graph is centered around a single entity, denoted Layer 0 (e.g. <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq28"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/f6e2bbfb576b/d33e996.gif" loading="lazy" id="d33e996" alt="Inline graphic"></span>, the sand colored entity in Fig. <a href="#Fig6" class="usa-link">6</a>) representing the top-level part of the hierarchy in the graph; for example, we can identify this as the self-model. Then each of the <em>N</em> agents are represented at Layer 1 and shown as green entities in Fig. <a href="#Fig6" class="usa-link">6</a>. Other entities are considered to be in Layers 2, 3 or 4 depending on the graph structure. In particular, Layers 3 and 4, are where the child characteristics of Layer 2 are defined and are inherently bespoke due to the heterogeneous nature of the components within the specific digital twin.</p>
+<figure class="fig xbox font-sm" id="Fig6"><h4 class="obj_head">Fig. 6.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12365160_41598_2025_14347_Fig6_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/6b2486d2500d/41598_2025_14347_Fig6_HTML.jpg" loading="lazy" id="MO7" height="935" width="727" alt="Fig. 6"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig6/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Examples of the knowledge graph structure, showing <strong>a</strong> the three-story building knowledge graph with the primary entity of the graph (Layer 0) as the sand color entity, and the agents as green entities — note a number of entities and relationships have been removed from this Figure to make it readable. <strong>b</strong> A meta-graph, indicating a generic graph structure for a generic agent, with a representative example of the associated entities and relationships. <strong>c</strong> Evolution of the knowledge graph; the KG is initialized by defining the Layer 0 node, and it will subsequently be updated for each of the agent inputs (indicated by red arrows) and outputs (indicated by blue arrows) to the KG; the associated computational time between agent inputs and outputs is indicated in seconds (s). Note only Layers 0 and 1 are color coded in this figure.</p></figcaption></figure><p id="Par39">To give context, a single generic agent structure is shown in detail in Fig. <a href="#Fig6" class="usa-link">6</a>b, which is assumed to be part of a generic ‘product’ at Level 0. Here examples of the detailed possible relationships, including self-relations and double entity relations are shown. The metagraph depicts how a range of agent architectures can be represented in the graph. Each agent within the DT has defined inputs and outputs and performs a distinct task. These tasks are predetermined, and therefore fixed in the graph structure. In contrast, input/output parameters, files, or components created during the agents’ operation will be added to the graph dynamically as the workflow proceeds. An example of the evolution of the knowledge graph is shown in Fig. <a href="#Fig6" class="usa-link">6</a>c.</p>
+<p id="Par40">A time-stamped recording approach is employed for new events occurring within the DT, which are stored as entities or relationships in the KG. These timestamps effectively reflect the computational efforts of associated agents. Each agent operates in two distinct modes: ‘on’ and ‘off’. In the ‘on’ mode, agents execute predefined computational functionalities, whereas in the ‘off’ mode, the KG is updated to include either input or output data. The computational durations of the five agents were recorded as 9 seconds, 12 seconds, 20 seconds, 4 seconds, and 1500 seconds (25 minutes), respectively, as shown in Fig. <a href="#Fig6" class="usa-link">6</a>c.</p></section><section id="Sec14"><h3 class="pmc_sec_title">RAG query system design</h3>
+<p id="Par41">The information management system includes a natural language querying function which in this case is enabled using RAG between the local knowledge graph and a LLM. LLMs have gained much attention since the launch of Chat-GPT in late 2022<sup><a href="#CR43" class="usa-link" aria-describedby="CR43">43</a></sup>. LLMs allow users to retrieve a comprehensive answer to a query (prompt), but the answer does not include information drawn from the specific domain defined by the user, especially from a specific application-based knowledge graph, or the most recent information (before the LLM was trained).</p>
+<p id="Par42">The user interface shown in Fig. <a href="#Fig2" class="usa-link">2</a> was built using a combination of HTML, CSS, and JavaScript. It contains a graph visualization powered by the D3.js library<sup><a href="#CR54" class="usa-link" aria-describedby="CR54">54</a></sup>. JavaScript is used to process user interactions, including fetching graph data from a server endpoint and rendering it using a force-directed graph layout. The nodes and edges of the graph are drawn with varying sizes and colors based on their labels and relationships. A custom centering force ensures that the Layers 0 &amp; 1 node types (e.g. “product” and “agent”) are positioned strategically within the graph based on the assumption that the digital twin should be centered around the start node of the self-model.</p>
+<p id="Par43">In Fig. <a href="#Fig2" class="usa-link">2</a>, the chatbox element is used to input natural language queries. The RAG is achieved by establishing a connection to the Neo4j graph database, facilitating semantic queries to the knowledge graph. Then the LangChain<sup><a href="#CR55" class="usa-link" aria-describedby="CR55">55</a></sup> library is employed to query the graph using the natural language input from the user. Langchain processes the input into Cypher language, the underlying query language used to query the Neo4j graph database. If the Cypher query to the Neo4j graph fails to return a valid response, the system reverts to the OpenAI language model (GPT-4), querying the model via the OpenAI library using a chat-based completion approach. As a demonstration, the back-end log for the example shown in the top right side of Fig. <a href="#Fig2" class="usa-link">2</a>, is shown below:<a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12365160_41598_2025_14347_Figa_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/abcf16f1f993/41598_2025_14347_Figa_HTML.jpg" loading="lazy" id="MO6" height="232" width="778" alt="graphic file with name 41598_2025_14347_Figa_HTML.jpg"></a></p>
+<p id="Par44">Notice that in the Full Context the parameter values are stored as key value pairs from <em>U</em>, for example for Poisson’s ratio as <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq29"><img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/f831b8a80062/d33e1062.gif" loading="lazy" id="d33e1062" alt="Inline graphic"></span>.</p></section></section><section id="Sec15"><h2 class="pmc_sec_title">Discussion</h2>
+<p id="Par45">The digital twin architecture presented here enables the ‘assembly’ of a series of heterogeneous digital components into a workflow that can be used to build a self-model. To enable the modes of operation, and switches between them, it is important that agents can both collaborate and work autonomously. We have shown one, small-scale, example of how this can be achieved for the case of just a single workflow in offline mode, and from that the initial self-model is encoded in the form of a knowledge graph. In this small-scale example, the knowledge graph is fulfilling the role of both a graph database and a knowledge-based representation of the self-model. Relational databases are used to store other information relevant to the overall self-model.</p>
+<p id="Par46">Knowledge graphs can be highly effective for managing information, as we have shown, by designing a hierarchical architecture in which the digital twin self-model concept is represented as the Layer 0 node, and agents serve to provide functionalities at Layer 1 of the digital twin. Dynamic knowledge graphs can be used to create ‘digital threads’ which can significantly enhance the life-cycle management of assets<sup><a href="#CR56" class="usa-link" aria-describedby="CR56">56</a></sup>. This is because, the timestamped event information, stored in the property graph, allows users to trace back the activities of agents that occurred within the digital twin. The ultimate goal of using these types of knowledge graphs is to integrate more sophisticated functions such as knowledge manipulation and reasoning capabilities<sup><a href="#CR12" class="usa-link" aria-describedby="CR12">12</a>,<a href="#CR42" class="usa-link" aria-describedby="CR42">42</a></sup>.</p>
+<p id="Par47">The example chosen for this proof-of-concept work was quite small-scale, but we believe that the architecture could be applied to many other applications, including at scale. Here, the purpose of the digital twin is chosen purely to demonstrate how an agent-based architecture can be used to deliver a specific outcome. Other choices could be made depending on the specific context of the application of interest. In this paper, we define the purpose as creating a system of self-knowledge and enabling users to make queries via a user interface to access the stored information. To achieve this functionality, a sample workflow for the digital twin is developed that integrates geometric, material, and behavioral properties of the building structure in addition to a series of analytical &amp; numerical methods that create predictions and estimate uncertainties.</p>
+<p id="Par48">The output of our chosen example was a measure of parameter uncertainty. Future online workflows could use newly measured data to update multi-fidelity prediction models and perform more sophisticated uncertainty quantification and propagation methods. The high-fidelity model (such as FEA in Agent 3) can also be used to update and re-calibrate the low-fidelity models (like ODE in Agent 4) once updated. By continuously incorporating new information, the digital twin predictions remain up-to-date, while historical data are preserved for future retrieval via a digital thread. It is possible that future DTs could have simultaneous online/offline connectivity modes and therefore be operating both physical and virtual environments at the same time. Also, we note that the example used here has significant similarities with building information management (BIM) systems which have also been explored in connection with digital twinning<sup><a href="#CR57" class="usa-link" aria-describedby="CR57">57</a></sup>.</p>
+<p id="Par49">However, it should also be noted that there are some limitations of the architecture proposed here. For example, by using agents in this manner, it will not always be easy (or even possible) to represent the coupling between physics that are not already contained in an individual agent. In particular, here we use a stepped workflow approach (similar to how most FEA software does multiphysics) that ignores the non-propagation aspects of the component parts of the overall model. For example, it could propagate the thermal stress but would not typically be able to propagate the thermal expansion/volume change.</p>
+<p id="Par50">Although not considered here, actions can be sent to ‘actuators’ (or other forms of action-taking mechanism acting on the physical twin) in the case that real-world actions are required. In the current example of the three-story building, one method of taking actions is provided by force from a vibration ‘shaker’ (shown in Figure <a href="#Fig1" class="usa-link">1</a> (e) attached to the three-story physical twin).</p></section><section id="Sec16"><h2 class="pmc_sec_title">Conclusion</h2>
+<p id="Par51">In this paper, an agent-based digital twin architecture has been used to create a self-model of a small-scale three-story building. The architecture was based on a set of digital components, each managed by an agent, and used to create a self-model encoded in a knowledge graph. The agents can be orchestrated to perform a specific workflow or collaborate with a human user to perform requested tasks.</p>
+<p id="Par52">The workflow chosen here enabled both complex geometries and behaviors to be represented. In this case via a time-evolving dynamic assembly of the digital components, which also included uncertainty quantification of selected parameters within the digital twin. Four operational modes were defined, based on the combination of work and operational modes. The example shown here demonstrated an offline mode with agent-based orchestration to carry out a predefined workflow with five agents.</p>
+<p id="Par53">The information management system was coordinated using a dynamic knowledge graph that encoded the self-model. Users can visualize the graph representing the self-model via a web-based user interface. Natural language queries can be input by the human user, and a form of retrieval augmented generation was used to give response to the queries using both the local knowledge graph and a large language model.</p></section><section id="ack1" class="ack"><h2 class="pmc_sec_title">Acknowledgements</h2>
+<p>This work was funded by the Alan Turing Institute. Xiaoxue Shen would like to acknowledge support from the Alan Turing Institute. This work was also partly funded by the EPSRC grant digital twins for improved dynamic design, United Kingdom (EP/R006768/1). David Wagg would like to acknowledge the support of UKRI via EP/Y016289/1, and the Alan Turing Institute.</p></section><section id="notes1"><h2 class="pmc_sec_title">Author contributions</h2>
+<p>XS produced the three-story building results shown in the paper, including linking the components into agent-based code, and the Blender, Gmsh, MeshIO, FEinCSx, Neo4j, D3.js, Cypher, Langchain, Chatgpt-4 and RAG implementation. DW developed the digital twin self-model concept, the software containerization structure, and managed the overall drafting process. MT and MB contributed to the physical twin and software development for the three-story example including the data collection, CAD, Gmsh and FEA code. All authors contributed to the writing, review and editing of the paper.</p></section><section id="notes2"><h2 class="pmc_sec_title">Data availability</h2>
+<p>All code and data is available via: https://github.com/Digital-Twin-Operational-Platform/KG/tree/main/digitaltwin</p></section><section id="notes3"><h2 class="pmc_sec_title">Declarations</h2>
+<section id="FPar1"><h3 class="pmc_sec_title">Competing interests</h3>
+<p id="Par57">The authors declare no competing interests.</p></section></section><section id="fn-group1" class="fn-group"><h2 class="pmc_sec_title">Footnotes</h2>
+<div class="fn-group p font-secondary-light font-sm"><div class="fn p" id="fn1">
+<p><strong>Publisher’s note</strong></p>
+<p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</div></div></section><section id="Bib1" class="ref-list"><h2 class="pmc_sec_title">References</h2>
+<section id="Bib1_sec2"><ul class="ref-list font-sm" style="list-style-type:none">
+<li id="CR1">
+<span class="label">1.</span><cite>Crawley, E. F. Intelligent structures for aerospace-a technology overview and assessment. <em>AIAA J.</em><strong>32</strong>, 1689–1699 (1994).</cite> [<a href="https://scholar.google.com/scholar_lookup?Crawley,%20E.%20F.%20Intelligent%20structures%20for%20aerospace-a%20technology%20overview%20and%20assessment.%20AIAA%20J.32,%201689%E2%80%931699%20(1994)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR2">
+<span class="label">2.</span><cite>Guran, A. &amp; Inman, D. J. <em>Intelligent Structures and Nonlinear Mechanics</em> (World Scientific).</cite>
+</li>
+<li id="CR3">
+<span class="label">3.</span><cite>Chopra, I. &amp; Sirohi, J. <em>Smart Structures Theory</em> Vol. 35 (Cambridge University Press, 2013).</cite> [<a href="https://scholar.google.com/scholar_lookup?Chopra,%20I.%20&amp;%20Sirohi,%20J.%20Smart%20Structures%20Theory%20Vol.%2035%20(Cambridge%20University%20Press,%202013)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR4">
+<span class="label">4.</span><cite>Salehi, H. &amp; Burgueño, R. Emerging artificial intelligence methods in structural engineering. <em>Eng. Sruct.</em><strong>171</strong>, 170–189 (2018).</cite> [<a href="https://scholar.google.com/scholar_lookup?Salehi,%20H.%20&amp;%20Burgue%C3%B1o,%20R.%20Emerging%20artificial%20intelligence%20methods%20in%20structural%20engineering.%20Eng.%20Sruct.171,%20170%E2%80%93189%20(2018)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR5">
+<span class="label">5.</span><cite>Tapeh, A. T. G. &amp; Naser, M. Artificial intelligence, machine learning, and deep learning in structural engineering: a scientometrics review of trends and best practices. <em>Arch. Comput. Methods Eng.</em><strong>30</strong>, 115–159 (2023).</cite> [<a href="https://scholar.google.com/scholar_lookup?Tapeh,%20A.%20T.%20G.%20&amp;%20Naser,%20M.%20Artificial%20intelligence,%20machine%20learning,%20and%20deep%20learning%20in%20structural%20engineering:%20a%20scientometrics%20review%20of%20trends%20and%20best%20practices.%20Arch.%20Comput.%20Methods%20Eng.30,%20115%E2%80%93159%20(2023)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR6">
+<span class="label">6.</span><cite>Kwiatkowski, R., Hu, Y., Chen, B. &amp; Lipson, H. On the origins of self-modeling. arXiv preprint <a href="http://arxiv.org/abs/2209.02010" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:2209.02010</a> (2022).</cite>
+</li>
+<li id="CR7">
+<span class="label">7.</span><cite>Chen, B., Kwiatkowski, R., Vondrick, C. &amp; Lipson, H. Fully body visual self-modeling of robot morphologies. <em>Sci. Robot.</em><strong>7</strong>, eabn1944 (2022).
+</cite> [<a href="https://doi.org/10.1126/scirobotics.abn1944" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/35857575/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Chen,%20B.,%20Kwiatkowski,%20R.,%20Vondrick,%20C.%20&amp;%20Lipson,%20H.%20Fully%20body%20visual%20self-modeling%20of%20robot%20morphologies.%20Sci.%20Robot.7,%20eabn1944%20(2022)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR8">
+<span class="label">8.</span><cite>Wagg, D. J., Worden, K., Barthorpe, R. J. &amp; Gardner, P. Digital Twins: State-of-the-Art and Future Directions for Modeling and Simulation in Engineering Dynamics Applications. <em>ASCE-ASME J. Risk Uncert. Engrg. Sys. Part B Mech. Engrg.</em><strong>6</strong>, 030901 (2020).</cite> [<a href="https://scholar.google.com/scholar_lookup?Wagg,%20D.%20J.,%20Worden,%20K.,%20Barthorpe,%20R.%20J.%20&amp;%20Gardner,%20P.%20Digital%20Twins:%20State-of-the-Art%20and%20Future%20Directions%20for%20Modeling%20and%20Simulation%20in%20Engineering%20Dynamics%20Applications.%20ASCE-ASME%20J.%20Risk%20Uncert.%20Engrg.%20Sys.%20Part%20B%20Mech.%20Engrg.6,%20030901%20(2020)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR9">
+<span class="label">9.</span><cite>Yue, Y. A world-self model towards understanding intelligence. <em>IEEE Access</em><strong>10</strong>, 63034–63048 (2022).</cite> [<a href="https://scholar.google.com/scholar_lookup?Yue,%20Y.%20A%20world-self%20model%20towards%20understanding%20intelligence.%20IEEE%20Access10,%2063034%E2%80%9363048%20(2022)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR10">
+<span class="label">10.</span><cite>Bar, A., Zhou, G., Tran, D., Darrell, T. &amp; LeCun, Y. Navigation world models. arXiv preprint <a href="http://arxiv.org/abs/2412.03572" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:2412.03572</a> (2024).</cite>
+</li>
+<li id="CR11">
+<span class="label">11.</span><cite>Akroyd, J., Mosbach, S., Bhave, A. &amp; Kraft, M. Universal digital twin–a dynamic knowledge graph. <em>Data-Centric Eng.</em><strong>2</strong>, e14 (2021).</cite> [<a href="https://scholar.google.com/scholar_lookup?Akroyd,%20J.,%20Mosbach,%20S.,%20Bhave,%20A.%20&amp;%20Kraft,%20M.%20Universal%20digital%20twin%E2%80%93a%20dynamic%20knowledge%20graph.%20Data-Centric%20Eng.2,%20e14%20(2021)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR12">
+<span class="label">12.</span><cite>Bai, J. et al. A derived information framework for a dynamic knowledge graph and its application to smart cities. <em>Future Gener. Comput. Syst.</em><strong>152</strong>, 112–126 (2024).</cite> [<a href="https://scholar.google.com/scholar_lookup?Bai,%20J.%20et%20al.%20A%20derived%20information%20framework%20for%20a%20dynamic%20knowledge%20graph%20and%20its%20application%20to%20smart%20cities.%20Future%20Gener.%20Comput.%20Syst.152,%20112%E2%80%93126%20(2024)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR13">
+<span class="label">13.</span><cite>Quek, H. Y. et al. Dynamic knowledge graph applications for augmented built environments through “the world avatar’’. <em>J. Build. Eng.</em><strong>91</strong>, 109507 (2024).</cite> [<a href="https://scholar.google.com/scholar_lookup?Quek,%20H.%20Y.%20et%20al.%20Dynamic%20knowledge%20graph%20applications%20for%20augmented%20built%20environments%20through%20%E2%80%9Cthe%20world%20avatar%E2%80%99%E2%80%99.%20J.%20Build.%20Eng.91,%20109507%20(2024)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR14">
+<span class="label">14.</span><cite>Hetherington, J. &amp; West, M. The pathway towards an information management framework-a ‘commons’ for digital built britain. CDBB white paper (2020). <a href="https://www.cdbb.cam.ac.uk/files/the_pathway_towards_an_imf.pdf" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://www.cdbb.cam.ac.uk/files/the_pathway_towards_an_imf.pdf</a>.</cite>
+</li>
+<li id="CR15">
+<span class="label">15.</span><cite>Sacks, R., Brilakis, I., Pikas, E., Xie, H. S. &amp; Girolami, M. Construction with digital twin information systems. <em>Data-Centric Eng.</em><strong>1</strong>, e14 (2020).</cite> [<a href="https://scholar.google.com/scholar_lookup?Sacks,%20R.,%20Brilakis,%20I.,%20Pikas,%20E.,%20Xie,%20H.%20S.%20&amp;%20Girolami,%20M.%20Construction%20with%20digital%20twin%20information%20systems.%20Data-Centric%20Eng.1,%20e14%20(2020)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR16">
+<span class="label">16.</span><cite>Singh, S. et al. Towards information management framework for digital twin in aircraft manufacturing. <em>Procedia CIRP</em><strong>96</strong>, 163–168 (2021).</cite> [<a href="https://scholar.google.com/scholar_lookup?Singh,%20S.%20et%20al.%20Towards%20information%20management%20framework%20for%20digital%20twin%20in%20aircraft%20manufacturing.%20Procedia%20CIRP96,%20163%E2%80%93168%20(2021)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR17">
+<span class="label">17.</span><cite>Correia, J. B., Abel, M. &amp; Becker, K. Data management in digital twins: a systematic literature review. <em>Knowl. Inf. Syst.</em><strong>65</strong>, 3165–3196 (2023).</cite> [<a href="https://scholar.google.com/scholar_lookup?Correia,%20J.%20B.,%20Abel,%20M.%20&amp;%20Becker,%20K.%20Data%20management%20in%20digital%20twins:%20a%20systematic%20literature%20review.%20Knowl.%20Inf.%20Syst.65,%203165%E2%80%933196%20(2023)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR18">
+<span class="label">18.</span><cite>Bratanic, T. <em>Graph Algorithms for Data Science: with Examples in Neo4j</em> (Simon and Schuster, 2024).</cite>
+</li>
+<li id="CR19">
+<span class="label">19.</span><cite>Clemen, T. <em>et al.</em> Multi-agent systems and digital twins for smarter cities. In <em>Proceedings of the 2021 ACM SIGSIM conference on principles of advanced discrete simulation</em>, 45–55 (2021).</cite>
+</li>
+<li id="CR20">
+<span class="label">20.</span><cite>Caldarelli, G. et al. The role of complexity for digital twins of cities. <em>Nat. Comput. Sci.</em><strong>3</strong>(5), 374–81 (2023).
+</cite> [<a href="https://doi.org/10.1038/s43588-023-00431-4" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/38177836/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Caldarelli,%20G.%20et%20al.%20The%20role%20of%20complexity%20for%20digital%20twins%20of%20cities.%20Nat.%20Comput.%20Sci.3(5),%20374%E2%80%9381%20(2023)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR21">
+<span class="label">21.</span><cite>Francisco, A., Mohammadi, N. &amp; Taylor, J. E. Smart city digital twin-enabled energy management: Toward real-time urban building energy benchmarking. <em>J. Manag. Eng.</em><strong>36</strong>(2), 04019045 (2020).</cite> [<a href="https://scholar.google.com/scholar_lookup?Francisco,%20A.,%20Mohammadi,%20N.%20&amp;%20Taylor,%20J.%20E.%20Smart%20city%20digital%20twin-enabled%20energy%20management:%20Toward%20real-time%20urban%20building%20energy%20benchmarking.%20J.%20Manag.%20Eng.36(2),%2004019045%20(2020)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR22">
+<span class="label">22.</span><cite>Lu, Q. et al. Developing a digital twin at building and city levels: Case study of west Cambridge campus. <em>J. Manag. Eng.</em><strong>36</strong>, 05020004 (2020).</cite> [<a href="https://scholar.google.com/scholar_lookup?Lu,%20Q.%20et%20al.%20Developing%20a%20digital%20twin%20at%20building%20and%20city%20levels:%20Case%20study%20of%20west%20Cambridge%20campus.%20J.%20Manag.%20Eng.36,%2005020004%20(2020)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR23">
+<span class="label">23.</span><cite>Wagg, D. J. et al. The philosophical foundations of digital twinning. <em>Data-Centric Eng.</em><strong>6</strong>, e12 (2025).</cite> [<a href="https://scholar.google.com/scholar_lookup?Wagg,%20D.%20J.%20et%20al.%20The%20philosophical%20foundations%20of%20digital%20twinning.%20Data-Centric%20Eng.6,%20e12%20(2025)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR24">
+<span class="label">24.</span><cite>Metzinger, T. <em>Being No One: The Self-model Theory of Subjectivity</em> (MIT Press, 2004).</cite> [<a href="https://scholar.google.com/scholar_lookup?Metzinger,%20T.%20Being%20No%20One:%20The%20Self-model%20Theory%20of%20Subjectivity%20(MIT%20Press,%202004)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR25">
+<span class="label">25.</span><cite>Zheng, X. et al. A quality-oriented digital twin modelling method for manufacturing processes based on a multi-agent architecture. <em>Procedia Manuf.</em><strong>51</strong>, 309–315 (2020).</cite> [<a href="https://scholar.google.com/scholar_lookup?Zheng,%20X.%20et%20al.%20A%20quality-oriented%20digital%20twin%20modelling%20method%20for%20manufacturing%20processes%20based%20on%20a%20multi-agent%20architecture.%20Procedia%20Manuf.51,%20309%E2%80%93315%20(2020)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR26">
+<span class="label">26.</span><cite>Croatti, A., Gabellini, M., Montagna, S. &amp; Ricci, A. On the integration of agents and digital twins in healthcare. <em>J. Med. Syst.</em><strong>44</strong>, 1–8 (2020).</cite> [<a href="https://doi.org/10.1007/s10916-020-01623-5" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC7399680/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/32748066/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Croatti,%20A.,%20Gabellini,%20M.,%20Montagna,%20S.%20&amp;%20Ricci,%20A.%20On%20the%20integration%20of%20agents%20and%20digital%20twins%20in%20healthcare.%20J.%20Med.%20Syst.44,%201%E2%80%938%20(2020)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR27">
+<span class="label">27.</span><cite>Vrabič, R., Erkoyuncu, J. A., Farsi, M. &amp; Ariansyah, D. An intelligent agent-based architecture for resilient digital twins in manufacturing. <em>CIRP Ann.</em><strong>70</strong>, 349–352 (2021).</cite> [<a href="https://scholar.google.com/scholar_lookup?Vrabi%C4%8D,%20R.,%20Erkoyuncu,%20J.%20A.,%20Farsi,%20M.%20&amp;%20Ariansyah,%20D.%20An%20intelligent%20agent-based%20architecture%20for%20resilient%20digital%20twins%20in%20manufacturing.%20CIRP%20Ann.70,%20349%E2%80%93352%20(2021)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR28">
+<span class="label">28.</span><cite>Marah, H. &amp; Challenger, M. Madtwin: a framework for multi-agent digital twin development: smart warehouse case study. <em>Ann. Math. Artif. Intell.</em><strong>92</strong>, 975–1005 (2024).</cite> [<a href="https://scholar.google.com/scholar_lookup?Marah,%20H.%20&amp;%20Challenger,%20M.%20Madtwin:%20a%20framework%20for%20multi-agent%20digital%20twin%20development:%20smart%20warehouse%20case%20study.%20Ann.%20Math.%20Artif.%20Intell.92,%20975%E2%80%931005%20(2024)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR29">
+<span class="label">29.</span><cite>Wooldridge, M. Intelligent agents. In <em>Multiagent Systems: A Modern Approach to Distributed Artificial Intelligence</em> 27–73 (MIT Press, 1999).</cite> [<a href="https://scholar.google.com/scholar_lookup?Wooldridge,%20M.%20Intelligent%20agents.%20In%20Multiagent%20Systems:%20A%20Modern%20Approach%20to%20Distributed%20Artificial%20Intelligence%2027%E2%80%9373%20(MIT%20Press,%201999)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR30">
+<span class="label">30.</span><cite>Wooldridge, M. <em>An Introduction to Multiagent Systems</em> (Wiley, 2009).</cite> [<a href="https://scholar.google.com/scholar_lookup?Wooldridge,%20M.%20An%20Introduction%20to%20Multiagent%20Systems%20(Wiley,%202009)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR31">
+<span class="label">31.</span><cite>Russell, S. &amp; Norvig, P. <em>Artificial Intelligence: A Modern Approach</em> (Pearson, 2010).</cite> [<a href="https://scholar.google.com/scholar_lookup?Russell,%20S.%20&amp;%20Norvig,%20P.%20Artificial%20Intelligence:%20A%20Modern%20Approach%20(Pearson,%202010)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR32">
+<span class="label">32.</span><cite>Abar, S., Theodoropoulos, G. K., Lemarinier, P. &amp; O’Hare, G. M. Agent based modelling and simulation tools: A review of the state-of-art software. <em>Comput. Sci. Rev.</em><strong>24</strong>, 13–33 (2017).</cite> [<a href="https://scholar.google.com/scholar_lookup?Abar,%20S.,%20Theodoropoulos,%20G.%20K.,%20Lemarinier,%20P.%20&amp;%20O%E2%80%99Hare,%20G.%20M.%20Agent%20based%20modelling%20and%20simulation%20tools:%20A%20review%20of%20the%20state-of-art%20software.%20Comput.%20Sci.%20Rev.24,%2013%E2%80%9333%20(2017)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR33">
+<span class="label">33.</span><cite>Dziomin, U., Kabysh, A., Stetter, R. &amp; Golovko, V. A multi-agent reinforcement learning approach for the efficient control of mobile robots. In <em>Advances in Intelligent Robotics and Collaborative Automation</em> 123–145 (River Publishers, 2022).</cite> [<a href="https://scholar.google.com/scholar_lookup?Dziomin,%20U.,%20Kabysh,%20A.,%20Stetter,%20R.%20&amp;%20Golovko,%20V.%20A%20multi-agent%20reinforcement%20learning%20approach%20for%20the%20efficient%20control%20of%20mobile%20robots.%20In%20Advances%20in%20Intelligent%20Robotics%20and%20Collaborative%20Automation%20123%E2%80%93145%20(River%20Publishers,%202022)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR34">
+<span class="label">34.</span><cite>Wang, L. et al. A survey on large language model based autonomous agents. <em>Front. Comput. Sci.</em><strong>18</strong>, 186345 (2024).</cite> [<a href="https://scholar.google.com/scholar_lookup?Wang,%20L.%20et%20al.%20A%20survey%20on%20large%20language%20model%20based%20autonomous%20agents.%20Front.%20Comput.%20Sci.18,%20186345%20(2024)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR35">
+<span class="label">35.</span><cite>Acharya, D. B., Kuppan, K. &amp; Divya, B. Autonomous intelligence for complex goals-a comprehensive survey. <em>IEEE Access</em><strong>13</strong>, 18912–18936 (2025).</cite> [<a href="https://scholar.google.com/scholar_lookup?Acharya,%20D.%20B.,%20Kuppan,%20K.%20&amp;%20Divya,%20B.%20Autonomous%20intelligence%20for%20complex%20goals-a%20comprehensive%20survey.%20IEEE%20Access13,%2018912%E2%80%9318936%20(2025)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR36">
+<span class="label">36.</span><cite>Kapteyn, M. G., Pretorius, J. V. R. &amp; Willcox, K. E. A probabilistic graphical model foundation for enabling predictive digital twins at scale. <em>Nature</em><strong>1</strong>, 337–347 (2021).</cite> [<a href="https://doi.org/10.1038/s43588-021-00069-0" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/38217207/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Kapteyn,%20M.%20G.,%20Pretorius,%20J.%20V.%20R.%20&amp;%20Willcox,%20K.%20E.%20A%20probabilistic%20graphical%20model%20foundation%20for%20enabling%20predictive%20digital%20twins%20at%20scale.%20Nature1,%20337%E2%80%93347%20(2021)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR37">
+<span class="label">37.</span><cite>Tezzele, M., Carr, S., Topcu, U. &amp; Willcox, K. E. Adaptive planning for risk-aware predictive digital twins. arXiv preprint <a href="http://arxiv.org/abs/2407.20490" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:2407.20490</a> (2024).</cite>
+</li>
+<li id="CR38">
+<span class="label">38.</span><cite>Allemang, D. &amp; Hendler, J. <em>Semantic Web for the Working Ontologist: Effective Modeling in RDFS and OWL</em> (Elsevier, 2011).</cite> [<a href="https://scholar.google.com/scholar_lookup?Allemang,%20D.%20&amp;%20Hendler,%20J.%20Semantic%20Web%20for%20the%20Working%20Ontologist:%20Effective%20Modeling%20in%20RDFS%20and%20OWL%20(Elsevier,%202011)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR39">
+<span class="label">39.</span><cite>Fensel, D. et al. <em>Knowledge Graphs</em> (Springer, 2020).</cite> [<a href="https://scholar.google.com/scholar_lookup?Fensel,%20D.%20et%20al.%20Knowledge%20Graphs%20(Springer,%202020)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR40">
+<span class="label">40.</span><cite>Bergman, M. K., Bergman, M. K. &amp; Lagerstrom-Fife,. <em>Knowledge Representation Practionary</em> (Springer, 2018).</cite> [<a href="https://scholar.google.com/scholar_lookup?Bergman,%20M.%20K.,%20Bergman,%20M.%20K.%20&amp;%20Lagerstrom-Fife,.%20Knowledge%20Representation%20Practionary%20(Springer,%202018)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR41">
+<span class="label">41.</span><cite>Hogan, A. et al. Knowledge graphs. <em>ACM Comput. Surv. (Csur)</em><strong>54</strong>, 1–37 (2021).</cite> [<a href="https://scholar.google.com/scholar_lookup?Hogan,%20A.%20et%20al.%20Knowledge%20graphs.%20ACM%20Comput.%20Surv.%20(Csur)54,%201%E2%80%9337%20(2021)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR42">
+<span class="label">42.</span><cite>Zhou, B. et al. Semantic-aware event link reasoning over industrial knowledge graph embedding time series data. <em>Int. J. Prod. Res.</em><strong>61</strong>(12), 4117–34 (2022).</cite> [<a href="https://scholar.google.com/scholar_lookup?Zhou,%20B.%20et%20al.%20Semantic-aware%20event%20link%20reasoning%20over%20industrial%20knowledge%20graph%20embedding%20time%20series%20data.%20Int.%20J.%20Prod.%20Res.61(12),%204117%E2%80%9334%20(2022)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR43">
+<span class="label">43.</span><cite>Teubner, T., Flath, C. M., Weinhardt, C., van der Aalst, W. &amp; Hinz, O. Welcome to the era of chatgpt et al. the prospects of large language models. <em>Bus. Inf. Syst. Eng.</em><strong>65</strong>, 95–101 (2023).</cite> [<a href="https://scholar.google.com/scholar_lookup?Teubner,%20T.,%20Flath,%20C.%20M.,%20Weinhardt,%20C.,%20van%20der%20Aalst,%20W.%20&amp;%20Hinz,%20O.%20Welcome%20to%20the%20era%20of%20chatgpt%20et%20al.%20the%20prospects%20of%20large%20language%20models.%20Bus.%20Inf.%20Syst.%20Eng.65,%2095%E2%80%93101%20(2023)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR44">
+<span class="label">44.</span><cite>Wang, P. On defining artificial intelligence. <em>J. Artif. Gen. Intell.</em><strong>10</strong>, 1–37 (2019).</cite> [<a href="https://scholar.google.com/scholar_lookup?Wang,%20P.%20On%20defining%20artificial%20intelligence.%20J.%20Artif.%20Gen.%20Intell.10,%201%E2%80%9337%20(2019)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR45">
+<span class="label">45.</span><cite>Ieva, S. et al. A retrieval-augmented generation approach for data-driven energy infrastructure digital twins. <em>Smart Cities</em><strong>7</strong>, 3095–3120 (2024).</cite> [<a href="https://scholar.google.com/scholar_lookup?Ieva,%20S.%20et%20al.%20A%20retrieval-augmented%20generation%20approach%20for%20data-driven%20energy%20infrastructure%20digital%20twins.%20Smart%20Cities7,%203095%E2%80%933120%20(2024)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR46">
+<span class="label">46.</span><cite>Xia, Y., Xiao, Z., Jazdi, N. &amp; Weyrich, M. Generation of asset administration shell with large language model agents: Interoperability in digital twins with semantic node. arXiv preprint <a href="http://arxiv.org/abs/2403.17209" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">arXiv:2403.17209</a> (2024).</cite>
+</li>
+<li id="CR47">
+<span class="label">47.</span><cite>Luck, M. &amp; Aylett, R. Applying artificial intelligence to virtual reality: Intelligent virtual environments. <em>Appl. Artif. Intell.</em><strong>14</strong>, 3–32 (2000).</cite> [<a href="https://scholar.google.com/scholar_lookup?Luck,%20M.%20&amp;%20Aylett,%20R.%20Applying%20artificial%20intelligence%20to%20virtual%20reality:%20Intelligent%20virtual%20environments.%20Appl.%20Artif.%20Intell.14,%203%E2%80%9332%20(2000)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR48">
+<span class="label">48.</span><cite>3D Systems, Inc., “stl file format specification,” 1989. [online]. <a href="https://web.archive.org/web/20170105062756/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://web.archive.org/web/20170105062756/</a>, <a href="http://www.fabbers.com/tech/STL_Format" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">http://www.fabbers.com/tech/STL_Format</a></cite>
+</li>
+<li id="CR49">
+<span class="label">49.</span><cite>Geuzaine, C. &amp; Remacle, J.-F. Gmsh: A 3-d finite element mesh generator with built-in pre-and post-processing facilities. <em>Int. J. Numer. Methods Eng.</em><strong>79</strong>, 1309–1331 (2009).</cite> [<a href="https://scholar.google.com/scholar_lookup?Geuzaine,%20C.%20&amp;%20Remacle,%20J.-F.%20Gmsh:%20A%203-d%20finite%20element%20mesh%20generator%20with%20built-in%20pre-and%20post-processing%20facilities.%20Int.%20J.%20Numer.%20Methods%20Eng.79,%201309%E2%80%931331%20(2009)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR50">
+<span class="label">50.</span><cite>Geveci, B., Moreland, K. &amp; Ahrens, J. Xdmf: extensible data model and format. retrieved from. <a href="https://www.xdmf.org/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://www.xdmf.org/</a>.</cite>
+</li>
+<li id="CR51">
+<span class="label">51.</span><cite>Baratta, I. A. <em>et al.</em> Dolfinx: the next generation fenics problem solving environment (2023).</cite>
+</li>
+<li id="CR52">
+<span class="label">52.</span><cite>Kennedy, M. C. &amp; O’Hagan, A. Bayesian calibration of computer models. <em>J. R. Stat. Soc.: Ser. B (Stat. Methodol.)</em><strong>63</strong>, 425–464 (2001).</cite> [<a href="https://scholar.google.com/scholar_lookup?Kennedy,%20M.%20C.%20&amp;%20O%E2%80%99Hagan,%20A.%20Bayesian%20calibration%20of%20computer%20models.%20J.%20R.%20Stat.%20Soc.:%20Ser.%20B%20(Stat.%20Methodol.)63,%20425%E2%80%93464%20(2001)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR53">
+<span class="label">53.</span><cite>Shen, X., Devaraja, P., Wagg, D. &amp; Bonney, M. S. A structured knowledge graph for a geometric and behavioral digital twin in the context of modal testing. In <em>IMAC, A Conference and Exposition on Structural Dynamics</em>, 5–14 (Springer, 2024).</cite>
+</li>
+<li id="CR54">
+<span class="label">54.</span><cite>Bostock, M., Ogievetsky, V. &amp; Heer, J. <img class="inline" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/54b2/12365160/e57fdf2be6a9/41598_2025_14347_Article_IEq32.gif" loading="lazy" alt="Inline graphic"> data-driven documents. <em>IEEE Trans. Vis. Comput. Gr.</em><strong>17</strong>, 2301–2309 (2011).</cite> [<a href="https://doi.org/10.1109/TVCG.2011.185" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/22034350/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Bostock,%20M.,%20Ogievetsky,%20V.%20&amp;%20Heer,%20J.%20data-driven%20documents.%20IEEE%20Trans.%20Vis.%20Comput.%20Gr.17,%202301%E2%80%932309%20(2011)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR55">
+<span class="label">55.</span><cite>Topsakal, O. &amp; Akinci, T. C. Creating large language model applications utilizing langchain: A primer on developing llm apps fast. In <em>International Conference on Applied Engineering and Natural Sciences</em><strong>1</strong>, 1050–1056 (2023).</cite>
+</li>
+<li id="CR56">
+<span class="label">56.</span><cite>Singh, V. &amp; Willcox, K. E. Engineering design with digital thread. <em>AIAA J.</em><strong>56</strong>, 4515–4528 (2018).</cite> [<a href="https://scholar.google.com/scholar_lookup?Singh,%20V.%20&amp;%20Willcox,%20K.%20E.%20Engineering%20design%20with%20digital%20thread.%20AIAA%20J.56,%204515%E2%80%934528%20(2018)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR57">
+<span class="label">57.</span><cite>Sepasgozar, S. M. et al. BIM and digital twin for developing convergence technologies as future of digital construction. <em>Buildings</em><strong>13</strong>, 441 (2023).</cite> [<a href="https://scholar.google.com/scholar_lookup?Sepasgozar,%20S.%20M.%20et%20al.%20BIM%20and%20digital%20twin%20for%20developing%20convergence%20technologies%20as%20future%20of%20digital%20construction.%20Buildings13,%20441%20(2023)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+</ul></section></section><section id="_ad93_" lang="en" class="associated-data"><h2 class="pmc_sec_title">Associated Data</h2>
+<p class="font-secondary"><em>This section collects any data citations, data availability statements, or supplementary materials included in this article.</em></p>
+<section id="_adda93_" lang="en" class="data-availability-statement"><h3 class="pmc_sec_title">Data Availability Statement</h3>
+<p>All code and data is available via: https://github.com/Digital-Twin-Operational-Platform/KG/tree/main/digitaltwin</p></section></section></section><footer class="p courtesy-note font-secondary font-sm text-center"><hr class="headless">
+<p>Articles from Scientific Reports are provided here courtesy of <strong>Nature Publishing Group</strong></p></footer></section></article>
+
+                      
+
+                    </main>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+<!-- Secondary navigation placeholder -->
+<div class="pmc-sidenav desktop:grid-col-4 display-flex">
+    <section class="pmc-sidenav__container" aria-label="Article resources and navigation">
+        <button type="button" class="usa-button pmc-sidenav__container__close usa-button--unstyled">
+            <img src="/static/img/usa-icons/close.svg" role="img" alt="Close" />
+        </button>
+    <div class="display-none desktop:display-block">
+       <section class="margin-top-4 desktop:margin-top-0">
+              <h2 class="margin-top-0">ACTIONS</h2>
+           <ul class="usa-list usa-list--unstyled usa-list--actions">
+               
+               <li>
+                     <a
+                             href="https://doi.org/10.1038/s41598-025-14347-8"
+                             class="usa-button usa-button--outline width-24 font-xs display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                             target="_blank"
+                             rel="noreferrer noopener"
+                             data-ga-category="actions"
+                             data-ga-action="click"
+                             data-ga-label="publisher_link_desktop"
+                     >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#launch"></use>
+                         </svg>
+                         <span class="display-inline-flex flex-justify-center flex-1 padding-right-2">View on publisher site</span>
+                     </a>
+               </li>
+               
+               
+               <li>
+                    <a
+                            href="pdf/41598_2025_Article_14347.pdf"
+                            class="usa-button usa-button--outline width-24 display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="pdf_download_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1">PDF (3.8 MB)</span>
+                    </a>
+               </li>
+               
+                
+               <li>
+                   <button role="button" class="usa-button width-24 citation-dialog-trigger display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                        aria-label="Open dialog with citation text in different styles"
+                        data-ga-category="actions"
+                        data-ga-action="open"
+                        data-ga-label="cite_desktop"
+                        data-all-citations-url="/resources/citations/12365160/"
+                        data-citation-style="nlm"
+                        data-download-format-link="/resources/citations/12365160/export/"
+                    >
+                        <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                        </svg>
+                       <span class="display-inline-flex flex-justify-center flex-1 button-label">Cite</span>
+                    </button>
+               </li>
+                
+               <li>
+
+                        <button class="usa-button width-24 collections-dialog-trigger collections-button display-inline-flex flex-align-center flex-justify-start padding-left-1 collections-button-empty"
+                              aria-label="Save article in MyNCBI collections."
+                              data-ga-category="actions"
+                              data-ga-action="click"
+                              data-ga-label="collections_button_desktop"
+                              data-collections-open-dialog-enabled="false"
+                              data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12365160%2F%3Freport%3Dclassic%23open-collections-dialog"
+                              data-in-collections="false">
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                            <span class="display-inline-flex flex-justify-center flex-1">Collections</span>
+                       </button>
+               </li>
+               <li class="pmc-permalink">
+                    <button
+                            type="button"
+                            class="usa-button width-24 display-inline-flex flex-align-center flex-justify padding-left-1 shadow-none"
+                            aria-label="Show article permalink"
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="permalink_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#share"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1 button-label">Permalink</span>
+                    </button>
+                   
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12365160/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+               </li>
+           </ul>
+       </section>
+     </div>
+
+        <section class="pmc-resources margin-top-6 desktop:margin-top-4" data-page-path="/articles/PMC12365160/">
+            <h2 class="margin-top-0">RESOURCES</h2>
+            
+                <div class="usa-accordion usa-accordion--multiselectable" data-allow-multiple>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-similar-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_similar_articles"
+                        data-ga-label="/articles/PMC12365160/"
+                        data-action-open="open_similar_articles"
+                        data-action-close="close_similar_articles"
+                        >
+                            Similar articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-similar-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/similar-article-links/40830380/"
+                            
+                    >
+                        
+                    </div>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-cited-by-other-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_cited_by"
+                        data-ga-label="/articles/PMC12365160/"
+                        data-action-open="open_cited_by"
+                        data-action-close="close_cited_by"
+                        >
+                             Cited by other articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-cited-by-other-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/cited-by-links/40830380/"
+                            
+                    >
+                          
+                    </div>
+                    
+                        <h3 class="usa-accordion__heading">
+                            <button
+                            type="button"
+                            class="usa-accordion__button"
+                            aria-expanded="false"
+                            aria-controls="resources-links-to-ncbi-databases"
+                            data-ga-category="resources_accordion"
+                            data-ga-action="open_NCBI_links"
+                            data-ga-label="/articles/PMC12365160/"
+                            data-action-open="open_NCBI_links"
+                            data-action-close="close_NCBI_link"
+                            >
+                                 Links to NCBI Databases
+                            </button>
+                        </h3>
+                        <div
+                                id="resources-links-to-ncbi-databases"
+                                class="usa-accordion__content usa-prose"
+                                data-source-url="/resources/db-links/12365160/"
+                        >
+                        </div>
+                    
+                    
+                </div>
+            
+        </section>
+
+
+        <section
+        class="usa-in-page-nav usa-in-page-nav--wide margin-top-6 desktop:margin-top-4"
+        data-title-text="On this page"
+        data-title-heading-level="h2"
+        data-scroll-offset="0"
+        data-root-margin="-10% 0px -80% 0px"
+        data-main-content-selector="main"
+        data-threshold="1"
+        hidden
+        ></section>
+    </section>
+</div>
+
+
+        
+
+<div class="overlay" role="dialog" aria-label="Citation Dialog" hidden>
+    <div class="dialog citation-dialog" aria-hidden="true">
+        <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+            <h2 class="usa-modal__heading margin-0">Cite</h2>
+             <button type="button" class="usa-button usa-button--unstyled close-overlay text-black width-auto"  tabindex="1">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+             </button>
+        </div>
+
+        
+
+<div class="citation-text-block">
+  <div class="citation-text margin-bottom-2"></div>
+  <ul class="usa-list usa-list--unstyled display-inline-flex flex-justify width-full flex-align-center">
+      <li>
+        <button
+          class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center copy-button dialog-focus"
+          data-ga-category="save_share"
+          data-ga-action="cite"
+          data-ga-label="copy"
+          tabindex="2">
+            <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+            </svg>
+            <span>Copy</span>
+        </button>
+      </li>
+      <li>
+          <a
+              href="#"
+              role="button"
+              class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center export-button"
+              data-ga-category="save_share"
+              data-ga-action="cite"
+              data-ga-label="download"
+              title="Download a file for external citation management software"
+              tabindex="3">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                </svg>
+                <span class="display-none mobile-lg:display-inline">Download .nbib</span>
+                <span class="display-inline mobile-lg:display-none">.nbib</span>
+            </a>
+      </li>
+      <li>
+          
+
+<div class="display-inline-flex flex-align-center">
+  <label class="usa-label margin-top-0">Format:</label>
+  <select aria-label="Format" class="usa-select citation-style-selector padding-1 margin-top-0 border-0 padding-right-4" tabindex="4" >
+    
+      <option data-style-url-name="ama"
+              value="AMA"
+              >
+        AMA
+      </option>
+    
+      <option data-style-url-name="apa"
+              value="APA"
+              >
+        APA
+      </option>
+    
+      <option data-style-url-name="mla"
+              value="MLA"
+              >
+        MLA
+      </option>
+    
+      <option data-style-url-name="nlm"
+              value="NLM"
+              selected="selected">
+        NLM
+      </option>
+    
+  </select>
+</div>
+      </li>
+  </ul>
+</div>
+    </div>
+</div>
+
+        <div class="overlay" role="dialog" hidden>
+  <div id="collections-action-dialog" class="dialog collections-dialog" aria-hidden="true">
+   <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+        <h2 class="usa-modal__heading margin-0">Add to Collections</h2>
+    </div>
+    <div class="collections-action-panel action-panel">
+      
+
+
+<form id="collections-action-dialog-form"
+      class="usa-form maxw-full collections-action-panel-form action-panel-content action-form action-panel-smaller-selectors"
+      data-existing-collections-url="/list-existing-collections/"
+      data-add-to-existing-collection-url="/add-to-existing-collection/"
+      data-create-and-add-to-new-collection-url="/create-and-add-to-new-collection/"
+      data-myncbi-max-collection-name-length="100"
+      data-collections-root-url="https://www.ncbi.nlm.nih.gov/myncbi/collections/">
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="NuNPseevBI9r1I5KFiu5bp2TwKCyb4jC9PTtfIZ8ZwgCCm8wrblnzmszUzosU7vF">
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-new"
+            class="usa-radio__input usa-radio__input--tile collections-new  margin-top-0"
+            name="collections"
+            value="new"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_new" />
+            <label class="usa-radio__label" for="collections-action-dialog-new">Create a new collection</label>
+        </div>
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-existing"
+            class="usa-radio__input usa-radio__input--tile collections-existing"
+            name="collections"
+            value="existing"
+            checked="true"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_existing" />
+            <label class="usa-radio__label" for="collections-action-dialog-existing">Add to an existing collection</label>
+        </div>
+    </fieldset>
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="action-panel-control-wrap new-collections-controls">
+           <label for="collections-action-dialog-add-to-new" class="usa-label margin-top-0">
+                Name your collection
+               <abbr title="required" class="usa-hint usa-hint--required text-no-underline">*</abbr>
+          </label>
+          <input
+            type="text"
+            name="add-to-new-collection"
+            id="collections-action-dialog-add-to-new"
+            class="usa-input collections-action-add-to-new"
+            pattern="[^&quot;&amp;=&lt;&gt;/]*" title="The following characters are not allowed in the Name field: &quot;&amp;=&lt;&gt;/"
+            maxlength=""
+            data-ga-category="collections_button"
+            data-ga-action="create_collection"
+            data-ga-label="non_favorties_collection"
+            required
+          />
+        </div>
+        <div class="action-panel-control-wrap existing-collections-controls">
+             <label for="collections-action-dialog-add-to-existing" class="usa-label margin-top-0">
+                Choose a collection
+              </label>
+              <select id="collections-action-dialog-add-to-existing"
+                      class="usa-select collections-action-add-to-existing"
+                      data-ga-category="collections_button"
+                      data-ga-action="select_collection"
+                      data-ga-label="($('.collections-action-add-to-existing').val() === 'Favorites') ? 'Favorites' : 'non_favorites_collection'">
+              </select>
+              <div class="collections-retry-load-on-error usa-input-error-message selection-validation-message">
+                Unable to load your collection due to an error<br>
+                <a href="#">Please try again</a>
+              </div>
+        </div>
+    </fieldset>
+
+    <div class="display-inline-flex">
+        <button class="usa-button margin-top-0 action-panel-submit"
+            type="submit"
+            data-loading-label="Adding..."
+            data-pinger-ignore
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="add">
+          Add
+        </button>
+        <button class="usa-button usa-button--outline margin-top-0 action-panel-cancel"
+                aria-label="Close 'Add to Collections' panel"
+                ref="linksrc=close_collections_panel"
+                data-ga-category="collections_button"
+                data-ga-action="click"
+                data-ga-label="cancel">
+          Cancel
+        </button>
+    </div>
+</form>
+    </div>
+  </div>
+</div>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+
+
+        
+    
+    
+
+<footer class="ncbi-footer ncbi-dark-background " >
+    
+        <div class="ncbi-footer__icon-section">
+            <div class="ncbi-footer__social-header">
+                Follow NCBI
+            </div>
+
+            <div class="grid-container ncbi-footer__ncbi-social-icons-container">
+                
+                    <a href="https://twitter.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="40"
+                             height="40"
+                             viewBox="0 0 40 40"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on X (formerly known as Twitter)</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.facebook.com/ncbi.nlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="16"
+                             height="29"
+                             focusable="false"
+                             aria-hidden="true"
+                             viewBox="0 0 16 29"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.8809 21.4002C3.8809 19.0932 3.8809 16.7876 3.8809 14.478C3.8809 14.2117 3.80103 14.1452 3.54278 14.1492C2.53372 14.1638 1.52334 14.1492 0.514288 14.1598C0.302626 14.1598 0.248047 14.0972 0.248047 13.8936C0.256034 12.4585 0.256034 11.0239 0.248047 9.58978C0.248047 9.37013 0.302626 9.30224 0.528931 9.3049C1.53798 9.31688 2.54837 9.3049 3.55742 9.31555C3.80103 9.31555 3.8809 9.26097 3.87957 9.00272C3.87158 8.00565 3.85428 7.00592 3.90753 6.00884C3.97142 4.83339 4.31487 3.73115 5.04437 2.78467C5.93095 1.63318 7.15699 1.09005 8.56141 0.967577C10.5582 0.79319 12.555 0.982221 14.5518 0.927641C14.7102 0.927641 14.7462 0.99287 14.7449 1.13664C14.7449 2.581 14.7449 4.02668 14.7449 5.47104C14.7449 5.67604 14.6517 5.68669 14.4946 5.68669C13.4523 5.68669 12.4113 5.68669 11.3703 5.68669C10.3506 5.68669 9.92057 6.10868 9.90593 7.13904C9.89661 7.7647 9.91525 8.39303 9.89794 9.01869C9.88995 9.26364 9.96583 9.31822 10.2015 9.31688C11.7204 9.30623 13.2393 9.31688 14.7595 9.3049C15.0257 9.3049 15.0723 9.3728 15.0444 9.62439C14.89 10.9849 14.7515 12.3467 14.6144 13.7085C14.5691 14.1571 14.5785 14.1585 14.1458 14.1585C12.8386 14.1585 11.5313 14.1665 10.2254 14.1518C9.95119 14.1518 9.89794 14.2317 9.89794 14.4899C9.90593 19.0799 9.89794 23.6752 9.91125 28.2612C9.91125 28.5674 9.8407 28.646 9.53186 28.6433C7.77866 28.6273 6.02414 28.6366 4.27094 28.634C3.82499 28.634 3.87158 28.6992 3.87158 28.22C3.87602 25.9472 3.87913 23.6739 3.8809 21.4002Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on Facebook</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.linkedin.com/company/ncbinlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="25"
+                             height="23"
+                             viewBox="0 0 26 24"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M14.6983 9.98423C15.6302 9.24808 16.5926 8.74754 17.6762 8.51991C19.673 8.09126 21.554 8.30824 23.1262 9.7526C24.2351 10.7723 24.7529 12.1115 25.0165 13.5612C25.1486 14.3363 25.2105 15.1218 25.2015 15.9081C25.2015 18.3043 25.2015 20.6898 25.2082 23.0806C25.2082 23.3468 25.1549 23.444 24.8621 23.4414C23.1297 23.4272 21.3992 23.4272 19.6704 23.4414C19.4041 23.4414 19.3429 23.3588 19.3442 23.1019C19.3535 20.5194 19.3442 17.9368 19.3442 15.3543C19.3442 14.0005 18.3258 12.9448 17.0266 12.9488C15.7273 12.9528 14.6983 14.0071 14.6983 15.361C14.6983 17.9328 14.6917 20.5047 14.6983 23.0753C14.6983 23.3708 14.6198 23.444 14.3296 23.4427C12.6185 23.4294 10.9079 23.4294 9.19779 23.4427C8.93155 23.4427 8.86099 23.3735 8.86232 23.1086C8.8783 19.7619 8.88628 16.4144 8.88628 13.066C8.88628 11.5688 8.87874 10.0708 8.86365 8.57182C8.86365 8.3575 8.90758 8.27896 9.14054 8.28029C10.9048 8.29094 12.6687 8.29094 14.4321 8.28029C14.6464 8.28029 14.6983 8.34818 14.6983 8.54653C14.6903 9.00047 14.6983 9.45441 14.6983 9.98423Z">
+                            </path>
+                            <path d="M6.55316 15.8443C6.55316 18.2564 6.55316 20.6699 6.55316 23.082C6.55316 23.3629 6.48127 23.4388 6.19906 23.4374C4.47737 23.4241 2.75568 23.4241 1.03399 23.4374C0.767751 23.4374 0.69986 23.3629 0.701191 23.1006C0.709178 18.2648 0.709178 13.4281 0.701191 8.59053C0.701191 8.34026 0.765089 8.27237 1.01669 8.2737C2.74991 8.28435 4.48048 8.28435 6.20838 8.2737C6.47462 8.2737 6.5465 8.33627 6.54517 8.6065C6.54783 11.0186 6.55316 13.4308 6.55316 15.8443Z">
+                            </path>
+                            <path d="M3.65878 0.243898C5.36804 0.243898 6.58743 1.45529 6.58743 3.1406C6.58743 4.75801 5.32145 5.95742 3.60819 5.96807C3.22177 5.97614 2.83768 5.90639 2.47877 5.76299C2.11985 5.61959 1.79344 5.40546 1.51897 5.13334C1.24449 4.86123 1.02755 4.53668 0.881058 4.17902C0.734563 3.82136 0.661505 3.43788 0.666231 3.05141C0.67555 1.42601 1.9362 0.242566 3.65878 0.243898Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on LinkedIn</span>
+                    </a>
+                
+
+                
+                    <a href="https://github.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="28"
+                             height="27"
+                             viewBox="0 0 28 28"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M16.7228 20.6334C17.5057 20.5527 18.2786 20.3944 19.0301 20.1608C21.3108 19.4193 22.5822 17.8259 22.963 15.4909C23.1228 14.5112 23.1814 13.5287 22.9883 12.5437C22.8106 11.6423 22.4013 10.8028 21.8007 10.1076C21.7526 10.0605 21.7197 10 21.7064 9.934C21.6931 9.86799 21.7 9.79952 21.7262 9.73748C22.0856 8.6206 21.9711 7.51969 21.601 6.42677C21.582 6.3497 21.5345 6.2827 21.468 6.23923C21.4016 6.19577 21.3211 6.17906 21.2429 6.19248C20.7329 6.21649 20.2313 6.33051 19.7611 6.52928C19.1103 6.7908 18.4899 7.12198 17.9104 7.51703C17.84 7.56996 17.7581 7.60551 17.6713 7.62078C17.5846 7.63605 17.4954 7.6306 17.4112 7.60489C15.2596 7.05882 13.0054 7.06203 10.8554 7.61421C10.7806 7.63586 10.7018 7.63967 10.6253 7.62534C10.5487 7.611 10.4766 7.57892 10.4148 7.53167C9.64788 7.03247 8.85171 6.58918 7.96368 6.33359C7.65781 6.24338 7.34123 6.19458 7.02239 6.18849C6.94879 6.17986 6.87462 6.19893 6.81432 6.242C6.75402 6.28507 6.71191 6.34904 6.69621 6.42145C6.32342 7.51437 6.2209 8.61527 6.56307 9.73348C6.59635 9.84264 6.64694 9.93316 6.54177 10.0516C5.47666 11.2604 5.09988 12.6834 5.19574 14.2676C5.2663 15.4244 5.46201 16.5466 6.01454 17.5769C6.84399 19.1171 8.21664 19.9119 9.85158 20.3352C10.3938 20.4706 10.9444 20.5698 11.4998 20.632C11.5384 20.7492 11.4506 20.7798 11.408 20.8291C11.1734 21.1179 10.9894 21.4441 10.8634 21.7942C10.7622 22.0458 10.8315 22.4039 10.6065 22.5516C10.263 22.7766 9.83827 22.8485 9.42421 22.8871C8.17936 23.0056 7.26471 22.4877 6.6283 21.4348C6.25552 20.8184 5.76956 20.3325 5.08523 20.0663C4.76981 19.9325 4.42139 19.8967 4.08537 19.9638C3.7898 20.029 3.73788 20.1901 3.93891 20.4111C4.03639 20.5234 4.14989 20.6207 4.27575 20.6999C4.9796 21.1318 5.51717 21.7884 5.80152 22.5636C6.37002 23.9973 7.48039 24.5697 8.93825 24.6323C9.43741 24.6575 9.93768 24.615 10.4254 24.5058C10.5892 24.4672 10.6531 24.4872 10.6517 24.6762C10.6451 25.4936 10.6637 26.3123 10.6517 27.131C10.6517 27.6635 10.1684 27.9297 9.58663 27.7393C8.17396 27.2671 6.84977 26.5631 5.66838 25.656C2.59555 23.2891 0.720966 20.1861 0.217704 16.3376C-0.357453 11.9127 0.911353 8.00824 3.98551 4.73881C6.11909 2.42656 8.99932 0.939975 12.1203 0.540191C16.5351 -0.0601815 20.4347 1.14323 23.7232 4.16373C26.2449 6.47869 27.724 9.37672 28.1048 12.7726C28.5828 17.0325 27.3686 20.7945 24.4768 23.9827C22.9762 25.6323 21.0956 26.8908 18.9982 27.6488C18.8783 27.6927 18.7585 27.738 18.636 27.7726C18.0356 27.9404 17.6189 27.6395 17.6189 27.0098C17.6189 25.7452 17.6308 24.4806 17.6295 23.2159C17.6329 22.9506 17.6128 22.6856 17.5696 22.4238C17.4325 21.6664 17.3419 21.484 16.7228 20.6334Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on GitHub</span>
+                    </a>
+                
+
+                
+                    <a href="https://ncbiinsights.ncbi.nlm.nih.gov/"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="26"
+                             height="26"
+                             viewBox="0 0 27 27"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M23.7778 26.4574C23.1354 26.3913 22.0856 26.8024 21.636 26.3087C21.212 25.8444 21.4359 24.8111 21.324 24.0347C19.9933 14.8323 14.8727 8.80132 6.09057 5.85008C4.37689 5.28406 2.58381 4.99533 0.779072 4.99481C0.202773 4.99481 -0.0229751 4.83146 0.00455514 4.21479C0.0660406 3.08627 0.0660406 1.95525 0.00455514 0.826734C-0.0413285 0.0815827 0.259669 -0.0193618 0.896534 0.00266238C6.96236 0.222904 12.3693 2.24179 16.9889 6.16209C22.9794 11.2478 26.1271 17.7688 26.4372 25.648C26.4629 26.294 26.3179 26.5271 25.6609 26.4684C25.0827 26.417 24.4991 26.4574 23.7778 26.4574Z">
+                            </path>
+                            <path d="M14.8265 26.441C14.0924 26.441 13.2371 26.6795 12.6626 26.3786C12.0092 26.0372 12.3781 25.0644 12.246 24.378C11.1154 18.5324 6.6849 14.5497 0.74755 14.1001C0.217135 14.0615 -0.0104482 13.9422 0.0134113 13.3659C0.0519536 12.1454 0.0482829 10.9213 0.0134113 9.69524C-0.00127145 9.14464 0.196946 9.03268 0.703502 9.04736C9.21217 9.27128 16.5994 16.2511 17.2804 24.7231C17.418 26.4446 17.418 26.4446 15.6579 26.4446H14.832L14.8265 26.441Z">
+                            </path>
+                            <path d="M3.58928 26.4555C2.64447 26.4618 1.73584 26.0925 1.06329 25.4289C0.39073 24.7653 0.00933763 23.8617 0.0030097 22.9169C-0.00331824 21.9721 0.365937 21.0635 1.02954 20.3909C1.69315 19.7184 2.59675 19.337 3.54156 19.3306C4.48637 19.3243 5.39499 19.6936 6.06755 20.3572C6.7401 21.0208 7.1215 21.9244 7.12782 22.8692C7.13415 23.814 6.7649 24.7226 6.10129 25.3952C5.43768 26.0677 4.53409 26.4491 3.58928 26.4555Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI RSS feed</span>
+                    </a>
+                
+            </div>
+        </div>
+    
+
+    <div data-testid="gridContainer"
+         class="grid-container ncbi-footer__container">
+        <div class="grid-row ncbi-footer__main-content-container"
+             data-testid="grid">
+            
+                <div class="ncbi-footer__column">
+                    
+                        <p class="ncbi-footer__circled-icons-heading">
+                            Connect with NLM
+                        </p>
+                    
+
+                    <div class="ncbi-footer__circled-icons-list">
+                        
+                            <a href=https://twitter.com/nlm_nih class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="32"
+                                     height="32"
+                                     viewBox="0 0 40 40"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on X (formerly known as Twitter)</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.facebook.com/nationallibraryofmedicine class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="13"
+                                     height="24"
+                                     viewBox="0 0 13 24"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M4.11371 23.1369C4.11371 23.082 4.11371 23.0294 4.11371 22.9745V12.9411H0.817305C0.6709 12.9411 0.670898 12.9411 0.670898 12.8016C0.670898 11.564 0.670898 10.3287 0.670898 9.09341C0.670898 8.97903 0.705213 8.95158 0.815017 8.95158C1.8673 8.95158 2.91959 8.95158 3.97417 8.95158H4.12057V8.83263C4.12057 7.8055 4.12057 6.7738 4.12057 5.74897C4.1264 4.92595 4.31387 4.11437 4.66959 3.37217C5.12916 2.38246 5.94651 1.60353 6.95717 1.1921C7.64827 0.905008 8.3913 0.764035 9.13953 0.778051C10.0019 0.791777 10.8644 0.830666 11.7268 0.860404C11.8869 0.860404 12.047 0.894717 12.2072 0.90158C12.2964 0.90158 12.3261 0.940469 12.3261 1.02968C12.3261 1.5421 12.3261 2.05452 12.3261 2.56465C12.3261 3.16857 12.3261 3.7725 12.3261 4.37642C12.3261 4.48165 12.2964 4.51367 12.1912 4.51138C11.5369 4.51138 10.8804 4.51138 10.2261 4.51138C9.92772 4.51814 9.63058 4.5526 9.33855 4.61433C9.08125 4.6617 8.84537 4.78881 8.66431 4.97766C8.48326 5.16652 8.3662 5.40755 8.32972 5.66661C8.28476 5.89271 8.26027 6.1224 8.25652 6.35289C8.25652 7.19014 8.25652 8.02969 8.25652 8.86923C8.25652 8.89439 8.25652 8.91955 8.25652 8.95615H12.0219C12.1797 8.95615 12.182 8.95616 12.1614 9.10714C12.0768 9.76596 11.9876 10.4248 11.9029 11.0813C11.8312 11.6319 11.7626 12.1824 11.697 12.733C11.6719 12.9434 11.6787 12.9434 11.4683 12.9434H8.26338V22.899C8.26338 22.979 8.26338 23.0591 8.26338 23.1392L4.11371 23.1369Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on Facebook</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.youtube.com/user/NLMNIH class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="21"
+                                     height="15"
+                                     viewBox="0 0 21 15"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M19.2561 1.47914C18.9016 1.15888 18.5699 0.957569 17.2271 0.834039C15.5503 0.678484 13.2787 0.655608 11.563 0.65332H9.43556C7.71987 0.65332 5.4483 0.678484 3.77151 0.834039C2.43098 0.957569 2.097 1.15888 1.74242 1.47914C0.813665 2.32097 0.619221 4.62685 0.598633 6.89384C0.598633 7.31781 0.598633 7.74101 0.598633 8.16345C0.626084 10.4121 0.827391 12.686 1.74242 13.521C2.097 13.8412 2.4287 14.0425 3.77151 14.1661C5.4483 14.3216 7.71987 14.3445 9.43556 14.3468H11.563C13.2787 14.3468 15.5503 14.3216 17.2271 14.1661C18.5676 14.0425 18.9016 13.8412 19.2561 13.521C20.1712 12.6929 20.3725 10.451 20.3999 8.22064C20.3999 7.74025 20.3999 7.25986 20.3999 6.77946C20.3725 4.54907 20.1689 2.30724 19.2561 1.47914ZM8.55942 10.5311V4.65201L13.5601 7.50005L8.55942 10.5311Z"
+                                          fill="white" />
+                                </svg>
+                                <span class="usa-sr-only">NLM on YouTube</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            
+
+            
+                <address class="ncbi-footer__address ncbi-footer__column">
+                    
+        <p>
+            <a class="usa-link usa-link--external"
+            href="https://www.google.com/maps/place/8600+Rockville+Pike,+Bethesda,+MD+20894/%4038.9959508,
+            -77.101021,17z/data%3D!3m1!4b1!4m5!3m4!1s0x89b7c95e25765ddb%3A0x19156f88b27635b8!8m2!3d38.9959508!
+            4d-77.0988323"
+            rel="noopener noreferrer" target="_blank">National Library of Medicine
+            <br/> 8600 Rockville Pike<br/> Bethesda, MD 20894</a>
+        </p>
+    
+                </address>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/web_policies.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Web Policies
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/institutes-nih/nih-office-director/office-communications-public-liaison/freedom-information-act-office" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            FOIA
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS Vulnerability Disclosure
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://support.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Help
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/accessibility.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Accessibility
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/careers/careers.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Careers
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+        </div>
+
+        
+            <div class="grid-row grid-col-12" data-testid="grid">
+                <ul class="ncbi-footer__bottom-links-list">
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NLM
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NIH
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.usa.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            USA.gov
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+    </div>
+</footer>
+
+    
+
+
+        
+        
+    
+  <script  type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/pinger/pinger.js"> </script>
+
+
+    
+        
+
+<button class="back-to-top" data-ga-category="pagination" data-ga-action="back_to_top">
+    <label>Back to Top</label>
+    <svg class="usa-icon order-0" aria-hidden="true" focusable="false" role="img">
+        <use xlink:href="/static/img/sprite.svg#arrow_upward"></use>
+    </svg>
+</button>
+    
+
+
+        
+    
+    
+    
+        
+    <script type="application/javascript">
+    window.ncbi = window.ncbi || {};
+    window.ncbi.pmc = window.ncbi.pmc || {};
+    window.ncbi.pmc.options = {
+        logLevel: 'INFO',
+        
+        staticEndpoint: '/static/',
+        
+        citeCookieName: 'pmc-cf',
+    };
+</script>
+    <script type="module" crossorigin="" src="/static/assets/base-133c6271.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/jquery/jquery-3.6.0.min.js">&#xA0;</script>
+    <script type="text/javascript">
+        jQuery.getScript("https://cdn.ncbi.nlm.nih.gov/core/alerts/alerts.js", function () {
+            galert(['div.nav_and_browser', 'div.header', '#universal_header', '.usa-banner', 'body > *:nth-child(1)'])
+        });
+    </script>
+
+
+    <script type="text/javascript">var exports = {};</script>
+     <script src="/static/CACHE/js/output.13b077bc3ffd.js"></script>
+
+    <script type="module" crossorigin="" src="/static/assets/article-44d04358.js"></script>
+    
+    
+
+    </body>
+</html>

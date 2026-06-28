@@ -1,0 +1,447 @@
+Measures of tree balance play an important role in many different research areas such as mathematical phylogenetics or theoretical computer science. Typically, tree balance is quantified by a single number which is assigned to the tree by a balance or imbalance index, of which several exist in the literature. Most of these indices are based on structural aspects of tree shape, such as clade sizes or leaf depths. For instance, indices like the Sackin index, total cophenetic index, ands^-shape statistic all quantify tree balance through clade sizes, albeit with different definitions and properties. In this paper, we formalize the idea that many tree (im)balance indices are functions of similar underlying tree shape characteristics by introducing metaconcepts of tree balance. A metaconcept is a functionΦfthat depends on a functionfcapturing some aspect of tree shape, such as balance values, clade sizes, or leaf depths. These metaconcepts encompass existing indices but also provide new means of measuring tree balance. The versatility and generality of metaconcepts allow for the systematic study of entire families of (im)balance indices, providing deeper insights that extend beyond index-by-index analysis.
+
+The study of tree balance is an integral part of many different research areas. For example, tree balance is used in evolutionary biology and phylogenetics to study macroevolutionary processes such as speciation and extinction. Additionally, balanced trees are important in computer science, for instance, in the context of search trees (Andersson1993; Knuth1998).
+
+In phylogenetics, the balance of a tree is usually quantified by so-called tree (im)balance indices. Intuitively, an (im)balance index is a function that assigns a single numerical value to a tree, assessing some aspect of its shape. The greater (smaller) the value, the more balanced the tree according to the respective (im)balance index. Over the last few decades, there has been a surge in the development of tree (im)balance indices, and numerous such indices are now available (for an overview and categorization see the recent survey by Fischer et al. (2023)). Despite the multitude of different (im)balance indices available, many of them employ similar underlying tree shape characteristics such as balance values, clade sizes, or leaf depths, albeit with different definitions and properties.
+
+The main goal of this paper is to formalize the idea that many (im)balance indices for rooted trees are functions of similar underlying tree shape characteristics by introducing metaconcepts of tree balance. Here, a metaconcept is a functionΦfthat depends on a functionfcapturing some aspect of tree shape, such as balance values, clade sizes, or leaf depths. This idea is inspired by a paper on unrooted trees: Fischer and Liebscher (2021) analyzed the balance of unrooted trees and introduced a measureΦf, which can be regarded as a metaconcept for unrooted tree balance. ChoosingΦfto be the sum function andfto be a function of split sizes, the authors showed that this metaconcept leads to a family of functions suitable for measuring unrooted tree imbalance iffis strictly increasing. Furthermore, very recently, Cleary et al. (2025) essentially used the idea of a metaconcept based on clade sizes to show that a wide range of clade-size based measures satisfying concavity and monotonicity conditions are minimized by the so-called complete or greedy from the bottom tree (Coronado et al.2020; Fill1996) and maximized by the so-called caterpillar tree (both trees are formally defined below).
+
+In this paper, we provide a formal definition of a metaconcept for rooted trees. We then specialize this metaconcept to three classes of metaconcepts suitable to measure tree (im)balance. These metaconcepts are based on certain sequences that can be associated with rooted trees, namely the clade size sequence, the leaf depth sequence, and, in the case of binary trees, additionally the balance value sequence. We rigorously study all metaconcepts, characterize which choices of the functionflead to (im)balance indices, analyze extremal trees and values for the metaconcepts, and investigate further desirable properties such as locality and recursiveness.
+
+Cleary et al. (2025) proved that the clade size metaconcept yields an imbalance index for binary trees iffis strictly increasing and strictly concave. We extend this result to include functions that are strictly increasing and either strictly convex or affine. Moreover, the clade size metaconcept also defines an imbalance index for arbitrary trees iffis additionally either 2-positive, i.e.,f(x)>0for allx≥2, in the concave and convex cases, or, in the case of affine functions, iffhas a non-negative intercept. Further, the leaf depth metaconcept yields an imbalance index for both arbitrary and binary trees iffis strictly increasing and either convex or affine. Finally, the balance value metaconcept defines an imbalance index for binary trees for all strictly increasing functionsfwithout additional constraints.
+
+To help users identify which imbalance index derived from a metaconcept best suits their specific aims, we provide four decision trees (Figures3and4). These decision trees are based on three key properties of the index: (1) whether it applies to binary trees or to arbitrary trees; (2) the underlying structural aspect of the tree it captures (such as balance values, clade sizes, or leaf depths); and (3) the set of binary minimizing trees. For the third criterion, we give four possible options to choose from (cf. Figure5). Additionally, we provide code for computing the metaconcepts using the R packages treebalance (Fischer et al.2023) and ape (Paradis and Schliep2019).
+
+We remark that our metaconcepts encompass various existing tree imbalance indices such as the Sackin and Colless indices, and we highlight these connections in the course of the paper. The power of our metaconcepts is that they are naturally more general and versatile than individual indices. Next to leading to new (im)balance indices, the metaconcepts thus also provide a new framework to study the properties (such as extremal trees and values) of whole families of existing imbalance indices holistically, rather than on an individual index basis.
+
+The present manuscript is organized as follows: In Section2, we present all definitions and notations needed throughout this manuscript and summarize some known results. Section3then contains all our results: In Section3.1, we establish some general results on the underlying tree shape sequences employed in this paper. Section3.2then discusses the resulting metaconcepts and their properties in depth. We start with the balance value metaconcept (Section3.2.1), then turn to the clade size metaconcept (Section3.2.2), and finally consider the leaf depth metaconcept (Section3.2.3). In Section3.2.4, we analyze the locality and recursiveness of all three metaconcepts. We conclude our manuscript with a brief discussion and highlight some directions for future research in Section4.
+
+In this section, we introduce all concepts relevant for the present manuscript. We start with some general definitions. We mainly follow the notation of Fischer et al. (2023).
+
+Rooted treesArooted tree(or simplytree) is a directed graphT=(V(T),E(T)), with vertex setV(T) and edge setE(T), containing precisely one vertex of in-degree zero, the root (denoted byρ), such that for everyv∈V(T)there exists a unique path fromρtovand such that there are no vertices with out-degree one. We useVL(T)⊆V(T)to refer to the leaf set ofT(i.e.,VL(T)={v∈V(T):out-degree(v)=0}), and we useV˚(T)to denote the set of inner vertices ofT(i.e.,V˚(T)=V(T)\VL(T)). Moreover, we usento denote the number of leaves ofT, i.e.,n=|VL(T)|. Note thatρ∈V˚(T)ifn≥2. Ifn=1,Tconsists of only one vertex, which is at the same time the root and its only leaf.
+
+A rooted tree is calledbinaryif all inner vertices have out-degree two, and for everyn∈N≥1, we denote byBTn∗the set of (isomorphism classes of) rooted binary trees withnleaves and byTn∗the set of (isomorphism classes of) rooted trees withnleaves. We often call a treeT∈Tn∗anarbitrary tree, but remark that arbitrary trees are also sometimes referred to as non-binary trees in the literature (even though binary trees are also contained in the set of arbitrary trees).
+
+Depth and heightThedepthδT(v)(orδvfor brevity) of a vertexv∈V(T)is the number of edges on the path fromρtov, and the heighth(T) ofTis the maximum depth of any leaf, i.e.,h(T)=maxx∈VL(T)δT(x).
+
+Ancestors, descendants, and (attaching) cherriesLetu,v∈V(T)be vertices ofT. Whenever there exists a path fromutovinT, we say thatuis anancestorofvandvis adescendantofu. Note that this implies that each vertex is an ancestor and a descendant of itself. Ifuandvare connected by an edge, i.e., if(u,v)∈E(T), we also say thatuis theparentofvandvis achildofu. Thelowest common ancestorLCAT(u,v)of two verticesu,v∈V(T)is the unique common ancestor ofuandvthat is a descendant of every other common ancestor of them. Moreover, two leavesx,y∈VL(T)are said to form acherry, if they have the same parent, which is then also called acherry parent. Finally, byattaching a cherryto a treeTto obtain a treeT′, we mean replacing a leafx∈VL(T)by a cherry. Notice thatT′has one more leaf thanT.
+
+(Maximal) pending subtrees, clade sizes, and standard decompositionGiven a treeTand a vertexv∈V(T), we denote byTvthepending subtreeofTrooted invand usenT(v)(ornvfor brevity) to denote the number of leaves inTv, also called theclade sizeofv. We will often decompose a rooted treeTonn≥2leaves into its maximal pending subtrees rooted in the children ofρ. We denote this decomposition asT=(Tv1,…,Tvk), wherev1,…,vkare the children of the root inT, and refer to it as thestandard decompositionofT. IfTis binary, we havek=2, and thusT=(Tv1,Tv2). Throughout,subtreewill always refer to a pending subtree.
+
+Balance values, (perfectly) balanced vertices, and cophenetic valuesNow letTbe a rooted binary tree and letv∈V˚(T)be an inner vertex ofTwith childrenv1andv2. Thebalance valuebT(v)(orbvfor brevity) ofvis defined asbT(v):=|nv1-nv2|. An inner vertexvis calledbalancedif it fulfillsbT(v)≤1andperfectly balancedifbT(v)=0. Now, letx,y∈VL(T)be two leaves of a treeT∈Tn∗. Then, thecophenetic valueofxandyis defined asφT(x,y):=δTLCAT(x,y), i.e., it is the depth of their lowest common ancestor. For an example of these definitions, cf. Fig.1.
+
+Important (families of) treesNext, we introduce some specific families of trees that will be important throughout this manuscript (see Figure2for examples).
+
+First, themaximally balanced tree(or mb-tree for brevity), denoted byTnmb, is the rooted binary tree withnleaves in which all inner vertices are balanced. Recursively, a rooted binary tree withn≥2leaves is maximally balanced if its root is balanced and its two maximal pending subtrees are maximally balanced.
+
+Second, thegreedy from the bottom tree(or gfb-tree for brevity), denoted byTngfb, is the rooted binary tree withnleaves that results from greedily clustering trees of minimal leaf numbers, starting withnsingle vertices and proceeding until only one tree is left as described by Coronado et al. (2020), Algorithm 2.
+
+Third, thefully balanced tree of heighth(or fb-tree for brevity), denoted byThfbis the rooted binary tree withn=2hleaves withh∈N≥0, in which all leaves have depth preciselyh. Note that forh≥1, we haveThfb=Th-1fb,Th-1fb. Moreover, forh∈N≥0,Thfb=Thmb=Thgfb.
+
+Fourth, thecaterpillar tree(or simplycaterpillar), denoted byTncat, is the rooted binary tree withnleaves that fulfills eithern=1, orn≥2and additionally has exactly one cherry.
+
+Finally, thestar tree, denoted byTnstar, is the rooted tree withnleaves that either satisfiesn=1, orn≥2and additionally has a single inner vertex (the root), which is adjacent to all leaves.
+
+Notice that all trees introduced above are unique (up to isomorphism) and have the property that all their pending subtrees are (smaller) trees of the same type. Moreover, we remark that the caterpillar is generally regarded as the most unbalanced (binary) tree, whereas the fully balanced tree is considered the most balanced binary tree when it exists, i.e., for leaf numbers that are powers of two. For other leaf numbers, both the maximally balanced tree and the greedy from the bottom tree are often regarded as the most balanced binary trees, whereas the star tree is usually considered to be the most balanced arbitrary tree.
+
+the fully balanced treeThfbis the unique tree minimizingtonBTn∗for alln=2hwithh∈N≥0.
+
+If the domain oftisBTn∗, we often calltabinary imbalance indexto highlight this fact.
+
+Given two trees, sayT,T′∈Tn∗(BTn∗), and an imbalance index, sayt, we say thatTis more balanced thanT′(with respect tot) ift(T)<t(T′). More generally, when we say that a treeTminimizes an imbalance index, we mean that it minimizes it among all trees with the same leaf number asT. Analogously, when we compare a treeTto a family of trees (such as the ones defined above), we always compare it to the family’s representative that has the same number of leaves.
+
+We note that in addition to imbalance indices, balance indices also exist. A balance index is minimized by the caterpillar tree and maximized by the fb-tree. Since a balance index can be obtained from an imbalance index (and vice versa) by multiplying by-1, and given that the majority of known indices are formulated as measures of imbalance, we focus exclusively on imbalance indices in this work.
+
+Further, two imbalance indicesφ1andφ2are consideredequivalent, if for all treesT1,T2∈Tn∗(BTn∗), the following holds:φ1(T1)<φ1(T2)⟺φ2(T1)<φ2(T2). In other words, equivalence means thatφ1andφ2rank trees in the same order from most balanced to least balanced.
+
+We next turn to two desirable properties of imbalance indices, namely locality and recursiveness.
+
+In other words, iftis local and two treesTandT′differ only in a pending subtree, then the differences of theirt-values is equal to the differences of the subtrees’t-values.
+
+Next, we introduce the recursiveness of a tree shape statistic.
+
+(Recursiveness (based on Fischer et al. (2023))) Arecursive tree shape statisticof lengthx∈N≥1is an ordered pair(λ,r), whereλ∈Rxandris anx-vector of symmetric functions each mapping a multiset ofx-vectors toR. In this definition,xis the number of recursions that are used to calculate the index, the vectorλcontains the start value for each of thexrecursions, i.e., the values ofT∈T1∗ifn=1, and the vectorrcontains the recursions themselves. In particular,ri(T)=λiforn=1, and forT=(T1,…,Tk), recursionrioperates onkvectors of lengthx, namely(r1(T1),…,rx(T1)),…,(r1(Tk),…,rx(Tk)), each representing one of the maximal pending subtreesT1,…,Tkand containing their respective values. The recursions are symmetrical functions, i.e., the order of thosekvectors is permutable, because we are solely considering unordered trees. If only binary trees are considered, i.e.,k=2for every pending subtree, we use the termbinary recursive tree shape statistic.
+
+In the following, we introduce our main concepts: the definition of a general metaconcept, three tree shape sequences, and three classes of metaconcepts – each based on one of these sequences. We begin by defining the sequences.
+
+Balance value sequence, clade size sequence, and leaf depth sequenceFirst, thebalance value sequenceof a binary treeT∈BTn∗is the list of balance values of all its inner vertices, arranged in ascending order. We denote this sequence byBT:=(b1,…,bn-1). Thei-th entry ofB(T)is denoted byBTi. Note that for anyT∈BTn∗, the length ofB(T)isn-1. Also note thatB(T)=(0,…,0)if and only ifT=Thfb(for a formal argument, see Coronado et al.2020, Corollary 1).
+
+Second, theclade size sequenceof a treeT∈Tn∗is the list of clade sizes of all its inner vertices, arranged in ascending order. We denote this sequence byN(T):=(n1,…,n|V˚(T)|), whereN(T)irepresents thei-th entry ofN(T). The length of the clade size sequence for a tree withn≥2leaves can range from 1 ton-1. Specifically, the sequence has length 1 if and only ifTis a star tree, and it has lengthn-1if and only ifTis binary.
+
+Third, theleaf depth sequenceof a treeT∈Tn∗is the list of leaf depths of all its leaves, arranged in ascending order. We denote this sequence byΔ(T):=(δ1,…,δn), whereΔ(T)irepresents thei-th entry ofΔ(T). Unlike the clade size sequence, the leaf depth sequence has always lengthn, regardless of whether the tree is binary.
+
+Balance value metaconcept, clade size metaconcept, and leaf depth metaconceptNext, we define the general metaconcept. In a second step, we derive three classes of metaconcepts from this definition, each based on one of the previously introduced sequences. LetT∈T⊆Tn∗be a tree, and letSeq(T) be a vertex value sequence on a subsetV′⊆V(T), i.e., a sequence that assigns each vertexv∈V′a valuesvderived fromv. Assume thatSeq(T) is sorted in ascending order, and letSeq(T)idenote itsi-th entry.
+
+Examples for known balance indices and their interpretations in the framework of metaconcepts of orderωcan be found in Tables1and2.
+
+Definitions of binary imbalance indices, which are only applicable to binary trees, i.e., those with domainBTn∗. It is straightforward to see that these binary imbalance indices are induced by the balance value metaconceptΦfBwhen the functionfis chosen as specified in the right column. The (quadratic) Colless index is induced by the first-order metaconcept whereidis the identity function, while the corrected Colless index is induced by the second-order metaconcept.
+
+Note that forn≥2the minimal balance value is 0, the minimal clade size is 2, and the minimal leaf depth is 1. Hence, the valuecin the definition of the metaconcept equals the respective value.
+
+Note that the clade size metaconcept of order 1, when applied with a strictly increasing and strictly concave functionf, corresponds to the functionΦfin Cleary et al. (2025). Recall that a concave function satisfiesf(λx+(1-λ)y)≥λf(x)+(1-λ)f(y)for allλ∈(0,1)and allx,y∈Randx≠y(and in case of strict concavity, the inequality is also strict). When choosingλ=12andy=x+2, this yields the inequality2·f(x)≥f(x-1)+f(x+1)and hencef(x)-f(x-1)≥f(x+1)-f(x), i.e., the increments decrease (where again, the inequalities are strict in case of strict concavity). Finally, we will sometimes use the fact that a differentiable functionfis (strictly) concave on an interval if and only if its derivative functionf′is (strictly) decreasing on that interval. Conversely, a (strictly) convex function has (strictly) increasing increments, meaning the inequalities are reversed. Moreover, we call a functionf:R≥0→R2-positive, iff(x)>0for allx≥2and non-negative iff(x)≥0for allx≥0. In the case of an affine functionf(x)=m·x+a, we refer tomas the slope andaas the intercept.
+
+Tables1and2define various known imbalance indices. Note that the choice of logarithm base is arbitrary. Additionally, we follow the conventions that00=0and that a sum over an empty set equals zero. Note that Fischer et al. (2023) demonstrated that all functions listed in Table1satisfy the definition of an imbalance index onTn∗, except for thes^-shape statistic, which is only a binary imbalance index. Moreover, all functions listed in Table2are binary imbalance indices, too.
+
+Before presenting our new results, we first recall some previously established findings. We summarize key results concerning special trees as well as known imbalance indices.
+
+(Coronado et al. (2020), Theorem 1 and Proposition 6) Letn∈N≥1. The mb-treeTnmband the gfb-treeTngfbminimize the Colless index onBTn∗.
+
+Notice that for most leaf numbersn, there are trees distinct from the mb-treeTnmband the gfb-treeTngfbthat also minimize the Colless index. However, all binary trees withnleaves minimizing the Colless index have been completely characterized by Coronado et al. (2020), Proposition 1 and Proposition 3.
+
+(Fischer (2021), Theorem 2) LetT∈Tn∗with. Then,Tminimizes the Sackin index onBTn∗if and only ifT=TnfborTemploys precisely two leaf depths, namelyhn-1andhn. Moreover, in this case,S(T)=-2hn+n·(hn+1), which equalshn·2hnifn=2hn.
+
+Note that trees withnleaves minimizing the Sackin index as characterized in the lemma above are precisely those trees that can be constructed from the fb-tree of heighthn-1by attachingn-2hn-1cherries to its leaves. In particular, the gfb-tree and the mb-tree can be constructed in this way. This follows from the fact that the gfb-tree and the mb-tree minimize the Colless index onBTn∗(Proposition2.4) and the fact that all trees minimizing the Colless index also minimize the Sackin index onBTn∗(Coronado et al. (2020), Proposition 9). Note that to construct the gfb-tree, one has to attach the cherries to the fb-tree from left to right (or vice versa) (Cleary et al. (2025), Lemma 4.17).
+
+is the minimum value of the Colless index onBTn∗, wheres(x) is the distance fromx∈Rto its nearest integer, i.e.,s=minz∈Z|x-z|.
+
+(Fischer (2021), Theorem 1) The caterpillar uniquely maximizes the Sackin index onBTn∗, and we haveSTncat=n·(n+1)2-1.
+
+(adapted from Cleary et al. (2025), Corollary 4.4) Letfbe strictly increasing and strictly concave. Then, the clade size metaconceptΦfNis a binary imbalance index. Moreover, the gfb-treeTngfbuniquely minimizes the clade size metaconcept onBTn∗.
+
+(adapted from Cleary et al. (2025), Theorem 4.3) Letfbe strictly increasing. Then, the caterpillarTncatuniquely maximizes the clade size metaconceptΦfNonBTn∗.
+
+Finally, we recall a result from Cleary et al. (2025) regarding the number of subtrees of the gfb-treeTngfbfor all possible subtree sizes.
+
+We are now in the position to state our new results.
+
+This section is divided into two subsections. The first subsection examines the underlying tree shape sequences of the metaconcepts, highlighting their differences and similarities. The second subsection analyzes each metaconcept in terms of its minimizing and maximizing trees, as well as its minimum and maximum values. Finally, we investigate their locality and recursiveness.
+
+In this subsection, we analyze and compare three sequences derived from a (binary) tree: the balance value sequence, the clade size sequence, and the leaf depth sequence. Each of these sequences serves as the foundation for a specific metaconcept.
+
+A shared property of the three sequences associated with a rooted tree is that they can be computed recursively. We will exploit this property to analyze the recursiveness of our metaconcepts.
+
+To formalize the recursive structure of these sequences, we introduce an operator that allows us to merge two sequences while preserving ascending order. LetSeq1andSeq2be two sequences of lengthsn1andn2, respectively. We define their ordered union asSeq1∪→Seq2:=Seq, whereSeqis a sequence of lengthn1+n2containing all elements ofSeq1andSeq2arranged in ascending order. For example,(1,4,5,13)∪→(2,2,4,7,8)=(1,2,2,4,4,5,7,8,13). Additionally, fora∈N, we defineSeq1+aas the sequence obtained by increasing each element ofSeq1bya. For example,(1,4,5,13)+1=(2,5,6,14).
+
+Another shared property of these sequences is that none of them uniquely characterize a (binary) tree. That is, two non-isomorphic (binary) trees can have the same sequence (see Figures10and11in AppendixA). Moreover, examples exist where two distinct binary trees withn≥4leaves have the same/differentBand/or the same/differentNand/or the same/differentΔ. A (unique) minimal example in terms of the leaf numbernfor each possible pair of sequences is given in Figures10,11,12,13and14in AppendixA. For an overview, see also Table3, which indicates the corresponding figures for each case.
+
+In this section, we analyze the three previously introduced metaconcepts. Specifically, we determine which families of the functionfensure that a given metaconcept yields a (binary) imbalance index. Accordingly, we examine the trees that minimize and maximize each metaconcept based on the choice offand provide formulas for computing their minimum and maximum values. Finally, we analyze the locality and the recursiveness of the metaconcepts.
+
+Throughout this manuscript, we focus exclusively on first-order metaconcepts. However, all results regarding minimizing and maximizing trees extend to higher-order metaconcepts that are equivalent to the first-order case. For examples of such functions, see the following remark.
+
+The BVM, the LDM, and the binary CSM of orderω≥2with a function of the formf(x,o1,…,oω-1)=f1(x)·f2(o1,…,oω-1)+f3(o1,…,oω-1)are equivalent to the first-order metaconcept withf(x)=f1(x), provided thatf2(o1,…,oω-1)>0and the additional valueso1,…,oω-1are the same for all trees with the same number of leaves (e.g.,oi=nbutoi≠h(T)). This equivalence holds because the additional values act as constants, and the number of summands in the calculation of these metaconcepts remains the same for all trees withnleaves.
+
+For arbitrary trees, the number of summands in the CSM varies. Thus, the CSM of orderω≥2can only be guaranteed to be equivalent to the first-order metaconcept if the function is of the formf(x,o1,…,oω-1)=f1(x)·f2(o1,…,oω-1), wheref2(o1,…,oω-1)>0. In this case, the metaconcept remains equivalent to the first-order metaconcept with functionf(x)=f1(x).
+
+First, we outline the conditions on the functionfthat ensure that the respective metaconcept yields a (binary) imbalance index. For a detailed overview, including the minimizing trees onBTn∗, see Table4. In the next step, we analyze the locality and the recursiveness of the metaconcepts.
+
+In this remark, we provide examples to illustrate some of the cases presented in Table4.
+
+First, we provide an example showing that the minimizing tree of the BVM can vary for strictly increasing (and possibly strictly concave) functionsf. To cover both cases, consider two strictly increasing and strictly concave functions,f1andf2, defined as follows:f1(x)=log212x+1andf2(x)=log232x+1.
+
+Thus, for the functionf1, the gfb-tree is the unique minimizer, while forf2, treeT1is the unique minimizer of the BVM whenn=5.
+
+Thus,T2attains a smaller value thanT3fb, proving that the fb-tree is not always a (unique) minimizer. Consequently, the CSM is not a (binary) imbalance index for all strictly increasing functionsf.
+
+showing that the LDM is not a (binary) imbalance index for all strictly increasing (and possibly strictly concave) functionsf.
+
+Thus,T2fbattains the minimum for the functionf5, illustrating that the minimizing tree for the LDM depends on the choice off.
+
+Before measuring tree balance, three key questions must be addressed: Are the trees binary or arbitrary? Which binary tree(s) should be considered the most balanced? Which aspect of the tree (balance values, clade sizes, or leaf depths) should be used to measure balance? Once these questions are answered, the next step is to determine which imbalance index, derived from which metaconcept, is most suitable.
+
+To support this decision, we provide four decision trees in Figures3and4. Each figure contains two decision trees: one for binary trees and one for arbitrary trees. The decision trees in Figure3begin with a choice of binary minimizing tree(s), while those in Figure4start with the aspect of the tree to be considered, i.e., the class of metaconcepts, and then proceed to the selection of binary minimizing trees.
+
+In both figures, the notations “≡C(T)” and “≡S(T)” indicate that the resulting imbalance index is equivalent to the Colless or Sackin index, respectively. The label “argminS(T)” indicates that the binary minimizing trees coincide with those of the Sackin index, although the imbalance index itself may not be equivalent to the Sackin index (as it can lead to different rankings of non-extremal trees).
+
+To illustrate the different options for binary minimizing trees, Figure5shows examples ofTnmb,Tngfb,argminS(T), and, for completeness, alsoargminC(T)forn=12leaves.
+
+Here, we provide R code to calculate the three metaconcepts using the R packages ape Paradis and Schliep (2019) and treebalance Fischer et al. (2023).
+
+To investigate the extremal trees associated with these metaconcepts, we frequently use the following lemma. Note that the first part of this lemma is a generalization of (Fischer and Liebscher (2021), Theorem 2).
+
+Both statements also hold in the maximization case, where “minimizing” is replaced by “maximizing”, and all inequalities are reversed.
+
+Note that ifT=BTn∗andSeq∈B,N,Δ, then the sequences have the same length for all considered trees. Moreover, the functionalΦfSeqcorresponds to the respective metaconcept.
+
+Having established this useful lemma, we can now begin our analysis of the three classes of metaconcepts. We start with the balance value metaconcept.
+
+In the following, we prove one of our main results, namely that the BVM is a binary imbalance index for all strictly increasing functionsf. This generalizes existing results in the literature, which were previously proven only for specific functionsf, such as the Colless index, the corrected Colless index, and the quadratic Colless index. Additionally, we demonstrate that all imbalance indices induced by strictly increasing and affine functionsfare equivalent to the Colless index. Furthermore, we show that the mb-tree (uniquely) minimizes the BVM iffis strictly increasing and (locally strictly) convex. In a second step, we compute the minimum and maximum values of the BVM.
+
+We first investigate the relationship between the BVMΦfBand the Colless index, the corrected Colless index, and the quadratic Colless index by focusing on the specific properties of the functionfthat induces each of these indices.
+
+It follows immediately that the BVM with strictly increasing and affinef(i.e.,m>0) is equivalent to the Colless index onBTn∗.
+
+Furthermore, by Remark3.2, the corrected Colless index is equivalent to the Colless index. Additionally, we note that the functions inducing the Colless index (i.e., the identity function) and the quadratic Colless index (i.e.,fQC(b)=b2) are both strictly increasing. The function inducing the Colless index is affine, whereas the function inducing the quadratic Colless index is strictly convex forb≥0.
+
+With this in mind, we now turn our attention to the extremal trees of the BVM.
+
+We begin by analyzing the trees that maximize, respectively minimize, the BVM for (strictly) increasing functionsf.
+
+The caterpillarTncatis the (unique) tree maximizing the balance value metaconceptΦfBonBTn∗.
+
+Ifn=2hwithh≥0, then the fully balanced treeThfbis the (unique) tree minimizingΦfBonBTn∗.
+
+In particular, the balance value metaconcept is a binary imbalance index for all strictly increasing functionsf.
+
+We will show that the caterpillar (uniquely) maximizesΦfBonBTn∗. Specifically, we first show that for all treesT∈BTn∗, we haveB(T)i≤BTncatifor alli∈1,…,n-1.Forn≤3, there is nothing to show, as there exists only one binary tree withnleaves. Letn≥4be the smallest number of leaves for which there exists a treeT∈BTn∗such thatB(T)i>BTncatifor at least onei∈1,…,n-1. By assumption, the statement of the theorem holds forTn-1cat. LetTn-1be a tree from whichTcan be obtained by attaching a cherry to one of its leaves. Note thatTncatcan be obtained in the same way fromTn-1cat. Thus, for both trees, we haveB(T)1=BTncat1=0, corresponding to the parent of the attached cherry in each respective tree.
+
+Next, we show thatB(T)i<BTncatifor at least onei. SinceT≠Tncat, this follows directly from the fact thatThas at least two cherries. Hence,B(T)2=0<1=BTncat2.
+
+Now, together with Lemma3.4, this implies that the caterpillar (uniquely) maximizesΦfBonBTn∗for any (strictly) increasing functionf.
+
+Hence, by Theorem3.6, we have identified a family of binary imbalance indices, some of which are already known. As shown in Table2and Remark3.5, this family includes the Colless index, the equivalent corrected Colless index, and the quadratic Colless index.
+
+Next, we consider the minimizing trees of the BVM with affine functionsf.
+
+Letfbe a strictly increasing affine function, i.e.,f(b)=m·b+awithm,a∈Randm>0. Then, for alln, the trees that minimize the balance value metaconceptΦfBare the same as those that minimize the Colless index. In particular, both the gfb-tree and the mb-tree achieve this minimum.
+
+We remark that all binary trees withnleaves minimizing the Colless index are completely characterized (Remark2.5), implying that we also have a full characterization of the trees minimizing the BVMΦfBfor strictly increasing affine functionsf.
+
+Next, we prove that the mb-tree minimizes the BVM for all strictly increasing and convex functionsf.
+
+Letfbe a strictly increasing and convex function. Then, the mb-treeTnmbminimizes the balance value metaconceptΦfBonBTn∗for alln. Moreover, the mb-tree uniquely minimizesΦfBonBTn∗if additionallyf(1)-f(0)<f(2)-f(1), i.e., iffis additionally locally strictly convex.
+
+To prove this theorem we need three more lemmas. Recalling thatcndenotes the minimum value of the Colless index onBTn∗, we first show thatcn≥2for alln≥4that are not powers of two.
+
+Letn∈N≥4be such thatn≠2hfor allh∈N. Then, we havecn≥2.
+
+Note that we already know for (strictly) increasingfthatTnmb(uniquely) minimizes the BVMΦfBonBTn∗ifn=2hfor someh∈N. This is due to the fact that in this case,Tnmbcoincides withThfb(see Theorem3.6). The following two lemmas addresses the case in whichnis not a power of two and show that under certain conditions,Tnmbis then still the (unique) minimizer ofΦfB.
+
+Letfbe strictly increasing. Letn∈Nsuch thatn≠2hfor allh∈N. If we have for all sequencesb1,…,bkwithk=CTnmb,b1+…+bk≥k, andbi>1for somei∈{1,…,k}thatk·f(1)≤f(b1)+…+f(bk), thenTnmbminimizes the balance value metaconceptΦfBonBTn∗. Moreover, the minimizer is unique precisely if the inequality is strict.
+
+Next, we distinguish two cases. Note thatb1+…+bl=C(T)≥kand at least onebi>1(otherwise all inner vertices ofTwould be balanced, contradictingT≠Tnmb).
+
+Finally, we use the previous lemma to show that a certain family of functionsfsatisfies the inequality in Lemma3.10and thus yields the mb-tree as (unique) minimizer of the BVMΦfBwith these functionsf, too.
+
+Letfbe a non-negative and strictly increasing function. Letn∈Nsuch thatn≠2hfor allh∈N. If we haveb·f(1)≤f(b)for allb∈N≥2, thenTnmbminimizes the balance value metaconceptΦfBonBTn∗, and it is even the unique minimizer if the inequality is strict.
+
+Ifn≤3, there is only one binary tree and thus there is nothing to show. Now, letn≥4. Since we haven≠2hfor allh∈N, we haven≥5. For this case, we show that the condition of Lemma3.10holds forf. Letk=CTnmbandB=(b1,…,bk)be any sequence withb1,…,bk∈Nsuch thatb1+…+bk≥kandbi>1for at least onei∈{1,…,k}. Note that by Lemma3.9, we havek≥2. Our goal is to show thatk·f(1)≤f(b1)+…+f(bk)(and strict inequality in case of unique minimization).
+
+Now, we are in a position to prove Theorem3.8using Lemma3.11.
+
+In order to prove the theorem, first note that ifn=2hfor someh∈N, thenTnmb=Thfband hence, by Theorem3.6, the mb-tree is the unique minimizer of the BVMΦfBfor all strictly increasing functionsf, and in particular for the function chosen in this theorem.
+
+Hence, we can assumen≠2hfor allh∈Nand start by proving that iffis strictly increasing, convex and satisfiesf(1)-f(0)<f(2)-f(1), then the mb-tree uniquely minimizes the BVM. For the proof, we want to apply Lemma3.11. Therefore, we need to show that we can assumefto be non-negative. We even show that we can assumef(0)=0. We can obtain this assumption from the equivalence of the BVM with functionfto the BVM with functionf^(x):=f(x)-f(0). Note thatf^retains the properties of being strictly increasing, convex, and satisfyingf^(1)-f^(0)<f^(2)-f^(1). This implies thatfandf^have the same extremal properties, which is why we can without loss of generality assumef≡f^in the following; in particular, we may assumef(0)=0.
+
+Now, all requirements of Lemma3.11are satisfied and we can conclude that the mb-tree uniquely minimizes the BVM for such functionsf.
+
+Next, based on the results of this subsection, we determine the extremal values of the balance value metaconcept.
+
+Building on results from the last section, we now determine the minimum and maximum values of the BVM. We first state the maximum value for allnand the minimum value forn=2hiffis an increasing function.
+
+Letfbe an increasing function. Then, the maximum value of the balance value metaconceptΦfBonBTn∗is given by∑i=0n-2f(i). Furthermore, ifn=2h, the minimum value ofΦfBonBTn∗is(n-1)·f(0).
+
+Finally, we determine the minimum value of the BVM for allnwhenfis not only strictly increasing but also either affine or convex. Recall thatcn(given in Proposition2.8) denotes the minimum value of the Colless index onBTn∗.
+
+For anyn≥1, letcnbe the minimum value of the Colless index onBTn∗.
+
+Letfbe a strictly increasing and convex function. From Proposition2.4and Theorem3.8, we know that the mb-tree minimizes both the Colless index and the BVM. In particular,CTnmb=cn.
+
+Now, letfbe a strictly increasing and affine function. The correctness of the formula for the minimum value ofΦfBfollows directly from the equivalence between the BVM and the Colless index, as stated in Remark3.5.
+
+Next, we analyze the metaconcepts generalizing the Sackin index. We begin with the clade size metaconcept.
+
+In the following, we prove that the clade size metaconcept (CSM) is an imbalance index onBTn∗(orTn∗) for all strictly increasing (and 2-positive) functionsfthat are either affine (i.e.,f(x)=m·x+awithm>0(anda≥0)) or strictly convex. Recall that by Proposition2.10, the CSM is an imbalance index onBTn∗iffis strictly increasing and strictly concave. Here, we will show that the CSM is an imbalance index onTn∗iffis additionally 2-positive. In the next step, we calculate the minimum and maximum values of the CSM.
+
+We first highlight the relationship between the CSMΦfNand several established tree imbalance indices related to clade sizes, such as the Sackin index, the average leaf depth, thes^-shape statistic, and the total cophenetic index. We focus on the specific properties of the functionsfthat induce each of these indices.
+
+It follows immediately that ifm>0, the CSM is equivalent to the Sackin index onBTn∗, since in this case,|N(T)|=n-1for each treeT∈BTn∗and therefore,|N(T)|·ais a constant. Additionally, the CSM is equivalent to the Sackin index onTn∗ifm>0anda=0.
+
+However, ifm>0anda>0, the CSM is not equivalent to the Sackin index onTn∗. For example, consider the treesT1andT2shown in Figure6. The Sackin indices areS(T1)=23andS(T2)=26, meaningS(T1)<S(T2). However, for the functionf(nv)=nv+2, we find thatΦfN(T1)=35andΦfN(T2)=34, soΦfN(T1)>ΦfN(T2). This confirms that the CSM and the Sackin index are not equivalent onTn∗.
+
+wherefΦnv,n,|V˚(T)|=nv2-n2|V˚(T)|. Hence, onTn∗the total cophenetic index is induced by the third-order CSM, whereas onBTn∗it is induced by the second-order CSM, because thenV˚(T)=n-1.
+
+Thus, by Remark3.2, onBTn∗the total cophenetic index is equivalent to the first-order CSM with the functionfΦ~(nv)=nv2. Note that Knüver et al. (2024) introduced a functionΦ∗∗to measure network balance. When restricted to trees, this function coincides withΦΦ~N(for further details, see Knüver et al. (2024), page 95.
+
+Finally, note that the functionsfthat induce the Sackin index (i.e., the identity function), thes^-shape statistic (i.e.,fs^(nv)=log(nv-1)), andfΦ~are all strictly increasing. Moreover, the function for the Sackin index is affine, while the function for thes^-shape statistic is strictly concave but not 2-positive, sincefs^(2)=0. In contrast,fΦ~is strictly convex.
+
+With this in mind, we now turn our attention to the extremal trees of the CSM.
+
+We begin our analysis of the extremal trees of the CSM by determining its maximum onBTn∗andTn∗. By Proposition2.11, we already know that the caterpillar uniquely attains the maximum for all strictly increasing functionsfonBTn∗. However, we now extend this result.
+
+The caterpillarTncat(uniquely) maximizes the clade size metaconceptΦfNonBTn∗, provided thatfis a (strictly) increasing function. Moreover, the caterpillar (uniquely) maximizes the clade size metaconcept onTn∗, iffis (strictly) increasing and 2-positive, i.e.,f(x)>0forx≥2.
+
+holds, whereNddenotes the clade size sequences in descending order. The main results then follow directly from this statement.
+
+We begin by considering the case whereTis not a binary tree, i.e.,T∈Tn∗\BTn∗. Our goal is to transformTinto a binary tree while ensuring that the clade sizes of its vertices do not decrease. SinceTis not binary, it must contain an inner vertex with at least three children. Letvbe such a vertex, and denote its children byv1,…,vkwithk≥3.
+
+We construct a new treeT′fromTas follows: Delete the edges(v,vi)for all2≤i≤k, introduce a new vertexw, and add the edges (v,w) and(w,vi)for all2≤i≤k. For an illustration, see Figure7. Note that repeating this process eventually yields a binary tree.
+
+Next, we compare the clade size sequences ofTandT′. Since all original vertices ofTremain inT′with their clade sizes unchanged, the only difference is the introduction of the new vertexw, which contributes an additional value to the clade size sequence ofT′. In particular, the transformation does not decrease any clade sizes.
+
+Thus, it suffices to establish the claim for binary trees. However, this follows directly from Proposition2.11and Lemma3.4. Hence, we haveNd(T)i≤NdTncatifor alli∈{1,2,…,|V˚(T)|}and for allT∈Tn∗. In addition, by the same two results, we getN(T)i<NTncatifor at least onei∈{1,2,…,n-1}and for allT∈BTn∗\{Tncat}. Thus, again by Lemma3.4, the caterpillar (uniquely) maximizesΦfNonBTn∗iffis (strictly) increasing.
+
+Next, we use this result to conclude that the CSM is an imbalance index for a certain family of functionsf.
+
+Letfbe a 2-positive function, i.e.,f(x)>0ifx≥2, that is also strictly increasing and strictly concave. Under these conditions, the clade size metaconceptΦfNis an imbalance index.
+
+By Proposition2.10, we already know that the gfb-tree uniquely minimizes the CSM onBTn∗iffis strictly increasing and strictly concave. Next, we will show that the mb-tree uniquely minimizes the CSM onBTn∗iffis strictly increasing and strictly convex.
+
+Letfbe a strictly increasing and strictly convex function. Then,Tnmbuniquely minimizes the clade size metaconceptΦfNonBTn∗.
+
+Before we can prove this statement, we need two helpful lemmas. In proving these lemmas, we will rely on the locality property of the CSM, which states that if two trees differ only in a rooted subtree, then the difference in their CSM values is entirely determined by these subtrees. To maintain the flow of the manuscript, we postpone the formal statement and proof of this property to Proposition3.34. Furthermore, we note that the proofs of these lemmas and the main theorem proceed analogously to the proofs presented by Mir et al. (2013) for the total cophenetic index. We include them here for completeness.
+
+LetT∈BTn≥4∗and suppose thatTcontains a subtreeTzrooted at an inner vertexzwithnT(z)≥4. Suppose thataandbare the children ofzand suppose that they are both inner vertices, inducing subtreesTa=(T1,T2)andTb=(T3,T4). Moreover, letnidenote the number of leaves ofTiwithi∈{1,…,4}and assumen1≥n2,n3≥n4, andn1>n3. IfTminimizes the clade size metaconceptΦfNfor strictly convexf, thenn4≥n2.
+
+LetTminimizeΦfN, and assume thatfis strictly convex. For the sake of contradiction, suppose thatn2>n4. ConstructTz′fromTzby swapping the positions ofT2andT4, so that inTz′, vertexahas pending subtreesT1andT4, while vertexbhas pending subtreesT3andT2. LetT′be the tree obtained fromTby replacingTzinTwithTz′.
+
+LetT∈BTn≥3∗and suppose thatTcontains a subtreeTzrooted at an inner vertexzwithnT(z)≥3and such that the children ofzconsist of an inner vertexaand a leafxofT. Further, letTa=(T1,T2)withn1≥n2. IfTminimizes the clade size metaconceptΦfNfor a strictly increasing functionf, thenn1=n2=1.
+
+Using Theorem3.17, we can identify another family of functionsfthat induces (binary) imbalance indices. Note that, by Remark3.14, the total cophenetic index is equivalent to one of these functions.
+
+Letfbe strictly increasing and strictly convex. Then, the clade size metaconceptΦfNis an imbalance index onBTn∗. Moreover, iffis also 2-positive, i.e.,f(x)>0ifx≥2, then the clade size metaconceptΦfNis an imbalance index onTn∗.
+
+In Remark3.14, we observed that the CSM with an affine functionf(nv)=m·nv+ais equivalent to the Sackin index onBTn∗ifm>0, and onTn∗ifm>0anda=0. In both cases, it follows directly that the CSM is a (binary) imbalance index. Further, we show in the following that the CSM is an imbalance index onTn∗ifm>0anda≥0(rather than only ifa=0).
+
+Letfbe an affine function, i.e.,f(nv)=m·nv+awithm,a∈R. Then, the clade size metaconceptΦfNis an imbalance index onTn∗ifm>0anda≥0. Moreover, the clade size metaconceptΦfNis an imbalance index onBTn∗ifm>0.
+
+Furthermore, for alln, the minimizing trees onBTn∗of the clade size metaconcept, ifm>0, coincide with those of the Sackin index. Specifically, these are eitherTnfbor trees that employ precisely two leaf depths, namelyhn-1andhn, where. In particular, both the gfb-tree and the mb-tree minimize the clade size metaconcept for alln.
+
+The part regardingBTn∗and the minimizing trees onBTn∗forn≠2hnfollows directly from Remark3.14, Lemma2.6, and Remark2.7, since in this case the CSM is equivalent to the Sackin index.
+
+So far, we have only considered the minimization of the CSM onBTn∗. In the next proposition, we extend our analysis to arbitrary trees.
+
+LetTnstarbe the star tree onnleaves, and letfbe a 2-positive, i.e.,f(x)>0ifx≥2, (though not necessarily increasing) function. Then, the star tree is the unique tree that minimizes the clade size metaconceptΦfNonTn∗.
+
+Having identified the trees that minimize and maximize the CSM, we can now calculate its minimum and maximum values.
+
+We begin by considering the maximum value of the CSM iffis increasing (and 2-positive).
+
+The maximum value of the clade size metaconceptΦfNonBTn∗(onTn∗) is∑i=2nf(i), iffis an increasing (and 2-positive, i.e.,f(x)>0ifx≥2) function.
+
+Next, we consider the minimum values of the CSM. Note that Cleary et al. (2025) have stated a minimum value for their functionπc, which is highly related to the CSM onBTn∗with functionf(nv)=log(nv+c)withc>-2. Taking the logarithm of the minimum value ofπc(Cleary et al. (2025) Corollary 4.13) yields the minimum value for the CSM onBTn∗for those functionsf. Next, we extend this result to a broader range of functionsf.
+
+Letfor alli∈N. Then, the minimum value of the clade size metaconceptΦfNonBTn∗for any strictly increasing and strictly concave functionfis∑i=2ngfbn(i)·f(i), wheregfbn(i)is as specified in Theorem2.12.
+
+Next, we consider the minimum value of the CSM for strictly increasing and strictly convexf.
+
+The minimum value of the clade size metaconceptΦfNfor any strictly increasing and strictly convex functionfis∑i=2nmbn(i)·f(i)withmbn(i)as given in Lemma3.26.
+
+Before we can prove this statement, we give the number of subtrees of a given size for the mb-tree. The proof of the following lemma can be found in AppendixB. Note that the proof of Proposition3.25is merely a direct consequence of Theorem3.17and the following Lemma3.26.
+
+In the next proposition, we consider the maximum and minimum value of the CSM iffis a strictly increasing affine function (with non-negative intercept).
+
+Let. Then, the minimum value onBTn∗ism·-2hn+n·(h+1)+(n-1)·aifm>0, which equalsm·hn·2hn+(n-1)·aifn=2hn.
+
+First, consider the maximum value onTn∗form>0anda≥0. By Proposition3.21, we only need to show that the caterpillar attains the stated maximum value.
+
+Now, we state the minimum value onTn∗for 2-positivef.
+
+Letfbe a 2-positive function, i.e.,f(x)>0ifx≥2. Then, ifn=1, the minimum value of the clade size metaconceptΦfNonTn∗is 0. Otherwise, ifn≥2, the minimum value of the clade size metaconceptΦfNonTn∗isf(n).
+
+Finally, we analyze the last metaconcept, the leaf depth metaconcept. As shown in Table1, it also is a generalization of the Sackin index.
+
+In the following, we will show that the leaf depth metaconcept (LDM) is a (binary) imbalance index for strictly increasing affine functions, as well as for strictly increasing and convex functions. In a second step, we will calculate the minimum and maximum values of the LDM.
+
+Furthermore, we have already observed in Table1that the Sackin index and the average leaf depth are induced by the first or second-order LDM, respectively. Now, we show that the LDM is an affine function of the Sackin index for all affine functionsf(i.e.,f(x)=m·x+a). Additionally, it is equivalent to the Sackin index onTn∗iffis strictly increasing and affine, i.e., whenm>0.
+
+This establishes the equivalence of the LDM with strictly increasing and affinef, i.e.,m>0, to the Sackin index onTn∗.
+
+With this in mind, we now focus on the extremal trees for the leaf depth metaconcept (LDM).
+
+In this section, we analyze the maximizing and minimizing trees of the LDM. Through this analysis, we identify two families of functions for which the LDM is a (binary) imbalance index: strictly increasing and convex functions, as well as strictly increasing affine functions.
+
+Letfbe a strictly increasing and convex function. Then, the leaf depth metaconceptΦfΔis a (binary) imbalance index. Further, for alln, the minimizing trees onBTn∗of the leaf depth metaconcept coincide with those minimizing the Sackin index. These trees are eitherTnfbor those that employ precisely two leaf depths, namelyhn-1andhn, where. In particular, the gfb-tree and the mb-tree minimize the leaf depth metaconcept for alln.
+
+Letfbe strictly increasing and convex. To prove that the LDM is a (binary) imbalance index, we need to show that the caterpillar uniquely maximizes the metaconcept onTn∗, and the fb-tree uniquely minimizes it onBTn∗forn=2hn. Forn≤2, there is nothing to show. Now, letn≥3.
+
+First, we proceed as we did in the first part of the proof of Proposition3.15. Specifically, we can turn a treeT∈Tn∗\BTn∗step by step into a binary tree. For the exact procedure and notation, refer to Figure7. By comparing the leaf depths ofTandT′, we observe the following: all leaves that are descendants ofv1have the same depth in bothTandT′. For all leavesxthat are descendants ofviwithi≥2, it holds thatδT(x)+1=δT′(x). Based on these two observations and the fact thatfis strictly increasing, we conclude thatΦfΔ(T)<ΦfΔ(T′). Thus, it remains to show that the caterpillar is the unique maximizer of the LDM onBTn∗. Therefore, we consider a second procedure for constructing a tree from another tree, which can be viewed as the relocation of a cherry. In this case, both trees involved are binary.
+
+Note that the caterpillar can be constructed in this manner from any other binary tree.
+
+Thus,ΦfΔ(T)<ΦfΔ(T′). Since the caterpillar can be obtained from any other binary tree through repeated applications of this transformation, this completes the proof of this part.
+
+Next, we show that the fb-tree is the unique minimizer ofΦfΔonBTn∗forn=2hn. To do so, we consider the reverse operation of the cherry relocation described earlier. LetT′∈BTn∗be a binary tree with an inner vertexzsuch thatzis the parent of the cherry formed by the two leavesxandy, and suppose there exists a third leafuwithδT(z)>δT(u). Now, letTbe the tree obtained fromT′by makinguthe new parent of the cherry formed byxandy. For an example, see Figure8.
+
+In this transformation,ubecomes an inner vertex inT, whilezis converted into a leaf. As in the previous case, only the verticesx,y,z, anduare affected, and the relationships given by (2) still hold. Consequently, applying the same calculation as before, we obtainΦfΔ(T)<ΦfΔ(T′). Since the fb-tree can be constructed step by step using this cherry relocation procedure, this establishes the property that it uniquely minimizesΦfΔ, thus completing the second part of the proof.
+
+Now, we analyze the behavior of the LDM whenfis a strictly increasing affine function.
+
+Letfbe an affine function, i.e.,f(δ)=m·δ+awithm,a∈R. Ifm>0, then the leaf depth metaconceptΦfΔis a (binary) imbalance index. Further, for alln, the minimizing trees onBTn∗of the leaf depth metaconcept ifm>0, coincide with those that minimize the Sackin index. Specifically, these are eitherTnfbor trees that employ precisely two leaf depths, namelyhn-1andhn, where. In particular, both the gfb-tree and the mb-tree minimize the leaf depth metaconcept for alln.
+
+In the next Proposition, we establish that the star tree (uniquely) minimizes the LDM onTn∗iffis (strictly) increasing.
+
+LetTnstarbe the star tree onnleaves, and letfbe a (strictly) increasing function. Then,Tnstaris the (unique) tree minimizing the leaf depth metaconceptΦfΔonTn∗.
+
+Having proven these three results, we are now in a position to calculate the corresponding maximum and minimum values of the LDM.
+
+Letfbe any increasing function. Then, the minimum value of the leaf depth metaconcept onTn∗isn·f(1).
+
+Letfbe an affine function, i.e.,f(δ)=m·δ+awithm,a∈Randm>0. The correctness of the maximum value on bothTn∗andBTn∗, as well as of the minimum value onBTn∗, follows directly from the equivalence to the Sackin index, as stated in Remark3.29, and Lemma2.9for the maximum value, respectively Lemma2.6for the minimum value.
+
+Letfbe strictly increasing and convex, and letn≥2.
+
+First, for the maximum value, by Proposition3.30, we need to prove thatΦfΔ(Tncat)=f(n-1)+∑i=1n-1f(i). Note that the two leaves in the unique cherry inTncathave depthn-1, and for every smaller depth, there is exactly one leaf of this depth. Hence, the stated maximum value is correct.
+
+Second, for the minimum value, again by Proposition3.30, we must show that the gfb-tree attains the stated minimum value. Letn=2hn-1+p, where1≤p≤2hn-1. By Remark2.7, we know that the gfb-tree can be constructed from the fb-tree of heighthn-1by attachingpcherries from left to right to its leaves of depthhn-1. The fb-tree of heighthn-1has2hn-1leaves of depthhn-1and 0 cherries of depthhn. For each attached cherry, one leaf of depthhn-1is replaced by two leaves of depthhn. Therefore, after attachingpcherries, there are2hn-1-pleaves of depthhn-1and 2pleaves of depthhn. Thus, the minimum value is(2hn-1-p)·f(hn-1)+2·p·f(hn). This completes this part of the proof.
+
+Letfbe any increasing function. By Proposition3.32, we need to show thatΦfΔTnstar=n·f(1). This holds true because allnleaves of the star tree have depth 1.
+
+So far, we have thoroughly analyzed the three classes of metaconcepts, focusing on the trees that minimize and maximize them, as well as their minimum and maximum values. In the next section, we shift our attention to two additional properties a metaconcept can have: locality and recursiveness.
+
+In this section, we analyze the locality and prove the recursiveness of the metaconcepts, focusing again on the first-order metaconcepts. Unlike previous results, the conclusions of this section can generally not be extended to higher-order metaconcepts, not even to those that are equivalent to a first-order metaconcept. For example, Fischer et al. (2023), Proposition 12.2 and Proposition 13 proved that the Colless index is local, but the equivalent corrected Colless index is not. Similarly, the Sackin index is local, whereas the equivalent average leaf depth is not (Fischer et al. (2023), Proposition 5.4 and Proposition 6.3). Further, the recursions for a first-order metaconcept do not account for additional values and, thus, do not apply to higher-order metaconcepts. However, it is worth noting that the corrected Colless index and the average leaf depth are recursive (Fischer et al. (2023), Proposition 13.2 and Proposition 6.2).
+
+We begin with the locality. Based on the induced imbalance indices, one might conjecture that the BVM, the CSM, and the LDM are local, since all known imbalance indices induced by the corresponding first-order metaconcepts are local. These include the Colless index (Fischer et al. (2023), Proposition 12.2), the quadratic Colless index (Fischer et al. (2023), Proposition 15.3), the Sackin index (Fischer et al. (2023), Proposition 5.4), and thes^-shape statistic (Fischer et al. (2023), Proposition 9.3). In the next proposition, we will show that this conjecture is true for all functions in the case of the BVM and CSM, and for affine functions in the case of the LDM.
+
+The balance value metaconceptΦfBand the clade size metaconceptΦfNare local for all (not necessarily increasing) functionsf.
+
+The leaf depth metaconceptΦfΔis local if and only iffis affine, i.e.,f(δ)=m·δ+awithm,a∈R.
+
+Before proving this statement, we need a lemma that provides an equivalent condition for a function to be affine.
+
+Letf:R→Rbe a function. Then,fis affine, i.e.,f(x)=m·x+awithm,a∈R, if and only iff(x+z)-f(y+z)=f(x)-f(y)for allx,y,z∈R.
+
+The proof of this lemma can be found in AppendixB.
+
+Now, we are in a position to prove the proposition above.
+
+First, we consider the BVM and the CSM. The proof follows the same reasoning as Fischer et al. (2023) (proof of Proposition 12.2 and Proposition 5.4), where the locality of the Colless index and the Sackin index was established. The only difference is that, in our case, the summands are not merely the balance values or clade sizes but rather their evaluations under the functionf. However, this modification does not affect the overall argument, thereby proving that both the BVM and the CSM are local.
+
+Now, we establish that the LDM is local if and only iffis an affine function, i.e.,f(δ)=m·δ+awithm,a∈R.
+
+A direct consequence of the locality of the metaconcepts is that every subtree of a tree minimizing (respectively, maximizing) a metaconcept, is itself a minimizing (respectively, maximizing) tree for the metaconcept.
+
+Next, we establish the recursiveness of our metaconcepts.
+
+The balance value metaconceptΦfBis a binary recursive tree shape statistic for all functionsf. Similarly, the clade size metaconceptΦfNis a recursive tree shape statistic for all functionsf. In contrast, the leaf depth metaconceptΦfΔis a recursive tree shape statistic iffis an affine function with an intercept ofa=0.
+
+LetTb∈BTn∗be a binary tree with standard decompositionTb=T1b,T2bsuch that the maximal pending subtreeTibhasnibleaves. Similarly, letT∈Tn∗be an arbitrary tree with standard decompositionT=(T1,…,Tk), where each maximal pending subtreeTihasnileaves.
+
+LetT=(T1,…,Tk),Tb=T1b,T2b,ni,nib,f, andfmas described.
+
+Hence, we haveλ∈R2andri:R2×R2→R. Moreover, all recursionsriare symmetric. This completes the proof for the BVM.
+
+Hence, we haveλ∈R2andri:R2×…×R2⏟ktimes→R. Moreover, all recursionsriare symmetric. This completes the proof for the CSM.
+
+While tree balance is typically quantified using a single index function, Cleary et al. (2025) recently introduced a functional instead of a function to measure tree balance for rooted trees. This functional is based on the clade size sequence of a tree and depends on another functionf. In this manuscript, we have generalized this concept to a broader framework, which we call the imbalance index metaconcept of orderω. This metaconcept allows for any tree shape sequence as its underlying sequence. Exploiting this property, we introduced two additional subclasses alongside the clade size metaconcept (CSM): the balance value metaconcept (BVM) and the leaf depth metaconcept (LDM). We thoroughly analyzed these three metaconcepts with respect to their underlying functionf. As a result, we identified many families of functionsffor which these metaconcepts yield (binary) imbalance indices, leading to a range of new imbalance indices. To help users identify a suitable imbalance index obtained from a metaconcept, we provided four decision trees. Additionally, we included R code for computing the metaconcepts and, consequently, the resulting imbalance indices. Furthermore, we analyzed the trees that maximize the metaconcepts for all leaf numbers, as well as the minimizing trees. Finally, we determined their minimum and maximum values.
+
+Recall that the Sackin index and the Colless index are induced by the first-order CSM and BVM, respectively, whenfis the identity function, i.e., a strictly increasing and affine function. Consequently, both are minimized by several trees inBTn∗, including the gfb-tree and the mb-tree. We proved that when the identity function is approximated from above by a strictly increasing and strictly convex function, the mb-tree becomes the unique minimizer of both the CSM and the BVM. Conversely, when the identity function is approximated from below by a strictly increasing and strictly concave function, the gfb-tree is the unique minimizer of the CSM. Moreover, this result extends not only to the identity function but to all strictly increasing and affine functions. This is remarkable, because minor changes in the functionflead to major changes in the set of minimizing trees. We elaborate on this observation in Figure9.
+
+Further, since many known imbalance indices also depend on one of the three sequences underlying the metaconcepts, we can classify these indices by determining which metaconcept they satisfy. We found that seven known imbalance indices fall into one of the three metaconcept classes, which can be further divided into several subclasses depending on the choice off. Consequently, some of our results for the metaconcepts recover results from the literature in a more concise way. For example, Theorem3.6unifies six separate proofs from the literature into a single result. Additionally, one subclass, the LDM with strictly increasing and convexf, is totally new to the literature in the sense that none of the existing imbalance indices is induced by it.
+
+A promising direction for future research is to further compare the introduced metaconcepts, for example, by analyzing the resolution of the imbalance indices they induce. It stands to reason that the LDM is the least resolved metaconcept, as for trees with eight leaves, there exist four pairs of trees that share the sameΔ(leaf depth sequence), as well as a quartet of trees with identicalΔvalues, none of which share the sameN(clade size sequence) orB(balance value sequence).
+
+Another avenue for future work is to modify the imbalance index metaconcept itself. For instance, one could use sequences based on pairs of vertices (as in the original definition of the total cophenetic index), or consider sequences based on the edges of a tree rather than the vertices.
+
+The authors wish to thank Volkmar Liebscher for various discussions and helpful insights. Parts of this material are based upon work supported by the National Science Foundation under Grant No. DMS-1929284 while MF and KW were in residence at the Institute for Computational and Experimental Research in Mathematics in Providence, RI, during the Theory, Methods, and Applications of Quantitative Phylogenomics semester program.
+
+All inner verticesvof all trees in Figure10-14are labeled by a pair(bv,nv)containing its balance valuebvand its clade sizenv. If the leaves are labeled, then they are labeled by their leaf depth.
+
+The casei=1is trivial. Thus, we subsequently assumen≥i≥2. Before we consider these cases more in-depth, we start with some general observations. Throughout the proof, we subdivide the vertices inTnmbinto layers, where the root is the only vertex in layer 0, the root’s children are the only vertices in layer 1 and so forth. Then the root of a subtreeTiofTnmbwithileaves can only be located in layershn-hi-1orhn-hi. This is because all leaves must either be contained in layerhnorhn-1asTnmbhas heighthn(cf. Remark2.7), and as all of its pending subtrees are also maximally balanced trees (cf. Section2.1), which implies that they have heighthi.
+
+We show that each layerlcontains up to2lvertices, and each layerl, possibly except for layerhnin casen<2hn, contains precisely2lvertices each.
+
+We show that each vertex in layerlis the root of a subtree of size eithern2lor. Thus, no other subtree sizes are possible.
+
+Fori>1, we show that only subtrees of sizei=2can be contained in more than one layer. All other subtree sizes can occur in only one layer (i.e., fori≥3, if there are subtrees of sizei, they are all rooted in the same layer).
+
+We then count in each layer the subtrees of sizesn2land, respectively.
+
+We start with proving that layerlinTnmbcontains up to2lvertices, all of which induce subtrees with eithern2lormany leaves. We prove this by induction onl. Forl=0, we have only the root, so indeed we have20=1vertices in this layer, and this vertex is the root of the entire tree, so ofn=n20leaves. This completes the base case. For the inductive step, let us assume we know that the statement holds up toland now consider layerl+1. It is clear that as layerlhas at most2lvertices by induction, layerl+1can have at most2l+1vertices, because each vertex in layerlhas at most two children in layerl+1. Moreover, each vertexvin layerl+1is the child of a vertexuin layerl, which by induction is the root of a treeTuwith eithern2lormany leaves. Thus, we know by the definition ofTnmbthat this only leaves four options forv: IfTuhasn2lmany leaves, then the treeTvinduced byvcan only have eithern2l2orleaves, and ifTuhasmany leaves, then the treeTvinduced byvcan only have eitherorleaves. However, using the well-known identitiesabc=abcand(which hold for all real numbersa,bas well as positive integersc), we note thatn2l2=n2l+1andas desired. Similarly, for the remaining two possible values, before using the same identities, we additionally have to convert the inner floor and ceiling functions first by using the identitiesand(which hold for all real numbersaand positive numbersb). This gives usas well as. Therefore, in all cases, we have that the numbernvof leaves ofTvis eithern2l+1or, which completes the induction.
+
+Moreover, note that inTnmb, all layerslexcept possibly for layerhnare “full” in the sense that they contain precisely2lmany vertices. This must be true as otherwise there would be two leaves with a depth difference of more than 1, which is not possible inTnmb(cf. Remark2.7). Also note that layerhnonly contains leaves, i.e., it can only induce subtrees of size 1.
+
+Before we continue, we now consider the possible layerslofTnmbin which a subtree of sizeican be rooted. Fori=2, there must be at least one such subtree (asn≥2), and this is necessarily rooted in layerhn-1(as the parent of the cherry with maximal depth induces such a subtree). However, depending onn,Tnmbcan also contain cherry parents on layerhn-2(as an example, considerT5mbdepicted as treeTin Figure8). But there cannot be such a cherry parent on layerhn-3or lower, because this would induce leaves on layerhn-2or lower, which would inevitably lead to two leaves of a depth difference of more than one inTnmb(between a leaf of maximum depthhnand the newly found leaf on layerhn-2or smaller), which cannot happen inTnmb(cf. Remark2.7).
+
+Now, consideri≥3. We show that in this case, the layerlwithl≤hn-2ofTnmbin which all subtrees of sizeican potentially be contained is uniquely determined. In particular, it islog2nior, depending oni. This is because if a subtree of sizei≥3is rooted in layerl, we already know thati=n2lor. In the first case, we havei≤n2l<i+1, and thus2l·i≤n<2l(i+1), which directly impliesl≤log2ni, and thus, aslis an integer,l≤log2ni. Moreover, from2l·i≤n<2l(i+1)we also derivelog2ni+1<l. Now assumel<log2ni. Then, aslis an integer, we havelog2ni+1<l<l+1≤log2ni≤log2ni, which implieslog2ni-log2ni+1>1. However, this is a contradiction aslog2ni-log2ni+1=log2i+1i<1for alli≥3. Thus, we must havel=log2niin the first case as desired.
+
+For the second case, analogously to the first case, it can be easily seen that we haveas desired.
+
+Next, we complete our analysis of the casei≥3by counting the subtrees ofTnmbof each such size. As we have seen that fori≥3all subtrees of such a size must fulfilli=n2lwithl=log2niorwith, it immediately follows that ifidoes not meet this requirement, we havembn(i)=0, thus proving the fifth statement of the theorem.
+
+If, however,, informally speaking, the only way to divide thenleaves between the2lsubtrees of sizesn2landis to fill up all of the subtrees withn2lmany leaves and then add 1 leaf each to some of them, until therln=n-2l·n2lleaves are used up. This leads torlnsubtrees of sizeand to2l-rlnsubtrees of sizen2l, which completes the proof of the sixth and seventh cases.
+
+It remains to consider the casei=2. As subtrees of size 2 are, besides the ones of size 1, the only ones that can occur on more than one layer, we have to distinguish three cases. Note thatmbn(2)=0is not possible asn≥2, so there must be at least one cherry. However, there are three cases: All cherries are rooted in layerhn-1, and this layer may or may not also contain leaves, or both layershn-1andhn-2contain cherries. In case all cherries are rooted in layerhn-1and this layer doesnotcontain any leaves, obviously all2hn-1vertices in this layer are parents of a cherry, sombn(i)=2hn-1. This, however, implies that layer2hncontains2hnmany leaves, i.e.,n=2hn. This proves the second statement of the theorem.
+
+So from now on, we consider the casen<2hnandi=2to prove the third and fourth statement of the theorem. We have already seen that then not all vertices in layerhn-1can be roots of cherries, so layerhn-1must contain some leaves. It remains to distinguish the case in which all cherry parents ofTnmbare contained in layerhn-1from the case in which some of the cherry parents are in layerhn-2.
+
+As we have seen, in both cases we have that in layerhn-1, we have both cherry parents and leaves, so we must have1=n2hn-1and. Now, if cherry parents are also contained in layerhn-2, they must there be the vertices inducing smaller subtrees, because all parents of the cherries in layerhn-1are also contained in layerhn-2and they induce larger subtrees. Thus, we must also havei=2=n2hn-2. So in summary, if vertices inducing subtrees of sizei=2are contained in both layershn-1andhn-2, we must have. This corresponds to the condition of the fourth statement of the theorem. We now count the number of cherry parents in each of the two layers by the same arguments as in the casei≥3: All2hn-1vertices in layerhn-1are roots of subtrees of size at least 1. The remainingrhn-1n=n-2hn-1·n2hn-1subtrees contain two leaves. This number needs to be added to the 2-leaf subtrees induced by layerhn-2. In this layer, we know that all2hn-2vertices induce trees of size at least 2, butrhn-2nof them induce three leaves. So layerhn-2comes with2hn-2-rhn-2nmany subtrees of size 2. Thus, layershn-1andhn-2in this case together induce2hn-2-rhn-2n+rhn-1nmany subtrees of size 2, which proves the fourth statement of the theorem.

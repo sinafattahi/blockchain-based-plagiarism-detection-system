@@ -1,0 +1,109 @@
+Interruptive alerts can negatively impact clinical workflows and contribute to alert fatigue, provider frustration, and burnout. Given that interruptive alert overriding is a heterogeneous and recurring phenomenon, occurring across different organizational contexts with varying characteristics and circumstances, we hypothesize a pragmatic approach with multimodal interventions to address malfunctioning alert populations and maintain those contributing to better patient care.
+
+This study aimed to develop a systematic approach to screen, identify, and correct malfunctioning interruptive alerts within a tertiary healthcare system.
+
+We performed screening by assessing the alert population, exploring available resources, and defining alert population inclusion and exclusion criteria. We identified interruptive alerts and then conducted an exploratory analysis. We shared insights from discussions with our expert panel to validate our findings and find gaps in current alert monitoring. We then performed focus groups and interviews as part of a root cause analysis. To address the findings of these investigations, we prioritized which alerts to improve, evaluated solutions, and recommended steps to improve our governance structure.
+
+We developed an approach to assess around 1,500 unique alerts in a tertiary center from January to June 2023. We introduced two approaches to visually analyze alert populations: alert-focused analysis and people- and systems-focused analysis. We utilized an expert panel to further enhance the power and speed of alert evaluation and then investigated one emerging alert with focus groups, identifying root causes for its malfunction. This alert demonstrated how enterprise practice changes, coupled with design and cultural issues, can trigger significant alert malfunctions.
+
+A multi-modal intervention approach is needed to evaluate interruptive alerts and act quickly on findings. Utilizing both analytical and nonanalytical methods can work in synergy to facilitate this framework. Such approaches may reduce time and be valuable tools for optimally allocating resources to tackle institutional alert challenges.
+
+Interruptive alerts implemented in the electronic medical record (EMR) have the potential to improve patient care. However, such alerts can also negatively impact clinical workflows and contribute to alert fatigue, provider frustration, and burnout.1234567Alert malfunction refers to an undesired output of a given alert within the EMR environment during a given clinical workflow.8An alert can malfunction due to inadequate alert logic, incorrect knowledge content, user interface issues, or conflicting alert dependencies, such as the same trigger conditions or overlapping workflows.
+
+The complexity of clinical workflows leads to an increased need for clinical decision support (CDS) interventions within an integrated, interruptive alert optimization program.11Our challenge was to develop a practical framework to evaluate many interruptive alert interactions following a standardized and reproducible approach using available internal tools and existing governance infrastructure.
+
+This study aimed to develop a systematic approach to screen, identify, and correct malfunctioning interruptive alerts within a healthcare system and demonstrate its utility.
+
+This study was executed using data from Mayo Clinic's integrated EMR (Epic, Verona, Wisconsin, United States), whose hospital system is based across multiple geographic locations, including Rochester, Minnesota, United States; Jacksonville, Florida, United States; Phoenix, Arizona, United States; and its community health system sites across southeast Minnesota, United States and northwest Wisconsin, United States. The team consisted of a clinical informatics physician, clinical informatics nurse, EMR analyst, enterprise IT application analyst, and clinical informatics fellow. The team met regularly every 2 weeks to refine the framework methodology and apply it for alert analysis.
+
+We utilized available EMR tools such as SlicerDicer and User Web (Epic, Verona, Wisconsin, United States). This work focused on interruptive alerts in the inpatient setting that were overridden (not accepted or acknowledged by the end user) when they were displayed in the clinical workflow.
+
+In this phase, we performed screening by exploring available resources, assessing the alert population, and defining our alert population inclusion and exclusion criteria (Fig. 1).
+
+A framework to approach the interruptive alerts population: screen, identify, and correct.
+
+We surveyed both institutional human and nonhuman resources available for the alert screening framework. We also identified key individuals within the CDS governance structure (institutional CDS subcommittee) to provide leadership support for using these resources (e.g., participation in operational meetings, assistance in forming focus groups, and granting access to reporting tools and data models to analyze alert trends).
+
+We needed to assess which unique alerts exist in our EMR and what kinds of alerts they are. Additionally, we needed to identify any blind spots and determine if other systems outside of the EHR have interruptive alerts that could impact the hospital environment (e.g., laboratory information system, radiology information system, and pharmacy information system).
+
+We defined our alert population of interest as all interruptive alerts generated from January to June 2023. The inclusion criteria for our analysis included encounters classified as “hospital encounters” and a display mode set to “interruptive.” We included all clinical users (physicians, nurses, pharmacists, etc.) and alert records. We excluded alerts that had “any action taken” and those related to CPOE drug–drug and drug–allergy interactions.
+
+In this phase, we conducted an exploratory analysis and validated our findings with an expert panel. We also interviewed focus groups to explore gaps, particularly for alerts that the expert panel was unfamiliar with (Fig. 1).
+
+We utilized the alert data model and interactive dashboard in SlicerDicer, a self-service reporting tool within our institutional EMR. To visualize alert trends, we set the population base to “all our practice advisories” with the following criteria: “not any action taken?,” “encounter type: hospital encounter,” and “display mode: interruptive.” We sliced by “our practice advisory,” defaulted measures to count, filtered alerts based on the most firing events. Then, sorted findings were sorted sequentially to consider potential contextual factors described below.
+
+First method, we adopted a people- and systems-focused analysis (PSFA). We selected the encounter type (hospital), performed sequential sorting, and incorporated hospital location (since our institution has multiple locations) into our population definition. Then, we sorted by users and incorporated the top category (nursing) into our population characteristics. We followed a similar iterative framework for specific hospital locations and departments. After considering these four contextual factors, we sorted for the top-firing alerts.
+
+Another method, the alert-focused analysis (AFA) approach, which did not consider contextual factors and only sorted the top interruptive alerts. The AFA showed top alerts regarding total firings and the rate of change in firings per day over the study period. An inflection point was defined as the start of a change in the slope of the trend line between two time points, where the frequency at least doubles in either direction.Table 1summarizes the key differences between the PSFA and AFA approaches.
+
+The experts' panel meeting is an existing component of our institutional CDS governance structure. We then brought PSFA and AFA findings to an expert CDS panel comprising over thirty subject matter experts who meet bimonthly to discuss institutional CDS updates and trends. This expert panel included physicians, nurses, pharmacists, operational managers, EMR technical analysts, IT analysts, clinical informaticians, and CDS governance leadership.
+
+The top overridden alerts and their trends were visually shared with the expert panel. The expert panel had real-time access to the alert name, number, and trend. The panel's coordinator asked the panel to share their thoughts on why the alert was needed, why it was overridden, and whether more work was required to improve it.
+
+Table 2displays the eight most malfunctioning alerts that resulted in the highest number of overrides in the alert population over a 6-month period.Table 3summarizes the panelist reviews of the top overridden alerts.
+
+Average override rate for the remainder of the population is 75%.
+
+Table 2displays the eight most malfunctioning alerts that resulted in the highest number of overrides in the alert population over a 6-month period.Table 3summarizes the expert panel's reviews of these top overridden alerts and potential reasons for alert overrides. Expert panel concerns were categorized into three groups: design (e.g., conflicting interests among multiple end users). Regulatory Compliance (e.g., alert was designed as a reminder for legal or accreditation compliance issues). Workflow (e.g., alert was triggered at an inappropriate clinical workflow step).
+
+Focus group interviews involved both technical and nontechnical groups. When evaluating a misfiring alert, the technical focus group in our example instance comprised a clinical informatics fellow, an informatics nurse specialist, an IT specialist, and an EMR technical analyst. This technical focus group reviewed the build of the alert, including triggers, frequency of firing, and end-user types.
+
+Given the insights from earlier stages, we prioritized which alerts to address and provided recommendations to the CDS governance leadership regarding alert ownership at the practice level.
+
+We evaluated technical solutions for prioritized alerts based on feasibility, cost, and institutional policies. As such, optimal solutions often differed for each prioritized alert based on this analysis.
+
+Technical solutions considered were based on the options available within our EMR, including alterations to triggering rules, workflow display modalities, and user type/location/service targeting.
+
+We shared suggested improvements on the governance structure with our CDS subcommittee. At our organization, a CDS subcommittee functions as the governing body for new interruptive alert requests. Historically, new alert proponents submit follow-up reports within 3 months of implementation to determine their value and impact. The CDS subcommittee improved its alert governance by longitudinally incorporating dashboard and EMR reporting tools to assist with ongoing alert monitoring and evaluation.
+
+We created an iterative framework to monitor a population of EMR alerts through screening, identifying, and correcting malfunctions within our institution's existing governance structure (Fig. 1).
+
+Using this framework, we surveyed the alert population from January to June of 2023. Our institution recorded a total of 51,132,636 alert events generated in the hospital setting. These alerts originated from approximately 3,125 unique alert base records. Among these unique alerts, nearly half (1,500) were classified as interruptive alerts. Overall, 92.7% of alert events were generated from passive or nondisplayed alerts. Interruptive alerts accounted for only 3,732,682 of the total alert events, with 72.5% of interruptions occurring in the hospital setting.
+
+Among the 1,500 unique alert bases, eleven unique bases accounted for nearly 50% of all alert override events. Override rate (the total number of events not accepted or acknowledged divided by the total number of alerts presented to users) was trended over the study period. The top 8 (out of 11) alerts showed a stable trend and were therefore classified as “stable.” The remaining three alerts, which saw a sharp increase, were labeled as “emerging alerts.” The average override rates for stable alerts, emerging alerts, and the remaining unique alert population were 95.0, 95.3, and 74.9%, respectively.
+
+Our visual analytical approaches, AFA and PSFA, identified the same interruptive alert trends (stable and changing).Table 1shows how PSFA highlighted contextual factors (sites and roles) and served in the CDS governance strategy to evaluate malfunctioning alerts early on. The PSFA approach emphasized contextual elements such as encounter setting (hospital), user role (nurses), location (two hospitals), and department (Emergency Department).
+
+Table 1shows a comparison between the AFA approach and the PSFA approach. AFA was more accessible to apply and communicate with, and did not require knowledge of workflows. The most overriding impacts were stable (eight alerts, 40% of EMR overrides). This approach enabled the expert panel to focus on alerts with the most significant impact for an efficient review.
+
+One of these three “emerging alerts” rose sharply in April 2023 (infection-isolation mismatch alert), with one location contributing to most of the overrides for this particular alert when compared with other sites. The infection-isolation mismatch alert (Fig. 2) notifies end users that a particular patient is not receiving the appropriate isolation precautions for a given infection. Originally, this alert was designed to help infectious disease control administrators survey patients and remind providers to comply with guidelines. Later, the alert was modified to interrupt end users, nurses, and providers with institutional isolation guidelines.
+
+(A) The dashboards for executives to monitor alert performance cannot answer the “why” behind changing trends. (B) Plotting trends of alerts' population showed changing trends (arrow heads). (C) The impact of one alert with a changing trend (blue) to the entire alert population around the time of ending a universal masking for COVID.
+
+The expert panel was unfamiliar with this alert, so technical and nontechnical focus groups were assembled to understand the background and motives behind this alert. The technical focus group discovered no logical errors or production changes over the study period. The nontechnical focus group interview revealed multiple factors that contributed to this override phenomenon.
+
+Institutional factors identified impacting this alert included an environmental shift that occurred around the time of the spike, where the enterprise ended universal masking for COVID-19. The enterprise turned to a “protective environment” approach, requiring staff to universally mask only for high-risk patients, like those who are immunocompromised.
+
+Design factors identified impacting this alert included the targeting of two distinct but discrepant user groups (infection control administrators and bedside nurses). Infectious disease proponents intended this alert to generate a surveillance list of isolation mismatches for infection control administrators to flag patients for awareness and potential intervention.
+
+Cultural factors influenced the situation at this one site, as bedside nurses felt that the alert was outside their scope of practice, given the role of infection control practice surveillance. Many of these bedside nurses were new to this clinical role due to high staff turnover. Additionally, the complexity of the patients and infectious disease protocols at this one site was greater than the rest of the institution.
+
+Our recommendation was to redesign this alert to consider a narrower end-user scope (only infection control administrators) with fewer constraints (silent alerts and change lock-time).
+
+In a few months and existing CDS governance structure, this framework permitted the screening of a large population of EMR alerts and pragmatically identified and directed the correction of malfunctioning ones. We combined both technical and nontechnical approaches to complete an entire cycle of alert population monitoring (screen > identify > correct). In this iteration, we identified and selected an isolation infection mismatch alert due to its changing performance characteristics, identified the institutional, design, and cultural factors leading to this performance change, and implemented targeted improvements for this EMR alert.
+
+We provided a list of the most common interruptive alerts in a tertiary center with quick analyses using expert panel consensus. Compared with the quality improvement approach,10this approach helped us iterate and screen most interruptive alerts within one session. It aligned with quarterly governance cycles to evaluate interruptive alerts. Literature described the need for interruptive alert stewardship programs, especially regarding governance and design implementation/de-implementation.23Our work integrated an existing expert panel to be part of a stewardship effort in a functional and structured way.
+
+Use of this framework also highlighted the significant regulatory component of our organization's alert burden. Around half of the interruptions were related to alerts with regulatory and compliance considerations. Such a high percentage is likely attributed to the nature of our matrix organization, which has multiple oversight structures that can have overlapped and even conflicting regulations.16Many interruptive alerts prompt users to act but allow them to bypass the alert, as they are intended to serve only an advisory role.
+
+This framework can be generalized to institutions with similar alert data models and expanded to ambulatory and long-term facilities. One limitation is that we used our EMR vendor's existing alert data model and visualization tools for the AFA and PSFA analyses. Furthermore, the naming of alerts for specific tasks is not standardized across different EMRs or even organizations using the same EMR system, hindering interoperability.112627Such inconsistency makes it challenging to share knowledge about alerts both between different organizations and even within the same EMR system across various institutions.
+
+This framework was developed to assist institutions in appropriately allocating resources and improving governance for misfiring EMR alerts. More research is needed to explore the long-term impact of this approach on both alert fatigue and patient outcomes.
+
+We maintained transparency by notifying the interviewees and focus groups, including panel experts, about the study's purpose. Recordings were made only after their voluntary consent was obtained, ensuring the study's ethical standards were upheld. Given the nature of interruptive alerts, the study design, and the cohort analytical tools used, this study was Institutional Review Board exempt, as we did not require protected health information.
+
+Multi-intervention approaches are needed to evaluate interruptive alerts and act quickly on findings. Utilizing both analytical and nonanalytical methods, this framework can reduce time and effectively allocate resources to tackle institutional alert challenges. Adopting such a framework may lead to more cost-effective use of alert systems and improved outcomes for patients and providers alike.
+
+Combining alert-focused and system-focused analyses significantly improved the efficiency of identifying and reviewing interruptive alerts. By developing a framework that included expert panel reviews, user focus groups, and a structured approach to revising alerts, we were able to standardize the review framework and enhance its efficiency.
+
+Correct Answer:The correct answer is option d. CDS champion. We noticed a gap in the governance structure when maintaining interruptive alerts. The CDS subcommittee will follow up after deploying an interruptive alert for 6 months. We noticed an uncertainty on who owns the framework of alert refining concerning usability and clinical outcomes from the clinical side. Given the highly changing clinical practice environment, a clinical liaison—a CDS champion—can support filling this gap in the governance structure and facilitating our iterative framework.
+
+It identified gaps in maintenance in a population of alerts in one session.
+
+Clinical experts understood the reasons for overriding every alert.
+
+It allowed for more time with each expert individually.
+
+Correct Answer:The correct answer is option a. It identified gaps in maintenance in a population of alerts in one session. The expert panel served as a central hub where we could validate our findings from the screening stage. We presented a group of panelists with our top overridden alerts within our population. The panel consisted of both clinical professionals and nonclinical operational and IT experts. While the experts agreed on the overall maintenance status of a particular alert, they could not provide precise details. The expert panel meetings' existing structure allowed us to validate all our top overridden alerts in one session, helping us focus on high-impact alerts.
+
+The authors deeply appreciate the collaboration of the members of the Clinical Decision Support Subcommittee and the Clinical Decision Support IT Team of the Mayo Clinic.

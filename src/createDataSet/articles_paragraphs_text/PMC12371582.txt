@@ -1,0 +1,795 @@
+In this paper, we
+describe how 3D printing can be used to fabricate
+a microfluidic-based transwell cell culture system with robust fluidic
+connections for long-term cell culture and recirculating flow. This
+approach consists of an electrospun collagen scaffold sandwiched between
+two laser-cut Teflon membranes that match the fluidic design. Madin-Darby
+canine kidney (MDCK) cells were cultured on the collagen scaffold
+to create an epithelial cell monolayer. Introduction of cells into
+the device was facilitated by a printed reservoir that could be closed
+after proper cell seeding with minimal effect of the flow profile
+over the cells. The resulting MDCK cell monolayer was exposed to continuous
+flow and transport through the cell layer and could be monitored by
+sampling from the basolateral channel network. COMSOL simulations
+and flow injection analysis were used to determine the effect of the
+reservoir geometry on the shear stress that cells experience. A variety
+of analytical tools were used to assess the effect of flow over the
+cells in this model. This includes confocal microscopy and potentiometric
+scanning ion conductance microscopy (to determine morphology and conductance),
+as well as transendothelial/epithelial electrical resistance (TEER)
+measurements and reverse transcription-quantitative polymerase chain
+reaction studies (for gene expression analysis). Finally, a drug transport
+study with the cell model was carried out using two drugs (caffeine
+and digoxin) to determine the apparent permeability of high and low
+permeability drugs, with results being similar to findings from in
+vivo studies as well as studies where MDCKs have been transfected
+to form more resistive barriers. This approach holds great promise
+for the creation of more in vivo-like, flow-based barrier models for
+transport studies.
+
+In drug transport studies,
+it is common to use static transwell
+devices where one cell type is grown on a synthetic membrane. A drug
+is usually added to the apical (top) side of the device and transport
+through the cell monolayer is monitored by sampling from the basolateral
+(bottom) side. While these simple, static approaches have been used
+to develop in vitro barrier models for the blood brain barrier, kidney, and placenta,,there are disadvantages. One is the manner in which the cells are
+grown on the membrane support. Cells in many biological systems are
+surrounded by a basement membrane, which is a thin sheet of an extracellular
+matrix (ECM). The ECM is a complex fibrous
+system that is made up of many macromolecules such as proteoglycans,
+glycosaminoglycans, collagen, fibronectin, elastin, and laminin and
+organized in a cell/tissue specific manner.,Among
+these macromolecules, collagen is the most abundant fibrous proteins
+found, accounting for ∼ 30% of the ECM. Using realistic ECMs for culturing cells is key to the development
+of tight junctions (TJs) between neighboring cells. These TJs attribute important biological functions including
+providing a barrier for selective permeability as well as maintaining
+the structural, compositional and functional polarity of cells. Formation of TJs also are important in helping
+to control paracellular transport of many molecules such as nutrients,
+drugs and toxins. Moreover, TJs play important roles in physiological
+homeostasis by regulating signal transduction. For the development of pharmaceuticals that target the central nervous
+system, the constrictive nature of TJs in the blood brain barrier
+(BBB) presents a drug design challenge where measuring transport across
+BBB mimics is critical. Consequently,
+developing in vitro platforms for studying and characterizing cellular
+TJs and barriers has become a fast-advancing research area.
+
+Another disadvantage of static transwell devices
+is the absence
+of flow over the cell monolayer. In vivo, cells are exposed to flow
+and hemodynamic forces, with a shear stress over their apical surface.
+As a result, cells respond to this stimulus by adapting their behavior
+toward the mechanical cues arising from shear stress.,This phenomenon is known as mechano-transduction, a process that
+occurs when cells transform the biophysical (mechanical) stimuli into
+biochemical signaling within the cellular microenvironment.,Numerous studies have reported cells can alter their morphology,
+function and gene expression in response to shear stress. Endothelial cells at the BBB, epithelial cells in the intestine,,renal tubular epithelial cells in the kidney,,and
+corneal epithelial in the cornea all
+experience shear stress to some degree. Continuous flow over the cells
+helps to supply nutrients and remove waste; however, a comprehensive
+understanding of the significant impact of flow features over cells
+is an active research area. There is clearly a need to create flow-based
+transwell cell culture systems to investigate the effects of shear
+stress on these models and result in more in vivo-like barrier mimics.
+
+There has been work on developing microfluidic
+approaches for transwell/transport
+studies. This includes work to study the impact of shear stress over
+cells by introducing flow into microfluidic devices.,−In terms of epithelial-based fluidic barrier models, Kimura et al.
+fabricated a PDMS-based microfluidic device that has a bilayer microchannel
+and a polyethylene terephthalate porous membrane sandwiched between
+the two layers for culturing renal proximal tubule epithelial cells. The device was integrated into an existing automatic
+cell imaging system for drug efficacy and toxicity studies. In a separate
+work, Choudhury et al. devised a microfluidic device that has four
+primary components: a micropatterned PDMS block with channels, a polycarbonate
+porous membrane, a micropatterned intermediate layer, and a glass
+slide. The device was sealed with a combination of silicone sealant
+and plasma treatment. Human primary kidney epithelial cells, human
+ADPKD cystic cells, and mouse PKD2 knockout cells were cultured in
+the device under flow conditions, with the results providing insights
+into the interplay between pressure gradients and fluid transport
+in the kidney epithelium. In terms of
+the methods used to make microfluidic devices, 3D printing has recently
+been shown to provide many advantages over PDMS for fluidic studies. Important for this study, one advantage is the
+robust nature of the fluidic connections through the use of threaded
+ports.,Three-dimensional structures and flow paths
+can easily be printed, and the devices can be made in batch without
+the use of a clean room.
+
+Here,
+we utilized 3D printing to develop a microfluidic-based transwell
+cell culture system that integrates flow over cells as well as the
+ability to easily sample from the basolateral side of the barrier,
+with robust fluidic connections for long-term (4–7 days) cell
+culture and recirculating flow. The new microfluidic-based transwell
+system consists of an electrospun collagen scaffold sandwiched between
+two laser-cut Teflon membranes that match the fluidic design. Madin-Darby
+canine kidney (MDCK) cells were cultured on the collagen scaffold
+to create an epithelial cell monolayer. This cell line, which has
+been widely used for developing kidney barrier models, was chosen due to its ability to form monolayers
+with tight junctions, high electrical
+resistance and low permeability. Cell
+introduction was facilitated by a printed reservoir that could be
+closed after proper cell seeding with minimal effect on the flow profile
+over the cells. The resulting MDCK cell monolayer was exposed to continuous
+flow and transport through the cell layer could be monitored by sampling
+from the basolateral channel network. The effect of the reservoir
+on the shear stress that cells experience in the device was investigated
+with COMSOL simulations and flow injection analysis. The influence
+of laminar flow at differing flow rates was characterized by using
+confocal microscopy and potentiometric scanning ion conductance microscopy
+(P-SICM) for cell morphology changes; impedance spectroscopy for transendothelial/epithelial
+electrical resistance (TEER) measurements, and reverse transcription-quantitative
+polymerase chain reaction (RT-qPCR) for gene expression analysis.
+Finally, a drug transport study with the kidney cell model was carried
+out using 2 drugs (caffeine and digoxin) and LC-UV to determine the
+apparent permeability (Papp) of high and low permeability
+drugs, with results similar to what has been seen with in vivo studies.
+
+All MDCK cells were
+cultured on a collagen scaffold made from electrospinning
+collagen I solution. Briefly, a homogeneous
+solution of 8% (w/v) collagen I (Elastin Products Co., Owensville,
+MO) in hexafluoroisopropanol (HFP, Millipore-Sigma, St. Louis, MO)
+was sprayed through a 15 cm long, 150 μm I.D. fused silica capillary
+from a screw thread glass vial onto a grounded aluminum foil sheet
+that was wrapped with lens paper. A high voltage of +15 kV was applied
+to the glass vial (via a platinum wire) as was 11 psi of helium. After
+2 h of electrospinning, the collagen scaffolds were cross-linked with
+1-ethyl-3-(3-(dimethylamino)­propyl) carbodiimide hydrochloride (EDC,
+400 mM, Millipore-Sigma, St. Louis, MO) andN-hydroxysuccinimide
+(NHS, 400 mM, Millipore-Sigma, St. Louis, MO) in pure ethanol for
+4 h, as previously described. To avoid
+exposing the scaffolds to the atmosphere and becoming denatured before
+cross-linking, the collagen scaffolds were handled in a glovebag (Cole
+Parmer, Vernon Hills, IL) filled with nitrogen gas. All the cross-linked
+collagen scaffolds were stored in a desiccator after rinsing with
+ethanol and vacuum drying for future use.
+
+All the devices used for
+this study were printed with a Stratasys
+J735 PolyJet printer (Eden Prairie, MN) using VeroClear resin. The
+device design was completed in SOLIDWORKS and file (.SLDPRT format)
+was uploaded to the printer. Upon the completion of printing all the
+device components, they were subsequently cleaned overnight in a Super
+DT3 CleanStation (PM Technologies, Inc., Osseo, MN) that contains
+a sodium hydroxide/sodium metasilicate solution to improve the biocompatibility
+of the devices. To ensure a smooth surface
+for sealing, all devices were polished with sandpaper using a commercial
+grinder-polisher (MetaServ 3000, Buehler, Lake Bluff, IL). The top
+component of the device was sonicated for approximately 8 h so that
+all the residue from the flow channel was removed. Before any cell
+work, printed parts were rinsed with DI water and sterilized with
+70% ethanol.
+
+As shown inFigurea, the device used for this study has two 3D printed
+components that, when assembled, form the top and bottom layers.Figure S1contains key dimensions of the CAD
+device design. The channel dimensions given in the text and other
+figures were measured with optical microscopy or SEM. The top layer
+houses a flow channel that is 12 mm (length) x 1.10 mm (width) x 1.01
+mm (depth), with printed threads for interfacing with commercially
+available flangeless fittings. The channel of the device was constructed
+in such a manner that the cell culture media can flow through from
+threaded inlet threads to the outlet and over the cell monolayer.
+This flow channel at the basement of the top layer is open after printing
+but when sealed against the bottom layer, it closes and allows the
+culture media to flow directly over the cells. This 3-dimensional
+fluidic channel was made such that support material could be easily
+removed. In the center of the top layer, an apical reservoir was printed
+so that the cell seeding onto the collagen scaffold is possible. After
+cells were added, this apical reservoir was left open for an hour
+so that cells were immobilized and attached to the scaffold under
+static conditions. After that period of time, the apical reservoir
+was closed with an M4 screw (M4–0.70, 10 mm in length, PEEK,
+Grainger, Lake Forest, IL) followed by the introduction of flow. Each
+screw was first added to an unassembled device to a point where the
+screw was flush with the top of the channel interface. The screw was
+then marked so that when it was used with an assembled device, the
+screw would not penetrate past the top of the channel. The M4 screw
+was polished flat before use (seeFigure S2for images of screw and device interface).
+
+3D printed microfluidic
+transwell device with integrated collagen
+scaffold. (a) Diagram showing CAD rendered design with an expanded
+view of they layers used in device. (b) Side view diagram of the assembled
+device. (c) Schematic of the experimental setup along with a picture
+of assembled device. Different flow rates can be introduced over the
+MDCK cells seeded on the collagen scaffold. Flow is directed into
+a Falcon tube (containing 5 mL of media), with a cap that has drilled
+holes for tubing and CO2exchange.
+
+The complete device assembly involves sandwiching Teflon gaskets
+between two 3D printed layers as seen inFigureb. First, the electrospun collagen scaffold
+was sandwiched in between two laser-cut (275 μm thick) Teflon
+gaskets after mounting the collagen scaffold on large pore (30 μm)
+polycarbonate membrane (for mechanical support). The design of the
+Teflon gaskets (Grainger, Lake Forest, IL) was completed with SOLIDWORKS
+in such a manner that the top gasket was in compliance with the top
+layer of the device (having a replica of the open flow channel) and
+the bottom gasket aligned with the bottom layer of the device (having
+an opening to access the basolateral channel). The speed, power, and
+frequency parameters used for the laser cutter (Epilog Helix Laser,
+Colden, CO) were 100%, 50%, and 800 Hz, respectively. Then, the Teflon/collagen
+sandwich was placed in between the 3D printed layers. When all the
+assembled components were tightened with bolts, washers, and nuts
+(M4–0.70 × 25, Hillman, Cincinnati, OH), a leak-free device
+was achieved. Using a torque screwdriver, it was observed that applying
+55 cN·m was sufficient to tighten all the components for assembling
+the flow device. The basolateral chamber was prefilled with 100 μL
+of cell culture media. The access port to this basolateral chamber
+was closed during the cell culture period to maintain fluid levels.
+After the cells were confluent (typically 4 days after postseeding),
+these access ports were made accessible for further characterization
+experiments such as flow studies, TEER measurements, and drug transport
+studies.
+
+Male luer fittings (P-202X, IDEX Health & Science,
+Oak Harbor,
+WA) with Tygon tubing (0.02 in. ID and 0.06 in. OD, Cole-Parmer, Vernon
+Hills, IL) were threaded into the printed device. This Tygon tubing
+was further extended with PVC tubing (0.89 mm ID Orange/Orange, ISMATEC,
+Wertheim, Germany) to connect to a peristaltic pump (IPC multichannel
+pump, ISMATEC). The tubing was sterilized with 70% ethanol and prefilled
+with pre-warmed cell culture media before circulating the media.Figurec shows the setup
+for complete circulation of flow over a cell monolayer, with the peristaltic
+pump withdrawing media from a Falcon tube (containing 5 mL of media).
+In order to accommodate the inlet and outlet tubing as well as the
+exchange of carbon dioxide from the incubator, the cap of the Falcon
+tube had three drilled holes. Media in the Falcon tube was changed
+on a daily basis.
+
+Madin-Darby
+canine kidney
+cells (MDCK, Strain type: NBL-2, CCL-34, ATCC, Manassas, VA) between
+passages 10–20 were cultured and maintained in T-75 flasks
+(Corning, NY) using Eagle’s Minimum Essential Medium (EMEM,
+ATCC) supplemented with 10% Fetal Bovine Serum and 1% penicillin-streptomycin.
+Cells were subcultured every other day. Before seeding cells into
+the device, rinsing of the collagen scaffolds was required to eliminate
+any trace HFP and NHS. This was done
+by soaking the scaffolds in cell culture media for 15 min in the incubator,
+followed by rinsing with cell media. This step was repeated 4 times.
+Approximately 1.6 × 105cells were seeded into the
+assembled device via the apical reservoir onto the collagen scaffolds.
+The cells were allowed to attach to the scaffold for an hour before
+adding the M4 screw and introducing flow. After cell attachment and
+closing of the reservoir, different flow rates of cell culture media
+(0.015, 0.2, and 0.5 mL/min) were introduced through the device for
+at least 4 days to result in a confluent layer of MDCK cells.
+
+All
+finite element methods (FEM) simulations were done with COMSOL
+software (version 6.2) and laminar flow physics. The purpose of these
+simulations was to estimate the shear stress that cells experience
+during proliferation at volumetric flow rates between 0.015 and 1.0
+mL/min. The simulations consisted of two types of channel geometries,
+with and without a reservoir aperture. In both cases, the channel
+floor center consisted of a 50 × 50 array of hexagonally packed
+semispheres (5 μm radii; bottom 25% of all the cell layer height
+was removed to resemble cell–substrate attachment) to model
+a monolayer of cells. The average shear stress that the cell monolayer
+experiences (at each volumetric flow rate for both geometries) was
+estimated by determining the shear stress at the cell array’s
+most apical morphological point (see theSIfor more information on these calculations).
+
+In order to
+validate the COMSOL simulation and visualize the flow profile throughout
+the flow channel, two different devices were utilized, one with the
+cell culture reservoir and one without. Other than the reservoir,
+all other dimensions were identical. Using a syringe pump (70–2209,
+Harvard Apparatus, Holliston, MA), a discrete plug (introduced via
+an off-chip 4-port injector) of a 300 μM fluorescein solution
+was pumped into the devices at different flow rates (0.1 mL/min, 0.2
+mL/min, 0.5 mL/min and 1.0 mL/min). All the injections were made using
+a 4-port injector with a 1 μL volume rotor (Valco Instruments,
+Houston, TX). The injected plug of analyte
+was detected 10 mm downstream from the reservoir location. Images
+and videos of fluorescent plugs were obtained using an inverted fluorescence
+microscope (Olympus BX60) fitted with a 10X objective (Olympus PLN2X,
+Japan). All images and videos were recorded with an AmScope (MU203-BI)
+camera and software, then processed and analyzed using ImageJ. For
+analysis and presentation purposes, all the data generated from ImageJ
+were then smoothed in PeakFit (San Jose, CA) with a Savitzky-Golay
+filter (0.5% window) to eliminate the background noise. The peak width
+at half height (W1/2) was measured for
+each peak (n = 9for each condition) using ChromPerfect
+software (Denville, NJ) and variance (σ2) was calculated
+from the relationship:W1/2= 2.354σ.
+
+All topography
+and local apparent conductance measurements were performed
+with a home-built scanning ion conductance microscope (SICM). Single
+barrel and theta barrel quartz capillaries (Sutter Inc., Novato, CA)
+were pulled with a P-2000 puller (Sutter Inc., Novato, CA) to produce
+nanopipettes for SICM measurements. Pipettes were filled with PBS
+(x1) at a pH of 7.2 prior to measurements. Collagen scaffolds were
+supported by a backing of a polycarbonate (PC) membrane (STERLITECH
+Corp., Auburn, WA), which were both adhered to a perfusion cell via
+3 M tape masks with a 1 mm hole punched out from the center. The PC
+membrane had a pore size of 30 μm and a density of 1 ×
+104pores/cm2.
+
+Bare fiber measurements
+were done by submerging the membranes in culturing media to mimic
+the experimental conditions for cell culture. This media housed the
+reference Ag/AgCl for topographical measurements, along with the immersed
+(single barrel) pipet with a back inserted Ag/AgCl electrode. All
+resulting topographical maps were taken at a 2% threshold with a DC
+voltage of 0.2 V vs Ag/AgCl applied to the pipet electrode. Potentiometric-SICM
+(P-SICM) studies were performed with PBS (x1) prefilled theta pipet
+with back inserted Ag/AgCl electrodes, one electrode per barrel. MDCK
+cells were cultured with a flow rate of 0.2 mL/min for 4 days. After
+this period of time, the device was disassembled, and the collagen
+scaffold (with cells) was rinsed with PBS. The cells were fixed with
+a 4% paraformaldehyde solution at 4 °C for 30 min, followed by
+rinsing with PBS three times.
+
+The sample was then placed in
+a perfusion cell by mounting the
+cells onto the center back side of a 3D printed Petri dish (40 mm
+diameter, 3 mm footed supports and an 8 mm diameter through hole;
+Formlabs Form2b SLA printer with BioMed Clear v1 resin) that was adhered
+with a 3 M tape mask with a 1 mm center hole. This device was placed
+on an optical transparent dish and both the Petri dish and the transparent
+dish were filled with PBS connecting the upper and lower chambers
+of the assembled perfusion cell where the sample bridged the connection
+between the chambers. The Ag/AgCl reference electrode and Pt counter
+mesh electrodes were always placed at the apical side (upper chamber
+of the perfusion cell), while another Ag/AgCl rod was placed on the
+basolateral side of the scaffold to serve as the working electrode
+to supply a transmembrane potential. A DC potential of 0.2 V vs Ag/AgCl
+was applied to the pipet electrode and a gated sawtooth AC waveform
+with a 200 mVPPwas applied to the working electrode at
+a frequency of 5 Hz. All data was processed via Gwydion imaging processing
+software.
+
+To determine the number of cells present in the scaffold under
+different flow conditions (for normalization purposes), the cell containing
+collagen scaffolds were removed from the devices and incubated with
+1 mL of 15 mg/mL collagenase solution (Elastin Products Co.) in a
+37 °C water bath to dissolve the collagen. Then, a 10 μL
+aliquot of the resulting solution was added to a hemocytometer, and
+the cells were manually counted. The counting was repeated three times
+and the average number of cells were used to calculate the total number
+of cells on the scaffold.
+
+To extract total RNA from the cells
+cultured on the scaffolds, the scaffolds were treated with lysis buffer.
+Total RNA was isolated using the Monarch Total RNA Miniprep Kit (New
+England Biolab, Ipswich, MA) according to the manufacturer’s
+instructions. For accurate comparison of gene expression between flow
+conditions, the RNA template amount was normalized based on the number
+of cells rather than the total template RNA in a sample. Briefly,
+we determined the total RNA yield and cell number from each scaffold
+and calculated the RNA content per cell. From the 0.015 mL/min flow
+rate (which exhibited the lowest amount of total RNA per cell), 30
+ng of RNA was used as the reference input for real-time quantitative
+PCR (RT-qPCR), corresponding to RNA derived from approximately 1,094
+cells. We then back-calculated the RNA amounts from the 0.2 mL/min
+and 0.5 mL/min flow rate conditions that represented the same number
+of cells (1,094) and used those amounts as template RNA for RT-qPCR
+to facilitate per-cell gene expression comparison across all different
+flow conditions. RT-qPCR was performed using a QuantStudio Real-Time
+PCR System (Applied Biosystems, Waltham, MA). The cycling conditions
+were 55 °C for 10 min, followed by 95 °C for 60 s, and 40–45
+cycles of 95 °C for 10 s and 60 °C for 60 s, with the gene-specific
+primers as listed inFigure S3. The raw
+gene expression Cq values were normalized to canine GAPDH, which was
+the endogenous internal control. To further minimize variability,
+expression values were normalized to the average cell number, and
+results are presented as relative expression per cell.
+
+The TEER value (Ω·cm2) was calculated by multiplying the resistance of cell monolayer
+by the active surface area of cells in the flow channel reservoir
+area (0.044 cm2).
+
+Drug transport studies were performed
+on the fourth day of cell culture
+using caffeine (Alfa Aesar) and digoxin (TCI America, Portland, OR).
+Caffeine has been reported as a high permeability drug, whereas digoxin
+is commonly utilized as a low permeability drug for transport studies.,To perform an experiment, 500 μM of caffeine or 100 μM
+of digoxin solutions in transport buffer (HBSS) were perfused over
+the cell monolayer from the apical compartment. The media from the
+basolateral compartment was exchanged with pre-warmed HBSS. All of
+the drug transport experiments were executed in an incubator by performing
+replacement experiments under the “sink” conditions. Samples (10 μL) were taken from the basolateral
+compartment every 30 min for 2 h in the caffeine study and every 30
+min for 3 h in the digoxin transport study.
+
+All the collected
+samples were analyzed and quantified using high-performance liquid
+chromatography (HPLC, Shimazu) with a UV–vis detector. For
+the caffeine study, the analyte was separated on a Thermo Aquasil
+C18 (3 μm pore, 50 mm L x 2.1 mm ID) column and detected at
+the wavelength of 270 nm. For the digoxin study, an Armor C18 Analytical
+Column (5 μm pore, 50 mm L × 3.0 mm ID) column was used
+and digoxin was detected at 220 nm. For both caffeine and digoxin
+studies, acetonitrile with 0.1% formic acid (solvent A) and DI water
+with 0.1% formic acid (solvent B) were used as the mobile phase. In
+all analyses, 5 μL aliquots of the samples were injected into
+the separation column under binary gradient mode. The initial solvent
+concentration was kept at 5% aqueous acetonitrile for 1 min, followed
+by a linear increase of up to 95% aqueous acetonitrile over a period
+of 10 min, with this condition being held for 3 min before returning
+back to the initial concentration before the next injection.
+
+where dC/dtis the linear rate of change of concentration in the basolateral
+compartment with respect to time (μM/s),VBis the total volume of the HBSS buffer in the basolateral
+chamber (100 μL),Ais active surface area
+where the drug is transported from the apical to basolateral compartment
+(0.044 cm2), andC0is the
+initial concentration of the drug perfused over the cell monolayer
+(500 μM for caffeine and 100 μM for digoxin, respectively).
+
+The main motivation of this work
+was to develop a robust transwell
+fluidic device that integrates biologically derived fibers for cell
+culture, a methodology to easily and reproducibly introduce cells
+into the device, a means to have flow (shear) over the cells, and
+utilize the device for transport studies. In order to create more
+realistic in vitro mimics of vivo barriers such as the kidney and
+BBB, it is essential to have flow (shear) over the cells so that the
+type of mechanotransduction stimuli that occurs in vivo is replicated.
+For the ECM replica, collagen scaffolds were employed in order to
+provide in vivo like matrix for biocompatibility, cell adhesion, proliferation
+and differentiation. The scaffolds used
+for this study were electrospun using 8% (w/v) collagen solution in
+HFP and cross-linked with an equimolar solution of EDC and NHS in
+such a way that the fiber dimensions were maintained to be approximately
+500 nm in diameter with an overall scaffold thickness of 30 μm.
+
+A PolyJet-based 3D printer with VeroClear
+resin was used to fabricate the flow device. The device was made up
+of two separate layers – the top layer for the flow channel
+and apical side of the cell layer and a bottom layer for a channel
+network representing the basolateral side of the cell layer. The top
+layer houses threaded ports to integrate flow from a peristaltic pump
+through the flow channel as well as access ports for the basolateral
+compartment. The two separate 3D printed layers were assembled with
+the collagen scaffold being sandwiched between laser-cut Teflon using
+bolts and nuts. The Teflon gaskets around the scaffold and between
+the layers enable a tightly sealed device that is leak-free after
+the assembly. The ability of 3D printing to produce threaded ports
+that can accept fittings made integration with tubing and off-chip
+peristaltic pumps facile and reproducible. After assembling the device,
+cell culture media could be introduced via a peristaltic pump. In
+these studies, three different flow rates were used: 0.015, 0.2, and
+0.5 mL/min for cell culture studies. Cells could be cultured under
+flow conditions for up to 7-days without leakage issues (extended
+time periods were not investigated).
+
+A key part of the device
+is the cell reservoir and how cells are
+introduced. In contrast to methods where cells are aspirated or flowed
+into the device,,this approach used a reservoir
+that was printed into the top layer so that cells can be pipetted
+and seeded onto the collagen scaffold under static conditions. After
+a period of time for cell attachment (typically 1 h), this reservoir
+could then be closed with a plastic M4 screw. To keep the constant
+laminar flow profile over the cells, it was important that this M4
+screw was polished until a flat surface was achieved. When this screw
+closes, approximately 155 μm gap formed at the interface between
+the 3D printed threads of the cell reservoir and the screw (seeFigure S2). For this work, cells were seeded
+on the collagen scaffold via the reservoir in the top layer. This
+step allowed the cells to settle and adhere onto the scaffold for
+an hour before the flow was introduced over the cells using the peristaltic
+pump (after closing the reservoir). A key advantage to this approach
+is that the cells can easily be accessed after the flow experiment
+is complete, in a manner that does not perturb the monolayer. As will
+be seen below, this enabled confocal imaging, gene expression and
+TEER studies in a manner where the effects of flow on the MDCK cells
+could be measured.
+
+The
+flow channel (12 mm × 1.10 mm × 1.01 mm) in the top layer
+of the 3D printed component was designed in such a way that the laminar
+flow of cell culture media would introduce shear stress over the cells
+after the cell reservoir is closed (all reported channel dimensions
+were measured with optical microscopy or SEM). The top layer was also
+designed to connect the apical flow channel to 3D printed threads
+from the sides of the device via a 3-dimensional flow path. To study
+the optimization of the flow profile through this designed flow channel
+and estimation of the shear stress the cells experience, finite element
+methods (FEM) using COMSOL was utilized. This current design included
+a reservoir aperture between the center of the channel ceiling and
+the bottom of the threaded plug that was measured to be 155 μm.
+FEM via COMSOL was used to solve the Navier–Stokes and continuity
+equations to determine the shear stress (see theSIfor more information). These calculations were done for
+each of the following flow rates: 0.015, 0.1, 0.2, 0.5, and 1.0 mL/min,
+with resulting calculated shear stress values being 0.0096, 0.064,
+0.13, 0.32, and 0.64 dyn/cm2, respectively.
+
+The effect
+of the reservoir aperture is represented inFigure, whereFigurea is a schematic showing the key channel
+dimensions (including the 155 μm gap) and the direction of volumetric
+flow (0.5 mL/min for the data in this figure).Figureb shows the estimated profile of the fluid
+flow velocity at the channel center plane, down the length of the
+channel, parallel to flow direction from left to right. It shows that
+the 155 μm gap slightly perturbs the laminar flow, contributing
+to the 18% decrease in applied shear stress compared to the channel
+geometry without the gap. The effect of the reservoir aperture is
+further demonstrated inFigure S4a, which
+shows a 1D array of 30 velocity profile slices along the length of
+the channel, where the plane of each slice is orthogonal to the direction
+of flow.Figure S4bis a reference of unperturbed
+laminar flow in the channel while inFigure S4cthe channel geometry becomes taller due to the reservoir gap. This
+causes a direct influence on the laminar flow, broadening and decreasing
+the flow intensity. However, as seen inFigure S4d, as the channel geometry returns to its original height
+past the reservoir, the flow original profile is restored, and a sharpening
+of the flow intensity is seen.
+
+(a) Schematic of the flow channel in order
+illustrate the rectangular
+shape, key dimensions (including the reservoir gap), and the flow
+direction. (b) COMSOL simulation with a 0.5 mL/min volumetric flow
+rate showing the fluid flow rate profile along the length of the channel
+as a 2D slice. Note that there is a monolayer of cells (50 ×
+50 array) at the center bottom wall of the channel in (b). (c) Overlaid
+results of variance (from flow injection experiments) and the inverse
+of estimated shear stress (from COMSOL simulations) as a function
+of the volumetric flow rate.
+
+Additionally,Figurec shows the inverse
+average shear stress results along apical points
+over a monolayer of cells as a function of the volumetric flow rate.
+This graph also has an overlay of the peak variance vs flow rate results
+from experimental studies. These studies show that the flow intensity
+profiles sharpen and increase as the flow rate increases, making the
+signal more uniform along the channel geometry including the reservoir
+area. This is reflected with the flow injection data, where the amount
+of band broadening (expressed as variance), decreases as flow rate
+increases, to the point where there is little to no difference between
+the two geometries at 0.5 mL/min or higher. This shows that increasing
+the volumetric flow rate in the reservoir device results in more heterogeneity
+of solutes under flow while increasing the average stress on the cell
+monolayer.
+
+To study the cell morphology changes under the shear stress,
+three different flow rates were applied: 0.015, 0.2, and 0.5 mL/min.
+As mentioned beforehand, the calculated shear stress via COMSOL for
+these flow rates are 0.0096, 0.13, and 0.32 dyn/cm2, respectively.
+In order to ascertain the effect of flow on cell morphology in this
+3D printed flow-based transwell device, the direction of the flow
+being introduced over the cells was denoted during the cell culture.
+On the fourth day of culturing cells, the cell samples were taken
+out of the device and stained with ZO-1 antibodies (for ZO-1 protein),
+rhodamine phalloidin (for cytoskeleton staining) and DAPI (for labeling
+the cell nuclei). The previously reported static 3D printed device, and the current flow device were employed to
+study the cell morphology changes under no flow vs very slow flow
+(0.015 mL/min) conditions. As seen inFiguresa and b, MDCK cells
+show the same morphology under no flow (0 dyn/cm2) and
+very slow flow (0.0096 dyn/cm2) depicting these conditions
+as “static like”. Under flow rates of 0.2 mL/min and
+0.5 mL/min (0.13 dyn/cm2and 0.32 dyn/cm2, respectively),
+MDCK epithelial cells respond to the shear stress by elongating and
+orienting themselves in accordance with the flow direction, as seen
+inFiguresc and d. This change in cell morphology can be quantified
+by measuring the cell shape and elongation and calculating the inverse
+aspect ratio (IAR) usingeq. A cell with a circular shape has an IAR = 1, while an elongated
+cell has an IAR < 1. As shown inFigurea, the IAR values for MDCK cells in this
+study clearly decrease as flow rates increase. These values show that
+MDCK cells respond to the shear stress by elongating and orientating
+their direction under flow rates of 0.2 and 0.5 mL/min. Since the
+0.015 mL/min flow rate gave the same value as static conditions, this
+flow rate was used in subsequent studies to achieve static-like conditions.
+
+Confocal
+images of MDCK cells under different flow rates (0–0.5
+mL/min). The epithelial cells respond by elongating and aligning to
+the direction of the flow. (a) Image of cells under no flow (static).
+(b) Cells cultured under a flow rate of 0.015 mL/min (similar morphology
+to cells cultured under static conditions). (c–d) Cells cultured
+under a flow rate of 0.2 and 0.5 mL/min, respectively. Cell nuclei
+are stained with DAPI (blue), actin in the cytoskeleton is stained
+with rhodamine phalloidin (red), and ZO-1 protein is labeled with
+ZO-1 antibodies and its conjugated dye (Alexa Flour488, green). Scale
+bar: 100 μm.
+
+Characterizing the response
+of MDCK cells to shear stress. (a)
+Plot of IAR vs flow rate shows the elongation of the cells in response
+to flow (n= 6). (b) Expression of genes that encode
+for tight junction proteins under different flow rates (n= 9). * indicates significantly different at 95% of confidence level.
+
+Scaffolds used to culture cells in this study consisted
+of electrospun
+collagen fibers that serve as a more physiologically relevant substrate.
+A control experiment to collect the topographical maps of each substrate
+was done to estimate the surface roughness (seeFigure S6). Cells were cultured onto a collagen fiber membrane
+and allowed to proliferate under a flow rate of 0.2 mL/min. The cells
+were then fixed to the substrate surface and measured with P-SICM.
+The purpose of this measurement was to observe cell morphology and
+spatially correlative chemical information along a section of the
+cell monolayer cultured under flow. As shown inFigurea, the topographical map displays cell junctions,
+some of which are easily discernible between a cell and the surrounding
+cell bodies, however, not all of them are apparent.Figureb, however, shows the spatially
+correlated local apparent conductance map, where there are larger
+local apparent conductance measurements over the cell junctions compared
+to those measured over the cell bodies. Moreover, cell junctions that
+were not apparent in the topography map are much more apparent in
+the local apparent conductance map.
+
+Topography (a) and local apparent conductance
+(b) maps of fixed
+MDCK cells, cultured onto an electrospun collagen fiber membrane taken
+at 250 nm/pixel resolution and 0.2 VTM,PPat 5 Hz vs Ag/AgCl
+in PBS x1 buffer media.
+
+In order to maintain physiological homeostasis, TJs
+play a vital role in biological systems. These TJs form barriers and
+act as fences and gates by restricting the transport of nutrients
+and toxins to the target organs such as kidneys, GI tract, and brain. TJ proteins can be classified as integral membrane
+proteins and peripheral membrane associated proteins. Integral membrane
+proteins are composed of claudins and occludin families, while peripheral
+membrane associated proteins are made up of zona occludens (ZO) families. In MDCK epithelial cells, it has been reported
+that ZO-1, claudin-1 and occludin proteins express more abundantly
+than many other tight junction proteins. Therefore, in this study we chose to perform expression experiments
+for genes that encode for these proteins, in order to determine the
+effect of flow on the development of TJs in MDCKs.
+
+In order
+to quantitate the abundance of these three TJ proteins (ZO-1, claudin-1,
+and occludin) as a function of flow rate, the expression of genes
+that encode for these proteins was accomplished by using real-time
+quantitative PCR (qPCR). First, in order to get an accurate cell count
+for these studies, cells were cultured under conditions for 4 days,
+after which time the device was disassembled. The collagen scaffolds
+were digested with 1 mL of a 15 mg/mL collagenase solution, which
+liberated the cells for subsequent manual counting with a hemocytometer.
+The number of counted cells from the scaffolds exposed to low shear
+stress (37,200 ± 6,060) was significantly higher than those to
+higher shear stress (15,600 ± 3,050 and 6,670 ± 1670 for
+0.13 dyn/cm2and 0.32 dyn/cm2, respectively)
+as shown inFigure S7. This correlated
+with an increase in cell size in response to flow (Figure S7). This can be explained by the considerably elongated
+cells taking up more room in the flow channel, with fewer cells being
+required for confluence. Next, the expression changes of ZO-1, claudin-1,
+and occludin per cell across the three different flow rates were assessed
+using qPCR. Since the number of cells in each condition was flow rate
+dependent, we first quantified both the total RNA and cell count per
+scaffold, allowing us to calculate RNA per cell (Figure S7). According to the data, we observed that the 0.015
+mL/min flow rate studies exhibited the lowest RNA per cell, and therefore,
+we used 30 ng of RNA for qPCR from that condition (corresponding to
+RNA derived from 1,094 cells). We then used RNA equivalent to 1,094
+cells from the other flow studies to ensure the per-cell comparison
+of gene expression. All qPCR reactions were normalized to the expression
+of canine GAPDH, which served as the internal control. To confirm
+the reproducibility of the results, two separate peristaltic pumps
+with different flow rates (such as 0.015 mL/min vs 0.2 mL/min) were
+employed during the cell culture for this study to increase the reproducibility
+of the comparisons. The results, which are shown inFigureb, clearly show that normalized
+relative gene expression per cell for claudin-1 and occludin was at
+least 2-fold higher using the higher shear rates, as compared to the
+static condition. However, ZO-1 expression did not exhibit a significant
+increase as a function of flow rate. A consistent increase in total
+RNA per cell from cells that were exposed to higher flow rates was
+also observed (seeFigure S7), indicating
+a likely enhancement of transcription. It is clear from these results
+that the mechanical stimuli from increased shear results in increased
+expression of claudin-1 and occludin, which are important tight junction
+proteins in MDCKs. These findings underscore the importance of considering
+both mechanical forces and cellular context in modeling epithelial
+physiology and reinforces the relevance of flow-based systems in studying
+barrier tissue development.
+
+A common measure
+of cell confluence in transwell barrier studies is Trans-epithelial/endothelial
+Electrical Resistance (TEER). This noninvasive
+technique is commonly used each day of a transport study to asses
+cell confluency. With cells that form monolayers, TEER values increase
+over time, and when the values plateau, transport studies can be initiated
+as a confluent monolayer exists. To study the effect of flow over
+cells in the 3D printed device, as well as the integrity and functionality
+of the cell monolayer after long-term exposure to flow, impedance
+spectroscopy was used to determine TEER values. After the MDCK cell
+monolayer was seeded and exposed to flow for 4 days, the cell reservoir
+was opened (by removing the M4 screw) and impedance measurements were
+made with electrodes in the apical reservoir and the basolateral access
+reservoirs. A Nyquist plot was generated, and the TEER value was calculated
+with the consideration of the cell monolayer active surface area usingeq. This was done for the
+3 different flow conditions (static-like, 0.2 and 0.5 mL/min). As
+shown inFigurea,
+there was a significant increase in the TEER value when going from
+the low flow (static like) condition to higher shear rates. This correlates
+with the increased expression of tight junction marker data in the
+previous section, showing that the ability to have appreciable shear
+rates over the cells creates an increased barrier for passive transport.
+
+Characterization
+of cell monolayer integrity as a function of flow
+rate. (a) Plot of TEER measurements under different flow rates (n= 9). (b) Drug permeability results using caffeine (high-permeability
+drug) (n= 3) and digoxin (low-permeability drug)
+(n= 6). * indicates significantly different at 95%
+of the confidence level.
+
+Finally, we
+sought to demonstrate the ability of the 3D printed transwell system
+to be used in drug transport studies. After culturing cells for 4
+days under various shear stresses, a drug transport study was performed
+in the incubator by first using caffeine, which is a high permeability
+drug. The cell culture media from the
+basolateral side of the cell monolayer from the 3D printed device
+was first replaced with pre-warmed HBSS buffer. Then 5 mL of 500 μM
+of a caffeine solution was introduced over the cells via the peristaltic
+pump (with the caffeine solution being added to the Falcon tube shown
+inFigurec). Samples
+(10 μL) were collected from the basolateral side of the cell
+monolayer via the access port every 30 min over a 2-h period. All
+of the samples were collected under “sink” conditions,
+where the concentration from the basolateral compartment never exceeds
+10% of the concentration of analytes from the apical side. After collection, the amount of caffeine in
+each sample was determined using LC-UV. The apparent permeability
+(Papp) of the caffeine was calculated usingeq. As shown inFigureb, the apparent permeability of caffeine
+was 28.5 ± 2.70 × 10–6cm/s (n
+= 3) for flow rates of 0.015 mL/min (static-like condition)
+and 16.5 ± 1.24 × 10–6cm/s (n
+= 3) for a flow rate of 0.2 mL/min. The apparent permeability
+of caffeine under flow conditions is smaller than in other studies
+using MDCK cells under static conditions (79.3 × 10–6cm/s) and compares well to previous
+studies where the apparent permeability of caffeine has been reported
+to be 11.1 × 10–6cm/s with in vivo studies
+(using rats). In addition, it has been
+reported that noncerebral cell lines such as MDCK can be transfected
+with a human multidrug resistance 1 (MDR-1) gene to prove that the
+transfected cell line exhibits in vivo-like restrictive paracellular
+pathway for screening of different pharmaceuticals.,Using the transfected MDCK cell line, the apparent permeability
+of caffeine has been reported as low as 20.2 × 10–6cm/s, which also compares well to the
+0.2 mL/min flow rate findings of 16.5 × 10–6cm/s.
+
+Using a similar procedure, another transport study was
+performed using digoxin, a commonly used low permeability drug.,A 100 μM solution of digoxin was perfused over the cell monolayer
+and 10 μL of samples from the basolateral side of the cell monolayer
+were collected every 30 min over a 3-h period. After analysis with
+LC-UV, the calculation for the apparent permeability (Papp) of the digoxin was completed usingeq. The apparent permeability of digoxin was found to
+be 1.57 ± 0.143 × 10–6cm/s (n
+= 6) with a flow rate of 0.015 mL/min (static-like) and 0.230
+± 0.0175 × 10–6cm/s (n = 6) with the 0.2 mL/min flow rate. The apparent mobility under flow
+conditions was less than previous studies with unmodified MDCK with
+static conditions (2.37 × 10–6cm/s) and similar to an in vivo study using rats
+(0.10 cm/s x 10–6cm/s) and the previously mentioned transfected MDCK cell line (0.28 ×
+10–6cm/s47). Again, these values compare
+favorably to the 0.2 mL/min findings with this nontransfected cell
+line. Overall, this data shows that with this flow device and flow
+rates, we are able to create MDCK barrier model that has permeability
+values that are similar to in vivo findings and also work with transfected
+cells that have been engineered to form more resistive barriers.
+
+In this work, a 3D printed transwell
+microfluidic device was successfully
+designed and fabricated in a manner that epithelial (MDCK) cells could
+easily be immobilized and shear stress introduced over the cells for
+long-term cell culture studies. The approach enabled transport studies
+through an electrospun collagen ECM membrane. The flow profile was
+characterized with FEM via COMSOL as well as flow injection analysis.
+It was shown that cell morphology, ion conductance, TEER values and
+expression of genes that encode tight junction proteins are all affected
+by shear in the devices. A drug transport study using caffeine and
+digoxin showed that this approach led to a MDCK barrier model that
+has permeability values similar to those found with in vivo studies
+as well as when using MDCKs that have been transfected to form more
+resistive barriers. The observed increase in claudin and occludin
+expression aligns with enhanced epithelial barrier properties. This
+data is also well supported by the TEER and permeability data and
+suggests that fluid shear stress promotes tight junction maturation
+in a cell-intrinsic manner. It is clear from these studies that this
+robust 3D printed transwell cell culture system with flow over the
+cells and a biologically relevant ECM leads to more in vivo-like conditions
+for transport studies. The ability to easily access the cells after
+the flow experiment (by removing the screw) will allow future work
+to examine other proteins involved in junction formation as well as
+different quantitative approaches such as Western blots and metabolic
+profiling. Future work will also further develop this device to increase
+the shear rate that cells experience and transition to the use of
+endothelial cells in the presence of flowing red blood cells to result
+in a true BBB mimic.
+
+We would
+like to acknowledge funding from the National
+Institutes of Health, specifically from NINDS (2R01NS105888-06A1,
+for R.S.M. and L.A.B.) and NIGMS (R01 GM140191, for A.K.).
+
+The Supporting Information is
+available free of charge athttps://pubs.acs.org/doi/10.1021/acsmeasuresciau.5c00045.
+
+The
+authors declare no
+competing financial interest.

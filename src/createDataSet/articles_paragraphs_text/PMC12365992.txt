@@ -1,0 +1,95 @@
+Simulation‐based surgical training is now standard in residency education ‐ aided by tools such as printed, virtual, and augmented reality environments. Autonomous education with use of machine learning is an emerging necessity owing to resident work‐hour limitations and staff availability. An essential first step to providing automated feedback during simulated surgery is the development of a tool to classify surgical technique. Distinctive hand motion and drilling patterns can be used in the assessment of trainee proficiency during complex temporal bone surgery (TBS).
+
+This article reviews the development of a software classifier model for automated assessment of surgical performance based on recorded drill trajectory and hand motion tracking during 3D‐printed TBS.
+
+REB‐approved prospective experimental study, in which a classifier was developed to provide automatic assessment of surgical performance based on drill trajectory and hand motion tracking. Four expert (two otologic surgeons and two PGY5 surgery residents) and four novice (PGY1‐3 surgery residents) participants dissected 3D‐printed temporal bone models. Individual hand and drill motion data were collected and analyzed for similarities and variations between participants to develop a model to predict the level of expertise (expert or novice), using a supervised classification approach.
+
+The automated stroke detection algorithm found 80.2%, 82.7%, and 84.8% precision in stroke detection and classification during cortical mastoidectomy (CM), thinning procedures (TP) and facial recess exposure (FRE), respectively. The classifier was able to predict the level of expertise with an accuracy of 92.8% and a sensitivity of 87.5%.
+
+A temporal bone classifier can be developed with a high degree of accuracy as an initial stage towards an autonomous training paradigm.
+
+Developing an automated temporal bone surgical education system relies on its ability to accurately rate and classify surgical performance according to skill level. Here we present our work in developing an algorithm utilizing machine learning that classifies the hand motions of expert compared to novice surgeons within a 3D printed temporal bone surgical simulation platform. Our surgical skill classifier algorithm achieved a high degree of accuracy in discriminating between levels of expertise and represents a preliminary step in building an autonomous surgical coach in temporal bone surgery.
+
+Traditional surgical training in Otolaryngology was undertaken using cadaveric temporal bone to provide an alternative to operative surgical training [1,2,3]. This allowed the development of expertise without undue risk to the patient [4]. However, due to ethical concerns, difficulty in acquisition of specimens, and limitations in resident availability, new teaching methods are being explored [2,5]. The development of virtual simulations and rapid prototyped models has been increasingly recognized as a useful approach. It should be noted that high anatomical fidelity and the ability to recreate realistic surgical experiences are essential to achieve the desired training result [3,5,6,7,8,9,10].
+
+Classification is a large domain in the field of machine learning. Machine learning is a branch of artificial intelligence (AI) and computer science which focuses on the use of data and algorithms to learn, while gradually improving accuracy.
+
+Generally, classification is the process of predicting the class of a given set of data points, which can be either binary or multi‐class [11]. Binary classification assigns each element of the data set to one of two categories based on a series of characteristics. If the number of categories is three or more, the classification task is considered as multi‐class classification. Developing an accurate classification system depends on factors such as algorithm design, the consistency and validity of input data, and appropriate pre‐processing of input data.
+
+In temporal bone surgery, expert and novice surgeons have different operational attributes. These different attributes generate unique drilling trajectories, which can be used to develop a classifier to categorize the surgical performance either as expert or novice. For example, an experienced surgeon may make faster, smoother drill strokes. For this purpose, the features and characteristics of drill trajectory, including time‐based and geometry‐based metrics, are extracted. The main component of every trajectory is a stroke.
+
+The accuracy of skill pattern detection is related to both the employed classifier and the dissection data. Therefore, feature selection is as important as the choice of classifier. In this case, expert and novice dissection data must be used to train the classifier. Ultimately, an appropriately trained classifier can be used to detect an unknown user's skill level; this should provide feedback not only regarding performance, but areas of deficiency and mechanisms by which to improve.
+
+Here we present a classification system which is based on hand motion analysis (HMA) data from expert and novice surgeons performing simulated TBS using 3D‐printed temporal bone models. This particular simulation platform has previously been validated as having high‐fidelity characteristics [6,12].
+
+In this study, we developed two classifiers: one to detect drill strokes and one to provide an automatic assessment of surgical performance. The stroke detection classifier defines drill strokes as features and feature vectors as a collection of strokes. The automatic assessment classifier's surgical performance class labels are “novice” or “expert.” Ultimately, the performance of the classifier was assessed.
+
+Ethical approval for this study was obtained from the University of Manitoba Health Research Ethics Board, and informed consent was obtained from all participants involved in the study. Currently, the 3D printed temporal bone models and the programming employed within our current study are not available via open source for study replication purposes.
+
+Participants performed mastoid surgery on identical 3D‐printed temporal bone models. None of the participants had previously been exposed to the models used in this study. The 3D‐printed temporal bone model had osseous properties similar to cadaveric bone, with accurately represented internal anatomy [6,12]. The participants completed three disparate but well‐defined stages during TBS: cortical mastoidectomy (CM), thinning procedures (TP) and facial recess exposure (FRE). Data were recorded separately for each stage. The rationale for separating stages is that each stage may have its own characteristic stroke style and techniques.
+
+Trajectory data was collected using the Ascension TrakSTAR magnetic motion‐tracking device, which is a high‐accuracy electromagnetic tracker designed for short‐range motion tracking applications. Its sensors were attached to participants' hands, the otologic drill's shaft, and the temporal bone holder containing the mounted 3D‐printed model, as seen in Figure1. Data was collected with a sampling frequency of 100 Hz.
+
+Motion sensor arrangement for recording the data. (a) 8 mm sensor on temporal bone holder, (b) 2 mm sensor on participant's hand, (c, d) 8 mm sensor on surgery drills.
+
+Trajectory recordings may also capture extra movements of the participant unrelated to the surgical procedure; these are considered as position measurements, noise and outliers; which can negatively affect experimental results.
+
+Unwanted outliers were detected using aZ‐score method and were replaced by the average of the nearest data points near the outlier points. To remove unwanted noise from the data, an averaging filter with a moving average length of 10 was applied to the data. The length of the moving average window defines the cut‐off frequency. The desired size of the window was chosen based on visual inspection and trial and error to reduce noise as much as possible while retaining abrupt changes in drill motion.
+
+The data from the sensor attached to the participant's hand was also used to detect non‐drilling activity. Any large hand motion indicates movement not related to drilling, and these portions of the recorded drill trajectory were removed. As mentioned above, the sensor was attached at the base of the drill. The values for the offset of the drill tip from the sensor were measured in (𝑚𝑚) as [𝑥𝑜𝑦𝑜𝑧𝑜] = [175 0 60] to obtain the actual coordinate of the drill tip. Figure2shows a summary of the data preparation process.
+
+The development of the automated stroke detection algorithm began with randomly extracting 5‐s, sub‐trajectory data and manually identifying turning points using k‐cos and curvature‐velocity methods. The k‐cos method investigates the co‐linearity of the data points and the curvature‐velocity method identifies turning points based on speed and curvature [13,14].
+
+A target vector, which is a binary vector for turning (turning: 1, normal: 0) was developed. For this purpose, we used curvature‐velocity. This method was applied to randomly selected and filtered 5‐s trajectory data to extract the turning points and, consequently, the strokes.
+
+A variety of time‐based metrics (TBM) and geometry‐based metrics (GBM) were computed for each stroke in the 5‐s sub‐trajectory to define the “quality” of a stroke [12,15]. In total, 15 features were calculated for every point (Figure3and Table1).
+
+Turning point determination. Turning points are used to determine individual strokes with the application of a low‐pass data filter algorithm.
+
+The endpoints of a drill stroke are often different from the rest of the trajectory. We therefore characterized each point by its arc length distance from both the start and endpoints of the stroke. Thekmetrics that were calculated includek‐cos,k‐irad, andk‐scd:k‐cos investigates the co‐linearity of points,k‐extrinsic curvature (k‐irad) considers the distance between the three points of 𝑝𝑖, 𝑝𝑖+_𝑘 _and 𝑝𝑖−𝑘, andk‐scd is the distance between 𝑝𝑖 and 𝑐𝑘. 𝑐𝑘 𝑖𝑠 the centroid between 𝑝𝑖+_𝑘 and 𝑝.
+
+The length threshold for dividing the strokes into short, medium, and long was considered 10, 15, and 20 mm based on the existing literature [7]. Moreover, thek‐cos threshold for a curved or straight stroke was thresholded. If the average value ofk‐cos for each independent stroke was higher than the threshold, the stroke was considered a straight stroke; otherwise, the stroke was considered curved [2,8].
+
+Ultimately, a feature matrix was created with every row of the matrix relating to one participant, and each participant labeled as expert or novice. There are several classification algorithms available within the existing literature [16,17,18,19,20]. This project compared support vector machine (SVM),K‐nearest neighbor (KNN), and neural network (NN) algorithms as classification algorithms. The machine learning algorithms were implemented in ScikitLearn, Python [21].
+
+The normalized‐transformed features were sorted based on the variance between two groups of normal and turning points. Feature selection methods are described in Figure3. The most important features to classify the turning and normal points were alpha, beta, curvature, and velocity. Figure4illustrates an overview of the stroke detection algorithm.
+
+Due to the limited data sample, aK‐fold cross‐validation approach was taken [22]. InK‐fold cross‐validation, the data is shuffled randomly before being split intoknumber of smaller data sets, otherwise known as folds. For each of the folds, training is performed using data indexed atk−1 and performance is evaluated using the remaining 1‐data points. Finally, the evaluations of the folds are summarized.
+
+Four experts (two otologic surgeons and two PGY5 surgery residents) and four novices (PGY1‐3 surgery residents) participated in the study (Figure5).
+
+Novice drill strokes during cortical mastoidectomy. The image is the actual strokes employed by a novice surgeon during cortical mastoidectomy. The red circles represent trajectory changes.
+
+Classification performance was measured independently for CM, TP and FRE respectively. There were eight extracted sub trajectories for each stage of surgery. Performance values were dependent on the classifier employed. For 3D‐printed data, KNN achieved a performance score of 80.2% for CM and 82.7%, for TP and 84.8% for FRE. KNN illustrated the best performance across all three stages of dissection, significantly better than the SVM and neural networks for all the operational stagesp< 0.05 (Table2).
+
+Note:Performance was measured using three distinct classifier algorithms: support vector machine (SVM),K‐nearest neighbor (KNN), and neural network algorithms (NN).
+
+Time‐based metrics are one of the critical indicators of operational performance. In this experiment, time limitation was not applied to the experiment and every participant performed the operation at their own pace. Average velocity and total traveled distance have been calculated for every participant and the time‐based metrics are compared between expert and novice. The total time for experts (373.16 s) was significantly less than novices (649.45 s)p<0.05. The average time per stroke is different in experts and novices, with higher value in experts (expert: 0.67 s, novice: 0.41 s). Moreover, the average velocity per stroke in experts is lower than novices (expert: 0.0445 m/s2, novice: 0.0734 m/s2). Experts were more expeditious during cortical mastoidectomy and thinning procedures but took longer in facial recess exposure than novice surgeons (Table3and Figure6).
+
+Time‐based comparison of Novice and Expert Surgeon. This figure contrasts total time of the procedure and average time per stroke.
+
+Novice surgeons took more strokes to complete a drilling operation. Both experts and novices drilled with more curved than straight strokes. Experts took more time on every stroke. None of these variables were significant.
+
+The classifier was able to predict the level of expertise with an accuracy of 92.8% and a sensitivity of 87.5%.
+
+This project represents a preliminary attempt to use machine learning in virtual temporal bone surgery. The need for autonomous and objective performance evaluation is significant given limited time and resources available to trainees and educators. The ability to have an autonomous teaching paradigm may free learners to practice on independent schedules, without fear of evaluator judgment.
+
+The major limiting feature of this technology resides in how data is extracted and filtered before evaluation by a classifier. It is in part arbitrary; which strokes are assessed and how a linear and curved stroke is both defined and evaluated. Large data sets are needed before any classifier can be considered to have validity.
+
+Further, automated classification of performance is dependent on the quality of the simulation. Many features in the virtual environment may result in maladaptive responses during dissection. This can impact both novice and expert participants. At a gross level, these can include the visual representation in virtual simulation (pixelation, screen door, 2D or 3D) or the tactile nature of the simulation in haptic or printed simulations.
+
+It is important to clarify that a given classifier developed using a specific simulation cannot be ported to a different platform. This is again related to the specific character of a given simulation as noted above.
+
+This study introduced a method of automated assessment of temporal bone surgical performance parsed into 3 distinct activities in 3D‐printed simulated surgery. The work illustrated significant differences in drill motions between novice and expert. Most of these results were as anticipated, with experts being more adept at cortical mastoidectomy and thinning procedures. However, facial recess exposure took longer. This may be representative of the novice not having the experience to know when to be more cautious or simply taking less time while performing incomplete access to the middle ear. It may also be a function of the expert acknowledging the complexity of the site and intimate proximity to the facial nerve.
+
+Objective assessment of performance and expertise using a recorded drilling trajectory is a challenging task. First, every surgeon may have their own pattern for an operative procedure while still maintaining a high level of accuracy, efficiency, completeness and safety. Secondly, experts and novices mostly share a large portion of skills, and it is hard to detect a significant difference between them.
+
+This has been previously illustrated in the work accomplished with validated temporal bone dissection scales where the ultimate performance of novice and expert illustrates marginally disparate performance [23,24,25].
+
+Sewell et al. at Stanford University developed an algorithmic system to analyze metrics from mastoidectomy simulation performances to score resident performance using a simulation system [26,27,28,29]. Performance assessment was based on operational geometric models, with real‐time feedback generated in the form of marked voxels. The performance classifier developed in this study was able to classify the data and predict the level of expertise with higher accuracy and recall than reported in an existing study developed by Sewell et al., which used Hidden Markov models and achieved an accuracy of 85% and 40% recall in virtual data [30].
+
+The most critical challenge in this study was the small sample size. This was a sample of convenience and a function of the smaller academic unit where the study was undertaken.
+
+While this study effectively demonstrates the feasibility of automated virtual classification in temporal bone surgical training, the results should be accepted with caution. Neural networks and machine learning algorithms, especially given small data sets like ours, can be over‐tuned and may not generalize to larger datasets in less controlled environments. Further this classifier was only developed to distinguish between novice and expert dissection. Undoubtedly surgical performance cannot be distilled to only a binary measure. More granular feedback is most certainly required and the development of formative metrics of assessment remains the ultimate goal.
+
+It may be possible to develop automated trainee surgical skill appraisal. This paper outlines a single center's attempt with the employ of printed temporal bone simulation with some success in the binary differentiation of novice and expert surgeons.

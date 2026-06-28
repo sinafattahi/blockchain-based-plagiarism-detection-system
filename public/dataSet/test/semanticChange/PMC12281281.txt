@@ -1,0 +1,172 @@
+Droplet microfluidics has become a ubiquitous and powerful tool for high-throughput phenotypic screening at the single-cell level.
+Large numbers of cells can be sorted for a variety of functions, including the secretion of antibodies with tailored properties.
+The recovery of cells from sorted droplets is still very poor compared to droplet sorting, usually being limited to around 50% of all sorted hits.
+Here, we present a fully integrated droplet-digital microfluidic platform for the isolation and the recovery of rare single cells and applied our system to antibody discovery.
+From our work, we have achieved an 18-fold increase in the recovery rate of individual cells and beads from droplets, as compared to conventional methods.
+We believe that the combination of high-throughput droplet generation with the on-demand control features of digital microfluidics will improve the number of characterized hits in single-cell -omics, antibody screens, directed evolution of enzymes, and beyond.
+We introduce a droplet-digital microfluidic recovery system to collect single cells from pooled culture and transfer these droplets into a well-plate.
+The platform is shown for the recovery of single beads and rare antibody secreting cells.
+Single cell analysis has become a frequently used method for assessing genomes, transcriptomes, or proteomes which leads to important advances in developing cancer therapies,1–3antibody discovery,4,5and deciphering neural pathways and brain disorders.6,7Droplet microfluidics has gained increasing popularity for such studies,8,9given its high-throughput and multi-parameter measurement capabilities.
+Fluorescence-activated droplet sorting (FADS) has been frequently used as a high-throughput screening tool for single-cell studies.10–12FADS is known to apply less stress to the sorted cells, enabling higher cell viability for post-processing.13Additionally, encapsulating secreted analytes in droplets has been crucial for many genotype–phenotype applications like enzyme-based strain development and antibody discovery.12,14However, droplet-based systems can face a critical challenge – sample loss during the recovery of the contents from processed droplets.15–19Conventionally, recovering contents from droplets is a complex multi-step process.
+Clausell-Tormoset al.pooled cell-containing droplets in a centrifuge tube, broke the emulsion, and recovered the contents from those droplets.
+In this standard droplet recovery protocol, a recovery rate of 20–30% was reported after 24-hour incubation of the droplets.15Sunet al.reported an efficiency of 50% while sorting and collecting positive hits.
+Furthermore, only 60% of the collected droplets can be recovered for downstream analysis, contributing to an overall workflow efficiency of only 10–20%.17Gaaet al.used a commercial system to recover contents from sorted droplets into well plates and were only able to achieve a recovery rate of less than 53%.19The sample loss issue can be more daunting when working with sensitive and rare targets such as antibody-secreting B cells or circulating tumor cells (CTCs).
+Having a critical role in immunotherapy, B cells make up 10% to 20% of all lymphocytes.
+However, only 0.1% to 2% of isolated B cells can produce functional antigen-specific antibodies.20CTCs are informative for cancer studies; however, they are extremely rare, often less than 100 CTCs can be found per 107leukocytes and 5 × 109erythrocytes in 1 mL of whole blood.21Furthermore, since applications like clonal expansion,22single-cell profiling,23and cytokine detection24are downstream of cell sorting and recovery, the sample loss during collection can lead to loss of crucial data or significant time of experimental work.
+Hence, new methods for single-cell isolation and recovery of viable cells from processed droplets are in demand for advancing the field of single-cell analysis using microfluidics.
+There are currently two methods for sample recovery, recovery from bulk (pooled) droplets25–27or from individual (single) droplets.28–30For pooled recovery, droplets are usually collected in a tube, followed by a break of emulsions to extract the contents.27This method is useful for recovering a large, processed population; however, there is a loss of resolution such that deconvoluting hits from different droplets is challenging and there is a risk of cross-contamination between droplets.
+Single-cell screens, such as antibody discovery campaigns,12could greatly benefit from droplet recovery, to directly match a droplet phenotype (e.g.strongest binding or functional effect) with a particular gene sequence of the corresponding hit.
+For example, Coleet al.have designed a continuous and programmable system integrating a droplet sorter with a cell printer for precise dispensing of single droplets, termed printed droplet microfluidics (PDM).28This system uses dielectrophoretic trapping to position individual droplets into nanowell arrays, facilitating high-throughput droplet collection.
+While the structured printing substrate facilitates high-throughput collection of cells, the fixed nanowell configuration creates limitations on subsequent cell culture and analysis.
+Another approach by Nanet al., developed an on-demand droplet collection (ODC),29that enables continuous and quantitative collection of target droplets into microtubes mounted on three different rotary platforms.
+However, this platform is technically complex and still does not allow easy transfer of individual hits into any reservoir of choice, includinge.g.industrially used microtiter plates.
+Josephideset al.reported the use of the Cyto-Mine droplet microfluidics, single-cell sorting and dispensing system.31This platform achieved high performance, with 98.93% accuracy in dispensing sorted droplets into microtiter plates and high cell viability after recovery.
+However, despite its effectiveness, Cyto-Mine is a closed, proprietary system with limited flexibility, making it difficult to modify or customize for specific applications or alternative workflows.
+Here, we introduce a newly constructed droplet-digital (D2) microfluidic platform for the isolation and recovery of rare single cells from processed droplets.
+In this method, single-plate digital microfluidics (DMF) is used in combination with a droplet channel layer.
+By integrating droplet-based microfluidics with DMF, droplets can be generated and manipulated in an on-demand and addressable manner.14Using the open system, we are able to address any part of the workflow where it is difficult to recover rare single cells from individual droplets and transfer them into conventional culture plates.
+The workflow consists of generating droplets and sorting the droplets based on fluorescence intensity, followed by collecting the contents of the sorted droplets with a μL-scale volume recovery buffer, in a controllable, precise, and automated manner.
+To demonstrate the utility of our platform, we have performed recovery experiments with single beads, single HEK 293 cells, and single specific antibody-secreting hybridoma cells at typical and low ratios20to model rare events, establishing it as a versatile tool for a range of single-cell studies.
+Microfluidic device fabrication materials included a high resolution 25 400 dpi transparent photomask (Artnet Pro Inc., Bandon, OR, USA), AZ-1500 positive photoresist coated chromium glass substrates (Telic, Valencia, CA, USA), Si wafers (Silicon Valley Microelectronics Inc., Santa Clara, CA, USA), MF-321 developer, CR-4 chromium etchant (OM Group, Cleveland, OH, USA), AZ-300 T photoresist stripper (Integrated Micro Materials, Argyle, TX, USA), SU-82075 photoresists and SU-8 developer (Kayaku Advanced Materials, Westborough, MA, USA), polydimethylsiloxane (PDMS) (DOW Silicones Corporation, Midland, MI, USA), chlorotrimethylsilane (Sigma-Aldrich, Oakville, ON, Canada) and polylactic acid (PLA) (Shop3D, Mississauga, ON, CA).
+General-use solvents and chemicals used for microfluidic chip fabrication, including acetone (cleanroom lab grade) and isopropanol (IPA, cleanroom lab grade), were purchased from Sigma-Aldrich (Oakville, ON, Canada).
+De-ionized (DI) water has a resistivity of 18 MΩ cm at 25 °C.
+PDMS surface treatment and device operation reagents included 3 M Novec HFE 7500 engineering fluid (M.G.
+Chemicals, Burlington, ON, Canada), 008-fluoro-surfactant dissolved in HFE7500 (20 g of 5% wt) (RAN Biotechnologies, Beverly, MA, USA), Aquapel (Amazon, Canada) and OptiPrep density gradient medium (Sigma-Aldrich, Canada).
+Microfabrication equipment included a Tergeo plasma cleaner (PIE Scientific LLC, Union City, CA, USA), a Quintel Q-4000 mask aligner (Neutronix Quintel, Morgan Hill, CA, USA), a Laurell spin coater (model WS-650Mz-8NPPB, Laurell Technologies Corporation, North Wales, PA, USA), and a UV-KUB 3 mask aligner (KLOÉ, Montpellier, FRA).
+The cell culture medium was purchased from Wisent Inc. (Saint-Jean-Baptiste, QC, Canada).
+Cell culture reagents include Iscove's modified Dulbecco's media (IMDM) for culturing hybridoma cells, IMDM with no phenol red, Dulbecco's modified Eagle's medium (DMEM) for the target cells, fetal bovine serum (FBS), recombinant mouse IL-6 (carrier-free), Geneticin (G418), penicillin/streptomycin and phosphate buffer saline (PBS) (Ca2+/Mg2+free).
+FluoSpheres™ polystyrene microspheres (10 μm, blue-green fluorescent (430/465)), Alexa Fluor™ 488 goat anti-mouse IgG (H+L) and CellTrace™ calcein red-orange (AM) dyes, and SYTOX™ blue dead cell stain were purchased from Thermo Fisher Scientific (Mississauga, ON, Canada).
+The cell dissociation solution (non-enzymatic, 1×) was purchased from Sigma-Aldrich (Oakville, ON, Canada).
+Gastight 500 μL and 2.5 mL glass syringes were purchased from Hamilton (Reno, NV, USA).
+Fittings and tubing: 1/4–28 × 10–32 PEEK adapter, 10–32 PEEK union assembly, finger tight micro ferrule 10–32 coned for 1/32′′ OD and PEEK tubing (1/32′′ diameter) were purchased from IDEX Corporation (Lake Forest, Illinois, USA).
+BD 1 mL and 3 mL syringes were purchased from Fisher Scientific (Waltham, MA, USA).
+Tygon tubing was purchased from VWR (Radnor, PA, USA).
+Stainless steel connection needles for the BD plastic syringes were purchased from McMaster-CARR (Elmhurst, Illinois, USA).
+A low-pressure Nemesys pump system (Cetoni, Korbussen, DE) was used for flow control.
+The construction of the electrode control system has been previously published by our lab10,14and others.32Briefly, the hardware requirements contain a function generator (33210A, Keysight Technologies, Santa Rosa, CA, USA), an amplifier (PZD700A, Advanced Energy Inc, Denver, CO, USA), a DC power supply (GPE-4323, GW Instek America Corp, Montclair, CA, USA), a stacked control board of optocoupler switches, and a microcontroller (Teensy 4.1, Sherwood, OR, USA).
+The microcontroller was connected to a port expander that delivers the potential to the contact pads of the device through optocoupler switches.
+Droplet manipulations were achieved by application of AC potentials (140 Vrms) at 15 kHz.
+The optical setup for sorting consisted of an Olympus IX73 inverted microscope (Evident Scientific, Mississauga, ON, Canada) mounted on a vibration-dampening bench (Thorlabs, Newton, NJ, USA), a photon counting head, a filter block, a SMA connector (Hamamatsu PhotonicsH11890, Township, NJ, USA), an X-Cite XLED1 multi-triggering LED illumination system (Excelitas Technologies Corp., Waltham, MA, USA), bandpass filters, an attenuator filter, fiber optics (Thorlabs, Newton, NJ, USA), and a Hamamatsu ORCA-Flash 4.0 camera (Township, NJ, USA).
+Fluorescence images of the single cells in well plates were taken using an EVOS M5000 imaging system (Thermo Fisher Scientific, Waltham, MA, USA).
+Spectrometry data acquisition, PMT control, and droplet actuation were performed through a USB interface using our Python-based graphical user interface, as described in previous work.14The software is open-source and available to download athttps://bitbucket.org/shihmicrolab/uflowcontrol.
+ESI†Movie S1 shows the software interface presenting the operation of the software and live sorting of a single cell droplet.
+The fabrication of a droplet-digital (D2) microfluidic device followed a similar protocol to that in Ahmadiet al.14The device consisted of three layers: a Cr-electrode layer, a dielectric layer, and a PDMS channel layer that were patterned by photolithography and soft-lithography methods.
+The first layer followed typical protocols for electrode fabrication.10,14,32,33Briefly, chromium-coated 50 × 75 mm glass slides (Telic, Valencia, CA, USA) with an S1811 positive resist were UV exposed (7 s at 38–50 mW cm−2), then developed in MF-321 developer, etched with a CR-4 chromium etchant, and stripped with an AZ-300 T photoresist stripper.
+For the dielectric layer, 1 mL of PDMS (1 : 10 w/w ratio, curing agent to prepolymer) was poured at the center of the Cr-patterned glass substrate, and the device was spin-coated at 4500 rpm for 90 s. Chromium contact pads were covered with Scotch 3 M tape prior to spin coating for easy removal of the excessive PDMS.
+The tape was removed after spin-coating and the device was baked at 90 °C for 1 h, resulting in a dielectric layer of ∼7 μm.
+For the sorter PDMS channel layer, we used our previous fabrication protocol.10SU-8 2075 was spin-coated onto a 100 mm silicon wafer (10 s – 500 rpm, 30 s – 2000 rpm, 10 s – 500 rpm) to obtain a 100 μm thick layer, followed by a baking and exposure cycle according to the manufacturer's datasheet.
+A second layer (for the optical fibers) containing SU-8 2075 was spin-coated on top of the non-developed first layer (10 s – 500 rpm, 30 s – 2000 rpm, 10 s – 500 rpm) to obtain a 100 μm thick layer.
+After pre-exposure baking, the second layer mask was aligned and exposed (UV-KUB 3, KLOÉ, Montpellier, France), followed by baking and development according to the manufacturer's datasheet.
+The master mold was exposed to chlorotrimethylsilane vapour that was situated in a desiccator for 45 min, to prevent PDMS from permanently sticking to the mold.
+Next, PDMS (1 : 10 w/w ratio curing agent to prepolymer) was degassed and poured over the mold.
+To prevent PDMS shrinkage, the PDMS was incubated at room temperature to cure for at least 48 h. PDMS parts were cut to the designed size with a razor blade.
+Inlets for oil and aqueous phases were made using a 1.5 mm biopsy puncher (World Precision Instruments, FL, USA).
+The withdraw/waste outlet and recovery buffer inlet were made using a 0.75 mm biopsy puncher.
+The droplet-digital collection site was made with a 3 mm biopsy puncher and a semicircle was excised with a razor blade.
+1.5 mm inlets were fitted with 0.06-inch OD Tygon transparent tubing and 0.75 mm inlets were fitted with 1/32′′ OD PEEK tubing.
+The PDMS was cleaned with Scotch tape to remove dust before assembly.
+The PDMS channel layer and the substrate were treated with oxygen plasma for 15 s, bonded together, and baked at 60 °C for 30 min.
+The PDMS channel containing the sorter channel was manually aligned with the dielectric-coated electrodes under a microscope.
+Device channels were then treated with Aquapel for 1 min, and then the device was air-dried and baked at 85 °C for 20 min.
+A flat, cleaved, multi-mode optical fiber (200 μm core, 0.49 N.A.)
+was prepared for droplet detection (Thorlabs, NJ, US).
+The fiber was fixed with Scotch tape on the microscope stage.
+Two HEK293 cell lines, wild type (WT) and GFP-expressing variant, were donated by Dr. Elena Kuzmin and Dr. Alisa Piekny lab and cultured in DMEM supplemented with 10% heat-inactivated FBS, 1% penicillin–streptomycin (P/S) in a cell incubator at 37 °C and in 5% CO2.
+For cell maintenance, cells were passaged every two days at 80% confluency by washing with PBS and trypsinization, and then added to a final volume of 15 mL DMEM medium, in T-75 treated flasks.
+For HEK cell experiments, the supernatant was discarded and cells were washed two times with 5 mL PBS.
+2 mL of trypsin was added to the cell flask followed by 5 min incubation in a cell incubator in 5% CO2and at 37 °C.
+Next, 8 mL of DMEM (+ 10% FBS, 1% P/S) was added to the flask to inactivate trypsin and to wash the remaining cells off the bottom of the flask.
+5 mL of the cell suspension was transferred to a 15 mL tube for centrifugation (1000 rpm, 5 min).
+Lastly, the supernatant in the tube was discarded and the cell pellet was resuspended in 5 mL of PBS and placed into a syringe.
+For “spiked ratio” experiments, the GFP-expressing HEK cells and WT HEK cells were both adjusted to a final concentration of 1 × 106cells per mL.
+The cell lines were mixed in two ratios (1 : 400 and 1 : 1000 – GFP : WT), at a total volume of 1 mL per tube.
+Next, to mimic low-volume rare cell inputs, tubes with 10 000 cells and tubes with 100 000 cells were prepared for different ratios and topped up to 400 μL with PBS.
+Lastly, 80 μL of OptiPrep was added to each 400 μL cell suspension tube, followed by a gentle vortex.
+For microfluidic sorting, the different ratios of cell suspensions (480 μL) were loaded into 1 mL BD plastic syringes.
+600 μL of GFP-expressing and 600 μL of WT cells were loaded into 1 mL syringes as the positive and negative controls.
+Two hybridoma cell lines were provided by the National Research Council Canada (NRC) and were cultured in IMDM supplemented with 10% heat-inactivated FBS, mouse interleukin-6 (1 ng mL−1), and 1% penicillin–streptomycin in a cell incubator at 37 °C and in 5% CO2.
+Cells were passaged every three days at a final concentration of 8 × 105cells per mL in 15 mL of medium in T-25 treated flasks.
+Cells were used for experiments when the cells were in the mid-logarithmic and under passage 12.
+Target cells were provided by the NRC.
+These cells were cultured in DMEM (+ 10% FBS) and G418 (0.4 mg mL−1) in a cell incubator in 5% CO2and at 37 °C.
+Cells were passaged every three days at 80% confluency.
+Passaging and preparation followed the same protocol as above for hybridoma cells, except that a pre-warmed (37 °C) non-enzymatic cell-dissociation solution was used in lieu of trypsin to preserve the expression of the surface receptor antigen.
+For sorting experiments, the cells were resuspended in the IMDM (no phenol red) cell culture medium containing 10% FBS and mouse interleukin-6 (1 ng mL−1) without antibiotics at a final concentration of 1 × 106cells per mL.
+Specific-binding-antibody hybridoma producers were stained with CellTrace™ calcein-AM red-orange following the manufacturer's protocol.
+The target cells were resuspended in the IMDM (no phenol red) medium containing 10% FBS, mouse interleukin-6 (1 ng mL−1), and Alexa-488-conjugated goat-anti-mouse antibodies (2.5 μg mL−1) –i.e., no antibiotic – at a final concentration of 3 × 106cells per mL.
+For experiments using fluorescent beads (blue-green fluorescent, 10 μm diameter), the beads were washed three times with PBS and diluted in PBS to 1 × 106beads per mL before loading into a 1 mL syringe.
+16% Optiprep was added to prevent beads from clumping.
+A D2device was used to perform bead and cell encapsulation, sorting, collection, and recovery.
+The chip included two inlets for the flow-focusing droplet generator, a pair of sorting electrodes, four pairs of collection electrodes, a fiber channel connected to a PMT, a withdraw/waste channel, a recovery medium channel, a waste channel, and a collection channel for sorted droplets.
+A syringe (2.5 mL gastight) was connected to a withdrawal port and another for the recovery buffer injection (500 μL gastight).
+Both were fitted with 1/32′′ OD, 0.127 mm ID PEEK tubing.
+A syringe with HFE oil (2.5 mL gastight) and with beads/cells (1 mL BD plastic) was fitted with 0.06-inch OD and 0.02-inch ID Tygon tubing.
+Syringes were installed on a low-pressure neMESYS pump system (Cetoni, Korbussen, DE) for automation control.
+A co-encapsulation chip (Fig. S1†) and a D2microfluidic device were used to perform an antibody-producing hybridoma cell screening and recovery assay.
+The co-encapsulation device consisted of a flow-focusing generator with two cell inlets for hybridoma cells and target cells, respectively.
+For co-encapsulation, a syringe for withdrawal (3 mL BD plastic, for droplet collection and off-chip incubation), a syringe filled with HFE oil (2.5 mL gastight) and two syringes with cells (1 mL BD plastic) were fitted with 0.06-inch OD and 0.02-inch ID Tygon tubing.
+Syringes were installed on a low-pressure neMESYS pump system (Cetoni, Korbussen, DE).
+For sorting, collection and recovery, the setup was the same as described in the above section.
+The D2microfluidic operation included droplet generation, sorting, collection and recovery.
+All the steps were performed with the in-house sorting software (uflow14).
+For bead and HEK cell recovery experiments, fluidic operation on the device followed four steps: first, a 2.5 mL syringe containing 2% 008-fluoro-surfactant HFE oil was connected to an oil inlet and was injected at a flow rate of 0.15 μL s−1.
+Second, after priming all the channels with oil and to ensure that all the droplets travel into the waste channel by default, a syringe for withdrawal was connected to the waste channel outlet and maintained at −0.15 μL s−1.
+Third, beads or cells were loaded into a 1 mL BD plastic syringe and introduced to the aqueous inlet of the chip at a flow rate of 0.05 μL s−1.
+Fourth, 300 μL recovery medium (PBS for beads, DMEM for HEK cells and IMDM for antibody-secreting cells) was loaded into a 500 μL gastight syringe, and the syringe was connected to the recovery medium channel inlet and injected at a flow rate of 1 μL s−1to make a 3 μL recovery medium.
+After droplets were generated at ∼50 Hz, 470 nm wavelength light was cast at the detection fiber area.
+All the droplets prior to sorting were excited by the light and bead/cell-containing droplets emitted green fluorescence signals (∼520 nm); counts were recorded using the photon counting head.
+For single bead experiments, the sorting threshold was characterized and set between 7 × 103counts and 2 × 104counts (thresholding strategy shown in Fig. S2†).
+For single-cell experiments, the sorting threshold was set between 1 × 103counts and 2.5 × 103counts.
+When the single bead/cell droplet passed the fiber region, a fluorescence peak signal was measured by the PMT system and shown on the uflowcontrol user interface (Fig. S2†).
+If the fluorescence counts were above the threshold of droplets containing one target and below the threshold line of droplets with two or more targets, our automation system triggered the electrodes at the sorting junction to sort the single-bead/cell droplets.
+After each actuation of the sorting electrode, a 3 μL recovery medium was generated at a flow rate of 1 μL s−1and ‘parked’ at the sorting channel outlet.
+After a 7 s delay post-sorting, the sorted 1 nL droplet arrived at the sorting channel outlet and was in contact with the recovery mediumviaactuation by the software.
+The mixture was transferred into a 96-well plate using a P20 pipette, and the pipette was set to 5 μL to collect all the media.
+Each manual transfer operation, from the device to the well, took ∼10 seconds.
+The tubing method was similar to the D2workflow except that, after sorting, 6 cm Tygon tubing was connected to the sorting outlet and the end of the outlet tubing was directly guided to a well of a 96-well plate.
+For our device design, we incorporated six pairs of electrodes in the sorting channel to arrest the sorted dropletsviaactuation.
+ESI†Movie S2 shows a sorted single-cell containing a droplet holding and merging with the recovery medium.
+Before the experiment, the well plate was filled with 100 μL per well of recovery medium (PBS).
+D2and tubing methods both followed the general workflow described above.
+For single recovery, 50 sorted droplets were collected and recovered into different individual wells.
+In the process of recovering 50 droplets into a well plate, 50 pipetting operations after merging the sorted droplet and the buffer were required using the D2method.
+For the tubing method, we manually moved the plate and guided the tubing outlet to individual wells after each sorting event.
+For pooled recovery, 50 sorted droplets were collected and recovered into one well together, followed by a limiting dilution to achieve one bead/cell per well.34In the process of recovering 50 droplets to a well plate, one pipetting operation was required using the D2method; for the tubing method, removing the tubing from the device outlet and aligning it vertically to allow constituents containing the droplets (and oil) to flow into a well were required.
+After experiments, the well plates were stored in a mammalian cell incubator until downstream analysis.
+Before the experiment, the well plate was filled with 100 μL per well of recovery medium (DMEM).
+The D2method followed the general workflow and single recovery process described above.
+After experiments, the well plates were stored in a mammalian cell incubator until downstream analysis.
+For the viability test, 70 single cells were sorted/recovered into individual wells of a 96-well plate.
+A conditioned culture medium (150 μL, 30% supernatant from spent eGFP HEK cell culture filtered with a 0.22 μm filter and mixed with 70% fresh DMEM, 10% FBS and 1% penicillin–streptomycin added) was used for the first 24 hours post sorting, and a fresh medium (50 μL, 10% FBS and 1% penicillin–streptomycin added) was added every 48 hours to maintain the cells.
+From the starting time point (0 hour), after every 24 hours (within 7 days), SYTOX blue dead cell stain was added to 10 wells as per the manufacturer's protocol.
+The viability was calculated as the number of wells with non-blue cells per 10 wells.
+A dead cell stained with blue dye is shown in Fig. S3.†The proliferation images were taken every 24 hours using an EVOS M5000 imaging system.
+Prior to experiments, cells were washed three times with neat IMDM to remove FBS from the media.
+Before cell encapsulation, we prepared a hybridoma cell mixture consisting of two cell lines: secreting monoclonal antibodies (mAbs) that bind to the receptor antigen expressed on the membrane of target cells and the other producing non-binding mAbs in 1 : 400 and 1 : 1000 ratios.
+The specific mAbs producing hybridoma cell and target cell lines were stained with calcein-AM red-orange (shown as red) and CellTrace blue (shown as blue), respectively, as per the manufacturer's instructions.
+The target cells (3 × 106cells per mL−1) and goat anti-mouse Alexa Fluor 488 secondary antibodies (2.5 μ mL−1) along with Optiprep (11%, w/v) were introduced from one inlet in the co-encapsulation chip at a flow rate of 0.3 μL s−1.
+The hybridoma cell mixture (1 × 106cells per mL) along with Optiprep (11%, w/v) was introduced from another inlet in the co-encapsulation chip at a flow rate of 0.3 μL s−1.
+HFE 7500 oil with 2% 008-fluoro-surfactant (RAN Biotechnologies) was used to produce droplets at a flow rate of 0.8 μL s−1.
+A withdrawing syringe (BD 1 mL plastic) was connected to the chip outlet and set at a flow rate of 1.4 μL s−1to collect droplets, and the syringe was incubated for 2 hours in a cell incubator at 37 °C and in 5% CO2.
+The droplets were re-injected into the sorting and recovery chip using our D2method at a flow rate of 0.02 μL s−1, the spacing oil was set at a flow rate of 0.15 μL s−1and the waste syringe was set at −0.12 μL s−1.
+The sorting and recovery were performed using in-house software (uflow) and the sorting threshold was set between 1.8 × 104counts and 3 × 104counts for the specific antibody-binding assay.
+The throughput of the sorting was ∼50 Hz with a monodisperse droplet size of ∼1 nL.
+After each sorting event, a 3 μL IMDM (10% FBS, 1 ng mL−1IL-6) recovery medium was generated at the collection channel outlet and a delay (7–9 seconds) was set before actuating the electrodes three times (500 ms per actuation) to merge the samples.
+The sorted droplet and recovery medium mixtures were individually transferred using a pipette to a 96-well plate for downstream analysis.
+The well plate was preloaded with 100 μL of IMDM (10% FBS, 1 ng mL−1IL-6, 1% penicillin–streptomycin) and immediately moved to an incubator after the experiment.
+The well plate was imaged using an EVOS M5000 imaging system.
+Statistical analysis was performed using descriptive statistics (mean, standard deviation) and an unpairedt-test (p-value) with Prism V10.1.1 (GraphPad) forFig.
+Droplet-based microfluidics has been frequently used for single-cell studies; however, such technologies are challenging with collection and recovery, resulting in unwanted sample loss.29To address this, we devised a new droplet-digital (D2) microfluidic strategy which has been reported as an efficient platform for on-demand merging, mixing and sorting of the droplets – operations that were challenging with standard droplet-in-channel microfluidics.14Many cell-based workflows generally require sorting, and fluorescence-activated droplet sorting was reported as a powerful tool for this purpose35(Fig. 1A).
+There are commercial systems (Cyto-Mine,31LiveDrop,36Atrandi Biosciences) that are effective in sorting and recovery; however, these are closed systems and are difficult to use for low-hit, rare, cell ratios (Table S1†).
+Although FLS mimic structures found in the lymphatic system, their presence within the CNS is abnormal.
+Their development is connected to the release of inflammatory molecules including IL6, TNF-α, IL10, and IL35.
+Additionally, FLS secrete CXCL13, which draws more B cells into the CNS and sustains immune activation.
+This self-reinforcing influx and activation of immune cells drives persistent inflammation in PPMS.
+EBV contributes to MS pathogenesis by enabling infected B cells to aggravate disease progression.
+These infected cells activate CD8+ T lymphocytes, whose cytotoxic functions promote tissue injury in the CNS.
+CD8+ T cells release pro-inflammatory cytokines such as TNF-α, intensifying neurotoxicity and neuronal loss.
+Simvastatin may help reduce brain atrophy and improve quality-of-life outcomes in PPMS as well.
+Nevertheless, larger studies—particularly those in SPMS—have not confirmed its effectiveness in altering disease progression.
+Further investigation is needed to determine whether simvastatin offers specific advantages for individuals with PPMS.
+Fingolimod, an oral S1P receptor modulator, has been evaluated for potential use in PPMS.
+The INFORMS trial, a large, double-blind, placebo-controlled study, assessed fingolimod’s safety and efficacy in PPMS patients.

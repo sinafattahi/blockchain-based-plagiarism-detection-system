@@ -1,0 +1,2945 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+    <head >
+
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+        
+
+        
+        
+  <link rel="stylesheet" href="/static/assets/style-8258669d.css" />
+<script type="module" crossorigin="" src="/static/assets/base_style-f4a99799.js"></script>
+
+  <link rel="stylesheet" href="/static/assets/style-ef962842.css" />
+<link rel="stylesheet" href="/static/assets/style-3ade8b5c.css" />
+<script type="module" crossorigin="" src="/static/assets/article_style-d757a0dd.js"></script>
+
+  
+  
+    <style>
+  
+  
+  @media screen and (min-width: 64em) {
+    div.pmc-wm {
+      background: repeat-y;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='350' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-.02' y='0' width='1.05' height='1' id='c'%3E%3CfeFlood flood-color='%23FFF'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3Ctext id='b' font-family='Helvetica' font-size='11pt' style='opacity:1;fill:%23005ea2;stroke:none;text-anchor:middle' x='175' y='14'%3E%3C/text%3E%3Cpath id='a' style='fill:%23005ea2' d='M0 8h350v3H0z'/%3E%3C/defs%3E%3Cuse xlink:href='%23a' transform='rotate(90 10 10)'/%3E%3Cuse xlink:href='%23b' transform='rotate(90 10 10)' filter='url(%23c)'/%3E%3C/svg%3E");
+      padding-left: 3rem;
+    }
+  }
+</style>
+
+  
+
+
+
+        
+            <link rel="apple-touch-icon"
+                  sizes="180x180"
+                  href="/static/img/favicons/apple-touch-icon.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="48x48"
+                  href="/static/img/favicons/favicon-48x48.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="/static/img/favicons/favicon-32x32.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="/static/img/favicons/favicon-16x16.png" />
+            <link rel="manifest" href="/static/img/favicons/site.webmanifest" />
+            <link rel="mask-icon"
+                  href="/static/img/favicons/safari-pinned-tab.svg"
+                  color="#0071bc" />
+            <meta name="msapplication-config"
+                  content="/static/img/favicons/browserconfig.xml" />
+            <meta name="theme-color" content="#ffffff" />
+        
+
+        <title>
+            Autonomous, miniature research station (lab-payload) for the nanosatellite biological mission: LabSat - PMC
+        </title>
+
+        
+        
+  
+  <!-- Logging params: Pinger defaults -->
+<meta name="ncbi_app" content="cloudpmc-viewer" />
+<meta name="ncbi_db" content="pmc" />
+<meta name="ncbi_phid" content="152531668AF140F3053166005BEF4ADA.m_1" />
+<meta name="ncbi_pinger_stat_url" content="https://pmc.ncbi.nlm.nih.gov/stat" />
+<!-- Logging params: Pinger custom -->
+<meta name="ncbi_pdid" content="article" />
+  
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+
+    
+        <link rel="preconnect" href="https://cdn.ncbi.nlm.nih.gov" />
+    
+
+    <!-- Include USWDS Init Script -->
+    <script src="/static/assets/uswds-init.js"></script>
+
+
+    <meta name="ncbi_domain" content="scirep">
+<meta name="ncbi_type" content="fulltext">
+<meta name="ncbi_pcid" content="journal">
+<meta name="ncbi_feature" content="associated_data">
+<link rel="canonical" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12373727/">
+<meta name="robots" content="INDEX,NOFOLLOW,NOARCHIVE">
+<meta name="citation_journal_title" content="Scientific Reports">
+<meta name="citation_title" content="Autonomous, miniature research station (lab-payload) for the nanosatellite biological mission: LabSat">
+<meta name="citation_author" content="Patrycja Śniadek">
+<meta name="citation_author_institution" content="Division of Microsystems, Faculty of Electronics, Photonics and Microsystems, Wroclaw University of Science and Technology, 27 Wybrzeze Wyspianskiego Street, 50-370 Wroclaw, Poland">
+<meta name="citation_author" content="Agnieszka Krakos">
+<meta name="citation_author_institution" content="Division of Microsystems, Faculty of Electronics, Photonics and Microsystems, Wroclaw University of Science and Technology, 27 Wybrzeze Wyspianskiego Street, 50-370 Wroclaw, Poland">
+<meta name="citation_author" content="Adrianna Graja">
+<meta name="citation_author_institution" content="Division of Microsystems, Faculty of Electronics, Photonics and Microsystems, Wroclaw University of Science and Technology, 27 Wybrzeze Wyspianskiego Street, 50-370 Wroclaw, Poland">
+<meta name="citation_author" content="Bartosz Kawa">
+<meta name="citation_author_institution" content="Division of Microsystems, Faculty of Electronics, Photonics and Microsystems, Wroclaw University of Science and Technology, 27 Wybrzeze Wyspianskiego Street, 50-370 Wroclaw, Poland">
+<meta name="citation_author" content="Rafał Walczak">
+<meta name="citation_author_institution" content="Division of Microsystems, Faculty of Electronics, Photonics and Microsystems, Wroclaw University of Science and Technology, 27 Wybrzeze Wyspianskiego Street, 50-370 Wroclaw, Poland">
+<meta name="citation_author" content="Jan Dziuban">
+<meta name="citation_author_institution" content="Division of Microsystems, Faculty of Electronics, Photonics and Microsystems, Wroclaw University of Science and Technology, 27 Wybrzeze Wyspianskiego Street, 50-370 Wroclaw, Poland">
+<meta name="citation_publication_date" content="2025 Aug 22">
+<meta name="citation_volume" content="15">
+<meta name="citation_firstpage" content="30898">
+<meta name="citation_doi" content="10.1038/s41598-025-16044-y">
+<meta name="citation_pmid" content="40847115">
+<meta name="citation_abstract_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12373727/">
+<meta name="citation_fulltext_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12373727/">
+<meta name="citation_pdf_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12373727/pdf/41598_2025_Article_16044.pdf">
+<meta name="description" content="There is an increase in demand for bio-nanosatellites and biomedical methodologies as a result of experiments conducted in microgravity and radiation conditions. Currently, the latest trend is to replace the experiments carried out by cosmonauts at ...">
+<meta name="og:title" content="Autonomous, miniature research station (lab-payload) for the nanosatellite biological mission: LabSat">
+<meta name="og:type" content="article">
+<meta name="og:site_name" content="PubMed Central (PMC)">
+<meta name="og:description" content="There is an increase in demand for bio-nanosatellites and biomedical methodologies as a result of experiments conducted in microgravity and radiation conditions. Currently, the latest trend is to replace the experiments carried out by cosmonauts at ...">
+<meta name="og:url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12373727/">
+<meta name="og:image" content="https://cdn.ncbi.nlm.nih.gov/pmc/cms/images/pmc-card-share.jpg?_=0">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ncbi">
+    
+    
+
+    </head>
+    <body >
+        
+    <a class="usa-skipnav " href="#main-content">
+      Skip to main content
+    </a>
+
+
+        
+            
+
+<section class="usa-banner " aria-label="Official website of the United States government" >
+    <div class="usa-accordion">
+        <header class="usa-banner__header">
+            <div class="usa-banner__inner">
+                <div class="grid-col-auto">
+                    <img aria-hidden="true"
+                         class="usa-banner__header-flag"
+                         src="/static/img/us_flag.svg"
+                         alt="" />
+                </div>
+
+                <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+                    <p class="usa-banner__header-text">
+                        An official website of the United States government
+                    </p>
+                    <span class="usa-banner__header-action">Here's how you know</span>
+                </div>
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-accordion__button usa-banner__button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    aria-expanded="false"
+    aria-controls="gov-banner-default"
+    
+    data-testid="storybook-django-banner"
+    
+    >
+    
+        
+
+        
+                    <span class="usa-banner__button-text">Here's how you know</span>
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </div>
+        </header>
+
+        <div class="usa-banner__content usa-accordion__content"
+             id="gov-banner-default"
+             hidden>
+            <div class="grid-row grid-gap-lg">
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-dot-gov.svg"
+                         alt=""
+                         aria-hidden="true" />
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Official websites use .gov</strong>
+                            <br />
+                            A
+                            <strong>.gov</strong> website belongs to an official
+                            government organization in the United States.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-https.svg"
+                         alt=""
+                         aria-hidden="true" />
+
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Secure .gov websites use HTTPS</strong>
+                            <br />
+                            A <strong>lock</strong> (
+                            <span class="icon-lock">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     width="52"
+                                     height="64"
+                                     viewBox="0 0 52 64"
+                                     class="usa-banner__lock-image"
+                                     role="graphics-symbol"
+                                     aria-labelledby="banner-lock-description"
+                                     focusable="false">
+                                    <title id="banner-lock-title">Lock</title>
+                                    <desc id="banner-lock-description">
+                                    Locked padlock icon
+                                    </desc>
+                                    <path fill="#000000"
+                                          fill-rule="evenodd"
+                                          d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+                                </svg>
+</span>) or <strong>https://</strong> means you've safely
+                                connected to the .gov website. Share sensitive
+                                information only on official, secure websites.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        
+
+        
+    
+    
+    
+
+<div class="usa-overlay">
+</div>
+
+
+
+<header class="usa-header usa-header--extended usa-header--wide" data-header data-testid="header"    >
+    <div class="ncbi-header">
+        <div class="ncbi-header__container">
+            <a class="ncbi-header__logo-container"
+               href="https://www.ncbi.nlm.nih.gov/">
+                <img alt="NCBI home page"
+                     class="ncbi-header__logo-image"
+                     src="/static/img/ncbi-logos/nih-nlm-ncbi--white.svg"
+                     width="410"
+                     height="100" />
+            </a>
+
+            <!-- Mobile menu hamburger button -->
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-menu-btn ncbi-header__hamburger-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Show menu"
+    data-testid="navMenuButton"
+    
+    >
+    
+        
+
+        
+                <svg aria-hidden="true"
+                     class="ncbi-hamburger-icon"
+                     fill="none"
+                     focusable="false"
+                     height="21"
+                     viewBox="0 0 31 21"
+                     width="31"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd"
+                          d="M0.125 20.75H30.875V17.3333H0.125V20.75ZM0.125 12.2083H30.875V8.79167H0.125V12.2083ZM0.125 0.25V3.66667H30.875V0.25H0.125Z"
+                          fill="#F1F1F1"
+                          fill-rule="evenodd" />
+                </svg>
+            
+
+        
+    
+        
+            </button>
+        
+
+
+
+            
+                <!-- Desktop buttons-->
+                <div class="ncbi-header__desktop-buttons">
+                    
+                        <!-- Desktop search button -->
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button
+           "
+    aria-expanded="false"
+    aria-controls="search-field-desktop-navigation"
+    aria-label="Show search overlay"
+    data-testid="toggleSearchPanelButton"
+    data-toggle-search-panel-button
+    >
+    
+        
+
+        
+                            
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#search" />
+    </svg>
+
+
+                            Search
+                        
+
+        
+    
+        
+            </button>
+        
+
+
+                    
+
+                    <!-- Desktop login dropdown -->
+                    
+                        <div class="ncbi-header__login-dropdown">
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button ncbi-header__login-dropdown-button
+           "
+    aria-expanded="false"
+    aria-controls="login-dropdown-menu"
+    aria-label="Show login menu"
+    data-testid="toggleLoginMenuDropdown"
+    data-desktop-login-button
+    >
+    
+        
+
+        
+                                
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#person" />
+    </svg>
+
+
+
+                                <span data-login-dropdown-text>Log in</span>
+
+                                <!-- Dropdown icon pointing up -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-less ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-up-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_less" />
+    </svg>
+
+
+
+                                <!-- Dropdown icon pointing down -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-more ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-down-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_more" />
+    </svg>
+
+
+                            
+
+        
+    
+        
+            </button>
+        
+
+
+
+                            <!-- Login dropdown menu -->
+                            <ul class="usa-nav__submenu ncbi-header__login-dropdown-menu"
+                                id="login-dropdown-menu"
+                                data-desktop-login-menu-dropdown
+                                hidden>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                <li class="usa-nav__submenu-item">
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--outline ncbi-header__login-dropdown-logout-button
+           "
+    
+    
+    
+    data-testid="desktopLogoutButton"
+    data-desktop-logout-button
+    >
+    
+        
+
+        Log out
+
+        
+    
+        
+            </button>
+        
+
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                </div>
+            
+        </div>
+    </div>
+
+    <!-- Search panel -->
+    
+        <div class="ncbi-search-panel ncbi--show-only-at-desktop"
+             data-header-search-panel
+             hidden>
+            <div class="ncbi-search-panel__container">
+                <form action="https://www.ncbi.nlm.nih.gov/search/all/"
+                      
+                      autocomplete="off"
+                      class="usa-search usa-search--big ncbi-search-panel__form"
+                      data-testid="desktop-navigation-search-form"
+                      method="GET"
+                      role="search">
+                    <label class="usa-sr-only" for="search-field-desktop-navigation">
+                        Search…
+                    </label>
+                    <input class="usa-input"
+                           id="search-field-desktop-navigation"
+                           name="term"
+                           
+                               placeholder="Search NCBI"
+                           
+                           type="search"
+                           value="" />
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                        <span class="usa-search__submit-text">
+                            Search NCBI
+                        </span>
+                    
+
+        
+    
+        
+            </button>
+        
+
+
+                </form>
+
+                
+            </div>
+        </div>
+    
+
+    <nav aria-label="Primary navigation" class="usa-nav">
+        <p class="usa-sr-only" id="primary-navigation-sr-only-title">
+            Primary site navigation
+        </p>
+
+        <!-- Mobile menu close button -->
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-nav__close ncbi-nav__close-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Close navigation menu"
+    data-testid="navCloseButton"
+    
+    >
+    
+        
+
+        
+            <img src="/static/img/usa-icons/close.svg" alt="Close" />
+        
+
+        
+    
+        
+            </button>
+        
+
+
+
+        
+            <!-- Mobile search component -->
+            <form class="usa-search usa-search--small ncbi--hide-at-desktop margin-top-6"
+                  action="https://www.ncbi.nlm.nih.gov/search/all/"
+                  
+                  autocomplete="off"
+                  data-testid="mobile-navigation-search-form"
+                  method="GET"
+                  role="search">
+                <label class="usa-sr-only" for="search-field-mobile-navigation">
+                    Search
+                </label>
+
+                <input class="usa-input"
+                       id="search-field-mobile-navigation"
+                       type="search"
+                       
+                           placeholder="Search NCBI"
+                       
+                       name="term" />
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                    <!-- This SVG should be kept inline and not replaced with a link to the icon as otherwise it will render in the wrong color -->
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0E2LjQ3MSA2LjQ3MSAwIDAgMCAxNiA5LjUgNi41IDYuNSAwIDEgMCA5LjUgMTZjMS42MSAwIDMuMDktLjU5IDQuMjMtMS41N2wuMjcuMjh2Ljc5bDUgNC45OUwyMC40OSAxOWwtNC45OS01em0tNiAwQzcuMDEgMTQgNSAxMS45OSA1IDkuNVM3LjAxIDUgOS41IDUgMTQgNy4wMSAxNCA5LjUgMTEuOTkgMTQgOS41IDE0eiIvPjwvc3ZnPg=="
+                         class="usa-search__submit-icon"
+                         alt="Search" />
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </form>
+
+            
+        
+
+        <!-- Primary navigation menu items -->
+        <!-- This usa-nav__inner wrapper is required to correctly style the navigation items on Desktop -->
+        
+
+        
+            <div class="ncbi-nav__mobile-login-menu ncbi--hide-at-desktop"
+                 data-mobile-login-menu
+                 hidden>
+                <p class="ncbi-nav__mobile-login-menu-status">
+                    Logged in as:
+                    <strong class="ncbi-nav__mobile-login-menu-email"
+                            data-mobile-login-email-text></strong>
+                </p>
+                <ul class="usa-nav__primary usa-accordion">
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           ncbi-nav__mobile-login-button ncbi--hide-at-desktop
+           "
+    
+    
+    
+    data-testid="mobileLoginButton"
+    data-mobile-login-button
+    >
+    
+        
+
+        Log in
+
+        
+    
+        
+            </button>
+        
+
+
+    </nav>
+</header>
+
+    
+    
+        
+
+<section class="pmc-header pmc-header--basic" aria-label="PMC Header with search box">
+    <div class="pmc-nav-container">
+        <div class="pmc-header__bar">
+           <div class="pmc-header__logo">
+               <a href="/" title="Home" aria-label="PMC Home"></a>
+           </div>
+            <button
+                    type="button"
+                    class="usa-button usa-button--unstyled pmc-header__search__button"
+                    aria-label="Open search"
+                    data-ga-category="search"
+                    data-ga-action="PMC"
+                    data-ga-label="pmc_search_panel_mobile"
+            >
+                <svg class="usa-icon width-4 height-4 pmc-icon__open" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#search"></use>
+                </svg>
+                <svg class="usa-icon width-4 height-4 pmc-icon__close" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="pmc-header__search">
+            
+
+
+<form class="usa-search usa-search--extra usa-search--article-right-column  pmc-header__search__form" id="pmc-search-form" autocomplete="off" role="search">
+<label class="usa-sr-only" for="pmc-search">Search PMC Full-Text Archive</label>
+<span class="autoComplete_wrapper flex-1">
+<input class="usa-input width-full maxw-none" required="required" placeholder="Search PMC Full-Text Archive" id="pmc-search"  type="search" name="term" data-autocomplete-url="https://pmc.ncbi.nlm.nih.gov/autocomp/search/autocomp/"/>
+</span>
+<button
+class="usa-button"
+type="submit"
+formaction="https://www.ncbi.nlm.nih.gov/pmc/"
+data-ga-category="search"
+data-ga-action="PMC"
+data-ga-label="PMC_search_button"
+>
+<span class="usa-search__submit-text">Search in PMC</span>
+<img
+src="/static/img/usa-icons-bg/search--white.svg"
+class="usa-search__submit-icon"
+alt="Search"
+/>
+</button>
+</form>
+            <div class="display-flex flex-column tablet:flex-row tablet:flex-justify flex-justify-center flex-align-center width-full desktop:maxw-44">
+                <ul class="pmc-header__search__menu">
+                    <li>
+                        
+                            <a class="usa-link" href="/journals/" data-ga-action="featured_link" data-ga-label="journal list">
+                                Journal List
+                            </a>
+                        
+                    </li>
+                    <li>
+                        
+                            <a class="usa-link" href="/about/userguide/" data-ga-action="featured_link"
+                            data-ga-label="user guide">
+                                User Guide
+                            </a>
+                        
+                    </li>
+                </ul>
+                
+                    <button form="pmc-search-form" formaction="https://pmc.ncbi.nlm.nih.gov/search/" type="submit" class="usa-button usa-button--unstyled hover:text-no-underline text-no-underline width-auto margin-top-1 tablet:margin-top-0">
+     <span class="bg-green-label padding-05 text-white">New</span><span class="text-underline text-primary">Try this search in PMC Beta Search</span>
+</button>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+
+
+        
+        
+
+       
+  <div class="usa-section padding-top-0 desktop:padding-top-6 pmc-article-section" data-article-db="pmc" data-article-id="12373727">
+
+    
+
+   
+
+
+
+<div class="grid-container pmc-actions-bar" aria-label="Actions bar" role="complementary">
+    <div class="grid-row">
+        <div class="grid-col-fill display-flex">
+             <div class="display-flex">
+                <ul class="usa-list usa-list--unstyled usa-list--horizontal">
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <button
+                                type="button"
+                                class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                                aria-label="Open resources"
+                                data-extra-class="is-visible-resources"
+                                data-ga-category="resources_accordion"
+                                data-ga-action="click"
+                                data-ga-label="mobile_icon"
+                        >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#more_vert"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <a
+                                href="https://doi.org/10.1038/s41598-025-16044-y"
+                                class="usa-link display-flex usa-tooltip"
+                                role="button"
+                                target="_blank"
+                                rel="noreferrer noopener"
+                                title="View on publisher site"
+                                data-position="bottom"
+                                aria-label="View on publisher site"
+                                data-ga-category="actions"
+                                data-ga-action="click"
+                                data-ga-label="publisher_link_mobile"
+                        >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#launch"></use>
+                                </svg>
+                        </a>
+                    </li>
+                    
+                    
+                        <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                             <a
+                                     href="pdf/41598_2025_Article_16044.pdf"
+                                     class="usa-link display-flex usa-tooltip"
+                                     role="button"
+                                     title="Download PDF"
+                                     data-position="bottom"
+                                     aria-label="Download PDF"
+                                     data-ga-category="actions"
+                                     data-ga-action="click"
+                                     data-ga-label="pdf_download_mobile"
+                             >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button
+                            class="usa-button usa-button--unstyled  usa-tooltip collections-dialog-trigger collections-button display-flex collections-button-empty"
+                            title="Add to Collections"
+                            data-position="bottom"
+                            aria-label="Save article in MyNCBI collections."
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="collections_button_mobile"
+                            data-collections-open-dialog-enabled="false"
+                            data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12373727%2F%3Freport%3Dclassic%23open-collections-dialog"
+                            data-in-collections="false"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button role="button" class="usa-button usa-button--unstyled usa-tooltip citation-dialog-trigger display-flex"
+                            aria-label="Open dialog with citation text in different styles"
+                            title="Cite"
+                            data-position="bottom"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="cite_mobile"
+                            data-all-citations-url="/resources/citations/12373727/"
+                            data-citation-style="nlm"
+                            data-download-format-link="/resources/citations/12373727/export/"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="pmc-permalink display-flex" >
+                         <button
+                                 type="button"
+                                 title="Permalink"
+                                 data-position="bottom"
+                                 class="usa-button usa-button--unstyled display-flex usa-tooltip"
+                                 aria-label="Show article permalink"
+                                 aria-expanded="false"
+                                 aria-haspopup="true"
+                                 data-ga-category="actions"
+                                 data-ga-action="open"
+                                 data-ga-label="permalink_mobile"
+                         >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#share"></use>
+                            </svg>
+                        </button>
+                        
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12373727/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+                    </li>
+                </ul>
+            </div>
+            <button
+                    type="button"
+                    class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                    aria-label="Open article navigation"
+                    data-extra-class="is-visible-in-page"
+                    data-ga-category="actions"
+                    data-ga-action="open"
+                    data-ga-label="article_nav_mobile"
+            >
+                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#list"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+    <div class="grid-container desktop:padding-left-6">
+      <div id="article-container" class="grid-row grid-gap">
+        <div class="grid-col-12 desktop:grid-col-8 order-2 pmc-layout__content">
+            <div class="grid-container padding-left-0 padding-right-0">
+                <div class="grid-row desktop:margin-left-neg-6">
+                    <div class="grid-col-12">
+                        <div class="pmc-layout__disclaimer" role="complementary" aria-label="Disclaimer note">
+    As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,
+    the contents by NLM or the National Institutes of Health.<br/>
+    Learn more:
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="Disclaimer" data-ga-label="New disclaimer box" href="/about/disclaimer/">PMC Disclaimer</a>
+    |
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="PMC Copyright Notice" data-ga-label="New disclaimer box" href="/about/copyright/">
+        PMC Copyright Notice
+    </a>
+</div>
+                    </div>
+                </div>
+                <div class="grid-row pmc-wm desktop:margin-left-neg-6">
+                    <!-- Main content -->
+                    <main
+                      id="main-content"
+                      class="usa-layout-docs__main usa-layout-docs grid-col-12 pmc-layout pmc-prose padding-0"
+                    >
+
+                      
+                        <section class="pmc-journal-banner text-center line-height-none" aria-label="Journal banner"><img src="https://cdn.ncbi.nlm.nih.gov/pmc/banners/logo-scirep.jpg" alt="Scientific Reports logo" usemap="#pmc-banner-imagemap" width="500" height="75"><map name="pmc-banner-imagemap"><area alt="Link to Scientific Reports" title="Link to Scientific Reports" shape="default" href="http://www.nature.com/srep" target="_blank" rel="noopener noreferrer"></map></section><article lang="en"><section aria-label="Article citation and metadata"><section class="pmc-layout__citation font-secondary font-xs"><div>
+<div class="display-inline-block"><button type="button" class="cursor-pointer text-no-underline bg-transparent border-0 padding-0 text-left margin-0 text-normal text-primary" aria-controls="journal_context_menu">Sci Rep</button></div>. 2025 Aug 22;15:30898. doi: <a href="https://doi.org/10.1038/s41598-025-16044-y" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">10.1038/s41598-025-16044-y</a>
+</div>
+<nav id="journal_context_menu" hidden="hidden"><ul class="menu-list font-family-ui" role="menu">
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/pmc/?term=%22Sci%20Rep%22%5Bjour%5D" class="usa-link" role="menuitem">Search in PMC</a></li>
+<li role="presentation"><a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Sci%20Rep%22%5Bjour%5D" lang="en" class="usa-link" role="menuitem">Search in PubMed</a></li>
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/nlmcatalog?term=%22Sci%20Rep%22%5BTitle%20Abbreviation%5D" class="usa-link" role="menuitem">View in NLM Catalog</a></li>
+<li role="presentation"><a href="?term=%22Sci%20Rep%22%5Bjour%5D" class="usa-link" role="menuitem" data-add-to-search="true">Add to search</a></li>
+</ul></nav></section><section class="front-matter"><div class="ameta p font-secondary font-xs">
+<hgroup><h1>Autonomous, miniature research station (lab-payload) for the nanosatellite biological mission: LabSat</h1></hgroup><div class="cg p">
+<a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22%C5%9Aniadek%20P%22%5BAuthor%5D" class="usa-link" aria-describedby="id1"><span class="name western">Patrycja Śniadek</span></a><div hidden="hidden" id="id1">
+<h3><span class="name western">Patrycja Śniadek</span></h3>
+<div class="p">
+<sup>1</sup>Division of Microsystems, Faculty of Electronics, Photonics and Microsystems, Wroclaw University of Science and Technology, 27 Wybrzeze Wyspianskiego Street, 50-370 Wroclaw, Poland </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22%C5%9Aniadek%20P%22%5BAuthor%5D" class="usa-link"><span class="name western">Patrycja Śniadek</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>✉</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Krakos%20A%22%5BAuthor%5D" class="usa-link" aria-describedby="id2"><span class="name western">Agnieszka Krakos</span></a><div hidden="hidden" id="id2">
+<h3><span class="name western">Agnieszka Krakos</span></h3>
+<div class="p">
+<sup>1</sup>Division of Microsystems, Faculty of Electronics, Photonics and Microsystems, Wroclaw University of Science and Technology, 27 Wybrzeze Wyspianskiego Street, 50-370 Wroclaw, Poland </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Krakos%20A%22%5BAuthor%5D" class="usa-link"><span class="name western">Agnieszka Krakos</span></a>
+</div>
+</div>
+<sup>1</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Graja%20A%22%5BAuthor%5D" class="usa-link" aria-describedby="id3"><span class="name western">Adrianna Graja</span></a><div hidden="hidden" id="id3">
+<h3><span class="name western">Adrianna Graja</span></h3>
+<div class="p">
+<sup>1</sup>Division of Microsystems, Faculty of Electronics, Photonics and Microsystems, Wroclaw University of Science and Technology, 27 Wybrzeze Wyspianskiego Street, 50-370 Wroclaw, Poland </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Graja%20A%22%5BAuthor%5D" class="usa-link"><span class="name western">Adrianna Graja</span></a>
+</div>
+</div>
+<sup>1</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Kawa%20B%22%5BAuthor%5D" class="usa-link" aria-describedby="id4"><span class="name western">Bartosz Kawa</span></a><div hidden="hidden" id="id4">
+<h3><span class="name western">Bartosz Kawa</span></h3>
+<div class="p">
+<sup>1</sup>Division of Microsystems, Faculty of Electronics, Photonics and Microsystems, Wroclaw University of Science and Technology, 27 Wybrzeze Wyspianskiego Street, 50-370 Wroclaw, Poland </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Kawa%20B%22%5BAuthor%5D" class="usa-link"><span class="name western">Bartosz Kawa</span></a>
+</div>
+</div>
+<sup>1</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Walczak%20R%22%5BAuthor%5D" class="usa-link" aria-describedby="id5"><span class="name western">Rafał Walczak</span></a><div hidden="hidden" id="id5">
+<h3><span class="name western">Rafał Walczak</span></h3>
+<div class="p">
+<sup>1</sup>Division of Microsystems, Faculty of Electronics, Photonics and Microsystems, Wroclaw University of Science and Technology, 27 Wybrzeze Wyspianskiego Street, 50-370 Wroclaw, Poland </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Walczak%20R%22%5BAuthor%5D" class="usa-link"><span class="name western">Rafał Walczak</span></a>
+</div>
+</div>
+<sup>1</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Dziuban%20J%22%5BAuthor%5D" class="usa-link" aria-describedby="id6"><span class="name western">Jan Dziuban</span></a><div hidden="hidden" id="id6">
+<h3><span class="name western">Jan Dziuban</span></h3>
+<div class="p">
+<sup>1</sup>Division of Microsystems, Faculty of Electronics, Photonics and Microsystems, Wroclaw University of Science and Technology, 27 Wybrzeze Wyspianskiego Street, 50-370 Wroclaw, Poland </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Dziuban%20J%22%5BAuthor%5D" class="usa-link"><span class="name western">Jan Dziuban</span></a>
+</div>
+</div>
+<sup>1</sup>
+</div>
+<ul class="d-buttons inline-list">
+<li><button class="d-button" aria-controls="aip_a" aria-expanded="false">Author information</button></li>
+<li><button class="d-button" aria-controls="anp_a" aria-expanded="false">Article notes</button></li>
+<li><button class="d-button" aria-controls="clp_a" aria-expanded="false">Copyright and License information</button></li>
+</ul>
+<div class="d-panels font-secondary-light">
+<div id="aip_a" class="d-panel p" style="display: none">
+<div class="p" id="Aff1">
+<sup>1</sup>Division of Microsystems, Faculty of Electronics, Photonics and Microsystems, Wroclaw University of Science and Technology, 27 Wybrzeze Wyspianskiego Street, 50-370 Wroclaw, Poland </div>
+<div class="author-notes p"><div class="fn" id="_fncrsp93pmc__">
+<sup>✉</sup><p class="display-inline">Corresponding author.</p>
+</div></div>
+</div>
+<div id="anp_a" class="d-panel p" style="display: none"><div class="notes p"><section id="historyarticle-meta1" class="history"><p>Received 2024 Dec 13; Accepted 2025 Aug 12; Collection date 2025.</p></section></div></div>
+<div id="clp_a" class="d-panel p" style="display: none">
+<div>© The Author(s) 2025</div>
+<p><strong>Open Access</strong> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <a href="https://creativecommons.org/licenses/by/4.0/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">http://creativecommons.org/licenses/by/4.0/</a>.</p>
+<div class="p"><a href="/about/copyright/" class="usa-link">PMC Copyright notice</a></div>
+</div>
+</div>
+<div>PMCID: PMC12373727  PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/40847115/" class="usa-link">40847115</a>
+</div>
+</div></section></section><section aria-label="Article content"><section class="body main-article-body"><section class="abstract" id="Abs1"><h2>Abstract</h2>
+<p id="Par1">There is an increase in demand for bio-nanosatellites and biomedical methodologies as a result of experiments conducted in microgravity and radiation conditions. Currently, the latest trend is to replace the experiments carried out by cosmonauts at the International Space Station (ISS) with research performed with the use of autonomous payload for nanosatellite. This paper describes the lab-payload for a biological nanosatellite of the CubeSat type with a size of 2U (10 × 10 × 20 cm<sup>3</sup>). The proposed payload enables the long-term cultivation of two different biological experiments simultaneously and provides suitable growth conditions. This lab-payload is equipped with lab-chips dedicated to each of the cultures, a container with a nutrient solution, a medium dosing system, an optical detection system, lighting, a heating system and sensors for measuring temperature, humidity, pressure and radiation inside a thermos.</p>
+<section id="kwd-group1" lang="en" class="kwd-group"><p><strong>Keywords:</strong> Lab-payload, Lab-chip, Bio-nanosatellite, Microfluidic, Astrobiology</p></section><section id="kwd-group2" class="kwd-group"><p><strong>Subject terms:</strong> Plant sciences, Engineering, Aerospace engineering, Techniques and instrumentation</p></section></section><section id="Sec1"><h2 class="pmc_sec_title">Introduction</h2>
+<p id="Par2">The influence of space environments on a widely understood life, especially in the context of microgravity and radiation, is one of the most interesting subjects recently raised by researchers. In the previous, long-term work on attempts to describe and eliminate the effects of the impact of the space environment on living objects, an important source of data was observations and experiments conducted as part of manned missions. Due to ethical, economic, and organizational aspects, research methods using so-called model organisms are employed, whose similarities with cells and functional processes in the human body are well known<sup><a href="#CR1" class="usa-link" aria-describedby="CR1">1</a></sup>. Additionally, rapid growth and short life cycles allow for efficient assessment of the space environment impact at various stages of development and over several generations. The use of small, model plants in research has similar advantages. Additionally, the same reasons why plants are necessary to sustain life on Earth (including food production, CO<sub>2</sub> absorption, release of O<sub>2</sub> and water vapor) make them an important element in the construction of space habitats and the implementation of long-term manned missions<sup><a href="#CR1" class="usa-link" aria-describedby="CR1">1</a></sup>.</p>
+<p id="Par3">Microbiology research in space falls into two broad categories that connect biological sciences with space: astrobiology and basic space biology. Most of this research, in its initial stage, is performed using devices that simulate microgravity on Earth (RPM – Random Positioning Machine<sup><a href="#CR2" class="usa-link" aria-describedby="CR2">2</a></sup>, RWV – Rotary Wall Vessel<sup><a href="#CR3" class="usa-link" aria-describedby="CR3">3</a></sup>). Therefore, testing on a simulator may be an intermediate step in targeted research (validation equipment) or may be helpful in the interpretation of results obtained in the space environment (reference test)<sup><a href="#CR4" class="usa-link" aria-describedby="CR4">4</a></sup>. However, neither the microgravity environment nor the complex, natural spectrum of space radiation can be recreated or effectively simulated in terrestrial laboratories. Comprehensive research concerning the impact of these factors on living organisms can only be conducted in space, using infrastructure that provides them with basic support for life processes (e.g. atmosphere, nutrition, temperature control).</p>
+<p id="Par4">An important role in space research is played by the International Space Station—ISS, which has been pursuing various research goals since 1998<sup><a href="#CR5" class="usa-link" aria-describedby="CR5">5</a></sup>. Approximately 2,700 different scientific studies have been carried out on board, including several hundred related to biology, medicine, and biotechnology. Depending on the requirements of the experiment to be conducted, power supply, support for acquisition and telemetry of measurement data, appropriate thermal conditions, or supply/discharge of gas mixtures can be provided<sup><a href="#CR6" class="usa-link" aria-describedby="CR6">6</a></sup>. Most importantly, in the case of research on biological samples, it is possible to deliver them to the station, e.g. in frozen form, and recover them for more detailed analysis using terrestrial equipment. This is possible thanks to the professional handling of experiments by astronauts. However, providing such a wide range of services generates high costs for a single experiment. There are also problems with complicated regulations, complex planning requirements, and long waiting times for an experiment due to the high demand for such research. As a response, an interesting commercial opportunity has been recently provided—ICE Cube ISS facility. It offers a modular, plug-and-play system for conducting experiments in microgravity. Apart from the assistance during experiment development, it is possible to prepare the samples and integrate the whole structure as close to the launch as possible. At Space Applications Services, ICE Cube facility also provides its own mission control software—YAMCS, which is available for continuous experiment monitoring.</p>
+<p id="Par5">Biological experiments in microgravity can also be conducted on the upper stage of rockets, very often after the completion of the prime mission. One example is the PSLV structure from India, which in 2019 showed its successful demonstration with three individual payloads on board. Larger rockets can also be applied for biological experimentation, but typically they are used to study the effects of harsh space environments in the context of microgravity and radiation, in deep space missions. Apart from BioSentinel, for example, BioExpt-01 can be mentioned, which is planned during the Artemis mission. Its main goal will be to investigate the impact of space flight beyond the Van Allen radiation belt onto amino acids in <em>Arabidopsis thaliana</em> seeds. As shown, the development and adaptation of other solutions to conduct biomedical research in space can be observed. Taking into account a great emphasis placed on reducing the costs of launching experiments into orbit, the use of small satellite structures in the micro (10–100 kg), nano (1–10 kg), or pico (0.1- 1 kg) size<sup><a href="#CR7" class="usa-link" aria-describedby="CR7">7</a></sup> is becoming increasingly common. Currently, the CubeSat standard is commonly used, the basic unit of which is a cube with a side of 10 cm (1U), duplicated depending on the needs. CubeSat has gained great popularity thanks to such features as miniaturization, standardized dimensions, and procedures for testing and integration with a rocket, a known method of placing them in a selected orbit, and their disposal by burning in the atmosphere<sup><a href="#CR8" class="usa-link" aria-describedby="CR8">8</a>,<a href="#CR9" class="usa-link" aria-describedby="CR9">9</a></sup>.</p>
+<p id="Par6">Similarly to the general approach to the construction of satellites, the construction of a CubeSat can be divided into two main parts. The first part is a satellite platform for supporting structure with standardized dimensions along with electronic modules (e.g. power supply, communication) that perform basic satellite functions. The second part is a payload, a system that performs a task that is usually the main goal of a satellite mission.</p>
+<p id="Par7">Thanks to the use of the aforementioned satellite solutions, small scale satellites used to conduct biological research, known as bio-satellites, are currently undergoing rapid development. Most of the conducted experiments used optical detection methods, including fluorescence, colorimetry, and image acquisition. It is also worth noting that almost all of the CubeSat bio-satellites used lab-chip systems to carry out experiments. Only 11 CubeSat bio-satellites have been launched so far (Table <a href="#Tab1" class="usa-link">1</a>).</p>
+<section class="tw xbox font-sm" id="Tab1"><h3 class="obj_head">Table 1.</h3>
+<div class="caption p"><p>List of biological satellites using the cubeSat standard.</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1">Mission name</th>
+<th align="left" colspan="1" rowspan="1">Satellite size (payload)</th>
+<th align="left" colspan="1" rowspan="1">Aim of the experiment</th>
+<th align="left" colspan="1" rowspan="1">Detection system</th>
+<th align="left" colspan="1" rowspan="1">Year</th>
+<th align="left" colspan="1" rowspan="1">Institution</th>
+<th align="left" colspan="1" rowspan="1">Time of experiment</th>
+<th align="left" colspan="1" rowspan="1">Integration time</th>
+<th align="left" colspan="1" rowspan="1">Microfluidic platform/ lab-chip material</th>
+<th align="left" colspan="1" rowspan="1">Satellite photo</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" rowspan="2" colspan="1">GeneSat-1</td>
+<td align="left" rowspan="2" colspan="1">3U (2U)</td>
+<td align="left" rowspan="2" colspan="1">Cultivation of <em>E. coli</em> bacteria with simultaneous characterization of their growth and metabolism</td>
+<td align="left" rowspan="2" colspan="1">fluorescence</td>
+<td align="left" rowspan="2" colspan="1">2006</td>
+<td align="left" rowspan="2" colspan="1">NASA</td>
+<td align="left" rowspan="2" colspan="1"> ~ 100 h</td>
+<td align="left" rowspan="2" colspan="1">5 weeks</td>
+<td align="left" rowspan="2" colspan="1">
+<p><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/494bdaf6d0c7/41598_2025_16044_Figa_HTML.gif" loading="lazy" id="d33e309" height="80" width="120" alt="graphic file with name 41598_2025_16044_Figa_HTML.gif"></p>
+<p>Acrylic lab-chip card</p>
+<p><sup><a href="#CR10" class="usa-link" aria-describedby="CR10">10</a></sup></p>
+</td>
+<td align="left" colspan="1" rowspan="1"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/ea650acc8ddc/41598_2025_16044_Figb_HTML.gif" loading="lazy" id="d33e318" height="84" width="100" alt="graphic file with name 41598_2025_16044_Figb_HTML.gif"></td>
+</tr>
+<tr><td align="left" colspan="1" rowspan="1"><sup><a href="#CR10" class="usa-link" aria-describedby="CR10">10</a></sup></td></tr>
+<tr>
+<td align="left" rowspan="2" colspan="1">PharmaSat</td>
+<td align="left" rowspan="2" colspan="1">3U (2U)</td>
+<td align="left" rowspan="2" colspan="1">the influence of microgravity on the growth and metabolism of yeast (<em>S. cerevisiae</em>) with simultaneous testing of the effectiveness of antifungal agents</td>
+<td align="left" rowspan="2" colspan="1">Optical density changes and colorimetry</td>
+<td align="left" rowspan="2" colspan="1">2009</td>
+<td align="left" rowspan="2" colspan="1">NASA</td>
+<td align="left" rowspan="2" colspan="1">96 h</td>
+<td align="left" rowspan="2" colspan="1">6 weeks</td>
+<td align="left" rowspan="2" colspan="1">
+<p><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/f8be021189f0/41598_2025_16044_Figc_HTML.gif" loading="lazy" id="d33e349" height="213" width="194" alt="graphic file with name 41598_2025_16044_Figc_HTML.gif"></p>
+<p>poly(methylmethacrylate) fluidic card<sup><a href="#CR11" class="usa-link" aria-describedby="CR11">11</a></sup></p>
+</td>
+<td align="left" colspan="1" rowspan="1"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/b399f6c9e2f2/41598_2025_16044_Figd_HTML.gif" loading="lazy" id="d33e358" height="233" width="199" alt="graphic file with name 41598_2025_16044_Figd_HTML.gif"></td>
+</tr>
+<tr><td align="left" colspan="1" rowspan="1"><sup><a href="#CR11" class="usa-link" aria-describedby="CR11">11</a></sup></td></tr>
+<tr>
+<td align="left" rowspan="2" colspan="1">O/OREOS</td>
+<td align="left" rowspan="2" colspan="1">3U (2 × 1U)</td>
+<td align="left" rowspan="2" colspan="1">Assessment of the stability of organic compounds</td>
+<td align="left" rowspan="2" colspan="1">Spectroscopy</td>
+<td align="left" rowspan="2" colspan="1">2010</td>
+<td align="left" rowspan="2" colspan="1">NASA</td>
+<td align="left" rowspan="2" colspan="1">6 months</td>
+<td align="left" rowspan="2" colspan="1">–</td>
+<td align="left" colspan="1" rowspan="1"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/0dd08ac8d2ea/41598_2025_16044_Fige_HTML.gif" loading="lazy" id="d33e385" height="159" width="185" alt="graphic file with name 41598_2025_16044_Fige_HTML.gif"></td>
+<td align="left" colspan="1" rowspan="1"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/19728995bab0/41598_2025_16044_Figf_HTML.gif" loading="lazy" id="d33e389" height="272" width="164" alt="graphic file with name 41598_2025_16044_Figf_HTML.gif"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">
+<p>SEVO</p>
+<p>stainless steel spacer ring with sapphire and MgF<sub>2</sub> glass windows<sup><a href="#CR13" class="usa-link" aria-describedby="CR13">13</a></sup></p>
+</td>
+<td align="left" colspan="1" rowspan="1"><sup><a href="#CR12" class="usa-link" aria-describedby="CR12">12</a></sup></td>
+</tr>
+<tr>
+<td align="left" rowspan="2" colspan="1"></td>
+<td align="left" rowspan="2" colspan="1"></td>
+<td align="left" rowspan="2" colspan="1">Characterization of the growth and metabolism of <em>B. subtilis</em> and <em>H. chaoviatoris</em> bacteria</td>
+<td align="left" rowspan="2" colspan="1"></td>
+<td align="left" rowspan="2" colspan="1"></td>
+<td align="left" rowspan="2" colspan="1"></td>
+<td align="left" rowspan="2" colspan="1"></td>
+<td align="left" rowspan="2" colspan="1"></td>
+<td align="left" colspan="1" rowspan="1"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/bc68af211a01/41598_2025_16044_Figg_HTML.gif" loading="lazy" id="d33e425" height="261" width="196" alt="graphic file with name 41598_2025_16044_Figg_HTML.gif"></td>
+<td align="left" rowspan="2" colspan="1"></td>
+</tr>
+<tr><td align="left" colspan="1" rowspan="1">
+<p>SESLO</p>
+<p><sup><a href="#CR12" class="usa-link" aria-describedby="CR12">12</a></sup></p>
+</td></tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">SporeSat</td>
+<td align="left" colspan="1" rowspan="1">3U (2U)</td>
+<td align="left" colspan="1" rowspan="1">Investigate the effect of gravity on the reproductive spores of the fern, <em>Ceratopteris richardii</em>
+</td>
+<td align="left" colspan="1" rowspan="1">Measurement of calcium ion concentration with ion-selective electrodes</td>
+<td align="left" colspan="1" rowspan="1">2014</td>
+<td align="left" colspan="1" rowspan="1">NASA</td>
+<td align="left" colspan="1" rowspan="1">4 days</td>
+<td align="left" colspan="1" rowspan="1">–</td>
+<td align="left" colspan="1" rowspan="1">
+<p><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/305c314c09a0/41598_2025_16044_Figh_HTML.gif" loading="lazy" id="d33e457" height="122" width="147" alt="graphic file with name 41598_2025_16044_Figh_HTML.gif"></p>
+<p>Fused silica disc<sup><a href="#CR14" class="usa-link" aria-describedby="CR14">14</a></sup></p>
+</td>
+<td align="left" colspan="1" rowspan="1">
+<p><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/77d944c5e74e/41598_2025_16044_Figi_HTML.gif" loading="lazy" id="d33e466" height="80" width="125" alt="graphic file with name 41598_2025_16044_Figi_HTML.gif"></p>
+<p><sup><a href="#CR15" class="usa-link" aria-describedby="CR15">15</a></sup></p>
+</td>
+</tr>
+<tr>
+<td align="left" rowspan="2" colspan="1">EcAMSat</td>
+<td align="left" rowspan="2" colspan="1">6U (3U)</td>
+<td align="left" rowspan="2" colspan="1">Characterization of the growth and metabolism of <em>E. coli</em> bacteria and the effectiveness of antibiotics</td>
+<td align="left" rowspan="2" colspan="1">Optical density changes and colorimetry</td>
+<td align="left" rowspan="2" colspan="1">2017</td>
+<td align="left" rowspan="2" colspan="1">NASA</td>
+<td align="left" rowspan="2" colspan="1">156,5 h</td>
+<td align="left" rowspan="2" colspan="1">8 weeks</td>
+<td align="left" rowspan="2" colspan="1">
+<p><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/a7fa3ecc62dc/41598_2025_16044_Figj_HTML.gif" loading="lazy" id="d33e495" height="80" width="149" alt="graphic file with name 41598_2025_16044_Figj_HTML.gif"></p>
+<p>Polymethylmethacrylate (PMMA) fluidic card<sup><a href="#CR16" class="usa-link" aria-describedby="CR16">16</a></sup></p>
+</td>
+<td align="left" colspan="1" rowspan="1"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/a05ec010dbbc/41598_2025_16044_Figk_HTML.gif" loading="lazy" id="d33e504" height="80" width="114" alt="graphic file with name 41598_2025_16044_Figk_HTML.gif"></td>
+</tr>
+<tr><td align="left" colspan="1" rowspan="1"><sup><a href="#CR17" class="usa-link" aria-describedby="CR17">17</a></sup></td></tr>
+<tr>
+<td align="left" rowspan="2" colspan="1">DIDO-2/3</td>
+<td align="left" rowspan="2" colspan="1">3U (2U)</td>
+<td align="left" rowspan="2" colspan="1">Study the effect of microgravity and low fluid shear with four different experiments on biological material</td>
+<td align="left" rowspan="2" colspan="1">DIDO-3 – Spectrophotometry</td>
+<td align="left" rowspan="2" colspan="1">
+<p>2017 (DIDO-2)</p>
+<p>2020 (DIDO-3)</p>
+</td>
+<td align="left" rowspan="2" colspan="1">SpacePharma</td>
+<td align="left" rowspan="2" colspan="1">DIDO-3 – 40 days</td>
+<td align="left" rowspan="2" colspan="1">–</td>
+<td align="left" rowspan="2" colspan="1">
+<p><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/68115b53bb03/41598_2025_16044_Figl_HTML.gif" loading="lazy" id="d33e533" height="223" width="102" alt="graphic file with name 41598_2025_16044_Figl_HTML.gif"></p>
+<p>Fluidic card – no information<sup><a href="#CR18" class="usa-link" aria-describedby="CR18">18</a></sup></p>
+</td>
+<td align="left" colspan="1" rowspan="1"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/bf7a130c86ee/41598_2025_16044_Figm_HTML.gif" loading="lazy" id="d33e542" height="291" width="196" alt="graphic file with name 41598_2025_16044_Figm_HTML.gif"></td>
+</tr>
+<tr><td align="left" colspan="1" rowspan="1"><sup><a href="#CR19" class="usa-link" aria-describedby="CR19">19</a></sup></td></tr>
+<tr>
+<td align="left" rowspan="2" colspan="1">Biosentinel</td>
+<td align="left" rowspan="2" colspan="1">6U (4U)</td>
+<td align="left" rowspan="2" colspan="1">Research of DNA damage in the yeast <em>S. cerevisiae</em>
+</td>
+<td align="left" rowspan="2" colspan="1">colorimetry, measurement of optical density, measurement of energy and radiation dose with a LET spectrometer</td>
+<td align="left" rowspan="2" colspan="1">2022</td>
+<td align="left" rowspan="2" colspan="1">NASA</td>
+<td align="left" rowspan="2" colspan="1">6–12 months</td>
+<td align="left" rowspan="2" colspan="1">–</td>
+<td align="left" rowspan="2" colspan="1">
+<p><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/bd2b98a22ff9/41598_2025_16044_Fign_HTML.gif" loading="lazy" id="d33e572" height="240" width="135" alt="graphic file with name 41598_2025_16044_Fign_HTML.gif"></p>
+<p>fused polycarbonate (PC) fluidic card<sup><a href="#CR20" class="usa-link" aria-describedby="CR20">20</a></sup></p>
+</td>
+<td align="left" colspan="1" rowspan="1"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/663850740614/41598_2025_16044_Figo_HTML.gif" loading="lazy" id="d33e581" height="80" width="125" alt="graphic file with name 41598_2025_16044_Figo_HTML.gif"></td>
+</tr>
+<tr><td align="left" colspan="1" rowspan="1"><sup><a href="#CR21" class="usa-link" aria-describedby="CR21">21</a></sup></td></tr>
+<tr>
+<td align="left" rowspan="2" colspan="1">PlantSat</td>
+<td align="left" rowspan="2" colspan="1">3U (1U)</td>
+<td align="left" rowspan="2" colspan="1">Research of extremophiles and plants (<em>Tillandsia</em>)</td>
+<td align="left" rowspan="2" colspan="1">–</td>
+<td align="left" rowspan="2" colspan="1">2022</td>
+<td align="left" rowspan="2" colspan="1">University of Chile</td>
+<td align="left" rowspan="2" colspan="1">–</td>
+<td align="left" rowspan="2" colspan="1">–</td>
+<td align="left" rowspan="2" colspan="1">–</td>
+<td align="left" colspan="1" rowspan="1"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/371712653c0e/41598_2025_16044_Figp_HTML.gif" loading="lazy" id="d33e614" height="301" width="137" alt="graphic file with name 41598_2025_16044_Figp_HTML.gif"></td>
+</tr>
+<tr><td align="left" colspan="1" rowspan="1"><sup><a href="#CR22" class="usa-link" aria-describedby="CR22">22</a></sup></td></tr>
+<tr>
+<td align="left" rowspan="2" colspan="1">GreenCube</td>
+<td align="left" rowspan="2" colspan="1">3U (2U)</td>
+<td align="left" rowspan="2" colspan="1">Cultivating micro greens (<em>Lepidium sativum)</em>
+</td>
+<td align="left" rowspan="2" colspan="1">Optical detection (micro-camera)</td>
+<td align="left" rowspan="2" colspan="1">2022</td>
+<td align="left" rowspan="2" colspan="1">Sapienza University of Rome</td>
+<td align="left" rowspan="2" colspan="1">20 days</td>
+<td align="left" rowspan="2" colspan="1">–</td>
+<td align="left" colspan="1" rowspan="1"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/91fc57068ff6/41598_2025_16044_Figq_HTML.gif" loading="lazy" id="d33e644" height="151" width="188" alt="graphic file with name 41598_2025_16044_Figq_HTML.gif"></td>
+<td align="left" colspan="1" rowspan="1"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/497bde98c099/41598_2025_16044_Figr_HTML.gif" loading="lazy" id="d33e648" height="276" width="122" alt="graphic file with name 41598_2025_16044_Figr_HTML.gif"></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1"><sup><a href="#CR24" class="usa-link" aria-describedby="CR24">24</a></sup></td>
+<td align="left" colspan="1" rowspan="1"><sup><a href="#CR23" class="usa-link" aria-describedby="CR23">23</a></sup></td>
+</tr>
+<tr>
+<td align="left" rowspan="2" colspan="1">AstroBio</td>
+<td align="left" rowspan="2" colspan="1">3U (1,5U)</td>
+<td align="left" rowspan="2" colspan="1">Immunoassay tests</td>
+<td align="left" rowspan="2" colspan="1">Chemiluminescence detection</td>
+<td align="left" rowspan="2" colspan="1">2022</td>
+<td align="left" rowspan="2" colspan="1">Sapienza University of Rome</td>
+<td align="left" rowspan="2" colspan="1">6 experiments in 10 min each</td>
+<td align="left" rowspan="2" colspan="1">–</td>
+<td align="left" rowspan="2" colspan="1">
+<p><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/06eccb34fbe3/41598_2025_16044_Figs_HTML.gif" loading="lazy" id="d33e680" height="137" width="169" alt="graphic file with name 41598_2025_16044_Figs_HTML.gif"></p>
+<p>Origami microfluidic – chromatographic paper<sup><a href="#CR26" class="usa-link" aria-describedby="CR26">26</a></sup></p>
+</td>
+<td align="left" colspan="1" rowspan="1"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/c70f3be8017a/41598_2025_16044_Figt_HTML.gif" loading="lazy" id="d33e689" height="230" width="115" alt="graphic file with name 41598_2025_16044_Figt_HTML.gif"></td>
+</tr>
+<tr><td align="left" colspan="1" rowspan="1"><sup><a href="#CR25" class="usa-link" aria-describedby="CR25">25</a></sup></td></tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></section><p id="Par8">In 2022, as many as 4 satellites with biological missions were launched, which demonstrates that this topic is being significantly developed. The dominant trend in the construction of payloads for conducting biological research in space is miniaturization. Most of the described missions used lab-chip technology and optical detection methods to analyze the results of individual experiments. Most microfluidic cards are made using polymer technology. So far, fused silica and chromatographic paper have only been used once to construct nanosatellite microfluidic platforms. To date, three attempts to conduct experiments using <em>E.coli</em> bacteria have been made. Plants have also been used for research purposes three times, of which it is known that the SporeSat mission failed, and the results of the remaining two are unknown. When further comparisons are made, it can be seen that only the O/OREOS satellite contained two radically different biological experiments that required the use of different microfluidic structures. It should also be noted that three of the afromentioned satellites attempted to carry out experiments outside LEO (BioSentinel, GreenCube, and AstroBio), which may indicate a new trend in research. Many of the above missions faced various problems, such as damage to the dosing system or lighting, which rendered them unsuccessful. However, an often-mentioned problem is the need to wait a long time for the launch of the rocket carrying the satellite, which is critical in the context of biological assays<sup><a href="#CR27" class="usa-link" aria-describedby="CR27">27</a></sup>. As reported in the paper<sup><a href="#CR28" class="usa-link" aria-describedby="CR28">28</a></sup>, integration of the payload typically occurs approximately circa 1–3 months prior to the launch. CubeSats are then stored in the hangar, where the temperature is rather ambient. Moreover, during this phase, the payload cannot be operated, thus life-support systems do not work. Consequently, highly sensitive samples, e.g. mammalian cells, that require elevated incubation conditions (37–39 °C) and culturing medium perfusion, are not the first choice for the CubeSat missions. Thus, model microorganisms (e.g. bacteria, fungi) which can be prepared in a dehydrated form have been typically used for this purpose so far. So-called “late access” options are available, which can shorten the waiting times notably, nevertheless, they do not guarantee that some unexpected shifts (e.g. weather) will not occur and the launch will be postponed. All these factors make this issue very complex and therefore, a niche area. In response to this problem, recent studies have raised the possibility of long-term cancer cell cultures provided in ambient temperature and without supply of the fresh media have been raised in the literature recently<sup><a href="#CR28" class="usa-link" aria-describedby="CR28">28</a></sup>. Authors showed that circa 54 days of culturing in the aforementioned conditions is possible, but still, it may not comply with launch constraints.</p>
+<p id="Par9">Despite many difficulties in the construction of CubeSat bio-satellites, the further development of this type of laboratory is very important due to a number of advantages, including the lack of human operational input and access to various research environments (selection of orbit). Simultaneously, looking at the ongoing works carried out on interplanetary missions, the development of a wide range of payloads enabling various biological research is very desirable.</p>
+<p id="Par10">This article describes a new fully autonomous laboratory platform that enables space research on plant and fungi samples. This is the first nanosatellite payload combining such diverse biological experiments (fungi and seed) to be conducted in LEO. It uses lab-chips made in glass and for the first time 3D printing technology. An optical detection system is proposed in the form of a miniature CMOS camera with adjustable focus to control the growth of individual biological objects. The payload structure includes heaters that enable the maintenance of the correct temperature for the selected experiments, lighting, and a medium dosing system. The entire laboratory is closed in a tight thermos ensuring atmospheric pressure. Details on research methodology, design, and payload fabrication, as well as mission results, are described thoroughly in the following sections of this paper.</p></section><section id="Sec2"><h2 class="pmc_sec_title">Materials and methods</h2>
+<p id="Par11">The aim of the mission of the LabSat bio-nanosatellite was to evaluate the operation of the newly developed lab-payload enabling biological research, connected to the satellite platform provided by SatRev company (Wroclaw, Poland). The entire bio-nanosatellite was 3U in size, of which the payload took 2U space. The success criterion of the presented mission was the verification of the proper functioning of each of the subsystems discussed below, all of which enable the execution of biological experiments. These included: glass and 3D-printed lab-chip devices, the optical detection system, the culture medium dispensing system, maintenance of appropriate temperatures for each culture, and the airtightness of the custom-designed thermos. The verification tests were related to our substantial experience in developing fully-featured ground-based biomedical platforms, implementation of simulated microgravity experiments (RWV, RPM), and tests directly qualifying for the launch.</p>
+<p id="Par12">From a biological standpoint, the mission aimed to assess the feasibility of long-term storage of biological samples within lab-chip platforms. Additionally, it sought to confirm previously observed results regarding the specific development of biological specimens under simulated microgravity conditions on Earth—namely, the enhanced growth of fungal mycelium and the slower, non-specific germination of seeds due to altered geotropism responses.</p>
+<p id="Par13">Based on a review of previous biological missions and preliminary requirements, a lab-payload implementation scheme was developed to enable biological research on the satellite platform. Five main functional components have been identified (Fig. <a href="#Fig1" class="usa-link">1</a>).</p>
+<figure class="fig xbox font-sm" id="Fig1"><h3 class="obj_head">Fig. 1.</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/58f5ad930da1/41598_2025_16044_Fig1_HTML.jpg" loading="lazy" id="d33e734" height="392" width="732" alt="Fig. 1"></p>
+<div class="p text-right font-secondary"><a href="figure/Fig1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p> Conception of LabSat bio-nanosatellite with five basic functional blocks of lab-payload to conduct a biological experiment.</p></figcaption></figure><p id="Par14">As presented in Fig. <a href="#Fig1" class="usa-link">1</a> the first of the elements is the biological sample carrier. It protects the biological object, enabling its cultivation. The second element is the detection system that provides data to assess the condition of the object and the course of the experiment. The third element, ECLSS (Environmental Control and Life Support System)—is responsible for control and support, i.e. providing cooperating sensors and actuators responsible for monitoring and/or controlling environmental conditions, including temperature and medium supply/discharge. The fourth element is the experiment management and data acquisition system, implemented as an electronic system with built-in software. The last element is the lab-payload interface with the satellite platform, i.e. electrical and signal cabling with the implementation of a communication bus. It is responsible for supplying power to the lab-payload and exchanging commands and data with the satellite platform modules. The implementation of each element will be described in the following sections of the article below.</p>
+<section id="Sec3"><h3 class="pmc_sec_title">Boundary conditions for biological experiments</h3>
+<p id="Par15">In our analysis, the lab-payload design process was divided into “layers” (Fig. <a href="#Fig2" class="usa-link">2</a>). The analysis of the requirements for the correct operation of the biological payload began with the limitations resulting from the environment in which the experiment is to be carried out, i.e. LEO. The guidelines imposed by the nanosatellite launch service provider, the standard CubeSat platform provider, and the conditions resulting from conducting biological research were further defined. A summary of the requirements for biological payload is presented in Table <a href="#Tab2" class="usa-link">2</a>.</p>
+<figure class="fig xbox font-sm" id="Fig2"><h4 class="obj_head">Fig. 2.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/54a12761b67c/41598_2025_16044_Fig2_HTML.jpg" loading="lazy" id="d33e756" height="709" width="710" alt="Fig. 2"></p>
+<div class="p text-right font-secondary"><a href="figure/Fig2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Sources of requirements for implementing the CubeSat biological payload in LEO.</p></figcaption></figure><section class="tw xbox font-sm" id="Tab2"><h4 class="obj_head">Table 2.</h4>
+<div class="caption p"><p>Detailed analysis of requirements.</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1"></th>
+<th align="left" colspan="1" rowspan="1">Lab-payload requirements</th>
+<th align="left" colspan="1" rowspan="1">Comment</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" rowspan="4" colspan="1">LEO</td>
+<td align="left" colspan="1" rowspan="1">Lab—payload remains functional during the satellite’s exposure to particle radiation and protects the biological object from its influence</td>
+<td align="left" colspan="1" rowspan="1">The value of the accumulated radiation dose depends, among others, on the time and orbit parameters and the method of implementing the construction of the lab—payload and satellite platform</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Lab—payload remains functional when the satellite is exposed to variable heat fluxes</td>
+<td align="left" colspan="1" rowspan="1">Operating temperature range for the satellite’s internal components: from − 40 °C to + 50 °C<sup><a href="#CR29" class="usa-link" aria-describedby="CR29">29</a></sup>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Lab—payload remains functional during the vacuum exposure</td>
+<td align="left" colspan="1" rowspan="1">The range of changes from 10<sup>–6</sup> to 10<sup>–4</sup> Pa<sup><a href="#CR30" class="usa-link" aria-describedby="CR30">30</a></sup>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Lab—payload remains functional in microgravity conditions</td>
+<td align="left" colspan="1" rowspan="1">The range of changes from 10<sup>–6</sup> to 10<sup>–3</sup> m/s<sup>2</sup><sup><a href="#CR30" class="usa-link" aria-describedby="CR30">30</a></sup>
+</td>
+</tr>
+<tr>
+<td align="left" rowspan="6" colspan="1">ROCKET</td>
+<td align="left" colspan="1" rowspan="1">Materials used for the construction of the lab-payload (especially the outer casing and mounting elements) are characterized by very low gassing coefficients in vacuum</td>
+<td align="left" colspan="1" rowspan="1">
+<p>Total Mass Loss (TML) ≤ 1.0%</p>
+<p>Collected Volatile Condensable Material (CVCM) ≤ 0.1% According to 3.1.8.1 and 3.1.8.2<sup><a href="#CR32" class="usa-link" aria-describedby="CR32">32</a></sup></p>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Materials used for the construction of the lab—payload were not included in the list of hazardous materials</td>
+<td align="left" colspan="1" rowspan="1">According to the Table 49 CFR §172.10<sup><a href="#CR33" class="usa-link" aria-describedby="CR33">33</a></sup>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Lab—payload fulfill electromagnetic compatibility requirements</td>
+<td align="left" colspan="1" rowspan="1">Verification required according to launch service provider specifications</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Lab—payload remains functional after lunch acceleration</td>
+<td align="left" colspan="1" rowspan="1">Verification required in random vibration test, according to launch service provider specifications</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Lab—payload remains functional after the satellite is exposed to the thermal conditions of rocket launch</td>
+<td align="left" colspan="1" rowspan="1">Verification in a thermal-vacuum test, according to launch service provider specifications</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Biological experiment is adjusted to “wait” time for launch in orbit (pause/off mode)</td>
+<td align="left" colspan="1" rowspan="1">Shutting down a CubeSat takes about 3–5 months, a biological experiment may be suspended even longer due to the need to carry out the process of assembly, integration, and testing of the device</td>
+</tr>
+<tr>
+<td align="left" rowspan="9" colspan="1">CUBESAT</td>
+<td align="left" colspan="1" rowspan="1">
+<p>Nanosatellite volume – 3U</p>
+<p>Lab—payload volume ≈ 2U</p>
+</td>
+<td align="left" colspan="1" rowspan="1">On the selected 3U satellite platform (SatRev) ≤ 96 mm × 96 mm × 190 mm including mounting elements</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Lab—payload weight ≈ 2.66 kg</td>
+<td align="left" colspan="1" rowspan="1">Accordance with 3.2.13<sup><a href="#CR30" class="usa-link" aria-describedby="CR30">30</a></sup> taking into account that the center of gravity of the CubeSat should be ≤ 20 mm from its geometric center in the X and Y directions (3.2.14<sup><a href="#CR31" class="usa-link" aria-describedby="CR31">31</a></sup>)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Materials used for the construction of the lab-payload (especially the packaging and mounting elements) do not have ferromagnetic properties</td>
+<td align="left" colspan="1" rowspan="1">Elimination of a potential source of disturbances in the operation of other satellite modules</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Maximum current consumed by the lab-payload: 3 A</td>
+<td align="left" rowspan="3" colspan="1">According to the specifications of the universal satellite platform from SatRev: Interface Control Document rev 2.3</td>
+</tr>
+<tr><td align="left" colspan="1" rowspan="1">Available voltages for lab-payload operation: 3.3 V, 5 V, 12 V</td></tr>
+<tr><td align="left" colspan="1" rowspan="1">Constant power consumption of lab-payload at 5 V: max. 15 W</td></tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Lab-payload has its own electronic module for managing the experiment and recording experiment data</td>
+<td align="left" colspan="1" rowspan="1">The On-Board Computer (OBC) module is an on-board computer only for satellite platform modules</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Exchange of lab-payload data with platform modules using the CAN bus</td>
+<td align="left" colspan="1" rowspan="1">Transport and network layer defined by CSP (CubeSat Space Protocol)</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Transmission of lab-payload data packets at a speed of ≤ 550 kb/s</td>
+<td align="left" colspan="1" rowspan="1">Direct addressing to the satellite radio module</td>
+</tr>
+<tr>
+<td align="left" rowspan="6" colspan="1">LAB-PAY LOAD</td>
+<td align="left" colspan="1" rowspan="1">Lab-payload maintains the culture gas mixture</td>
+<td align="left" colspan="1" rowspan="1">The composition of the culturing gas mixture depends on the biological object</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Lab-payload maintains the appropriate temperature of biological samples and culture medium</td>
+<td align="left" colspan="1" rowspan="1">Plus temperatures, the exact value/range varies depending on the biological object</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Lab-payload ensures the flow of culture medium</td>
+<td align="left" colspan="1" rowspan="1">Range from µl/min to ml/min, exact values depend on the method of implementing the biological sample carrier and the microfluidic system as well as the biological object being tested</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Lab-payload provides the measurement of the humidity of the indoor atmosphere</td>
+<td align="left" colspan="1" rowspan="1">Humidity is important for traditional culturing; the range required varies depending on the biological object</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Lab-payload protects against cosmic radiation</td>
+<td align="left" colspan="1" rowspan="1">Lab-payload is intended to enable the assessment of the impact of microgravity on a biological object</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Lab—payload ensures the detection of the biological sample and the progress of the experiment</td>
+<td align="left" colspan="1" rowspan="1">Required non-invasive method that does not affect the condition of the biological object or the progress of the experiment</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></section><section id="Sec4"><h4 class="pmc_sec_title">Biological samples</h4>
+<p id="Par16">Due to the long waiting time for the rocket launch, it was decided to prepare the experiments with spores of fungi from the <em>Fusarium culmorum</em> family and seeds of <em>Lepidium sativum</em> (purchased from TORAF, Poland) seeds. These objects can be kept in an anhydrous state over a wide temperature range and for a long time. After providing the culture medium and appropriate external conditions, they begin their growth. Detailed data on each of the cultures are provided in Table <a href="#Tab3" class="usa-link">3</a>.</p>
+<section class="tw xbox font-sm" id="Tab3"><h5 class="obj_head">Table 3.</h5>
+<div class="caption p"><p>Fungi and seed culturing parameters.</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1"></th>
+<th align="left" colspan="1" rowspan="1">Fungi <br>(<em>Fusarium culmorum</em>)</th>
+<th align="left" colspan="1" rowspan="1">Seed <br>(<em>Lepidium sativum</em>)</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">Culturing gas mixture</td>
+<td align="left" colspan="1" rowspan="1">Air at atmospheric pressure</td>
+<td align="left" colspan="1" rowspan="1">Air at atmospheric pressure</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Optimal culture temperature [°C]</td>
+<td align="left" colspan="1" rowspan="1">27—28</td>
+<td align="left" colspan="1" rowspan="1">15—30</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Culture temperature tolerance [°C]</td>
+<td align="left" colspan="2" rowspan="1">10–35</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Medium</td>
+<td align="left" colspan="2" rowspan="1">Water</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Culturing time [days]</td>
+<td align="left" colspan="1" rowspan="1">Approx. 15–30</td>
+<td align="left" colspan="1" rowspan="1">Approx. 5–14</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Lightning</td>
+<td align="left" colspan="2" rowspan="1">White</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Culture success criterion</td>
+<td align="left" colspan="1" rowspan="1">Mycelium growth</td>
+<td align="left" colspan="1" rowspan="1">Seed germination</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab3/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></section></section></section><section id="Sec5"><h3 class="pmc_sec_title">Lab-payload elements</h3>
+<p id="Par17">The operation of three biological experiments simultaneously was planned. Each of them had to be provided with a dedicated lab-chip for cells/seed, appropriate temperature for the cultivation, proper dosing of the medium, lighting, and signal detection in the form of recorded photos.</p>
+<section id="Sec6"><h4 class="pmc_sec_title">Lab-chips</h4>
+<p id="Par18">Dedicated lab-on-chips enabling the culture of fungi/seed were designed and fabricated. The layout topology was chosen to ensure optimal development of each of the cultures. Borosilicate glass (Borofloat33, Schott) was chosen as the material for the construction of lab-chip for fungi culture. The bottom glass substrate has two channels, the dimensions of a single channel are 3.5 mm × 30 mm, and the depth is 550 μm. In one of them, nourishment flows (medium channel), while in the other, culturing takes place (gas channel). Holes in two sizes were created in the top substrate. Smaller ones (ø 1 mm), allowing water to be introduced and removed from the flow channel, and larger ones (ø 2 mm), which ensure free diffusion of gas in the culturing channel. The top substrate also has a matrix of seven shallower microchannels (connecting channels), each measuring 8.8 mm × 1 mm and 20 μm deep (Fig. <a href="#Fig3" class="usa-link">3</a>). They connect the medium and gas channels, providing the gas (culturing) channel with humidity appropriate for the growth of the spores. In the bottom and top substrate two channels were made for placing temperature sensors. This design allows for direct temperature measurement within the lab-chip. The glass lab-chip substrates had standard dimensions of 50 mm × 25 mm × 1.1 mm. The structuring of glass substrates was carried out using wet etching, mechanical drilling, and low-temperature bonding processes (Fig. <a href="#Fig3" class="usa-link">3</a>)<sup><a href="#CR35" class="usa-link" aria-describedby="CR35">35</a></sup>. The fabricated lab-chip made meets the requirements for cultivating fungal spores, including ensuring a constant supply of air and maintaining the appropriate level of humidity.</p>
+<figure class="fig xbox font-sm" id="Fig3"><h5 class="obj_head">Fig. 3.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12373727_41598_2025_16044_Fig3_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/9007de984841/41598_2025_16044_Fig3_HTML.jpg" loading="lazy" id="d33e1052" height="153" width="670" alt="Fig. 3"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig3/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p> Design of the lab-chip for fungi cultivation: scheme (left), ready-to-use structure (right).</p></figcaption></figure><p id="Par19">The micropot used for growing cress seeds has a socket in its central part for placing the seed and four holes extending from it. The side holes allowed for the exchange of the culture medium. The upper and lower holes of the socket allow the root and stem of the growing seed to enter the flexible microbeams<em>, </em><em>enabling</em> the determination of the seed’s growth potential<sup><a href="#CR34" class="usa-link" aria-describedby="CR34">34</a></sup>. The upper, large opening allows gas exchange (Fig. <a href="#Fig4" class="usa-link">4</a>). The micropot was made with InkJet 3D printing technology (ProJet 3510 HD, 3D Systems). VisiJet M3 Crystal light-curing resin was used as the building material and VisiJet S300 paraffin material as a supporting material. After postprocessing, a ready-made micropot was obtained (Fig. <a href="#Fig4" class="usa-link">4</a>).</p>
+<figure class="fig xbox font-sm" id="Fig4"><h5 class="obj_head">Fig. 4.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12373727_41598_2025_16044_Fig4_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/22ba5393b701/41598_2025_16044_Fig4_HTML.jpg" loading="lazy" id="d33e1076" height="301" width="685" alt="Fig. 4"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig4/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p> Design of the micropot for seed cultivation: scheme (left), 3D printed structure (right).</p></figcaption></figure><p id="Par20">For fungi and seed cultures, experiments in simulated microgravity were carried out using of a Rotating Wall Vessel—RWV and Random Positioning Machine—RPM<sup><a href="#CR34" class="usa-link" aria-describedby="CR34">34</a>,<a href="#CR35" class="usa-link" aria-describedby="CR35">35</a></sup>. It could be seen that the fungal spores grew better in the simulated microgravity. In contrast, the cress seed had a problem with proper development. Simulated microgravity conditions could have disrupted the growth of the plant. In typical conditions, geotropism is a mechanism that is responsible for plant response to gravity. Thus, roots can grow downward (positive geotropism), whereas stems can grow upward (negative geotropism). Our experiments have shown that even simulated absence of gravity force can notably influence the plant growth. It is probable that disturbances in specialized cells known as statocytes, which are responsible for sensing the gravity vector during the early stages of germination, could have occurred.</p></section><section id="Sec7"><h4 class="pmc_sec_title">Dosing system</h4>
+<p id="Par21">An essential component of the system was the dosing of the culturing medium, which operated in microgravity conditions. It used a medium container (Eppendorf, Germany) and a peristaltic pump (Takasago, Japan). Based on our previous works<sup><a href="#CR35" class="usa-link" aria-describedby="CR35">35</a></sup>, it was defined that closed medium circulation is appropriate for the research. Moreover, such a configuration is considered less complex and space-saving, thus we used a similar approach herein. Flow rate, as well as medium volume needed for the experiment were determined experimentally. On that basis, it was indicated that a medium container capacity of 15 ml is sufficient for grain (culture time up to 14 days) and fungi cultivation (culture time up to 30 days). For the fungi, a pulse operation was set at 200 µl/min for 60 s every 10 h, whereas for the grain, it was 500 µl/min for 25 s every 12 h (Fig. <a href="#Fig5" class="usa-link">5</a>).</p>
+<figure class="fig xbox font-sm" id="Fig5"><h5 class="obj_head">Fig. 5.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12373727_41598_2025_16044_Fig5_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/a6afb34ee0ed/41598_2025_16044_Fig5_HTML.jpg" loading="lazy" id="d33e1103" height="297" width="739" alt="Fig. 5"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig5/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p> Dosing system: scheme (left), real view (right).</p></figcaption></figure></section><section id="Sec8"><h4 class="pmc_sec_title">Detection system</h4>
+<p id="Par22">In order to parametrically evaluate the culture development, an optical observation system was proposed allowing for image acquisition. The key requirement for the system was the ability to obtain significant magnification and high image resolution, as well as the ability to control image sharpening (due to the sample growth). A miniature CMOS camera ELP-USB8MP02G with a Sony IMX179 8MPx matrix (3264 × 2448 pixels, pixel size 1.4 µm) with USB 2.0 interface and specially selected electromagnetically controlled focus from the Logitech C615 Portable HD Webcam were used (Fig. <a href="#Fig6" class="usa-link">6</a>). The samples were observed in reflection mode. To illuminate the regions of interest, LED diodes were used. It was important to mount the camera with focus and lighting just above the lab-chip surface, so that the system could withstand the 10G overload generated during rocket launch. The detection system was universal and allowed the observation of microscale objects, with dimensions of 8 µm (fungi), as well as larger ones, such as cress seed.</p>
+<figure class="fig xbox font-sm" id="Fig6"><h5 class="obj_head">Fig. 6.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12373727_41598_2025_16044_Fig6_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/d4353303537b/41598_2025_16044_Fig6_HTML.jpg" loading="lazy" id="d33e1117" height="189" width="700" alt="Fig. 6"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig6/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p> Detection system integrated with lab-chip for fungi cultivation (left), micropot for seed cultivation (right) and examples of photographed obtained.</p></figcaption></figure></section><section id="Sec9"><h4 class="pmc_sec_title">Temperature control system (TCS) and payload service (PS) module</h4>
+<p id="Par23">The Temperature Control System (TCS) is responsible for maintaining the temperature of the biological sample and its medium, which require reaching temperatures in the range of 20–30 °C, depending on the experiment. TCS was implemented using thin resistive heating circuits (Flex PCBs) integrated with each lab-chip (Fig. <a href="#Fig7" class="usa-link">7</a>) and medium container (Fig. <a href="#Fig8" class="usa-link">8</a>). Accompanying embedded temperature sensors (NTC 10 kΩ in lab-chips and PT100 on medium containers) enabled self-regulating temperature control in the PID feedback loop.</p>
+<figure class="fig xbox font-sm" id="Fig7"><h5 class="obj_head">Fig. 7.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12373727_41598_2025_16044_Fig7_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/fea2a0b6f04a/41598_2025_16044_Fig7_HTML.jpg" loading="lazy" id="d33e1134" height="214" width="717" alt="Fig. 7"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig7/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p> Flex PCB heater: mounted under the lab-chip (left), integrated with medium container (right).</p></figcaption></figure><figure class="fig xbox font-sm" id="Fig8"><h5 class="obj_head">Fig. 8.</h5>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12373727_41598_2025_16044_Fig8_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/a8a0d0b50aaf/41598_2025_16044_Fig8_HTML.jpg" loading="lazy" id="d33e1141" height="342" width="671" alt="Fig. 8"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig8/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p> 3D model of the lab-payload: insert (left), packaging (thermos - right).</p></figcaption></figure><p id="Par24">Apart from the culturing systems, additional environmental measurements in the lab-payload volume were carried out by using an integrated sensor of pressure, temperature and humidity—BME280 (Bosh), NTC thermistors 10 kΩ (TDK) and radiation dose sensors RADFET (Varadis). The BME280 modules and RADFETs were placed directly on the Payload Service PCB (described below), while the NTC sensors were soldered “on wires” and placed close to the culturing systems, but beyond them.</p>
+<p id="Par25">Inside the payload there was also an internal electronic circuit PS (Payload Service). It was responsible for autonomously managing the cultivation of three biological samples. It carried out cyclic dosing of nutrient solution into lab-chips and micropot, measured and controlled the temperature of fungi cultures and water tanks for fungi and seed, acquired and recorded photos of fungi and seed, including controlling image focus and lighting, and performed on-demand measurements of pressure values, humidity, temperature, and accumulated radiation dose inside the lab—payload. Telecommand and telemetry, as well as payload data exchange between PS and the satellite communication module, were performed via a CAN interface using the CSP protocol.</p></section></section><section id="Sec10"><h3 class="pmc_sec_title">Lab-payload construction</h3>
+<p id="Par26">The mechanical structure of the lab-payload secured and properly positioned all elements in the cylindrical packaging. The internal structure consists of four circular disks (levels), connected to each other at an appropriate distance. On the first level and the lower surface of the third level, glass lab-chips in packaging with heating and optical detection systems were placed. On the second level, all IDEX microfluidic connectors and two pumps used for fungi cultivation were placed. On the upper surface of the third level a micropot with an optical detection system and a fluid supply pump for the seed were located. In the second and third levels, there were two dedicated fluid tanks, one for fungi and one for seed. The fourth level housed the PS1 and PS2 modules (Fig. <a href="#Fig8" class="usa-link">8</a>). The structural elements were made of PEEK (polyetheretherketone). This material was selected, among others, due to its low weight, good strength and insulation parameters, as well as biocompatibility and low outgassing coefficients.</p>
+<p id="Par27">The packaging (thermos) was used as a mechanical, radiation, and thermal cover. Under vacuum conditions, it kept air inside at a pressure of approximately 1000 hPa. The construction material was aluminum. The packaging body was a pipe with an outer diameter of 100 mm and a height of 188 mm. The pipe was closed at the top and bottom with covers. There was an electrical bushing on the side wall enabling connection to the satellite base. The thermos had four cuts on the external surface enabling installation in a CubeSat structure (Fig. <a href="#Fig8" class="usa-link">8</a>).</p></section><section id="Sec11"><h3 class="pmc_sec_title">LabSat satellite with payload, integration</h3>
+<p id="Par28">The lab-payload, described above, was the main component of the LabSat bio-nanosatellite. Lab-payload performed a task directly related to the mission goal in orbit. The satellite platform enabled the proper functioning of the lab-payload in LEO and its operation from Earth using a radio link. The lab-payload was integrated with a satellite platform equipped with a set of basic electronic modules, i.e. ADCS (Attitude Determination and Control System) position determination and control system, an Auxiliary Power Supply (APS) which provided an appropriate voltage range for the lab-payload and a CM LF (Communication Module Low Frequency) radio module.</p>
+<p id="Par29">All components of the lab-payload were integrated (Fig. <a href="#Fig9" class="usa-link">9</a>) and mounted inside the thermos. The resulting engineering model (EM) underwent thermal, thermal-vacuum (TVAC), random vibration (RVT), and electromagnetic compatibility (EMC) tests. No anomalies were observed. After some design improvements, a flight model (FM) of the lab-payload has been developed, which again successfully went through the thermal and thermal-vacuum verification and has been integrated with the proto-flight model (PFM) of the satellite platform. The complete LabSat satellite successfully passed the RVT, qualifying it for rocket flight (Fig. <a href="#Fig9" class="usa-link">9</a>).</p>
+<figure class="fig xbox font-sm" id="Fig9"><h4 class="obj_head">Fig. 9.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12373727_41598_2025_16044_Fig9_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/0b4822c96249/41598_2025_16044_Fig9_HTML.jpg" loading="lazy" id="d33e1176" height="378" width="743" alt="Fig. 9"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig9/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p> Integrated lab-payload (left) and lab-payload in the LabSat satellite (right).</p></figcaption></figure></section><section id="Sec12"><h3 class="pmc_sec_title">Mission</h3>
+<p id="Par30">In January 2022 LabSat was launched aboard a Falcon 9 rocket. It was part of the shared Transporter—3 mission. After 15 days orbiting on the Satellite Vehicle Carrier (SVC) provided by D-Orbit, the nanosatellite was removed from the deployer and placed on orbit with the assumed parameters (altitude: approx. 550 km, inclination: 97.5°). Communication was established roughly one hour after deployment and the parameters of all satellite modules have been defined. After achieving of the correct conditions, the heating and dosing medium modules were activated and biological experiments were started and lasted 14 days. During the mission, various parameters were monitored, including pressure and temperature inside the lab-payload (Fig. <a href="#Fig10" class="usa-link">10</a>a), on individual lab-chips for fungal cultivation (Fig. <a href="#Fig10" class="usa-link">10</a>b), and on the medium tanks (Fig. <a href="#Fig10" class="usa-link">10</a>c).The obtained temperature values were consistent with expectations and enabled proper cultivation (as defined in Table <a href="#Tab3" class="usa-link">3</a>). The hermeticity of the thermos was also confirmed (Fig. <a href="#Fig10" class="usa-link">10</a>a), and the indicated pressure changes were related to temperature fluctuations inside lab-payload, caused by variations in sunlight exposure as the satellite moves along its orbit.</p>
+<figure class="fig xbox font-sm" id="Fig10"><h4 class="obj_head">Fig. 10.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12373727_41598_2025_16044_Fig10_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/6c459defc007/41598_2025_16044_Fig10_HTML.jpg" loading="lazy" id="d33e1213" height="621" width="697" alt="Fig. 10"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig10/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p> Measurements from the orbit: (<strong>a</strong>) average pressure and temperature in the lab—payload volume; (<strong>b</strong>) average temperatures on the lab-chips and temperatures from individual NTCs placed in the lab-payload volume near the lab-chips (as a reference); (<strong>c</strong>) temperatures measured on medium tanks; time “0 h” corresponds with the moment of first contact with the satellite.</p></figcaption></figure><p id="Par31">The photo documentation was downloaded. We obtained an image of the grain, which shows swelling and cracking of the husk, indicating the appropriate supply of the medium and the correct initial stage of plant growth (Fig. <a href="#Fig11" class="usa-link">11</a>a). Partial photos of two lab-chips A and B in which fungi cultures were carried out were also obtained (Fig. <a href="#Fig11" class="usa-link">11</a>b). The images were taken approximately 36 h after the start of the experiment in orbit. The detection system we prepared with controlled focus change remained undamaged, and the images obtained confirm the maintenance of the required parameters of the detection system.</p>
+<figure class="fig xbox font-sm" id="Fig11"><h4 class="obj_head">Fig. 11.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12373727_41598_2025_16044_Fig11_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/c9f4/12373727/121846a6d6b1/41598_2025_16044_Fig11_HTML.jpg" loading="lazy" id="d33e1235" height="504" width="727" alt="Fig. 11"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig11/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p> Course of the experiment: (<strong>a</strong>) cress seed in a micropot during the experiment; (<strong>b</strong>) fungi spores in two lab-chip during the experiment.</p></figcaption></figure><p id="Par32">Due to communication difficulties with the nanosatellite bus and, ultimately, the loss of contact on the fourteenth day of the mission, it was not possible to obtain more experimental data. Thus, tracking the further growth of the cress grain and fungi cultures in microgravity conditions was stopped. However, the obtained data appear sufficient to confirm the reliable operation of the developed lab–payload components.</p></section></section><section id="Sec13"><h2 class="pmc_sec_title">Conclusion</h2>
+<p id="Par33">Small scale CubeSat satellites used for biomedical research in microgravity are important instrumentation which further development can bring notable benefits in space science and exploration. Continuous exploitation of this domain of science will allow us to safely plan for future missions both to the Moon and to Mars, assuming human participation. The use of nanosatellites makes it possible to study the influence of several space-related factors simultaneously, in a single mission, in real space conditions. It is also possible to study various biological objects in a consistent and repeatable way. Such missions are relatively low-cost and can be operated in a remotely controlled way, with minimal human participation. Cooperation in conducting this type of mission leads to the rapid development of individual domains of science, which at the same time contributes to the creation of many solutions that can be applied on Earth.</p>
+<p id="Par34">Within the presented article, the full functionality of the autonomous, miniature research station, called the lab-payload, was confirmed. The lab-payload allowed research to be conducted on two different biological objects (<em>Fusarium culmorum, Lepidium sativum</em>) during one nanosatellite mission, which was the second such case in the world. The laboratory payload proposed here provides autonomous activation and experimentation on LEO. The correct operation of the medium dosing, heating, and detection systems was confirmed. Moreover, for the first time, two different types of lab-chips for cell culturing (glass lab-chip and 3D printed micropot) were provided and successfully tested in a single mission. As presented in the paper, interesting biological results were also achieved showing swelling and cracking of the cress seed husk in microgravity conditions. The time of securing and storing biological samples in lab-chips was also important, from the moment of integration with the satellite to the launch of the rocket (38 days), then placing the satellite in orbit (15 days) and the duration of the experiment itself (14 days). Despite communication problems during the mission, it was possible to confirm the correct operation of the lab-payload components, which allows us to conclude that these solutions can be used and/or adapted for subsequent satellite missions. Undoubtedly, the results of the LabSat mission described in this paper constitute a substantial building block in developing the field of biological satellite research programs.</p>
+<p id="Par35">To date, together with LabSat described in this article, 11 biological nanosatellite missions have been sent. The outcomes of such missions can significantly contribute to the understanding of biological processes under space conditions, thereby enabling the assessment of both the detrimental and beneficial effects of space exposure on living matter. As with any such undertaking, these missions entail numerous challenges and the need to overcome various limitations.</p>
+<p id="Par36">In future work of this kind, the authors propose several recommendations that may facilitate the development of orbital laboratories. Microfluidic systems, including lab-chip platforms, are considered the most advantageous and efficient for conducting experiments involving living organisms in space environments. However, it is worth considering the use of emerging technologies such as 3D printing for the fabrication of connectors, adapters, valves, and regulators, which could enable more compact system architectures.</p>
+<p id="Par37">The proposed method for monitoring and parameterizing culture development based on image analysis is broadly applicable. Nevertheless, previously employed techniques, such as colorimetry and spectroscopy, have proven equally effective—particularly in scenarios involving multiple culture targets or where the expected biological response (e.g., metabolic activity) can be precisely defined.</p>
+<p id="Par38">The temperature control system (TCS) developed for this mission was deemed adequate for maintaining appropriate thermal conditions for the presented experiment. However, for future projects, it is advisable to validate the TCS within the final configuration (i.e., in the payload and satellite structure) using TVAC (Thermal Vacuum Chamber) testing, which more accurately simulates the thermo-vacuum environment of orbit.</p>
+<p id="Par39">It would also be beneficial for the payload support electronics module (PS) to perform continuous environmental data logging, allowing for a comprehensive interpretation of culture results. To this end, employing a higher-bandwidth UHF radio module would be necessary to ensure improved data transmission and communication capabilities.</p>
+<p id="Par40">Additionally, the implementation of flexible Kapton tape wiring with edge connectors is recommended, as it could substantially reduce both integration time and complexity. With regard to the assembly of laboratory subsystems, the development of modular, pre-assembled and repeatably integrable components is encouraged, which would streamline the integration process of the entire device.</p>
+<p id="Par41">Finally, it is important to emphasize that few biological systems are naturally capable of surviving extended periods of metabolic suspension prior to launch. Therefore, ongoing research into preservation methods for biological payloads, as well as advancements in satellite launch strategies, is essential.</p></section><section id="ack1" class="ack"><h2 class="pmc_sec_title">Acknowledgements</h2>
+<p>The works were carried out within project No. POIR.04.01.01-00-0010/19, under the title: “Bio-nanosatellite using miniaturized lab-on-chip instruments and methodology of conducting bio-medical research with its use in microgravity”, founded by the Polish National Centre for Research and Development.</p></section><section id="notes1"><h2 class="pmc_sec_title">Author contributions</h2>
+<p>Conceptualization, methodology, investigation, data curation, formal analysis, P.Ś, A. K., (A) G., (B) K., R. W., J. D.; writing-original draft preparation, editing and writing-review, P.Ś, A. K., A. G.; project administration, P.Ś.; funding achievement, P.Ś, A. K., (A) G., (B) K., R. W., J. D. All authors have read and approved the published version of the manuscript.</p></section><section id="notes2"><h2 class="pmc_sec_title">Data availability</h2>
+<p>The authors declare that the data supporting the findings of this study are available within the paper.</p></section><section id="notes3"><h2 class="pmc_sec_title">Declarations</h2>
+<section id="FPar1"><h3 class="pmc_sec_title">Competing interests</h3>
+<p id="Par56">The authors declare no competing interests.</p></section></section><section id="fn-group1" class="fn-group"><h2 class="pmc_sec_title">Footnotes</h2>
+<div class="fn-group p font-secondary-light font-sm"><div class="fn p" id="fn1">
+<p><strong>Publisher’s note</strong></p>
+<p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</div></div></section><section id="Bib1" class="ref-list"><h2 class="pmc_sec_title">References</h2>
+<section id="Bib1_sec2"><ul class="ref-list font-sm" style="list-style-type:none">
+<li id="CR1">
+<span class="label">1.</span><cite>Clément, G., Slenzka, K. Fundamentals of space biology : research on cells, animals, and plants in space, (2006), Springer Science + Business Media, 10.1007/0-387-37940-1</cite>
+</li>
+<li id="CR2">
+<span class="label">2.</span><cite>Herranz, R. et al. Ground-based facilities for simulation of microgravity: Organism-specific recommendations for their use, and recommended terminology. <em>Astrobiology</em><strong>13</strong>, 1–17. 10.1089/ast.2012.0876 (2013).
+</cite> [<a href="https://doi.org/10.1089/ast.2012.0876" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC3549630/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/23252378/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Herranz,%20R.%20et%20al.%20Ground-based%20facilities%20for%20simulation%20of%20microgravity:%20Organism-specific%20recommendations%20for%20their%20use,%20and%20recommended%20terminology.%20Astrobiology13,%201%E2%80%9317.%2010.1089/ast.2012.0876%20(2013)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR3">
+<span class="label">3.</span><cite>Zhang, S. et al. Simulated microgravity using a rotary culture system compromises the in vitro development of mouse preantral follicles. <em>PLoS ONE</em>10.1371/journal.pone.0151062 (2016).
+</cite> [<a href="https://doi.org/10.1371/journal.pone.0151062" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC4786255/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/26963099/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Zhang,%20S.%20et%20al.%20Simulated%20microgravity%20using%20a%20rotary%20culture%20system%20compromises%20the%20in%20vitro%20development%20of%20mouse%20preantral%20follicles.%20PLoS%20ONE10.1371/journal.pone.0151062%20(2016)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR4">
+<span class="label">4.</span><cite>Beysens, D. A. van Loon, J. J. W. A. Generation and applications of extra-terrestrial environments on Earth, (2015), River Publishers doi.org/10.13052/rp-9788793237544</cite>
+</li>
+<li id="CR5">
+<span class="label">5.</span><cite>Harland, D. M., Catchpole, J. E. Creating the International Space Station, (2002), Springer-Praxis</cite>
+</li>
+<li id="CR6">
+<span class="label">6.</span><cite>Ohnishi, T. Life science experiments performed in space in the ISS/Kibo facility and future research plans. <em>J. Radiat. Res.</em><strong>57</strong>, 41–46. 10.1093/jrr/rrw020 (2016).</cite> [<a href="https://doi.org/10.1093/jrr/rrw020" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC4990110/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/27130692/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Ohnishi,%20T.%20Life%20science%20experiments%20performed%20in%20space%20in%20the%20ISS/Kibo%20facility%20and%20future%20research%20plans.%20J.%20Radiat.%20Res.57,%2041%E2%80%9346.%2010.1093/jrr/rrw020%20(2016)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR7">
+<span class="label">7.</span><cite>Cappelletti, Ch., Battistini, S. &amp; Malphrus, B. K. Cubesat handbook from mission design to operations. <em>Elsevier</em>10.1016/C2018-0-02366-X (2021).</cite> [<a href="https://scholar.google.com/scholar_lookup?Cappelletti,%20Ch.,%20Battistini,%20S.%20&amp;%20Malphrus,%20B.%20K.%20Cubesat%20handbook%20from%20mission%20design%20to%20operations.%20Elsevier10.1016/C2018-0-02366-X%20(2021)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR8">
+<span class="label">8.</span><cite>Poghosyan, A. et al. CubeSat evolution: Analyzing CubeSat capabilities for conducting science missions. <em>Prog. Aerosp. Sci.</em><strong>88</strong>, 59–83. 10.1016/j.paerosci.2016.11.002 (2017).</cite> [<a href="https://scholar.google.com/scholar_lookup?Poghosyan,%20A.%20et%20al.%20CubeSat%20evolution:%20Analyzing%20CubeSat%20capabilities%20for%20conducting%20science%20missions.%20Prog.%20Aerosp.%20Sci.88,%2059%E2%80%9383.%2010.1016/j.paerosci.2016.11.002%20(2017)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR9">
+<span class="label">9.</span><cite>Krakos, A. Lab-on-chip technologies for space research — current trends and prospects. <em>Microchim Acta</em><strong>191</strong>, 31. 10.1007/s00604-023-06084-4 (2024).</cite> [<a href="https://doi.org/10.1007/s00604-023-06084-4" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC10721686/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/38095809/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Krakos,%20A.%20Lab-on-chip%20technologies%20for%20space%20research%20%E2%80%94%20current%20trends%20and%20prospects.%20Microchim%20Acta191,%2031.%2010.1007/s00604-023-06084-4%20(2024)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR10">
+<span class="label">10.</span><cite>Kitts, C. et al, Flight Results from the GeneSat-1 Biological Microsatellite Mission, The Proceedings of the 21<sup>st</sup> Annual AIAA/USU Conference on Small Satellites, 2007</cite>
+</li>
+<li id="CR11">
+<span class="label">11.</span><cite>Ricco, A. J. et al., PharmaSat: drug dose response in microgravity from a free-flying integrated biofluidic/optical culture-and-analysis satellite, Proceedings Microfluidics, BioMEMS, and Medical Microsystems IX, 2011, vol. 7929, 10.1117/12.881082</cite>
+</li>
+<li id="CR12">
+<span class="label">12.</span><cite>Ehrenfreund, P. et al. The O/OREOS mission – Astobiology in Earth orbit. <em>Acta Astronaut.</em><strong>93</strong>, 93. 10.1016/j.actaastro.2012.09.009 (2014).</cite> [<a href="https://scholar.google.com/scholar_lookup?Ehrenfreund,%20P.%20et%20al.%20The%20O/OREOS%20mission%20%E2%80%93%20Astobiology%20in%20Earth%20orbit.%20Acta%20Astronaut.93,%2093.%2010.1016/j.actaastro.2012.09.009%20(2014)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR13">
+<span class="label">13.</span><cite>Bramall, N. E. The development of the space environment viability of organics (SEVO) experiment aboard the Organism/organic exposure to orbital stresses (O/OREOS) satellite. <em>Planetary Space Sci.</em>10.1016/j.pss.2011.06.014 (2012).</cite> [<a href="https://scholar.google.com/scholar_lookup?Bramall,%20N.%20E.%20The%20development%20of%20the%20space%20environment%20viability%20of%20organics%20(SEVO)%20experiment%20aboard%20the%20Organism/organic%20exposure%20to%20orbital%20stresses%20(O/OREOS)%20satellite.%20Planetary%20Space%20Sci.10.1016/j.pss.2011.06.014%20(2012)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR14">
+<span class="label">14.</span><cite>Park, J. et al. An autonomous lab on a chip for space flight calibration of gravity-induced transcellular calcium polarization in single-cell fern spores. <em>Lab Chip</em><strong>17</strong>(6), 1095–1103. 10.1039/c6lc01370h (2017).
+</cite> [<a href="https://doi.org/10.1039/c6lc01370h" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/28205656/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Park,%20J.%20et%20al.%20An%20autonomous%20lab%20on%20a%20chip%20for%20space%20flight%20calibration%20of%20gravity-induced%20transcellular%20calcium%20polarization%20in%20single-cell%20fern%20spores.%20Lab%20Chip17(6),%201095%E2%80%931103.%2010.1039/c6lc01370h%20(2017)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR15">
+<span class="label">15.</span><cite>SporeSat (SpaceX-3), <a href="https://www.nasa.gov/ames/space-biosciences/sporesat-spacex-3/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://www.nasa.gov/ames/space-biosciences/sporesat-spacex-3/</a> (accessed August 1, 2024)</cite>
+</li>
+<li id="CR16">
+<span class="label">16.</span><cite>Padgen, M. R. et al. EcAMSat spaceflight measurements of the role of σs in antibiotic resistance of stationary phase Escherichia coli in microgravity. <em>Life Sci. Space Res. (Amst).</em>10.1016/j.lssr.2019.10.007 (2020).
+</cite> [<a href="https://doi.org/10.1016/j.lssr.2019.10.007" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/31987476/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Padgen,%20M.%20R.%20et%20al.%20EcAMSat%20spaceflight%20measurements%20of%20the%20role%20of%20%CF%83s%20in%20antibiotic%20resistance%20of%20stationary%20phase%20Escherichia%20coli%20in%20microgravity.%20Life%20Sci.%20Space%20Res.%20(Amst).10.1016/j.lssr.2019.10.007%20(2020)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR17">
+<span class="label">17.</span><cite>EcAMSat Satellite, <a href="https://www.nanosats.eu/sat/ecamsat" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://www.nanosats.eu/sat/ecamsat</a>, (accessed August 1, 2024)</cite>
+</li>
+<li id="CR18">
+<span class="label">18.</span><cite>Amselem, S. Remote controlled autonomous microgravity lab platforms for drug research in space. <em>Pharm Res.</em>10.1007/s11095-019-2703-7 (2019).
+</cite> [<a href="https://doi.org/10.1007/s11095-019-2703-7" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/31741058/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Amselem,%20S.%20Remote%20controlled%20autonomous%20microgravity%20lab%20platforms%20for%20drug%20research%20in%20space.%20Pharm%20Res.10.1007/s11095-019-2703-7%20(2019)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR19">
+<span class="label">19.</span><cite>DIDO-3 Satellites, <a href="https://www.nanosats.eu/sat/dido" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://www.nanosats.eu/sat/dido</a>, (accessed August 1, 2024)</cite>
+</li>
+<li id="CR20">
+<span class="label">20.</span><cite>Padgen, M. R. et al. BioSentinel: A biofluidic nanosatellite monitoring microbial growth and activity in deep space. <em>Astrobiology</em>10.1089/ast.2020.2305 (2021).
+</cite> [<a href="https://doi.org/10.1089/ast.2020.2305" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/33601926/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Padgen,%20M.%20R.%20et%20al.%20BioSentinel:%20A%20biofluidic%20nanosatellite%20monitoring%20microbial%20growth%20and%20activity%20in%20deep%20space.%20Astrobiology10.1089/ast.2020.2305%20(2021)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR21">
+<span class="label">21.</span><cite>Tieze, S. M. et al. BioSentinel: A biological CubeSat for deep space exploration. <em>Astrobiology</em>10.1089/ast.2019.2068 (2023).</cite> [<a href="https://doi.org/10.1089/ast.2019.2068" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC10254969/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/32282239/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Tieze,%20S.%20M.%20et%20al.%20BioSentinel:%20A%20biological%20CubeSat%20for%20deep%20space%20exploration.%20Astrobiology10.1089/ast.2019.2068%20(2023)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR22">
+<span class="label">22.</span><cite>Obreque, E. et al, The First Chilean Satellite Swarm: Approach and Lessons Learned The Proceedings of the 37<sup>th</sup> Annual AIAA/USU Conference on Small Satellites, 2023</cite>
+</li>
+<li id="CR23">
+<span class="label">23.</span><cite>Marzioli, P. et al, Autonomous cultivation system for nano platforms: the GreenCube mission, Proceedings of the 73<sup>rd</sup> International Astronautical Congress (IAC), 2023</cite>
+</li>
+<li id="CR24">
+<span class="label">24.</span><cite>Marzioli, P. et al, The GreenCube CubeSat mission: Development and Qualification of an autonomous Microgreens Cultivation System and demonstration of CubeSat propulsion in MEO, Proceedings of the 72<sup>nd</sup> International Astronautical Congress (IAC), 2022</cite>
+</li>
+<li id="CR25">
+<span class="label">25.</span><cite>Carletta, S. et al, A nanosatellite operating in the Van Allen belt: The lessons learned from the AstroBio CubeSat mission, Proceedings of the 73<sup>rd</sup> International Astronautical Congress (IAC), 2023</cite>
+</li>
+<li id="CR26">
+<span class="label">26.</span><cite>Nascetti, A. et al, In-orbit Characterization of a Lab-on-Chip Payload with Integrated Thin-Film Photosensors for Chemiluminescent Immunoassays aboard the AstroBio CubeSat Mission, Proceedings of 9th International Workshop on Advances in Sensors and Interfaces, 2023</cite>
+</li>
+<li id="CR27">
+<span class="label">27.</span><cite>Calabria, D. et al. AstroBio-CubeSat: A lab-in-space for chemiluminescence-based astrobiology experiments. <em>Biosensors Bioelectron.</em>10.1016/j.bios.2023.115110 (2023).</cite> [<a href="https://doi.org/10.1016/j.bios.2023.115110" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/36750012/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Calabria,%20D.%20et%20al.%20AstroBio-CubeSat:%20A%20lab-in-space%20for%20chemiluminescence-based%20astrobiology%20experiments.%20Biosensors%20Bioelectron.10.1016/j.bios.2023.115110%20(2023)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR28">
+<span class="label">28.</span><cite>Krakos, A. et al. Microfluidic-assisted human cancer cells culturing platform for space biology applications. <em>Sensors</em><strong>22</strong>, 6183. 10.3390/s22166183 (2022).
+</cite> [<a href="https://doi.org/10.3390/s22166183" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC9414851/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/36015950/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Krakos,%20A.%20et%20al.%20Microfluidic-assisted%20human%20cancer%20cells%20culturing%20platform%20for%20space%20biology%20applications.%20Sensors22,%206183.%2010.3390/s22166183%20(2022)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR29">
+<span class="label">29.</span><cite>Ley, W., Wittmann, K., Hallmann, W. Handbook of space technology, (2009), Wiley, 10.1002/9780470742433</cite>
+</li>
+<li id="CR30">
+<span class="label">30.</span><cite>Horneck, G., Rettberg, P. Complete course in astrobiology, (2008), Wiley</cite>
+</li>
+<li id="CR31">
+<span class="label">31.</span><cite>SatRev Inc., „Universal Platform - Interface Control Document Rev. 2.1”, 23 June 2021, technical documentation, available by submitting a request via the form on the company’s website, Wrocław, Poland: Rev. 2.1. Access: 28 May 2025. [Online]. Available at: <a href="https://www.satrev.space/contact" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://www.satrev.space/contact</a>.</cite>
+</li>
+<li id="CR32">
+<span class="label">32.</span><cite>CubeSat Design Specification Rev. 14.1 The CubeSat Program, Cal Poly SLO CubeSat Design Specification Cal Poly-San Luis Obispo, CA Document Classification X Public Domain</cite>
+</li>
+<li id="CR33">
+<span class="label">33.</span><cite>eCFR, (n.d.). <a href="https://www.ecfr.gov/current/title-49/subtitle-B/chapter-I/subchapter-C/part-172/subpart-B/section-172.101" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://www.ecfr.gov/current/title-49/subtitle-B/chapter-I/subchapter-C/part-172/subpart-B/section-172.101</a> (accessed August 29, 2022)</cite>
+</li>
+<li id="CR34">
+<span class="label">34.</span><cite>Kawa, B. et al. Nanosatellite payload for research on seed germination in a 3D Printed Micropot. <em>Sensors</em>10.3390/s23041974 (2023).
+</cite> [<a href="https://doi.org/10.3390/s23041974" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC9962095/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/36850572/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Kawa,%20B.%20et%20al.%20Nanosatellite%20payload%20for%20research%20on%20seed%20germination%20in%20a%203D%20Printed%20Micropot.%20Sensors10.3390/s23041974%20(2023)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR35">
+<span class="label">35.</span><cite>Krakos, A. et al. Lab-on-chip culturing system for fungi—Towards Nanosatellite missions. <em>Appl. Sci.</em>10.3390/app122010627 (2022).</cite> [<a href="https://scholar.google.com/scholar_lookup?Krakos,%20A.%20et%20al.%20Lab-on-chip%20culturing%20system%20for%20fungi%E2%80%94Towards%20Nanosatellite%20missions.%20Appl.%20Sci.10.3390/app122010627%20(2022)." class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+</ul></section></section><section id="_ad93_" lang="en" class="associated-data"><h2 class="pmc_sec_title">Associated Data</h2>
+<p class="font-secondary"><em>This section collects any data citations, data availability statements, or supplementary materials included in this article.</em></p>
+<section id="_adda93_" lang="en" class="data-availability-statement"><h3 class="pmc_sec_title">Data Availability Statement</h3>
+<p>The authors declare that the data supporting the findings of this study are available within the paper.</p></section></section></section><footer class="p courtesy-note font-secondary font-sm text-center"><hr class="headless">
+<p>Articles from Scientific Reports are provided here courtesy of <strong>Nature Publishing Group</strong></p></footer></section></article>
+
+                      
+
+                    </main>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+<!-- Secondary navigation placeholder -->
+<div class="pmc-sidenav desktop:grid-col-4 display-flex">
+    <section class="pmc-sidenav__container" aria-label="Article resources and navigation">
+        <button type="button" class="usa-button pmc-sidenav__container__close usa-button--unstyled">
+            <img src="/static/img/usa-icons/close.svg" role="img" alt="Close" />
+        </button>
+    <div class="display-none desktop:display-block">
+       <section class="margin-top-4 desktop:margin-top-0">
+              <h2 class="margin-top-0">ACTIONS</h2>
+           <ul class="usa-list usa-list--unstyled usa-list--actions">
+               
+               <li>
+                     <a
+                             href="https://doi.org/10.1038/s41598-025-16044-y"
+                             class="usa-button usa-button--outline width-24 font-xs display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                             target="_blank"
+                             rel="noreferrer noopener"
+                             data-ga-category="actions"
+                             data-ga-action="click"
+                             data-ga-label="publisher_link_desktop"
+                     >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#launch"></use>
+                         </svg>
+                         <span class="display-inline-flex flex-justify-center flex-1 padding-right-2">View on publisher site</span>
+                     </a>
+               </li>
+               
+               
+               <li>
+                    <a
+                            href="pdf/41598_2025_Article_16044.pdf"
+                            class="usa-button usa-button--outline width-24 display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="pdf_download_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1">PDF (3.8 MB)</span>
+                    </a>
+               </li>
+               
+                
+               <li>
+                   <button role="button" class="usa-button width-24 citation-dialog-trigger display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                        aria-label="Open dialog with citation text in different styles"
+                        data-ga-category="actions"
+                        data-ga-action="open"
+                        data-ga-label="cite_desktop"
+                        data-all-citations-url="/resources/citations/12373727/"
+                        data-citation-style="nlm"
+                        data-download-format-link="/resources/citations/12373727/export/"
+                    >
+                        <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                        </svg>
+                       <span class="display-inline-flex flex-justify-center flex-1 button-label">Cite</span>
+                    </button>
+               </li>
+                
+               <li>
+
+                        <button class="usa-button width-24 collections-dialog-trigger collections-button display-inline-flex flex-align-center flex-justify-start padding-left-1 collections-button-empty"
+                              aria-label="Save article in MyNCBI collections."
+                              data-ga-category="actions"
+                              data-ga-action="click"
+                              data-ga-label="collections_button_desktop"
+                              data-collections-open-dialog-enabled="false"
+                              data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12373727%2F%3Freport%3Dclassic%23open-collections-dialog"
+                              data-in-collections="false">
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                            <span class="display-inline-flex flex-justify-center flex-1">Collections</span>
+                       </button>
+               </li>
+               <li class="pmc-permalink">
+                    <button
+                            type="button"
+                            class="usa-button width-24 display-inline-flex flex-align-center flex-justify padding-left-1 shadow-none"
+                            aria-label="Show article permalink"
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="permalink_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#share"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1 button-label">Permalink</span>
+                    </button>
+                   
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12373727/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+               </li>
+           </ul>
+       </section>
+     </div>
+
+        <section class="pmc-resources margin-top-6 desktop:margin-top-4" data-page-path="/articles/PMC12373727/">
+            <h2 class="margin-top-0">RESOURCES</h2>
+            
+                <div class="usa-accordion usa-accordion--multiselectable" data-allow-multiple>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-similar-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_similar_articles"
+                        data-ga-label="/articles/PMC12373727/"
+                        data-action-open="open_similar_articles"
+                        data-action-close="close_similar_articles"
+                        >
+                            Similar articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-similar-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/similar-article-links/40847115/"
+                            
+                    >
+                        
+                    </div>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-cited-by-other-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_cited_by"
+                        data-ga-label="/articles/PMC12373727/"
+                        data-action-open="open_cited_by"
+                        data-action-close="close_cited_by"
+                        >
+                             Cited by other articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-cited-by-other-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/cited-by-links/40847115/"
+                            
+                    >
+                          
+                    </div>
+                    
+                        <h3 class="usa-accordion__heading">
+                            <button
+                            type="button"
+                            class="usa-accordion__button"
+                            aria-expanded="false"
+                            aria-controls="resources-links-to-ncbi-databases"
+                            data-ga-category="resources_accordion"
+                            data-ga-action="open_NCBI_links"
+                            data-ga-label="/articles/PMC12373727/"
+                            data-action-open="open_NCBI_links"
+                            data-action-close="close_NCBI_link"
+                            >
+                                 Links to NCBI Databases
+                            </button>
+                        </h3>
+                        <div
+                                id="resources-links-to-ncbi-databases"
+                                class="usa-accordion__content usa-prose"
+                                data-source-url="/resources/db-links/12373727/"
+                        >
+                        </div>
+                    
+                    
+                </div>
+            
+        </section>
+
+
+        <section
+        class="usa-in-page-nav usa-in-page-nav--wide margin-top-6 desktop:margin-top-4"
+        data-title-text="On this page"
+        data-title-heading-level="h2"
+        data-scroll-offset="0"
+        data-root-margin="-10% 0px -80% 0px"
+        data-main-content-selector="main"
+        data-threshold="1"
+        hidden
+        ></section>
+    </section>
+</div>
+
+
+        
+
+<div class="overlay" role="dialog" aria-label="Citation Dialog" hidden>
+    <div class="dialog citation-dialog" aria-hidden="true">
+        <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+            <h2 class="usa-modal__heading margin-0">Cite</h2>
+             <button type="button" class="usa-button usa-button--unstyled close-overlay text-black width-auto"  tabindex="1">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+             </button>
+        </div>
+
+        
+
+<div class="citation-text-block">
+  <div class="citation-text margin-bottom-2"></div>
+  <ul class="usa-list usa-list--unstyled display-inline-flex flex-justify width-full flex-align-center">
+      <li>
+        <button
+          class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center copy-button dialog-focus"
+          data-ga-category="save_share"
+          data-ga-action="cite"
+          data-ga-label="copy"
+          tabindex="2">
+            <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+            </svg>
+            <span>Copy</span>
+        </button>
+      </li>
+      <li>
+          <a
+              href="#"
+              role="button"
+              class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center export-button"
+              data-ga-category="save_share"
+              data-ga-action="cite"
+              data-ga-label="download"
+              title="Download a file for external citation management software"
+              tabindex="3">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                </svg>
+                <span class="display-none mobile-lg:display-inline">Download .nbib</span>
+                <span class="display-inline mobile-lg:display-none">.nbib</span>
+            </a>
+      </li>
+      <li>
+          
+
+<div class="display-inline-flex flex-align-center">
+  <label class="usa-label margin-top-0">Format:</label>
+  <select aria-label="Format" class="usa-select citation-style-selector padding-1 margin-top-0 border-0 padding-right-4" tabindex="4" >
+    
+      <option data-style-url-name="ama"
+              value="AMA"
+              >
+        AMA
+      </option>
+    
+      <option data-style-url-name="apa"
+              value="APA"
+              >
+        APA
+      </option>
+    
+      <option data-style-url-name="mla"
+              value="MLA"
+              >
+        MLA
+      </option>
+    
+      <option data-style-url-name="nlm"
+              value="NLM"
+              selected="selected">
+        NLM
+      </option>
+    
+  </select>
+</div>
+      </li>
+  </ul>
+</div>
+    </div>
+</div>
+
+        <div class="overlay" role="dialog" hidden>
+  <div id="collections-action-dialog" class="dialog collections-dialog" aria-hidden="true">
+   <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+        <h2 class="usa-modal__heading margin-0">Add to Collections</h2>
+    </div>
+    <div class="collections-action-panel action-panel">
+      
+
+
+<form id="collections-action-dialog-form"
+      class="usa-form maxw-full collections-action-panel-form action-panel-content action-form action-panel-smaller-selectors"
+      data-existing-collections-url="/list-existing-collections/"
+      data-add-to-existing-collection-url="/add-to-existing-collection/"
+      data-create-and-add-to-new-collection-url="/create-and-add-to-new-collection/"
+      data-myncbi-max-collection-name-length="100"
+      data-collections-root-url="https://www.ncbi.nlm.nih.gov/myncbi/collections/">
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="Vinfnw60aXZ2CJt3JxuPhX10kf4jG8KI43CdDYb7bJx0ZoLAvKNrDN3FKGMQC0Ib">
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-new"
+            class="usa-radio__input usa-radio__input--tile collections-new  margin-top-0"
+            name="collections"
+            value="new"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_new" />
+            <label class="usa-radio__label" for="collections-action-dialog-new">Create a new collection</label>
+        </div>
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-existing"
+            class="usa-radio__input usa-radio__input--tile collections-existing"
+            name="collections"
+            value="existing"
+            checked="true"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_existing" />
+            <label class="usa-radio__label" for="collections-action-dialog-existing">Add to an existing collection</label>
+        </div>
+    </fieldset>
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="action-panel-control-wrap new-collections-controls">
+           <label for="collections-action-dialog-add-to-new" class="usa-label margin-top-0">
+                Name your collection
+               <abbr title="required" class="usa-hint usa-hint--required text-no-underline">*</abbr>
+          </label>
+          <input
+            type="text"
+            name="add-to-new-collection"
+            id="collections-action-dialog-add-to-new"
+            class="usa-input collections-action-add-to-new"
+            pattern="[^&quot;&amp;=&lt;&gt;/]*" title="The following characters are not allowed in the Name field: &quot;&amp;=&lt;&gt;/"
+            maxlength=""
+            data-ga-category="collections_button"
+            data-ga-action="create_collection"
+            data-ga-label="non_favorties_collection"
+            required
+          />
+        </div>
+        <div class="action-panel-control-wrap existing-collections-controls">
+             <label for="collections-action-dialog-add-to-existing" class="usa-label margin-top-0">
+                Choose a collection
+              </label>
+              <select id="collections-action-dialog-add-to-existing"
+                      class="usa-select collections-action-add-to-existing"
+                      data-ga-category="collections_button"
+                      data-ga-action="select_collection"
+                      data-ga-label="($('.collections-action-add-to-existing').val() === 'Favorites') ? 'Favorites' : 'non_favorites_collection'">
+              </select>
+              <div class="collections-retry-load-on-error usa-input-error-message selection-validation-message">
+                Unable to load your collection due to an error<br>
+                <a href="#">Please try again</a>
+              </div>
+        </div>
+    </fieldset>
+
+    <div class="display-inline-flex">
+        <button class="usa-button margin-top-0 action-panel-submit"
+            type="submit"
+            data-loading-label="Adding..."
+            data-pinger-ignore
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="add">
+          Add
+        </button>
+        <button class="usa-button usa-button--outline margin-top-0 action-panel-cancel"
+                aria-label="Close 'Add to Collections' panel"
+                ref="linksrc=close_collections_panel"
+                data-ga-category="collections_button"
+                data-ga-action="click"
+                data-ga-label="cancel">
+          Cancel
+        </button>
+    </div>
+</form>
+    </div>
+  </div>
+</div>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+
+
+        
+    
+    
+
+<footer class="ncbi-footer ncbi-dark-background " >
+    
+        <div class="ncbi-footer__icon-section">
+            <div class="ncbi-footer__social-header">
+                Follow NCBI
+            </div>
+
+            <div class="grid-container ncbi-footer__ncbi-social-icons-container">
+                
+                    <a href="https://twitter.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="40"
+                             height="40"
+                             viewBox="0 0 40 40"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on X (formerly known as Twitter)</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.facebook.com/ncbi.nlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="16"
+                             height="29"
+                             focusable="false"
+                             aria-hidden="true"
+                             viewBox="0 0 16 29"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.8809 21.4002C3.8809 19.0932 3.8809 16.7876 3.8809 14.478C3.8809 14.2117 3.80103 14.1452 3.54278 14.1492C2.53372 14.1638 1.52334 14.1492 0.514288 14.1598C0.302626 14.1598 0.248047 14.0972 0.248047 13.8936C0.256034 12.4585 0.256034 11.0239 0.248047 9.58978C0.248047 9.37013 0.302626 9.30224 0.528931 9.3049C1.53798 9.31688 2.54837 9.3049 3.55742 9.31555C3.80103 9.31555 3.8809 9.26097 3.87957 9.00272C3.87158 8.00565 3.85428 7.00592 3.90753 6.00884C3.97142 4.83339 4.31487 3.73115 5.04437 2.78467C5.93095 1.63318 7.15699 1.09005 8.56141 0.967577C10.5582 0.79319 12.555 0.982221 14.5518 0.927641C14.7102 0.927641 14.7462 0.99287 14.7449 1.13664C14.7449 2.581 14.7449 4.02668 14.7449 5.47104C14.7449 5.67604 14.6517 5.68669 14.4946 5.68669C13.4523 5.68669 12.4113 5.68669 11.3703 5.68669C10.3506 5.68669 9.92057 6.10868 9.90593 7.13904C9.89661 7.7647 9.91525 8.39303 9.89794 9.01869C9.88995 9.26364 9.96583 9.31822 10.2015 9.31688C11.7204 9.30623 13.2393 9.31688 14.7595 9.3049C15.0257 9.3049 15.0723 9.3728 15.0444 9.62439C14.89 10.9849 14.7515 12.3467 14.6144 13.7085C14.5691 14.1571 14.5785 14.1585 14.1458 14.1585C12.8386 14.1585 11.5313 14.1665 10.2254 14.1518C9.95119 14.1518 9.89794 14.2317 9.89794 14.4899C9.90593 19.0799 9.89794 23.6752 9.91125 28.2612C9.91125 28.5674 9.8407 28.646 9.53186 28.6433C7.77866 28.6273 6.02414 28.6366 4.27094 28.634C3.82499 28.634 3.87158 28.6992 3.87158 28.22C3.87602 25.9472 3.87913 23.6739 3.8809 21.4002Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on Facebook</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.linkedin.com/company/ncbinlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="25"
+                             height="23"
+                             viewBox="0 0 26 24"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M14.6983 9.98423C15.6302 9.24808 16.5926 8.74754 17.6762 8.51991C19.673 8.09126 21.554 8.30824 23.1262 9.7526C24.2351 10.7723 24.7529 12.1115 25.0165 13.5612C25.1486 14.3363 25.2105 15.1218 25.2015 15.9081C25.2015 18.3043 25.2015 20.6898 25.2082 23.0806C25.2082 23.3468 25.1549 23.444 24.8621 23.4414C23.1297 23.4272 21.3992 23.4272 19.6704 23.4414C19.4041 23.4414 19.3429 23.3588 19.3442 23.1019C19.3535 20.5194 19.3442 17.9368 19.3442 15.3543C19.3442 14.0005 18.3258 12.9448 17.0266 12.9488C15.7273 12.9528 14.6983 14.0071 14.6983 15.361C14.6983 17.9328 14.6917 20.5047 14.6983 23.0753C14.6983 23.3708 14.6198 23.444 14.3296 23.4427C12.6185 23.4294 10.9079 23.4294 9.19779 23.4427C8.93155 23.4427 8.86099 23.3735 8.86232 23.1086C8.8783 19.7619 8.88628 16.4144 8.88628 13.066C8.88628 11.5688 8.87874 10.0708 8.86365 8.57182C8.86365 8.3575 8.90758 8.27896 9.14054 8.28029C10.9048 8.29094 12.6687 8.29094 14.4321 8.28029C14.6464 8.28029 14.6983 8.34818 14.6983 8.54653C14.6903 9.00047 14.6983 9.45441 14.6983 9.98423Z">
+                            </path>
+                            <path d="M6.55316 15.8443C6.55316 18.2564 6.55316 20.6699 6.55316 23.082C6.55316 23.3629 6.48127 23.4388 6.19906 23.4374C4.47737 23.4241 2.75568 23.4241 1.03399 23.4374C0.767751 23.4374 0.69986 23.3629 0.701191 23.1006C0.709178 18.2648 0.709178 13.4281 0.701191 8.59053C0.701191 8.34026 0.765089 8.27237 1.01669 8.2737C2.74991 8.28435 4.48048 8.28435 6.20838 8.2737C6.47462 8.2737 6.5465 8.33627 6.54517 8.6065C6.54783 11.0186 6.55316 13.4308 6.55316 15.8443Z">
+                            </path>
+                            <path d="M3.65878 0.243898C5.36804 0.243898 6.58743 1.45529 6.58743 3.1406C6.58743 4.75801 5.32145 5.95742 3.60819 5.96807C3.22177 5.97614 2.83768 5.90639 2.47877 5.76299C2.11985 5.61959 1.79344 5.40546 1.51897 5.13334C1.24449 4.86123 1.02755 4.53668 0.881058 4.17902C0.734563 3.82136 0.661505 3.43788 0.666231 3.05141C0.67555 1.42601 1.9362 0.242566 3.65878 0.243898Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on LinkedIn</span>
+                    </a>
+                
+
+                
+                    <a href="https://github.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="28"
+                             height="27"
+                             viewBox="0 0 28 28"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M16.7228 20.6334C17.5057 20.5527 18.2786 20.3944 19.0301 20.1608C21.3108 19.4193 22.5822 17.8259 22.963 15.4909C23.1228 14.5112 23.1814 13.5287 22.9883 12.5437C22.8106 11.6423 22.4013 10.8028 21.8007 10.1076C21.7526 10.0605 21.7197 10 21.7064 9.934C21.6931 9.86799 21.7 9.79952 21.7262 9.73748C22.0856 8.6206 21.9711 7.51969 21.601 6.42677C21.582 6.3497 21.5345 6.2827 21.468 6.23923C21.4016 6.19577 21.3211 6.17906 21.2429 6.19248C20.7329 6.21649 20.2313 6.33051 19.7611 6.52928C19.1103 6.7908 18.4899 7.12198 17.9104 7.51703C17.84 7.56996 17.7581 7.60551 17.6713 7.62078C17.5846 7.63605 17.4954 7.6306 17.4112 7.60489C15.2596 7.05882 13.0054 7.06203 10.8554 7.61421C10.7806 7.63586 10.7018 7.63967 10.6253 7.62534C10.5487 7.611 10.4766 7.57892 10.4148 7.53167C9.64788 7.03247 8.85171 6.58918 7.96368 6.33359C7.65781 6.24338 7.34123 6.19458 7.02239 6.18849C6.94879 6.17986 6.87462 6.19893 6.81432 6.242C6.75402 6.28507 6.71191 6.34904 6.69621 6.42145C6.32342 7.51437 6.2209 8.61527 6.56307 9.73348C6.59635 9.84264 6.64694 9.93316 6.54177 10.0516C5.47666 11.2604 5.09988 12.6834 5.19574 14.2676C5.2663 15.4244 5.46201 16.5466 6.01454 17.5769C6.84399 19.1171 8.21664 19.9119 9.85158 20.3352C10.3938 20.4706 10.9444 20.5698 11.4998 20.632C11.5384 20.7492 11.4506 20.7798 11.408 20.8291C11.1734 21.1179 10.9894 21.4441 10.8634 21.7942C10.7622 22.0458 10.8315 22.4039 10.6065 22.5516C10.263 22.7766 9.83827 22.8485 9.42421 22.8871C8.17936 23.0056 7.26471 22.4877 6.6283 21.4348C6.25552 20.8184 5.76956 20.3325 5.08523 20.0663C4.76981 19.9325 4.42139 19.8967 4.08537 19.9638C3.7898 20.029 3.73788 20.1901 3.93891 20.4111C4.03639 20.5234 4.14989 20.6207 4.27575 20.6999C4.9796 21.1318 5.51717 21.7884 5.80152 22.5636C6.37002 23.9973 7.48039 24.5697 8.93825 24.6323C9.43741 24.6575 9.93768 24.615 10.4254 24.5058C10.5892 24.4672 10.6531 24.4872 10.6517 24.6762C10.6451 25.4936 10.6637 26.3123 10.6517 27.131C10.6517 27.6635 10.1684 27.9297 9.58663 27.7393C8.17396 27.2671 6.84977 26.5631 5.66838 25.656C2.59555 23.2891 0.720966 20.1861 0.217704 16.3376C-0.357453 11.9127 0.911353 8.00824 3.98551 4.73881C6.11909 2.42656 8.99932 0.939975 12.1203 0.540191C16.5351 -0.0601815 20.4347 1.14323 23.7232 4.16373C26.2449 6.47869 27.724 9.37672 28.1048 12.7726C28.5828 17.0325 27.3686 20.7945 24.4768 23.9827C22.9762 25.6323 21.0956 26.8908 18.9982 27.6488C18.8783 27.6927 18.7585 27.738 18.636 27.7726C18.0356 27.9404 17.6189 27.6395 17.6189 27.0098C17.6189 25.7452 17.6308 24.4806 17.6295 23.2159C17.6329 22.9506 17.6128 22.6856 17.5696 22.4238C17.4325 21.6664 17.3419 21.484 16.7228 20.6334Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on GitHub</span>
+                    </a>
+                
+
+                
+                    <a href="https://ncbiinsights.ncbi.nlm.nih.gov/"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="26"
+                             height="26"
+                             viewBox="0 0 27 27"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M23.7778 26.4574C23.1354 26.3913 22.0856 26.8024 21.636 26.3087C21.212 25.8444 21.4359 24.8111 21.324 24.0347C19.9933 14.8323 14.8727 8.80132 6.09057 5.85008C4.37689 5.28406 2.58381 4.99533 0.779072 4.99481C0.202773 4.99481 -0.0229751 4.83146 0.00455514 4.21479C0.0660406 3.08627 0.0660406 1.95525 0.00455514 0.826734C-0.0413285 0.0815827 0.259669 -0.0193618 0.896534 0.00266238C6.96236 0.222904 12.3693 2.24179 16.9889 6.16209C22.9794 11.2478 26.1271 17.7688 26.4372 25.648C26.4629 26.294 26.3179 26.5271 25.6609 26.4684C25.0827 26.417 24.4991 26.4574 23.7778 26.4574Z">
+                            </path>
+                            <path d="M14.8265 26.441C14.0924 26.441 13.2371 26.6795 12.6626 26.3786C12.0092 26.0372 12.3781 25.0644 12.246 24.378C11.1154 18.5324 6.6849 14.5497 0.74755 14.1001C0.217135 14.0615 -0.0104482 13.9422 0.0134113 13.3659C0.0519536 12.1454 0.0482829 10.9213 0.0134113 9.69524C-0.00127145 9.14464 0.196946 9.03268 0.703502 9.04736C9.21217 9.27128 16.5994 16.2511 17.2804 24.7231C17.418 26.4446 17.418 26.4446 15.6579 26.4446H14.832L14.8265 26.441Z">
+                            </path>
+                            <path d="M3.58928 26.4555C2.64447 26.4618 1.73584 26.0925 1.06329 25.4289C0.39073 24.7653 0.00933763 23.8617 0.0030097 22.9169C-0.00331824 21.9721 0.365937 21.0635 1.02954 20.3909C1.69315 19.7184 2.59675 19.337 3.54156 19.3306C4.48637 19.3243 5.39499 19.6936 6.06755 20.3572C6.7401 21.0208 7.1215 21.9244 7.12782 22.8692C7.13415 23.814 6.7649 24.7226 6.10129 25.3952C5.43768 26.0677 4.53409 26.4491 3.58928 26.4555Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI RSS feed</span>
+                    </a>
+                
+            </div>
+        </div>
+    
+
+    <div data-testid="gridContainer"
+         class="grid-container ncbi-footer__container">
+        <div class="grid-row ncbi-footer__main-content-container"
+             data-testid="grid">
+            
+                <div class="ncbi-footer__column">
+                    
+                        <p class="ncbi-footer__circled-icons-heading">
+                            Connect with NLM
+                        </p>
+                    
+
+                    <div class="ncbi-footer__circled-icons-list">
+                        
+                            <a href=https://twitter.com/nlm_nih class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="32"
+                                     height="32"
+                                     viewBox="0 0 40 40"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on X (formerly known as Twitter)</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.facebook.com/nationallibraryofmedicine class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="13"
+                                     height="24"
+                                     viewBox="0 0 13 24"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M4.11371 23.1369C4.11371 23.082 4.11371 23.0294 4.11371 22.9745V12.9411H0.817305C0.6709 12.9411 0.670898 12.9411 0.670898 12.8016C0.670898 11.564 0.670898 10.3287 0.670898 9.09341C0.670898 8.97903 0.705213 8.95158 0.815017 8.95158C1.8673 8.95158 2.91959 8.95158 3.97417 8.95158H4.12057V8.83263C4.12057 7.8055 4.12057 6.7738 4.12057 5.74897C4.1264 4.92595 4.31387 4.11437 4.66959 3.37217C5.12916 2.38246 5.94651 1.60353 6.95717 1.1921C7.64827 0.905008 8.3913 0.764035 9.13953 0.778051C10.0019 0.791777 10.8644 0.830666 11.7268 0.860404C11.8869 0.860404 12.047 0.894717 12.2072 0.90158C12.2964 0.90158 12.3261 0.940469 12.3261 1.02968C12.3261 1.5421 12.3261 2.05452 12.3261 2.56465C12.3261 3.16857 12.3261 3.7725 12.3261 4.37642C12.3261 4.48165 12.2964 4.51367 12.1912 4.51138C11.5369 4.51138 10.8804 4.51138 10.2261 4.51138C9.92772 4.51814 9.63058 4.5526 9.33855 4.61433C9.08125 4.6617 8.84537 4.78881 8.66431 4.97766C8.48326 5.16652 8.3662 5.40755 8.32972 5.66661C8.28476 5.89271 8.26027 6.1224 8.25652 6.35289C8.25652 7.19014 8.25652 8.02969 8.25652 8.86923C8.25652 8.89439 8.25652 8.91955 8.25652 8.95615H12.0219C12.1797 8.95615 12.182 8.95616 12.1614 9.10714C12.0768 9.76596 11.9876 10.4248 11.9029 11.0813C11.8312 11.6319 11.7626 12.1824 11.697 12.733C11.6719 12.9434 11.6787 12.9434 11.4683 12.9434H8.26338V22.899C8.26338 22.979 8.26338 23.0591 8.26338 23.1392L4.11371 23.1369Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on Facebook</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.youtube.com/user/NLMNIH class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="21"
+                                     height="15"
+                                     viewBox="0 0 21 15"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M19.2561 1.47914C18.9016 1.15888 18.5699 0.957569 17.2271 0.834039C15.5503 0.678484 13.2787 0.655608 11.563 0.65332H9.43556C7.71987 0.65332 5.4483 0.678484 3.77151 0.834039C2.43098 0.957569 2.097 1.15888 1.74242 1.47914C0.813665 2.32097 0.619221 4.62685 0.598633 6.89384C0.598633 7.31781 0.598633 7.74101 0.598633 8.16345C0.626084 10.4121 0.827391 12.686 1.74242 13.521C2.097 13.8412 2.4287 14.0425 3.77151 14.1661C5.4483 14.3216 7.71987 14.3445 9.43556 14.3468H11.563C13.2787 14.3468 15.5503 14.3216 17.2271 14.1661C18.5676 14.0425 18.9016 13.8412 19.2561 13.521C20.1712 12.6929 20.3725 10.451 20.3999 8.22064C20.3999 7.74025 20.3999 7.25986 20.3999 6.77946C20.3725 4.54907 20.1689 2.30724 19.2561 1.47914ZM8.55942 10.5311V4.65201L13.5601 7.50005L8.55942 10.5311Z"
+                                          fill="white" />
+                                </svg>
+                                <span class="usa-sr-only">NLM on YouTube</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            
+
+            
+                <address class="ncbi-footer__address ncbi-footer__column">
+                    
+        <p>
+            <a class="usa-link usa-link--external"
+            href="https://www.google.com/maps/place/8600+Rockville+Pike,+Bethesda,+MD+20894/%4038.9959508,
+            -77.101021,17z/data%3D!3m1!4b1!4m5!3m4!1s0x89b7c95e25765ddb%3A0x19156f88b27635b8!8m2!3d38.9959508!
+            4d-77.0988323"
+            rel="noopener noreferrer" target="_blank">National Library of Medicine
+            <br/> 8600 Rockville Pike<br/> Bethesda, MD 20894</a>
+        </p>
+    
+                </address>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/web_policies.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Web Policies
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/institutes-nih/nih-office-director/office-communications-public-liaison/freedom-information-act-office" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            FOIA
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS Vulnerability Disclosure
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://support.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Help
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/accessibility.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Accessibility
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/careers/careers.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Careers
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+        </div>
+
+        
+            <div class="grid-row grid-col-12" data-testid="grid">
+                <ul class="ncbi-footer__bottom-links-list">
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NLM
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NIH
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.usa.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            USA.gov
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+    </div>
+</footer>
+
+    
+
+
+        
+        
+    
+  <script  type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/pinger/pinger.js"> </script>
+
+
+    
+        
+
+<button class="back-to-top" data-ga-category="pagination" data-ga-action="back_to_top">
+    <label>Back to Top</label>
+    <svg class="usa-icon order-0" aria-hidden="true" focusable="false" role="img">
+        <use xlink:href="/static/img/sprite.svg#arrow_upward"></use>
+    </svg>
+</button>
+    
+
+
+        
+    
+    
+    
+        
+    <script type="application/javascript">
+    window.ncbi = window.ncbi || {};
+    window.ncbi.pmc = window.ncbi.pmc || {};
+    window.ncbi.pmc.options = {
+        logLevel: 'INFO',
+        
+        staticEndpoint: '/static/',
+        
+        citeCookieName: 'pmc-cf',
+    };
+</script>
+    <script type="module" crossorigin="" src="/static/assets/base-133c6271.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/jquery/jquery-3.6.0.min.js">&#xA0;</script>
+    <script type="text/javascript">
+        jQuery.getScript("https://cdn.ncbi.nlm.nih.gov/core/alerts/alerts.js", function () {
+            galert(['div.nav_and_browser', 'div.header', '#universal_header', '.usa-banner', 'body > *:nth-child(1)'])
+        });
+    </script>
+
+
+    <script type="text/javascript">var exports = {};</script>
+     <script src="/static/CACHE/js/output.13b077bc3ffd.js"></script>
+
+    <script type="module" crossorigin="" src="/static/assets/article-44d04358.js"></script>
+    
+    
+
+    </body>
+</html>

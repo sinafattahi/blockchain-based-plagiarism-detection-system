@@ -1,0 +1,2644 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+    <head >
+
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+        
+
+        
+        
+  <link rel="stylesheet" href="/static/assets/style-8258669d.css" />
+<script type="module" crossorigin="" src="/static/assets/base_style-f4a99799.js"></script>
+
+  <link rel="stylesheet" href="/static/assets/style-ef962842.css" />
+<link rel="stylesheet" href="/static/assets/style-3ade8b5c.css" />
+<script type="module" crossorigin="" src="/static/assets/article_style-d757a0dd.js"></script>
+
+  
+  
+    <style>
+  
+  
+  @media screen and (min-width: 64em) {
+    div.pmc-wm {
+      background: repeat-y;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='350' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-.02' y='0' width='1.05' height='1' id='c'%3E%3CfeFlood flood-color='%23FFF'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3Ctext id='b' font-family='Helvetica' font-size='11pt' style='opacity:1;fill:%23005ea2;stroke:none;text-anchor:middle' x='175' y='14'%3E%3C/text%3E%3Cpath id='a' style='fill:%23005ea2' d='M0 8h350v3H0z'/%3E%3C/defs%3E%3Cuse xlink:href='%23a' transform='rotate(90 10 10)'/%3E%3Cuse xlink:href='%23b' transform='rotate(90 10 10)' filter='url(%23c)'/%3E%3C/svg%3E");
+      padding-left: 3rem;
+    }
+  }
+</style>
+
+  
+
+
+
+        
+            <link rel="apple-touch-icon"
+                  sizes="180x180"
+                  href="/static/img/favicons/apple-touch-icon.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="48x48"
+                  href="/static/img/favicons/favicon-48x48.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="/static/img/favicons/favicon-32x32.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="/static/img/favicons/favicon-16x16.png" />
+            <link rel="manifest" href="/static/img/favicons/site.webmanifest" />
+            <link rel="mask-icon"
+                  href="/static/img/favicons/safari-pinned-tab.svg"
+                  color="#0071bc" />
+            <meta name="msapplication-config"
+                  content="/static/img/favicons/browserconfig.xml" />
+            <meta name="theme-color" content="#ffffff" />
+        
+
+        <title>
+            AlphaFold model quality self‐assessment improvement via deep graph learning - PMC
+        </title>
+
+        
+        
+  
+  <!-- Logging params: Pinger defaults -->
+<meta name="ncbi_app" content="cloudpmc-viewer" />
+<meta name="ncbi_db" content="pmc" />
+<meta name="ncbi_phid" content="AE5311378AEF1243051137000E34470C.m_1" />
+<meta name="ncbi_pinger_stat_url" content="https://pmc.ncbi.nlm.nih.gov/stat" />
+<!-- Logging params: Pinger custom -->
+<meta name="ncbi_pdid" content="article" />
+  
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+
+    
+        <link rel="preconnect" href="https://cdn.ncbi.nlm.nih.gov" />
+    
+
+    <!-- Include USWDS Init Script -->
+    <script src="/static/assets/uswds-init.js"></script>
+
+
+    <meta name="ncbi_domain" content="prosci">
+<meta name="ncbi_type" content="fulltext">
+<meta name="ncbi_pcid" content="journal">
+<meta name="ncbi_feature" content="associated_data">
+<link rel="canonical" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12359199/">
+<meta name="robots" content="INDEX,NOFOLLOW,NOARCHIVE">
+<meta name="citation_journal_title" content="Protein Science : A Publication of the Protein Society">
+<meta name="citation_title" content="AlphaFold model quality self‐assessment improvement via deep graph learning">
+<meta name="citation_author" content="Jacob Verburgt">
+<meta name="citation_author_institution" content="Department of Biological Sciences, Purdue University, Indiana, USA">
+<meta name="citation_author_institution" content="Rosen Center for Advanced Computing, Purdue University, Indiana, USA">
+<meta name="citation_author" content="Zicong Zhang">
+<meta name="citation_author_institution" content="Department of Computer Science, Purdue University, Indiana, USA">
+<meta name="citation_author" content="Daisuke Kihara">
+<meta name="citation_author_institution" content="Department of Biological Sciences, Purdue University, Indiana, USA">
+<meta name="citation_author_institution" content="Department of Computer Science, Purdue University, Indiana, USA">
+<meta name="citation_publication_date" content="2025 Aug 18">
+<meta name="citation_volume" content="34">
+<meta name="citation_issue" content="9">
+<meta name="citation_firstpage" content="e70274">
+<meta name="citation_doi" content="10.1002/pro.70274">
+<meta name="citation_pmid" content="40823963">
+<meta name="citation_abstract_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12359199/">
+<meta name="citation_fulltext_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12359199/">
+<meta name="citation_pdf_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12359199/pdf/PRO-34-e70274.pdf">
+<meta name="description" content="In recent years, significant advancements have been made in deep learning‐based computational modeling of proteins, with DeepMind&#x27;s AlphaFold2 standing out as a landmark achievement. These computationally modeled protein structures not only provide ...">
+<meta name="og:title" content="AlphaFold model quality self‐assessment improvement via deep graph learning">
+<meta name="og:type" content="article">
+<meta name="og:site_name" content="PubMed Central (PMC)">
+<meta name="og:description" content="In recent years, significant advancements have been made in deep learning‐based computational modeling of proteins, with DeepMind&#x27;s AlphaFold2 standing out as a landmark achievement. These computationally modeled protein structures not only provide ...">
+<meta name="og:url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12359199/">
+<meta name="og:image" content="https://cdn.ncbi.nlm.nih.gov/pmc/cms/images/pmc-card-share.jpg?_=0">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ncbi">
+    
+    
+
+    </head>
+    <body >
+        
+    <a class="usa-skipnav " href="#main-content">
+      Skip to main content
+    </a>
+
+
+        
+            
+
+<section class="usa-banner " aria-label="Official website of the United States government" >
+    <div class="usa-accordion">
+        <header class="usa-banner__header">
+            <div class="usa-banner__inner">
+                <div class="grid-col-auto">
+                    <img aria-hidden="true"
+                         class="usa-banner__header-flag"
+                         src="/static/img/us_flag.svg"
+                         alt="" />
+                </div>
+
+                <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+                    <p class="usa-banner__header-text">
+                        An official website of the United States government
+                    </p>
+                    <span class="usa-banner__header-action">Here's how you know</span>
+                </div>
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-accordion__button usa-banner__button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    aria-expanded="false"
+    aria-controls="gov-banner-default"
+    
+    data-testid="storybook-django-banner"
+    
+    >
+    
+        
+
+        
+                    <span class="usa-banner__button-text">Here's how you know</span>
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </div>
+        </header>
+
+        <div class="usa-banner__content usa-accordion__content"
+             id="gov-banner-default"
+             hidden>
+            <div class="grid-row grid-gap-lg">
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-dot-gov.svg"
+                         alt=""
+                         aria-hidden="true" />
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Official websites use .gov</strong>
+                            <br />
+                            A
+                            <strong>.gov</strong> website belongs to an official
+                            government organization in the United States.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-https.svg"
+                         alt=""
+                         aria-hidden="true" />
+
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Secure .gov websites use HTTPS</strong>
+                            <br />
+                            A <strong>lock</strong> (
+                            <span class="icon-lock">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     width="52"
+                                     height="64"
+                                     viewBox="0 0 52 64"
+                                     class="usa-banner__lock-image"
+                                     role="graphics-symbol"
+                                     aria-labelledby="banner-lock-description"
+                                     focusable="false">
+                                    <title id="banner-lock-title">Lock</title>
+                                    <desc id="banner-lock-description">
+                                    Locked padlock icon
+                                    </desc>
+                                    <path fill="#000000"
+                                          fill-rule="evenodd"
+                                          d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+                                </svg>
+</span>) or <strong>https://</strong> means you've safely
+                                connected to the .gov website. Share sensitive
+                                information only on official, secure websites.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        
+
+        
+    
+    
+    
+
+<div class="usa-overlay">
+</div>
+
+
+
+<header class="usa-header usa-header--extended usa-header--wide" data-header data-testid="header"    >
+    <div class="ncbi-header">
+        <div class="ncbi-header__container">
+            <a class="ncbi-header__logo-container"
+               href="https://www.ncbi.nlm.nih.gov/">
+                <img alt="NCBI home page"
+                     class="ncbi-header__logo-image"
+                     src="/static/img/ncbi-logos/nih-nlm-ncbi--white.svg"
+                     width="410"
+                     height="100" />
+            </a>
+
+            <!-- Mobile menu hamburger button -->
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-menu-btn ncbi-header__hamburger-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Show menu"
+    data-testid="navMenuButton"
+    
+    >
+    
+        
+
+        
+                <svg aria-hidden="true"
+                     class="ncbi-hamburger-icon"
+                     fill="none"
+                     focusable="false"
+                     height="21"
+                     viewBox="0 0 31 21"
+                     width="31"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd"
+                          d="M0.125 20.75H30.875V17.3333H0.125V20.75ZM0.125 12.2083H30.875V8.79167H0.125V12.2083ZM0.125 0.25V3.66667H30.875V0.25H0.125Z"
+                          fill="#F1F1F1"
+                          fill-rule="evenodd" />
+                </svg>
+            
+
+        
+    
+        
+            </button>
+        
+
+
+
+            
+                <!-- Desktop buttons-->
+                <div class="ncbi-header__desktop-buttons">
+                    
+                        <!-- Desktop search button -->
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button
+           "
+    aria-expanded="false"
+    aria-controls="search-field-desktop-navigation"
+    aria-label="Show search overlay"
+    data-testid="toggleSearchPanelButton"
+    data-toggle-search-panel-button
+    >
+    
+        
+
+        
+                            
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#search" />
+    </svg>
+
+
+                            Search
+                        
+
+        
+    
+        
+            </button>
+        
+
+
+                    
+
+                    <!-- Desktop login dropdown -->
+                    
+                        <div class="ncbi-header__login-dropdown">
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button ncbi-header__login-dropdown-button
+           "
+    aria-expanded="false"
+    aria-controls="login-dropdown-menu"
+    aria-label="Show login menu"
+    data-testid="toggleLoginMenuDropdown"
+    data-desktop-login-button
+    >
+    
+        
+
+        
+                                
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#person" />
+    </svg>
+
+
+
+                                <span data-login-dropdown-text>Log in</span>
+
+                                <!-- Dropdown icon pointing up -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-less ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-up-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_less" />
+    </svg>
+
+
+
+                                <!-- Dropdown icon pointing down -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-more ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-down-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_more" />
+    </svg>
+
+
+                            
+
+        
+    
+        
+            </button>
+        
+
+
+
+                            <!-- Login dropdown menu -->
+                            <ul class="usa-nav__submenu ncbi-header__login-dropdown-menu"
+                                id="login-dropdown-menu"
+                                data-desktop-login-menu-dropdown
+                                hidden>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                <li class="usa-nav__submenu-item">
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--outline ncbi-header__login-dropdown-logout-button
+           "
+    
+    
+    
+    data-testid="desktopLogoutButton"
+    data-desktop-logout-button
+    >
+    
+        
+
+        Log out
+
+        
+    
+        
+            </button>
+        
+
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                </div>
+            
+        </div>
+    </div>
+
+    <!-- Search panel -->
+    
+        <div class="ncbi-search-panel ncbi--show-only-at-desktop"
+             data-header-search-panel
+             hidden>
+            <div class="ncbi-search-panel__container">
+                <form action="https://www.ncbi.nlm.nih.gov/search/all/"
+                      
+                      autocomplete="off"
+                      class="usa-search usa-search--big ncbi-search-panel__form"
+                      data-testid="desktop-navigation-search-form"
+                      method="GET"
+                      role="search">
+                    <label class="usa-sr-only" for="search-field-desktop-navigation">
+                        Search…
+                    </label>
+                    <input class="usa-input"
+                           id="search-field-desktop-navigation"
+                           name="term"
+                           
+                               placeholder="Search NCBI"
+                           
+                           type="search"
+                           value="" />
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                        <span class="usa-search__submit-text">
+                            Search NCBI
+                        </span>
+                    
+
+        
+    
+        
+            </button>
+        
+
+
+                </form>
+
+                
+            </div>
+        </div>
+    
+
+    <nav aria-label="Primary navigation" class="usa-nav">
+        <p class="usa-sr-only" id="primary-navigation-sr-only-title">
+            Primary site navigation
+        </p>
+
+        <!-- Mobile menu close button -->
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-nav__close ncbi-nav__close-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Close navigation menu"
+    data-testid="navCloseButton"
+    
+    >
+    
+        
+
+        
+            <img src="/static/img/usa-icons/close.svg" alt="Close" />
+        
+
+        
+    
+        
+            </button>
+        
+
+
+
+        
+            <!-- Mobile search component -->
+            <form class="usa-search usa-search--small ncbi--hide-at-desktop margin-top-6"
+                  action="https://www.ncbi.nlm.nih.gov/search/all/"
+                  
+                  autocomplete="off"
+                  data-testid="mobile-navigation-search-form"
+                  method="GET"
+                  role="search">
+                <label class="usa-sr-only" for="search-field-mobile-navigation">
+                    Search
+                </label>
+
+                <input class="usa-input"
+                       id="search-field-mobile-navigation"
+                       type="search"
+                       
+                           placeholder="Search NCBI"
+                       
+                       name="term" />
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                    <!-- This SVG should be kept inline and not replaced with a link to the icon as otherwise it will render in the wrong color -->
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0E2LjQ3MSA2LjQ3MSAwIDAgMCAxNiA5LjUgNi41IDYuNSAwIDEgMCA5LjUgMTZjMS42MSAwIDMuMDktLjU5IDQuMjMtMS41N2wuMjcuMjh2Ljc5bDUgNC45OUwyMC40OSAxOWwtNC45OS01em0tNiAwQzcuMDEgMTQgNSAxMS45OSA1IDkuNVM3LjAxIDUgOS41IDUgMTQgNy4wMSAxNCA5LjUgMTEuOTkgMTQgOS41IDE0eiIvPjwvc3ZnPg=="
+                         class="usa-search__submit-icon"
+                         alt="Search" />
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </form>
+
+            
+        
+
+        <!-- Primary navigation menu items -->
+        <!-- This usa-nav__inner wrapper is required to correctly style the navigation items on Desktop -->
+        
+
+        
+            <div class="ncbi-nav__mobile-login-menu ncbi--hide-at-desktop"
+                 data-mobile-login-menu
+                 hidden>
+                <p class="ncbi-nav__mobile-login-menu-status">
+                    Logged in as:
+                    <strong class="ncbi-nav__mobile-login-menu-email"
+                            data-mobile-login-email-text></strong>
+                </p>
+                <ul class="usa-nav__primary usa-accordion">
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           ncbi-nav__mobile-login-button ncbi--hide-at-desktop
+           "
+    
+    
+    
+    data-testid="mobileLoginButton"
+    data-mobile-login-button
+    >
+    
+        
+
+        Log in
+
+        
+    
+        
+            </button>
+        
+
+
+    </nav>
+</header>
+
+    
+    
+        
+
+<section class="pmc-header pmc-header--basic" aria-label="PMC Header with search box">
+    <div class="pmc-nav-container">
+        <div class="pmc-header__bar">
+           <div class="pmc-header__logo">
+               <a href="/" title="Home" aria-label="PMC Home"></a>
+           </div>
+            <button
+                    type="button"
+                    class="usa-button usa-button--unstyled pmc-header__search__button"
+                    aria-label="Open search"
+                    data-ga-category="search"
+                    data-ga-action="PMC"
+                    data-ga-label="pmc_search_panel_mobile"
+            >
+                <svg class="usa-icon width-4 height-4 pmc-icon__open" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#search"></use>
+                </svg>
+                <svg class="usa-icon width-4 height-4 pmc-icon__close" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="pmc-header__search">
+            
+
+
+<form class="usa-search usa-search--extra usa-search--article-right-column  pmc-header__search__form" id="pmc-search-form" autocomplete="off" role="search">
+<label class="usa-sr-only" for="pmc-search">Search PMC Full-Text Archive</label>
+<span class="autoComplete_wrapper flex-1">
+<input class="usa-input width-full maxw-none" required="required" placeholder="Search PMC Full-Text Archive" id="pmc-search"  type="search" name="term" data-autocomplete-url="https://pmc.ncbi.nlm.nih.gov/autocomp/search/autocomp/"/>
+</span>
+<button
+class="usa-button"
+type="submit"
+formaction="https://www.ncbi.nlm.nih.gov/pmc/"
+data-ga-category="search"
+data-ga-action="PMC"
+data-ga-label="PMC_search_button"
+>
+<span class="usa-search__submit-text">Search in PMC</span>
+<img
+src="/static/img/usa-icons-bg/search--white.svg"
+class="usa-search__submit-icon"
+alt="Search"
+/>
+</button>
+</form>
+            <div class="display-flex flex-column tablet:flex-row tablet:flex-justify flex-justify-center flex-align-center width-full desktop:maxw-44">
+                <ul class="pmc-header__search__menu">
+                    <li>
+                        
+                            <a class="usa-link" href="/journals/" data-ga-action="featured_link" data-ga-label="journal list">
+                                Journal List
+                            </a>
+                        
+                    </li>
+                    <li>
+                        
+                            <a class="usa-link" href="/about/userguide/" data-ga-action="featured_link"
+                            data-ga-label="user guide">
+                                User Guide
+                            </a>
+                        
+                    </li>
+                </ul>
+                
+                    <button form="pmc-search-form" formaction="https://pmc.ncbi.nlm.nih.gov/search/" type="submit" class="usa-button usa-button--unstyled hover:text-no-underline text-no-underline width-auto margin-top-1 tablet:margin-top-0">
+     <span class="bg-green-label padding-05 text-white">New</span><span class="text-underline text-primary">Try this search in PMC Beta Search</span>
+</button>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+
+
+        
+        
+
+       
+  <div class="usa-section padding-top-0 desktop:padding-top-6 pmc-article-section" data-article-db="pmc" data-article-id="12359199">
+
+    
+
+   
+
+
+
+<div class="grid-container pmc-actions-bar" aria-label="Actions bar" role="complementary">
+    <div class="grid-row">
+        <div class="grid-col-fill display-flex">
+             <div class="display-flex">
+                <ul class="usa-list usa-list--unstyled usa-list--horizontal">
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <button
+                                type="button"
+                                class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                                aria-label="Open resources"
+                                data-extra-class="is-visible-resources"
+                                data-ga-category="resources_accordion"
+                                data-ga-action="click"
+                                data-ga-label="mobile_icon"
+                        >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#more_vert"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <a
+                                href="https://doi.org/10.1002/pro.70274"
+                                class="usa-link display-flex usa-tooltip"
+                                role="button"
+                                target="_blank"
+                                rel="noreferrer noopener"
+                                title="View on publisher site"
+                                data-position="bottom"
+                                aria-label="View on publisher site"
+                                data-ga-category="actions"
+                                data-ga-action="click"
+                                data-ga-label="publisher_link_mobile"
+                        >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#launch"></use>
+                                </svg>
+                        </a>
+                    </li>
+                    
+                    
+                        <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                             <a
+                                     href="pdf/PRO-34-e70274.pdf"
+                                     class="usa-link display-flex usa-tooltip"
+                                     role="button"
+                                     title="Download PDF"
+                                     data-position="bottom"
+                                     aria-label="Download PDF"
+                                     data-ga-category="actions"
+                                     data-ga-action="click"
+                                     data-ga-label="pdf_download_mobile"
+                             >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button
+                            class="usa-button usa-button--unstyled  usa-tooltip collections-dialog-trigger collections-button display-flex collections-button-empty"
+                            title="Add to Collections"
+                            data-position="bottom"
+                            aria-label="Save article in MyNCBI collections."
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="collections_button_mobile"
+                            data-collections-open-dialog-enabled="false"
+                            data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12359199%2F%3Freport%3Dclassic%23open-collections-dialog"
+                            data-in-collections="false"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button role="button" class="usa-button usa-button--unstyled usa-tooltip citation-dialog-trigger display-flex"
+                            aria-label="Open dialog with citation text in different styles"
+                            title="Cite"
+                            data-position="bottom"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="cite_mobile"
+                            data-all-citations-url="/resources/citations/12359199/"
+                            data-citation-style="nlm"
+                            data-download-format-link="/resources/citations/12359199/export/"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="pmc-permalink display-flex" >
+                         <button
+                                 type="button"
+                                 title="Permalink"
+                                 data-position="bottom"
+                                 class="usa-button usa-button--unstyled display-flex usa-tooltip"
+                                 aria-label="Show article permalink"
+                                 aria-expanded="false"
+                                 aria-haspopup="true"
+                                 data-ga-category="actions"
+                                 data-ga-action="open"
+                                 data-ga-label="permalink_mobile"
+                         >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#share"></use>
+                            </svg>
+                        </button>
+                        
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12359199/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+                    </li>
+                </ul>
+            </div>
+            <button
+                    type="button"
+                    class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                    aria-label="Open article navigation"
+                    data-extra-class="is-visible-in-page"
+                    data-ga-category="actions"
+                    data-ga-action="open"
+                    data-ga-label="article_nav_mobile"
+            >
+                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#list"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+    <div class="grid-container desktop:padding-left-6">
+      <div id="article-container" class="grid-row grid-gap">
+        <div class="grid-col-12 desktop:grid-col-8 order-2 pmc-layout__content">
+            <div class="grid-container padding-left-0 padding-right-0">
+                <div class="grid-row desktop:margin-left-neg-6">
+                    <div class="grid-col-12">
+                        <div class="pmc-layout__disclaimer" role="complementary" aria-label="Disclaimer note">
+    As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,
+    the contents by NLM or the National Institutes of Health.<br/>
+    Learn more:
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="Disclaimer" data-ga-label="New disclaimer box" href="/about/disclaimer/">PMC Disclaimer</a>
+    |
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="PMC Copyright Notice" data-ga-label="New disclaimer box" href="/about/copyright/">
+        PMC Copyright Notice
+    </a>
+</div>
+                    </div>
+                </div>
+                <div class="grid-row pmc-wm desktop:margin-left-neg-6">
+                    <!-- Main content -->
+                    <main
+                      id="main-content"
+                      class="usa-layout-docs__main usa-layout-docs grid-col-12 pmc-layout pmc-prose padding-0"
+                    >
+
+                      
+                        <section class="pmc-journal-banner text-center line-height-none" aria-label="Journal banner"><img src="https://cdn.ncbi.nlm.nih.gov/pmc/banners/logo-prosci.gif" alt="Protein Science : A Publication of the Protein Society logo" usemap="#pmc-banner-imagemap" width="500" height="75"><map name="pmc-banner-imagemap"><area alt="Link to Protein Science : A Publication of the Protein Society" title="Link to Protein Science : A Publication of the Protein Society" shape="default" href="http://www.proteinscience.org/" target="_blank" rel="noopener noreferrer"></map></section><article lang="en"><section aria-label="Article citation and metadata"><section class="pmc-layout__citation font-secondary font-xs"><div>
+<div class="display-inline-block"><button type="button" class="cursor-pointer text-no-underline bg-transparent border-0 padding-0 text-left margin-0 text-normal text-primary" aria-controls="journal_context_menu">Protein Sci</button></div>. 2025 Aug 18;34(9):e70274. doi: <a href="https://doi.org/10.1002/pro.70274" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">10.1002/pro.70274</a>
+</div>
+<nav id="journal_context_menu" hidden="hidden"><ul class="menu-list font-family-ui" role="menu">
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/pmc/?term=%22Protein%20Sci%22%5Bjour%5D" class="usa-link" role="menuitem">Search in PMC</a></li>
+<li role="presentation"><a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Protein%20Sci%22%5Bjour%5D" lang="en" class="usa-link" role="menuitem">Search in PubMed</a></li>
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/nlmcatalog?term=%22Protein%20Sci%22%5BTitle%20Abbreviation%5D" class="usa-link" role="menuitem">View in NLM Catalog</a></li>
+<li role="presentation"><a href="?term=%22Protein%20Sci%22%5Bjour%5D" class="usa-link" role="menuitem" data-add-to-search="true">Add to search</a></li>
+</ul></nav></section><section class="front-matter"><div class="ameta p font-secondary font-xs">
+<hgroup><h1>
+AlphaFold model quality self‐assessment improvement via deep graph learning</h1></hgroup><div class="cg p">
+<a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Verburgt%20J%22%5BAuthor%5D" class="usa-link" aria-describedby="id1"><span class="name western">Jacob Verburgt</span></a><div hidden="hidden" id="id1">
+<h3><span class="name western">Jacob Verburgt</span></h3>
+<div class="p">
+<sup>
+<sup>1</sup>
+</sup>Department of Biological Sciences, Purdue University, Indiana, USA</div>
+<div class="p">
+<sup>
+<sup>2</sup>
+</sup>Rosen Center for Advanced Computing, Purdue University, Indiana, USA</div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Verburgt%20J%22%5BAuthor%5D" class="usa-link"><span class="name western">Jacob Verburgt</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>2</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Zhang%20Z%22%5BAuthor%5D" class="usa-link" aria-describedby="id2"><span class="name western">Zicong Zhang</span></a><div hidden="hidden" id="id2">
+<h3><span class="name western">Zicong Zhang</span></h3>
+<div class="p">
+<sup>
+<sup>3</sup>
+</sup>Department of Computer Science, Purdue University, Indiana, USA</div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Zhang%20Z%22%5BAuthor%5D" class="usa-link"><span class="name western">Zicong Zhang</span></a>
+</div>
+</div>
+<sup>3</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Kihara%20D%22%5BAuthor%5D" class="usa-link" aria-describedby="id3"><span class="name western">Daisuke Kihara</span></a><div hidden="hidden" id="id3">
+<h3><span class="name western">Daisuke Kihara</span></h3>
+<div class="p">
+<sup>
+<sup>1</sup>
+</sup>Department of Biological Sciences, Purdue University, Indiana, USA</div>
+<div class="p">
+<sup>
+<sup>3</sup>
+</sup>Department of Computer Science, Purdue University, Indiana, USA</div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Kihara%20D%22%5BAuthor%5D" class="usa-link"><span class="name western">Daisuke Kihara</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>3,</sup><sup>✉</sup>
+</div>
+<ul class="d-buttons inline-list">
+<li><button class="d-button" aria-controls="aip_a" aria-expanded="false">Author information</button></li>
+<li><button class="d-button" aria-controls="anp_a" aria-expanded="false">Article notes</button></li>
+<li><button class="d-button" aria-controls="clp_a" aria-expanded="false">Copyright and License information</button></li>
+</ul>
+<div class="d-panels font-secondary-light">
+<div id="aip_a" class="d-panel p" style="display: none">
+<div class="p" id="pro70274-aff-0001">
+<sup>
+<sup>1</sup>
+</sup>Department of Biological Sciences, Purdue University, Indiana, USA</div>
+<div id="pro70274-aff-0002">
+<sup>
+<sup>2</sup>
+</sup>Rosen Center for Advanced Computing, Purdue University, Indiana, USA</div>
+<div id="pro70274-aff-0003">
+<sup>
+<sup>3</sup>
+</sup>Department of Computer Science, Purdue University, Indiana, USA</div>
+<div class="author-notes p">
+<div class="fn" id="correspondenceTo">
+<sup>*</sup><p class="display-inline">
+
+<strong>Correspondence</strong>
+, 
+Daisuke Kihara, Department of Biological Sciences, Purdue University, West Lafayette, IN 47907, USA. 
+Email: <span>dkihara@purdue.edu</span>
+
+</p>
+</div>
+<div class="fn" id="_fncrsp93pmc__">
+<sup>✉</sup><p class="display-inline">Corresponding author.</p>
+</div>
+</div>
+</div>
+<div id="anp_a" class="d-panel p" style="display: none"><div class="notes p"><section id="historyarticle-meta1" class="history"><p>Revised 2025 Jul 15; Received 2025 May 9; Accepted 2025 Aug 4; Collection date 2025 Sep.</p></section></div></div>
+<div id="clp_a" class="d-panel p" style="display: none">
+<div>© 2025 The Author(s). <em>Protein Science</em> published by Wiley Periodicals LLC on behalf of The Protein Society.</div>
+<p>This is an open access article under the terms of the <a href="https://creativecommons.org/licenses/by/4.0/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">http://creativecommons.org/licenses/by/4.0/</a> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</p>
+<div class="p"><a href="/about/copyright/" class="usa-link">PMC Copyright notice</a></div>
+</div>
+</div>
+<div>PMCID: PMC12359199  PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/40823963/" class="usa-link">40823963</a>
+</div>
+</div></section></section><section aria-label="Article content"><section class="body main-article-body"><section class="abstract" id="abstract1"><h2>Abstract</h2>
+<p>In recent years, significant advancements have been made in deep learning‐based computational modeling of proteins, with DeepMind's AlphaFold2 standing out as a landmark achievement. These computationally modeled protein structures not only provide atomic coordinates but also include self‐confidence metrics to assess the relative quality of the modeling, either for individual residues or the entire protein. However, these self‐confidence scores are not always reliable; for instance, poorly modeled regions of a protein may sometimes be assigned high confidence. To address this limitation, we introduce Equivariant Quality Assessment Folding (EQAFold), an enhanced framework that refines the Local Distance Difference Test prediction head of AlphaFold to generate more accurate self‐confidence scores. Our results demonstrate that EQAFold outperforms the standard AlphaFold architecture and recent model quality assessment protocols in providing more reliable confidence metrics. Source code for EQAFold is available at <a href="https://github.com/kiharalab/EQAFold_public" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://github.com/kiharalab/EQAFold_public</a>.</p>
+<section id="kwd-group1" class="kwd-group"><p><strong>Keywords:</strong> AlphaFold, deep learning, model quality assessment, protein structure prediction</p></section></section><section id="pro70274-sec-0001"><h2 class="pmc_sec_title">1. INTRODUCTION</h2>
+<p>With the introduction of AlphaFold2 (AF2) (Jumper et al., <a href="#pro70274-bib-0008" class="usa-link" aria-describedby="pro70274-bib-0008">2021</a>) in the Critical Assessment of Structure Prediction (CASP14) (Lensink et al., <a href="#pro70274-bib-0011" class="usa-link" aria-describedby="pro70274-bib-0011">2021</a>) protein structure prediction assessment, the field of protein structure prediction rapidly matured, and a copious amount of computationally predicted protein structures became available through online databases such as the AlphaFold Protein Structure Database (AFDB) (Varadi et al., <a href="#pro70274-bib-0024" class="usa-link" aria-describedby="pro70274-bib-0024">2022</a>), which supplements experimentally determined structures available at the Protein Data Bank (PDB) (Berman et al., <a href="#pro70274-bib-0005" class="usa-link" aria-describedby="pro70274-bib-0005">2000</a>). Along with 3D coordinates of the atoms within each of these predicted structures, each residue is also annotated with a self‐confidence score, which is used to gauge how trustworthy the modeling of that region of the structure is. Within the context of deep learning‐based methods, these confidence scores are often predictions of traditional quality metrics that have been used in the field of protein structure prediction for many years, with the underlying prediction network being trained in conjunction with the structure prediction itself. The primary confidence metric predicted within AF2 is the Local Distance Difference Test (LDDT) (Mariani et al., <a href="#pro70274-bib-0013" class="usa-link" aria-describedby="pro70274-bib-0013">2013</a>), which is predicted for each residue. These confidence scores are often critical for downstream applications and researchers to gauge the reliability of structures. Furthermore, in the event that multiple structure predictions exist, as they often do, these confidence scores are used to rank and select them, bolstering the significance of the self‐confidence scores for downstream research.</p>
+<p>In a similar vein, there are a number of model quality assessment (MQA) methods (Kihara et al., <a href="#pro70274-bib-0009" class="usa-link" aria-describedby="pro70274-bib-0009">2009</a>) that have been developed to assign quality scores to already predicted protein structures (Baldassarre et al., <a href="#pro70274-bib-0004" class="usa-link" aria-describedby="pro70274-bib-0004">2021</a>; Olechnovič &amp; Venclovas, <a href="#pro70274-bib-0015" class="usa-link" aria-describedby="pro70274-bib-0015"><sup>2017</sup></a>; Roche et al., <a href="#pro70274-bib-0017" class="usa-link" aria-describedby="pro70274-bib-0017"><sup>2023</sup></a>; Roy &amp; Ben‐Hur, <a href="#pro70274-bib-0018" class="usa-link" aria-describedby="pro70274-bib-0018"><sup>2023</sup></a>; Shin et al., <a href="#pro70274-bib-0021" class="usa-link" aria-describedby="pro70274-bib-0021"><sup>2017</sup></a>). Instead of relying on self‐confidence metrics generated alongside the predicted models, these methods analyze the resultant protein structures to assign their own confidence scores. This allows for the analysis of protein structures generated from a variety of methods, which is often of use for the CASP Estimation of Model Accuracy category (Kwon et al., <a href="#pro70274-bib-0010" class="usa-link" aria-describedby="pro70274-bib-0010">2021</a>), in which participants attempt to rank and select well‐modeled structures from a pool of candidate structures. The graph‐like nature of the LDDT metric has led many of these methods to be graph‐based (Baldassarre et al., <a href="#pro70274-bib-0004" class="usa-link" aria-describedby="pro70274-bib-0004">2021</a>; Roche et al., <a href="#pro70274-bib-0017" class="usa-link" aria-describedby="pro70274-bib-0017"><sup>2023</sup></a>; Roy &amp; Ben‐Hur, <a href="#pro70274-bib-0018" class="usa-link" aria-describedby="pro70274-bib-0018"><sup>2023</sup></a>).</p>
+<p>In this study, we aim to increase the accuracy of AF2 self‐confidence scores through the incorporation of equivariant graph neural networks (EGNNs) (Satorras et al., <a href="#pro70274-bib-0019" class="usa-link" aria-describedby="pro70274-bib-0019">2022</a>) in place of the standard LDDT prediction head present within AF2. EGNN architectures are able to leverage relative spatial information within the graph and are widely used for parsing and interpretation of molecular data (Masters et al., <a href="#pro70274-bib-0014" class="usa-link" aria-describedby="pro70274-bib-0014">2023</a>; Roche et al., <a href="#pro70274-bib-0017" class="usa-link" aria-describedby="pro70274-bib-0017"><sup>2023</sup></a>; Wu et al., <a href="#pro70274-bib-0029" class="usa-link" aria-describedby="pro70274-bib-0029"><sup>2023</sup></a>), including MQA methods (Chen et al., <a href="#pro70274-bib-0007" class="usa-link" aria-describedby="pro70274-bib-0007">2023</a>), and have been shown to outperform traditional graph methods in similar tasks (Roche et al., <a href="#pro70274-bib-0017" class="usa-link" aria-describedby="pro70274-bib-0017">2023</a>). Titled Equivariant Quality Assessment Folding (EQAFold), this work reimplements and fine‐tunes the LDDT prediction head of a pre‐trained AF2 model to provide more accurate self‐confidence scores. This process differs substantially from standard MQA methods by instead improving the underlying self‐confidence scores that are generated alongside the predicted structure, as opposed to applying an external program for analysis. This provides us with the unique benefit of leveraging the same information that was used to generate the predicted protein structure. We believe that improvement in self‐confidence score accuracy can be achieved through several key concepts: First, the EGNN architecture will allow better predicted Local Distance Difference Test (pLDDT) assignment over the multi‐layer perceptron network used within AF2. In particular, the AlphaFold pLDDT prediction head does not leverage pairwise information, which we will leverage as edges, as well as edge features within our network. Second, in our training dataset, we were careful to exclude training data entries in which the polypeptide chain was extracted from a larger multimeric structure and thus cannot be accurately evaluated as a monomer. Third, we incorporated additional features of a query structure model in EQAFold. In particular, we utilize fluctuations that occur when the model is run multiple times and embedding data from protein language models (Lin et al., <a href="#pro70274-bib-0012" class="usa-link" aria-describedby="pro70274-bib-0012">2023</a>; Rives et al., <a href="#pro70274-bib-0016" class="usa-link" aria-describedby="pro70274-bib-0016"><sup>2021</sup></a>). We benchmarked EQAFold against the standard AlphaFold architecture on a test dataset of 726 monomeric protein structure entries and were able to show that EQAFold can provide more accurate confidence metrics, particularly in regions with substantial LDDT prediction errors.</p></section><section id="pro70274-sec-0002"><h2 class="pmc_sec_title">2. RESULTS</h2>
+<section id="pro70274-sec-0003"><h3 class="pmc_sec_title">2.1. The overview of EQAFold
+</h3>
+<p>EQAFold adopts the same architecture for structure prediction as AF2 but incorporates an enhanced LDDT prediction head based on EGNNs (Figure <a href="#pro70274-fig-0001" class="usa-link">1a</a>). Starting from the input sequence of a target protein, a Multiple Sequence Alignment (MSA) is created through a sequence database search. The MSA is then processed by the Evoformer module, which produces single and pair representations. These representations are subsequently used by the structure module to predict the protein structure. Up to this stage, the data is processed with the AF2 network.</p>
+<figure class="fig xbox font-sm" id="pro70274-fig-0001"><h4 class="obj_head">FIGURE 1.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8c43/12359199/03f9d35725ef/PRO-34-e70274-g003.jpg" loading="lazy" id="jats-graphic-1" height="657" width="676" alt="FIGURE 1"></p>
+<div class="p text-right font-secondary"><a href="figure/pro70274-fig-0001/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Overview of Equivariant Quality Assessment Folding (EQAFold). (a) The EQAFold architecture largely follows that of AlphaFold2 (AF2). The Local Distance Difference Test (LDDT) prediction head of EQAFold is based on equivariant graph neural networks (EGNNs) that use the predicted Cα coordinates from the structure module to create a graph representation of the protein model. The head leverages information from the single and pair representations computed by AF2, the evolutionary scale modeling (ESM) protein language model, and local variability of five structure models from AF2 in the form of root mean square fluctuation (RMSF). (b) Construction of the Protein Graph Representation for the LDDT Prediction Head. The final single representation (orange), layer‐wise ESM embeddings (yellow), and RMSF values (red) are concatenated and passed through a single linear transition layer with Rectified Linear Unit (ReLU) activation and are subsequently used as node features. AlphaFold pairwise embeddings (blue) and ESM attentions (yellow) are passed through a single transition layer with ReLU activation, contain information for all residue pairs, which are extracted as edge features. The graph representation of the protein is built using Cα distances and has the constructed node and edge features loaded on.</p></figcaption></figure><p>The newly developed LDDT prediction head converts the final single and pair representations from the structure module, the predicted Cα coordinates, layer‐wise embeddings of the ESM2 protein language model (Rives et al., <a href="#pro70274-bib-0016" class="usa-link" aria-describedby="pro70274-bib-0016">2021</a>), and the root mean square fluctuation (RMSF) of five structure models (generated via the standard AF2 with 50% dropout in the structure module) into a graph representation of the protein structure. We used RMSF from the five dropout replicates because structural differences among different models have been used in past consensus‐based quality assessment methods (Adamczak et al., <a href="#pro70274-bib-0002" class="usa-link" aria-describedby="pro70274-bib-0002">2011</a>; Wang et al., <a href="#pro70274-bib-0026" class="usa-link" aria-describedby="pro70274-bib-0026"><sup>2011</sup></a><sup>, </sup><a href="#pro70274-bib-0027" class="usa-link" aria-describedby="pro70274-bib-0027"><sup>2020</sup></a>). As shown in Figure <a href="#pro70274-supitem-0001" class="usa-link">S1</a>, it is clear that RMSF negatively correlates with LDDT, since as AF2 has less information on a residue's position relative to others, its placement in space will vary more.</p>
+<p>In the graph (Figure <a href="#pro70274-fig-0001" class="usa-link">1b</a>), nodes represent amino acids, while edges are constructed for residues in which Cα positions were within 16 Å. Node features are constructed by concatenating the final single representation from the Evoformer (the dimension is <em>L</em> × 384, where <em>L</em> is the length of the protein), the averaged ESM layers (<em>L</em> × 33), and the RMSF values (<em>L</em> × 1) and passing through a linear transition layer with ReLU activations, resulting in <em>L</em> × 384 node features (Figure <a href="#pro70274-fig-0001" class="usa-link">1b</a>). Edge features are constructed using the pair embeddings of residue pairs (<em>L</em> × <em>L</em> × 128) and averaged attention layers from ESM (<em>L</em> × <em>L</em> × 33), as performed previously (Roche et al., <a href="#pro70274-bib-0017" class="usa-link" aria-describedby="pro70274-bib-0017">2023</a>). The corresponding residue pair for any edge is extracted and used as edge features. The EGNN‐based prediction network itself consists of four equivariant graph convolutional layers with 384 node features at the input, 128 hidden node features between layers, and 50 output node features.</p>
+<p>We primarily base our method off of our in‐house implementation of AF2, which was built on a composite of OpenFold (Ahdritz et al., <a href="#pro70274-bib-0003" class="usa-link" aria-describedby="pro70274-bib-0003">2023</a>) and our own newly generated code. Our method starts at the structure module stage of AF2, with the single and pair representations being precomputed via the DeepMind AF2 implementation.</p>
+<p>Our training and testing datasets were constructed from the PISCES protein sequence culling server (Wang &amp; Dunbrack Jr., <a href="#pro70274-bib-0025" class="usa-link" aria-describedby="pro70274-bib-0025">2003</a>) (see Section <a href="#pro70274-sec-0009" class="usa-link">4</a>). For either dataset, we included protein structures that were solved in a monomeric state and had a resolution of at least 2.5 Å. To prevent redundancy between the training and testing data, we ensured that there was no more than 40% sequence similarity between the training and testing data following the criteria used in the AF2 paper. The training dataset contained a total of 11,966 entries, and the testing dataset contained a total of 726 entries. Out of the 726 targets in the test set, 530 of them have corresponding AFDB structures with identical sequences. Cases in which the AFDB structure cannot be acquired are due to a lack of a UniProt ID, vary from the PDB entry, or simply lack an AFDB entry.</p></section><section id="pro70274-sec-0004"><h3 class="pmc_sec_title">2.2. Overall results</h3>
+<p>We analyzed model‐level and residue‐level pLDDT by EQAFold in comparison with AFDB in Figure <a href="#pro70274-fig-0002" class="usa-link">2</a>. A model‐level pLDDT is the average pLDDT of all the residues in a protein model. First, in Figure <a href="#pro70274-fig-0002" class="usa-link">2a</a>, we compared the model‐level pLDDT of the two methods with the true LDDT. Overall, both methods predicted LDDT values close to the true LDDT for the majority of the targets. For 348 (65.7%) and 316 (59.6%) of the targets, EQAFold and AFDB, respectively, predicted LDDT within a margin of 0.5 LDDT error. The average pLDDT errors of EQAFold and AFDB were 4.74 and 5.16, respectively. EQAFold and AFDB performed similarly in terms of structure model accuracy. The difference in their average LDDT scores was 0.84, and for 72.6% of the targets, the LDDT values of the two methods differed by less than 0.5 (Figure <a href="#pro70274-supitem-0001" class="usa-link">S2</a>).</p>
+<figure class="fig xbox font-sm" id="pro70274-fig-0002"><h4 class="obj_head">FIGURE 2.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8c43/12359199/c27578ee8fc0/PRO-34-e70274-g002.jpg" loading="lazy" id="jats-graphic-3" height="1103" width="709" alt="FIGURE 2"></p>
+<div class="p text-right font-secondary"><a href="figure/pro70274-fig-0002/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Model quality assignment by Equivariant Quality Assessment Folding (EQAFold). (a) Model‐level pLDDT assignment by AlphaFold Protein Structure Database (AFDB) (blue circles) and EQAFold (orange triangles) relative to the true Local Distance Difference Test (LDDT). The 530 test entries for both EQAFold and AFDB were plotted. (b) Comparison of model‐level LDDT error between EQAFold and AFDB on the 530 test entries. For each model, the error is calculated as the average absolute LDDT error across all residues. The respective errors from EQAFold and AFDB are plotted, with dashed lines indicating a 0.5 LDDT margin, within which differences between the two methods are considered marginal (a tie). (c and d) Residue‐level confusion matrices of EQAFold and AFDB, respectively. For each of the four categories of true LDDT, &gt;90, 90–70, 70–50, and &lt;50, the fraction of predicted LDDT values in each of the categories is shown. (e–h) Residue‐level histograms of the predicted LDDT distributions for both EQAFold and AFDB for each of the four true LDDT categories. The <em>y</em>‐axis shows the fraction of residues. The pLDDT range that would be considered correct for each LDDT category is shown in gray.</p></figcaption></figure><p>However, differences between the two methods become apparent when analyzing pLDDT errors. Figure <a href="#pro70274-fig-0002" class="usa-link">2b</a> presents the pLDDT error, defined as the difference between pLDDT and the true LDDT, for EQAFold and AFDB. By analyzing the pLDDT error instead of absolute pLDDT values, we largely avoid biases from deviations in the underlying structures from AFDB and EQAFold. Since our focus is on models with significant LDDT errors, we examined the subset where either method had an average LDDT error greater than 5.0. Considering 256 targets where either method had a significant LDDT error (average LDDT error of above 5.0), EQAFold had lower LDDT error than the deposited AFDB model in 127 (49.61%) of the targets, with 56 (21.88%) of the models being tied, where the difference of errors of the two methods was less than 0.5. Only 73 (28.52%) of AFDB models with substantial modeling error had lower LDDT error than EQAFold.</p>
+<p>We further investigated the residue‐level accuracy of EQAFold versus AFDB in Figure <a href="#pro70274-fig-0002" class="usa-link">2c,d</a>. We binned the predicted and true LDDT values for each residue into the four categories utilized in the AFDB: &gt;90, 70–90, 50–70, and &lt;50. We compare the correct prediction of LDDT category by both EQAFold (Figure <a href="#pro70274-fig-0002" class="usa-link">2c</a>) and AFDB (Figure <a href="#pro70274-fig-0002" class="usa-link">2d</a>). The difference between EQAFold and AFDB becomes more apparent when we consider the misclassification of residues by two or more categories. For instance, among 3977 residues with a true LDDT &lt;50, EQAFold assigned a high pLDDT (&gt;90) in 7.59% of cases, whereas AFDB made twice as many such errors (14.28%). Similarly, for residues with a true LDDT of 50–70, EQAFold assigned a high pLDDT in 14.03% of cases, while AFDB did so 50% more frequently (21.06%). Such overestimation poses risks for practical applications of AF models, as users may mistakenly trust and utilize inaccurately modeled structures when pLDDT values are high. In Figure <a href="#pro70274-fig-0002" class="usa-link">2e–h</a>, the distribution of predicted LDDT values for the four true LDDT categories is shown. For the &gt;90 true LDDT category (Figure <a href="#pro70274-fig-0002" class="usa-link">2e</a>), although pLDDT by AFDB is skewed toward very high values, EQAFold has a higher fraction predicting LDDT in the correct &gt;90 categories, 90.29% (Figure <a href="#pro70274-fig-0002" class="usa-link">2c</a>), as opposed to 89.76% by AFDB (Figure <a href="#pro70274-fig-0002" class="usa-link">2d</a>). This difference in the correct fraction turned out to be statistically significant by a chi‐squared test (<em>p</em> = 1.71e−5). The 70–90 true LDDT category (Figure <a href="#pro70274-fig-0002" class="usa-link">2f</a>) showed that EQAFold again increased the proportion of correctly categorized residues significantly compared to AFDB (44.28–49.37) (<em>p</em> = 8.43e−27). The 50–70 true LDDT category (Figure <a href="#pro70274-fig-0002" class="usa-link">2g</a>) did not show any statistically significant improvement using a <em>p</em>‐value cutoff of 0.05 (<em>p</em> = 0.59), despite EQAFold correctly categorizing slightly more residues than AFDB. In the &lt;50 true LDDT category (Figure <a href="#pro70274-fig-0002" class="usa-link">2h</a>), EQAFold substantially increased the proportion of correctly categorized residues over AFDB (33.41%–43.42%) (<em>p</em> = 1.46e−17).</p></section><section id="pro70274-sec-0005"><h3 class="pmc_sec_title">2.3. Examples of EQAFold's prediction</h3>
+<p>In Figure <a href="#pro70274-fig-0003" class="usa-link">3</a> we show several examples of pLDDT by EQAFold in comparison with AFDB. The first example (Figure <a href="#pro70274-fig-0003" class="usa-link">3a</a>) is a 208‐residue long α‐helical protein. The predicted models by EQAFold and AFDB for this target were highly accurate with RMSDs of 0.65 and 0.67 Å, respectively. The correct LDDT of residues in these models are within the range of 76.72–100, with an average LDDT of 98.18, as shown in blue in the true LDDT panel. EQAFold successfully recognized the correctness of the model with pLDDT values in the ranges of 70.51–97.18, with an average pLDDT of 92.76, whereas AFDB underestimated the quality, assigning lower pLDDT values ranging from 47.53 to 83.19, with an average pLDDT of 71.84. Figure <a href="#pro70274-fig-0003" class="usa-link">3b</a> is a similar example for a β‐class protein. The models are highly accurate, but AFDB estimated lower quality toward the two ends of the chain. Out of the 79 residues in total, 74 residues have a pLDDT value less than 90 in the AFDB model. Figure <a href="#pro70274-fig-0003" class="usa-link">3c</a> shows the LDDT assignment for Human guanylate‐binding protein 2. Both EQAFold and AFDB failed to model a helix and loop in the center of the protein correctly. The RMSDs of the EQAFold and AFDB models were 3.37 and 3.53 Å, respectively. Despite this failure in modeling, AFDB was generally confident in this region, labeling it with predicted LDDT values between 80.61 and 91.35. On the other hand, EQAFold recognized the inaccurate helix and loop region correctly, assigning with LDDT values in the range of 49.00–76.17 (yellow to green in the figure).</p>
+<figure class="fig xbox font-sm" id="pro70274-fig-0003"><h4 class="obj_head">FIGURE 3.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8c43/12359199/2f3460022643/PRO-34-e70274-g001.jpg" loading="lazy" id="jats-graphic-5" height="1006" width="709" alt="FIGURE 3"></p>
+<div class="p text-right font-secondary"><a href="figure/pro70274-fig-0003/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Examples of predicted Local Distance Difference Test (LDDT) by Equivariant Quality Assessment Folding (EQAFold) and the AlphaFold Protein Structure Database. Per‐residue pLDDT is shown for EQAFold, and the AlphaFold Protein Structure Database (AFDB) deposited structure. Colors represent the pLDDT value, which ranges from 0 (red) to 100 (blue). The true LDDT for the predicted structure of EQAFold superimposed with the experimental structure (gray) are also shown in the third column. (a) HORMA DNA binding domain‐containing protein (Protein Data Bank [PDB]: <a href="https://doi.org/10.2210/7UBA/pdb" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">7UBA</a>, UniProt ID: A7TRP1). (b) DNA‐directed RNA polymerase subunit beta (PDB: <a href="https://doi.org/10.2210/8H02/pdb" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">8H02</a>, UniProt ID: <a href="https://www.ncbi.nlm.nih.gov/protein/Q31N15" class="usa-link" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Q31N15</a>). (c) Human guanylate‐binding protein 2 (PDB: <a href="https://doi.org/10.2210/6VKJ/pdb" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">6VKJ</a>, UniProt ID: <a href="https://www.ncbi.nlm.nih.gov/protein/P32456" class="usa-link" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">P32456</a>). (d) Ubiquitin‐activating enzyme E1‐like (PDB: <a href="https://doi.org/10.2210/3ONH/pdb" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">3ONH</a>, UniProt ID: <a href="https://www.ncbi.nlm.nih.gov/protein/P52488" class="usa-link" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">P52488</a>). (e) Human BIR2 domain of BIRC1 (<a href="https://doi.org/10.2210/2VM5/pdb" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">2VM5</a>, UniProt ID: <a href="https://www.ncbi.nlm.nih.gov/protein/P52488" class="usa-link" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">P52488</a>).</p></figcaption></figure><p>The next example in Figure <a href="#pro70274-fig-0003" class="usa-link">3d</a> is an opposite case where EQAFold did slightly worse in pLDDT prediction. In this example, the structure model itself by EQAFold had some differences from the corresponding AFDB model. EQAFold has a lower accuracy (LDDT from 40.83 to 70.00) in a loop that connects two β strands (residue 79–87), where LDDT is colored in green in the true LDDT panel. For these residues, EQAFold identified them as being low quality, with pLDDT of 54.56–76.04, but the residue‐level pLDDT error was between 3.42 and 23.57. On the other hand, the AFDB model (middle) is more accurate with LDDT of 96.83 as opposed to 89.05 for the EQAFold model. The residue‐level LDDT of the β‐strand region of the AFDB model was 84.17–97.00, which was predicted to be between 67.35 and 92.31, which was on average 2.63 smaller pLDDT error than EQAFold. Despite the modeling error of EQAFold, it is able to convey the poor modeling of this region such that a researcher would be aware of the quality and avoid misuse of the model.</p>
+<p>The last example in Figure <a href="#pro70274-fig-0003" class="usa-link">3e</a> is a case where both EQAFold and AFDB were overconfident in a low accuracy region. However, this region is a C‐terminal disordered tail, which was predicted as a stable helix by both methods. True LDDT of this region ranges between 32.5 and 62.5, while pLDDT of EQAFold and AFDB were 72.16–96.52 and 61.38–92.92, respectively.</p></section><section id="pro70274-sec-0006"><h3 class="pmc_sec_title">2.4. Feature analysis</h3>
+<p>To evaluate the relative contribution of node and edge features, we performed feature analysis by retraining several variant models with certain features, or sets of features omitted (Figure <a href="#pro70274-fig-0004" class="usa-link">4</a>). The results shown are on the 726 test targets. These variants include a model without any RMSF features (No RMSF), no ESM features (No ESM), no Edge Features (No Edge), and only the AF single representation (No Extra Features). For each model variant, we compute the LDDT errors, as well as the LDDT error differences on both the model level and residue level.</p>
+<figure class="fig xbox font-sm" id="pro70274-fig-0004"><h4 class="obj_head">FIGURE 4.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8c43/12359199/7472e5d91ec5/PRO-34-e70274-g004.jpg" loading="lazy" id="jats-graphic-7" height="444" width="709" alt="FIGURE 4"></p>
+<div class="p text-right font-secondary"><a href="figure/pro70274-fig-0004/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Ablation study of features used in Equivariant Quality Assessment Folding (EQAFold). We compared the relative Local Distance Difference Test (LDDT) errors between the full model and four model variants for all the 726 targets in the test set. (a) Model‐level LDDT errors of the full model as well as the four model variants. Box plots show the 25%, 50%, and 75% quantiles, with whiskers showing the span of remaining distribution within 1.5 times the interquartile range. (b) The model‐level LDDT error difference for each of the four model variants relative to the full model. For each target, the LDDT error of the full model was subtracted from the LDDT error of the model variants. Thus, a positive value indicates that the model variant had a larger LDDT error than the full model. (c) The residue‐level LDDT errors of the full model and the other four model variants. (d) The residue‐level LDDT error difference of the four model variants relative to the full model. RMSF, root mean square fluctuation.</p></figcaption></figure><p>Figure <a href="#pro70274-fig-0004" class="usa-link">4a,b</a> show the model‐level LDDT errors and differences of LDDT errors, relative to the full model. The full model had an average LDDT error of 4.89, and the model variants all had higher average LDDT errors of 4.93, 5.20, 5.14, and 5.14 for No Edge, No ESM, No Extra Features, and No RMSF, respectively. Among the three features, lacking the ESM feature increased the error most, while the edge feature had the least influence when removed.</p>
+<p>When looking at the residue‐level pLDDT errors in Figure <a href="#pro70274-fig-0004" class="usa-link">4c,d</a>, the full model had an average LDDT error of 4.80, and the model variants all had higher average LDDT errors of 4.80, 5.13, 4.98, and 5.04 for No Edge, No ESM, No Extra Features, and No RMSF, respectively. Comparing the three individual features, consistent with the model‐level pLDDT errors, ESM had the largest impact when removed, and the removal of edge features had the smallest impact. Consistent with the model‐level error, removing features did not show a distinct drop in the LDDT prediction accuracy. In addition, we also compared EQAFold with the EGNN architecture and the multi‐layer perceptron architecture without any additional features. The EGNN architecture showed improvement over the standard Multi‐Layer Perceptron (MLP) architecture (Figure <a href="#pro70274-supitem-0001" class="usa-link">S3</a>).</p></section><section id="pro70274-sec-0007"><h3 class="pmc_sec_title">2.5. Comparison with EnQA
+</h3>
+<p>Finally, we compared the quality estimation by EQAFold with a recently published method, EnQA (Chen et al., <a href="#pro70274-bib-0007" class="usa-link" aria-describedby="pro70274-bib-0007">2023</a>). EnQA takes predicted protein structures as input and utilizes EGNNs and spherical embeddings, using features derived from physical attributes such as the solvent accessible surface area, buriedness, and Voronoi cell volume, as well as ESM2 embeddings to re‐annotate the pLDDT values of the provided structure. We ran the recommended MSA version of EnQA on the 726 models in the test set and compared them with EQAFold. Figure <a href="#pro70274-fig-0005" class="usa-link">5a</a> shows errors of LDDT prediction for structure models computed by the two methods. As shown, pLDDT error by EQAFold was substantially smaller than EnQA (i.e., have improvements in LDDT error larger than the 0.5 margin) for the majority (96.7%) of the cases.</p>
+<figure class="fig xbox font-sm" id="pro70274-fig-0005"><h4 class="obj_head">FIGURE 5.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><img class="graphic" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/8c43/12359199/0f0889166115/PRO-34-e70274-g005.jpg" loading="lazy" id="jats-graphic-9" height="345" width="709" alt="FIGURE 5"></p>
+<div class="p text-right font-secondary"><a href="figure/pro70274-fig-0005/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Comparison of Equivariant Quality Assessment Folding (EQAFold) to EnQA. (a) Deviations in average Local Distance Difference Test (LDDT) error between EnQA annotated models and EQAFold on all targets present within the test dataset. The error for any given model is calculated by averaging the absolute LDDT error for any given residue for all residues in the model. Each black point represents a target in the test set. The black box indicates the boundary in which both methods had substantial (&gt;5.0) LDDT error. The solid gray line represents the <em>y</em> = <em>x</em> line, and dashed gray lines represent the boundary in which LDDT errors are considered equivalent (0.5). (b) Deviations in average all‐atom LDDT (LDDT‐AA) error between EnQA annotated models and EQAFold on all targets present within the test dataset. The error for any given model, the error is calculated by averaging the absolute LDDT‐AA error for any given residue for all residues in the model. Each black point represents a target in the test set. The black box indicates the boundary in which both methods had substantial (&gt;5.0) LDDT error.</p></figcaption></figure><p>While comparing pLDDT values predicted by EQAFold and EnQA, we noticed that EnQA appears to mistakenly be calculating the all‐atom LDDT metric (LDDT‐AA), instead of the standard LDDT metric, which only considers the positions of Cα atoms. LDDT‐AA considers all heavy atoms (not just Cα atoms) within the inclusion radius for any given residue. LDDT‐AA calculates an LDDT value for each atom, from which a residue‐based LDDT can be computed as an average over all atoms in a residue. In practice, this makes the LDDT‐AA metric a more stringent version of the LDDT metric (Figure <a href="#pro70274-supitem-0001" class="usa-link">S4</a>). LDDT‐AA can be useful for discerning small modeling errors in regions where the LDDT metric is nearly perfect. LDDT computation for a protein structure is performed using OpenStructure (Biasini et al., <a href="#pro70274-bib-0006" class="usa-link" aria-describedby="pro70274-bib-0006">2013</a>), which allows switching between regular LDDT and LDDT‐AA via an option on the command line. However, the code of EnQA indicates that their training data were generated with the default options, leading to LDDT‐AA being used as the ground‐truth, which may be one of the reasons for the overall larger pLDDT errors by EnQA observed in Figure <a href="#pro70274-fig-0005" class="usa-link">5a</a>. This finding prompted us to retrain EQAFold to predict the more stringent LDDT‐AA metric. We facilitate this training by modifying the LDDT‐Loss function to consider all atoms between the true and predicted structures when calculating the true LDDT values. The predicted LDDT‐AA errors by the newly trained EQAFold, named EQAFold‐AA, are plotted against the LDDT‐AA errors of EnQA‐MSA in Figure <a href="#pro70274-fig-0005" class="usa-link">5b</a>. Of the 726 targets in the testing set, we find that EQAFold‐AA outperforms EnQA on 414 (57.02%) of targets, with 201 (27.69%) of targets being within the “tied margin” where the difference of the errors by the two methods was within 0.5. Only 111 (15.29%) of models were better modeled by EnQA.</p></section></section><section id="pro70274-sec-0008"><h2 class="pmc_sec_title">3. DISCUSSION</h2>
+<p>Self‐confidence metrics in protein structure prediction, such as the pLDDT score, play a crucial role in ranking and analyzing computationally predicted protein structures. These metrics are critical for end users, as they guide decisions on whether to trust a predicted model, particularly in applications such as structural biology, drug discovery, and functional annotation. In this work, we demonstrate that pLDDT in AF2 can be further refined using enhanced deep learning strategies. Specifically, the EGNN framework employed in EQAFold, which is explicitly integrated within the AF2 network architecture, enables more precise pLDDT annotations by leveraging geometric and relational information.</p>
+<p>As seen in the feature analysis (Figure <a href="#pro70274-fig-0004" class="usa-link">4</a>), removing the extra features of ESM embeddings and attentions was the most detrimental to the accuracy of the model. This is likely due to the supplementary information it can provide outside of the single and pair representations. As AF2 single and pair representations are used in both structure prediction and confidence assessment, any underlying errors in these representations that result in poor structure modeling are also likely to result in poor confidence assessment. As the ESM embeddings are not used for structure modeling, they can offer novel additional information to the confidence assessment. Further, unlike the AF2 single and pair representations, ESM embeddings are not dependent on an MSA built from sequence databases but instead result from a generalized protein language model.</p>
+<p>As of current, EQAFold, built on the architecture of AF2, is only truly capable of predicting the structures of monomeric proteins. In the current version, due in part to limited computational resources, the pLDDT and structure modules were trained separately while the remaining components of AF2 were kept frozen. End‐to‐end training of the entire model is expected to further improve prediction accuracy. Further, we believe similar approaches could be broadly applicable to various deep learning‐based protein structure prediction tasks. Future expansions include improved accuracy assessment for antibody prediction, protein complexes, peptide‐docking (Zhang et al., <a href="#pro70274-bib-0031" class="usa-link" aria-describedby="pro70274-bib-0031">2025</a>), nucleic acids, and small molecules as such modeling has become possible with more recent structure prediction methods (Abramson et al., <a href="#pro70274-bib-0001" class="usa-link" aria-describedby="pro70274-bib-0001">2024</a>) and protein design (Watson et al., <a href="#pro70274-bib-0028" class="usa-link" aria-describedby="pro70274-bib-0028">2023</a>). By integrating more advanced confidence estimation techniques, the reliability and interpretability of predicted protein structures can be significantly enhanced, benefiting both computational and experimental biologists.</p></section><section id="pro70274-sec-0009"><h2 class="pmc_sec_title">4. MATERIALS AND METHODS</h2>
+<section id="pro70274-sec-0010"><h3 class="pmc_sec_title">4.1. Datasets</h3>
+<p>We derived our datasets from the PISCES protein sequence culling server (Wang &amp; Dunbrack Jr., <a href="#pro70274-bib-0025" class="usa-link" aria-describedby="pro70274-bib-0025">2003</a>). Primarily, we use data pulled from the December 14, 2020, release, culled at 90%, determined by x‐ray crystallography, and have a resolution of 2.5 Å or better. These protein chains were fetched from the PDB and renumbered to match their respective FASTA sequence, resulting in a total of 33,635 protein chains. For fine‐tuning the LDDT prediction head, we further filtered our dataset to only contain protein chains where each chain exists as a single protein. The protein stoichiometry was determined by referring to the equivalent biological assembly of the PDB entry of the chain and filtering out models where multiple chains were present within the biological assembly and had a minimum of 40 resolved residues. This resulted in a subset of 11,966 single‐chain proteins.</p>
+<p>The primary validation data was obtained from the PDB on February 28th, 2022. The entire PDB was filtered to find chains derived from x‐ray structures with 2.5 Å or higher resolution, <em>R</em>
+<sub>free</sub> ≤0.25, and contained at least 40 residues but no longer than 1000 residues in the sequence. These sequence chains were then clustered against the previous PISCES training dataset via MMseqs2 (Steinegger &amp; Söding, <a href="#pro70274-bib-0022" class="usa-link" aria-describedby="pro70274-bib-0022">2017</a>) with a 25% similarity cutoff. These protein chains were fetched from the PDB and renumbered to match their respective FASTA sequence, resulting in a total of 363 structures after feature generation.</p>
+<p>The testing dataset was generated from the May 31st, 2023, release of the PISCES protein sequence culling server with the same constraints. The testing dataset is built to be nonredundant against all previous EQAFold training data to prevent any data leakage that could potentially bias the results toward EQAFold. We first remove entries with identical PDB IDs and subsequently cluster the respective sequences against all chains in the PISCES training dataset and the validation dataset via MMseqs2 (Steinegger &amp; Söding, <a href="#pro70274-bib-0022" class="usa-link" aria-describedby="pro70274-bib-0022">2017</a>) with a 40% similarity cutoff. These protein chains were fetched from the PDB and renumbered to match their respective FASTA sequence, resulting in a total of 3582 structures after feature generation. We further filtered our testing dataset to only contain protein chains where each chain exists as a standalone protein by referencing the biological assembly and had a minimum of 40 resolved residues, resulting in a total of 726 single‐chain proteins.</p></section><section id="pro70274-sec-0011"><h3 class="pmc_sec_title">4.2. Training procedure</h3>
+<p>The base network was built and trained with PyTorch 1.12.0, with graph operations being done in PyTorch‐Geometric 2.3.0 and the EGNN implementation from the nascent paper by Satorras et al. (<a href="#pro70274-bib-0019" class="usa-link" aria-describedby="pro70274-bib-0019">2022</a>) Source code for EQAFold is available at <a href="https://github.com/kiharalab/EQAFold_public" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://github.com/kiharalab/EQAFold_public</a>.</p>
+<p>EQAFold was trained in two steps partly due to the limitation of graphics processing unit (GPU) resources we had. First, we trained our in‐house structure module, along with the standard AlphaFold pLDDT prediction head. We needed to train the in‐house structure module by ourselves because, at the time of development, weights from OpenFold were not available and the weights from the AF2 code did not produce reasonable protein structures. After the first stage of training, all structure module parameters were frozen, and the standard LDDT prediction head was replaced by the EGNN model, which was subsequently trained, with all weights within the structure module frozen. This two‐phase training allows us to focus on one objective at a time without inadvertently worsening the quality of the structure generated. But on the other hand, end‐to‐end training would improve the overall accuracy of both structure prediction and confidence prediction. We had examined a couple of cutoff values of contact cutoffs (Yuan et al., <a href="#pro70274-bib-0030" class="usa-link" aria-describedby="pro70274-bib-0030">2012</a>) between Cα atoms starting from 8 Å and decided to use 16 Å mainly by visual inspection of edges formed in graphs.</p>
+<p>Training was performed on a single Nvidia A100 on our university GPU computer cluster. The structure module was trained with a learning rate of 10<sup>−3</sup>, and the fine tuning of the EGNN prediction head was trained at a rate of 10<sup>−4</sup>.</p>
+<p>Due to the high accuracy models in the training dataset skewing the LDDT distribution toward high values, we assigned weights to residues classified into 50 bins, each representing an LDDT range of 2. The weight for an LDDT bin was set to 1 – (the relative fraction of LDDT values that fall within that bin in the training data). In practice, this down‐weights and corrects for the overrepresented LDDT values in the loss calculation.</p></section><section id="pro70274-sec-0012"><h3 class="pmc_sec_title">4.3. 
+LDDT computation</h3>
+<p>The LDDT score provides a superimposition‐free metric to gauge the relative modeling quality of a predicted protein structure to that of an experimentally resolved ground‐truth structure (Mariani et al., <a href="#pro70274-bib-0013" class="usa-link" aria-describedby="pro70274-bib-0013">2013</a>). Given a residue in a predicted structure and an experimentally determined ground‐truth structure, the LDDT score looks at all Cα atoms within a 15 Å inclusion proximity within the Cα atom of the residue of interest in the true structure. For each of these Cα atom pairs, the relative distance between the ground‐truth and the predicted structures is compared. Specifically, the score checks if the differences in the distances are within 0.5, 1, 2, and 4 Å of each other. A Cα atom pair can meet all thresholds (resulting in a score of 1) or none of the thresholds (resulting in a score of 0). This is repeated and averaged for all Cα atom pairs within the inclusion proximity around the protein of interest to generate an LDDT score for that residue and is subsequently repeated for all residues within the protein. Alternatively, all heavy atoms of the residue of interest can be considered, resulting in a different and more stringent score. We term this the “all‐atom LDDT” (LDDT‐AA) score. These scores are often scaled between 0 and 100 when annotating predicted structures.</p>
+<p>Ground‐truth LDDT values were calculated using the OpenStructure executable (Biasini et al., <a href="#pro70274-bib-0006" class="usa-link" aria-describedby="pro70274-bib-0006">2013</a>; Mariani et al., <a href="#pro70274-bib-0013" class="usa-link" aria-describedby="pro70274-bib-0013"><sup>2013</sup></a>) version 2.3.1. For the standard Cα only LDDT values, the “‐c” flag was used to only consider Cα atoms. To compute all‐atom LDDT values (LDDT‐AA), no flag was used to consider all heavy atoms. We primarily gauge the performance of LDDT assignments by computing the LDDT error for each target in the test dataset. To compute the error, the LDDT error for any given residue <em>i</em> is computed by taking the absolute difference between the predicted LDDT value and the true LDDT value (Equation <a href="#pro70274-disp-0001" class="usa-link">1</a>). These values are then averaged for all resolved residues in the protein model to compute the LDDT error (Equation <a href="#pro70274-disp-0002" class="usa-link">2</a>). Results are visualized in PyMOL version 2.4 (Schrödinger, LLC, <a href="#pro70274-bib-0020" class="usa-link" aria-describedby="pro70274-bib-0020">2015</a>).</p>
+<table class="disp-formula p" id="pro70274-disp-0001"><tr>
+<td class="formula"><math id="jats-math-1" display="block" overflow="linebreak"><mrow><mrow><mo>∆</mo><msub><mtext>LDDT</mtext><mi>i</mi></msub><mo linebreak="goodbreak">=</mo><mfenced open="|" close="|"><mrow><msubsup><mtext>LDDT</mtext><mi>i</mi><mtext>pred</mtext></msubsup><mo linebreak="goodbreak">−</mo><msubsup><mtext>LDDT</mtext><mi>i</mi><mtext>True</mtext></msubsup></mrow></mfenced><mo>.</mo></mrow></mrow></math></td>
+<td class="label">(1)</td>
+</tr></table>
+<table class="disp-formula p" id="pro70274-disp-0002"><tr>
+<td class="formula"><math id="jats-math-2" display="block" overflow="linebreak"><mrow><mrow><msub><mtext>LDDT Error</mtext><mtext>Model</mtext></msub><mo linebreak="goodbreak">=</mo><mfrac><mn>1</mn><mi>N</mi></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></munderover><mo>∆</mo><msub><mtext>LDDT</mtext><mi>i</mi></msub><mo>.</mo></mrow></mrow></math></td>
+<td class="label">(2)</td>
+</tr></table></section><section id="pro70274-sec-0013"><h3 class="pmc_sec_title">4.4. Existing methods</h3>
+<section id="pro70274-sec-0014"><h4 class="pmc_sec_title">4.4.1. 
+AlphaFold database
+</h4>
+<p>For every target within the test dataset, we collect the deposited AlphaFold Protein Structure DataBase (AFDB) (Varadi et al., <a href="#pro70274-bib-0024" class="usa-link" aria-describedby="pro70274-bib-0024">2022</a>) model via the web Application Programming Interface (API) by cross‐referencing UniProt IDs (The UniProt Consortium, <a href="#pro70274-bib-0023" class="usa-link" aria-describedby="pro70274-bib-0023">2023</a>) between the PDB entry and AFDB, for entries in which a UniProt ID was available and an AFDB entry was present for that ID. We ensured that the AFDB model sequence matches the PDB sequence exactly and removed cases where the sequences deviate. We opt for deposited AFDB models rather than running AF2 by ourselves to ensure that AF2 was run completely to DeepMind specifications. We renumber the AFDB model to match the residue numbering used in the testing dataset. In total, 530 of the 726 test set structures had AFDB entries successfully retrieved and formatted.</p></section><section id="pro70274-sec-0015"><h4 class="pmc_sec_title">4.4.2. 
+EnQA
+</h4>
+<p>We also compare against a recent state‐of‐the‐art protein MQA method, which also employs EGNNs, EnQA (Chen et al., <a href="#pro70274-bib-0007" class="usa-link" aria-describedby="pro70274-bib-0007">2023</a>). EnQA employs two EGNN networks (node and edge networks) to assign pLDDT values to residues. Within these networks, EnQA primarily utilizes the esm2_t6_8M_UR50D protein language model, spherical embeddings, Voronoi cell volume, solvent accessible surface area, and residue buriedness to generate its pLDDT predictions. For each target in the testing dataset, the predicted structure was passed to EnQA to reassign the pLDDT values for each residue in each target.</p></section></section></section><section id="pro70274-sec-0018"><h2 class="pmc_sec_title">AUTHOR CONTRIBUTIONS</h2>
+<p>
+<strong>Jacob Verburgt:</strong> Methodology; software; validation; investigation; formal analysis; visualization; writing – original draft. <strong>Zicong Zhang:</strong> Methodology; software. <strong>Daisuke Kihara:</strong> Conceptualization; investigation; funding acquisition; writing – review and editing; resources; supervision; project administration.</p></section><section id="pro70274-sec-0017"><h2 class="pmc_sec_title">CONFLICT OF INTEREST STATEMENT</h2>
+<p>The authors declare no conflict of interest.</p></section><section id="sec18"><h2 class="pmc_sec_title">Supporting information</h2>
+<section class="sm xbox font-sm" id="pro70274-supitem-0001"><div class="caption p"><p>
+<strong>Data S1.</strong> The supplementary file contains three figures tangential to the dataset and results described in the main text. Figure <a href="#pro70274-supitem-0001" class="usa-link">S1</a> depicts the correlation of LDDT and RMSD. Figure <a href="#pro70274-supitem-0001" class="usa-link">S2</a> shows LDDT of AFDB and EQAFold models. Figure <a href="#pro70274-supitem-0001" class="usa-link">S3</a> shows the relative change in LDDT error with EGNN and MLP architectures in EQAFold. Figure <a href="#pro70274-supitem-0001" class="usa-link">S4</a> depicts the relationship between LDDT and LDDT‐AA.</p></div>
+<div class="media p"><div class="caption">
+<a href="/articles/instance/12359199/bin/PRO-34-e70274-s001.docx" data-ga-action="click_feat_suppl" class="usa-link">PRO-34-e70274-s001.docx</a><sup> (178.5KB, docx) </sup>
+</div></div></section></section><section id="pro70274-sec-0016" class="ack"><h2 class="pmc_sec_title">ACKNOWLEDGMENTS</h2>
+<p>This work was partly supported by the National Institutes of Health (R01GM133840) and by the National Science Foundation (DBI2003635, DBI2146026, IIS2211598, DMS2151678, CMMI1825941, and MCB1925643) to Daisuke Kihara. Jacob Verburgt was supported by an National Institute of General Medical Sciences (NIGMS)‐funded predoctoral fellowship (T32 GM132024).</p></section><section id="notes1"><p>
+
+Verburgt J, Zhang Z, Kihara D. 
+AlphaFold model quality self‐assessment improvement via deep graph learning. Protein Science. 2025;34(9):e70274. 10.1002/pro.70274
+
+</p>
+<section id="pro70274-ntgp-0001" class="fn-group"><div class="fn-group p font-secondary-light font-sm"><div class="fn p" id="pro70274-note-0001"><p>
+<strong>Review Editor:</strong> Nir Ben‐Tal</p></div></div></section></section><section id="pro70274-bibl-0001" class="ref-list"><h2 class="pmc_sec_title">REFERENCES</h2>
+<section id="pro70274-bibl-0001_sec2"><ol class="ref-list font-sm">
+<li id="pro70274-bib-0001">
+<cite>
+Abramson J, Adler J, Dunger J, Evans R, Green T, Pritzel A, et al. Accurate structure prediction of biomolecular interactions with AlphaFold 3. Nature. 2024;630(8016):493–500. 10.1038/s41586-024-07487-w
+
+</cite> [<a href="https://doi.org/10.1038/s41586-024-07487-w" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11168924/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/38718835/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Nature&amp;title=Accurate%20structure%20prediction%20of%20biomolecular%20interactions%20with%20AlphaFold%203&amp;author=J%20Abramson&amp;author=J%20Adler&amp;author=J%20Dunger&amp;author=R%20Evans&amp;author=T%20Green&amp;volume=630&amp;issue=8016&amp;publication_year=2024&amp;pages=493-500&amp;pmid=38718835&amp;doi=10.1038/s41586-024-07487-w&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0002">
+<cite>
+Adamczak R, Pillardy J, Vallat BK, Meller J. Fast geometric consensus approach for protein model quality assessment. J Comput Biol. 2011;18(12):1807–1818. 10.1089/cmb.2010.0170
+
+</cite> [<a href="https://doi.org/10.1089/cmb.2010.0170" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC3228594/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/21244273/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=J%20Comput%20Biol&amp;title=Fast%20geometric%20consensus%20approach%20for%20protein%20model%20quality%20assessment&amp;author=R%20Adamczak&amp;author=J%20Pillardy&amp;author=BK%20Vallat&amp;author=J%20Meller&amp;volume=18&amp;issue=12&amp;publication_year=2011&amp;pages=1807-1818&amp;pmid=21244273&amp;doi=10.1089/cmb.2010.0170&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0003">
+<cite>
+Ahdritz G, Bouatta N, Floristean C, Floristean C, Kadyan S, Xia Q, et al. OpenFold: retraining AlphaFold2 yields new insights into its learning mechanisms and capacity for generalization. Nat Methods. 2023;21:1514–1524. 10.1101/2022.11.20.517210
+</cite> [<a href="https://doi.org/10.1101/2022.11.20.517210" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11645889/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/38744917/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Nat%20Methods&amp;title=OpenFold:%20retraining%20AlphaFold2%20yields%20new%20insights%20into%20its%20learning%20mechanisms%20and%20capacity%20for%20generalization&amp;author=G%20Ahdritz&amp;author=N%20Bouatta&amp;author=C%20Floristean&amp;author=C%20Floristean&amp;author=S%20Kadyan&amp;volume=21&amp;publication_year=2023&amp;pages=1514-1524&amp;pmid=38744917&amp;doi=10.1101/2022.11.20.517210&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0004">
+<cite>
+Baldassarre F, Menéndez Hurtado D, Elofsson A, Azizpour H. GraphQA: protein model quality assessment using graph convolutional networks. Bioinformatics. 2021;37(3):360–366. 10.1093/bioinformatics/btaa714
+
+</cite> [<a href="https://doi.org/10.1093/bioinformatics/btaa714" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8058777/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/32780838/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Bioinformatics&amp;title=GraphQA:%20protein%20model%20quality%20assessment%20using%20graph%20convolutional%20networks&amp;author=F%20Baldassarre&amp;author=D%20Men%C3%A9ndez%20Hurtado&amp;author=A%20Elofsson&amp;author=H%20Azizpour&amp;volume=37&amp;issue=3&amp;publication_year=2021&amp;pages=360-366&amp;pmid=32780838&amp;doi=10.1093/bioinformatics/btaa714&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0005">
+<cite>
+Berman HM, Westbrook J, Feng Z, Gilliland G, Bhat TN, Weissig H, et al. The Protein Data Bank. Nucleic Acids Res. 2000;28(1):235–242.
+</cite> [<a href="https://doi.org/10.1093/nar/28.1.235" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC102472/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/10592235/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Nucleic%20Acids%20Res&amp;title=The%20Protein%20Data%20Bank&amp;author=HM%20Berman&amp;author=J%20Westbrook&amp;author=Z%20Feng&amp;author=G%20Gilliland&amp;author=TN%20Bhat&amp;volume=28&amp;issue=1&amp;publication_year=2000&amp;pages=235-242&amp;pmid=10592235&amp;doi=10.1093/nar/28.1.235&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0006">
+<cite>
+Biasini M, Schmidt T, Bienert S, Mariani V, Studer G, Haas J, et al. OpenStructure: an integrated software framework for computational structural biology. Acta Crystallogr D Biol Crystallogr. 2013;69(5):701–709. 10.1107/S0907444913007051
+
+</cite> [<a href="https://doi.org/10.1107/S0907444913007051" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC3640466/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/23633579/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Acta%20Crystallogr%20D%20Biol%20Crystallogr&amp;title=OpenStructure:%20an%20integrated%20software%20framework%20for%20computational%20structural%20biology&amp;author=M%20Biasini&amp;author=T%20Schmidt&amp;author=S%20Bienert&amp;author=V%20Mariani&amp;author=G%20Studer&amp;volume=69&amp;issue=5&amp;publication_year=2013&amp;pages=701-709&amp;pmid=23633579&amp;doi=10.1107/S0907444913007051&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0007">
+<cite>
+Chen C, Chen X, Morehead A, Wu T, Cheng J. 3D‐equivariant graph neural networks for protein model quality assessment. Bioinformatics. 2023;39(1):btad030. 10.1093/bioinformatics/btad030
+
+</cite> [<a href="https://doi.org/10.1093/bioinformatics/btad030" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC10089647/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/36637199/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Bioinformatics&amp;title=3D%E2%80%90equivariant%20graph%20neural%20networks%20for%20protein%20model%20quality%20assessment&amp;author=C%20Chen&amp;author=X%20Chen&amp;author=A%20Morehead&amp;author=T%20Wu&amp;author=J%20Cheng&amp;volume=39&amp;issue=1&amp;publication_year=2023&amp;pages=btad030&amp;pmid=36637199&amp;doi=10.1093/bioinformatics/btad030&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0008">
+<cite>
+Jumper J, Evans R, Pritzel A, Green T, Figurnov M, Ronneberger O, et al. Highly accurate protein structure prediction with AlphaFold. Nature. 2021;596(7873):583–589. 10.1038/s41586-021-03819-2
+
+</cite> [<a href="https://doi.org/10.1038/s41586-021-03819-2" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8371605/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/34265844/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Nature&amp;title=Highly%20accurate%20protein%20structure%20prediction%20with%20AlphaFold&amp;author=J%20Jumper&amp;author=R%20Evans&amp;author=A%20Pritzel&amp;author=T%20Green&amp;author=M%20Figurnov&amp;volume=596&amp;issue=7873&amp;publication_year=2021&amp;pages=583-589&amp;pmid=34265844&amp;doi=10.1038/s41586-021-03819-2&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0009">
+<cite>
+Kihara D, Chen H, Yang YD. Quality assessment of protein structure models. Curr Protein Pept Sci. 2009;10(3):216–228. 10.2174/138920309788452173
+
+</cite> [<a href="https://doi.org/10.2174/138920309788452173" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/19519452/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Curr%20Protein%20Pept%20Sci&amp;title=Quality%20assessment%20of%20protein%20structure%20models&amp;author=D%20Kihara&amp;author=H%20Chen&amp;author=YD%20Yang&amp;volume=10&amp;issue=3&amp;publication_year=2009&amp;pages=216-228&amp;pmid=19519452&amp;doi=10.2174/138920309788452173&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0010">
+<cite>
+Kwon S, Won J, Kryshtafovych A, Seok C. Assessment of protein model structure accuracy estimation in CASP14: old and new challenges. Proteins. 2021;89(12):1940–1948. 10.1002/prot.26192
+
+</cite> [<a href="https://doi.org/10.1002/prot.26192" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8616788/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/34324227/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Proteins&amp;title=Assessment%20of%20protein%20model%20structure%20accuracy%20estimation%20in%20CASP14:%20old%20and%20new%20challenges&amp;author=S%20Kwon&amp;author=J%20Won&amp;author=A%20Kryshtafovych&amp;author=C%20Seok&amp;volume=89&amp;issue=12&amp;publication_year=2021&amp;pages=1940-1948&amp;pmid=34324227&amp;doi=10.1002/prot.26192&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0011">
+<cite>
+Lensink MF, Brysbaert G, Mauri T, Nadzirin N, Velankar S, Chaleil RAG, et al. Prediction of protein assemblies, the next frontier: the CASP14‐CAPRI experiment. Protein. 2021;89(12):1800–1823. 10.1002/prot.26222
+</cite> [<a href="https://doi.org/10.1002/prot.26222" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8616814/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/34453465/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Protein&amp;title=Prediction%20of%20protein%20assemblies,%20the%20next%20frontier:%20the%20CASP14%E2%80%90CAPRI%20experiment&amp;author=MF%20Lensink&amp;author=G%20Brysbaert&amp;author=T%20Mauri&amp;author=N%20Nadzirin&amp;author=S%20Velankar&amp;volume=89&amp;issue=12&amp;publication_year=2021&amp;pages=1800-1823&amp;pmid=34453465&amp;doi=10.1002/prot.26222&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0012">
+<cite>
+Lin Z, Akin H, Rao R, Hie B, Zhu Z, Lu W, et al. Evolutionary‐scale prediction of atomic‐level protein structure with a language model. Science. 2023;379(6637):1123–1130. 10.1126/science.ade2574
+
+</cite> [<a href="https://doi.org/10.1126/science.ade2574" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/36927031/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Science&amp;title=Evolutionary%E2%80%90scale%20prediction%20of%20atomic%E2%80%90level%20protein%20structure%20with%20a%20language%20model&amp;author=Z%20Lin&amp;author=H%20Akin&amp;author=R%20Rao&amp;author=B%20Hie&amp;author=Z%20Zhu&amp;volume=379&amp;issue=6637&amp;publication_year=2023&amp;pages=1123-1130&amp;pmid=36927031&amp;doi=10.1126/science.ade2574&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0013">
+<cite>
+Mariani V, Biasini M, Barbato A, Schwede T. lDDT: a local superposition‐free score for comparing protein structures and models using distance difference tests. Bioinformatics. 2013;29(21):2722–2728. 10.1093/bioinformatics/btt473
+
+</cite> [<a href="https://doi.org/10.1093/bioinformatics/btt473" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC3799472/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/23986568/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Bioinformatics&amp;title=lDDT:%20a%20local%20superposition%E2%80%90free%20score%20for%20comparing%20protein%20structures%20and%20models%20using%20distance%20difference%20tests&amp;author=V%20Mariani&amp;author=M%20Biasini&amp;author=A%20Barbato&amp;author=T%20Schwede&amp;volume=29&amp;issue=21&amp;publication_year=2013&amp;pages=2722-2728&amp;pmid=23986568&amp;doi=10.1093/bioinformatics/btt473&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0014">
+<cite>
+Masters MR, Mahmoud AH, Wei Y, Lill MA. Deep learning model for efficient protein–ligand docking with implicit side‐chain flexibility. J Chem Inf Model. 2023;63(6):1695–1707. 10.1021/acs.jcim.2c01436
+
+</cite> [<a href="https://doi.org/10.1021/acs.jcim.2c01436" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/36916514/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=J%20Chem%20Inf%20Model&amp;title=Deep%20learning%20model%20for%20efficient%20protein%E2%80%93ligand%20docking%20with%20implicit%20side%E2%80%90chain%20flexibility&amp;author=MR%20Masters&amp;author=AH%20Mahmoud&amp;author=Y%20Wei&amp;author=MA%20Lill&amp;volume=63&amp;issue=6&amp;publication_year=2023&amp;pages=1695-1707&amp;pmid=36916514&amp;doi=10.1021/acs.jcim.2c01436&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0015">
+<cite>
+Olechnovič K, Venclovas Č. VoroMQA: assessment of protein structure quality using interatomic contact areas. Proteins. 2017;85(6):1131–1145. 10.1002/prot.25278
+
+</cite> [<a href="https://doi.org/10.1002/prot.25278" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/28263393/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Proteins&amp;title=VoroMQA:%20assessment%20of%20protein%20structure%20quality%20using%20interatomic%20contact%20areas&amp;author=K%20Olechnovi%C4%8D&amp;author=%C4%8C%20Venclovas&amp;volume=85&amp;issue=6&amp;publication_year=2017&amp;pages=1131-1145&amp;pmid=28263393&amp;doi=10.1002/prot.25278&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0016">
+<cite>
+Rives A, Meier J, Sercu T, Goyal S, Lin Z, Liu J, et al. Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences. Proc Natl Acad Sci USA. 2021;118(15):e2016239118.
+</cite> [<a href="https://doi.org/10.1073/pnas.2016239118" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8053943/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/33876751/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Proc%20Natl%20Acad%20Sci%20USA&amp;title=Biological%20structure%20and%20function%20emerge%20from%20scaling%20unsupervised%20learning%20to%20250%20million%20protein%20sequences&amp;author=A%20Rives&amp;author=J%20Meier&amp;author=T%20Sercu&amp;author=S%20Goyal&amp;author=Z%20Lin&amp;volume=118&amp;issue=15&amp;publication_year=2021&amp;pages=e2016239118&amp;pmid=33876751&amp;doi=10.1073/pnas.2016239118&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0017">
+<cite>
+Roche R, Moussad B, Shuvo MH, Bhattacharya D. E(3) equivariant graph neural networks for robust and accurate protein‐protein interaction site prediction. PLoS Comput Biol. 2023;19(8):e1011435. 10.1371/journal.pcbi.1011435
+
+</cite> [<a href="https://doi.org/10.1371/journal.pcbi.1011435" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC10499216/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/37651442/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=PLoS%20Comput%20Biol&amp;title=E(3)%20equivariant%20graph%20neural%20networks%20for%20robust%20and%20accurate%20protein%E2%80%90protein%20interaction%20site%20prediction&amp;author=R%20Roche&amp;author=B%20Moussad&amp;author=MH%20Shuvo&amp;author=D%20Bhattacharya&amp;volume=19&amp;issue=8&amp;publication_year=2023&amp;pages=e1011435&amp;pmid=37651442&amp;doi=10.1371/journal.pcbi.1011435&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0018">
+<cite>
+Roy S, Ben‐Hur A. Protein quality assessment with a loss function designed for high‐quality decoys. Front Bioinform. 2023;3. 10.3389/fbinf.2023.1198218
+</cite> [<a href="https://doi.org/10.3389/fbinf.2023.1198218" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC10616882/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/37915563/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Front%20Bioinform&amp;title=Protein%20quality%20assessment%20with%20a%20loss%20function%20designed%20for%20high%E2%80%90quality%20decoys&amp;author=S%20Roy&amp;author=A%20Ben%E2%80%90Hur&amp;volume=3&amp;publication_year=2023&amp;pmid=37915563&amp;doi=10.3389/fbinf.2023.1198218&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0019">
+<cite>
+Satorras VG, Hoogeboom E, Welling M. E(n) equivariant graph. Neural Netw. 2022. 10.48550/arXiv.2102.09844
+</cite> [<a href="https://doi.org/10.48550/arXiv.2102.09844" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Neural%20Netw&amp;title=E(n)%20equivariant%20graph&amp;author=VG%20Satorras&amp;author=E%20Hoogeboom&amp;author=M%20Welling&amp;publication_year=2022&amp;doi=10.48550/arXiv.2102.09844&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0020"><cite>
+Schrödinger, LLC
+. The PyMOL molecular graphics system, Version 1.8. <a href="https://www.pymol.org/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://www.pymol.org/</a>. (2015). Accessed 31 May 2024</cite></li>
+<li id="pro70274-bib-0021">
+<cite>
+Shin W‐H, Kang X, Zhang J, Kihara D. Prediction of local quality of protein structure models considering spatial neighbors in graphical models. Sci Rep. 2017;7:40629. 10.1038/srep40629
+
+</cite> [<a href="https://doi.org/10.1038/srep40629" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC5225430/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/28074879/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Sci%20Rep&amp;title=Prediction%20of%20local%20quality%20of%20protein%20structure%20models%20considering%20spatial%20neighbors%20in%20graphical%20models&amp;author=W%E2%80%90H%20Shin&amp;author=X%20Kang&amp;author=J%20Zhang&amp;author=D%20Kihara&amp;volume=7&amp;publication_year=2017&amp;pages=40629&amp;pmid=28074879&amp;doi=10.1038/srep40629&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0022">
+<cite>
+Steinegger M, Söding J. MMseqs2 enables sensitive protein sequence searching for the analysis of massive data sets. Nat Biotechnol. 2017;35(11):1026–1028. 10.1038/nbt.3988
+
+</cite> [<a href="https://doi.org/10.1038/nbt.3988" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/29035372/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Nat%20Biotechnol&amp;title=MMseqs2%20enables%20sensitive%20protein%20sequence%20searching%20for%20the%20analysis%20of%20massive%20data%20sets&amp;author=M%20Steinegger&amp;author=J%20S%C3%B6ding&amp;volume=35&amp;issue=11&amp;publication_year=2017&amp;pages=1026-1028&amp;pmid=29035372&amp;doi=10.1038/nbt.3988&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0023">
+<cite>
+The UniProt Consortium
+. UniProt: the universal protein knowledgebase in 2023. Nucleic Acids Res. 2023;51(D1):D523–D531. 10.1093/nar/gkac1052
+
+</cite> [<a href="https://doi.org/10.1093/nar/gkac1052" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC9825514/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/36408920/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Nucleic%20Acids%20Res&amp;title=UniProt:%20the%20universal%20protein%20knowledgebase%20in%202023&amp;volume=51&amp;issue=D1&amp;publication_year=2023&amp;pages=D523-D531&amp;pmid=36408920&amp;doi=10.1093/nar/gkac1052&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0024">
+<cite>
+Varadi M, Anyango S, Deshpande M, Nair S, Natassia C, Yordanova G, et al. AlphaFold protein structure database: massively expanding the structural coverage of protein‐sequence space with high‐accuracy models. Nucleic Acids Res. 2022;50(D1):D439–D444. 10.1093/nar/gkab1061
+
+</cite> [<a href="https://doi.org/10.1093/nar/gkab1061" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8728224/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/34791371/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Nucleic%20Acids%20Res&amp;title=AlphaFold%20protein%20structure%20database:%20massively%20expanding%20the%20structural%20coverage%20of%20protein%E2%80%90sequence%20space%20with%20high%E2%80%90accuracy%20models&amp;author=M%20Varadi&amp;author=S%20Anyango&amp;author=M%20Deshpande&amp;author=S%20Nair&amp;author=C%20Natassia&amp;volume=50&amp;issue=D1&amp;publication_year=2022&amp;pages=D439-D444&amp;pmid=34791371&amp;doi=10.1093/nar/gkab1061&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0025">
+<cite>
+Wang G, Dunbrack RL Jr. PISCES: a protein sequence culling server. Bioinformatics. 2003;19(12):1589–1591. 10.1093/bioinformatics/btg224
+
+</cite> [<a href="https://doi.org/10.1093/bioinformatics/btg224" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/12912846/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Bioinformatics&amp;title=PISCES:%20a%20protein%20sequence%20culling%20server&amp;author=G%20Wang&amp;author=RL%20Dunbrack&amp;volume=19&amp;issue=12&amp;publication_year=2003&amp;pages=1589-1591&amp;pmid=12912846&amp;doi=10.1093/bioinformatics/btg224&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0026">
+<cite>
+Wang Q, Vantasin K, Xu D, Shang Y. MUFOLD‐WQA: a new selective consensus method for quality assessment in protein structure prediction. Proteins. 2011;79(S10):185–195. 10.1002/prot.23185
+
+</cite> [<a href="https://doi.org/10.1002/prot.23185" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC3230078/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/21997748/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Proteins&amp;title=MUFOLD%E2%80%90WQA:%20a%20new%20selective%20consensus%20method%20for%20quality%20assessment%20in%20protein%20structure%20prediction&amp;author=Q%20Wang&amp;author=K%20Vantasin&amp;author=D%20Xu&amp;author=Y%20Shang&amp;volume=79&amp;issue=S10&amp;publication_year=2011&amp;pages=185-195&amp;pmid=21997748&amp;doi=10.1002/prot.23185&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0027">
+<cite>
+Wang W, Wang J, Xu D, Shang Y. Two new heuristic methods for protein model quality assessment. IEEE/ACM Trans Comput Biol Bioinform. 2020;17(4):1430–1439. 10.1109/TCBB.2018.2880202
+
+</cite> [<a href="https://doi.org/10.1109/TCBB.2018.2880202" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8988942/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/30418914/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=IEEE/ACM%20Trans%20Comput%20Biol%20Bioinform&amp;title=Two%20new%20heuristic%20methods%20for%20protein%20model%20quality%20assessment&amp;author=W%20Wang&amp;author=J%20Wang&amp;author=D%20Xu&amp;author=Y%20Shang&amp;volume=17&amp;issue=4&amp;publication_year=2020&amp;pages=1430-1439&amp;pmid=30418914&amp;doi=10.1109/TCBB.2018.2880202&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0028">
+<cite>
+Watson JL, Juergens D, Bennett NR, Trippe BL, Yim J, Eisenach HE, et al. De novo design of protein structure and function with RFdiffusion. Nature. 2023;620(7976):1089–1100. 10.1038/s41586-023-06415-8
+
+</cite> [<a href="https://doi.org/10.1038/s41586-023-06415-8" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC10468394/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/37433327/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Nature&amp;title=De%20novo%20design%20of%20protein%20structure%20and%20function%20with%20RFdiffusion&amp;author=JL%20Watson&amp;author=D%20Juergens&amp;author=NR%20Bennett&amp;author=BL%20Trippe&amp;author=J%20Yim&amp;volume=620&amp;issue=7976&amp;publication_year=2023&amp;pages=1089-1100&amp;pmid=37433327&amp;doi=10.1038/s41586-023-06415-8&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0029">
+<cite>
+Wu T, Guo Z, Cheng J. Atomic protein structure refinement using all‐atom graph representations and SE(3)‐equivariant graph transformer. Bioinformatics. 2023;39(5):btad298. 10.1093/bioinformatics/btad298
+
+</cite> [<a href="https://doi.org/10.1093/bioinformatics/btad298" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC10191610/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/37144951/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=Bioinformatics&amp;title=Atomic%20protein%20structure%20refinement%20using%20all%E2%80%90atom%20graph%20representations%20and%20SE(3)%E2%80%90equivariant%20graph%20transformer&amp;author=T%20Wu&amp;author=Z%20Guo&amp;author=J%20Cheng&amp;volume=39&amp;issue=5&amp;publication_year=2023&amp;pages=btad298&amp;pmid=37144951&amp;doi=10.1093/bioinformatics/btad298&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0030">
+<cite>
+Yuan C, Chen H, Kihara D. Effective inter‐residue contact definitions for accurate protein fold recognition. BMC Bioinform. 2012;13:292. 10.1186/1471-2105-13-292
+</cite> [<a href="https://doi.org/10.1186/1471-2105-13-292" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC3534397/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/23140471/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=BMC%20Bioinform&amp;title=Effective%20inter%E2%80%90residue%20contact%20definitions%20for%20accurate%20protein%20fold%20recognition&amp;author=C%20Yuan&amp;author=H%20Chen&amp;author=D%20Kihara&amp;volume=13&amp;publication_year=2012&amp;pages=292&amp;pmid=23140471&amp;doi=10.1186/1471-2105-13-292&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="pro70274-bib-0031">
+<cite>
+Zhang Z, Verburgt J, Kagaya Y, Christoffer C, Kihara D. Learning with privileged knowledge distillation for improved peptide–protein docking. ACS Omega. 2025;10(25):26684–26693. 10.1021/acsomega.5c00967
+
+</cite> [<a href="https://doi.org/10.1021/acsomega.5c00967" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC12223902/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/40620935/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?journal=ACS%20Omega&amp;title=Learning%20with%20privileged%20knowledge%20distillation%20for%20improved%20peptide%E2%80%93protein%20docking&amp;author=Z%20Zhang&amp;author=J%20Verburgt&amp;author=Y%20Kagaya&amp;author=C%20Christoffer&amp;author=D%20Kihara&amp;volume=10&amp;issue=25&amp;publication_year=2025&amp;pages=26684-26693&amp;pmid=40620935&amp;doi=10.1021/acsomega.5c00967&amp;" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+</ol></section></section><section id="_ad93_" lang="en" class="associated-data"><h2 class="pmc_sec_title">Associated Data</h2>
+<p class="font-secondary"><em>This section collects any data citations, data availability statements, or supplementary materials included in this article.</em></p>
+<section id="_adsm93_" lang="en" class="supplementary-materials"><h3 class="pmc_sec_title">Supplementary Materials</h3>
+<section class="sm xbox font-sm" id="db_ds_supplementary-material1_reqid_"><div class="caption p"><p>
+<strong>Data S1.</strong> The supplementary file contains three figures tangential to the dataset and results described in the main text. Figure <a href="#pro70274-supitem-0001" class="usa-link">S1</a> depicts the correlation of LDDT and RMSD. Figure <a href="#pro70274-supitem-0001" class="usa-link">S2</a> shows LDDT of AFDB and EQAFold models. Figure <a href="#pro70274-supitem-0001" class="usa-link">S3</a> shows the relative change in LDDT error with EGNN and MLP architectures in EQAFold. Figure <a href="#pro70274-supitem-0001" class="usa-link">S4</a> depicts the relationship between LDDT and LDDT‐AA.</p></div>
+<div class="media p"><div class="caption">
+<a href="/articles/instance/12359199/bin/PRO-34-e70274-s001.docx" data-ga-action="click_feat_suppl" class="usa-link">PRO-34-e70274-s001.docx</a><sup> (178.5KB, docx) </sup>
+</div></div></section></section></section></section><footer class="p courtesy-note font-secondary font-sm text-center"><hr class="headless">
+<p>Articles from Protein Science : A Publication of the Protein Society are provided here courtesy of <strong>The Protein Society</strong></p></footer></section></article>
+
+                      
+
+                    </main>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+<!-- Secondary navigation placeholder -->
+<div class="pmc-sidenav desktop:grid-col-4 display-flex">
+    <section class="pmc-sidenav__container" aria-label="Article resources and navigation">
+        <button type="button" class="usa-button pmc-sidenav__container__close usa-button--unstyled">
+            <img src="/static/img/usa-icons/close.svg" role="img" alt="Close" />
+        </button>
+    <div class="display-none desktop:display-block">
+       <section class="margin-top-4 desktop:margin-top-0">
+              <h2 class="margin-top-0">ACTIONS</h2>
+           <ul class="usa-list usa-list--unstyled usa-list--actions">
+               
+               <li>
+                     <a
+                             href="https://doi.org/10.1002/pro.70274"
+                             class="usa-button usa-button--outline width-24 font-xs display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                             target="_blank"
+                             rel="noreferrer noopener"
+                             data-ga-category="actions"
+                             data-ga-action="click"
+                             data-ga-label="publisher_link_desktop"
+                     >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#launch"></use>
+                         </svg>
+                         <span class="display-inline-flex flex-justify-center flex-1 padding-right-2">View on publisher site</span>
+                     </a>
+               </li>
+               
+               
+               <li>
+                    <a
+                            href="pdf/PRO-34-e70274.pdf"
+                            class="usa-button usa-button--outline width-24 display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="pdf_download_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1">PDF (2.8 MB)</span>
+                    </a>
+               </li>
+               
+                
+               <li>
+                   <button role="button" class="usa-button width-24 citation-dialog-trigger display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                        aria-label="Open dialog with citation text in different styles"
+                        data-ga-category="actions"
+                        data-ga-action="open"
+                        data-ga-label="cite_desktop"
+                        data-all-citations-url="/resources/citations/12359199/"
+                        data-citation-style="nlm"
+                        data-download-format-link="/resources/citations/12359199/export/"
+                    >
+                        <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                        </svg>
+                       <span class="display-inline-flex flex-justify-center flex-1 button-label">Cite</span>
+                    </button>
+               </li>
+                
+               <li>
+
+                        <button class="usa-button width-24 collections-dialog-trigger collections-button display-inline-flex flex-align-center flex-justify-start padding-left-1 collections-button-empty"
+                              aria-label="Save article in MyNCBI collections."
+                              data-ga-category="actions"
+                              data-ga-action="click"
+                              data-ga-label="collections_button_desktop"
+                              data-collections-open-dialog-enabled="false"
+                              data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12359199%2F%3Freport%3Dclassic%23open-collections-dialog"
+                              data-in-collections="false">
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                            <span class="display-inline-flex flex-justify-center flex-1">Collections</span>
+                       </button>
+               </li>
+               <li class="pmc-permalink">
+                    <button
+                            type="button"
+                            class="usa-button width-24 display-inline-flex flex-align-center flex-justify padding-left-1 shadow-none"
+                            aria-label="Show article permalink"
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="permalink_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#share"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1 button-label">Permalink</span>
+                    </button>
+                   
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12359199/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+               </li>
+           </ul>
+       </section>
+     </div>
+
+        <section class="pmc-resources margin-top-6 desktop:margin-top-4" data-page-path="/articles/PMC12359199/">
+            <h2 class="margin-top-0">RESOURCES</h2>
+            
+                <div class="usa-accordion usa-accordion--multiselectable" data-allow-multiple>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-similar-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_similar_articles"
+                        data-ga-label="/articles/PMC12359199/"
+                        data-action-open="open_similar_articles"
+                        data-action-close="close_similar_articles"
+                        >
+                            Similar articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-similar-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/similar-article-links/40823963/"
+                            
+                    >
+                        
+                    </div>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-cited-by-other-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_cited_by"
+                        data-ga-label="/articles/PMC12359199/"
+                        data-action-open="open_cited_by"
+                        data-action-close="close_cited_by"
+                        >
+                             Cited by other articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-cited-by-other-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/cited-by-links/40823963/"
+                            
+                    >
+                          
+                    </div>
+                    
+                        <h3 class="usa-accordion__heading">
+                            <button
+                            type="button"
+                            class="usa-accordion__button"
+                            aria-expanded="false"
+                            aria-controls="resources-links-to-ncbi-databases"
+                            data-ga-category="resources_accordion"
+                            data-ga-action="open_NCBI_links"
+                            data-ga-label="/articles/PMC12359199/"
+                            data-action-open="open_NCBI_links"
+                            data-action-close="close_NCBI_link"
+                            >
+                                 Links to NCBI Databases
+                            </button>
+                        </h3>
+                        <div
+                                id="resources-links-to-ncbi-databases"
+                                class="usa-accordion__content usa-prose"
+                                data-source-url="/resources/db-links/12359199/"
+                        >
+                        </div>
+                    
+                    
+                </div>
+            
+        </section>
+
+
+        <section
+        class="usa-in-page-nav usa-in-page-nav--wide margin-top-6 desktop:margin-top-4"
+        data-title-text="On this page"
+        data-title-heading-level="h2"
+        data-scroll-offset="0"
+        data-root-margin="-10% 0px -80% 0px"
+        data-main-content-selector="main"
+        data-threshold="1"
+        hidden
+        ></section>
+    </section>
+</div>
+
+
+        
+
+<div class="overlay" role="dialog" aria-label="Citation Dialog" hidden>
+    <div class="dialog citation-dialog" aria-hidden="true">
+        <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+            <h2 class="usa-modal__heading margin-0">Cite</h2>
+             <button type="button" class="usa-button usa-button--unstyled close-overlay text-black width-auto"  tabindex="1">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+             </button>
+        </div>
+
+        
+
+<div class="citation-text-block">
+  <div class="citation-text margin-bottom-2"></div>
+  <ul class="usa-list usa-list--unstyled display-inline-flex flex-justify width-full flex-align-center">
+      <li>
+        <button
+          class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center copy-button dialog-focus"
+          data-ga-category="save_share"
+          data-ga-action="cite"
+          data-ga-label="copy"
+          tabindex="2">
+            <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+            </svg>
+            <span>Copy</span>
+        </button>
+      </li>
+      <li>
+          <a
+              href="#"
+              role="button"
+              class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center export-button"
+              data-ga-category="save_share"
+              data-ga-action="cite"
+              data-ga-label="download"
+              title="Download a file for external citation management software"
+              tabindex="3">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                </svg>
+                <span class="display-none mobile-lg:display-inline">Download .nbib</span>
+                <span class="display-inline mobile-lg:display-none">.nbib</span>
+            </a>
+      </li>
+      <li>
+          
+
+<div class="display-inline-flex flex-align-center">
+  <label class="usa-label margin-top-0">Format:</label>
+  <select aria-label="Format" class="usa-select citation-style-selector padding-1 margin-top-0 border-0 padding-right-4" tabindex="4" >
+    
+      <option data-style-url-name="ama"
+              value="AMA"
+              >
+        AMA
+      </option>
+    
+      <option data-style-url-name="apa"
+              value="APA"
+              >
+        APA
+      </option>
+    
+      <option data-style-url-name="mla"
+              value="MLA"
+              >
+        MLA
+      </option>
+    
+      <option data-style-url-name="nlm"
+              value="NLM"
+              selected="selected">
+        NLM
+      </option>
+    
+  </select>
+</div>
+      </li>
+  </ul>
+</div>
+    </div>
+</div>
+
+        <div class="overlay" role="dialog" hidden>
+  <div id="collections-action-dialog" class="dialog collections-dialog" aria-hidden="true">
+   <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+        <h2 class="usa-modal__heading margin-0">Add to Collections</h2>
+    </div>
+    <div class="collections-action-panel action-panel">
+      
+
+
+<form id="collections-action-dialog-form"
+      class="usa-form maxw-full collections-action-panel-form action-panel-content action-form action-panel-smaller-selectors"
+      data-existing-collections-url="/list-existing-collections/"
+      data-add-to-existing-collection-url="/add-to-existing-collection/"
+      data-create-and-add-to-new-collection-url="/create-and-add-to-new-collection/"
+      data-myncbi-max-collection-name-length="100"
+      data-collections-root-url="https://www.ncbi.nlm.nih.gov/myncbi/collections/">
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="G8QB7UCcHHrBQOCpjT9Y6mDRTVm2W2Ss6i9eZqkBkyumqaup5Rd06zjcagZxGwSJ">
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-new"
+            class="usa-radio__input usa-radio__input--tile collections-new  margin-top-0"
+            name="collections"
+            value="new"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_new" />
+            <label class="usa-radio__label" for="collections-action-dialog-new">Create a new collection</label>
+        </div>
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-existing"
+            class="usa-radio__input usa-radio__input--tile collections-existing"
+            name="collections"
+            value="existing"
+            checked="true"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_existing" />
+            <label class="usa-radio__label" for="collections-action-dialog-existing">Add to an existing collection</label>
+        </div>
+    </fieldset>
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="action-panel-control-wrap new-collections-controls">
+           <label for="collections-action-dialog-add-to-new" class="usa-label margin-top-0">
+                Name your collection
+               <abbr title="required" class="usa-hint usa-hint--required text-no-underline">*</abbr>
+          </label>
+          <input
+            type="text"
+            name="add-to-new-collection"
+            id="collections-action-dialog-add-to-new"
+            class="usa-input collections-action-add-to-new"
+            pattern="[^&quot;&amp;=&lt;&gt;/]*" title="The following characters are not allowed in the Name field: &quot;&amp;=&lt;&gt;/"
+            maxlength=""
+            data-ga-category="collections_button"
+            data-ga-action="create_collection"
+            data-ga-label="non_favorties_collection"
+            required
+          />
+        </div>
+        <div class="action-panel-control-wrap existing-collections-controls">
+             <label for="collections-action-dialog-add-to-existing" class="usa-label margin-top-0">
+                Choose a collection
+              </label>
+              <select id="collections-action-dialog-add-to-existing"
+                      class="usa-select collections-action-add-to-existing"
+                      data-ga-category="collections_button"
+                      data-ga-action="select_collection"
+                      data-ga-label="($('.collections-action-add-to-existing').val() === 'Favorites') ? 'Favorites' : 'non_favorites_collection'">
+              </select>
+              <div class="collections-retry-load-on-error usa-input-error-message selection-validation-message">
+                Unable to load your collection due to an error<br>
+                <a href="#">Please try again</a>
+              </div>
+        </div>
+    </fieldset>
+
+    <div class="display-inline-flex">
+        <button class="usa-button margin-top-0 action-panel-submit"
+            type="submit"
+            data-loading-label="Adding..."
+            data-pinger-ignore
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="add">
+          Add
+        </button>
+        <button class="usa-button usa-button--outline margin-top-0 action-panel-cancel"
+                aria-label="Close 'Add to Collections' panel"
+                ref="linksrc=close_collections_panel"
+                data-ga-category="collections_button"
+                data-ga-action="click"
+                data-ga-label="cancel">
+          Cancel
+        </button>
+    </div>
+</form>
+    </div>
+  </div>
+</div>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+
+
+        
+    
+    
+
+<footer class="ncbi-footer ncbi-dark-background " >
+    
+        <div class="ncbi-footer__icon-section">
+            <div class="ncbi-footer__social-header">
+                Follow NCBI
+            </div>
+
+            <div class="grid-container ncbi-footer__ncbi-social-icons-container">
+                
+                    <a href="https://twitter.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="40"
+                             height="40"
+                             viewBox="0 0 40 40"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on X (formerly known as Twitter)</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.facebook.com/ncbi.nlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="16"
+                             height="29"
+                             focusable="false"
+                             aria-hidden="true"
+                             viewBox="0 0 16 29"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.8809 21.4002C3.8809 19.0932 3.8809 16.7876 3.8809 14.478C3.8809 14.2117 3.80103 14.1452 3.54278 14.1492C2.53372 14.1638 1.52334 14.1492 0.514288 14.1598C0.302626 14.1598 0.248047 14.0972 0.248047 13.8936C0.256034 12.4585 0.256034 11.0239 0.248047 9.58978C0.248047 9.37013 0.302626 9.30224 0.528931 9.3049C1.53798 9.31688 2.54837 9.3049 3.55742 9.31555C3.80103 9.31555 3.8809 9.26097 3.87957 9.00272C3.87158 8.00565 3.85428 7.00592 3.90753 6.00884C3.97142 4.83339 4.31487 3.73115 5.04437 2.78467C5.93095 1.63318 7.15699 1.09005 8.56141 0.967577C10.5582 0.79319 12.555 0.982221 14.5518 0.927641C14.7102 0.927641 14.7462 0.99287 14.7449 1.13664C14.7449 2.581 14.7449 4.02668 14.7449 5.47104C14.7449 5.67604 14.6517 5.68669 14.4946 5.68669C13.4523 5.68669 12.4113 5.68669 11.3703 5.68669C10.3506 5.68669 9.92057 6.10868 9.90593 7.13904C9.89661 7.7647 9.91525 8.39303 9.89794 9.01869C9.88995 9.26364 9.96583 9.31822 10.2015 9.31688C11.7204 9.30623 13.2393 9.31688 14.7595 9.3049C15.0257 9.3049 15.0723 9.3728 15.0444 9.62439C14.89 10.9849 14.7515 12.3467 14.6144 13.7085C14.5691 14.1571 14.5785 14.1585 14.1458 14.1585C12.8386 14.1585 11.5313 14.1665 10.2254 14.1518C9.95119 14.1518 9.89794 14.2317 9.89794 14.4899C9.90593 19.0799 9.89794 23.6752 9.91125 28.2612C9.91125 28.5674 9.8407 28.646 9.53186 28.6433C7.77866 28.6273 6.02414 28.6366 4.27094 28.634C3.82499 28.634 3.87158 28.6992 3.87158 28.22C3.87602 25.9472 3.87913 23.6739 3.8809 21.4002Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on Facebook</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.linkedin.com/company/ncbinlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="25"
+                             height="23"
+                             viewBox="0 0 26 24"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M14.6983 9.98423C15.6302 9.24808 16.5926 8.74754 17.6762 8.51991C19.673 8.09126 21.554 8.30824 23.1262 9.7526C24.2351 10.7723 24.7529 12.1115 25.0165 13.5612C25.1486 14.3363 25.2105 15.1218 25.2015 15.9081C25.2015 18.3043 25.2015 20.6898 25.2082 23.0806C25.2082 23.3468 25.1549 23.444 24.8621 23.4414C23.1297 23.4272 21.3992 23.4272 19.6704 23.4414C19.4041 23.4414 19.3429 23.3588 19.3442 23.1019C19.3535 20.5194 19.3442 17.9368 19.3442 15.3543C19.3442 14.0005 18.3258 12.9448 17.0266 12.9488C15.7273 12.9528 14.6983 14.0071 14.6983 15.361C14.6983 17.9328 14.6917 20.5047 14.6983 23.0753C14.6983 23.3708 14.6198 23.444 14.3296 23.4427C12.6185 23.4294 10.9079 23.4294 9.19779 23.4427C8.93155 23.4427 8.86099 23.3735 8.86232 23.1086C8.8783 19.7619 8.88628 16.4144 8.88628 13.066C8.88628 11.5688 8.87874 10.0708 8.86365 8.57182C8.86365 8.3575 8.90758 8.27896 9.14054 8.28029C10.9048 8.29094 12.6687 8.29094 14.4321 8.28029C14.6464 8.28029 14.6983 8.34818 14.6983 8.54653C14.6903 9.00047 14.6983 9.45441 14.6983 9.98423Z">
+                            </path>
+                            <path d="M6.55316 15.8443C6.55316 18.2564 6.55316 20.6699 6.55316 23.082C6.55316 23.3629 6.48127 23.4388 6.19906 23.4374C4.47737 23.4241 2.75568 23.4241 1.03399 23.4374C0.767751 23.4374 0.69986 23.3629 0.701191 23.1006C0.709178 18.2648 0.709178 13.4281 0.701191 8.59053C0.701191 8.34026 0.765089 8.27237 1.01669 8.2737C2.74991 8.28435 4.48048 8.28435 6.20838 8.2737C6.47462 8.2737 6.5465 8.33627 6.54517 8.6065C6.54783 11.0186 6.55316 13.4308 6.55316 15.8443Z">
+                            </path>
+                            <path d="M3.65878 0.243898C5.36804 0.243898 6.58743 1.45529 6.58743 3.1406C6.58743 4.75801 5.32145 5.95742 3.60819 5.96807C3.22177 5.97614 2.83768 5.90639 2.47877 5.76299C2.11985 5.61959 1.79344 5.40546 1.51897 5.13334C1.24449 4.86123 1.02755 4.53668 0.881058 4.17902C0.734563 3.82136 0.661505 3.43788 0.666231 3.05141C0.67555 1.42601 1.9362 0.242566 3.65878 0.243898Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on LinkedIn</span>
+                    </a>
+                
+
+                
+                    <a href="https://github.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="28"
+                             height="27"
+                             viewBox="0 0 28 28"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M16.7228 20.6334C17.5057 20.5527 18.2786 20.3944 19.0301 20.1608C21.3108 19.4193 22.5822 17.8259 22.963 15.4909C23.1228 14.5112 23.1814 13.5287 22.9883 12.5437C22.8106 11.6423 22.4013 10.8028 21.8007 10.1076C21.7526 10.0605 21.7197 10 21.7064 9.934C21.6931 9.86799 21.7 9.79952 21.7262 9.73748C22.0856 8.6206 21.9711 7.51969 21.601 6.42677C21.582 6.3497 21.5345 6.2827 21.468 6.23923C21.4016 6.19577 21.3211 6.17906 21.2429 6.19248C20.7329 6.21649 20.2313 6.33051 19.7611 6.52928C19.1103 6.7908 18.4899 7.12198 17.9104 7.51703C17.84 7.56996 17.7581 7.60551 17.6713 7.62078C17.5846 7.63605 17.4954 7.6306 17.4112 7.60489C15.2596 7.05882 13.0054 7.06203 10.8554 7.61421C10.7806 7.63586 10.7018 7.63967 10.6253 7.62534C10.5487 7.611 10.4766 7.57892 10.4148 7.53167C9.64788 7.03247 8.85171 6.58918 7.96368 6.33359C7.65781 6.24338 7.34123 6.19458 7.02239 6.18849C6.94879 6.17986 6.87462 6.19893 6.81432 6.242C6.75402 6.28507 6.71191 6.34904 6.69621 6.42145C6.32342 7.51437 6.2209 8.61527 6.56307 9.73348C6.59635 9.84264 6.64694 9.93316 6.54177 10.0516C5.47666 11.2604 5.09988 12.6834 5.19574 14.2676C5.2663 15.4244 5.46201 16.5466 6.01454 17.5769C6.84399 19.1171 8.21664 19.9119 9.85158 20.3352C10.3938 20.4706 10.9444 20.5698 11.4998 20.632C11.5384 20.7492 11.4506 20.7798 11.408 20.8291C11.1734 21.1179 10.9894 21.4441 10.8634 21.7942C10.7622 22.0458 10.8315 22.4039 10.6065 22.5516C10.263 22.7766 9.83827 22.8485 9.42421 22.8871C8.17936 23.0056 7.26471 22.4877 6.6283 21.4348C6.25552 20.8184 5.76956 20.3325 5.08523 20.0663C4.76981 19.9325 4.42139 19.8967 4.08537 19.9638C3.7898 20.029 3.73788 20.1901 3.93891 20.4111C4.03639 20.5234 4.14989 20.6207 4.27575 20.6999C4.9796 21.1318 5.51717 21.7884 5.80152 22.5636C6.37002 23.9973 7.48039 24.5697 8.93825 24.6323C9.43741 24.6575 9.93768 24.615 10.4254 24.5058C10.5892 24.4672 10.6531 24.4872 10.6517 24.6762C10.6451 25.4936 10.6637 26.3123 10.6517 27.131C10.6517 27.6635 10.1684 27.9297 9.58663 27.7393C8.17396 27.2671 6.84977 26.5631 5.66838 25.656C2.59555 23.2891 0.720966 20.1861 0.217704 16.3376C-0.357453 11.9127 0.911353 8.00824 3.98551 4.73881C6.11909 2.42656 8.99932 0.939975 12.1203 0.540191C16.5351 -0.0601815 20.4347 1.14323 23.7232 4.16373C26.2449 6.47869 27.724 9.37672 28.1048 12.7726C28.5828 17.0325 27.3686 20.7945 24.4768 23.9827C22.9762 25.6323 21.0956 26.8908 18.9982 27.6488C18.8783 27.6927 18.7585 27.738 18.636 27.7726C18.0356 27.9404 17.6189 27.6395 17.6189 27.0098C17.6189 25.7452 17.6308 24.4806 17.6295 23.2159C17.6329 22.9506 17.6128 22.6856 17.5696 22.4238C17.4325 21.6664 17.3419 21.484 16.7228 20.6334Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on GitHub</span>
+                    </a>
+                
+
+                
+                    <a href="https://ncbiinsights.ncbi.nlm.nih.gov/"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="26"
+                             height="26"
+                             viewBox="0 0 27 27"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M23.7778 26.4574C23.1354 26.3913 22.0856 26.8024 21.636 26.3087C21.212 25.8444 21.4359 24.8111 21.324 24.0347C19.9933 14.8323 14.8727 8.80132 6.09057 5.85008C4.37689 5.28406 2.58381 4.99533 0.779072 4.99481C0.202773 4.99481 -0.0229751 4.83146 0.00455514 4.21479C0.0660406 3.08627 0.0660406 1.95525 0.00455514 0.826734C-0.0413285 0.0815827 0.259669 -0.0193618 0.896534 0.00266238C6.96236 0.222904 12.3693 2.24179 16.9889 6.16209C22.9794 11.2478 26.1271 17.7688 26.4372 25.648C26.4629 26.294 26.3179 26.5271 25.6609 26.4684C25.0827 26.417 24.4991 26.4574 23.7778 26.4574Z">
+                            </path>
+                            <path d="M14.8265 26.441C14.0924 26.441 13.2371 26.6795 12.6626 26.3786C12.0092 26.0372 12.3781 25.0644 12.246 24.378C11.1154 18.5324 6.6849 14.5497 0.74755 14.1001C0.217135 14.0615 -0.0104482 13.9422 0.0134113 13.3659C0.0519536 12.1454 0.0482829 10.9213 0.0134113 9.69524C-0.00127145 9.14464 0.196946 9.03268 0.703502 9.04736C9.21217 9.27128 16.5994 16.2511 17.2804 24.7231C17.418 26.4446 17.418 26.4446 15.6579 26.4446H14.832L14.8265 26.441Z">
+                            </path>
+                            <path d="M3.58928 26.4555C2.64447 26.4618 1.73584 26.0925 1.06329 25.4289C0.39073 24.7653 0.00933763 23.8617 0.0030097 22.9169C-0.00331824 21.9721 0.365937 21.0635 1.02954 20.3909C1.69315 19.7184 2.59675 19.337 3.54156 19.3306C4.48637 19.3243 5.39499 19.6936 6.06755 20.3572C6.7401 21.0208 7.1215 21.9244 7.12782 22.8692C7.13415 23.814 6.7649 24.7226 6.10129 25.3952C5.43768 26.0677 4.53409 26.4491 3.58928 26.4555Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI RSS feed</span>
+                    </a>
+                
+            </div>
+        </div>
+    
+
+    <div data-testid="gridContainer"
+         class="grid-container ncbi-footer__container">
+        <div class="grid-row ncbi-footer__main-content-container"
+             data-testid="grid">
+            
+                <div class="ncbi-footer__column">
+                    
+                        <p class="ncbi-footer__circled-icons-heading">
+                            Connect with NLM
+                        </p>
+                    
+
+                    <div class="ncbi-footer__circled-icons-list">
+                        
+                            <a href=https://twitter.com/nlm_nih class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="32"
+                                     height="32"
+                                     viewBox="0 0 40 40"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on X (formerly known as Twitter)</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.facebook.com/nationallibraryofmedicine class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="13"
+                                     height="24"
+                                     viewBox="0 0 13 24"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M4.11371 23.1369C4.11371 23.082 4.11371 23.0294 4.11371 22.9745V12.9411H0.817305C0.6709 12.9411 0.670898 12.9411 0.670898 12.8016C0.670898 11.564 0.670898 10.3287 0.670898 9.09341C0.670898 8.97903 0.705213 8.95158 0.815017 8.95158C1.8673 8.95158 2.91959 8.95158 3.97417 8.95158H4.12057V8.83263C4.12057 7.8055 4.12057 6.7738 4.12057 5.74897C4.1264 4.92595 4.31387 4.11437 4.66959 3.37217C5.12916 2.38246 5.94651 1.60353 6.95717 1.1921C7.64827 0.905008 8.3913 0.764035 9.13953 0.778051C10.0019 0.791777 10.8644 0.830666 11.7268 0.860404C11.8869 0.860404 12.047 0.894717 12.2072 0.90158C12.2964 0.90158 12.3261 0.940469 12.3261 1.02968C12.3261 1.5421 12.3261 2.05452 12.3261 2.56465C12.3261 3.16857 12.3261 3.7725 12.3261 4.37642C12.3261 4.48165 12.2964 4.51367 12.1912 4.51138C11.5369 4.51138 10.8804 4.51138 10.2261 4.51138C9.92772 4.51814 9.63058 4.5526 9.33855 4.61433C9.08125 4.6617 8.84537 4.78881 8.66431 4.97766C8.48326 5.16652 8.3662 5.40755 8.32972 5.66661C8.28476 5.89271 8.26027 6.1224 8.25652 6.35289C8.25652 7.19014 8.25652 8.02969 8.25652 8.86923C8.25652 8.89439 8.25652 8.91955 8.25652 8.95615H12.0219C12.1797 8.95615 12.182 8.95616 12.1614 9.10714C12.0768 9.76596 11.9876 10.4248 11.9029 11.0813C11.8312 11.6319 11.7626 12.1824 11.697 12.733C11.6719 12.9434 11.6787 12.9434 11.4683 12.9434H8.26338V22.899C8.26338 22.979 8.26338 23.0591 8.26338 23.1392L4.11371 23.1369Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on Facebook</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.youtube.com/user/NLMNIH class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="21"
+                                     height="15"
+                                     viewBox="0 0 21 15"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M19.2561 1.47914C18.9016 1.15888 18.5699 0.957569 17.2271 0.834039C15.5503 0.678484 13.2787 0.655608 11.563 0.65332H9.43556C7.71987 0.65332 5.4483 0.678484 3.77151 0.834039C2.43098 0.957569 2.097 1.15888 1.74242 1.47914C0.813665 2.32097 0.619221 4.62685 0.598633 6.89384C0.598633 7.31781 0.598633 7.74101 0.598633 8.16345C0.626084 10.4121 0.827391 12.686 1.74242 13.521C2.097 13.8412 2.4287 14.0425 3.77151 14.1661C5.4483 14.3216 7.71987 14.3445 9.43556 14.3468H11.563C13.2787 14.3468 15.5503 14.3216 17.2271 14.1661C18.5676 14.0425 18.9016 13.8412 19.2561 13.521C20.1712 12.6929 20.3725 10.451 20.3999 8.22064C20.3999 7.74025 20.3999 7.25986 20.3999 6.77946C20.3725 4.54907 20.1689 2.30724 19.2561 1.47914ZM8.55942 10.5311V4.65201L13.5601 7.50005L8.55942 10.5311Z"
+                                          fill="white" />
+                                </svg>
+                                <span class="usa-sr-only">NLM on YouTube</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            
+
+            
+                <address class="ncbi-footer__address ncbi-footer__column">
+                    
+        <p>
+            <a class="usa-link usa-link--external"
+            href="https://www.google.com/maps/place/8600+Rockville+Pike,+Bethesda,+MD+20894/%4038.9959508,
+            -77.101021,17z/data%3D!3m1!4b1!4m5!3m4!1s0x89b7c95e25765ddb%3A0x19156f88b27635b8!8m2!3d38.9959508!
+            4d-77.0988323"
+            rel="noopener noreferrer" target="_blank">National Library of Medicine
+            <br/> 8600 Rockville Pike<br/> Bethesda, MD 20894</a>
+        </p>
+    
+                </address>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/web_policies.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Web Policies
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/institutes-nih/nih-office-director/office-communications-public-liaison/freedom-information-act-office" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            FOIA
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS Vulnerability Disclosure
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://support.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Help
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/accessibility.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Accessibility
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/careers/careers.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Careers
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+        </div>
+
+        
+            <div class="grid-row grid-col-12" data-testid="grid">
+                <ul class="ncbi-footer__bottom-links-list">
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NLM
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NIH
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.usa.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            USA.gov
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+    </div>
+</footer>
+
+    
+
+
+        
+        
+    
+  <script  type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/pinger/pinger.js"> </script>
+
+
+    
+        
+
+<button class="back-to-top" data-ga-category="pagination" data-ga-action="back_to_top">
+    <label>Back to Top</label>
+    <svg class="usa-icon order-0" aria-hidden="true" focusable="false" role="img">
+        <use xlink:href="/static/img/sprite.svg#arrow_upward"></use>
+    </svg>
+</button>
+    
+
+
+        
+    
+    
+    
+        
+    <script type="application/javascript">
+    window.ncbi = window.ncbi || {};
+    window.ncbi.pmc = window.ncbi.pmc || {};
+    window.ncbi.pmc.options = {
+        logLevel: 'INFO',
+        
+        staticEndpoint: '/static/',
+        
+        citeCookieName: 'pmc-cf',
+    };
+</script>
+    <script type="module" crossorigin="" src="/static/assets/base-133c6271.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/jquery/jquery-3.6.0.min.js">&#xA0;</script>
+    <script type="text/javascript">
+        jQuery.getScript("https://cdn.ncbi.nlm.nih.gov/core/alerts/alerts.js", function () {
+            galert(['div.nav_and_browser', 'div.header', '#universal_header', '.usa-banner', 'body > *:nth-child(1)'])
+        });
+    </script>
+
+
+    <script type="text/javascript">var exports = {};</script>
+     <script src="/static/CACHE/js/output.13b077bc3ffd.js"></script>
+
+    <script type="module" crossorigin="" src="/static/assets/article-44d04358.js"></script>
+    
+        <script type="module" crossorigin="" src="/static/assets/math-574fdcc6.js"></script>
+    
+    
+
+    </body>
+</html>

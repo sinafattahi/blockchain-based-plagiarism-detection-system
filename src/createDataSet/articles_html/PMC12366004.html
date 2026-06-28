@@ -1,0 +1,2825 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+    <head >
+
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        
+        
+
+        
+        
+  <link rel="stylesheet" href="/static/assets/style-8258669d.css" />
+<script type="module" crossorigin="" src="/static/assets/base_style-f4a99799.js"></script>
+
+  <link rel="stylesheet" href="/static/assets/style-ef962842.css" />
+<link rel="stylesheet" href="/static/assets/style-3ade8b5c.css" />
+<script type="module" crossorigin="" src="/static/assets/article_style-d757a0dd.js"></script>
+
+  
+  
+    <style>
+  
+  
+  @media screen and (min-width: 64em) {
+    div.pmc-wm {
+      background: repeat-y;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='350' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cfilter x='-.02' y='0' width='1.05' height='1' id='c'%3E%3CfeFlood flood-color='%23FFF'/%3E%3CfeComposite in='SourceGraphic'/%3E%3C/filter%3E%3Ctext id='b' font-family='Helvetica' font-size='11pt' style='opacity:1;fill:%23005ea2;stroke:none;text-anchor:middle' x='175' y='14'%3E%3C/text%3E%3Cpath id='a' style='fill:%23005ea2' d='M0 8h350v3H0z'/%3E%3C/defs%3E%3Cuse xlink:href='%23a' transform='rotate(90 10 10)'/%3E%3Cuse xlink:href='%23b' transform='rotate(90 10 10)' filter='url(%23c)'/%3E%3C/svg%3E");
+      padding-left: 3rem;
+    }
+  }
+</style>
+
+  
+
+
+
+        
+            <link rel="apple-touch-icon"
+                  sizes="180x180"
+                  href="/static/img/favicons/apple-touch-icon.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="48x48"
+                  href="/static/img/favicons/favicon-48x48.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="32x32"
+                  href="/static/img/favicons/favicon-32x32.png" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="16x16"
+                  href="/static/img/favicons/favicon-16x16.png" />
+            <link rel="manifest" href="/static/img/favicons/site.webmanifest" />
+            <link rel="mask-icon"
+                  href="/static/img/favicons/safari-pinned-tab.svg"
+                  color="#0071bc" />
+            <meta name="msapplication-config"
+                  content="/static/img/favicons/browserconfig.xml" />
+            <meta name="theme-color" content="#ffffff" />
+        
+
+        <title>
+            ReactionT5: a pre-trained transformer model for accurate chemical reaction prediction with limited data - PMC
+        </title>
+
+        
+        
+  
+  <!-- Logging params: Pinger defaults -->
+<meta name="ncbi_app" content="cloudpmc-viewer" />
+<meta name="ncbi_db" content="pmc" />
+<meta name="ncbi_phid" content="15254CEE8AF3CB43054CEE001D1EAAE4.m_1" />
+<meta name="ncbi_pinger_stat_url" content="https://pmc.ncbi.nlm.nih.gov/stat" />
+<!-- Logging params: Pinger custom -->
+<meta name="ncbi_pdid" content="article" />
+  
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+
+    
+        <link rel="preconnect" href="https://cdn.ncbi.nlm.nih.gov" />
+    
+
+    <!-- Include USWDS Init Script -->
+    <script src="/static/assets/uswds-init.js"></script>
+
+
+    <meta name="ncbi_domain" content="jcheminfo">
+<meta name="ncbi_type" content="fulltext">
+<meta name="ncbi_pcid" content="journal">
+<meta name="ncbi_feature" content="associated_data">
+<link rel="canonical" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12366004/">
+<meta name="robots" content="INDEX,NOFOLLOW,NOARCHIVE">
+<meta name="citation_journal_title" content="Journal of Cheminformatics">
+<meta name="citation_title" content="ReactionT5: a pre-trained transformer model for accurate chemical reaction prediction with limited data">
+<meta name="citation_author" content="Tatsuya Sagawa">
+<meta name="citation_author_institution" content="Graduate School of Pharmaceutical Sciences, Kyoto University, Kyoto, 606–8501 Japan">
+<meta name="citation_author_institution" content="RIKEN BDR, Kobe, 650-0047 Japan">
+<meta name="citation_author" content="Ryosuke Kojima">
+<meta name="citation_author_institution" content="Graduate School of Medicine, Kyoto University, Kyoto, 606–8501 Japan">
+<meta name="citation_author_institution" content="RIKEN BDR, Kobe, 650-0047 Japan">
+<meta name="citation_publication_date" content="2025 Aug 19">
+<meta name="citation_volume" content="17">
+<meta name="citation_firstpage" content="126">
+<meta name="citation_doi" content="10.1186/s13321-025-01075-4">
+<meta name="citation_pmid" content="40830907">
+<meta name="citation_abstract_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12366004/">
+<meta name="citation_fulltext_html_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12366004/">
+<meta name="citation_pdf_url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12366004/pdf/13321_2025_Article_1075.pdf">
+<meta name="description" content="Accurate chemical reaction prediction is critical for reducing both cost and time in drug development. This study introduces ReactionT5, a transformer-based chemical reaction foundation model pre-trained on the Open Reaction Database—a large ...">
+<meta name="og:title" content="ReactionT5: a pre-trained transformer model for accurate chemical reaction prediction with limited data">
+<meta name="og:type" content="article">
+<meta name="og:site_name" content="PubMed Central (PMC)">
+<meta name="og:description" content="Accurate chemical reaction prediction is critical for reducing both cost and time in drug development. This study introduces ReactionT5, a transformer-based chemical reaction foundation model pre-trained on the Open Reaction Database—a large ...">
+<meta name="og:url" content="https://pmc.ncbi.nlm.nih.gov/articles/PMC12366004/">
+<meta name="og:image" content="https://cdn.ncbi.nlm.nih.gov/pmc/cms/images/pmc-card-share.jpg?_=0">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ncbi">
+    
+    
+
+    </head>
+    <body >
+        
+    <a class="usa-skipnav " href="#main-content">
+      Skip to main content
+    </a>
+
+
+        
+            
+
+<section class="usa-banner " aria-label="Official website of the United States government" >
+    <div class="usa-accordion">
+        <header class="usa-banner__header">
+            <div class="usa-banner__inner">
+                <div class="grid-col-auto">
+                    <img aria-hidden="true"
+                         class="usa-banner__header-flag"
+                         src="/static/img/us_flag.svg"
+                         alt="" />
+                </div>
+
+                <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+                    <p class="usa-banner__header-text">
+                        An official website of the United States government
+                    </p>
+                    <span class="usa-banner__header-action">Here's how you know</span>
+                </div>
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-accordion__button usa-banner__button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    aria-expanded="false"
+    aria-controls="gov-banner-default"
+    
+    data-testid="storybook-django-banner"
+    
+    >
+    
+        
+
+        
+                    <span class="usa-banner__button-text">Here's how you know</span>
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </div>
+        </header>
+
+        <div class="usa-banner__content usa-accordion__content"
+             id="gov-banner-default"
+             hidden>
+            <div class="grid-row grid-gap-lg">
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-dot-gov.svg"
+                         alt=""
+                         aria-hidden="true" />
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Official websites use .gov</strong>
+                            <br />
+                            A
+                            <strong>.gov</strong> website belongs to an official
+                            government organization in the United States.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img class="usa-banner__icon usa-media-block__img"
+                         src="/static/img/icon-https.svg"
+                         alt=""
+                         aria-hidden="true" />
+
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Secure .gov websites use HTTPS</strong>
+                            <br />
+                            A <strong>lock</strong> (
+                            <span class="icon-lock">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     width="52"
+                                     height="64"
+                                     viewBox="0 0 52 64"
+                                     class="usa-banner__lock-image"
+                                     role="graphics-symbol"
+                                     aria-labelledby="banner-lock-description"
+                                     focusable="false">
+                                    <title id="banner-lock-title">Lock</title>
+                                    <desc id="banner-lock-description">
+                                    Locked padlock icon
+                                    </desc>
+                                    <path fill="#000000"
+                                          fill-rule="evenodd"
+                                          d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z" />
+                                </svg>
+</span>) or <strong>https://</strong> means you've safely
+                                connected to the .gov website. Share sensitive
+                                information only on official, secure websites.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        
+
+        
+    
+    
+    
+
+<div class="usa-overlay">
+</div>
+
+
+
+<header class="usa-header usa-header--extended usa-header--wide" data-header data-testid="header"    >
+    <div class="ncbi-header">
+        <div class="ncbi-header__container">
+            <a class="ncbi-header__logo-container"
+               href="https://www.ncbi.nlm.nih.gov/">
+                <img alt="NCBI home page"
+                     class="ncbi-header__logo-image"
+                     src="/static/img/ncbi-logos/nih-nlm-ncbi--white.svg"
+                     width="410"
+                     height="100" />
+            </a>
+
+            <!-- Mobile menu hamburger button -->
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-menu-btn ncbi-header__hamburger-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Show menu"
+    data-testid="navMenuButton"
+    
+    >
+    
+        
+
+        
+                <svg aria-hidden="true"
+                     class="ncbi-hamburger-icon"
+                     fill="none"
+                     focusable="false"
+                     height="21"
+                     viewBox="0 0 31 21"
+                     width="31"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd"
+                          d="M0.125 20.75H30.875V17.3333H0.125V20.75ZM0.125 12.2083H30.875V8.79167H0.125V12.2083ZM0.125 0.25V3.66667H30.875V0.25H0.125Z"
+                          fill="#F1F1F1"
+                          fill-rule="evenodd" />
+                </svg>
+            
+
+        
+    
+        
+            </button>
+        
+
+
+
+            
+                <!-- Desktop buttons-->
+                <div class="ncbi-header__desktop-buttons">
+                    
+                        <!-- Desktop search button -->
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button
+           "
+    aria-expanded="false"
+    aria-controls="search-field-desktop-navigation"
+    aria-label="Show search overlay"
+    data-testid="toggleSearchPanelButton"
+    data-toggle-search-panel-button
+    >
+    
+        
+
+        
+                            
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#search" />
+    </svg>
+
+
+                            Search
+                        
+
+        
+    
+        
+            </button>
+        
+
+
+                    
+
+                    <!-- Desktop login dropdown -->
+                    
+                        <div class="ncbi-header__login-dropdown">
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--unstyled ncbi-header__desktop-button ncbi-header__login-dropdown-button
+           "
+    aria-expanded="false"
+    aria-controls="login-dropdown-menu"
+    aria-label="Show login menu"
+    data-testid="toggleLoginMenuDropdown"
+    data-desktop-login-button
+    >
+    
+        
+
+        
+                                
+
+
+
+    <svg class="usa-icon " role="graphics-symbol" aria-hidden="true" >
+        
+        <use xlink:href="/static/img/sprite.svg#person" />
+    </svg>
+
+
+
+                                <span data-login-dropdown-text>Log in</span>
+
+                                <!-- Dropdown icon pointing up -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-less ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-up-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_less" />
+    </svg>
+
+
+
+                                <!-- Dropdown icon pointing down -->
+                                
+
+
+
+    <svg class="usa-icon ncbi-header__login-dropdown-icon ncbi-header__login-dropdown-icon--expand-more ncbi-header__login-dropdown-icon--hidden" role="graphics-symbol" aria-hidden="true" data-login-dropdown-down-arrow>
+        
+        <use xlink:href="/static/img/sprite.svg#expand_more" />
+    </svg>
+
+
+                            
+
+        
+    
+        
+            </button>
+        
+
+
+
+                            <!-- Login dropdown menu -->
+                            <ul class="usa-nav__submenu ncbi-header__login-dropdown-menu"
+                                id="login-dropdown-menu"
+                                data-desktop-login-menu-dropdown
+                                hidden>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                    <li class="usa-nav__submenu-item">
+                                        <!-- Uses custom style overrides to render external and document links. -->
+                                        
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                                    </li>
+                                
+                                <li class="usa-nav__submenu-item">
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           usa-button--outline ncbi-header__login-dropdown-logout-button
+           "
+    
+    
+    
+    data-testid="desktopLogoutButton"
+    data-desktop-logout-button
+    >
+    
+        
+
+        Log out
+
+        
+    
+        
+            </button>
+        
+
+
+                                </li>
+                            </ul>
+                        </div>
+                    
+                </div>
+            
+        </div>
+    </div>
+
+    <!-- Search panel -->
+    
+        <div class="ncbi-search-panel ncbi--show-only-at-desktop"
+             data-header-search-panel
+             hidden>
+            <div class="ncbi-search-panel__container">
+                <form action="https://www.ncbi.nlm.nih.gov/search/all/"
+                      
+                      autocomplete="off"
+                      class="usa-search usa-search--big ncbi-search-panel__form"
+                      data-testid="desktop-navigation-search-form"
+                      method="GET"
+                      role="search">
+                    <label class="usa-sr-only" for="search-field-desktop-navigation">
+                        Search…
+                    </label>
+                    <input class="usa-input"
+                           id="search-field-desktop-navigation"
+                           name="term"
+                           
+                               placeholder="Search NCBI"
+                           
+                           type="search"
+                           value="" />
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                        <span class="usa-search__submit-text">
+                            Search NCBI
+                        </span>
+                    
+
+        
+    
+        
+            </button>
+        
+
+
+                </form>
+
+                
+            </div>
+        </div>
+    
+
+    <nav aria-label="Primary navigation" class="usa-nav">
+        <p class="usa-sr-only" id="primary-navigation-sr-only-title">
+            Primary site navigation
+        </p>
+
+        <!-- Mobile menu close button -->
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-nav__close ncbi-nav__close-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    aria-label="Close navigation menu"
+    data-testid="navCloseButton"
+    
+    >
+    
+        
+
+        
+            <img src="/static/img/usa-icons/close.svg" alt="Close" />
+        
+
+        
+    
+        
+            </button>
+        
+
+
+
+        
+            <!-- Mobile search component -->
+            <form class="usa-search usa-search--small ncbi--hide-at-desktop margin-top-6"
+                  action="https://www.ncbi.nlm.nih.gov/search/all/"
+                  
+                  autocomplete="off"
+                  data-testid="mobile-navigation-search-form"
+                  method="GET"
+                  role="search">
+                <label class="usa-sr-only" for="search-field-mobile-navigation">
+                    Search
+                </label>
+
+                <input class="usa-input"
+                       id="search-field-mobile-navigation"
+                       type="search"
+                       
+                           placeholder="Search NCBI"
+                       
+                       name="term" />
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="submit"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           
+           "
+    
+    
+    
+    
+    
+    >
+    
+        
+
+        
+                    <!-- This SVG should be kept inline and not replaced with a link to the icon as otherwise it will render in the wrong color -->
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE1LjUgMTRoLS43OWwtLjI4LS4yN0E2LjQ3MSA2LjQ3MSAwIDAgMCAxNiA5LjUgNi41IDYuNSAwIDEgMCA5LjUgMTZjMS42MSAwIDMuMDktLjU5IDQuMjMtMS41N2wuMjcuMjh2Ljc5bDUgNC45OUwyMC40OSAxOWwtNC45OS01em0tNiAwQzcuMDEgMTQgNSAxMS45OSA1IDkuNVM3LjAxIDUgOS41IDUgMTQgNy4wMSAxNCA5LjUgMTEuOTkgMTQgOS41IDE0eiIvPjwvc3ZnPg=="
+                         class="usa-search__submit-icon"
+                         alt="Search" />
+                
+
+        
+    
+        
+            </button>
+        
+
+
+            </form>
+
+            
+        
+
+        <!-- Primary navigation menu items -->
+        <!-- This usa-nav__inner wrapper is required to correctly style the navigation items on Desktop -->
+        
+
+        
+            <div class="ncbi-nav__mobile-login-menu ncbi--hide-at-desktop"
+                 data-mobile-login-menu
+                 hidden>
+                <p class="ncbi-nav__mobile-login-menu-status">
+                    Logged in as:
+                    <strong class="ncbi-nav__mobile-login-menu-email"
+                            data-mobile-login-email-text></strong>
+                </p>
+                <ul class="usa-nav__primary usa-accordion">
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/" class="usa-link  "  >
+        
+
+        
+            Dashboard
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/myncbi/collections/bibliography/" class="usa-link  "  >
+        
+
+        
+            Publications
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="usa-nav__primary-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.ncbi.nlm.nih.gov/account/settings/" class="usa-link  "  >
+        
+
+        
+            Account settings
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <button
+            type="button"
+        
+    
+    class="usa-button
+           
+
+           
+               
+               
+               
+               
+            
+
+           
+           
+           ncbi-nav__mobile-login-button ncbi--hide-at-desktop
+           "
+    
+    
+    
+    data-testid="mobileLoginButton"
+    data-mobile-login-button
+    >
+    
+        
+
+        Log in
+
+        
+    
+        
+            </button>
+        
+
+
+    </nav>
+</header>
+
+    
+    
+        
+
+<section class="pmc-header pmc-header--basic" aria-label="PMC Header with search box">
+    <div class="pmc-nav-container">
+        <div class="pmc-header__bar">
+           <div class="pmc-header__logo">
+               <a href="/" title="Home" aria-label="PMC Home"></a>
+           </div>
+            <button
+                    type="button"
+                    class="usa-button usa-button--unstyled pmc-header__search__button"
+                    aria-label="Open search"
+                    data-ga-category="search"
+                    data-ga-action="PMC"
+                    data-ga-label="pmc_search_panel_mobile"
+            >
+                <svg class="usa-icon width-4 height-4 pmc-icon__open" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#search"></use>
+                </svg>
+                <svg class="usa-icon width-4 height-4 pmc-icon__close" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="pmc-header__search">
+            
+
+
+<form class="usa-search usa-search--extra usa-search--article-right-column  pmc-header__search__form" id="pmc-search-form" autocomplete="off" role="search">
+<label class="usa-sr-only" for="pmc-search">Search PMC Full-Text Archive</label>
+<span class="autoComplete_wrapper flex-1">
+<input class="usa-input width-full maxw-none" required="required" placeholder="Search PMC Full-Text Archive" id="pmc-search"  type="search" name="term" data-autocomplete-url="https://pmc.ncbi.nlm.nih.gov/autocomp/search/autocomp/"/>
+</span>
+<button
+class="usa-button"
+type="submit"
+formaction="https://www.ncbi.nlm.nih.gov/pmc/"
+data-ga-category="search"
+data-ga-action="PMC"
+data-ga-label="PMC_search_button"
+>
+<span class="usa-search__submit-text">Search in PMC</span>
+<img
+src="/static/img/usa-icons-bg/search--white.svg"
+class="usa-search__submit-icon"
+alt="Search"
+/>
+</button>
+</form>
+            <div class="display-flex flex-column tablet:flex-row tablet:flex-justify flex-justify-center flex-align-center width-full desktop:maxw-44">
+                <ul class="pmc-header__search__menu">
+                    <li>
+                        
+                            <a class="usa-link" href="/journals/" data-ga-action="featured_link" data-ga-label="journal list">
+                                Journal List
+                            </a>
+                        
+                    </li>
+                    <li>
+                        
+                            <a class="usa-link" href="/about/userguide/" data-ga-action="featured_link"
+                            data-ga-label="user guide">
+                                User Guide
+                            </a>
+                        
+                    </li>
+                </ul>
+                
+                    <button form="pmc-search-form" formaction="https://pmc.ncbi.nlm.nih.gov/search/" type="submit" class="usa-button usa-button--unstyled hover:text-no-underline text-no-underline width-auto margin-top-1 tablet:margin-top-0">
+     <span class="bg-green-label padding-05 text-white">New</span><span class="text-underline text-primary">Try this search in PMC Beta Search</span>
+</button>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+
+
+        
+        
+
+       
+  <div class="usa-section padding-top-0 desktop:padding-top-6 pmc-article-section" data-article-db="pmc" data-article-id="12366004">
+
+    
+
+   
+
+
+
+<div class="grid-container pmc-actions-bar" aria-label="Actions bar" role="complementary">
+    <div class="grid-row">
+        <div class="grid-col-fill display-flex">
+             <div class="display-flex">
+                <ul class="usa-list usa-list--unstyled usa-list--horizontal">
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <button
+                                type="button"
+                                class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                                aria-label="Open resources"
+                                data-extra-class="is-visible-resources"
+                                data-ga-category="resources_accordion"
+                                data-ga-action="click"
+                                data-ga-label="mobile_icon"
+                        >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#more_vert"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex mob">
+                        <a
+                                href="https://doi.org/10.1186/s13321-025-01075-4"
+                                class="usa-link display-flex usa-tooltip"
+                                role="button"
+                                target="_blank"
+                                rel="noreferrer noopener"
+                                title="View on publisher site"
+                                data-position="bottom"
+                                aria-label="View on publisher site"
+                                data-ga-category="actions"
+                                data-ga-action="click"
+                                data-ga-label="publisher_link_mobile"
+                        >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#launch"></use>
+                                </svg>
+                        </a>
+                    </li>
+                    
+                    
+                        <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                             <a
+                                     href="pdf/13321_2025_Article_1075.pdf"
+                                     class="usa-link display-flex usa-tooltip"
+                                     role="button"
+                                     title="Download PDF"
+                                     data-position="bottom"
+                                     aria-label="Download PDF"
+                                     data-ga-category="actions"
+                                     data-ga-action="click"
+                                     data-ga-label="pdf_download_mobile"
+                             >
+                                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button
+                            class="usa-button usa-button--unstyled  usa-tooltip collections-dialog-trigger collections-button display-flex collections-button-empty"
+                            title="Add to Collections"
+                            data-position="bottom"
+                            aria-label="Save article in MyNCBI collections."
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="collections_button_mobile"
+                            data-collections-open-dialog-enabled="false"
+                            data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12366004%2F%3Freport%3Dclassic%23open-collections-dialog"
+                            data-in-collections="false"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="margin-right-2 mobile-lg:margin-right-4 display-flex">
+                        <button role="button" class="usa-button usa-button--unstyled usa-tooltip citation-dialog-trigger display-flex"
+                            aria-label="Open dialog with citation text in different styles"
+                            title="Cite"
+                            data-position="bottom"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="cite_mobile"
+                            data-all-citations-url="/resources/citations/12366004/"
+                            data-citation-style="nlm"
+                            data-download-format-link="/resources/citations/12366004/export/"
+                        >
+                            <svg class="usa-icon width-4 height-4 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    
+                    <li class="pmc-permalink display-flex" >
+                         <button
+                                 type="button"
+                                 title="Permalink"
+                                 data-position="bottom"
+                                 class="usa-button usa-button--unstyled display-flex usa-tooltip"
+                                 aria-label="Show article permalink"
+                                 aria-expanded="false"
+                                 aria-haspopup="true"
+                                 data-ga-category="actions"
+                                 data-ga-action="open"
+                                 data-ga-label="permalink_mobile"
+                         >
+                            <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                                <use xlink:href="/static/img/sprite.svg#share"></use>
+                            </svg>
+                        </button>
+                        
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12366004/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+                    </li>
+                </ul>
+            </div>
+            <button
+                    type="button"
+                    class="usa-button pmc-sidenav__container__open usa-button--unstyled width-auto display-flex"
+                    aria-label="Open article navigation"
+                    data-extra-class="is-visible-in-page"
+                    data-ga-category="actions"
+                    data-ga-action="open"
+                    data-ga-label="article_nav_mobile"
+            >
+                <svg class="usa-icon width-4 height-4" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#list"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+    <div class="grid-container desktop:padding-left-6">
+      <div id="article-container" class="grid-row grid-gap">
+        <div class="grid-col-12 desktop:grid-col-8 order-2 pmc-layout__content">
+            <div class="grid-container padding-left-0 padding-right-0">
+                <div class="grid-row desktop:margin-left-neg-6">
+                    <div class="grid-col-12">
+                        <div class="pmc-layout__disclaimer" role="complementary" aria-label="Disclaimer note">
+    As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with,
+    the contents by NLM or the National Institutes of Health.<br/>
+    Learn more:
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="Disclaimer" data-ga-label="New disclaimer box" href="/about/disclaimer/">PMC Disclaimer</a>
+    |
+    <a class="usa-link" data-ga-category="Link click" data-ga-action="PMC Copyright Notice" data-ga-label="New disclaimer box" href="/about/copyright/">
+        PMC Copyright Notice
+    </a>
+</div>
+                    </div>
+                </div>
+                <div class="grid-row pmc-wm desktop:margin-left-neg-6">
+                    <!-- Main content -->
+                    <main
+                      id="main-content"
+                      class="usa-layout-docs__main usa-layout-docs grid-col-12 pmc-layout pmc-prose padding-0"
+                    >
+
+                      
+                        <section class="pmc-journal-banner text-center line-height-none" aria-label="Journal banner"><img src="https://cdn.ncbi.nlm.nih.gov/pmc/banners/logo-jcheminfo.png" alt="Journal of Cheminformatics logo" usemap="#pmc-banner-imagemap" width="500" height="75"><map name="pmc-banner-imagemap"><area alt="Link to Journal of Cheminformatics" title="Link to Journal of Cheminformatics" shape="default" href="https://jcheminf.biomedcentral.com/" target="_blank" rel="noopener noreferrer"></map></section><article lang="en"><section aria-label="Article citation and metadata"><section class="pmc-layout__citation font-secondary font-xs"><div>
+<div class="display-inline-block"><button type="button" class="cursor-pointer text-no-underline bg-transparent border-0 padding-0 text-left margin-0 text-normal text-primary" aria-controls="journal_context_menu">J Cheminform</button></div>. 2025 Aug 19;17:126. doi: <a href="https://doi.org/10.1186/s13321-025-01075-4" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">10.1186/s13321-025-01075-4</a>
+</div>
+<nav id="journal_context_menu" hidden="hidden"><ul class="menu-list font-family-ui" role="menu">
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/pmc/?term=%22J%20Cheminform%22%5Bjour%5D" class="usa-link" role="menuitem">Search in PMC</a></li>
+<li role="presentation"><a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22J%20Cheminform%22%5Bjour%5D" lang="en" class="usa-link" role="menuitem">Search in PubMed</a></li>
+<li role="presentation"><a href="https://www.ncbi.nlm.nih.gov/nlmcatalog?term=%22J%20Cheminform%22%5BTitle%20Abbreviation%5D" class="usa-link" role="menuitem">View in NLM Catalog</a></li>
+<li role="presentation"><a href="?term=%22J%20Cheminform%22%5Bjour%5D" class="usa-link" role="menuitem" data-add-to-search="true">Add to search</a></li>
+</ul></nav></section><section class="front-matter"><div class="ameta p font-secondary font-xs">
+<hgroup><h1>ReactionT5: a pre-trained transformer model for accurate chemical reaction prediction with limited data</h1></hgroup><div class="cg p">
+<a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Sagawa%20T%22%5BAuthor%5D" class="usa-link" aria-describedby="id1"><span class="name western">Tatsuya Sagawa</span></a><div hidden="hidden" id="id1">
+<h3><span class="name western">Tatsuya Sagawa</span></h3>
+<div class="p">
+<sup>1</sup>Graduate School of Pharmaceutical Sciences, Kyoto University, Kyoto, 606–8501 Japan </div>
+<div class="p">
+<sup>3</sup>RIKEN BDR, Kobe, 650-0047 Japan </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Sagawa%20T%22%5BAuthor%5D" class="usa-link"><span class="name western">Tatsuya Sagawa</span></a>
+</div>
+</div>
+<sup>1,</sup><sup>3</sup>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Kojima%20R%22%5BAuthor%5D" class="usa-link" aria-describedby="id2"><span class="name western">Ryosuke Kojima</span></a><div hidden="hidden" id="id2">
+<h3><span class="name western">Ryosuke Kojima</span></h3>
+<div class="p">
+<sup>2</sup>Graduate School of Medicine, Kyoto University, Kyoto, 606–8501 Japan </div>
+<div class="p">
+<sup>3</sup>RIKEN BDR, Kobe, 650-0047 Japan </div>
+<div class="p">Find articles by <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22Kojima%20R%22%5BAuthor%5D" class="usa-link"><span class="name western">Ryosuke Kojima</span></a>
+</div>
+</div>
+<sup>2,</sup><sup>3,</sup><sup>✉</sup>
+</div>
+<ul class="d-buttons inline-list">
+<li><button class="d-button" aria-controls="aip_a" aria-expanded="false">Author information</button></li>
+<li><button class="d-button" aria-controls="anp_a" aria-expanded="false">Article notes</button></li>
+<li><button class="d-button" aria-controls="clp_a" aria-expanded="false">Copyright and License information</button></li>
+</ul>
+<div class="d-panels font-secondary-light">
+<div id="aip_a" class="d-panel p" style="display: none">
+<div class="p" id="Aff1">
+<sup>1</sup>Graduate School of Pharmaceutical Sciences, Kyoto University, Kyoto, 606–8501 Japan </div>
+<div id="Aff2">
+<sup>2</sup>Graduate School of Medicine, Kyoto University, Kyoto, 606–8501 Japan </div>
+<div id="Aff3">
+<sup>3</sup>RIKEN BDR, Kobe, 650-0047 Japan </div>
+<div class="author-notes p"><div class="fn" id="_fncrsp93pmc__">
+<sup>✉</sup><p class="display-inline">Corresponding author.</p>
+</div></div>
+</div>
+<div id="anp_a" class="d-panel p" style="display: none"><div class="notes p"><section id="historyarticle-meta1" class="history"><p>Received 2025 Apr 6; Accepted 2025 Aug 1; Collection date 2025.</p></section></div></div>
+<div id="clp_a" class="d-panel p" style="display: none">
+<div>© The Author(s) 2025</div>
+<p><strong>Open Access</strong> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <a href="https://creativecommons.org/licenses/by/4.0/" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">http://creativecommons.org/licenses/by/4.0/</a>.</p>
+<div class="p"><a href="/about/copyright/" class="usa-link">PMC Copyright notice</a></div>
+</div>
+</div>
+<div>PMCID: PMC12366004  PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/40830907/" class="usa-link">40830907</a>
+</div>
+</div></section></section><section aria-label="Article content"><section class="body main-article-body"><section class="abstract" id="Abs1"><h2>Abstract</h2>
+<p id="Par1">Accurate chemical reaction prediction is critical for reducing both cost and time in drug development. This study introduces ReactionT5, a transformer-based chemical reaction foundation model pre-trained on the Open Reaction Database—a large publicly available reaction dataset. In benchmarks for product prediction, retrosynthesis, and yield prediction, ReactionT5 outperformed existing models. Specifically, ReactionT5 achieved 97.5% accuracy in product prediction, 71.0% in retrosynthesis, and a coefficient of determination of 0.947 in yield prediction. Remarkably, ReactionT5, when fine-tuned with only a limited dataset of reactions, achieved performance on par with models fine-tuned on the complete dataset. Additionally, the visualization of ReactionT5 embeddings illustrates that the model successfully captures and represents the chemical reaction space, indicating effective learning of reaction properties.</p>
+<section id="sec1"><h3 class="pmc_sec_title">Graphical Abstract</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12366004_13321_2025_1075_Figa_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/b294/12366004/bb7d7c0421b5/13321_2025_1075_Figa_HTML.jpg" loading="lazy" id="MO1" height="455" width="780" alt="graphic file with name 13321_2025_1075_Figa_HTML.jpg"></a></p></section><section id="sec2"><h3 class="pmc_sec_title">Supplementary Information</h3>
+<p>The online version contains supplementary material available at 10.1186/s13321-025-01075-4.</p></section><section id="kwd-group1" lang="en" class="kwd-group"><p><strong>Keywords:</strong> Foundation model, Chemical reaction, Reaction space, Deep learning, Machine learning, Transformers, Organic chemistry</p></section></section><section class="abstract" id="Abs2"><h2>Scientific contribution</h2>
+<p>We propose ReactionT5, a foundation model for chemical reactions pre-trained on a large reaction dataset that outperforms existing models in product prediction, retrosynthesis, and yield prediction tasks, all while maintaining high performance even with limited training data. We also show that the learned embeddings effectively capture the chemical reaction space, and we make the training code and model weights publicly available. We believe that fine-tuning ReactionT5 with users’ in-house data will be beneficial for many chemical applications.</p>
+<section id="sec3"><h3 class="pmc_sec_title">Supplementary Information</h3>
+<p>The online version contains supplementary material available at 10.1186/s13321-025-01075-4.</p></section></section><section id="Sec1"><h2 class="pmc_sec_title">Introduction</h2>
+<p id="Par3">Predicting chemical reactions is pivotal for progress in organic chemistry and drug discovery. Highly accurate predictive models can dramatically reduce the costs associated with exploratory experimentation by forecasting the outcomes of chemical experiments before they are conducted. Consequently, machine learning models that adeptly encapsulate the complexity of organic reactions [<a href="#CR1" class="usa-link" aria-describedby="CR1">1</a>] are anticipated to bolster the efforts of experimental chemists. Deep learning models have surfaced as viable substitutes in recent years, providing data-driven insights derived from extensive reaction datasets and surmounting numerous constraints of traditional methods [<a href="#CR2" class="usa-link" aria-describedby="CR2">2</a>].</p>
+<p id="Par4">In this context, large-scale pre-trained models utilizing compound libraries have attracted increasing interest in organic chemistry research [<a href="#CR3" class="usa-link" aria-describedby="CR3">3</a>]. These models often conceptualize molecules as symbolic sequences, similar to natural languages. For instance, SMILES-BERT [<a href="#CR4" class="usa-link" aria-describedby="CR4">4</a>] has demonstrated high efficacy in predicting molecular properties by leveraging unsupervised pre-training on molecular structures encoded in the Simplified Molecular-Input Line-Entry System (SMILES) format [<a href="#CR5" class="usa-link" aria-describedby="CR5">5</a>]. While substantial progress has been made with models focused on single molecules, for example, SMILES-BERT [<a href="#CR4" class="usa-link" aria-describedby="CR4">4</a>], ChemBERTa [<a href="#CR6" class="usa-link" aria-describedby="CR6">6</a>], MolE [<a href="#CR7" class="usa-link" aria-describedby="CR7">7</a>], MolCLR [<a href="#CR8" class="usa-link" aria-describedby="CR8">8</a>], and Molformer [<a href="#CR9" class="usa-link" aria-describedby="CR9">9</a>], research on models addressing multiple molecules, such as those used in chemical reactions, remains relatively scarce. A notable exception is T5Chem [<a href="#CR10" class="usa-link" aria-describedby="CR10">10</a>], which, although not explicitly pre-trained on reaction datasets, has shown potential as a reaction prediction model by pre-learning from single molecules and subsequently applying fine-tuning to address multiple tasks, including product, retrosynthesis, and yield prediction. Building upon these advances in molecular representation learning, recent studies have extended pre-training approaches to chemical reactions using reaction SMILES, which are chemical transformations represented in SMILES format. Pre-training on reaction data has been shown to enhance model performance on various downstream tasks, such as yield prediction [<a href="#CR11" class="usa-link" aria-describedby="CR11">11</a>] and experimental procedure prediction [<a href="#CR12" class="usa-link" aria-describedby="CR12">12</a>], highlighting the importance of capturing the intricate dependencies within chemical reactions.</p>
+<p id="Par5">Chemists anticipate that foundation models for chemical reactions will perform well on target tasks with minimal fine-tuning using a small set of reaction data, as accumulating a large volume of experimental data for training is challenging. This need is particularly pronounced when there is a domain shift between the datasets used for pre-training and those intended for the target tasks, highlighting a critical demand for developing models based on chemical reactions that can be efficiently and effectively fine-tuned with limited data. To our knowledge, there are currently no pre-trained models specifically designed to be fine-tuned on small data sets that have been pre-trained using a large-scale reaction database.</p>
+<p id="Par6">This study introduces ReactionT5, a chemical reaction foundation model that utilizes the text-to-text transfer transformer (T5) [<a href="#CR13" class="usa-link" aria-describedby="CR13">13</a>] architecture. ReactionT5 is distinct in that it incorporates pre-training on a vast reaction database in addition to the conventional pre-training on a molecular library. By leveraging the Open Reaction Database (ORD) [<a href="#CR14" class="usa-link" aria-describedby="CR14">14</a>], an expansive, open-access dataset covering a broad reaction spectrum, as our pre-training database, we aim to broaden the reaction space the model can capture. Our goal is to provide a solution that remains effective for downstream applications, even with minimal data for fine-tuning.</p>
+<p id="Par7">In this study, we evaluate ReactionT5 on downstream tasks such as product prediction, retrosynthesis, and yield prediction, while also using reaction space visualization to better understand the model’s behavior in their tasks. Visualization of chemical reaction space has recently gained attention as a powerful tool for capturing similarities and diversity among reactions. Previous studies have attempted to visualize reaction embeddings obtained from trained models to explore the chemical knowledge learned by the models [<a href="#CR15" class="usa-link" aria-describedby="CR15">15</a>, <a href="#CR16" class="usa-link" aria-describedby="CR16">16</a>]. Following these ideas, we also visualized the embedding of ReactionT5 to confirm the chemical reaction space that this model captures. Such visualizations are expected to assist chemists in identifying clusters of similar reactions, discovering outliers, and ultimately discovering novel reactions.</p>
+<p id="Par8">The contributions of this paper are outlined as follows:</p>
+<ul class="list" style="list-style-type:disc">
+<li><p id="Par9">1. We evaluated the effectiveness of utilizing an extensive reaction database like the ORD for model pre-training.</p></li>
+<li><p id="Par10">2. We showed that our chemical reaction foundation model achieves high performance, even with limited fine-tuning data.</p></li>
+<li><p id="Par11">3. We generated reaction embeddings from the model and visualized the reaction space to illustrate its understanding.</p></li>
+</ul>
+<p id="Par12">These contributions demonstrate that ReactionT5 exhibits strong generalizability and excels in real-world scenarios with limited fine-tuning data. This establishes ReactionT5 as a promising and practical tool for a wide range of applications in the field.</p></section><section id="Sec2"><h2 class="pmc_sec_title">Methods</h2>
+<p id="Par13">This study utilized the T5 model as the neural network architecture and implemented a two-stage pre-training followed by task-specific fine-tuning. The initial framework and methodology are depicted in Fig. <a href="#Fig1" class="usa-link">1</a>a, which illustrates our two-stage pre-training process: compound pre-training and reaction pre-training. Initially, in the compound pre-training stage, the T5 model was trained on a library of single-molecule structures, resulting in a specialized model called CompoundT5. Subsequently, in the reaction pre-training stage, we expanded CompoundT5’s capabilities by training it on a reaction database encompassing chemical reaction data involving multiple compounds, such as reactants, reagents, catalysts, solvents, and products. This training phase enabled the model to capture the intricate relationships between the compounds within each reaction, culminating in the creation of ReactionT5. Upon completing these pre-training stages, ReactionT5 was then ready to be fine-tuned on smaller, task-specific target datasets.</p>
+<figure class="fig xbox font-sm" id="Fig1"><h3 class="obj_head">Fig. 1.</h3>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12366004_13321_2025_1075_Fig1_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/b294/12366004/30892a824a41/13321_2025_1075_Fig1_HTML.jpg" loading="lazy" id="MO2" height="764" width="780" alt="Fig. 1"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p><strong>a</strong> Workflow of our method: the process begins with the base T5 model, which is pre-trained on a compound library to create CompoundT5. Next, ReactionT5 is developed by further pre-training CompoundT5 on a reaction database. Finally, ReactionT5 is fine-tuned on relatively small datasets, such as in-house data. <strong>b</strong> Illustration of compound pre-training: CompoundT5 is trained using a masked language modeling objective, where the task is to predict masked tokens in SMILES strings representing individual compounds. <strong>c</strong> Illustration of reaction pre-training: ReactionT5 is trained to perform three types of tasks: predicting product’s SMILES from reactants and reagents, predicting reactant’s SMILES from products, and predicting reaction yield from reactant, reagent, and product. <strong>d</strong> Diagram of ReactionT5 usage: ReactionT5 processes input sequences in text format, incorporating special tokens within the SMILES strings to denote the roles of reactants, reagents, and products</p></figcaption></figure><p id="Par14">Figure <a href="#Fig1" class="usa-link">1</a>d illustrates the operational flow from input to output for ReactionT5. In this setup, chemical reactions are encoded as textual sequences in the SMILES format, positioning ReactionT5 within a text-to-text framework. This structure harnesses the capabilities of the T5 architecture, which is explicitly designed for text-to-text conversions, making it ideally suited for handling reaction-related tasks as text-based challenges. ReactionT5 consists of two main components: an encoder that transforms the input text into hidden representations and a decoder that generates the output text based on these representations. This methodology was applied to three critical tasks: product prediction, retrosynthesis, and yield prediction, showing the model’s versatility and effectiveness in handling complex chemical data.</p>
+<section id="Sec3"><h3 class="pmc_sec_title">Compound pre-training</h3>
+<p id="Par15">In the first pre-training stage, we developed CompoundT5 by pre-training an initialized T5 model on a dataset of compounds encoded in the SMILES format. The preparation for training involved tokenization, a process where input text is segmented into smaller tokens corresponding to subwords in the SMILES text. Following tokenization, we implemented span-masked language modeling (span-MLM) [<a href="#CR13" class="usa-link" aria-describedby="CR13">13</a>], a self-supervised learning technique wherein the T5 model is trained using only input texts. In span-MLM, contiguous sets of tokens (spans) within the input SMILES text are masked, and the model is tasked with predicting these masked spans. This differs from the traditional masked language modeling (MLM), which involves masking and predicting individual tokens. Span-MLM presents a more challenging scenario requiring the model to interpret broader contextual information [<a href="#CR17" class="usa-link" aria-describedby="CR17">17</a>], thereby enhancing its ability to understand molecular structures from SMILES representations.</p>
+<p id="Par16">For training CompoundT5, we adhered closely to the procedures outlined in the original T5 paper [<a href="#CR13" class="usa-link" aria-describedby="CR13">13</a>]. We employed span-MLM by randomly masking 15% of the tokens in the input text, with the average length of masked sequences being three tokens. We utilized a SentencePiece unigram tokenizer [<a href="#CR18" class="usa-link" aria-describedby="CR18">18</a>], specifically trained on our compound library. Compared to character-level or atomic-level tokenizers, this tokenizer efficiently represents compounds using fewer tokens, accelerating training and inference processes and allowing for the inclusion of larger molecular structures [<a href="#CR19" class="usa-link" aria-describedby="CR19">19</a>]. We trained Google's T5 Version 1.1 base model [<a href="#CR13" class="usa-link" aria-describedby="CR13">13</a>] for 30 epochs using a learning rate of 0.005, a weight decay of 0.001, and a batch size of 5, with the Adafactor optimizer [<a href="#CR20" class="usa-link" aria-describedby="CR20">20</a>]. All training was conducted on a single NVIDIA RTX A6000 GPU.</p></section><section id="Sec4"><h3 class="pmc_sec_title">Reaction pre-training</h3>
+<p id="Par17">In the subsequent pre-training stage, known as reaction pre-training, we transition from a compound-level representation to representing all chemical reactions as text. This stage differs from the compound pre-training, where each compound was independently transformed into a textual format. In reaction pre-training, the entire reaction, as extracted from the reaction database, is converted into a single textual input (as depicted in Fig. <a href="#Fig1" class="usa-link">1</a>d). This approach allowed the CompoundT5 model to be further trained to grasp the contextual intricacies of each reaction extending beyond the individual compound components. This comprehensive pre-training aimed to prepare the model for three critical tasks: product prediction, retrosynthesis prediction, and yield prediction (Fig. <a href="#Fig1" class="usa-link">1</a>c).</p>
+<p id="Par18">The reaction records from the reaction database used in our study include information corresponding to six roles: reactant, reagent, solvent, catalyst, product, and yield. Compounds associated with the first five roles are encoded in the SMILES format, whereas yield is represented as a numerical value. In scenarios where multiple compounds share the same role, their SMILES strings are concatenated using a “.” token to denote separation. Special role tokens are incorporated into the input sequence to enhance clarity in the roles of each compound within the reaction. For example, accurately distinguishing among catalysts, reagents, and solvents can be challenging in real-world datasets; hence, these three roles are collectively labeled under the “reagent” category. Special tokens such as “REACTANT:” and “REAGENT:” are prepended to their respective SMILES sequences to further differentiate reactants from reagents. Finally, the sequences are concatenated into a single string with labeled roles, forming the complete input text to train the model.</p>
+<p id="Par19">The reaction pre-training uses the same objective functions as those used in downstream tasks such as product, retrosynthesis, and yield prediction. The difference lies in the use of a large-scale reaction database prior to task-specific fine-tuning. This pre-training allows the model to learn broad reaction space representation in advance, thereby enabling improved performance even with limited fine-tuning data. The specific configurations for each task are described in Sect. 2.3 to 2.5.</p></section><section id="Sec5"><h3 class="pmc_sec_title">Product prediction</h3>
+<p id="Par20">The product prediction task, also known as forward prediction, entails predicting the products of a reaction from given compounds, specifically from the roles of reactants and reagents as encoded in SMILES text. In this task, ReactionT5 aims to forecast the reaction products based on the input SMILES text. The decoder of the T5 model is pivotal in ensuring the accuracy of the generated text representing products. It computes a probability distribution over the vocabulary of tokens, iteratively predicting the subsequent tokens based on the encoder's outputs and previously generated tokens. During each decoding step, the decoder selects tokens to maximize the probability of the entire sequence, concluding when an end-of-sequence token is generated. The probability of the complete sequence is calculated as the product of the probabilities of the selected tokens.</p>
+<p id="Par21">Given that exhaustively evaluating all possible token combinations to identify the sequence with the highest probability is computationally prohibitive, a beam search strategy is employed to streamline the search process. The model efficiently retrieves the Top-5 most probable product predictions by setting the beam width to five. For optimization, our experiments use the average token-level cross-entropy as the loss function.</p></section><section id="Sec6"><h3 class="pmc_sec_title">Retrosynthesis prediction</h3>
+<p id="Par22">Retrosynthesis prediction involves a text-to-text conversion task, operating in the reverse direction of the product prediction task. This task entails predicting the reactants from given products, aligning with the methodologies of prior research. Unlike product prediction, this task does not require the prepending of special tokens to the products in the input. This is because the input solely consists of product compounds, and the model does not need to explicitly differentiate these product compounds from other types of compounds.</p></section><section id="Sec7"><h3 class="pmc_sec_title">Yield prediction</h3>
+<p id="Par23">The yield prediction task involves forecasting the numerical yield value based on the molecules of reactants, reagents, and products. For this task, special tokens “REACTANT:”, “REAGENT:”, and “PRODUCT:” are prepended to the respective SMILES sequences, which are then concatenated to create a unified input sequence. During pre-processing, any yield values exceeding 100% are clipped to 100%, and all values are rescaled to a 0–1 range. This clipping is based on the observation that yields exceeding 100% often result from experimental noise, such as solvent inclusion, byproduct incorporation, or measurement error, rather than reflecting true chemical outcomes [<a href="#CR21" class="usa-link" aria-describedby="CR21">21</a>]. Although such values can occur in practical settings, their frequency in the dataset is very low (0.271%). To prevent extreme values from exerting an undue influence on model training, we applied clipping to yields above 100%, rather than discarding these samples. To predict the yield, embeddings from both the encoder and decoder are fed through four additional fully connected layers, which output the numerical yield predictions. Mean squared error is used as the loss function to minimize the differences between predicted and actual yields.</p></section><section id="Sec8"><h3 class="pmc_sec_title">Evaluation</h3>
+<p id="Par24">We assessed the performance of ReactionT5 across the different tasks using benchmark datasets and compared the results with those of conventional methods.</p>
+<p id="Par25">We report Top-k accuracies (k = 1,2,3,5) and the Top-5 SMILES invalidity rate for product and retrosynthesis prediction. A prediction is considered accurate if its canonicalized SMILES string exactly matches the reference label, and Top-k accuracy is defined as the proportion of reactions where the correct answer is among the Top-k predictions. Additionally, we calculated the SMILES invalidity rate, which measures the fraction of invalid SMILES strings within the Top-5 predictions, using RDKit to verify the validity of the SMILES strings. The model outputs the five most probable compounds, which are then canonicalized using RDKit.</p>
+<p id="Par26">In yield prediction, the performance is measured using the coefficient of determination (R<sup>2</sup>), which assesses the correlation between the predicted and actual yields. Values closer to 1 indicate higher predictive accuracy.</p>
+<p id="Par27">We also addressed potential data leakage by identifying and removing any duplicate reactions in both the training and evaluation datasets to ensure a fair and unbiased evaluation. This step was taken to prevent the model from simply memorizing specific reactions, thereby ensuring that the evaluation genuinely reflects the predictive capabilities of the model rather than its capacity to recall seen data.</p></section></section><section id="Sec9"><h2 class="pmc_sec_title">Datasets</h2>
+<section id="Sec10"><h3 class="pmc_sec_title">Compound library</h3>
+<p id="Par28">For the compound pre-training stage, we utilized a dataset of 24 million compounds from the ZINC20 database [<a href="#CR22" class="usa-link" aria-describedby="CR22">22</a>], with each molecule represented in SMILES format. All SMILES representations were canonicalized during pre-processing using RDKit (version 2023.9.6) to ensure consistency and standardization across the dataset. The character distribution within this dataset is depicted in Fig. S1a. The dataset was randomly split into two parts: 90% for training and 10% for validation.</p></section><section id="Sec11"><h3 class="pmc_sec_title">Reaction database: ORD</h3>
+<p id="Par29">We employed a dataset of 1.5 million records from the ORD for reaction pre-training, accessed on June 5, 2024. This dataset features various reaction conditions, encompassing benchtop experiments, automated high-throughput setups, and flow chemistry techniques. To develop a model that operates independently of atom mapping, we pre-processed reactions containing atom-mapping information by removing these mappings. Moreover, we ensured the consistency of all SMILES strings across datasets by canonicalizing them.</p>
+<p id="Par30">To address biases related to the order of molecular presentation in ORD — specifically, the issue that leading reactants in the database are not always presented first, depending on the original data providers — we applied a canonicalization to the compounds. This introduces a degree of randomness, mitigating position-based biases that could impede model fine-tuning and broader usability. While the ORD contains various reaction-related details, including information about measuring devices or reaction conditions, we focused on extracting specific roles such as reactants, reagents, solvents, catalysts, products, and yield. The ORD aggregates publicly available reaction data, including commonly used benchmark datasets such as USPTO [<a href="#CR23" class="usa-link" aria-describedby="CR23">23</a>] and high-throughput experimentation (HTE) data. To avoid data leakage during evaluation, we carefully removed any reactions from the ORD that overlap with the test sets used in downstream tasks. Following pre-processing, we divided the dataset into three parts: 80% for training, 10% for validation, and 10% for testing.</p>
+<p id="Par31">A comparison between the reaction database and the compound pre-training dataset indicated a higher diversity of characters in the reaction database (as shown in Fig. S1). This diversity sometimes led to challenges, particularly with the tokenizer trained on the compound dataset, which occasionally failed to recognize certain atoms from the reaction database. This issue was notably significant with metal atoms such as “Pd” and “Fe”, which are commonly used as catalysts in chemical reactions but were not included in the compound dataset. As a result, model performance was adversely affected, as shown in Table S3 and Table S4. To address this problem, we extended the tokenizer vocabulary by incorporating additional tokens that appear frequently in reaction SMILES but were absent in the compound dataset. This extension allowed the model to correctly process important chemical symbols, including various metal atoms and reaction-specific characters, and thereby improved its handling of reaction data. A complete list of the added tokens is provided in Table S5.</p></section><section id="Sec12"><h3 class="pmc_sec_title">Target dataset</h3>
+<p id="Par32">This section outlines the three target datasets corresponding to each task—product prediction, retrosynthesis prediction, and yield prediction—for fine-tuning and evaluation. These datasets are benchmarks for comparing ReactionT5 with other methods and assessing the model’s effectiveness in scenarios where only limited data are available for each task.</p>
+<p id="Par33">For the product prediction task, we employed the USPTO_MIT dataset [<a href="#CR24" class="usa-link" aria-describedby="CR24">24</a>], derived from Lowe’s patent data [<a href="#CR23" class="usa-link" aria-describedby="CR23">23</a>]. This dataset comprises 479,035 reaction records. In alignment with previous study [<a href="#CR10" class="usa-link" aria-describedby="CR10">10</a>], we divided the dataset into training (409,035 reactions), validation (30,000 reactions), and testing (40,000 reactions) datasets to ensure a comprehensive evaluation across different stages of model performance.</p>
+<p id="Par34">For retrosynthesis prediction, we used the USPTO_50k dataset [<a href="#CR25" class="usa-link" aria-describedby="CR25">25</a>], also based on Lowe’s patent data [<a href="#CR23" class="usa-link" aria-describedby="CR23">23</a>]. This dataset contains 50,000 reaction records, each featuring a single product. Consistent with established practices in prior research [<a href="#CR10" class="usa-link" aria-describedby="CR10">10</a>], the dataset was segmented into training (40,000 reactions), validation (5,000 reactions), and testing (5000 reactions) sets.</p>
+<p id="Par35">For yield prediction, the selected dataset was derived from the high-throughput experiments conducted by Ahneman et al. [<a href="#CR26" class="usa-link" aria-describedby="CR26">26</a>], focusing on palladium-catalyzed Buchwald-Hartwig C-N cross-coupling reactions. It includes 3955 reactions involving heteroaryl halides, 4-methylaniline, palladium catalysts, and various inhibitors. Following prior research [<a href="#CR10" class="usa-link" aria-describedby="CR10">10</a>], we approached the evaluation by randomly splitting the dataset into training and testing sets in a 7:3 ratio. This random division was repeated ten times to generate reliable statistics on the average performance and standard deviation. Additionally, four out-of-sample test sets (Test 1–4) were incorporated to assess the model's robustness and performance under conditions involving domain shifts.</p></section></section><section id="Sec13"><h2 class="pmc_sec_title">Results and discussion</h2>
+<p id="Par36">In this section, we evaluate the performance of ReactionT5, which was pre-trained on ZINC20 and ORD datasets, across product prediction, retrosynthesis, and yield prediction tasks. We conducted a typical benchmark analysis, wherein the entire benchmark dataset was divided into training and evaluation segments for each prediction task. Additionally, a scenario involving limited data was employed to verify the impact of fine-tuning by utilizing only a small subset of the training data. We also visualized the reaction space represented by ReactionT5 to investigate how well the model captures the reaction space.</p>
+<section id="Sec14"><h3 class="pmc_sec_title">Product prediction</h3>
+<p id="Par37">For product prediction, the USPTO_MIT dataset served as the evaluation benchmark. In this analysis, we trained and evaluated ReactionT5 under conditions identical to those described in a prior study to determine its baseline performance (refer to Table <a href="#Tab1" class="usa-link">1</a>).</p>
+<section class="tw xbox font-sm" id="Tab1"><h4 class="obj_head">Table 1.</h4>
+<div class="caption p"><p>Top-k accuracy and Top-5 invalidity (%) of CompoundT5, ReactionT5, and conventional models in product prediction</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1"></th>
+<th align="left" colspan="1" rowspan="1">Top-1</th>
+<th align="left" colspan="1" rowspan="1">Top-2</th>
+<th align="left" colspan="1" rowspan="1">Top-3</th>
+<th align="left" colspan="1" rowspan="1">Top-5</th>
+<th align="left" colspan="1" rowspan="1">Invalidity</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">Seq-to-seq [<a href="#CR27" class="usa-link" aria-describedby="CR27">27</a>]</td>
+<td align="center" colspan="1" rowspan="1">80.3</td>
+<td align="center" colspan="1" rowspan="1">84.7</td>
+<td align="center" colspan="1" rowspan="1">86.2</td>
+<td align="center" colspan="1" rowspan="1">87.5</td>
+<td align="center" colspan="1" rowspan="1">–</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">WLDN [<a href="#CR28" class="usa-link" aria-describedby="CR28">28</a>]</td>
+<td align="center" colspan="1" rowspan="1">85.6</td>
+<td align="center" colspan="1" rowspan="1">90.5</td>
+<td align="center" colspan="1" rowspan="1">92.8</td>
+<td align="center" colspan="1" rowspan="1">93.4</td>
+<td align="center" colspan="1" rowspan="1">–</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Molecular Transformer [<a href="#CR30" class="usa-link" aria-describedby="CR30">30</a>]</td>
+<td align="center" colspan="1" rowspan="1">88.8</td>
+<td align="center" colspan="1" rowspan="1">92.6</td>
+<td align="center" colspan="1" rowspan="1">–</td>
+<td align="center" colspan="1" rowspan="1">94.4</td>
+<td align="center" colspan="1" rowspan="1">–</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">T5Chem [<a href="#CR10" class="usa-link" aria-describedby="CR10">10</a>]</td>
+<td align="center" colspan="1" rowspan="1">90.4</td>
+<td align="center" colspan="1" rowspan="1">94.2</td>
+<td align="center" colspan="1" rowspan="1">–</td>
+<td align="center" colspan="1" rowspan="1">96.4</td>
+<td align="center" colspan="1" rowspan="1">-</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">CompoundT5</td>
+<td align="center" colspan="1" rowspan="1">86.6</td>
+<td align="center" colspan="1" rowspan="1">89.5</td>
+<td align="center" colspan="1" rowspan="1">90.4</td>
+<td align="center" colspan="1" rowspan="1">91.2</td>
+<td align="center" colspan="1" rowspan="1">19.2</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">ReactionT5</td>
+<td align="center" colspan="1" rowspan="1"><strong>97.5</strong></td>
+<td align="center" colspan="1" rowspan="1"><strong>98.6</strong></td>
+<td align="center" colspan="1" rowspan="1"><strong>98.8</strong></td>
+<td align="center" colspan="1" rowspan="1"><strong>99.0</strong></td>
+<td align="center" colspan="1" rowspan="1"><strong>7.1</strong></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">ReactionT5 (zero-shot)</td>
+<td align="center" colspan="1" rowspan="1">92.8</td>
+<td align="center" colspan="1" rowspan="1">95.6</td>
+<td align="center" colspan="1" rowspan="1">96.4</td>
+<td align="center" colspan="1" rowspan="1">97.1</td>
+<td align="center" colspan="1" rowspan="1">12.5</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab1/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div></section><p id="Par38">Table <a href="#Tab1" class="usa-link">1</a> provides a comparative analysis of CompoundT5 and ReactionT5 alongside several conventional methods: a sequence-to-sequence model (Seq-to-seq) [<a href="#CR27" class="usa-link" aria-describedby="CR27">27</a>], Weisfeiler-Lehman Difference Network (WLDN) [<a href="#CR28" class="usa-link" aria-describedby="CR28">28</a>] based on the Weisfeiler-Lehman Network [<a href="#CR29" class="usa-link" aria-describedby="CR29">29</a>], a transformer-based reaction prediction model (Molecular Transformer) [<a href="#CR30" class="usa-link" aria-describedby="CR30">30</a>], and a T5-based model (T5Chem) [<a href="#CR10" class="usa-link" aria-describedby="CR10">10</a>]. CompoundT5 refers to a model pre-trained solely on compound data (Fig. <a href="#Fig1" class="usa-link">1</a>b), while ReactionT5 is initialized with the weights of CompoundT5 and further pre-trained on reaction data (Fig. <a href="#Fig1" class="usa-link">1</a>c) as described in Sect. 2.3. Both models are subsequently fine-tuned on the training set from USPTO_MIT to evaluate downstream performance. The table also shows the performance of ReactionT5 in a zero-shot scenario, which is the original model without fine-tuning on USPTO_MIT, emphasizing its initial performance capabilities.</p>
+<p id="Par39">Moreover, to assess the effectiveness of ReactionT5 with limited fine-tuning data, we trained ReactionT5 and other models using small subsets of the dataset and evaluated their performance. ReactionT5 achieved a Top-1 accuracy of 97.5% in these experiments, surpassing T5Chem by 7.1 percentage points. Additionally, ReactionT5 demonstrated a significantly lower rate of invalid predictions compared to CompoundT5. The notably high zero-shot accuracy of ReactionT5, attributed to its pre-training on the ORD dataset, indicates that its predictive capabilities may match or surpass those of traditional methods, even without further fine-tuning on downstream datasets.</p>
+<p id="Par40">To assess ReactionT5’s performance with minimal fine-tuning data, we fine-tuned ReactionT5, CompoundT5, and T5Chem using subsets of 10, 30, 50, 100, and 200 reactions from the USPTO_MIT training set, creating scenarios representative of scarce training data (Fig. <a href="#Fig2" class="usa-link">2</a>a). For each subset size, reactions were randomly sampled three times, and the models underwent training three times. The average Top-1 accuracy and Top-5 SMILES invalidity rates, along with their standard deviations, were calculated based on these experiments. In line with its zero-shot prediction results, ReactionT5 exhibited high prediction accuracy and low invalidity rates, even with limited fine-tuning. Conversely, the other models faced challenges in generating reliable predictions, underlining ReactionT5’s robustness in data-constrained environments.</p>
+<figure class="fig xbox font-sm" id="Fig2"><h4 class="obj_head">Fig. 2.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12366004_13321_2025_1075_Fig2_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/b294/12366004/fd70d8907721/13321_2025_1075_Fig2_HTML.jpg" loading="lazy" id="MO3" height="566" width="780" alt="Fig. 2"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Model performance when fine-tuned with limited reaction data for product prediction (<strong>a</strong>) and retrosynthesis prediction (<strong>b</strong>) tasks. The left panels show changes in Top-1 accuracy, whereas the right panels depict variations in Top-5 SMILES invalidity rates as models are fine-tuned using subsets of 10, 30, 50, 100, or 200 reactions from the USPTO_MIT training set and evaluated on the testing set. The figures display the average Top-1 accuracy or Top-5 SMILES invalidity rate along with the standard deviation across the three experiments</p></figcaption></figure></section><section id="Sec15"><h3 class="pmc_sec_title">Retrosynthesis prediction</h3>
+<p id="Par41">For retrosynthesis prediction, we utilized the USPTO_50k dataset as the evaluation benchmark. Initially, we evaluated ReactionT5’s baseline performance (Table <a href="#Tab2" class="usa-link">2</a>) and subsequently analyzed its adaptability in data-scarce conditions. This was done to understand how the model responds to limited fine-tuning data (Fig. <a href="#Fig2" class="usa-link">2</a>b).</p>
+<section class="tw xbox font-sm" id="Tab2"><h4 class="obj_head">Table 2.</h4>
+<div class="caption p"><p>Comparison of Top-k accuracy and Top-5 invalidity rates (%) for CompoundT5, ReactionT5, and conventional models in retrosynthesis prediction</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1"></th>
+<th align="left" colspan="1" rowspan="1">Top-1</th>
+<th align="left" colspan="1" rowspan="1">Top-2</th>
+<th align="left" colspan="1" rowspan="1">Top-3</th>
+<th align="left" colspan="1" rowspan="1">Top-5</th>
+<th align="left" colspan="1" rowspan="1">Invalidity</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">Seq-to-seq [<a href="#CR27" class="usa-link" aria-describedby="CR27">27</a>]</td>
+<td align="center" colspan="1" rowspan="1">37.4</td>
+<td align="center" colspan="1" rowspan="1">–</td>
+<td align="center" colspan="1" rowspan="1">52.4</td>
+<td align="center" colspan="1" rowspan="1">57.0</td>
+<td align="center" colspan="1" rowspan="1">–</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Molecular Transformer [<a href="#CR30" class="usa-link" aria-describedby="CR30">30</a>]</td>
+<td align="center" colspan="1" rowspan="1">43.5</td>
+<td align="center" colspan="1" rowspan="1">–</td>
+<td align="center" colspan="1" rowspan="1">60.5</td>
+<td align="center" colspan="1" rowspan="1">–</td>
+<td align="center" colspan="1" rowspan="1">–</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">SCROP [<a href="#CR31" class="usa-link" aria-describedby="CR31">31</a>]</td>
+<td align="center" colspan="1" rowspan="1">43.7</td>
+<td align="center" colspan="1" rowspan="1">–</td>
+<td align="center" colspan="1" rowspan="1">60.0</td>
+<td align="center" colspan="1" rowspan="1">65.2</td>
+<td align="center" colspan="1" rowspan="1">–</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">T5Chem [<a href="#CR10" class="usa-link" aria-describedby="CR10">10</a>]</td>
+<td align="center" colspan="1" rowspan="1">46.5</td>
+<td align="center" colspan="1" rowspan="1">–</td>
+<td align="center" colspan="1" rowspan="1">64.4</td>
+<td align="center" colspan="1" rowspan="1">70.5</td>
+<td align="center" colspan="1" rowspan="1">–</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">CompoundT5</td>
+<td align="center" colspan="1" rowspan="1">44.2</td>
+<td align="center" colspan="1" rowspan="1">55.2</td>
+<td align="center" colspan="1" rowspan="1">61.4</td>
+<td align="center" colspan="1" rowspan="1">67.3</td>
+<td align="center" colspan="1" rowspan="1">4.75</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">ReactionT5</td>
+<td align="center" colspan="1" rowspan="1"><strong>71.0</strong></td>
+<td align="center" colspan="1" rowspan="1"><strong>81.5</strong></td>
+<td align="center" colspan="1" rowspan="1"><strong>85.2</strong></td>
+<td align="center" colspan="1" rowspan="1"><strong>86.9</strong></td>
+<td align="center" colspan="1" rowspan="1"><strong>0.45</strong></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">ReactionT5 (zero-shot)</td>
+<td align="center" colspan="1" rowspan="1">13.8</td>
+<td align="center" colspan="1" rowspan="1">18.6</td>
+<td align="center" colspan="1" rowspan="1">21.4</td>
+<td align="center" colspan="1" rowspan="1">26.2</td>
+<td align="center" colspan="1" rowspan="1">3.08</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab2/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<div class="tw-foot p"><div class="fn" id="_fn_p49"><p>This table highlights the performance difference across models, showing the advantages of ReactionT5 in terms of both accuracy and reduced invalidity</p></div></div></section><p id="Par42">Table <a href="#Tab2" class="usa-link">2</a> compares the benchmark performance of CompoundT5 and ReactionT5 with conventional methods, including Seq-to-seq [<a href="#CR27" class="usa-link" aria-describedby="CR27">27</a>], Molecular Transformer [<a href="#CR30" class="usa-link" aria-describedby="CR30">30</a>], T5Chem [<a href="#CR10" class="usa-link" aria-describedby="CR10">10</a>], and SCROP—a template-free self-corrected retrosynthesis predictor based on a transformer architecture with a syntax correction network [<a href="#CR31" class="usa-link" aria-describedby="CR31">31</a>].</p>
+<p id="Par43">ReactionT5 significantly outperformed other models, achieving a Top-1 accuracy of 71.0%, which is 24.5 percentage points higher than that of T5Chem. Additionally, ReactionT5 achieved a Top-5 accuracy of 87.9% and maintained a low Top-5 invalidity rate of 0.45%. These notable improvements are primarily attributable to the model’s extensive pre-training on the ORD dataset, which compensates for the limited size of the USPTO_50k training set, enabling the model to learn more effective retrosynthetic patterns. Although ReactionT5 demonstrated superior performance after fine-tuning, its zero-shot retrosynthesis accuracy was lower than that of zero-shot product prediction, likely due to dataset biases, such as the ORD reactions often involving multiple products, whereas the USPTO_50k dataset typically features single-product reactions.</p>
+<p id="Par44">Further evaluation was conducted to determine the minimal amount of data required for the model to adapt to dataset biases and to become applicable for downstream tasks. When ReactionT5 and other models were fine-tuned with limited reactions (Fig. <a href="#Fig2" class="usa-link">2</a>b), the other models displayed no learning under these conditions. In contrast, ReactionT5 achieved a prediction accuracy of 46.1% when fine-tuned with just 100 reactions, nearly matching the accuracy of T5Chem trained on the full dataset.</p></section><section id="Sec16"><h3 class="pmc_sec_title">Yield prediction</h3>
+<p id="Par45">For yield prediction, we assessed ReactionT5 using a dataset of palladium-catalyzed Buchwald-Hartwig C-N cross-coupling reactions. This evaluation included both a benchmarking assessment (Table <a href="#Tab3" class="usa-link">3</a>) and a small-data experiment (Fig. <a href="#Fig3" class="usa-link">3</a>).</p>
+<section class="tw xbox font-sm" id="Tab3"><h4 class="obj_head">Table 3.</h4>
+<div class="caption p"><p>Comparison of R<sup>2</sup> for CompoundT5, ReactionT5, and conventional models in yield prediction</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1">R<sup>2</sup>
+</th>
+<th align="left" colspan="1" rowspan="1">Random 7:3</th>
+<th align="left" colspan="1" rowspan="1">Test 1</th>
+<th align="left" colspan="1" rowspan="1">Test 2</th>
+<th align="left" colspan="1" rowspan="1">Test 3</th>
+<th align="left" colspan="1" rowspan="1">Test 4</th>
+<th align="left" colspan="1" rowspan="1">Avg. Test 1–4</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">DFT [<a href="#CR26" class="usa-link" aria-describedby="CR26">26</a>]</td>
+<td align="left" colspan="1" rowspan="1">0.92</td>
+<td align="center" colspan="1" rowspan="1">0.80</td>
+<td align="center" colspan="1" rowspan="1">0.77</td>
+<td align="center" colspan="1" rowspan="1">0.64</td>
+<td align="center" colspan="1" rowspan="1">0.54</td>
+<td align="center" colspan="1" rowspan="1">0.69 ± 0.10</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">MFF [<a href="#CR32" class="usa-link" aria-describedby="CR32">32</a>]</td>
+<td align="left" colspan="1" rowspan="1">0.927 ± 0.007</td>
+<td align="center" colspan="1" rowspan="1">0.851</td>
+<td align="center" colspan="1" rowspan="1">0.713</td>
+<td align="center" colspan="1" rowspan="1">0.635</td>
+<td align="center" colspan="1" rowspan="1">0.184</td>
+<td align="center" colspan="1" rowspan="1">0.596 ± 0.251</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">Yield-BERT [<a href="#CR33" class="usa-link" aria-describedby="CR33">33</a>]</td>
+<td align="left" colspan="1" rowspan="1">0.951 ± 0.005</td>
+<td align="center" colspan="1" rowspan="1">0.838</td>
+<td align="center" colspan="1" rowspan="1">0.836</td>
+<td align="center" colspan="1" rowspan="1">0.738</td>
+<td align="center" colspan="1" rowspan="1">0.538</td>
+<td align="center" colspan="1" rowspan="1">0.738 ± 0.122</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">T5Chem [<a href="#CR10" class="usa-link" aria-describedby="CR10">10</a>]</td>
+<td align="left" colspan="1" rowspan="1">0.970 ± 0.003</td>
+<td align="center" colspan="1" rowspan="1">0.811</td>
+<td align="center" colspan="1" rowspan="1">0.907</td>
+<td align="center" colspan="1" rowspan="1">0.789</td>
+<td align="center" colspan="1" rowspan="1">0.627</td>
+<td align="center" colspan="1" rowspan="1">0.785 ± 0.094</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">CompoundT5</td>
+<td align="left" colspan="1" rowspan="1"><strong>0.971 ± 0.002</strong></td>
+<td align="center" colspan="1" rowspan="1"><strong>0.889</strong></td>
+<td align="center" colspan="1" rowspan="1">0.901</td>
+<td align="center" colspan="1" rowspan="1">0.685</td>
+<td align="center" colspan="1" rowspan="1">0.538</td>
+<td align="center" colspan="1" rowspan="1">0.753 ± 0.151</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">ReactionT5</td>
+<td align="left" colspan="1" rowspan="1">0.947 ± 0.003</td>
+<td align="center" colspan="1" rowspan="1">0.875</td>
+<td align="center" colspan="1" rowspan="1"><strong>0.916</strong></td>
+<td align="center" colspan="1" rowspan="1"><strong>0.812</strong></td>
+<td align="center" colspan="1" rowspan="1">0.819</td>
+<td align="center" colspan="1" rowspan="1"><strong>0.855 ± 0.043</strong></td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">ReactionT5 (zero-shot)</td>
+<td align="left" colspan="1" rowspan="1">0.831 ± 0.012</td>
+<td align="center" colspan="1" rowspan="1">0.846</td>
+<td align="center" colspan="1" rowspan="1">0.869</td>
+<td align="center" colspan="1" rowspan="1">0.779</td>
+<td align="center" colspan="1" rowspan="1"><strong>0.843</strong></td>
+<td align="center" colspan="1" rowspan="1">0.834 ± 0.034</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab3/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<div class="tw-foot p"><div class="fn" id="_fn_p55"><p>CompoundT5 and ReactionT5 generally outperformed conventional models, with their performance varying based on the dataset type, highlighting their respective strengths</p></div></div></section><figure class="fig xbox font-sm" id="Fig3"><h4 class="obj_head">Fig. 3.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12366004_13321_2025_1075_Fig3_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/b294/12366004/7e2ced15efaf/13321_2025_1075_Fig3_HTML.jpg" loading="lazy" id="MO4" height="565" width="780" alt="Fig. 3"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig3/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Model performance in yield prediction when fine-tuned with limited reaction data. The R<sup>2</sup> values are shown for models fine-tuned with various fractions of training sets of each dataset. Training data was randomly sampled three times, and models were trained three times. The panels display the average R<sup>2</sup> values along with the standard deviations across the three experiments</p></figcaption></figure><p id="Par46">Table <a href="#Tab3" class="usa-link">3</a> compares the R<sup>2</sup> values achieved by CompoundT5 and ReactionT5 with those of previously proposed models, including a random forest model with reaction descriptors for yield prediction (DFT) [<a href="#CR26" class="usa-link" aria-describedby="CR26">26</a>], a random forest model using multiple fingerprint features (MFF) [<a href="#CR32" class="usa-link" aria-describedby="CR32">32</a>], a BERT-based model with a transformer encoder and regression layer (Yield-BERT) [<a href="#CR33" class="usa-link" aria-describedby="CR33">33</a>], and T5Chem.</p>
+<p id="Par47">This outcome reveals that ReactionT5 retains robust predictive capabilities in yield prediction tasks. Specifically, while CompoundT5, fine-tuned on the C-N cross-coupling reactions within the training set, yielded the best performance on the randomly split dataset and Test 1, it underperformed in Tests 2–4. These tests presented more challenging domain-shift scenarios, a common struggle among conventional models. In contrast, ReactionT5 excelled under these difficult conditions, with its most significant improvements observed in Test 4, which previous studies have identified as the most challenging benchmark.</p>
+<p id="Par48">Furthermore, ReactionT5 demonstrated promising zero-shot performance, achieving superior results in Test 4 without additional fine-tuning.</p>
+<p id="Par49">We assessed ReactionT5’s performance in yield prediction under conditions of limited fine-tuning data by sampling fractions of the training sets from Tests 1–4 and training ReactionT5 alongside other models (Fig. <a href="#Fig3" class="usa-link">3</a>). The training sets were randomly sampled, and the experiment was conducted three times. These results indicate that ReactionT5 consistently achieved high R<sup>2</sup> scores across all scenarios, irrespective of the training data volume utilized. Specifically, ReactionT5 outperformed other methods, primarily when the data availability was restricted. While the other models required at least 20% of the training data (approximately 600 reactions) to reach their performance plateau, ReactionT5 demonstrated superior results, even excelling in zero-shot prediction scenarios.</p></section><section id="Sec17"><h3 class="pmc_sec_title">Visualization</h3>
+<p id="Par50">Pre-training on an extensive and diverse reaction database likely enabled ReactionT5 to capture a broad reaction space. To verify this, we visualized the reaction space encoded by the model (refer to Fig. <a href="#Fig1" class="usa-link">1</a> for an overview of the process flow). Specifically, for product and retrosynthesis predictions, we extracted embeddings from the output of the encoder. We concatenated the embeddings from both the encoder and decoder for yield prediction to create a comprehensive reaction embedding. We then applied Uniform Manifold Approximation and Projection (UMAP) to reduce the dimensionality of these high-dimensional embeddings to two dimensions, facilitating the visualization of the reaction distributions in a two-dimensional space (Fig. <a href="#Fig4" class="usa-link">4</a>).</p>
+<figure class="fig xbox font-sm" id="Fig4"><h4 class="obj_head">Fig. 4.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12366004_13321_2025_1075_Fig4_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/b294/12366004/6167e145cf47/13321_2025_1075_Fig4_HTML.jpg" loading="lazy" id="MO5" height="854" width="780" alt="Fig. 4"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig4/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Visualization of the reaction space captured by ReactionT5 for product prediction (<strong>a</strong> and <strong>b</strong>), retrosynthesis prediction (<strong>c</strong> and <strong>d</strong>), and yield prediction (<strong>e</strong> and <strong>f</strong>). Input sequences for each reaction were encoded into hidden vectors and dimensionally reduced using UMAP. The left panels (<strong>a</strong>, <strong>c</strong>, and <strong>e</strong>) display the reaction space colored by dataset type, whereas the right panels (<strong>b</strong>, <strong>d</strong>, and <strong>f</strong>) depict variations based on either the molecular weight of input sequences or the reaction yield</p></figcaption></figure><p id="Par51">Figure <a href="#Fig4" class="usa-link">4</a> displays the visualizations of the embedding space for each prediction task, with colors representing various chemical properties. Distinct clusters were observed within this figure, each correlating with trends in molecular weight and reaction yield. These patterns indicate that ReactionT5 effectively captures meaningful and relevant patterns within the reaction space, demonstrating the model’s sophisticated ability to represent and analyze complex chemical phenomena.</p>
+<p id="Par52">To qualitatively assess ReactionT5’s comprehension of the reaction space, we examined reactions situated in distinct areas of the 2D visualization and analyzed the chemical characteristics associated with these regions (Fig. <a href="#Fig5" class="usa-link">5</a>). From Fig. <a href="#Fig5" class="usa-link">5</a>, in the context of product prediction, reactions located in the lower-left region are predominantly hydrolysis of esters and reduction of carboxylic acids to alcohols. Conversely, the upper region is characterized by reactions involving nitrogen heterocyclic compounds, and the right region predominantly features reactions catalyzed by metal-phosphine complexes.</p>
+<figure class="fig xbox font-sm" id="Fig5"><h4 class="obj_head">Fig. 5.</h4>
+<p class="img-box line-height-none margin-x-neg-2 tablet:margin-x-0 text-center"><a class="tileshop" target="_blank" href="https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&amp;p=PMC3&amp;id=12366004_13321_2025_1075_Fig5_HTML.jpg"><img class="graphic zoom-in" src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/b294/12366004/50c9ac6fc808/13321_2025_1075_Fig5_HTML.jpg" loading="lazy" id="MO6" height="490" width="778" alt="Fig. 5"></a></p>
+<div class="p text-right font-secondary"><a href="figure/Fig5/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<figcaption><p>Qualitative analysis of ReactionT5’s understanding of the reaction space. Distinct regions in the reaction space revealed varying characteristics based on reaction types, compound architectures, and reaction conditions, highlighting the ability of the model to capture meaningful patterns and relationships within the reaction data</p></figcaption></figure><p id="Par53">In retrosynthesis prediction (Fig. S3a), the reactions in the left region illustrate nucleophilic substitution reactions between carbon halides and nitrogen, the upper region is distinguished by reactions involving steroid ring-containing compounds, and the right region highlights reactions of compounds that contain silicon.</p>
+<p id="Par54">For yield prediction (Fig. S3b), the left region is defined by reactions involving compounds with 1,4-Dihydro-4-oxoquinoline-3-carboxylic acid as the parent structure, the middle region depicts nucleophilic substitution reactions between carbon halides and nitrogen, and the right region is characterized by reactions where a phosphorus-containing compound is used as a reagent.</p>
+<p id="Par55">These findings reveal that ReactionT5 has successfully captured and delineated the reaction space by identifying meaningful patterns and relationships within the reaction data, demonstrating its robust capability in mapping and interpreting complex chemical interactions.</p>
+<p id="Par56">We conducted a quantitative analysis to evaluate the quality of reaction embeddings generated by ReactionT5. In this experiment, we encoded all reactions from the ORD and target datasets using ReactionT5 into the designated reaction space. For each reaction in the target dataset, we employed the nearest neighbor method based on the embedding vector to compare the chemical reaction space, selecting the most similar reaction for prediction. The target datasets for products (product prediction) and reactants (retrosynthesis prediction) were identical to those used in the previous experiment. For yield prediction, we conducted evaluations on the Test 1–4 datasets.</p>
+<p id="Par57">For comparison, embeddings were generated using Morgan fingerprints (radius = 2 and embedding size = 1024) and T5Chem. For T5Chem, we used the model weights fine-tuned on Test 1–4 of the C-N cross-coupling reactions dataset, and their embeddings were generated by concatenating the embeddings from both the encoder and decoder. We assessed the prediction error by calculating the average Levenshtein distance between predictions and targets for product and retrosynthesis predictions. We then measured R<sup>2</sup> for yield prediction.</p>
+<p id="Par58">Table <a href="#Tab4" class="usa-link">4</a> indicates that ReactionT5 achieved the lowest average Levenshtein distance for product and retrosynthesis predictions, as well as demonstrating a competitive R<sup>2</sup> for yield prediction. These results demonstrate that ReactionT5 produces high-quality reaction embeddings and is an effective tool for representing reaction spaces.</p>
+<section class="tw xbox font-sm" id="Tab4"><h4 class="obj_head">Table 4.</h4>
+<div class="caption p"><p>Comparison of qualitative evaluation of reaction embedding spaces related to ReactionT5, Morgan Fingerprint, and T5Chem</p></div>
+<div class="tbl-box p" tabindex="0"><table class="content" frame="hsides" rules="groups">
+<thead><tr>
+<th align="left" colspan="1" rowspan="1">Method</th>
+<th align="left" colspan="1" rowspan="1">Product</th>
+<th align="left" colspan="1" rowspan="1">Retrosynthesis</th>
+<th align="left" colspan="1" rowspan="1">Yield</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left" colspan="1" rowspan="1">Morgan Fingerprint</td>
+<td align="center" colspan="1" rowspan="1">2.90 <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq1"><math id="d33e1167"><mo>±</mo></math></span> 8.10</td>
+<td align="center" colspan="1" rowspan="1">32.08 <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq2"><math id="d33e1179"><mo>±</mo></math></span> 26.24</td>
+<td align="center" colspan="1" rowspan="1">0.807 <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq3"><math id="d33e1191"><mo>±</mo></math></span> 0.035</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">T5Chem</td>
+<td align="center" colspan="1" rowspan="1">25.55 <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq4"><math id="d33e1206"><mo>±</mo></math></span> 15.99</td>
+<td align="center" colspan="1" rowspan="1">34.57 <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq5"><math id="d33e1218"><mo>±</mo></math></span> 28.10</td>
+<td align="center" colspan="1" rowspan="1">
+<strong>0.845 </strong><span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq6"><math id="d33e1231"><mo>±</mo></math></span><strong> 0.046</strong>
+</td>
+</tr>
+<tr>
+<td align="left" colspan="1" rowspan="1">ReactionT5</td>
+<td align="center" colspan="1" rowspan="1">
+<strong>2.76</strong>
+<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq7"><math id="d33e1249"><mo>±</mo></math></span>
+<strong>7.60</strong>
+</td>
+<td align="center" colspan="1" rowspan="1">
+<strong>31.60</strong>
+<span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq8"><math id="d33e1265"><mo>±</mo></math></span>
+<strong>28.22</strong>
+</td>
+<td align="center" colspan="1" rowspan="1">0.840 <span xmlns:mml="http://www.w3.org/1998/Math/MathML" id="IEq9"><math id="d33e1279"><mo>±</mo></math></span> 0.020</td>
+</tr>
+</tbody>
+</table></div>
+<div class="p text-right font-secondary"><a href="table/Tab4/" class="usa-link" target="_blank" rel="noopener noreferrer">Open in a new tab</a></div>
+<div class="tw-foot p"><div class="fn" id="_fn_p73"><p>This table presents the average Levenshtein distance for product and retrosynthesis prediction, as well as R<sup>2</sup> for yield prediction</p></div></div></section></section></section><section id="Sec18"><h2 class="pmc_sec_title">Conclusions</h2>
+<p id="Par59">In this study, we developed ReactionT5, a chemical reaction foundation model. The main contribution of this research lies in the use of reaction pre-training on a large-scale reaction database, which is the ORD. Through two-stage pre-training—compound and reaction pre-training—ReactionT5 achieved superior performance in benchmarks for product prediction, retrosynthesis, and yield prediction. Notably, ReactionT5 outperformed existing models that were fine-tuned on complete target datasets, even when fine-tuned on smaller datasets. These results suggest that pre-training on an extensive reaction database yields promising models capable of performing well in scenarios with limited training data or domain shifts. Visualization of the ReactionT5 embeddings revealed that reactions with similar features, such as mechanisms, reactant structures, and reagent types, clustered together.</p>
+<p id="Par60">Future work will focus on improving the scalability of the models and the underlying data. Although we chose a model size based on the currently available ORD dataset, the law of neural scaling suggests that expanding our training dataset through continued data collection could yield a better-performing model [<a href="#CR34" class="usa-link" aria-describedby="CR34">34</a>]. Additionally, multi-task learning approaches can be integrated into ReactionT5’s training to leverage complementary information from multiple tasks and enhance the model's overall performance [<a href="#CR10" class="usa-link" aria-describedby="CR10">10</a>]. Although this study focused only on publicly available data, we believe that our publicly available ReactionT5 can be effectively applied to real chemical applications by fine-tuning the model using private in-house experimental data. Finally, by integrating active learning into our method, chemists can efficiently probe underexplored regions of the reaction space, which leads to the development of more accurate reaction prediction models that reduce experimental trial-and-error and ultimately accelerate the discovery of novel organic transformations.</p></section><section id="Sec19"><h2 class="pmc_sec_title">Supplementary Information</h2>
+<section class="sm xbox font-sm" id="MOESM1"><div class="media p"><div class="caption">
+<a href="/articles/instance/12366004/bin/13321_2025_1075_MOESM1_ESM.docx" data-ga-action="click_feat_suppl" class="usa-link">Additional file 1.</a><sup> (10.8MB, docx) </sup>
+</div></div></section></section><section id="ack1" class="ack"><h2 class="pmc_sec_title">Acknowledgements</h2>
+<p>Not applicable</p></section><section id="notes1"><h2 class="pmc_sec_title">Author contributions</h2>
+<p>R.K. conceived the idea; R.K. and T.S. designed research; T.S. performed research; T.S. analyzed data; R.K. and T.S. wrote the paper; All authors have given approval to the final version of the manuscript.</p></section><section id="notes2"><h2 class="pmc_sec_title">Funding</h2>
+<p>This research was supported by JST Moonshot R&amp;D Grant Number JPMJMS2024. This work was also supported by JSPS KAKENHI Grant No. JP21H05207, JP21H05221, RIKEN TRIP initiative (AGIS) and CREST Grant Number JPMJCR22D3, Japan.</p></section><section id="notes3"><h2 class="pmc_sec_title">Data availability</h2>
+<p>All our code is openly available at GitHub (<a href="https://github.com/sagawatatsuya/ReactionT5v2" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://github.com/sagawatatsuya/ReactionT5v2</a>), enabling users to easily reproduce the results of this research, fine-tune the models on their in-house datasets, or leverage the pre-trained models from Hugging Face (<a href="https://huggingface.co/collections/sagawa/reactiont5-67dbe0550cbb6886a85e348b" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://huggingface.co/collections/sagawa/reactiont5-67dbe0550cbb6886a85e348b</a>). We also provide all the datasets used in this study, as well as the parameters for each trained model.</p></section><section id="notes4"><h2 class="pmc_sec_title">Declarations</h2>
+<section id="FPar1"><h3 class="pmc_sec_title">Competing interests</h3>
+<p id="Par61">The authors declare no competing interests.</p></section></section><section id="fn-group1" class="fn-group"><h2 class="pmc_sec_title">Footnotes</h2>
+<div class="fn-group p font-secondary-light font-sm"><div class="fn p" id="fn1">
+<p><strong>Publisher's Note</strong></p>
+<p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p>
+</div></div></section><section id="Bib1" class="ref-list"><h2 class="pmc_sec_title">References</h2>
+<section id="Bib1_sec2"><ul class="ref-list font-sm" style="list-style-type:none">
+<li id="CR1">
+<span class="label">1.</span><cite>Glem RC et al (2006) Circular fingerprints: flexible molecular descriptors with applications from physical chemistry to ADME. IDrugs 9:199–204
+</cite> [<a href="https://pubmed.ncbi.nlm.nih.gov/16523386/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Glem%20RC%20et%20al%20(2006)%20Circular%20fingerprints:%20flexible%20molecular%20descriptors%20with%20applications%20from%20physical%20chemistry%20to%20ADME.%20IDrugs%209:199%E2%80%93204" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR2">
+<span class="label">2.</span><cite>Coley CW, Barzilay R, Jaakkola TS, Green WH, Jensen KF (2017) Prediction of organic reaction outcomes using machine learning. ACS Cent Sci 3:434–443. 10.1021/acscentsci.7b00064
+</cite> [<a href="https://doi.org/10.1021/acscentsci.7b00064" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC5445544/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/28573205/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Coley%20CW,%20Barzilay%20R,%20Jaakkola%20TS,%20Green%20WH,%20Jensen%20KF%20(2017)%20Prediction%20of%20organic%20reaction%20outcomes%20using%20machine%20learning.%20ACS%20Cent%20Sci%203:434%E2%80%93443.%2010.1021/acscentsci.7b00064" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR3">
+<span class="label">3.</span><cite>Xia J, Zhu Y, Du Y, Li SZ (2023) A systematic survey of chemical pre-trained models. In: Proceedings of the thirty-second international joint conference on artificial intelligence. International Joint Conferences on Artificial Intelligence Organization, CA 6787–6795. 10.24963/ijcai.2023/760.</cite>
+</li>
+<li id="CR4">
+<span class="label">4.</span><cite>Wang S, Guo Y, Wang Y, Sun H, Huang J (2019) Smiles-Bert: Large scale unsupervised pre-training for molecular property prediction. In: Proceedings of the 10th ACM international conference on bioinformatics, computational biology and health informatics. ACM, New York, p 429–436. 10.1145/3307339.3342186</cite>
+</li>
+<li id="CR5">
+<span class="label">5.</span><cite>Weininger D (1988) SMILES, a chemical language and information system. 1. introduction to methodology and encoding rules. J Chem Inf Comput Sci 28:31–36. 10.1021/ci00057a005</cite> [<a href="https://scholar.google.com/scholar_lookup?Weininger%20D%20(1988)%20SMILES,%20a%20chemical%20language%20and%20information%20system.%201.%20introduction%20to%20methodology%20and%20encoding%20rules.%20J%20Chem%20Inf%20Comput%20Sci%2028:31%E2%80%9336.%2010.1021/ci00057a005" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR6">
+<span class="label">6.</span><cite>Chithrananda S, Grand G, Ramsundar B (2020) ChemBERTa: large-scale self-supervised pretraining for molecular property prediction. arXiv. 10.48550/arXiv.2010.09885</cite>
+</li>
+<li id="CR7">
+<span class="label">7.</span><cite>Méndez-Lucio O, Nicolaou C, Earnshaw B (2022) MolE: a molecular foundation model for drug discovery. arXiv. 10.48550/arXiv.2211.02657</cite>
+</li>
+<li id="CR8">
+<span class="label">8.</span><cite>Wang Y, Wang J, Cao Z, Barati FA (2022) Molecular contrastive learning of representations via graph neural networks. Nat Mach Intell 4:279–287. 10.1038/s42256-022-00447-x</cite> [<a href="https://scholar.google.com/scholar_lookup?Wang%20Y,%20Wang%20J,%20Cao%20Z,%20Barati%20FA%20(2022)%20Molecular%20contrastive%20learning%20of%20representations%20via%20graph%20neural%20networks.%20Nat%20Mach%20Intell%204:279%E2%80%93287.%2010.1038/s42256-022-00447-x" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR9">
+<span class="label">9.</span><cite>Wu F, Radev D, Li Z (2023) Molformer: motif-based transformer on 3D heterogeneous molecular graphs. Proc AAAI Conf Artif Intell 37:5312–5320. 10.1609/aaai.v37i4.25662</cite> [<a href="https://scholar.google.com/scholar_lookup?Wu%20F,%20Radev%20D,%20Li%20Z%20(2023)%20Molformer:%20motif-based%20transformer%20on%203D%20heterogeneous%20molecular%20graphs.%20Proc%20AAAI%20Conf%20Artif%20Intell%2037:5312%E2%80%935320.%2010.1609/aaai.v37i4.25662" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR10">
+<span class="label">10.</span><cite>Lu J, Zhang Y (2022) Unified deep learning model for multitask reaction predictions with explanation. J Chem Inf Model 62:1376–1387. 10.1021/acs.jcim.1c01467
+</cite> [<a href="https://doi.org/10.1021/acs.jcim.1c01467" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8960360/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/35266390/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Lu%20J,%20Zhang%20Y%20(2022)%20Unified%20deep%20learning%20model%20for%20multitask%20reaction%20predictions%20with%20explanation.%20J%20Chem%20Inf%20Model%2062:1376%E2%80%931387.%2010.1021/acs.jcim.1c01467" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR11">
+<span class="label">11.</span><cite>Krzyzanowski A et al (2025) Exploring BERT for reaction yield prediction: evaluating the impact of tokenization, molecular representation, and pretraining data augmentation. J Chem Inf Model 65:4381–4402. 10.1021/acs.jcim.5c00359
+</cite> [<a href="https://doi.org/10.1021/acs.jcim.5c00359" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/40311104/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Krzyzanowski%20A%20et%20al%20(2025)%20Exploring%20BERT%20for%20reaction%20yield%20prediction:%20evaluating%20the%20impact%20of%20tokenization,%20molecular%20representation,%20and%20pretraining%20data%20augmentation.%20J%20Chem%20Inf%20Model%2065:4381%E2%80%934402.%2010.1021/acs.jcim.5c00359" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR12">
+<span class="label">12.</span><cite>Liu Z et al (2024) ReactXT: Understanding Molecular ‘Reaction-ship’ via Reaction-Contextualized Molecule-Text Pretraining. arXiv. 10.48550/arXiv.2405.14225</cite>
+</li>
+<li id="CR13">
+<span class="label">13.</span><cite>Raffel C et al (2020) Exploring the limits of transfer learning with a unified text-to-text transformer. J Mach Learn Res 21:1–67. 10.48550/arXiv.1910.1068334305477
+</cite> [<a href="https://scholar.google.com/scholar_lookup?Raffel%20C%20et%20al%20(2020)%20Exploring%20the%20limits%20of%20transfer%20learning%20with%20a%20unified%20text-to-text%20transformer.%20J%20Mach%20Learn%20Res%2021:1%E2%80%9367.%2010.48550/arXiv.1910.1068334305477" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR14">
+<span class="label">14.</span><cite>Kearnes SM et al (2021) The open reaction database. J Am Chem Soc 143:18820–18826. 10.1021/jacs.1c09820
+</cite> [<a href="https://doi.org/10.1021/jacs.1c09820" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/34727496/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Kearnes%20SM%20et%20al%20(2021)%20The%20open%20reaction%20database.%20J%20Am%20Chem%20Soc%20143:18820%E2%80%9318826.%2010.1021/jacs.1c09820" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR15">
+<span class="label">15.</span><cite>Schwaller P et al (2021) Mapping the space of chemical reactions using attention-based neural networks. Nat Mach Intell 3:144–152. 10.1038/s42256-020-00284-w</cite> [<a href="https://scholar.google.com/scholar_lookup?Schwaller%20P%20et%20al%20(2021)%20Mapping%20the%20space%20of%20chemical%20reactions%20using%20attention-based%20neural%20networks.%20Nat%20Mach%20Intell%203:144%E2%80%93152.%2010.1038/s42256-020-00284-w" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR16">
+<span class="label">16.</span><cite>Wang X et al (2022) From theory to experiment: transformer-based generation enables rapid discovery of novel reactions. J Cheminform 14:60. 10.1186/s13321-022-00638-z
+</cite> [<a href="https://doi.org/10.1186/s13321-022-00638-z" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC9438336/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/36056425/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Wang%20X%20et%20al%20(2022)%20From%20theory%20to%20experiment:%20transformer-based%20generation%20enables%20rapid%20discovery%20of%20novel%20reactions.%20J%20Cheminform%2014:60.%2010.1186/s13321-022-00638-z" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR17">
+<span class="label">17.</span><cite>Joshi M et al (2019) SpanBERT: improving pre-training by representing and predicting spans. Trans Assoc Comput Linguist 8:64–77. 10.1162/tacl_a_00300</cite> [<a href="https://scholar.google.com/scholar_lookup?Joshi%20M%20et%20al%20(2019)%20SpanBERT:%20improving%20pre-training%20by%20representing%20and%20predicting%20spans.%20Trans%20Assoc%20Comput%20Linguist%208:64%E2%80%9377.%2010.1162/tacl_a_00300" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR18">
+<span class="label">18.</span><cite>Kudo T, Richardson J (2018) SentencePiece: A simple and language independent subword tokenizer and detokenizer for Neural Text Processing. Association for Computational Linguistics, Stroudsburg, PA, USA, p 66–71. 10.18653/v1/D18-2012</cite>
+</li>
+<li id="CR19">
+<span class="label">19.</span><cite>Mielke SJ et al (2021) Between words and characters: A Brief History of Open-Vocabulary Modeling and Tokenization in NLP. arXiv. 10.48550/arXiv.2112.10508</cite>
+</li>
+<li id="CR20">
+<span class="label">20.</span><cite>Shazeer N, Stern M (2018) Adafactor: Adaptive learning rates with sublinear memory cost. International Conference on Machine Learning, Stockholm, Sweden, p 4596–4604. 10.48550/arXiv.1804.04235</cite>
+</li>
+<li id="CR21">
+<span class="label">21.</span><cite>Wigh DS et al (2022) ORDerly: data sets and benchmarks for chemical reaction data. J Chem Inf Model 64:3790–3798. 10.1021/acs.jcim.4c00292</cite> [<a href="https://doi.org/10.1021/acs.jcim.4c00292" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC11094788/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/38648077/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Wigh%20DS%20et%20al%20(2022)%20ORDerly:%20data%20sets%20and%20benchmarks%20for%20chemical%20reaction%20data.%20J%20Chem%20Inf%20Model%2064:3790%E2%80%933798.%2010.1021/acs.jcim.4c00292" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR22">
+<span class="label">22.</span><cite>Irwin JJ et al (2020) ZINC20—a free ultralarge-scale chemical database for ligand discovery. J Chem Inf Model 60:6065–6073. 10.1021/acs.jcim.0c00675
+</cite> [<a href="https://doi.org/10.1021/acs.jcim.0c00675" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC8284596/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/33118813/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Irwin%20JJ%20et%20al%20(2020)%20ZINC20%E2%80%94a%20free%20ultralarge-scale%20chemical%20database%20for%20ligand%20discovery.%20J%20Chem%20Inf%20Model%2060:6065%E2%80%936073.%2010.1021/acs.jcim.0c00675" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR23">
+<span class="label">23.</span><cite>Lowe DM (2012) Extraction of chemical structures and reactions from the literature. University of Cambridge, Cambridge</cite> [<a href="https://scholar.google.com/scholar_lookup?Lowe%20DM%20(2012)%20Extraction%20of%20chemical%20structures%20and%20reactions%20from%20the%20literature.%20University%20of%20Cambridge,%20Cambridge" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR24">
+<span class="label">24.</span><cite>Jin W, Coley CW, Barzilay R, Jaakkola T (2017) Predicting organic reaction outcomes with Weisfeiler-Lehman network. Adv Neural Inf Process Syst 2:2607–2616</cite> [<a href="https://scholar.google.com/scholar_lookup?Jin%20W,%20Coley%20CW,%20Barzilay%20R,%20Jaakkola%20T%20(2017)%20Predicting%20organic%20reaction%20outcomes%20with%20Weisfeiler-Lehman%20network.%20Adv%20Neural%20Inf%20Process%20Syst%202:2607%E2%80%932616" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR25">
+<span class="label">25.</span><cite>Liu B et al (2017) Retrosynthetic reaction prediction using neural sequence-to-sequence models. ACS Cent Sci 3:1103–1113. 10.1021/acscentsci.7b00303
+</cite> [<a href="https://doi.org/10.1021/acscentsci.7b00303" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC5658761/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/29104927/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Liu%20B%20et%20al%20(2017)%20Retrosynthetic%20reaction%20prediction%20using%20neural%20sequence-to-sequence%20models.%20ACS%20Cent%20Sci%203:1103%E2%80%931113.%2010.1021/acscentsci.7b00303" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR26">
+<span class="label">26.</span><cite>Ahneman DT, Estrada JG, Lin S, Dreher SD, Doyle AG (2018) Predicting reaction performance in C-N cross-coupling using machine learning. Science 360:186–190. 10.1126/science.aar5169
+</cite> [<a href="https://doi.org/10.1126/science.aar5169" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/29449509/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Ahneman%20DT,%20Estrada%20JG,%20Lin%20S,%20Dreher%20SD,%20Doyle%20AG%20(2018)%20Predicting%20reaction%20performance%20in%20C-N%20cross-coupling%20using%20machine%20learning.%20Science%20360:186%E2%80%93190.%2010.1126/science.aar5169" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR27">
+<span class="label">27.</span><cite>Schwaller P, Gaudin T, Lányi D, Bekas C, Laino T (2018) ‘Found in Translation’: predicting outcomes of complex organic chemistry reactions using neural sequence-to-sequence models. Chem Sci 9:6091–6098. 10.1039/c8sc02339e
+</cite> [<a href="https://doi.org/10.1039/c8sc02339e" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC6053976/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/30090297/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Schwaller%20P,%20Gaudin%20T,%20L%C3%A1nyi%20D,%20Bekas%20C,%20Laino%20T%20(2018)%20%E2%80%98Found%20in%20Translation%E2%80%99:%20predicting%20outcomes%20of%20complex%20organic%20chemistry%20reactions%20using%20neural%20sequence-to-sequence%20models.%20Chem%20Sci%209:6091%E2%80%936098.%2010.1039/c8sc02339e" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR28">
+<span class="label">28.</span><cite>Coley CW et al (2019) A graph-convolutional neural network model for the prediction of chemical reactivity. Chem Sci 10:370–377. 10.1039/c8sc04228d
+</cite> [<a href="https://doi.org/10.1039/c8sc04228d" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC6335848/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/30746086/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Coley%20CW%20et%20al%20(2019)%20A%20graph-convolutional%20neural%20network%20model%20for%20the%20prediction%20of%20chemical%20reactivity.%20Chem%20Sci%2010:370%E2%80%93377.%2010.1039/c8sc04228d" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR29">
+<span class="label">29.</span><cite>Lei T et al (2017) Deriving neural architectures from sequence and graph kernels. Proc Int Conf Mach Learn. 10.48550/arXiv.1705.09037</cite> [<a href="https://scholar.google.com/scholar_lookup?Lei%20T%20et%20al%20(2017)%20Deriving%20neural%20architectures%20from%20sequence%20and%20graph%20kernels.%20Proc%20Int%20Conf%20Mach%20Learn.%2010.48550/arXiv.1705.09037" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR30">
+<span class="label">30.</span><cite>Schwaller P et al (2019) Molecular transformer: a model for uncertainty-calibrated chemical reaction prediction. ACS Cent Sci 5:1572–1583. 10.1021/acscentsci.9b00576
+</cite> [<a href="https://doi.org/10.1021/acscentsci.9b00576" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="/articles/PMC6764164/" class="usa-link">PMC free article</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/31572784/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Schwaller%20P%20et%20al%20(2019)%20Molecular%20transformer:%20a%20model%20for%20uncertainty-calibrated%20chemical%20reaction%20prediction.%20ACS%20Cent%20Sci%205:1572%E2%80%931583.%2010.1021/acscentsci.9b00576" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR31">
+<span class="label">31.</span><cite>Zheng S, Rao J, Zhang Z, Xu J, Yang Y (2020) Predicting retrosynthetic reactions using self-corrected transformer neural networks. J Chem Inf Model 60:47–55. 10.1021/acs.jcim.9b00949
+</cite> [<a href="https://doi.org/10.1021/acs.jcim.9b00949" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">DOI</a>] [<a href="https://pubmed.ncbi.nlm.nih.gov/31825611/" class="usa-link">PubMed</a>] [<a href="https://scholar.google.com/scholar_lookup?Zheng%20S,%20Rao%20J,%20Zhang%20Z,%20Xu%20J,%20Yang%20Y%20(2020)%20Predicting%20retrosynthetic%20reactions%20using%20self-corrected%20transformer%20neural%20networks.%20J%20Chem%20Inf%20Model%2060:47%E2%80%9355.%2010.1021/acs.jcim.9b00949" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR32">
+<span class="label">32.</span><cite>Sandfort F, Strieth-Kalthoff F, Kühnemund M, Beecks C, Glorius F (2020) A structure-based platform for predicting chemical reactivity. Chem 6:1379–1390. 10.1016/j.chempr.2020.02.017</cite> [<a href="https://scholar.google.com/scholar_lookup?Sandfort%20F,%20Strieth-Kalthoff%20F,%20K%C3%BChnemund%20M,%20Beecks%20C,%20Glorius%20F%20(2020)%20A%20structure-based%20platform%20for%20predicting%20chemical%20reactivity.%20Chem%206:1379%E2%80%931390.%2010.1016/j.chempr.2020.02.017" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR33">
+<span class="label">33.</span><cite>Schwaller P, Vaucher AC, Laino T, Reymond J-L (2021) Prediction of chemical reaction yields using deep learning. Mach Learn Sci Technol 2:015016. 10.1088/2632-2153/abc81d</cite> [<a href="https://scholar.google.com/scholar_lookup?Schwaller%20P,%20Vaucher%20AC,%20Laino%20T,%20Reymond%20J-L%20(2021)%20Prediction%20of%20chemical%20reaction%20yields%20using%20deep%20learning.%20Mach%20Learn%20Sci%20Technol%202:015016.%2010.1088/2632-2153/abc81d" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">Google Scholar</a>]</li>
+<li id="CR34">
+<span class="label">34.</span><cite>Kaplan J et al (2020) Scaling laws for neural language models. arXiv. 10.48550/arXiv.2001.08361</cite>
+</li>
+</ul></section></section><section id="_ad93_" lang="en" class="associated-data"><h2 class="pmc_sec_title">Associated Data</h2>
+<p class="font-secondary"><em>This section collects any data citations, data availability statements, or supplementary materials included in this article.</em></p>
+<section id="_adsm93_" lang="en" class="supplementary-materials"><h3 class="pmc_sec_title">Supplementary Materials</h3>
+<section class="sm xbox font-sm" id="db_ds_supplementary-material1_reqid_"><div class="media p"><div class="caption">
+<a href="/articles/instance/12366004/bin/13321_2025_1075_MOESM1_ESM.docx" data-ga-action="click_feat_suppl" class="usa-link">Additional file 1.</a><sup> (10.8MB, docx) </sup>
+</div></div></section></section><section id="_adda93_" lang="en" class="data-availability-statement"><h3 class="pmc_sec_title">Data Availability Statement</h3>
+<p>All our code is openly available at GitHub (<a href="https://github.com/sagawatatsuya/ReactionT5v2" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://github.com/sagawatatsuya/ReactionT5v2</a>), enabling users to easily reproduce the results of this research, fine-tune the models on their in-house datasets, or leverage the pre-trained models from Hugging Face (<a href="https://huggingface.co/collections/sagawa/reactiont5-67dbe0550cbb6886a85e348b" class="usa-link usa-link--external" data-ga-action="click_feat_suppl" target="_blank" rel="noopener noreferrer">https://huggingface.co/collections/sagawa/reactiont5-67dbe0550cbb6886a85e348b</a>). We also provide all the datasets used in this study, as well as the parameters for each trained model.</p></section></section></section><footer class="p courtesy-note font-secondary font-sm text-center"><hr class="headless">
+<p>Articles from Journal of Cheminformatics are provided here courtesy of <strong>BMC</strong></p></footer></section></article>
+
+                      
+
+                    </main>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+<!-- Secondary navigation placeholder -->
+<div class="pmc-sidenav desktop:grid-col-4 display-flex">
+    <section class="pmc-sidenav__container" aria-label="Article resources and navigation">
+        <button type="button" class="usa-button pmc-sidenav__container__close usa-button--unstyled">
+            <img src="/static/img/usa-icons/close.svg" role="img" alt="Close" />
+        </button>
+    <div class="display-none desktop:display-block">
+       <section class="margin-top-4 desktop:margin-top-0">
+              <h2 class="margin-top-0">ACTIONS</h2>
+           <ul class="usa-list usa-list--unstyled usa-list--actions">
+               
+               <li>
+                     <a
+                             href="https://doi.org/10.1186/s13321-025-01075-4"
+                             class="usa-button usa-button--outline width-24 font-xs display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                             target="_blank"
+                             rel="noreferrer noopener"
+                             data-ga-category="actions"
+                             data-ga-action="click"
+                             data-ga-label="publisher_link_desktop"
+                     >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#launch"></use>
+                         </svg>
+                         <span class="display-inline-flex flex-justify-center flex-1 padding-right-2">View on publisher site</span>
+                     </a>
+               </li>
+               
+               
+               <li>
+                    <a
+                            href="pdf/13321_2025_Article_1075.pdf"
+                            class="usa-button usa-button--outline width-24 display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                            data-ga-category="actions"
+                            data-ga-action="click"
+                            data-ga-label="pdf_download_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1">PDF (4.8 MB)</span>
+                    </a>
+               </li>
+               
+                
+               <li>
+                   <button role="button" class="usa-button width-24 citation-dialog-trigger display-inline-flex flex-align-center flex-justify-start padding-left-1"
+                        aria-label="Open dialog with citation text in different styles"
+                        data-ga-category="actions"
+                        data-ga-action="open"
+                        data-ga-label="cite_desktop"
+                        data-all-citations-url="/resources/citations/12366004/"
+                        data-citation-style="nlm"
+                        data-download-format-link="/resources/citations/12366004/export/"
+                    >
+                        <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#format_quote"></use>
+                        </svg>
+                       <span class="display-inline-flex flex-justify-center flex-1 button-label">Cite</span>
+                    </button>
+               </li>
+                
+               <li>
+
+                        <button class="usa-button width-24 collections-dialog-trigger collections-button display-inline-flex flex-align-center flex-justify-start padding-left-1 collections-button-empty"
+                              aria-label="Save article in MyNCBI collections."
+                              data-ga-category="actions"
+                              data-ga-action="click"
+                              data-ga-label="collections_button_desktop"
+                              data-collections-open-dialog-enabled="false"
+                              data-collections-open-dialog-url="https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpmc.ncbi.nlm.nih.gov%2Farticles%2FPMC12366004%2F%3Freport%3Dclassic%23open-collections-dialog"
+                              data-in-collections="false">
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-full" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-full.svg#icon"></use>
+                            </svg>
+                            <svg class="usa-icon width-3 height-3 usa-icon--bookmark-empty" aria-hidden="true" focusable="false" role="img" hidden>
+                                <use xlink:href="/static/img/action-bookmark-empty.svg#icon"></use>
+                            </svg>
+                            <span class="display-inline-flex flex-justify-center flex-1">Collections</span>
+                       </button>
+               </li>
+               <li class="pmc-permalink">
+                    <button
+                            type="button"
+                            class="usa-button width-24 display-inline-flex flex-align-center flex-justify padding-left-1 shadow-none"
+                            aria-label="Show article permalink"
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            data-ga-category="actions"
+                            data-ga-action="open"
+                            data-ga-label="permalink_desktop"
+                    >
+                         <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img" hidden>
+                            <use xlink:href="/static/img/sprite.svg#share"></use>
+                        </svg>
+                        <span class="display-inline-flex flex-justify-center flex-1 button-label">Permalink</span>
+                    </button>
+                   
+
+<div class="pmc-permalink__dropdown" hidden>
+    <div class="pmc-permalink__dropdown__container">
+          <h2 class="usa-modal__heading margin-top-0 margin-bottom-2 text-uppercase font-sans-xs">PERMALINK</h2>
+          <div class="pmc-permalink__dropdown__content">
+              <input type="text" class="usa-input" value="https://pmc.ncbi.nlm.nih.gov/articles/PMC12366004/" aria-label="Article permalink">
+              <button class="usa-button display-inline-flex pmc-permalink__dropdown__copy__btn margin-right-0" title="Copy article permalink" data-ga-category="save_share" data-ga-action="link" data-ga-label="copy_link">
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+                  </svg>
+                  <span class="margin-left-1">Copy</span>
+              </button>
+          </div>
+    </div>
+</div>
+               </li>
+           </ul>
+       </section>
+     </div>
+
+        <section class="pmc-resources margin-top-6 desktop:margin-top-4" data-page-path="/articles/PMC12366004/">
+            <h2 class="margin-top-0">RESOURCES</h2>
+            
+                <div class="usa-accordion usa-accordion--multiselectable" data-allow-multiple>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-similar-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_similar_articles"
+                        data-ga-label="/articles/PMC12366004/"
+                        data-action-open="open_similar_articles"
+                        data-action-close="close_similar_articles"
+                        >
+                            Similar articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-similar-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/similar-article-links/40830907/"
+                            
+                    >
+                        
+                    </div>
+                    <h3 class="usa-accordion__heading">
+                        <button
+                        type="button"
+                        class="usa-accordion__button"
+                        aria-expanded="false"
+                        aria-controls="resources-cited-by-other-articles"
+                        data-ga-category="resources_accordion"
+                        data-ga-action="open_cited_by"
+                        data-ga-label="/articles/PMC12366004/"
+                        data-action-open="open_cited_by"
+                        data-action-close="close_cited_by"
+                        >
+                             Cited by other articles
+                        </button>
+                    </h3>
+                    <div
+                            id="resources-cited-by-other-articles"
+                            class="usa-accordion__content usa-prose"
+                            
+                                data-source-url="/resources/cited-by-links/40830907/"
+                            
+                    >
+                          
+                    </div>
+                    
+                        <h3 class="usa-accordion__heading">
+                            <button
+                            type="button"
+                            class="usa-accordion__button"
+                            aria-expanded="false"
+                            aria-controls="resources-links-to-ncbi-databases"
+                            data-ga-category="resources_accordion"
+                            data-ga-action="open_NCBI_links"
+                            data-ga-label="/articles/PMC12366004/"
+                            data-action-open="open_NCBI_links"
+                            data-action-close="close_NCBI_link"
+                            >
+                                 Links to NCBI Databases
+                            </button>
+                        </h3>
+                        <div
+                                id="resources-links-to-ncbi-databases"
+                                class="usa-accordion__content usa-prose"
+                                data-source-url="/resources/db-links/12366004/"
+                        >
+                        </div>
+                    
+                    
+                </div>
+            
+        </section>
+
+
+        <section
+        class="usa-in-page-nav usa-in-page-nav--wide margin-top-6 desktop:margin-top-4"
+        data-title-text="On this page"
+        data-title-heading-level="h2"
+        data-scroll-offset="0"
+        data-root-margin="-10% 0px -80% 0px"
+        data-main-content-selector="main"
+        data-threshold="1"
+        hidden
+        ></section>
+    </section>
+</div>
+
+
+        
+
+<div class="overlay" role="dialog" aria-label="Citation Dialog" hidden>
+    <div class="dialog citation-dialog" aria-hidden="true">
+        <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+            <h2 class="usa-modal__heading margin-0">Cite</h2>
+             <button type="button" class="usa-button usa-button--unstyled close-overlay text-black width-auto"  tabindex="1">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#close"></use>
+                </svg>
+             </button>
+        </div>
+
+        
+
+<div class="citation-text-block">
+  <div class="citation-text margin-bottom-2"></div>
+  <ul class="usa-list usa-list--unstyled display-inline-flex flex-justify width-full flex-align-center">
+      <li>
+        <button
+          class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center copy-button dialog-focus"
+          data-ga-category="save_share"
+          data-ga-action="cite"
+          data-ga-label="copy"
+          tabindex="2">
+            <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                <use xlink:href="/static/img/sprite.svg#content_copy"></use>
+            </svg>
+            <span>Copy</span>
+        </button>
+      </li>
+      <li>
+          <a
+              href="#"
+              role="button"
+              class="usa-button usa-button--unstyled text-no-underline display-flex flex-align-center export-button"
+              data-ga-category="save_share"
+              data-ga-action="cite"
+              data-ga-label="download"
+              title="Download a file for external citation management software"
+              tabindex="3">
+                <svg class="usa-icon width-3 height-3" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="/static/img/sprite.svg#file_download"></use>
+                </svg>
+                <span class="display-none mobile-lg:display-inline">Download .nbib</span>
+                <span class="display-inline mobile-lg:display-none">.nbib</span>
+            </a>
+      </li>
+      <li>
+          
+
+<div class="display-inline-flex flex-align-center">
+  <label class="usa-label margin-top-0">Format:</label>
+  <select aria-label="Format" class="usa-select citation-style-selector padding-1 margin-top-0 border-0 padding-right-4" tabindex="4" >
+    
+      <option data-style-url-name="ama"
+              value="AMA"
+              >
+        AMA
+      </option>
+    
+      <option data-style-url-name="apa"
+              value="APA"
+              >
+        APA
+      </option>
+    
+      <option data-style-url-name="mla"
+              value="MLA"
+              >
+        MLA
+      </option>
+    
+      <option data-style-url-name="nlm"
+              value="NLM"
+              selected="selected">
+        NLM
+      </option>
+    
+  </select>
+</div>
+      </li>
+  </ul>
+</div>
+    </div>
+</div>
+
+        <div class="overlay" role="dialog" hidden>
+  <div id="collections-action-dialog" class="dialog collections-dialog" aria-hidden="true">
+   <div class="display-inline-flex flex-align-center flex-justify width-full margin-bottom-2">
+        <h2 class="usa-modal__heading margin-0">Add to Collections</h2>
+    </div>
+    <div class="collections-action-panel action-panel">
+      
+
+
+<form id="collections-action-dialog-form"
+      class="usa-form maxw-full collections-action-panel-form action-panel-content action-form action-panel-smaller-selectors"
+      data-existing-collections-url="/list-existing-collections/"
+      data-add-to-existing-collection-url="/add-to-existing-collection/"
+      data-create-and-add-to-new-collection-url="/create-and-add-to-new-collection/"
+      data-myncbi-max-collection-name-length="100"
+      data-collections-root-url="https://www.ncbi.nlm.nih.gov/myncbi/collections/">
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="xINJCk8M50iMTZHH0bQ8bjUGXY1of5Fqlb3oNZGaYEEBkqx8Covd9xk17062IBEV">
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-new"
+            class="usa-radio__input usa-radio__input--tile collections-new  margin-top-0"
+            name="collections"
+            value="new"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_new" />
+            <label class="usa-radio__label" for="collections-action-dialog-new">Create a new collection</label>
+        </div>
+        <div class="usa-radio">
+            <input type="radio"
+            id="collections-action-dialog-existing"
+            class="usa-radio__input usa-radio__input--tile collections-existing"
+            name="collections"
+            value="existing"
+            checked="true"
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="collections_radio_existing" />
+            <label class="usa-radio__label" for="collections-action-dialog-existing">Add to an existing collection</label>
+        </div>
+    </fieldset>
+
+    <fieldset class="usa-fieldset margin-bottom-2">
+        <div class="action-panel-control-wrap new-collections-controls">
+           <label for="collections-action-dialog-add-to-new" class="usa-label margin-top-0">
+                Name your collection
+               <abbr title="required" class="usa-hint usa-hint--required text-no-underline">*</abbr>
+          </label>
+          <input
+            type="text"
+            name="add-to-new-collection"
+            id="collections-action-dialog-add-to-new"
+            class="usa-input collections-action-add-to-new"
+            pattern="[^&quot;&amp;=&lt;&gt;/]*" title="The following characters are not allowed in the Name field: &quot;&amp;=&lt;&gt;/"
+            maxlength=""
+            data-ga-category="collections_button"
+            data-ga-action="create_collection"
+            data-ga-label="non_favorties_collection"
+            required
+          />
+        </div>
+        <div class="action-panel-control-wrap existing-collections-controls">
+             <label for="collections-action-dialog-add-to-existing" class="usa-label margin-top-0">
+                Choose a collection
+              </label>
+              <select id="collections-action-dialog-add-to-existing"
+                      class="usa-select collections-action-add-to-existing"
+                      data-ga-category="collections_button"
+                      data-ga-action="select_collection"
+                      data-ga-label="($('.collections-action-add-to-existing').val() === 'Favorites') ? 'Favorites' : 'non_favorites_collection'">
+              </select>
+              <div class="collections-retry-load-on-error usa-input-error-message selection-validation-message">
+                Unable to load your collection due to an error<br>
+                <a href="#">Please try again</a>
+              </div>
+        </div>
+    </fieldset>
+
+    <div class="display-inline-flex">
+        <button class="usa-button margin-top-0 action-panel-submit"
+            type="submit"
+            data-loading-label="Adding..."
+            data-pinger-ignore
+            data-ga-category="collections_button"
+            data-ga-action="click"
+            data-ga-label="add">
+          Add
+        </button>
+        <button class="usa-button usa-button--outline margin-top-0 action-panel-cancel"
+                aria-label="Close 'Add to Collections' panel"
+                ref="linksrc=close_collections_panel"
+                data-ga-category="collections_button"
+                data-ga-action="click"
+                data-ga-label="cancel">
+          Cancel
+        </button>
+    </div>
+</form>
+    </div>
+  </div>
+</div>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+
+
+        
+    
+    
+
+<footer class="ncbi-footer ncbi-dark-background " >
+    
+        <div class="ncbi-footer__icon-section">
+            <div class="ncbi-footer__social-header">
+                Follow NCBI
+            </div>
+
+            <div class="grid-container ncbi-footer__ncbi-social-icons-container">
+                
+                    <a href="https://twitter.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="40"
+                             height="40"
+                             viewBox="0 0 40 40"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on X (formerly known as Twitter)</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.facebook.com/ncbi.nlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="16"
+                             height="29"
+                             focusable="false"
+                             aria-hidden="true"
+                             viewBox="0 0 16 29"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.8809 21.4002C3.8809 19.0932 3.8809 16.7876 3.8809 14.478C3.8809 14.2117 3.80103 14.1452 3.54278 14.1492C2.53372 14.1638 1.52334 14.1492 0.514288 14.1598C0.302626 14.1598 0.248047 14.0972 0.248047 13.8936C0.256034 12.4585 0.256034 11.0239 0.248047 9.58978C0.248047 9.37013 0.302626 9.30224 0.528931 9.3049C1.53798 9.31688 2.54837 9.3049 3.55742 9.31555C3.80103 9.31555 3.8809 9.26097 3.87957 9.00272C3.87158 8.00565 3.85428 7.00592 3.90753 6.00884C3.97142 4.83339 4.31487 3.73115 5.04437 2.78467C5.93095 1.63318 7.15699 1.09005 8.56141 0.967577C10.5582 0.79319 12.555 0.982221 14.5518 0.927641C14.7102 0.927641 14.7462 0.99287 14.7449 1.13664C14.7449 2.581 14.7449 4.02668 14.7449 5.47104C14.7449 5.67604 14.6517 5.68669 14.4946 5.68669C13.4523 5.68669 12.4113 5.68669 11.3703 5.68669C10.3506 5.68669 9.92057 6.10868 9.90593 7.13904C9.89661 7.7647 9.91525 8.39303 9.89794 9.01869C9.88995 9.26364 9.96583 9.31822 10.2015 9.31688C11.7204 9.30623 13.2393 9.31688 14.7595 9.3049C15.0257 9.3049 15.0723 9.3728 15.0444 9.62439C14.89 10.9849 14.7515 12.3467 14.6144 13.7085C14.5691 14.1571 14.5785 14.1585 14.1458 14.1585C12.8386 14.1585 11.5313 14.1665 10.2254 14.1518C9.95119 14.1518 9.89794 14.2317 9.89794 14.4899C9.90593 19.0799 9.89794 23.6752 9.91125 28.2612C9.91125 28.5674 9.8407 28.646 9.53186 28.6433C7.77866 28.6273 6.02414 28.6366 4.27094 28.634C3.82499 28.634 3.87158 28.6992 3.87158 28.22C3.87602 25.9472 3.87913 23.6739 3.8809 21.4002Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on Facebook</span>
+                    </a>
+                
+
+                
+                    <a href="https://www.linkedin.com/company/ncbinlm"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="25"
+                             height="23"
+                             viewBox="0 0 26 24"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M14.6983 9.98423C15.6302 9.24808 16.5926 8.74754 17.6762 8.51991C19.673 8.09126 21.554 8.30824 23.1262 9.7526C24.2351 10.7723 24.7529 12.1115 25.0165 13.5612C25.1486 14.3363 25.2105 15.1218 25.2015 15.9081C25.2015 18.3043 25.2015 20.6898 25.2082 23.0806C25.2082 23.3468 25.1549 23.444 24.8621 23.4414C23.1297 23.4272 21.3992 23.4272 19.6704 23.4414C19.4041 23.4414 19.3429 23.3588 19.3442 23.1019C19.3535 20.5194 19.3442 17.9368 19.3442 15.3543C19.3442 14.0005 18.3258 12.9448 17.0266 12.9488C15.7273 12.9528 14.6983 14.0071 14.6983 15.361C14.6983 17.9328 14.6917 20.5047 14.6983 23.0753C14.6983 23.3708 14.6198 23.444 14.3296 23.4427C12.6185 23.4294 10.9079 23.4294 9.19779 23.4427C8.93155 23.4427 8.86099 23.3735 8.86232 23.1086C8.8783 19.7619 8.88628 16.4144 8.88628 13.066C8.88628 11.5688 8.87874 10.0708 8.86365 8.57182C8.86365 8.3575 8.90758 8.27896 9.14054 8.28029C10.9048 8.29094 12.6687 8.29094 14.4321 8.28029C14.6464 8.28029 14.6983 8.34818 14.6983 8.54653C14.6903 9.00047 14.6983 9.45441 14.6983 9.98423Z">
+                            </path>
+                            <path d="M6.55316 15.8443C6.55316 18.2564 6.55316 20.6699 6.55316 23.082C6.55316 23.3629 6.48127 23.4388 6.19906 23.4374C4.47737 23.4241 2.75568 23.4241 1.03399 23.4374C0.767751 23.4374 0.69986 23.3629 0.701191 23.1006C0.709178 18.2648 0.709178 13.4281 0.701191 8.59053C0.701191 8.34026 0.765089 8.27237 1.01669 8.2737C2.74991 8.28435 4.48048 8.28435 6.20838 8.2737C6.47462 8.2737 6.5465 8.33627 6.54517 8.6065C6.54783 11.0186 6.55316 13.4308 6.55316 15.8443Z">
+                            </path>
+                            <path d="M3.65878 0.243898C5.36804 0.243898 6.58743 1.45529 6.58743 3.1406C6.58743 4.75801 5.32145 5.95742 3.60819 5.96807C3.22177 5.97614 2.83768 5.90639 2.47877 5.76299C2.11985 5.61959 1.79344 5.40546 1.51897 5.13334C1.24449 4.86123 1.02755 4.53668 0.881058 4.17902C0.734563 3.82136 0.661505 3.43788 0.666231 3.05141C0.67555 1.42601 1.9362 0.242566 3.65878 0.243898Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on LinkedIn</span>
+                    </a>
+                
+
+                
+                    <a href="https://github.com/ncbi"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="28"
+                             height="27"
+                             viewBox="0 0 28 28"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M16.7228 20.6334C17.5057 20.5527 18.2786 20.3944 19.0301 20.1608C21.3108 19.4193 22.5822 17.8259 22.963 15.4909C23.1228 14.5112 23.1814 13.5287 22.9883 12.5437C22.8106 11.6423 22.4013 10.8028 21.8007 10.1076C21.7526 10.0605 21.7197 10 21.7064 9.934C21.6931 9.86799 21.7 9.79952 21.7262 9.73748C22.0856 8.6206 21.9711 7.51969 21.601 6.42677C21.582 6.3497 21.5345 6.2827 21.468 6.23923C21.4016 6.19577 21.3211 6.17906 21.2429 6.19248C20.7329 6.21649 20.2313 6.33051 19.7611 6.52928C19.1103 6.7908 18.4899 7.12198 17.9104 7.51703C17.84 7.56996 17.7581 7.60551 17.6713 7.62078C17.5846 7.63605 17.4954 7.6306 17.4112 7.60489C15.2596 7.05882 13.0054 7.06203 10.8554 7.61421C10.7806 7.63586 10.7018 7.63967 10.6253 7.62534C10.5487 7.611 10.4766 7.57892 10.4148 7.53167C9.64788 7.03247 8.85171 6.58918 7.96368 6.33359C7.65781 6.24338 7.34123 6.19458 7.02239 6.18849C6.94879 6.17986 6.87462 6.19893 6.81432 6.242C6.75402 6.28507 6.71191 6.34904 6.69621 6.42145C6.32342 7.51437 6.2209 8.61527 6.56307 9.73348C6.59635 9.84264 6.64694 9.93316 6.54177 10.0516C5.47666 11.2604 5.09988 12.6834 5.19574 14.2676C5.2663 15.4244 5.46201 16.5466 6.01454 17.5769C6.84399 19.1171 8.21664 19.9119 9.85158 20.3352C10.3938 20.4706 10.9444 20.5698 11.4998 20.632C11.5384 20.7492 11.4506 20.7798 11.408 20.8291C11.1734 21.1179 10.9894 21.4441 10.8634 21.7942C10.7622 22.0458 10.8315 22.4039 10.6065 22.5516C10.263 22.7766 9.83827 22.8485 9.42421 22.8871C8.17936 23.0056 7.26471 22.4877 6.6283 21.4348C6.25552 20.8184 5.76956 20.3325 5.08523 20.0663C4.76981 19.9325 4.42139 19.8967 4.08537 19.9638C3.7898 20.029 3.73788 20.1901 3.93891 20.4111C4.03639 20.5234 4.14989 20.6207 4.27575 20.6999C4.9796 21.1318 5.51717 21.7884 5.80152 22.5636C6.37002 23.9973 7.48039 24.5697 8.93825 24.6323C9.43741 24.6575 9.93768 24.615 10.4254 24.5058C10.5892 24.4672 10.6531 24.4872 10.6517 24.6762C10.6451 25.4936 10.6637 26.3123 10.6517 27.131C10.6517 27.6635 10.1684 27.9297 9.58663 27.7393C8.17396 27.2671 6.84977 26.5631 5.66838 25.656C2.59555 23.2891 0.720966 20.1861 0.217704 16.3376C-0.357453 11.9127 0.911353 8.00824 3.98551 4.73881C6.11909 2.42656 8.99932 0.939975 12.1203 0.540191C16.5351 -0.0601815 20.4347 1.14323 23.7232 4.16373C26.2449 6.47869 27.724 9.37672 28.1048 12.7726C28.5828 17.0325 27.3686 20.7945 24.4768 23.9827C22.9762 25.6323 21.0956 26.8908 18.9982 27.6488C18.8783 27.6927 18.7585 27.738 18.636 27.7726C18.0356 27.9404 17.6189 27.6395 17.6189 27.0098C17.6189 25.7452 17.6308 24.4806 17.6295 23.2159C17.6329 22.9506 17.6128 22.6856 17.5696 22.4238C17.4325 21.6664 17.3419 21.484 16.7228 20.6334Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI on GitHub</span>
+                    </a>
+                
+
+                
+                    <a href="https://ncbiinsights.ncbi.nlm.nih.gov/"
+                       class="ncbi-footer__social-icon ncbi-footer__social-icon--gray"
+                       target="_blank"
+                       rel="noreferrer noopener">
+                        <svg width="26"
+                             height="26"
+                             viewBox="0 0 27 27"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             focusable="false"
+                             aria-hidden="true">
+                            <path d="M23.7778 26.4574C23.1354 26.3913 22.0856 26.8024 21.636 26.3087C21.212 25.8444 21.4359 24.8111 21.324 24.0347C19.9933 14.8323 14.8727 8.80132 6.09057 5.85008C4.37689 5.28406 2.58381 4.99533 0.779072 4.99481C0.202773 4.99481 -0.0229751 4.83146 0.00455514 4.21479C0.0660406 3.08627 0.0660406 1.95525 0.00455514 0.826734C-0.0413285 0.0815827 0.259669 -0.0193618 0.896534 0.00266238C6.96236 0.222904 12.3693 2.24179 16.9889 6.16209C22.9794 11.2478 26.1271 17.7688 26.4372 25.648C26.4629 26.294 26.3179 26.5271 25.6609 26.4684C25.0827 26.417 24.4991 26.4574 23.7778 26.4574Z">
+                            </path>
+                            <path d="M14.8265 26.441C14.0924 26.441 13.2371 26.6795 12.6626 26.3786C12.0092 26.0372 12.3781 25.0644 12.246 24.378C11.1154 18.5324 6.6849 14.5497 0.74755 14.1001C0.217135 14.0615 -0.0104482 13.9422 0.0134113 13.3659C0.0519536 12.1454 0.0482829 10.9213 0.0134113 9.69524C-0.00127145 9.14464 0.196946 9.03268 0.703502 9.04736C9.21217 9.27128 16.5994 16.2511 17.2804 24.7231C17.418 26.4446 17.418 26.4446 15.6579 26.4446H14.832L14.8265 26.441Z">
+                            </path>
+                            <path d="M3.58928 26.4555C2.64447 26.4618 1.73584 26.0925 1.06329 25.4289C0.39073 24.7653 0.00933763 23.8617 0.0030097 22.9169C-0.00331824 21.9721 0.365937 21.0635 1.02954 20.3909C1.69315 19.7184 2.59675 19.337 3.54156 19.3306C4.48637 19.3243 5.39499 19.6936 6.06755 20.3572C6.7401 21.0208 7.1215 21.9244 7.12782 22.8692C7.13415 23.814 6.7649 24.7226 6.10129 25.3952C5.43768 26.0677 4.53409 26.4491 3.58928 26.4555Z">
+                            </path>
+                        </svg>
+                        <span class="usa-sr-only">NCBI RSS feed</span>
+                    </a>
+                
+            </div>
+        </div>
+    
+
+    <div data-testid="gridContainer"
+         class="grid-container ncbi-footer__container">
+        <div class="grid-row ncbi-footer__main-content-container"
+             data-testid="grid">
+            
+                <div class="ncbi-footer__column">
+                    
+                        <p class="ncbi-footer__circled-icons-heading">
+                            Connect with NLM
+                        </p>
+                    
+
+                    <div class="ncbi-footer__circled-icons-list">
+                        
+                            <a href=https://twitter.com/nlm_nih class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="32"
+                                     height="32"
+                                     viewBox="0 0 40 40"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="m6.067 8 10.81 13.9L6 33.2h4.2l8.4-9.1 7.068 9.1H34L22.8 18.5 31.9 8h-3.5l-7.7 8.4L14.401 8H6.067Zm3.6 1.734h3.266l16.8 21.732H26.57L9.668 9.734Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on X (formerly known as Twitter)</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.facebook.com/nationallibraryofmedicine class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="13"
+                                     height="24"
+                                     viewBox="0 0 13 24"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M4.11371 23.1369C4.11371 23.082 4.11371 23.0294 4.11371 22.9745V12.9411H0.817305C0.6709 12.9411 0.670898 12.9411 0.670898 12.8016C0.670898 11.564 0.670898 10.3287 0.670898 9.09341C0.670898 8.97903 0.705213 8.95158 0.815017 8.95158C1.8673 8.95158 2.91959 8.95158 3.97417 8.95158H4.12057V8.83263C4.12057 7.8055 4.12057 6.7738 4.12057 5.74897C4.1264 4.92595 4.31387 4.11437 4.66959 3.37217C5.12916 2.38246 5.94651 1.60353 6.95717 1.1921C7.64827 0.905008 8.3913 0.764035 9.13953 0.778051C10.0019 0.791777 10.8644 0.830666 11.7268 0.860404C11.8869 0.860404 12.047 0.894717 12.2072 0.90158C12.2964 0.90158 12.3261 0.940469 12.3261 1.02968C12.3261 1.5421 12.3261 2.05452 12.3261 2.56465C12.3261 3.16857 12.3261 3.7725 12.3261 4.37642C12.3261 4.48165 12.2964 4.51367 12.1912 4.51138C11.5369 4.51138 10.8804 4.51138 10.2261 4.51138C9.92772 4.51814 9.63058 4.5526 9.33855 4.61433C9.08125 4.6617 8.84537 4.78881 8.66431 4.97766C8.48326 5.16652 8.3662 5.40755 8.32972 5.66661C8.28476 5.89271 8.26027 6.1224 8.25652 6.35289C8.25652 7.19014 8.25652 8.02969 8.25652 8.86923C8.25652 8.89439 8.25652 8.91955 8.25652 8.95615H12.0219C12.1797 8.95615 12.182 8.95616 12.1614 9.10714C12.0768 9.76596 11.9876 10.4248 11.9029 11.0813C11.8312 11.6319 11.7626 12.1824 11.697 12.733C11.6719 12.9434 11.6787 12.9434 11.4683 12.9434H8.26338V22.899C8.26338 22.979 8.26338 23.0591 8.26338 23.1392L4.11371 23.1369Z">
+                                    </path>
+                                </svg>
+                                <span class="usa-sr-only">NLM on Facebook</span>
+                            </a>
+                        
+
+                        
+                            <a href=https://www.youtube.com/user/NLMNIH class="ncbi-footer__social-icon ncbi-footer__social-icon--circled" target="_blank" rel="noreferrer noopener">
+                                <svg width="21"
+                                     height="15"
+                                     viewBox="0 0 21 15"
+                                     fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     focusable="false"
+                                     aria-hidden="true">
+                                    <path d="M19.2561 1.47914C18.9016 1.15888 18.5699 0.957569 17.2271 0.834039C15.5503 0.678484 13.2787 0.655608 11.563 0.65332H9.43556C7.71987 0.65332 5.4483 0.678484 3.77151 0.834039C2.43098 0.957569 2.097 1.15888 1.74242 1.47914C0.813665 2.32097 0.619221 4.62685 0.598633 6.89384C0.598633 7.31781 0.598633 7.74101 0.598633 8.16345C0.626084 10.4121 0.827391 12.686 1.74242 13.521C2.097 13.8412 2.4287 14.0425 3.77151 14.1661C5.4483 14.3216 7.71987 14.3445 9.43556 14.3468H11.563C13.2787 14.3468 15.5503 14.3216 17.2271 14.1661C18.5676 14.0425 18.9016 13.8412 19.2561 13.521C20.1712 12.6929 20.3725 10.451 20.3999 8.22064C20.3999 7.74025 20.3999 7.25986 20.3999 6.77946C20.3725 4.54907 20.1689 2.30724 19.2561 1.47914ZM8.55942 10.5311V4.65201L13.5601 7.50005L8.55942 10.5311Z"
+                                          fill="white" />
+                                </svg>
+                                <span class="usa-sr-only">NLM on YouTube</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            
+
+            
+                <address class="ncbi-footer__address ncbi-footer__column">
+                    
+        <p>
+            <a class="usa-link usa-link--external"
+            href="https://www.google.com/maps/place/8600+Rockville+Pike,+Bethesda,+MD+20894/%4038.9959508,
+            -77.101021,17z/data%3D!3m1!4b1!4m5!3m4!1s0x89b7c95e25765ddb%3A0x19156f88b27635b8!8m2!3d38.9959508!
+            4d-77.0988323"
+            rel="noopener noreferrer" target="_blank">National Library of Medicine
+            <br/> 8600 Rockville Pike<br/> Bethesda, MD 20894</a>
+        </p>
+    
+                </address>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/web_policies.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Web Policies
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/institutes-nih/nih-office-director/office-communications-public-liaison/freedom-information-act-office" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            FOIA
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS Vulnerability Disclosure
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <ul class="usa-list usa-list--unstyled ncbi-footer__vertical-list ncbi-footer__column">
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://support.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Help
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/accessibility.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Accessibility
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__vertical-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/careers/careers.html" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            Careers
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            
+        </div>
+
+        
+            <div class="grid-row grid-col-12" data-testid="grid">
+                <ul class="ncbi-footer__bottom-links-list">
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nlm.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NLM
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.nih.gov/" class="usa-link  usa-link--alt ncbi-footer__link"  >
+        
+
+        
+            NIH
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.hhs.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            HHS
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                        <li class="ncbi-footer__bottom-list-item">
+                            
+
+
+
+
+
+
+
+
+
+    <a href="https://www.usa.gov/" class="usa-link usa-link--external usa-link--alt ncbi-footer__link" rel="noreferrer noopener" target='_blank' >
+        
+
+        
+            USA.gov
+        
+
+        
+    </a>
+
+
+                        </li>
+                    
+                </ul>
+            </div>
+        
+    </div>
+</footer>
+
+    
+
+
+        
+        
+    
+  <script  type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/pinger/pinger.js"> </script>
+
+
+    
+        
+
+<button class="back-to-top" data-ga-category="pagination" data-ga-action="back_to_top">
+    <label>Back to Top</label>
+    <svg class="usa-icon order-0" aria-hidden="true" focusable="false" role="img">
+        <use xlink:href="/static/img/sprite.svg#arrow_upward"></use>
+    </svg>
+</button>
+    
+
+
+        
+    
+    
+    
+        
+    <script type="application/javascript">
+    window.ncbi = window.ncbi || {};
+    window.ncbi.pmc = window.ncbi.pmc || {};
+    window.ncbi.pmc.options = {
+        logLevel: 'INFO',
+        
+        staticEndpoint: '/static/',
+        
+        citeCookieName: 'pmc-cf',
+    };
+</script>
+    <script type="module" crossorigin="" src="/static/assets/base-133c6271.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.ncbi.nlm.nih.gov/core/jquery/jquery-3.6.0.min.js">&#xA0;</script>
+    <script type="text/javascript">
+        jQuery.getScript("https://cdn.ncbi.nlm.nih.gov/core/alerts/alerts.js", function () {
+            galert(['div.nav_and_browser', 'div.header', '#universal_header', '.usa-banner', 'body > *:nth-child(1)'])
+        });
+    </script>
+
+
+    <script type="text/javascript">var exports = {};</script>
+     <script src="/static/CACHE/js/output.13b077bc3ffd.js"></script>
+
+    <script type="module" crossorigin="" src="/static/assets/article-44d04358.js"></script>
+    
+        <script type="module" crossorigin="" src="/static/assets/math-574fdcc6.js"></script>
+    
+    
+
+    </body>
+</html>

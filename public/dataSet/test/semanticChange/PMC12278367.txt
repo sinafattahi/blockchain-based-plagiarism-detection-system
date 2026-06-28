@@ -1,0 +1,157 @@
+Chronic thromboembolic pulmonary hypertension (CTEPH) arises from progressive thrombotic occlusion of pulmonary arteries, involving vessel blockage by unresolved thrombi and small vessel arteriopathy.
+This disrupts blood flow, increases lung pressure, and alters vessel geometry, contributing to endothelial dysfunction.
+However, the mechanisms remain unclear.
+To study these interactions, we developed microfluidic 3D models of pulmonary arteries with 30–80% stenosis using CTPAs from CTEPH and acute pulmonary embolism (APE) patients,in silicoflow simulations, 3D printing, and soft lithography.
+Unlike standard circular channels, we designed semi-circular channels enclosed by a coverslip, which computational modelling confirmed closely mimics real vessel flow dynamics.
+Human pulmonary artery endothelial cells (HPAECs) cultured in 30–80% stenosis channels exhibited increased expression of pro-inflammatory, pro-thrombotic, and pro-angiogenic genes, with responses varying by stenosis severity and location.
+Cells in post-stenotic dilatation regions (60–80% stenosis) lost alignment and junctional integrity due to disturbed flow.
+The transcriptional profile of HPAECs from 80% stenosis channels closely resembled that of CTEPH pulmonary endarterectomy specimens.
+Platelet adhesion, dependent on von Willebrand factor (VWF), varied with stenosis severity and flow rate.
+Low perfusion rates increased adhesion in stenotic regions, while higher flow rates promoted adhesion post-stenosis.
+Our patient data-based stenosis models provide a robust platform for studying the effects of vascular geometry on blood flow, endothelial responses, and platelet aggregation, advancing research on CTEPH, pulmonary embolism, and other diseases associated with vascular occlusion.
+We developed 3D-printed semi-circular microfluidic models of pulmonary vascular stenosis, based on CTEPH lung geometries, to model effects of flow on pulmonary endothelial function and platelet aggregationin vitro.
+Chronic thromboembolic pulmonary hypertension (CTEPH) is a rare, late complication of acute pulmonary embolism (APE).3It occurs due to the incomplete resolution of pulmonary emboli, which, along with the progressive narrowing of the arteriolar lumen caused by vascular wall remodelling, restricts blood flow and increases pulmonary arterial pressure, ultimately leading to right heart failure.
+In this study, we present easy-to-fabricate 3D-printed semi-circular microfluidic models of pulmonary vascular stenosis, based on vascular geometries observed in CTEPH lungs.
+We explore how these arterial geometries, altered by varying degrees of stenosis, affect pressure, flow dynamics, endothelial morphology, gene expression, and platelet aggregation.
+Detailed description of experimental procedures is provided in ESI†Methods.
+Computed tomography pulmonary angiograms (CTPAs) were obtained from CTEPH, acute pulmonary embolism (APE), chronic thromboembolic disease (CTED) and non-PE patients attending the Hammersmith Hospital (Imperial College Healthcare NHS Trust, London UK).
+The scans used for modelling were completely anonymised data collected as a part of a retrospective study that was approved by the Institutional Review Board [IRAS project ID 280472] at Imperial College London and the need for informed consent was waived.
+CTPAs were identified from the Radiology records using the Radiology Information System (RIS).
+The search was carried out by Dr Deepa Gopalan, cardiovascular radiologist at the Hammersmith Hospital.
+All experiments involving patient-derived cells were conducted in accordance with the 1964 Declaration of Helsinki.
+The study protocol was granted by the Hospital Clínic of Barcelona ethics committee (HCB/2018/0837 and HCB/2018/0434), and all the subjects provided written informed consent.
+Fully circular and semi-circular channels recreating the ring-like stenoses and average dimensions observed in CTPA scans from CTEPH patients obtained from the Hammersmith Hospital (London, UK) (n= 7) and the literature19–22were designed in Fusion 360 (AutoDesk).
+CT-scan- and literature-derived measurements of pulmonary arterial stenosis are provided in Tables S1 and S2,†respectively.
+The semi-circular and fully circular channels aimed to recreate a Strahler order 13 (ref.22) subsegmental pulmonary arteries and were both 28 mm in length and 4 mm width, with initial heights of 2 mm and 4 mm, respectively.
+Both models contained the following 4 regions: pre-stenosis (8.5 mm length), stenosis (5 mm length), post-stenotic dilatation (2 mm length) and a downstream region (12.5 mm length) tapering to 1 mm and 2 mm diameter in the semi- and fully circular model, respectively, to model the natural tapering of a pulmonary artery.
+Concentric stenosis degrees of 30%, 60% and 80% were applied, and a straight channel (0% stenosis) was used as control.
+In both fully and semi-circular channels, the post-stenotic dilatation region had a width of 4 mm in the 30% and 60% stenosis models, while the same region had a width of 3 mm in the 80% stenosis model.
+The moulds' dimensions were 36 mm × 20 mm × 7 mm (L×W×H).
+A 2 mm gap was left between the ends of the channels and the walls of the moulds.
+Moulds with semi-circular channels were designed in Fusion 360 (AutoDesk) and printed in Model V2 resin (FormLabs), using a Form3 SLA 3D-printer (FormLabs).
+The moulds were activated with trichloro(chloromethyl)silane (Sigma-Aldrich, cat.
+no. 254436) before polydimethylsilane (PDMS) casting.
+PDMS was prepared by mixing 10 parts of elastomer to 1 part of curing agent (SYLGARD® 184, Dow Corning, Midland, MI, USA).
+The mixture was then slowly poured onto the moulds and left to cure for 24 h at 65 °C.
+The cured PDMS devices were peeled off the moulds and bonded to either glass coverslips (Ibidi, cat.
+no. 10812) for platelet adhesion assays, or polymer coverslips (ibiTreat coverslips, Ibidi, cat.
+no. 10812) for endothelial flow assays using PDMS and set to cure at 65 °C for 12 hours.
+Blunt needles (16G × 10 mm, tailored made from Coopers Needle Works, Ltd) were then inserted into the inlet and outlet regions bonded to the devices using PDMS.
+The edges of the bonded devices were sealed with another layer of PDMS to strengthen bonding to the coverslips, and the devices were left to cure again at 65 °C for 12 hours.
+Completed models were flushed with absolute ethanol and left under UV light to sterilize for 4 hours.
+All models were meshed in ICEM CFD (Ansys, Inc.).
+Final meshes were exported to CFX-PRE (Ansys, Inc.) for pre-processing.
+All simulations were carried out in a laminar flow module and without thermal exchange.
+Water was used to simulate cell medium, using a dynamic viscosity of 1 mPa s−1, a molar mass of 0.01802 kg mol−1and a constant density of 992 kg m−3.
+Blood was defined as a liquid with a density of 1060 kg m−3, a dynamic viscosity of 4 mPa s−1and a molecular weight of 65 kg mol−1.
+Inlet boundary conditions for water were adjusted to obtain similar hemodynamic conditions to those observed when simulations were run with blood.
+Outlet pressure was determined using a derivation of the Hagen–Poiseuille's equation,23where μ is the dynamic viscosity,Qthe inlet flow rate,LtubeandDtubethe length and inner diameter of the tubing used for flow perfusion, respectively.23For semi-circular models, inlet velocities of 60.2 mm s−1(corresponding to a flow rate of 0.5 L h−1) and 20 mm s−1(corresponding to a flow rate of 0.17 L h−1) were used for water and blood, respectively.
+For fully circular models, inlet velocities of 50 mm s−1(corresponding to a flow rate of 2.26 L h−1) and 15 mm s−1(corresponding to a flow rate of 0.68 L h−1) were used for water and blood, respectively.
+Tubing inner diameter was set to 2.79 mm and 1.6 mm for the semi-circular models simulated with water and blood, respectively.
+A tubing inner diameter value of 2 mm was used for the fully circular models simulated with water and blood.
+Outlet pressures of 0.097 kPa and 1.16 kPa were used for the semi-circular models simulated with water and blood, respectively.
+For fully circular models, outlet pressures of 1.6 kPa and 1.92 kPa were used for water and blood, respectively.
+Inlet and outlet boundary parameters are summarised in Table S3.†A no-slip boundary condition was applied at the walls of the models.
+All simulations were run on the CFX Solver Manager (Ansys, Inc.).
+All results files were post-processed and analysed in CFD POST (Ansys, Inc.).
+Contours around the walls of the models were created to display WSS and pressure values.
+Velocity streamlines (50 data points), corresponding to the line tangential to the instantaneous velocity direction, were displayed from the inlet to show the flow patterns within the channels.
+A polyline was created across the length of the channels to extract the exact WSS values.
+The polyline was derived from the intersection between the default domain (i.e.the main body of the model) and YZ plane of the models.
+WSS, pressure and velocity values were then plotted against theYaxis of the models and extracted as a Microsoft Excel file for downstream analyses.
+In the semi-circular channels, creating a polyline allowed the characterisation of WSS, pressure and velocity values at the top, curved wall of the models (referred to here as “top”), as well as the flat surface of the channel cross-section (named here as “bottom”).
+A mesh sensitivity test was carried out to determine which mesh size to use for the final simulations.
+In the mesh sensitivity test, all simulations were performed with water, using an inlet velocity of 157 mm s−1(1.31 L h−1) and an outlet pressure of 2.94 kPa.
+Part element sizes used for each mesh in the convergence analysis are provided in Table S4;†total number of elements for each mesh in Table S5;†mean WSS and % difference in WSS between meshes in each part of straight and stenotic channels in Tables S6–S9.†Details of mesh convergence analysis are provided in ESI†Methods.
+Venous blood was taken from antecubital veins of consenting, healthy donors.
+Samples were collected in 50 mL sterile falcon tubes and treated with 10% v/v acid citrate dextrose (ACD) (Sigma-Aldrich; cat.
+no.: C3821-50ML).
+Blood samples were used within 1 h of collection.
+3,3-Dihexyloxacarbocyanine iodide (DiOC6) was added to the samples to stain for platelets.
+Sterilised pulmonary artery models were coated with collagen type 1 (ChronoPAR, P/N 385; 120 μL per channel, 200 μg mL−1) and left at room temperature for 2 hours.
+The channels were then blocked with 0.4% bovine serum albumin (in PBS, w/v).
+Citrated and DiOC6-labelled blood was perfused through the coated channels using an Ibidi pump system for 4 minutes at a flow rate of 0.17 L h−1(2.8 mL min−1) or 0.50 L h−1(8.3 mL min−1).
+Fluorescent platelet aggregates were visualised with a fluorescent microscope (EVOS M5000, Invitrogen, Thermo Scientific).
+Platelet surface coverage was analysed with ImageJ (FIJI).
+Sterilised pulmonary artery models were coated with fibronectin (10 μl mL−1in PBS; EMD Millipore Corp, USA, 341631), seeded with human pulmonary arterial endothelial cells (HPAECs; PromoCell, C-12241) and then perfused with endothelial cell growth medium 2 (ECGM-2, PromoCell) for 6 hours or incubated overnight at 37 °C under static conditions, to be used as static controls.
+The channels left under flow were disconnected from the flow system and perfused with citrated, DiOC6-labelled whole blood at a flow rate of 0.17 L h−1(2.8 mL min−1) for 4 min each, using a syringe pump (Fisherbrand).
+The channels were then examined under a fluorescence microscope (Olympus IX70).
+Platelet surface coverage was analysed with ImageJ (FIJI).
+In some assays, a polyclonal anti-VWF antibody was used to block VWF function.
+HPAECs (PromoCell, C-12241) were cultured in endothelial cell growth medium 2 (ECGM2; PromoCell, Germany C-22111) as in ref.27and used between passages 5–8.
+The arterial models were sterilised prior to cell seeding under ultraviolet light for 1 h. Additionally, the channels were flushed with 70% ethanol and then washed 4 times with sterile PBS.
+After that, the channels were coated with fibronectin (10 μg mL−1in PBS, EMD Millipore Corp, USA; 341631).
+HPAECs, resuspended in ECGM-2 (7.0–8.0 × 105cells per mL), were introduced into the channels (100 000–120 000 cells per device) and incubated for 24 h to allow for complete cell adherence and monolayer formation.
+To allow adaptation to flow, the cells were initially exposed to a low flow rate of 0.01 L h−1(equivalent to a shear stress of 0.01 dyn cm−2at the inlet) for 1 h. The flow was then gradually increased by 0.1 L h−1every hour, to reach the final flow rate of 0.5 L h−1.
+After that, fresh medium was added to reservoirs and the cells were left under flow for 6 h or 24 h at 37 °C.
+After the experiments, the devices were disconnected from the flow system and the tubing was flushed 1× with 0.2% sodium hydroxide (Sigma-Aldrich, cat.
+no. S5881) in PBS (w/v), followed by 1× with distilled water.
+The tubing was autoclaved every 2 uses.
+PEA cells from 2 CTEPH patients were extracted from fresh PEA lung tissue samples, taken from the right inferior lobe and left superior lobe, respectively.
+Briefly, the tissues were first cut into small pieces and added to the wells of a 6-well plate coated with 0.2% gelatin (Sigma; cat.
+2 mL of ECGM-2 medium (PromoCell, Germany; cat.
+: C-2211) supplemented with 10% HyClone FBS (Cytiva; cat.
+: SH30071.03IH25-40) and 1% penicillin–streptomycin (100 μg mL−1, Gibco, 15140-122) was added to each well.
+The following day, 1 mL of medium was replaced with fresh medium, and the procedure repeated for the next 3 days.
+The medium was then fully replaced with fresh medium every 2 days, without removing the pieces of tissue, for the next 6 days.
+After this, medium was changed, and the pieces of tissue slowly removed over a week.
+Full ECGM-2 supplemented with 10% HyClone FBS and 1% penicillin–streptomycin was used until colony formation.
+The channels were perfused using a closed-circuit system driven by a REGLO ICC 4 channel 12 Roller Pump (Cole-Parmer, UK, cat.
+no. ISM4412).
+The pump was connected to two medium reservoirs acting as capacitators28placed before and after the inlet and outlet of the PDMS device, respectively.
+The reservoirs had a total capacity of 2 mL, with two hose barb connectors to connect the tubing to both the pump and the device's inlet or outlet.
+The tops of the reservoirs have a screw thread to fit commercially available microcentrifuge tube caps lined with a silicone O-ring (Greiner Bio-One, 12 mm screw cap; cat.
+no.: 366380).
+Two small extensions were added to the bottom of the reservoir to secure them to a baseplate.
+The peristaltic pump was connected to each reservoir using Ismatec® pump tubing, 3-stop, PharMed® BPT tubing, 2.76 mm ID (Cole-Parmer, UK, cat.
+no. WZ-95714-48) and Ismatec® pump tubing, PharMed® BPT extension tubing, 2.76 mm ID; 100 ft (Cole-Parmer, UK, cat.
+no. WZ-95809-48).
+Short pieces of Ismatec® pump tubing, PharMed® BPT extension tubing, 1.14 mm ID; 100 ft (Cole-Parmer, UK, cat.
+no. WZ-95809-30) were used to connect the end of the 2.79 mm ID tubing to the barbs of each reservoir.
+The same 1.14 mm ID tubing was used to connect the inlet and outlet of the devices to the lower barbs of the reservoir.
+Flow rate measurements were performed using a Sensirion SLF3S-1300F flow sensor (Mouser electronics, cat.
+no. 403-SLF3S-1300F).
+The flow circuit was primed with distilled water (as per the manufacturer's instructions) prior to testing, by connecting the inlet and outlet tubing together using a blunt needle and filling in the outlet reservoir until the inlet reservoir became full.
+After priming, the devices were connected to the reservoirsviatubing and perfused with distilled water for 1 min at a flow rate of 0.5 L h−1(8.63 mL min−1).
+The flow sensor was then placed between the outlet of the channel and the reservoir, and connectedviaUSB cable to a laptop, on which waveforms measurements were performed using the Sensirion Control Center software (Sensirion).
+Data was acquired for 1 min at a flow rate of 0.5 L h−1and analyzed using the Sensirion Data Viewer software (Sensirion).
+The shear rate in the selected regions of the channel can be determined using the formula below:23where SR is the shear rate (s−1), WSS the wall shear stress (Pa) andηthe dynamic viscosity (Pa s−1).
+The LIVE/DEAD™ Viability/Cytotoxicity kit (ThermoFisher, cat.
+no. L3224) was used to perform cell survival analyses.
+The cells were imaged under an inverted fluorescent microscope (Olympus IX70).
+HPAECs were fixed with 4% paraformaldehyde (PFA; Sigma Aldrich, UK) (w/v) in PBS for 20 min and permeabilised with 0.5% Triton X-100 (Sigma Aldrich, UK) (v/v) in PBS for 5 min.
+The cells were washed three times with PBS between each step.
+HPAECs were then blocked in 2% BSA (A9418, Sigma Aldrich, UK) (w/v) in PBS for 30 min and incubated with Alexa Fluor 488-conjugated mouse monoclonal anti-VE-cadherin antibody (eBioscience, cat.
+no. 53-1449-42, 1 : 100) and TRITC-phalloidin in 1% BSA (w/v) in PBS for 2 h at room temperature in the dark.
+The channels were washed three times with PBS, mounted with DAPI in Vectashield (Vector Laboratories) and imaged under an inverted fluorescent microscope (Olympus IX70) or a confocal microscope (Leica Stellaris 8).
+Cell coverage and cell alignment analyses were carried out in ImageJ (FIJI).
+Cells were considered aligned to flow if the angle between nuclear long axis and flow direction was below 30°.
+60% stenosis channels were coated with 0.2% gelatin (Sigma; cat.
+: G1890) for 10 min at 37 °C and left to air-dry.
+ECFCs (7.0–8.0 × 105cells per mL; 100 000–120 000 cells per device) were introduced into the channels and incubated for 24 h to allow for complete cell adherence and monolayer formation.
+The cells were then exposed to flow for 6 h or were fixed and stained for markers of interests.
+To isolate cells from different parts of the microfluidic channels, regions of interest (ROIs) termed “upstream”, “stenosis”, “post-stenotic dilatation”, and “downstream” were marked with a pen at the bottom side of the thin polymer coverslips.
+Culture medium was removed and the PDMS chamber was peeled off the coverslips.
+ROIs with cells still attached were carefully cut out with sterile scissors and transferred directly into DNA/RNA-free tubes filled with 500 μL TRIzolTM Reagent (Thermo Scientific; cat.
+: 15596026) and incubated for 5 min at RT.
+After 2–3 gentle shakes to dislodge cells, plastic cutouts were removed from the tubes with sterile tweezers and the remaining cell suspension was vortexed for 1 min and placed on ice or stored at −80 °C for future use.
+Samples were kept on ice until all ROIs were collected.
+A detailed description of experimental procedures is provided in ESI†Methods.
+Tables S11–S15†provide details of qPCR reverse transcription mix, RT cycling conditions, list of primers, components of qPCR reactions and amplification and cycling conditions.
+All graphs and statistical analyses were performed using either GraphPad Prism software 9 (GraphPad Software, USA) or Rstudio (RStudio Inc, version 1.2.5042).
+All experiments were performed in at least four biological replicates, with 3 technical replicates performed per experiment, unless stated otherwise.
+All data were tested for normal distribution using the Shapiro–Wilk test.
+An unpaired Student'sttest was used to analyse the normally distributed data from two sample groups, while a one- or two-way ANOVA test was used to analyse three or more sample groups as appropriate.
+Statistical significance was accepted asp< 0.05.
+All error bars are representative of mean (±SEM).
+Most vascular models are designed with a circular cross-section, to resemble natural vascular geometry.
+However, visualising and accessing cells growing within the selected regions of interest present a significant challenge.
+To address this limitation, we designed semi-circular vascular channels, where the top half of a cylindrical channel is bound to a thin, tissue culture compatible plastic coverslip.
+We introduced 4 degrees of vascular stenosis ranging from 30–80%, most commonly found in CTEPH and APE lungs.
+It serves both as a retrospective evaluation and as evidence of the continuing relevance of gel electrophoresis in shaping crop proteomics.
+Gel electrophoresis remains central to plant proteomics and other biological research by providing important insights despite the slower advancement of the field relative to other organisms.
+The foundational work on seed protein markers led by Prof. Chittaranjan Kole and his colleagues opened new pathways for understanding variation, evolution, and resistance to critical pests and diseases.
+This review examines the progress, impact, and future prospects of gel‐based proteomics, emphasizing its long‐standing value.
+It underscores how gel electrophoresis has remained indispensable, especially for scientists lacking access to high‐end genomic technologies, and has significantly influenced crop proteomics.
+Protein markers have become increasingly important tools in crop improvement, providing vital information about the genetic, physiological, and biochemical characteristics of plants.
+As agricultural pressures intensify due to climate change, soil decline, and global population growth, researchers are seeking new approaches to improve yields, nutrition, and stress resilience.
