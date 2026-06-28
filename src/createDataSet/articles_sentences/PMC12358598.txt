@@ -1,0 +1,171 @@
+Colorectal cancer (CRC) is a most deadly cancer, and effective prognostic biomarkers are urgently needed.
+Although anoikis has diverse regulatory roles in tumor progression, the impact of anoikis-related genes (ANRG) by single-cell and bulk transcriptome analyses on the prognostic value for CRC have not been studied.
+Differentially expressed genes (DEGs) associated with anoikis were obtained by performing single-cell RNA-sequencing (scRNA-seq) analysis in cells with high and low ANRG expression and weighted correlation network analysis (WGCNA) in a bulk RNA sequencing dataset.
+Key prognostic genes were selected from anoikis associated DEGs by least absolute shrinkage and selection operator (LASSO)-Cox regression analysis, and a prognostic model was established based on the risk score calculated from the expression levels of the identified key prognostic genes.
+A 10 anoikis-related-gene prognostic model (MGP, TPM2, CRIP2, TUBB6, C1orf54, NOTCH3, LTBP1, CSRP2, FSTL3, and VIM) was developed and the area under the curve (AUC) values of the model in predicting 1-, 3- and 5-year survival probabilities reached 0.744, 0.797, and 0.755, respectively.
+In conclusion, anoikis related genes could be promising prognostic factors for risk stratification of CRC patients.
+The online version contains supplementary material available at 10.1038/s41598-025-15389-8.
+Colorectal cancer (CRC) is ranked as the second most deadly cancer worldwide1and the incidence is increasing each year2.
+Advances in the systematic treatment strategies of CRC in recent years have improved the survival rate to a certain extent, but the overall prognosis remains poor owing to lack of efficient early prognostic biomarkers which can better guide risk stratification and treatment decision3–5.
+Therefore, there is an urgent need to explore potential prognostic factors for clinical management of CRC.
+Anoikis is a form of cell death caused by loss of or inappropriate cell adhesion6.
+Anoikis is crucial for maintaining tissue homeostasis because it prevents detached epithelial cells from colonizing elsewhere.
+Cancer cells develop multiple ways of avoiding anoikis, allowing them to spread across tissues and organs.
+In CRC, anoikis resistance is a critical mechanism of tumor metastasis and progression, and the specific strategies cancer cells employed to acquire the resistance include altering the expression of adhesion molecules, cell surface receptors, key metabolic enzymes, cytokines and transcription factors7.
+Single-cell RNA sequencing (scRNA-seq) examines the global gene expression profiles at the level of single-cell resolution, enabling the detection of previously hidden heterogeneity8and allowing for the assessment of specific genes and pathways in distinct cell types.
+Several prior studies have proposed anoikis-related prognostic signatures in CRC; however, those studies were all based on data from bulk RNA sequencing9–11.
+In this study, we aimed to develop a prognostic model for CRC based on anoikis-related genes using integrated scRNA-seq and bulk transcriptome data.
+First, the anoikis-related genes (ANRGs) and their cell-type-specific expression patterns were identified via scRNA-seq, focusing on the epithelial compartment.
+Second, bulk RNA-seq data and scRNA-seq data were integrated to screen ANRGs with prognostic relevance through weighted gene co-expression network analysis (WGCNA).
+Finally, a prognostic model was established and validated, followed by mechanistic exploration of key genes in tumor progression (Supplementary Fig. 1).
+ANRGs were obtained through systematic search and processing of data downloaded from the Human Gene Database (GeneCards,https://www.genecards.org/) and the Harmonizome platform (https://maayanlab.cloud/Harmonizome/).
+ScRNA-seq data ofGSE13246512(https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE132465) was downloaded from the Gene Expression Omnibus (GEO) database (http://www.ncbi.nlm.nih.gov/geo/), including 23 samples of primary colorectal cancer and 10 matched normal mucosa samples.
+Three bulk transcriptomic datasets were downloaded:GSE4125813(https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE41258) was obtained from the GEO database, and 186 samples of primary colon adenocarcinomas were extracted and analyzed in this study;GSE1753614(https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE17536) was also downloaded from GEO database, and the samples of 177 colorectal cancer patients from the Moffitt Cancer Center were extracted and analyzed in this study; The Cancer Genome Atlas (TCGA) dataset was downloaded from UCSC Xena (https://xena.ucsc.edu/) and it contained 512 samples of colon cancer.
+The sequencing platform ofGSE132465,GSE41258, andGSE17536were GPL20301Illumina HiSeq 4000 (Homo sapiens),GPL570[HG-U133_Plus_2] Affymetrix Human Genome U133 Plus 2.0 Array, andGPL570[HG-U133_Plus_2] Affymetrix Human Genome U133 Plus 2.0 Array, respectively.
+TCGA dataset was the training set of the prognostic model, and theGSE17536dataset was the validation set for the model.
+TCGA and theGSE41258dataset was employed to evaluate the association between the expression of the identified key prognostic gene and tumor stage.
+The data were analyzed following standard pipeline of the package Seurat15(v.4.4.0,https://satijalab.org/seurat/).
+Gene expression was normalized by the LogNormalize method (scale factor = 10,000).
+The R package harmony16(https://github.com/immunogenomics/harmony) was used to eliminate the batch effects.
+The top 1500 highly variable genes were recognized by the function of FindVariableFeatures.
+The most significant principal component scores used for subsequent cell clustering were defined by the function of RunPCA.
+Distinct groups of cells identified through the principal component analysis were projected onto t-SNE (t-Distributed Stochastic Neighbor Embedding) analysis by the function of RunTSNE.
+To link ANRG expression to functional differences in critical cell types, we subdivided cells into ANRG-high/low groups and identified differentially expressed genes (DEGs) to explore underlying pathways.
+The threshold of one standard deviation above the average expression level of the 640 ANRGs was applied to divide the single-cell samples into “ANRG-high” and “ANRG-low” groups.
+The DEGs between the two groups were identified by the function of FindMarkers, and genes withp< 0.001 and log2FoldChange > 0.25 were considered significant DEGs.
+Further Gene Ontology (GO) and Kyoto Encyclopedia of Genes and Genomes (KEGG) analyses17–19were performed by the R package clusterprofiler20(v.3.18,https://bioconductor.org/packages/release/bioc/html/clusterProfiler.html).
+Gene Ontology analyses comprised of three modules: molecular function (MF), biological process (BP) and cell component (CC).
+To prioritize ANRGs with clinical relevance, we used WGCNA on bulk data to identify co-expression modules associated with anoikis, then intersected these with single-cell-derived DEGs to focus on genes with both cell-type specificity and transcriptome-wide co-expression patterns.
+The bulk RNA-seq data from TCGA colorectal cancer samples (512 cases) were used and the gene expression values were normalized to eliminate technical biases.
+The R package WGCNA (v.1.72-1,https://cran.r-project.org/web/packages/WGCNA/index.html)21was utilized.
+WGCNA constructs a gene co-expression network based on the similarity of gene expression patterns.
+To ensure the network follows a “scale-free” property (a common feature of biological networks, where most genes have few connections, and a few have many), we tested soft threshold powers from 1 to 20.
+The “soft threshold” determines how strongly the correlation between genes is weighted (higher values strengthen the distinction between strong and weak correlations).
+The adjacency between each pair of genes was first calculated based on their expression correlation, and this correlation was weighted using the optimal soft threshold power to enhance the distinction between strong and weak correlations.
+To group genes into co-expression modules, we calculated the ‘dissimilarity’ between genes.
+Genes with lower dissimilarity (that is, higher co-expression similarity) were clustered together via linkage hierarchical clustering, where genes are progressively merged into clusters based on their dissimilarity values.
+This clustering process generated a dendrogram, and distinct branches in the dendrogram corresponded to co-expression modules—each module consisting of genes with highly coordinated expression patterns.
+Subsequently, the association between WGCNA modules and anoikis and between cytotoxic T lymphocytes (CTL) and modules was further analyzed.
+The “eigengene” of anoikis (a representative gene expression profile) was calculated by the function of AddModuleScore in the Seurat package, and the eigengene of CTL was calculated based on the expression levels ofCD8A,CD8B,GZMA,GZMB, andPRF122.
+Finally, genes in the WGCNA module most significantly associated with anoikis were intersected with the previously identified DEGs in single-cell analyses, and genes present in both sets were used in subsequent analyses.
+Univariate cox regression analysis was performed in TCGA dataset to select genes significantly associated with the prognosis of the disease through the R package survival.
+Then, a multivariate cox regression model was performed with the expression levels of genes identified by univariate cox analysis as input variables, while controlling for other potential confounding variables, such as age, gender, and clinical stage.
+After the model was fitted, the hazard ratio (HR) and its 95% confidence interval (CI) for each gene were extracted.
+Then, the forestplot package in R (https://github.com/LSYS/forestplot) was used to draw a forest plot to visually display the HR and CI of each gene, helping to identify the genes significantly associated with survival time.
+The expression levels of the identified prognostic genes in tumor samples were compared with that in the normal samples, and the association between gene expression levels and prognosis was evaluated by survival analyses using the R package survminer23(v.0.4.9,https://cran.r-project.org/web/packages/survminer/index.html).
+To minimize the risk of overfitting, genes identified in the univariate cox regression analysis were further analyzed by LASSO-Cox regression through the cv.glmnet function of the R package glmnet24(v.4.1-8,https://cran.r-project.org/web/packages/glmnet/index.html) to identify the independent prognostic genes for the predictive model, andp< 0.01 was considered statistically significant in this analysis.
+A prognostic model was developed based on risk scores calculated by the following formula: risk score =.
+Where βi represents the coefficient of independent prognostic genes in multivariate Cox analysis and expi represents its expression value.
+In TCGA and theGSE17536datasets, the samples were divided into low- and high-risk groups by the median of the risk scores, and Kaplan–Meier and receiver operating characteristic (ROC) analyses were performed in these two datasets to assess the predictive performance of the model through the R package survminer (https://cran.r-project.org/web/packages/survminer/index.html) and timeROC25(v.0.4,https://cran.r-project.org/web/packages/timeROC/), respectively.
+Furthermore, in TCGA dataset, univariate and multivariate cox regression analysis was employed to select independent prognostic factors including clinical parameters, and a nomogram predicting the survival probabilities at 1 and 3 years was established by the R package rms26(v.5.1-2,https://cran.r-project.org/web/packages/rms/index.html).
+The gene that was most significantly associated with prognosis was verified by assessing the relationship between gene expression and tumor stage through analysis of variance (ANOVA) in TCGA dataset and Kruskal-Wallis test in theGSE41258dataset.
+Subsequently, samples were divided into two groups based on the expression level of this gene, and GSEA was conducted using KEGG gene set and the hallmark gene set downloaded from the msigDB database (https://www.gsea-msigdb.org/gsea/msigdb).
+The proportions of infiltrated immune cells in the two groups were also compared through the CIBERSORT algorithm (https://cibersort.stanford.edu/index.php) based on the expression levels of immune-related genes.
+All bioinformatics and statistical analyses were performed using R software (v.4.3.1).
+Unless otherwise indicated,p< 0.05 was considered statistically significant.
+The nonlinear dimension reduction using t-SNE algorithm identified 31 clusters (Fig.1A).
+A total of 23 genes were used as marker genes, and the 31 cell clusters were annotated into six cell types (Fig.1B).
+The proportions of the six cell types were different between the normal samples and the tumor samples, and epithelial cells and myeloid cells were more abundant in the tumor samples (Fig.1C).
+Single-cell RNA sequencing (scRNA-seq) data analyses.aA t-SNE plot showing the division of cells into 31 clusters.bA t-SNE plot presenting the annotated 6 cell types from the 31 cell clusters.cA t-SNE plot of cellular compositions in the normal and tumor samples.dA heat map showing the marker genes used to annotate the 6 cell types.eA t-SNE plot illustrating the distribution of cells by the expression levels of anoikis related genes (ANRGs).fA t-SNE plot presenting the distribution of cells by ANRG expression in the normal and tumor samples.
+The expression of the major marker genes used to identify these cell types were shown in a heat map which demonstrated that the marker genes were well discriminated between different cell types (Fig.1D).
+Subsequently, a total of 640 ANRGs were identified from GeneCards and Harmonizome platform, and samples were divided into two groups based on the expression level of these genes.
+A total of 11,946 and 51,743 cells were present in the “ANRG-high” and “ANRG-low” groups, respectively (Fig.1E).
+The ANRGs were highly expressed in the myeloid cells and stromal cells of tumor samples (Fig.1F).
+Anoikis resistance, a well-characterized biological process, enables epithelial-derived tumor cells to evade programmed cell death triggered by loss of extracellular matrix attachment.
+This adaptive capability facilitates critical steps in metastasis, including the detachment of tumor cells from the primary lesion, their survival in the circulatory system or ectopic microenvironments, and subsequent colonization of distant organs27,28.
+Therefore, we further divided the epithelial cells into “ANRG-high” (8,563 cells) and “ANRG-low” (8,906 cells) groups.
+A total of 381 significant DEGs were obtained between the two groups using the FindMarkers function in Seurat with criteria of adjusted p-value < 0.001 and log2FoldChange > 0.25.
+GSEA analysis suggested that the ANRG-high epithelial cells were significantly enriched in pathways closely related to tumor progression and anoikis resistance, such as “cell adhesion,” “focal adhesion” and “ECM-receptor interaction”, which were critical for EMT and cell detachment, and classic pro-cancer pathways including “PI3K-Akt signaling” and “ERBB signaling” (Supplementary Fig. 2).
+A total of 1216 DEGs were identified between “ANRG-high” and “ANRG-low” groups.
+Further functional enrichment analyses of DEGs between the “ANRG-high” and “ANRG-low” groups were performed to investigate biological processes that were associated with differential ANRG expression in CRC.
+The KEGG pathways enriched in the ANRG-low group included “primary immunodeficiency” (p= 7.13e-09), “natural killer cell mediated cytotoxicity” (p= 1.45e-08), and “T cell receptor signaling pathway” (p= 3.23e-08), and those enriched in the ANRG-high group included “fluid shear stress and atherosclerosis” (p= 6.35e-15), “focal adhesion” (p= 1.51e-13), and “complement and coagulation cascades” (p= 2.58e-13) (Fig.2A).
+The top enriched GO-BP, GO-CC, and GO-MF terms in the ANRG-low group were “antigen receptor-mediated signaling pathway” (p= 1.23e-32), “immune response-activating cell surface receptor signaling pathway” (p= 1.39e-30), and “immune response-activating signal transduction” (p= 1.39e-30) (Fig.2B), “external side of plasma membrane” (p= 8.57e-25), “immunoglobulin complex, circulating” (p= 1.05e-13), and “immunological synapse” (p= 4.07e-11) (Fig.2C), “antigen binding” (p= 4.63e-14), “immunoglobulin receptor binding” (p= 7.70e-13), and “signaling adaptor activity” (p= 3.87e-05) (Fig.2D).
+The top enriched GO-BP, GO-CC, and GO-MF terms in the ANRG-high group contained “wound healing” (p= 5.05e-31), “extracellular matrix organization” (p= 1.26e-29), and “extracellular structure organization” (p= 1.26e-29) (Fig.2B), “collagen-containing extracellular matrix” (p= 1.46e-71), “focal adhesion” (p= 2.03e-36), and “cell-substrate junction” (p= 8.07e-36) (Fig.2C), “extracellular matrix structural constituent” (p= 7.55e-31), “integrin binding” (p= 1.51e-20), and “collagen binding” (p= 5.18e-16) (Fig.2D).
+Functional enrichment analysis of the differentially expressed genes between the two groups with high and low expression of ANRGs.aThe top 5 kyoto encyclopedia of genes and genomes pathways enriched in the ANRG-high and ANRG-low groups.bThe top 5 gene ontology biological processes enriched in the ANRG-high and ANRG-low groups.cThe top 5 gene ontology cellular components enriched in the ANRG-high and ANRG-low groups.dThe top 5 gene ontology molecular functions enriched in the ANRG-high and ANRG-low groups.
+In the range of values from 1 to 20, 11 was chosen as the optimal soft threshold power to build the scale-free weighted co-expression network, and the mean connectivity was one at this power (Fig.3A).
+After merging modules with highly identical gene expression, seven modules were eventually obtained in the co-expression network (Fig.3B).
+Module-trait association analysis showed that the magenta module was most significantly positively correlated with ANRGs (correlation coefficient: 0.76,p= 2e-89, Fig.3C).
+Additionally, the yellow module significantly positively correlated with ANRGs and CTL (Fig.3C).
+The genes in the magenta module (1215 genes) were intersected with the ANRG-associated DEGs derived from the scRNA-seq data, and a total of 231 genes were obtained for subsequent analysis (Fig.3D).
+Weighted correlation network analysis and module-trait analyses.aSelection of the optimal soft threshold power.bClustering dendrogram.cA heat map showing the correlations between modules and anoikis and cytotoxic T lymphocytes.dA venn plot showing the intersection of anoikis associated DEGs derived from scRNA-seq analysis and anoikis associated genes obtained from WGCNA.
+Univariate and multivariate cox regression analysis identified 14 DEGs that were significantly associated with the prognosis of patients (Fig.4A and B).
+Among which FSTL3 showed the strongest correlation in both univariate analysis (Hazard ratio: 1.774,p= 0.007) and multivariate analysis (Hazard ratio: 1.35,p= 0.028).
+The expression levels of the 14 DEGs in the normal and tumor samples were displayed in Fig.4C, and the survival curves confirmed their association with prognosis (p< 0.05, Supplementary Fig. 3).
+Filtering of prognostic genes by univariate cox regression analysis.aA forest plot showing genes significantly associated with the prognosis of patients identified through univariate cox regression analysis.bA forest plot showing genes significantly associated with the prognosis of patients identified through multivariate cox regression analysis.cExpression levels of the identified prognostic genes in TCGA dataset.
+Subsequently, multivariate LASSO-cox regression analysis determined that the optimal DEGs for the development of prognostic model.
+As shown in Fig.5A, the number of independent variable coefficients gradually increased or decreased to zero with the gradual increase of lambda.
+Ten-fold cross validation was used to build the model, and 10 DEGs at optimal lambda were selected as candidate genes:MGP,TPM2,CRIP2,TUBB6,C1orf54,NOTCH3,LTBP1,CSRP2,FSTL3, andVIM.
+Then, the optimal value of Lasso penalty parameter λ was determined as 0.0048 through 10-fold cross validation.
+λ was then substituted into the model to generate coefficients of each gene.
+A prognostic model was established based on the risk score calculated from the expression levels of these 10 DEGs: risk score = (0.161927958*MGP) + (0.162656607*TPM2) + (0.169688287*CRIP2) + (-0.539264419*TUBB6) + (0.238875394* C1orf54) + (0.503723922* NOTCH3) + (0.189167269*LTBP1) + (0.845419347* CSRP2) + (0.448234087*FSTL3) + (-1.236308966*VIM).
+Survival analysis showed that the risk score was significantly associated with prognosis (p< 0.0001, Fig.5B).
+The AUC values of the model at 1, 3, and 5 years reached 0.744, 0.797, and 0.755, respectively (Fig.5C).
+The predictive performance of the model was further assessed in an independent validation set.
+The survival curve inGSE17536validated the prognostic power of the risk score (p= 0.0018, Fig.5D).
+The AUC values at 1, 3, and 5 years were 0.711, 0.689, and 0.726, respectively (Fig.5E).
+Construction and evaluation of a prognostic model.aLasso coefficient profiles of the most relevant prognostic genes (left panel) and ten-fold cross validation for tuning parameter selection in the Lasso model (right panel).bSurvival curves showing the association between the risk score and the prognosis in TCGA dataset.cReceiver operating characteristic curves showing the predictive accuracy of the model in predicting 1-, 3- and 5-year survival rates in TCGA dataset.dSurvival curves showing the association between the risk score and the prognosis in theGSE17536dataset.eReceiver operating characteristic curves showing the predictive accuracy of the model in predicting 1-, 3- and 5-year survival rates in theGSE17536dataset.
+Furthermore, univariate cox regression analysis showed that risk score, age, pathological T stage, and clinical stage were significantly associated with prognosis (p< 0.05, Fig.6A).
+A nomogram predicting the survival probabilities at 3 and 5 years were constructed based on the above identified prognostic factors (Fig.6B).
+An example of prognostic prediction was given on the nomograph and the detailed clinical information of the representative sample was provided in Table1.
+The age of 68 years old corresponded to 48.5 points, T stage of 2 corresponded to 47.5 points, the stage 2 corresponded to 51.5 points and the risk score of 2.96 corresponded to 52.5 points.
+According to the clinical information and the nomogram, the predicted survival probabilities at 5 and 3 years for this subject were 0.726 and 0.454, respectively.
+Identification of independent prognostic factors and establishing a nomogram.aA forest plot showing independent prognostic factors identified in univariate cox regression analysis.bA nomogram for predicting 5- and 3-year survival rates.
+The total point of a subject could be calculated by adding all the points assigned to each factor, and the subject’s risk could be determined by drawing a perpendicular line from the position of the total point to the probability axis.
+Clinical information of the representative sample used to illustrate the nomogram.
+FSTL3expression significantly increased as the tumor stage advanced ANOVA in TCGA dataset and Kruskal-Wallis test in theGSE41258dataset (Fig.7A and B).
+Gene set enrichment analysis showed that the KEGG pathways significantly enriched in the samples with highFSTL3expression included “cell adhesion molecules”, “hematopoietic cell lineage”, “PI3K-Akt signaling pathway” and “extracellular matrix (ECM)-receptor interaction” (Fig.7C).
+The hallmark pathways enriched in the samples with highFSTL3expression included “epithelial mesenchymal transition”, “angiogenesis”, “inflammatory response”, “TGF beta signaling” and “Wnt beta catenin signaling” (Fig.7D), and the “epithelial mesenchymal transition” pathway was the one with the strongest enrichment (false discovery rate: 4.5e-10, Fig.7E).
+In addition, CIBERSORT analysis showed that the proportions of CD4 T cells, monocytes, and dendritic cells were significantly lower in the samples with highFSTL3expression compared with those with lowFSTL3expression, whereas the proportions of regulatory T (Treg) cells, neutrophiles, and macrophages were significantly higher in the samples with highFSTL3expression (Supplementary Fig. 4).
+Infiltrated immune cells and biological pathways enriched in samples with highFSTL3expression.aA box plot showing the association betweenFSTL3expression and tumor stage in TCGA dataset.bA box plot showing the association betweenFSTL3expression and tumor stage in theGSE41258dataset.cKEGG pathways enriched in samples with highFSTL3expression.dHallmark pathways enriched in samples with highFSTL3expression.eThe most significantly enriched Hallmark pathway in samples with highFSTL3expression.
+In this study, a 10 anoikis-related-gene prognostic model (MGP,TPM2,CRIP2,TUBB6,C1orf54,NOTCH3,LTBP1,CSRP2,FSTL3, andVIM)was developed by analyzing single-cell and bulk RNA sequencing data for patients with CRC.
+The AUC values of the 10-anoikis-related gene-model at 1, 3, and 5 years in the training set reached 0.744, 0.797, and 0.755, respectively and those in the validation set were 0.711, 0.689, and 0.726, respectively.
+Anoikis plays a crucial role in various malignancies and affect a series of tumor-related biological process29.
+Although some researchers established an anoikis-related gene signature in CRC with bulk RNA sequencing data10,30–32there is no anoikis-related gene signature established by analyzing single-cell and bulk RNA sequencing.
+An anoikis-related gene signature (ZNF583, CGNL1, and CXCL13) was established in osteosarcoma by analyzing single-cell and bulk RNA sequencing data in osteosarcoma and the AUC values of this signature for 1-, 3- and 5-year survival was 0.788, 0.718, and 0.716, respectively33.
+The AUC values of our signature is comparable with theirs, further suggesting that the model is robust for predicting the prognostic of CRC.
+Six cell types were identified in tumor samples and normal samples from single-cell analysis, and epithelial cells and myeloid cells were found to be more abundant in the tumor samples.
+Higher proportions of epithelial cells and myeloid cells were detected in the tumor samples compared to the normal samples in the single-cell analyses, which was consistent with a previous study that observed few epithelial cells in adjacent normal tissues and higher percentages of tumor-associated macrophages (TAM) in tumor tissues34.
+The crucial role of myeloid lineages in CRC progression has been demonstrated and the explanation for fewer epithelial cells in normal tissues was that normal tissues were more vulnerable to damage during tissue dissociation.
+Further analysis showed that the expression of ANRGs was mainly upregulated in the myeloid cells and stromal cells, as evidently shown in the tumor samples, indicating that the activation of anoikis in these two cell types might promote CRC progression.
+In lung adenocarcinoma, activation of anoikis reduced the infiltrated macrophages in the tumor microenvironment (TME) and was associated with worse prognosis35.
+However, Shen et al. showed that higher proportions of TAM, dendritic and stromal lineages in the TME of CRC supported tumor growth and were associated with poor survival34.
+It is possible that myeloid and stromal lineages have different effects on tumor regression in lung cancer and CRC.
+Alternatively, anoikis may be differentially activated in subgroups of myeloid and stromal cells, and more efforts should be dedicated on dissecting the status of anoikis pathway in sub-populations of myeloid and stromal lineages and elucidating the specific roles of these sub-types in CRC progression.
+We identified a total of 1216 DEGs that were differentially expressed between samples with high and low ANRG expression, and these anoikis associated genes were almost exclusively enriched in pathways related to immune responses and cell adhesion.
+Differential expression of ANRGs were found to associate with distinct immune infiltration state in the TME, implying a potential regulatory link between ANRGs and immune activities36–39.
+Additionally, cell adhesion molecules were critically involved in the extrinsic anoikis pathway initiated by extracellular death ligands40.
+Our results were consistent with the above prior studies and reflected the critical relationships between cell adhesion and immune related molecules and anoikis.
+We also conducted WGCNA and found that one of the co-expression gene modules were associated with both anoikis and CTL, implying a potential link between anoikis and CTL.
+This finding was in line with previous studies in cancer suggesting differential ANRG expression was associated with different levels of immune cell infiltration36–39.
+Next, we combined the results from the single-cell analysis and WGCNA, and further employed univariate cox and multivariate LASSO-Cox regression analyses to screen for key prognostic ANRGs for CRC.
+A total of 10 genes were identified to be independently associated with CRC prognosis, namelyMGP,TPM2,CRIP2,TUBB6,C1orf54,NOTCH3,LTBP1,CSRP2,FSTL3, andVIM.
+All these genes were significantly dysregulated in the tumor samples except forLTBP1andCSRP2whose expression needs to be validated in more cohorts, and the prognostic value of these genes were each verified by survival analyses.
+Notch3 overexpression promotes anoikis resistance in epithelial ovarian cancer through upregulation of the collagen protein COL4A241.
+In CRC, Notch3 transcripts are elevated in tumor samples, and enhanced Notch3 signaling accelerates tumor growth in mice models42.
+Our data were consistent with the above studies and suggested that higher Notch3 expression correlated with anoikis resistance and CRC progression.
+TUBB6 encodes a subunit of microtubules and was identified as a prognostic factor in multiple cancers including clear cell renal cell carcinoma, glioma, and lung adenocarcinoma43–45.
+The mechanism of how TUBB6 is involved in anoikis and CRC progression awaits further investigation.
+Of note, FSTL3, the factor showed the strongest association with CRC prognosis in our analyses, belongs to the major family of acidic cysteine-rich secreted glycoprotein known as follistatin-like proteins (FSTL).
+It is a crucial regulatory molecule in non-tumor diseases and cancers, and its interacting partners include TGF-β ligand (activin A), disintegrin, and metalloproteinase (ADAM12)46.
+It regulates the expression of the anti-apoptotic protein BCL-247.
+To the best of our knowledge, this study was the first to report the association betweenFSTL3and anoikis, which was reasonable considering the involvement of the TGFβ ligands and BCL-2 in the anoikis pathway40,48.
+Overall, our analyses provided meaningful prognostic biomarkers and potential therapeutic targets for CRC.
+Gene set enrichment analysis indicated that pathways enriched in samples with highFSTL3expression were related to cell adhesion (“cell adhesion molecules” and “ECM-receptor interaction”), cell survival, proliferation, and metastasis (“PI3K-Akt signaling pathway”, “TGF beta signaling”, “Wnt beta catenin signaling,” and “epithelial mesenchymal transition”), hematopoiesis (“hematopoietic cell lineage”), angiogenesis, and inflammatory response.
+FSTL3 regulates the adhesion of multiple ECM proteins such as collagen and fibronectin49,50.
+Additionally, FSTL3 activates the Wnt/β-catenin pathway, promoting epithelial mesenchymal transition in CRC51–53.
+Besides, FSTL3 can directly or indirectly affect hematopoiesis by inhibiting the TGFβ ligand46.
+Moreover, FSTL3 promotes angiogenesis by inhibiting the expression of activin A54.
+FSTL3 is also critically involved in inflammatory regulation.
+Its promoter region contains four TNF-α sensitive repeats and its expression is regulated by the inflammatory cytokine TNF-α55.
+FSTL3 can also induce macrophages to secrete chemoattractants56.
+The role of FSTL3 in the pro-survival PI3K-Akt signaling pathway has not been characterized, and it warrants further exploration since PI3K-Akt is a pivotal pathway in anoikis resistance40and CRC development57.
+Together, our results suggested that FSTL3 may affect CRC progression through anoikis and the above-mentioned pathways.
+Furthermore, CIBERSORT analysis identified strong association between CD4 T cells and lowFSTL3expression, and between the infiltration of Treg cells and macrophages and highFSTL3expression.FSTL3expression was associated with lymph node metastasis and worse prognosis in CRC, possibly through promoting the formation of immunosuppressive TME53.
+Our results were in line with this study and suggested that highFSTL3expression increased the infiltration of the immunosuppressive Treg cells and decreased immunoactive CD4 T cells, accelerating tumor progression.
+Additionally, co-culturing of cancer cells and TAMs has demonstrates that FSTL3 could promote the proliferation of M2 TAMs in gastric cancer58.
+Further exploration is needed to determine how FSTL3 affects macrophages in the TME of CRC remains unclear and needs.
+Overall, FSTL3 could also affect immune cell infiltration and possibly promote CRC progression through facilitating the formation of immunosuppressive TME.
+Our study revealed the prognostic value of anoikis associated genes in CRC and identifiedMGP,TPM2,CRIP2,TUBB6,C1orf54,NOTCH3,LTBP1,CSRP2,FSTL3, andVIMas key anoikis-related prognostic factors.
+A prognostic model based on the risk score calculated from the expression levels of these factors were established and displayed good predictive accuracy.
+Our findings provide new strategies for prognostic assessment of CRC patients.
+Below is the link to the electronic supplementary material.

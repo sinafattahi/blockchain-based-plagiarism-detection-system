@@ -1,0 +1,223 @@
+Somatotropin-release Inhibiting Factor (SRIF) binds somatostatin subtype-4 receptor (sst4) within the neocortex to increase amyloid beta catabolism, and possibly effects neuronal plaque formation and disease progression of Alzheimer's disease.
+Recently, sst4 in complex with SRIF or a small molecule agonist were resolved using cryo-EM, and mutagenesis identified amino acid residues that contributed to activity.
+In the present study, we used mixed Quantum Mechanics/Molecular Mechanics (QM/MM) to refine the experimental sst4 complexes and decipher agonist-sst4 interactions.
+SRIF rendered the complex more stable, while interactions with asparagines 199 and 293 seen in the experimental complexes were lost and replaced with Gln279.
+We also addressed long-standing questions related to sst4 agonist binding.
+Toward that end, we used quantum mechanics, molecular docking, and QM/MM refinement methods and employed pair-wise comparisons or matched molecular pairs to explore the effects of chemical substitutions on ligand properties and energetics.
+We identified amino acid interactions that were consistent among all refined complexes, and those that differentiated high affinity binders.
+Finally, we considered several parameters to discern which correlated best with affinity, and highlighted aspects often overlooked or yet to be explored in order to enhance lead optimization outcomes.
+Somatotropin-release Inhibiting Factor (SRIF) binds somatostatin subtype-4 receptor (sst4) within the neocortex to increase amyloid beta catabolism, and possibly effects neuronal plaque formation and disease progression of Alzheimer's disease.
+Poor bioavailability due to high molecular weight and short plasma half-life limit the potential of SRIF-14 as a CNS drug.
+Researchers have developed peptidomimetics and non-peptide agonists with chemical features mimicking SRIF residues important for potency (Phe7), and target binding (Trp8 and Lys9).9,10Recently, sst4 complexes bound by SRIF-14 and a small molecule agonist were resolved using cryo-Electron Microscopy (cryo-EM).11Both ligands formed electrostatic interactions with Asp126 through either the Lys9 of SRIF-14 or the moiety mimicking Lys9 of the small molecule, and Asn 199 with the main chain atoms of SRIF or the terminal amide of the small molecule (Fig. 1).
+In this work, we capitalized on experimental information and computational resources to address long-standing questions about the chemical features of agonists that render high affinity for sst4.
+We employed quantum mechanics (QM) and Quantum Mechanics/Molecular Mechanics (QM/MM) calculations to investigate quantum effects on agonist and receptor static structures.
+The questions we aimed to address were: (1) Can we decipher which amino acids are essential for binding with sst4?
+(2) What is the significance of the sulfur atom?
+(3) Does affinity correlate with certain parameters?
+(4) What are the best practices moving forward?
+Toward 1, we used experimental bound complexes (PDB IDs: 7XMS and 7XMT),11or with the ligands removed.
+We performed QM/MM calculations of sst4's binding pocket in the bound and unbound configurations to observe changes energetically, and to identify which interactions were maintained, lost, or gained due to refinement.
+Toward 2, we compared QM-optimized ligand geometries of matched molecular pairs.
+Toward 3, optimized ligand conformations were docked into the refined sst4 binding pockets and docked solutions were optimized with QM/MM.
+Refined complexes were compared in a pair-wise manner to identify consistent binding patterns of high affinity ligands.
+We looked at energies of refined complexes and properties of optimized ligands to explore correlations with affinity.
+Collectively, these results gave insights toward 4 and how to best approach future lead optimization endeavors for this particular system.
+Sst4 in complex with SRIF or small molecule were extracted from the Protein Data Bank (PDB IDs: 7XMS and 7XMT).
+Hydrogens were added with ProPka21and bond orders were reassigned using the Cambridge Crystallographic Database.22Missing side-chains were added using Prime and tautomeric states were assigned with Epik at pH 7.4 ± 2.0.
+Ligands were either maintained to represent bound configurations or extracted to obtain unbound configurations of sst4.
+To relax the structures and to alleviate crystal packing, while maintaining observed conformations, agonist-bound and unbound structures were minimized with 1000 steps of steepest descent, followed by 2000 conjugate gradient with rms of 0.1 to resolve poor contacts.
+Subsequently, short molecular dynamics (MD) simulations were carried out using the CHARMM force field within Discovery Studio (BIOVIA, Dassault Systèmes, Discovery Studio Modeling Environment 2023, San Diego).
+The systems were heated to target temperature 300 K for 10 ps, followed by 100 ps equilibration.
+The final production stage was 1 ns and used the constant-volume thermodynamic ensemble with Leapfrog Verlet integration and SHAKE23constraints applied.
+Schrodinger's Qsite was used to perform QM/MM calculations (QSite, Schrödinger, LLC, New York, NY, 2024).24,25We defined the binding pockets as amino acids within 10 Å of SRIF or the small molecule agonist which totaled 107 or 129 residues, respectively.
+We considered three definitions of the QM region that included (1) ligand atoms only, (2) ligand atoms plus side-chain atoms within 2 Å of the ligand, and (3) ligand atoms plus side-chain atoms within 6 Å of the ligand.
+We have reported values for the largest definition (ligand plus 6 Å).
+The DFT-B3LYP method with 6-31G basis set was used to treat the QM region, which employed the minimization method with a maximum of 100 iterations.
+The net charge of the QM region was equal to zero with a spin multiplicity of one.
+The OPLS_2005 force field was used to define the potential energy function for the MM region, with dielectric constant set to 1.0.
+We employed a maximum of 1000 minimization cycles using conjugate gradient algorithm with initial step size of 0.05 or 0.10 and a maximum step size of 1.0.
+An energy change criterion of 0.1 and a gradient criterion of 0.01 defined convergence for the MM region.
+MM, electronic, and the total QM/MM energies of the binding pockets were taken directly from QM/MM calculations.
+We performed single point energy calculations of the optimized conformations using MOPAC (Molecular Orbital PACkage).26,27Briefly, MOPAC performs semiempirical calculations using NDDO (neglect of diatomic differential overlap) theory.
+We employed the PM7 Hamiltonian and RHF wavefunction to calculate atomic electrostatic potential (ESP) charges fit to atom centers and total self-consistent field (SCF) energies.
+Calculations included all amino acid residues that defined the binding cavities (107 for SRIF-sst4 and 129 for small molecule-sst4 complexes).
+We compared the bound and unbound conformations, each before and after optimization, to visually inspect changes in conformation, and calculated RMSD's of side-chain heavy atoms using per-residue alignments of side-chain heavy atoms.
+Ligand conformations were optimized within Biovia's Discovery Studio 2023.
+Atom types were assigned using MMFF, and the CHARMM forcefield was applied.
+Initial structures were energy minimized using steepest descent followed by conjugate gradient, with a maximum of 200 steps each and rms gradients set to 0.1 and 0.01, respectively.
+Minimized conformations were used as initial structures for systematic searches to obtain low energy conformations.
+A maximum of 1000 conformations per ligand were generated with an energy threshold of 20 kcal mol−1, RMSD cutoff of zero and torsion increments of 15 degrees.
+Each conformation was energy minimized using conjugate gradient with rms 0.1.
+Conformations with the highest solvent accessible surface area were analyzed.
+Selected conformations underwent geometry optimization using Schrodinger's Jaguar.28We employed density functional theory (DFT) calculations using B3LYP-D3/6-31G** basis set.
+The usual nonrelativistic Hamiltonian was used and the SCF spin was treated automatically.
+Accurate SCF level was used and a maximum 48 iterations and energy change of 5 × 10−5Hartrees defined convergence.
+The QM optimized ligands were subsequently docked into the four configurations of sst4's binding pockets obtained as described above.
+We allowed a maximum of 30 poses per ligand.
+In addition, we extracted SRIF and the small molecule ligands from refined complexes and performed single point energy (SPE) calculationsin vacuumto study electrostatic properties of bound conformations.
+We calculated ESP partial charges, net molecular charges, and mapped ESPs onto the isodensity surfaces.
+We included SRIF-14 resolved from solution NMR in these experiments because Thr10 was not resolved in the cryo-EM complex (PDB ID: 2MI1).29Both methods give similar conformations of the peptide, and we found properties of either structure led to the same conclusions.
+We tested other methods and basis sets to compare energies with results of B3LYP-D3/6-31G**, and the same conclusions were drawn.
+Therefore, conformational energies were taken from the final geometry optimization step.
+Gibbs free energy was calculated using the equation ΔG=RTlnKd, whereKd= 1/10−pKa.
+Temperature was set to 310 Kelvin, and pKa's were calculated using quantum chemical approaches within Jaguar, as described above, with the acidity constant corresponding to the most ionizable group in each molecule.
+Differences in binding free energy (ΔΔG) between ligands within a pair (L1 and L2) were calculated as ΔΔG= ΔGL2 − ΔGL1, where ΔΔG> 0 kcal mol−1indicated L1 had higher affinity.
+Atomic ESPs fit to atom centers were calculated using a spherical grid, and ESP surface maps were generated with grid density set to 20 pts per Å. ESP-properties that employed statistical measures of variance, maximum, minimum, and mean values were calculated and included local polarity (Πpol) and charge balance (υbal) parameters.
+To calculate solvation energies, optimized ligands were submitted for single-point energy (SPE) calculations that employed the Poisson Boltzmann Finite element method solvent model.30Acidity constants (pKa's) were calculated using Jaguar's Micro-pKamethod31within Schrodinger's pKaprediction module.
+Briefly, Micro-pKacalculations include solvation free energies of protonated and deprotonated species, fitting charged species to experimental data with surface tension corrections trained on common functional groups applied for neutral species.
+Gas-phase deprotonation energy represents the free energy difference (ΔGg) between the ligand's protonated and deprotonated states.
+The summation of ΔGgand solvation free energies of neutral and ionic species equals the free energy of deprotonation (ΔGa) which is used to calculate the molecule's pKaas pKa= ΔGa/2.303RT.
+An empirical correction is applied afterab initiocalculations of pKa's to better agree with experimental.
+We employed the automatic search to consider all pKaatoms, and compared accurate and quick SCF levels which gave approximately equivalent pKa's for optimized ligand geometries.32A schematic representation of the workflow is shown inFig.
+We first examined properties of experimental binding pockets refined with QM/MM (Table 1; PDB IDs: 7XMS and 7XMT).
+MM energy equaled the sum of stretch, bend, and torsion energies across the interface.
+Electronic energy equaled the sum of one- and two-electron terms plus nuclear repulsion within the QM region.
+The SCF total energy was calculated semiempirically.
+SRIF-sst4 complex had MM energy of −3.7 × 103kcal mol−1, electronic energy of −7.2 × 107kcal mol−1, and total energy equaled −7.9 × 106kcal mol−1which were the lowest energies of all configurations.
+When the peptide was removed, the pocket MM energy was −2.4 × 103kcal mol−1, electronic energy was −2.9 × 107kcal mol−1, and total energy equaled −4.5 × 106kcal mol−1.
+Small molecule-sst4 complex had MM energy of −2.6 × 103kcal mol−1, electronic energy of −4.6 × 107kcal mol−1, and total energy equal to −5.7 × 106kcal mol−1.
+Small molecule boundversusunbound configurations had the same MM energies, but electronic and total energies were higher for the unbound configuration and equaled −3.2 × 107kcal mol−1and −4.6 × 106kcal mol−1, respectively.
+As expected, all energies were lower for bound configurations, while cavity volumes decreased when either ligand was bound, suggesting conformational changes upon binding.
+In addition, decreased pocket volumes upon binding suggest tighter and more specific bound complexes (Table 1).
+Our results indicate both agonists stabilized the receptor conformation, but SRIF rendered a more stable complex compared to the small molecule.
+For residues within the QM region, the small molecule complex carried a net charge of −5.9 where the ligand contributed −4.5,versusthe peptide complex which had a net charge of −25.7 with SRIF-14 being neutral.
+Electronic energy included atoms within the QM region only.
+Semiempirical SCF total energy included all atoms within the binding pocket.
+We superimposed refined complexes with respective experimental structures.
+Rotation of Asp126 improved bond angles with Lys9 or the Lys9 mimetic of both agonists.
+However, larger changes were observed within the small molecule complex.
+Leu123, Met130, and Phe131 located at the bottom of the pocket moved away from the small molecule.
+ECL2 was slightly translated towards the ligand which mainly affected side-chain rotamers.
+Comparison of the refined structures revealed that receptor conformations were highly similar.
+The greatest differences were between ECL2, which was rotated approximately 45 degrees upward to accommodate SRIF.
+The small molecule complex had ECL2 spanning across the pocket entrance, almost like openversusclosed.
+Within 6 Å of the ligand, however, there were only small differences in rotamers that we attributed to the size of SRIF which occupied more space compared to the small molecule or unbound cavities.
+As mentioned in the Introduction, the main electrostatics observed in the SRIF-bound experimental structure were with Asp126 and Asn199, while Phe6 formed hydrophobic interactions with Asn293.
+Similarly, the small molecule interacted with Asp126 and Asn199, with its phenyl ring sitting near Leu123, Val103, and Leu297.
+To determine residues most essential for agonist binding, we assessed which interactions were maintained or gained upon refinement and identified the amino acids that interacted with SRIF and the small molecule.
+Interactions with Asp126 were maintained, interactions with Gln279 were gained, and both agonists formed hydrophobic interactions with Leu123 and Leu297 in both refined complexes.
+SRIF's Lys9 maintained the interaction with Asp126 and the bond distance decreased from 2.7 Å to 1.8 Å. Leu297 formed a hydrophobic interaction with the hydrocarbon side-chain of Lys9.
+Tryptophan 8 hydrogen-bonded with the backbone carbonyl of Leu123.
+There was also a polar-π interaction formed between Gln279 and Trp8 (Fig. 3a).
+The small molecule maintained the salt-bridge with Asp126 and the bond distance decreased from 2.5 Å to 1.8 Å. The sulfonamide and Gln279 formed a polar vdW side-chain interaction also.
+Naphthyl and Phe211's side-chain became oriented edge-to-face (Fig. 3b).
+Backbone atoms of residues within ECL2 underwent small translations, and asparagine residues had different rotamers in refined complexes, hence interactions with Asn199 were not maintained.
+The side-chain RMSD's for the SRIF- and small molecule-bound complexes before and after refinement are in Table S1.
+Amino acid positioning changes are larger in the SRIF-complex when compared to the small molecule, suggesting tighter binding.
+We extracted SRIF and the small molecule ligand from refined complexes and performed single point energy calculationsin vacuumto study electrostatic properties of bound conformations.
+We calculated ESP partial charges, net molecular charges, and mapped ESPs onto the isodensity surfaces.
+SRIF had net molecular charge of +3 whereas the small molecule had +1.
+The Trp8 groups carried similar positive partial charges equal to 0.152 (indole) and 0.188 (naphthyl) in SRIF and small molecule, respectively.
+The distribution of charge was affected by the indole-NH which had a more localized positive charge and the rest of the atoms were neutral.
+In contrast, the naphthyl had slight positive charge across both rings because of the high electron withdrawing effect of the sulfonamide.
+The basic functionalities (NH3+) had equal positive partial charges of 0.560 (SRIF) and 0.581 (small molecule).
+Similar observations were made for the bound SRIF and small molecule.
+Specifically, charges for the Trp8 and Lys9 groups in SRIF were 0.026 and 0.967, respectively, whereas in the small molecule charges were 0.031 and 0.851 for the Trp8 and Lys9 mimetic groups.
+These results show net atomic charges were similar for functional groups that interacted with sst4.
+In summary, SRIF-sst4 was the more stable complex.
+QM/MM refinement alleviated packing at the bottom of the cavity, and improved lengths and angles of non-bonded interactions between ligands and receptor residues.
+The binding cavities were highly similar except for ECL2.
+Residues Leu123, Asp126, Gln279, and Leu297 formed interactions with Trp8 and Lys9 moieties of bound agonists.
+Interactions with Asn199 and Asn293, seen in the experimental structures, were not observed in the refined complexes.
+Localized positive charge density about Lys9 was deemed essential, and positive partial charges of Trp8 contributed to affinity.
+We used matched molecular pairs to explore the effects of sulfur.
+Chemical structures and properties are given in comparisons 1–8 ofTable 2.
+We compared low energy ligand conformations using ESP partial charges, solvation free energy (ΔGsolv), acidity constant (pKa), andAlogP.
+Affinity is affected by solvation/desolvation and we addressed it using ΔGsolv, which measured the free energy difference between the gas and solution phases, where more negative ΔGsolvindicated higher solubility.
+Given that ionization affects ligand partitioning and permeability, we considered pKaas well.
+pKaRepresented the propensity of Lys9 mimetic (imidazole) to become deprotonated in water and was calculated by subtracting the gas-phase deprotonation energy from the summed free energy changes of solvation of the neutral and charged species.
+We anticipated sulfur would affect electronic character because of the difference in electronegativityversuscarbon or oxygen, reflected by differences in ESPs, ΔGsolv, or pKa.
+We also anticipated conformational effects due to increased size of the sulfur atom.
+Optimized ligands were docked into the refined cryo-EM structures of sst4 to observe whether sulfur affected how ligands interacted with the macromolecule.
+Sulfur increases solubility in thiourea 7versusurea 2 and results in a greater tendency of imidazole to become deprotonated when compared to urea (comparison 1).
+3-Oxy-triazole 230 displays same solubility as 3-thio-triazole 42; however, oxygen's electronegativity increases the propensity of imidazole to deprotonate, contrary to lower electron-withdrawing sulfur (comparison 2).
+Notably, sulfur-containing ligands inTable 2display higher solubility unless the benzene carries strong electron-withdrawing substituents such as trifluoromethyl or fluorine (comparisons 6 and 8).
+On the other hand, sulfur being more electronegative than carbon lowers the pKa, with the exception of highly electronegative substituents on the benzene such as mesylate and trifluoromethyl.
+The average summed partial charges of functional groups presumed to interact with Asp126 were affected by the sulfur, but the atoms acting as hydrogen bond donors (Nε2 hydrogen or urea hydrogens) maintained similar positive partial charges between 0.310 and 0.401.
+Sulfur compounds had uncharged imidazoles at brain pH (pKa< 7.0),versusurea 2 of comparison 1 with pKaequal to 7.9, and triazole 207 of comparison 4 with pKaof 7.5.
+Docking results showed ligand pairs had similar conformations and orientations within the binding pocket, with the exception of comparison 2 ligands (Fig. 4).In vacuum, oxy-triazole 230's conformation was extended (Fig. 4a).
+Within the docked complex, the imidazole hydrogen-bonded with Asp126 with bond distance equal to 1.7 Å and the indole was positioned near Leu123.
+The benzyl side-chain was positioned higher and did not form vdW interactions.
+It should be noted that the binding mode of 230 (Fig. 4b) was similar to refined SRIF-sst4 with Trp8 moiety hydrogen bonding to Leu123 backbone carbonyl and Lys9 moiety donating a hydrogen to the carboxylate of Asp126.
+The conformations of thio-triazole 42 were similarin vacuumand within the receptor cavity, but imidazole side-chain was rotated 120° (Fig. 4c and d).
+Compound 42's imidazole hydrogen-bonded with the side-chain of Asp126 with bond distance equal to 1.7 Å, the indole NH hydrogen-bonded with the backbone carbonyl of Phe211 at approximately 2.0 Å distance.
+The benzyl group was positioned lower in the pocket and was involved in vdW interactions with Trp112 and His294.
+In summary, sulfur compounds maintained similar net atomic charges to SRIF and small molecule agonists, with positive partial charges of functional groups meant to interact with Asp126.
+The sulfur atom affected solubility for the most part, acid–base character of the Lys9 mimetic, and binding modes of oxy-versusthio-triazole ligands.
+In contrast, sulfur did not affect how ligands bound sst4 when comparing sulfurversuscarbon.
+It is possible for ligands to have more than one binding mode, which we observed for ligands with phenyl or benzyl at positions 3 and 5 of the thiotriazole.
+In the first binding pattern, compounds 90 (Ki= 2.6 nM) and 233 (Ki= 6 nM) had the thiol or carbonyl oxygen of the sulfone forming a hydrogen bond with Gln279 with bond distances of approximately 2.8 Å, and the Lys9 mimetic hydrogen-bonded with Asp126 with bond distances approximately 1.8 Å and 1.9 Å, respectively.
+The 4-fluoro-benzyl groups formed edge-to-face π−π interactions with Phe211, and additional vdW and hydrophobic interactions involved Leu123, Phe131, Ile181, Leu200, and Leu297.
+The sulfur atom of compound 122 (Ki= 243 nM) was positioned slightly lower and pointed down, thus it did not interact with Gln279 but other interactions were maintained (Fig. 5a).
+In the second binding pattern, the positions of the benzyl or phenyl groups were flipped.
+The phenylthiol of compound 90 and the phenylsulfonyl of 233 oriented away from Gln279 and formed hydrophobic and vdW interactions with Ile181, Leu200, and Phe211, and the imidazoles maintained hydrogen bonds with Asp126 (Fig. 5b).
+The second binding pattern was not observed for compound 122 which had moderate affinity.
+We compared ligands in a pair-wise manner where only one substituent differed.
+We first examined docking results before and after refinement using RMSD's of ligand atoms and binding pocket residues.
+Results showed only minor changes of less than approximately 1 Å and 2 Å, respectively, which gave us confidence in our docked complexes.
+Between pairs, we evaluated amino acid interactions, per residue and absolute sums of complex partial charges, and electronic energies.
+All ligands maintained the strong dipole interaction with Asp126 and a hydrophobic interaction with Leu200.
+High affinity ligands (Ki< 10 nM) also hydrogen-bonded with either Gln279 or the backbone carbonyl of Phe211 and formed hydrophobic or vdW interactions with three to five residues where Leu123 and Leu297 remained consistent.
+We were able to explain observed affinities for ligand pairs that we could not explain previously using the identified amino acids.
+Disubstituted triazoles 213 (Ki= 99 nM) and 214 (Ki= 717 nM) differed by a 6-fluoro substitution to the indole which lowered affinity sevenfold.
+Ligand conformations were similar and both ligands had imidazole forming a hydrogen bond with Asp126, but triazole and indole groups were positioned differently within the binding pocket (Fig. 6a).
+Unsubstituted indole hydrogen-bonded with Phe211 backbone carbonyl with bond distance of 2.1 Å, and formed vdW interactions with Phe131 and Phe211 side-chains.
+The triazole of 214 was positioned lower in the pocket, and 6F-indole was extended up toward the pocket entrance and thus it did not hydrogen bond with amino acid residues.
+Thiotriazoles 105 (Ki= 945 nM) and 107 (Ki= 959 nM) had quinoline at position 5 of the triazole as the Trp8 mimetic, and either an amine or imidazole as the basic functional group.
+Within the binding pocket, ligand conformations were similar, but 105 was positioned slightly lower compared with 107 and the benzyl-thiol moieties were positioned perpendicular to one another (Fig. 6b).
+These differences did not affect amino acid interactions.
+Both ligands had the basic functionality hydrogen bonding with Asp126, and forming hydrophobic or vdW interactions with Phe131, Phe275, and Leu297.
+Quinoline and triazole aromatic rings were within the same plane (flat) and parallel, and the quinoline nitrogen pointed down and away from Gln279 or Phe211.
+We looked at Gibbs free energies, properties of ligand ESPs33and acidity constants to discern which correlated best with affinity using 35 ligands with QM-optimized geometries (chemical structures in Fig. S1).
+Differences in binding free energies for representative ligand pairs do not display consistent correlation with affinity (Table S2).
+A more negative ΔGfor a ligand under investigation would be suggestive of higher affinity and favorable binding.
+Even though there is a direct relationship between Gibbs free energy and pKa, inherent challenges such as: (1) changes in charge states of both receptor and ligand upon binding, (2) pH dependence of receptor–ligand binding,34(3) one ionizable group on the ligandversus“distant” pKachanges on the macromolecule, and (4) desolvation penalty are not taken into consideration.
+As can be seen, most ligands carry an imidazole, yet their varying affinities and preceding sections indicate factors beyond direct electrostatic perturbation are in effect.
+Finally, multi-electron systems suffer from the complexity of repulsive forces between all electron pairs, in addition to Coulomb repulsion terms which need to be approximated.
+Properties of ligand ESPs included absolute pKaof Lys9 mimetics, charge balance, and separation parameters.
+The balance parameter (υbal) quantified the strength of positive and negative electrostatic potentials across the molecular surface by adding the variance of positive and negative chargesversusthe total charge variance.
+The maximum value ofυbalis 0.250 which meant positive or negative regions of a molecule could form equally strong interactions.
+Inversely,υbalof 0.000 indicated only positive or negative regions of a molecule likely form strong interactions.
+Local polarity (Πpol) was a measure of charge separation taken as the average deviation from the mean surface potential.
+Ranges and average values of the properties are given inTable 3.
+There is a trend between charge separation and affinity, whereΠpolincreased as affinity increased.
+We interpreted this relationship as higher affinity with increased localized positive charge of either the imidazole or the amine cations.
+We confirmed this trend as a true positive relationship using external ligands reported by Boehringer Ingelheim35,36that are structurally dissimilar to the triazole series (Fig. S2) and we calculated Pearson's correlation coefficient (r) and Kendall'sτ(data not shown).
+Correlation (r) increased as affinity increased, andΠpoland affinity were not related when compounds hadKi> 100 nM.
+In summary, we identified the same binding modes reported in our previous studies,14,20but additional refinement of docked complexes with QM/MM helped clarify which interactions were most important or showed an additional interaction that helped differentiate high from medium affinity binders.
+The bidentate interaction we had reported previously was slightly altered by QM/MM refinement, which revealed that the indole interaction with Asp126 was replaced by a hydrogen bond with the backbone carbonyl of Leu123, similar to refined SRIF-sst4 complex.
+Amino acids Gln279 or Phe211, Leu123, and Leu297 differentiated high affinity agonists, whereas electrostatics with Asp126 and hydrophobic interactions with Leu200 were consistent across affinity ranges.
+The ligand propertyΠpolcorrelated with affinity, while calculated energies did not.
+When we initiated this project we expected: (1) more energetically favorable configurations for the SRIF- and small molecule-bound complexes when compared to unbound ones, and decreased cavity volumes for the bound complexes; (2) optimized bonding interactions with the main electrostatics residues, namely Asp126 and Asn199, reported in the refined experimental complexes; (3) sulfur would impact ligand conformations and to an extent binding modes, lipophilicity, and possibly electronic character; (4) higher affinity triazole and thiotriazole derivatives should form tighter complexesversuslower affinity ones.
+Even though we indeed saw favorable energetics for the refined experimental complexes, Asn199 did not participate in binding interactions after refinement.
+Sulfur and carbon triazoles displayed similar binding modes, which differed from oxy-triazoles.
+Sulfur increased solubility and lowered the pKa, not consistently but contingent upon substitutions on the nearby benzene.
+Finally, the highest affinity ligands showed additional electrostatics and vdW interactions when compared to those with lower affinity.
+Delving deeper beyond our expectations, and contrary to popular belief that post-docking refinement is necessary to achieve accurate docked solutions, our results indicate that extensive conformational sampling does not enhance accuracy.
+What matters instead are physically feasible starting conformations.
+Understanding molecular recognition is complex and multi-dimensional.
+Experimental structures are accurate to a degree, but not absolute representations of reality.
+Besides packing and unresolved parts of the structure, density mapping is approximated at times.
+On the other hand, high level theory such as the calculations presented herein promise accuracy for the particular area of the receptor under consideration, however they are not reflective of the actual binding events necessarily.
+Thus, factoring in the stage of the project,i.e.hitversusleadversuslate candidate, against the computational cost of high level methods would be advisable.
+Besides, a global minimum is not representative of the bioactive ligand conformation and attaining the lowest energy complexes with QM/MM may give the investigator confidence in their approach, but changes occurring beyond the MM region are not considered.
+Drug discovery enterprises very seldom focus on protonation state changes of receptors and ligands and/or the pH-dependence of ligand–receptor binding.
+However, these changes impact ionizable groups in macromolecules and small molecules and could affect the nature of the final docked complex.
+For this system in particular, refinement helped identify critical amino acids but did not offer a correlation to affinity.
+It is our belief there is a lot to be uncovered at the physiological level for sst4.
+Given that electrostatics and even vdW required to render affinity are rather limited, conformational rearrangements upon ligand binding likely result in revised interactions of a residue with the ligand and within the receptor partial charges.
+These changes may extend beyond the immediate vicinity of the cavity.
+The fact we observed a trend between charge separation and affinity is indicative of the relevance of ionizable groups and local or distant electrostatic scenarios.
+Lead optimization efforts include optimizing ligand physicochemical properties related to pharmacokinetics, while ensuring potency is not impacted greatly.
+What we have seen here is that additional ligand characteristics such asΠpolwould be invaluable in ascertaining which lead scaffolds should be advanced in the pipeline during lead optimization campaigns.
+QM/MM refinement of the cryo-EM structures led to more stable bound complexes when compared to unbound ones, while the pocket volume decreased upon binding.
+Between SRIF and the small molecule, SRIF rendered a more stable complex.
+Binding interactions with Asn199 and Asn293 seen in the experimental structures were lost and replaced with Gln279.
+In an effort to identify critical amino acids for agonist binding, we compared bound configurations of several known sst4 ligands and identified Asp126, Gln279, and Leu297 interactions were consistent among refined complexes.
+To shed light on the effect of sulfur in the compound series under investigation, we considered several physicochemical properties of matched molecular pairs.
+Results showed sulfur affected solubility, ligand pKa's and binding modes.
+We also aimed at correlating affinity with certain parameters for sst4 agonists.
+Gibbs free energies, properties of ligand ESPs and acidity constants were considered to discern which correlated best with affinity.
+There was no correlation between energetic properties of ligands or protein–ligand complexes and affinity, but we identified a strong relationship betweenΠpoland affinity for sst4 agonists of different chemical classes.
+Further, Asp126, Gln279 or Phe211, Leu123, and Leu297 were important for high affinity of the triazole and thio-triazole derivatives considered herein.
+Moving forward, we advise: (1) less focus be given in post-docking refinement and more on physically viable starting conformations for better docking accuracy; (2) balancing the computational cost of high level theory and the extent to which models reflect reality with the stage of the drug discovery project; (3) deeper understanding of the system, protonation changes, and effects of altered interactions upon binding and beyond the cavity; and (4) consideration of ligand properties in lead optimization beyond the classical physicochemical ones.

@@ -1,0 +1,298 @@
+Transportability analysis is a novel causal inference framework used to quantitatively assess the external validity of randomized or observational studies [1,2,3,4,5,6].
+Transportability analysis methods “transport” findings from a source sample, gathered from a randomized clinical trial (RCT) or non‐randomized (observational) study to an external target population by adjusting for differing distributions of effect modifiers between the source and target samples [2,3,4,5,6].
+By evaluating external validity, transportability analyses help bridge the gap between effect estimates observed in a source population and their anticipated impact in a target population of interest [7].
+While different transportability methods are available, most require individual participant‐level data (IPD) for both the source and target samples [3,8,9,10,11].
+Access to such data is often limited, presenting practical challenges to transportability analyses [1].
+A common scenario is that IPD is only available for the source study, while the target population data is limited to aggregate‐level data (AgD) available from publications.
+Recent methods developments have sought to leverage AgD to improve the feasibility of transportability analyses.
+For instance, entropy balancing approaches use convex optimization to derive sampling weights that align covariate moments between IPD from the source sample and AgD from the target population, facilitating effect estimate transport.
+This approach has been refined with calibration techniques, including an exponential‐tilting calibration scheme which achieves semiparametric efficiency under mild regularity conditions [12,13].
+In another study by Quan et al. [14], they introduced a double inverse probability weighting (DIPW) method tailored for situations where only the summary data is available due to privacy constraints of specific countries/regions.
+Other proposed methods incorporate more flexible weighting strategies that use individual‐level covariates from the source sample to seeks additional covariate balance between the treated and control groups [15].
+Existing studies on these AgD‐based transportability methods have explored binary and continuous outcomes, and there has been limited exploration for time‐to‐event outcomes.
+Given the importance of accurately applying trial results to broader populations, recent work has explored different ways to transport survival outcomes from an RCT to target populations.
+For example, Ramagopalan et al. [16] developed a method for transporting survival estimates: they transported overall survival (OS) effect estimates from US clinical practice to the Canadian population using baseline covariates adjustments based on the Canadian population, but did so with individual‐level data available in both populations.
+Zuo et al. [17] applied proportional hazards and accelerated failure time models to transport survival outcomes in adjuvant colon cancer trials.
+They explored one‐trial‐at‐a‐time and leave‐one‐trial‐out methods, demonstrating how varying model structures and moment adjustments can address treatment effect discrepancies due to heterogeneous covariate distributions across trials, providing a structured framework for extending survival results to diverse populations.
+However, the framework likewise presumes the availability of individual‐level data for both the source and each target trial.
+Lee et al. [18] extended the augmented calibration weighting (ACW) methods with the linear spline‐based hazard regression model to generalize treatment effects from the ACTG 175 HIV trial to various target populations without the limitation of proportional hazard (PH) assumption.
+This extension requires target‐population IPD (or an equivalent synthetic micro‐dataset), imposing the same practical constraint as mentioned.
+Informative censoring in survival analysis can critically impact the performance of statistical methods.
+For transportability analyses, this is no different.
+There has been recent work developing methods to account for censoring when performing transportability analysis on survival data.
+One such work is by Berkowitz et al. [19], which uses inverse odds of selection weights with survival tools like the Kaplan–Meier estimator and marginal structural Cox models to transport survival outcomes.
+Although effective for estimating counterfactual survival times, this method assumes censoring is independent of covariates, potentially limiting its real‐world applicability.
+Lee et al. [20] advance this by addressing covariate‐dependent censoring in survival transportability.
+Using a doubly robust (DR) estimator, their method integrates inverse probability weighting for sampling, censoring, and treatment assignment with outcome regression, ensuring accuracy even when censoring depends on covariates.
+Cao et al. [21] expanded on weighting and DR methods to estimate counterfactual survival functions within the target population.
+Unlike Lee et al.
+'s calibration weighting estimators, this approach employs simpler estimators that rely on direct weight estimation or survival outcome modeling.
+These methods have advanced survival outcome transportability, but they still require access to IPD of the target population.
+There is a current gap in transportability analysis methods that can account for covariate‐dependent censoring in settings where only AgD is available in the target population.
+In this paper, we propose a novel framework called “Target Aggregate Data Adjustment” (TADA) that can account for covariate‐dependent time‐varying censoring when transporting findings to target AgD.
+Our TADA framework can incorporate inverse probability of censoring weights with the method of moments (MoM) weighting to account for differences in effect modifier distributions between source and target populations.
+TADA then derives final matching weights for each individual in the source dataset through a two‐stage scheme, balancing the source and target populations to transport treatment effects.
+The R codes to implement TADA and reproduce the simulation results can be obtained fromhttps://github.com/CoreClinicalSciences/TADA.
+TADA is also available as a main module inTransportHealth, a recently published open‐source R package developed by Park et al. [22] for transportability analyses and causal reasoning.
+The paper is organized as follows.
+In Section2, we introduce the notations and formalize the causal inference framework for survival outcomes in transportability with necessary assumptions.
+Section3introduces the methodological approaches used in TADA.
+Sections4and5cover the simulation settings and present the results, respectively.
+Sensitivity analyses are provided in Section6.
+In Section7, we apply TADA to transport the Kaplan–Meier survival curve of a control arm from the stage IV squamous non‐small‐cell lung cancer (NSCLC) treatment with the inhibitor of EGF receptor (SQUIRE) trial (NCT00981058) [23] to a real‐world target population with stage IV NSCLC in Ontario, Canada [24].
+A discussion is provided in Section8, with concluding remarks in Section9.
+In the Supporting InformationS1, we provide a brief review of existing transportability methods for aggregate target data, a theoretical justification of unbiased estimation of TADA and additional simulation results.
+Suppose we are interested in comparing the effectiveness of two treatments.
+We have access to the source sampleSof sizeNs, with individual data.
+LetX∈Xbe a vector of baseline covariates, consisting of two subsets: (1) covariatesL, which include variables associated with the risk of being censored (e.g., dropout or loss to follow‐up) and required to ensure conditional exchangeability of counterfactual survival times and censoring; and (2) effect modifiersE, which include variables that influence how treatment effects may vary across different populations and required to ensure conditional exchangeability of counterfactual survival times and trial participation.
+For simplicity and clarity in presentation, we uniformly denote both subsets together asXthroughout the manuscript.
+LetA∈0,1be the treatment indicator, withA=1referring to active treatment andA=0representing control.
+LetS∈0,1be the trial participation indicator, withS=1referring to trial participation in the RCT, andS=0otherwise.
+LetTdenote the survival time, defined as the event occurrence time.
+Following the potential outcomes framework [25,26], letTabe the potential survival time if a subject receives the treatmentA=a.
+Under the stable unit treatment value assumption (SUTVA) [25], the survival time is indicated asT=T1A+T01−A.
+LetCbe the censoring time.
+In the presence of right censoring, the survival timeTiis not always observed for all subjects; hence, we define observed time asUi=Ti∧Ciand censoring indicatorΔi=ITi≤Ci, where∧represents the minimum of two values, andI⋅is an indicator function.
+In summary, from the RCT source sample, we observeUiΔiAiXiSi=1fromi=1,⋯,Nssubjects.
+The target population,T, containsNtindividuals.
+We do not observe either the treatment or outcome but have access to the sample momentsh¯k,T=1Nt∑i∈ThkXiof certain covariate functionshk:X→ℝ, wherek=1,…,K.
+LetSat=PrTa≥tbe the survival function andλat=limh→01hPrt≤Ta≤t+hPrTa≥tbe the hazard function.
+Under the proportional hazards assumption, that is,λ1t/λ0tbeing a constant, the estimand of interest is chosen as the marginal hazard ratio, derived by estimating the causal effect of treatment on survival time within a weighted Cox PH model.
+(Ignorability and positivity of trial participation)T0T1⊥⊥S∣X; and0<πSX<1for all values ofX.
+(Noninformative censoring conditional on covariates and treatment)T0T1⊥⊥C∣X,A,S=1, which also impliesT⊥⊥C∣X,A,S=1.
+Given the inherent difficulties in directly validating these assumptions, relevant domain knowledge should support their practical plausibility.
+Assumption1holds in the RCT by design.
+If all information related to trial participation and outcomes is captured in the data, then the first part of Assumption2is reasonable.
+Additionally, the second part of Assumption2requires that all subgroups defined by covariates have a non‐zero probability of trial participation.
+Specifically, if certain patient characteristics are completely unobserved or excluded by design, then individuals with these characteristics would have no possibility of participating in the trial, violating the positivity condition and limiting the transportability of trial results to such populations [27].
+Assumption3is a common assumption in survival analysis and imposes fewer restrictions compared to the conditional independence assumption between censoring and survival time based solely on treatment [8,19,28,29].
+When only target AgD is available, conducting transportability analysis faces challenges due to limited information that is provided by AgD.
+To address this issue, we propose a MoM‐based approach as a feasible alternative for covariate adjustment.
+The original application of MoM methods was in matching‐adjusted indirect comparison (MAIC) to achieve balance of covariates between two RCTs of comparison [30].
+For each covariate of interest, the MoM approach aligns the sample moments calculated from the IPD of the source population with the corresponding moments from the AgD of the target population.
+Greater availability of AgD, particularly higher‐order target sample moments, reduces bias in the population matching process.
+For instance, the access to additional summary statistics such as the sample standard deviation, median, proportion, or even higher‐order moments (e.g., skewness or kurtosis) for covariates can result in more accurate estimators compared to relying solely on the sample mean [15].
+Our approach is conceptually similar to the strategy introduced by Josey et al. [12] where entropy balancing was employed to achieve the same goal.
+The existing literature highlights the connection between entropy balancing and the MoM approach, particularly in applications to ITC and transportability analyses.
+Both methods are statistically equivalent, sharing common advantages and robustness [31], while MoM has the advantage of being relatively intuitive in clinical interpretation, as discussed in Supporting Information SectionS1.
+Here, we illustrate the theoretical process of participation weight estimation by the MoM approach through matching first‐order sample moments (sample means).
+For simplicity and ease of illustration, we describe the process for a single covariate component, while the approach naturally extends to multiple covariates.
+Consider a specific covariate componentXavailable in both the source and target populations.
+Assume that we have IPD forXin the source sample, but only the sample meanX¯for this covariate in the target sample.
+By further simplifying the constraint as∑i=1NsXi,CENTERED⋅wiMoM=0=Q′ζ, where the objective functionQζis given byQζ=∑i=1NsexpXi,CENTERED⋅ζ, the solution forζthat satisfies this equality constraint is unique and globally optimal due to the convexity ofQζ.
+Thus, stable estimates of participation weights are obtained.
+In longitudinal studies, participants are lost to follow‐up for various reasons that may be related to the treatment or competing events.
+This loss to follow‐up can result in systematic differences between those who remain in the study and those who do not across treatment groups.
+While RCTs generally eliminate confounding through randomization, censoring can still introduce bias if the probability of being censored is related to the outcome the participant would have experienced without censoring.
+To address this issue, censoring weights are applied during the estimation process, aiming to recreate a hypothetical population that would have been observed without censoring.
+TADA applies inverse probability censoring weights (IPCW) to account for bias resulting from censoring for the time‐to‐event outcome in the source population.
+whereΔit=1denotes not censored for individualiat timet.
+These weights are calculated at each distinct event time during follow‐up.
+wherehctAiXiis the hazard function for censoring at timetfor individuali,hc0tis the time‐varying baseline hazard function, andηit=βcΤAiXiis the linear predictor whereβcis the vector of regression coefficients andAiXiis the vector of treatment and covariates.
+wheredjis the number of censoring events at timetj, andRtjis the risk set at timetj.
+whereSctAiXi=exp−Hc0t⋅expηitrepresents the uncensoring probability at timetgiven covariates and treatment.
+When the distribution of the weights is highly skewed, it may be appropriate to consider trimming weights above a certain percentile (e.g., the 95th or 99th).
+Such decisions should be guided by diagnostic assessments, including the inspection of weight distribution and sensitivity analyses across different truncation thresholds, to balance variance reduction against the risk of introducing bias.
+In the following simulation study introduced in Section4, we apply an overall 95th percentile trimming threshold after checking the distribution histogram of raw final weights in various settings to achieve the optimal performance for most of scenarios.
+A systematic sensitivity analysis about various final weights truncation strategies is also conducted and results are presented in Section6.
+This combined weighting approach ensures unbiased treatment effect estimates concerning both censoring and population differences.
+The weighted source population should closely resemble the target population, demonstrating population balance and supporting the treatment effect estimates.
+We provide a theoretical justification of unbiased estimation of TADA in Supporting Information SectionS2.
+whereλatAiis the hazard function at timetfor individualiwith treatment assignmentAi,h0tis the baseline hazard function, andβrepresents the log hazard ratio of the treatment effect.
+We estimateβusing a weighted partial likelihood approach, with the final weightswifinaltobtained from the two‐stage scheme as detailed in Sections3.1,3.3.
+Applying these final weights creates a pseudo‐population in which: (i) the participation weights balance effect modifiers between the source and target populations, ensuring transportability of treatment effects; (ii) the censoring weights reduce bias from incomplete follow‐up by assigning greater weights to individuals with higher risk of dropout, approximating the outcomes that would have been observed without censoring under Assumption3; (iii) treatment is independent of baseline covariates.
+This framework enables us to estimate the transported treatment effect on the target population using only aggregate‐level data.
+whereNsis the number of individuals in the source sample,Δiis the censoring indicator for individuali, andRtiis the risk set of individualiat timet.
+Maximizing this weighted likelihood function provides an estimate ofβ, the log hazard ratio, which quantifies the causal effect of the treatment in the target population.
+We are estimating the variance ofβusing a nonparametric bootstrap method.
+The simulation study applies the ADEMP framework proposed by Morris et al. [40] to comprehensively evaluate the effectiveness of TADA in transportability analysis using AgD for a target population, specifically examining its performance in adjusting for censoring.
+Our primary goal (Aim) is to assess the estimated causal effects of treatment on overall survival across different RCT scenarios, with and without censoring adjustments made via TADA.
+Detailed descriptions of the Data‐generating mechanisms, Estimands, Methods, and Performance measures are provided in the following subsections.
+To generate studyIPD, we first simulate a source population of 50,000 individuals and then randomly sample 200 individuals for the final dataset.
+Each individual has three baseline covariates:X1andX2are binary variables generated from binomial distributions with probabilities 0.45 and 0.65, respectively.X3is a continuous variable generated from a standard normal distribution (mean 0, variance 1).
+Treatment status is assigned randomly to simulate an RCT scenario, with an allocation rate of 1:1.
+Event times are generated from a Weibull distribution, incorporating the effects of covariates, treatment and the interaction between treatment and each covariate through the linear predictorηevent,i.
+where the main effects are set asβX1=0.5,βX2=−0.3,βX3=0.2, andβtrt=−0.4.
+We generate a total of 10 distinct random scenarios by varying the coefficient combinations of the treatment‐covariate interaction termsβtrt−X1βtrt−X2βtrt−X3, while keeping the main effect coefficientsβX1,βX2,βX3andβtrtconstant.
+This approach ensures that all variables are sufficiently perturbed during data generation, creating a range of representative and complex simulation scenarios.
+The coefficient combinations are provided in Table1by scenarios.
+Ten distinct random scenarios and corresponding coefficient combinations of the treatment‐covariate interaction termsβtrt−X1βtrt−X2βtrt−X3.
+where shape parameterαevent=1.5and scale parameterλevent=0.1.
+These parameters are chosen to reflect an increasing hazard over time (αevent>1).uiis a random variable drawn from the uniform distribution on (0, 1).
+InstudyIPD, we generate censoring times for each individual similarly to event times.
+A linear predictorηcensor,iis constructed for each individual to incorporate the effects of covariates on the hazard function.
+whereβX1c=−0.2,βX2c=0.4andβX3c=−0.1as the main effect of baseline covariates,βtrtc=0.25as the treatment main effect andβ0as the intercept.
+We choose various candidates ofβ0to directly adjust the overall censoring proportion amongstudyIPD.
+We setβ0as 2.5, 3.3, 3.7 and 4.3, respectively, to obtain studyIPD with around 20%, 30%, 40%, and 50% overall censoring proportion while keeping other coefficients being consistent.
+where shape parameterαcensor=1.5and scale parameterλcensor=0.001.ui′is an independent random variable from the uniform distribution on (0, 1).
+Similarly, we generatetargetAgDby simulating a larger target population of 200,000 individuals and then randomly sampling 1000 individuals for the final dataset.
+Each individual has the same three baseline covariates as in the source population (X1,X2, andX3) with different distribution characteristics:X1is binary and generated from a binomial distribution with probability 0.35.X2is binary and generated from a binomial distribution with probability 0.55.X3is continuous and generated from a normal distribution with a mean of 0.21 and a variance of 1.5.
+SincetargetAgDis an aggregate‐level dataset, we summarize the proportions ofX1andX2, and the mean and standard deviation ofX3as the final data.
+The individual‐level covariate data fortargetPseudoIPDare generated concurrently before aggregation.
+To obtain the “true” treatment effect in the target population for benchmarking, we assign treatment status and generate event times for each individual intargetPseudoIPD.
+Treatment status is randomly assigned with a 50% probability to simulate an RCT scenario.
+We use the same Weibull distribution parameters (αevent,λevent), the same linear predictor structureηevent,iand coefficients as instudyIPD, applying them totargetPseudoIPDto ensure consistency.
+We are interested in estimating the marginal hazard ratio in the target population.
+We consider two analytical strategies for handling censoring in the context of transportability analysis.
+Adjusting censoring: In this case, TADA balances the source and target population with the participation weights introduced in Section3.1, as well as adjusting the bias resulting from censoring via IPCW introduced in Section3.2.
+The final weights are the product of the two as Section3.3.
+Ignoring censoring: In this case, TADA ignores the impact of censoring and only balances the source and target population with the participation weights introduced in Section3.1.
+The final weights are equivalent to the participation weights estimated by the method of moments.
+For both strategies, we estimate the average marginal hazard ratios using a Cox PH model based on multiple replicates.
+We apply the Cox PH model ontargetPseudoIPDto estimate average marginal hazard ratios as the pseudo “true HR” of the target population as the comparison benchmark.
+Considering the trade‐off between accuracy and computational cost in the presence of time‐varying weight estimation in our simulation, we simulateR= 500 replicates for each scenario and within each replicate generateB=200bootstrap resamples.
+We evaluated the performance of TADA under different strategies for censoring.
+For low to medium overall censoring proportions of 20% and 30%, Figure1provides the distribution of the overall censoring rate for each scenario, while Figure2presents the censoring rates for the treatment and control groups across various scenarios.
+Tables2and3summarize key simulation results for both the censoring‐adjusted and censoring‐ignored cases across all scenarios.
+Specifically, each table compares the estimated bias and coverage relative to the pseudo‐true hazard ratio.
+The illustrations of the overall censoring rate distribution, as well as the simulation results under relatively high overall censoring proportions of 40% and 50%, are provided in the Supporting InformationS3.
+The boxplots of overall censoring proportion for scenarios 1 to 10 when the average overall censoring proportion among all scenarios is around (A) 20% and (B) 30%.
+The numbers aligned with each boxplot from left to right represent the minimum, mean and maximum of the overall censoring proportion among 500 simulation replicates.
+The boxplots of treatment (bright orange) and control (light blue) group censoring proportion for scenarios 1 to 10 when the average overall censoring proportion among all scenarios is around (A) 20% and (B) 30%.
+The numbers aligned with each boxplot from bottom to top represent the minimum (blue), mean (black) and maximum (red) of corresponding censoring proportion among 500 simulation replicates.
+The simulation results of scenarios 1 to 10 when the overall censoring proportion is around 20%.
+The columns from left to right represent scenario index; estimated hazard ratio and 95% CI when TADA adjusts censoring; estimated hazard ratio and 95% CI when TADA ignores censoring; pseudo‐true hazard ratio and 95% CI; bias and 95% CI between censoring‐adjusted strategy and pseudo‐true hazard ratio; bias and 95% CI between censoring‐ignored strategy and pseudo‐true hazard ratio; coverage of pseudo‐true hazard ratio when adopting censoring‐adjusted strategy; coverage of pseudo‐true hazard ratio when adopting censoring‐ignored strategy.
+The simulation results of scenarios 1–10 when the overall censoring proportion is around 30%.
+The columns from left to right represent scenario index; estimated hazard ratio and 95% CI when TADA adjusts censoring; estimated hazard ratio and 95% CI when TADA ignores censoring; pseudo‐true hazard ratio and 95% CI; bias and 95% CI between censoring‐adjusted strategy and pseudo‐true hazard ratio; bias and 95% CI between censoring‐ignored strategy and pseudo‐true hazard ratio; coverage of pseudo‐true hazard ratio when adopting censoring‐adjusted strategy; coverage of pseudo‐true hazard ratio when adopting censoring‐ignored strategy.
+In general, TADA with censoring adjustments demonstrates improved efficiency in terms of bias and coverage compared to the unadjusted approach across various censoring scenarios.
+Compared to the true hazard ratio, the censoring‐adjusted TADA consistently yields lower bias and improved coverage in most cases.
+As the difference in censoring rates between treatment and control groups grows (e.g., in Scenarios 3, 4, and 6), the benefits of the censoring adjustment become increasingly evident across all tested levels of overall censoring.
+At lower censoring levels, the advantages of the censoring‐adjusted TADA approach are prominent.
+Specifically, with a 20% censoring rate, the adjusted HR estimates exhibit lower bias than those unadjusted.
+For example, in Scenario 1, the bias associated with the censoring‐adjusted method is 0.040 (95% CI: −0.256, 0.449), which is less than half of the bias under the censoring‐ignored method (0.114; 95% CI: −0.205, 0.572) and with a narrower CI.
+This performance gap is further amplified in scenarios with greater censoring imbalances between treatment groups.
+In Scenario 3, the adjusted method yields a nearly unbiased point estimate, while the unadjusted estimate incurs a bias of eight times higher in magnitude.
+Similarly, in Scenario 4, the bias is reduced from 0.076 to 0.022, and in Scenario 6, from 0.086 to 0.023, when censoring is properly adjusted.
+The censoring‐adjusted strategy also improves coverage.
+At 20% overall censoring, nine out of ten scenarios attain coverage above 90%, compared to six out of ten falling in the unadjusted cases.
+The improvement is more prominent when overall censoring increases to 30%, although there is a slight decline in the absolute values of coverage.
+When the overall censoring rate reaches 40% and 50%, both the censoring‐adjusted and unadjusted estimators exhibit larger bias and wider confidence intervals due to severe data loss.
+Nevertheless, TADA with censoring adjustment continues to show substantially lower bias—often around 30%–50% less—compared to the unadjusted approach, and its coverage generally remains in a higher range.
+By contrast, coverage for the unadjusted estimator can drop well below 70%, reaching as low as 50% in certain cases.
+Full details, including scenario‐specific hazard ratios, bias, and coverage, are provided in Supporting InformationS3.
+These findings confirm that although high overall censoring inevitably compromises estimation precision, accounting for censoring through proper adjustment is critical to preserving inferential validity.
+The censoring‐adjusted TADA approach consistently outperforms the unadjusted method in both bias control and coverage maintenance, even under severe data loss conditions.
+Moreover, as shown in Figures2andS2, the censoring proportions between treatment and control never diverge to an extreme.
+This balanced design corresponds to many real‐world scenarios where group‐wise censoring differences remain moderate, ensuring TADA's adjustment results are applicable to commonly encountered settings.
+To fully evaluate the proposed TADA method, we perform comprehensive sensitivity analyses in several aspects, including the truncation strategies of the final weights, the sample size of the study data, and possible abnormal values in the target population, corresponding to the various elements in the process that may affect the performance of TADA.
+Without loss of generality, the following simulations are conducted with the relevant settings of Scenario 1 in Section4.1as a baseline, with overall censoring rate of 20%.
+Each case simulates 500 replicates and each replicate runs 200 bootstrap resamples.
+To assess the impact of final weight truncation on the performance of TADA, we vary the quantile cutoffs applied to the final weights, ranging from 80% to 99%, alongside a no‐truncation baseline.
+As shown in Table5, in the censoring‐ignored setting where only participation weights are applied, the bias decreases as the truncation becomes stricter, and the confidence intervals correspondingly narrow.
+This reflects the dominant influence of extreme weights derived from covariate imbalance, which are progressively mitigated under tighter cutoffs.
+In the censoring‐adjusted setting where the final weights incorporate both participation and censoring components, the trend of bias exhibits a convex pattern: it is reduced at moderate cutoffs but may increase under excessively loose or tight truncation.
+This may arise from competing effects—retaining large IPCW values inflates variance and bias, while aggressive truncation may underweight censored individuals and induce instability.
+Despite this, the censoring‐adjusted approach maintains lower bias and higher coverage across all settings, indicating a consistent robustness.
+These results suggest that a proper truncation is a useful safeguard to improve estimator reliability in practice.
+The simulation results of various truncation strategies forwfinal.
+The columns from left to right represent truncation cutoff values ofwfinal; estimated hazard ratio and 95% CI when TADA adjusts censoring; estimated hazard ratio and 95% CI when TADA ignores censoring; pseudo‐true hazard ratio and 95% CI; bias and 95% CI between censoring‐adjusted strategy and pseudo‐true hazard ratio; bias and 95% CI between censoring‐ignored strategy and pseudo‐true hazard ratio; coverage of pseudo‐true hazard ratio when adopting censoring‐adjusted strategy; coverage of pseudo‐true hazard ratio when adopting censoring‐ignored strategy.
+All the other settings in the simulations are identical.
+To better understand the source and behavior of estimation bias of TADA, we increase the source sample size stepwise while holding all other aspects of the simulation design fixed.
+Specifically, we vary the source sample sizeNs∈300,500,800,1000, while maintaining the same baseline covariate distributions, censoring mechanism, and final weight truncation threshold across all settings.
+According to Table6, the bias decreases gradually fromNs=300to1000and the confidence intervals all include zero, suggesting modest bias.
+Larger datasets may reduce this bias further, but we limitNsto1000considering the computational cost under time‐varying weighting.
+The coverage results of censoring‐adjusted cases are robust with the increase of source sample size, which supports the consistency of TADA.
+The close alignment between Monte Carlo standard deviations and bootstrap standard errors indicates relatively accurate variance estimation; hence, some coverage shortfalls shown in Section5may reflect small‐sample bias or censoring effects rather than variance underestimation.
+Alternative resampling schemes, such as stratified or weighted bootstrap, may be more suitable than the naive bootstrap in large‐sample settings with substantial censoring.
+The simulation results of various source sample sizeNswith corresponding Monte Carlo SD and Bootstrap SE.
+The columns from left to right represent source sample sizeNs; bias and 95% CI between censoring‐adjusted strategy and pseudo‐true hazard ratio; bias and 95% CI between censoring‐ignored strategy and pseudo‐true hazard ratio; coverage of pseudo‐true hazard ratio when adopting censoring‐adjusted strategy; coverage of pseudo‐true hazard ratio when adopting censoring‐ignored strategy; Monte Carlo SD for the censoring‐adjusted strategy; Bootstrap SE for the censoring‐adjusted strategy; Monte Carlo SD for the censoring‐ignored strategy; Bootstrap SE for the censoring‐ignored strategy.
+All the other settings in the simulations are identical.
+SD Standard deviation.
+SE Standard error.
+To evaluate the robustness of the TADA in the presence of potential abnormal values in the target population, we conduct a series of scenarios designed to mimic practical data irregularities that may compromise the reliability of sample moments.
+As shown in Table4, we consider seven predefined scenarios, each introducing distinct forms of abnormality into the target population data.
+In the clean baseline scenario (Type 1), no modification is applied.
+In Types 2 and 3, we introduce binary noise by randomly selecting 1% or 5% of individuals and flipping the values of the binary covariateX2, simulating potential misclassification or data entry errors.
+Types 4 and 5 simulate extreme outliers in the continuous covariateX3by adding several times of original standard deviations to 1% or 5% of randomly selected observations, capturing heavy‐tailed or contaminated measurement scenarios.
+Types 6 and 7 combine both mentioned mechanisms, simultaneously introducing flips inX2and extreme values inX3at corresponding proportions.
+Abnormal value pattern types in the simulated target population.
+“Proportion of Flipped” means the proportion of binary variable values that appear to have flip‐flopped from their true values.
+“Proportion of Extreme Values” means the proportion of continuous variable values that are extremely skewed compared to the overall distribution.
+“Extreme Multiplier” means the multiplier used to construct the continuous variable outliers.
+The hyphen indicates the corresponding parameter setting is not in effect.
+ABV Abnormal value.
+According to Table7, when existing outliers in the target population, the TADA estimates show a certain degree of increase in bias and widening of the confidence intervals as the form of the outliers became more complex from a single type to the presence of a superposition of both flipped and polarized values.
+However, the degradation of performance is limited and the coverage and bias levels remain within acceptable limits, demonstrating overall robustness.
+Overall, TADA is able to control bias when faced with moderate extreme values in the target population data.
+The simulation results of various abnormal value patterns in the target population.
+The columns from left to right represent abnormal value types in Table4; estimated hazard ratio and 95% CI when TADA adjusts censoring; estimated hazard ratio and 95% CI when TADA ignores censoring; pseudo‐true hazard ratio and 95% CI; bias and 95% CI between censoring‐adjusted strategy and pseudo‐true hazard ratio; bias and 95% CI between censoring‐ignored strategy and pseudo‐true hazard ratio; coverage of pseudo‐true hazard ratio when adopting censoring‐adjusted strategy; coverage of pseudo‐true hazard ratio when adopting censoring‐ignored strategy.
+All the other settings in the simulations are identical.
+ABV, abnormal value.
+To demonstrate the real‐world applicability and practical value of the proposed TADA method, we conduct an application that transports survival outcomes from an RCT with censoring to a real‐world population with only aggregate‐level data.
+The source dataset is derived from the SQUIRE trial (NCT00981058) [23], a phase III, multi‐center, open‐label RCT evaluating the addition of necitumumab to gemcitabine and cisplatin chemotherapy in patients with stage IV squamous non‐small‐cell lung cancer (NSCLC).
+Patients are randomized in a 1:1 ratio to receive either necitumumab plus chemotherapy or chemotherapy alone.
+We use the publicly available IPD from the Project Data Sphere platform [43], which contained only patients randomized to the control (gemcitabine/cisplatin) arm (Ns= 548).
+Available source sample data includes overall survival time, censoring status, and relevant baseline covariates such as age, sex, ethnic origin, smoking history and Eastern Cooperative Oncology Group (ECOG) performance status.
+The overall censoring proportion is around 19%.
+The target population is defined based on a population‐based cohort study in Ontario, Canada, reported by Seung et al. [24].
+This registry‐based dataset includes patients diagnosed with stage IV NSCLC who received first‐line chemotherapy between 2007 and 2015.
+We focus on squamous histology patients to align with the SQUIRE inclusion criteria (Nt=2,056).
+Only summary‐level statistics are reported for this subgroup: the average age is 72 years, and 65.1% of patients are male.
+In contrast, the SQUIRE trial's control arm is younger (mean age: 61.7 years) and has a higher proportion of males (83.6%).
+The baseline characteristics differences between source and target populations are summarized in Table8.
+Baseline characteristics of the source population in SQUIRE trial and the target population in Ontario study.
+Original: The standard Kaplan–Meier estimator applied directly to the source IPD, without any weighting, serving as a naive benchmark that ignores both covariate imbalances and censoring‐related bias.
+Original with Censoring Adjusted: An estimator that applies censoring weights to the source data in order to mitigate bias due to incomplete follow‐up, but without accounting for population‐level covariate mismatches.
+Transported without Censoring Adjusted: A weighted Kaplan–Meier estimator incorporating participation weights to align covariate distributions between the source and target populations, while disregarding potential bias introduced by censoring.
+TADA (Transported with Censoring Adjusted): The proposed TADA method combining both participation weights and censoring weights, simultaneously correcting for censoring and aligning the source population with the target population on the key covariates.
+To obtain the truncated final weights, we truncate the raw final weights at a preferred threshold quantile based on their distribution after assessments.
+Figure3illustrates this process: for the shown raw final weights, applying truncation at the 95% quantile could be the optimal choice for current scenario to keep most of the information and avoid the extreme weight candidates.
+We apply the 95% quantile as the truncation threshold for the introduced adjustments in the real case study, supported by assessment results.
+An illustration of the final weights truncation threshold decision.
+The horizontal axis represents the value of raw final weights.
+The vertical axis indicates the percentage of observations in each weight bin, relative to the total sample.
+Blue bars depict the distribution of raw final weights.
+Red vertical dashed lines from left to right indicate the candidate thresholds at the 90th, 95th, and 99th percentiles, respectively.
+Original Kaplan–Meier curve and Transported Kaplan–Meier curves under various adjustments.Top panel: Original naive K–M curve versus Transported K–M curve that adjusted for covariate imbalance and without censoring adjustment.Bottom panel: Original naive K–M curve versus Transported K–M curve fully adjusted by TADA, incorporating both censoring and covariate imbalance adjustments.
+Dashed vertical lines in grey indicate the estimated median OS for the naive curve.
+Dashed vertical lines in red indicate the estimated median OS for the transported curves.
+Estimated median overall survival (OS) time and 95% confidence intervals under different adjustments.
+Estimated survival probabilities at every 6 months under different adjustments.
+Tables9and10show that, compared with the naive case, the trend of weighted survival curve remains similar when only adjusted with censoring weights.
+This consistency results from the fact that few observations are censored in the first 9 months, leading to the estimated censoring weights concentrate near 1 and the Kaplan–Meier estimate largely unaffected.
+Only in the far right tail of the distribution (i.e., beyond 18 months) does censoring become more frequent, at which point censoring weights exert a modest influence on the estimated survival curve.
+Figure5visually demonstrates this phenomenon.
+Distribution of overall survival times by event status when only conduct censoring adjustment for the source SQUIRE population.
+The grey bars represent the status of event.
+The navy blue bars represent the status of censor.
+The red dashed line indicates the value of median OS.
+In this paper, we demonstrate that the proposed TADA method provides improvements in bias control and coverage across a range of censoring scenarios, showing effectiveness under low to moderate censoring proportions.
+These findings support the value of TADA in addressing censoring bias, with its advantage over unadjusted methods persisting even as overall censoring increases, albeit with some reduction in performance.
+The case study between SQUIRE and Ontario population provides an illustration of TADA's value in real application.
+Overall, these results suggest that TADA structurally contributes handling with information loss due to censoring, making it a valuable transportability analysis method in scenarios where IPDs are unavailable for the target population and where source data are disturbed by right‐censoring.
+A core advantage of the proposed TADA method lies in its flexible weighting‐by‐a‐product structure, with each term specifically designed to adjust for different sources of confounding.
+This makes TADA highly adaptable to complex application scenarios.
+In current cases in TADA, the participation weights, derived via the MoM, can address the challenges of working with AgD for the target population for transportability analysis.
+In this study, we explored TADA's ability to transport survival outcomes under covariate‐relevant censoring, which addresses the current gap in transportability methods which have generally been limited to binary and continuous outcomes and require IPD.
+In scenarios with modest censoring rates, the TADA method with an adjustment for censoring exhibits robust performance with low bias and high coverage.
+This effectiveness can be attributed to the lower level of information loss in low‐censoring contexts, allowing TADA's inverse probability weighting to make more precise adjustments.
+The stability of TADA's performance in these scenarios highlights its ability to achieve accurate effect estimates under conditions of limited censoring, where the method leverages available data efficiently.
+In scenarios with a higher overall censoring proportion, TADA demonstrates performance close to its practical limit, with a decline in bias control and coverage.
+Increased censoring results in a higher loss of information which in turn reduces the sample size available for reliable adjustments.
+Higher censoring may result in more extreme weights and introduce greater variability in bias control.
+This accumulation of censoring‐induced bias and weight instability creates challenges for maintaining accuracy and coverage under high‐censoring conditions.
+Nonetheless, censoring‐adjusted TADA outperforms the unadjusted approach in general.
+In scenarios where there was a larger disparity in censoring proportions between treatment and control groups, TADA shows lower bias estimates.
+This phenomenon suggests that TADA may potentially benefit from this unique data characteristic.
+When one group has lower censoring, the more complete data could allow TADA's weighting mechanism to draw on relatively stable information, which may enhance the reliability of adjustments.
+This natural heterogeneity might provide a form of implicit stratification, helping TADA balance distinct group effects with greater robustness.
+Such conditions could, in theory, offer additional stability in TADA's performance by leveraging the more consistent information from less‐censored data.
+However, as overall censoring increases, this differential effect diminishes, indicating that higher censoring rates may challenge TADA's capacity to control bias across varying group censoring proportions.
+In our simulation study, we adopted the nonparametric bootstrap to estimate standard errors and coverage.
+This choice was driven by the method's flexibility and its compatibility with the complex, non‐closed‐form weighting scheme in TADA.
+While bootstrapping is widely used in survival analysis and performs well under low to moderate censoring, it may become less reliable when substantial information is lost due to heavy censoring, which could partially explain the reduced coverage observed in some scenarios with 30% or higher censoring.
+We note, however, that the primary purpose of our simulation study was to evaluate performance trends in bias control and coverage across scenarios, rather than to identify optimal variance estimation procedures under all conditions.
+Alternative inference strategies, such as robust sandwich variance estimators [44], may offer improved performance under heavy censoring, and represent a potential extension direction for future research.
+It is worth mentioning that the TADA framework itself does not require assumptions such as proportional hazards to be valid in the target population.
+Rather, TADA's objective is to reweight the study data so that the distribution of covariates aligns with that of the target population, thus facilitating an unbiased estimation of treatment effects at the target‐population level.
+In the current implementation, we rely on the Cox PH model under the PH assumption, allowing us to interpret the TADA estimate as a constant hazard ratio.
+If non‐proportional hazards are present, this Cox‐based result may still be viewed as a time‐averaged hazard ratio; yet, investigators seeking to capture time‐varying effects more accurately could employ alternative outcome models, such as accelerated failure time models [42,45], piecewise Cox models [46], or additive hazards frameworks [47].
+In such scenarios, the reweighting scheme of TADA remains applicable.
+Users simply need to replace the Cox PH with a more suitable outcome model, and TADA will yield a corresponding estimator that better reflects the underlying hazard structure in the target population.
+Future research could expand TADA's scope by investigating additional weighting strategies for achieving population balance and by exploring more flexible techniques for censoring adjustments.
+Although our current implementation uses the MoM to align study and target populations, and a standard form of IPCW to address censoring, there remains room to adopt censoring models that do not rely on proportional hazards or similarly restrictive assumptions [18].
+Examining these alternatives could enhance TADA's versatility in settings where the censoring patterns deviate from idealized conditions.
+Exploring approaches such as doubly robust or semiparametric methods would also help alleviate partial misspecification of either weighting component.
+Finally, while TADA has thus far been demonstrated using RCT data, extending it to accommodate other experimental and observational studies offers another avenue for broadening its applicability, particularly in cases where randomized data may be unavailable.
+Our study presents TADA's performance to address censoring bias across various scenarios, demonstrating effective bias control and coverage even under challenging conditions.
+The TADA method's design for using aggregate data for causal inference, along with its ability to accommodate varying censoring proportions, makes it a valuable tool for transporting survival estimates, especially in settings where target IPD is may not be available.

@@ -1,0 +1,540 @@
+Nanoplanktonic diatoms (2–20 μm) are a significant yet historically understudied component of marine ecosystems.
+We investigated three recently isolated nanoplanktonic diatoms from the Northwest Atlantic Ocean (NWA):Minidiscus spinulatus,Mediolabrus comicus, andMinidiscus trioculatus.
+Using Oxford Nanopore sequencing, we assembled and annotated their complete chloroplast and mitochondrial genomes.
+Pangenome analyses revealed thatMinidiscusspecies consistently clustered more closely with selectThalassiosiraspecies, whereasM.
+comicusformed a sister clade withSkeletonema.
+Circularized chloroplast genomes allowed us to characterize the full‐length16Sribosomal RNAs for each isolate, thereby leading to higher resolution of these taxa in preexisting16Smetabarcoding data.
+During our study,M.
+spinulatuswas primarily restricted to the Bedford Basin.
+In contrast, bothM.
+trioculatusandM.
+comicushad larger geographic ranges extending to the Labrador Sea, and in the case ofM.
+comicus, to the Canadian Arctic Gateway.
+Weekly metabarcoding from the coastal Bedford Basin, N.S., Canada (2014–2022), revealed a seasonal succession of nanoplanktonic taxa, withMinidiscus trioculatusdominating in the early months, followed byM.
+comicusandM.
+spinulatus.
+Our results highlight the critical value of phytoplankton isolations and organelle genomics for expanding our understanding of the diversity and biogeography of nanoplanktonic diatoms.
+Phytoplankton are vital contributors to biogeochemical cycles, including ocean carbon export, due to their role as primary producers.
+Diatoms are unicellular phytoplankton with silica shells that occur in marine environments worldwide, contributing around 20% of global oxygen production (Nelson et al.1995; Falkowski et al.1998).
+While conservative estimates suggest that ~12,000 identified species of diatoms exist with another 8,000 yet to be discovered, other estimates suggest there could be as many as 200,000 species (Guiry2012).
+Diatom size classes include picoplankton (< 2 μm), nanoplankton (2–20 μm), and microplankton (> 20 μm) (Guiry2012; Leblanc et al.2018).
+The ecological significance of nanoplanktonic diatoms is underscored by recentTara Oceansmetabarcoding data, which show that diatoms were most abundant in the 3–20 μm size class (Malviya et al.2016; Leblanc et al.2018; Pierella Karlusich et al.2025).
+Thalassiosiraceae is a family of centric diatoms composed of 26 different genera, includingThalassiosira,Conticriba,Porosira,Minidiscus, andMediolabrus.
+First discovered in 1973 by Hasle (Round et al.1990; Guiry and Guiry2024; Hasle1973),MinidiscusandMediolabrusspp.
+are the smallest known centric diatoms, ranging from < 2–8 μm, and are known to exist as either solitary cells, in aggregations, or sometimes in chains formed from the central fultoportulae (Arsenieff et al.2020; Kaczmarska et al.2009; Leblanc et al.2018).
+Importantly, recent taxonomic reclassification has placed someMinidiscusspecies into the new genusMediolabrus(Li et al.2020) based on morphological and phylogenetic differences.
+When reclassifying someMinidiscusasMediolabrusbased on morphology, it was found thatMinidiscushas at least one fultoportula in the valve center close to a rimoportula, whereasMediolabrusonly has a single rimoportula concentrating processes in the valve center, with no fultoportula near the rimoportula (Li et al.2020).
+Phylogenetic trees further demonstrated thatMinidiscusis not a monophyletic group; theMinidiscusare closely related toThalassiosiraspecies, while theMediolabrusare a sister clade to theSkeletonemagenus.
+According toAlgaebase[as of April 2025], there are nine knownMinidiscusspecies and three knownMediolabrusspecies (Guiry and Guiry2022,2024).
+MinidiscusandMediolabrushave been observed using metabarcoding in various locations across mid‐ and high‐latitude sites, as well as well‐mixed environments [e.g., within the Northwest Atlantic (NWA)] (Leblanc et al.2018; Bolaños et al.2020; Robicheau et al.2022; Daniels et al.2015; Aké‐Castillo et al.2001; Pesant et al.2015; Fernandes and Correr‐Da‐Silva2020; Malviya et al.2016).
+According to the metabarcoding of the V418Sribosomal RNA (rRNA) completed by theTara Oceansexpedition,Minidiscus(encompassing bothMinidiscusandMediolabrus) is the 10th most abundant diatom genus in the global ocean (Malviya et al.2016; Leblanc et al.2018; Pierella Karlusich et al.2025).
+More locally within the NWA, genetic markers targeting the highly variable regions (V4V5 and V6V8) of16SrRNA have identified that amplicon sequence variants (ASVs) in theMinidiscusgenus rank among the top ten most common diatom genera in the Bedford Basin (BB) and the Scotian Shelf (SS) from 2014 to 2017 (Robicheau et al.2022).
+Due to their size, it was previously assumed that nanoplanktonic diatoms were primarily remineralized in the microbial loop; however, recent observations have revealed that they can form large blooms and contribute to carbon export with high sinking rates (Bolaños et al.2020; Leblanc et al.2018; Malviya et al.2016; Arsenieff et al.2020).
+Carbon export is further supported through the identification of frustules in Scanning Electron Microscopy (SEM) images of sediment traps following a large diatom bloom dominated byMediolabrus comicusandMinidiscus trioculatusin the Mediterranean Sea (Leblanc et al.2018).
+These findings suggest that, unlike previous assumptions, nanoplanktonic diatoms may play a significant role in carbon export that has been historically underestimated due to size‐limited sampling methods (Leblanc et al.2018).
+The higher proportion of unassigned reads in smaller size fractions (3/5–20 μm) reflects the limited representation of nanoplanktonic diatoms in genetic reference databases, in contrast to diatoms that have been identified in larger size fractions (Pierella Karlusich et al.2025).
+It is therefore critical that we investigate nanoplanktonic diatoms and discover more about their distribution, phylogeny, and physiology.
+Distinguishing between centric nanoplanktonic diatoms is difficult using conventional light microscopy, as demonstrated by the recent reclassification ofMinidiscusspecies.
+It is clear that molecular information in conjunction with enhanced morphological investigations (i.e., using SEM) are needed to more accurately identify these microbes (Li et al.2020).
+Oftentimes, smaller barcodes of DNA are unable to distinguish organisms down to the species‐level.
+Full mitochondrial (mt) and chloroplast (cp) genomes have been proposed as potential ‘super‐barcodes’ that can be used to effectively distinguish between organisms (Wu et al.2021).
+As the cost decreases due to the increasing efficiency of molecular methods, using longer nuclear or plastid molecular markers to examine microbial communities is becoming feasible (Wu et al.2021).
+This work explores three nanoplanktonic diatoms in the Thalassiosiraceae family that were isolated from water collected in the BB and the SS, both from within the NWA:Minidiscus spinulatus(BB),Minidiscus trioculatus(SS), andMediolabrus comicus(SS) (the third species previously being known asMinidiscus comicus).
+Prior work by Mordret et al. (2024) identified strains AGSB‐0017 (NCBI Accession:OR922670) and AGSB‐0018 (NCBI Accession:OR922671) asMediolabrus comicusandMinidiscus trioculatus, respectively, using long rRNA fragments that included18S,ITS, and28SrRNA gene regions.
+We report the complete organellar genomes from these three Northwest Atlantic isolates, revealing differences in genome organization compared to previously sequenced organellar genomes in the Thalassiosirales order.
+Additionally, phylogenomic trees completed with concatenated alignments of protein‐coding genes re‐emphasize the classification ofM.
+comicusas more closely related to theSkeletonemagenus and the classification ofMinidiscusspecies as closer to selectThalassiosira.
+The complete cp sequences also allowed us to revisit the distribution of these three species using highly resolved (to the species‐level) environmental16SrRNA data from the BB, SS, Labrador Sea (LS), and Canadian Arctic Gateway (CAG).
+Overall, this study broadens our understanding of the phylogeny, evolution, and distribution of nanoplanktonic centric diatoms in the Northwest Atlantic Ocean.
+Diatoms were isolated from NWA coastal seawater in the BB and SS (FigureS1).Minidiscus spinulatus(AGSB‐0477) was isolated from seawater collected at the Compass Buoy Station sampled through the Fisheries and Oceans (DFO) Bedford Basin Monitoring Program (BBMP;Bedford Basin Monitoring Program) [44°41′37″ N, 63°38′25″ W] on July 25, 2018 (NS, Canada) (Li et al.1998).
+For this isolate, 1 m seawater was plated on Artificial Seawater (ASW) media with 0.2 μM NaNO3plus 1.2% w/v agarose and was incubated at 15°C ± 1°C via a 12 h:12 h light:dark cycle at an irradiance of 100 μmol/m2/s.Minidiscus spinulatuswas maintained for several years on the above medium by transferring it monthly.
+trioculatus(AGSB‐0018) andM.
+comicus(AGSB‐0017) strains were isolated from seawater samples collected with a CTD‐Rosette at chlorophyll maximum depths (28 m) on August 8, 2021, during the COOGER‐2021 research cruise [45°30′37.70″ N, 60°39′5.47″ W] (Mordret et al.2024).
+Both strains were isolated by dilution series with L1 medium (NCMA/Bigelow Laboratory for Ocean Sciences, USA) and maintained in liquid culture at a 16:8 h light–dark cycle under 30 μmol of light (Mordret et al.2024).
+In preparation for genomics work, the three strains were individually grown in 50 mL liquid cultures of L1 made with 0.2 μm filtered seawater [at ~34 ppt salinity] (NCMA/Bigelow Laboratory for Ocean Sciences, USA).
+Phytoplankton isolates were treated with an antibiotic mixture at a final concentration of 100 μg/mL penicillin G, 25 μg/mL dihydrostreptomycin sulfate, and 25 μg/mL gentamycin sulfate, minimizing bacterial contamination.
+Each strain was transferred every 2–3 weeks and maintained at 16°C ± 1°C.
+All three cultures are available in the Algal Genomics and Synthetic Biology (AGSB) culture collection maintained by the National Research Council of Canada (NRC) in Halifax, Nova Scotia.
+Isolates were grown to 1–2 × 109cells L−1and syringe‐filtered onto 3 μm nucleopore filters (Millipore, Germany).
+DNA was extracted from the cells using the enhanced lysis procedure described by Zorz et al. (2019) and the DNeasy Plant Extraction Kit (Qiagen, Germany).
+DNA was further concentrated using the Genomic DNA Clean & Concentrator‐10 kit D4011 (Zymo Research, USA).
+Sample concentration and purity were assessed using a NanoDrop 2000 (Thermo Scientific, USA) and a Qubit 4 fluorometer via a High‐Sensitivity dsDNA Quantification Assay kit (Thermo Scientific, USA).
+Extracted genomic DNA was then sequenced using a Nanopore Ligation Sequencing Kit V14 (SQK‐LSK114) and a flow cell (R10.4.1) for each isolate according to the manufacturer's instructions (Noakes et al.2019; Wang et al.2021).
+Nanopore sequencing started with 1402–1491 pores available and ran for 32–48 h depending on the isolate, with runs resulting in 10.99–15.59 Gb and 2.84–5.56 M reads of data (DataS1).
+Sequences were base‐called from FAST5 files and converted to FASTQ files.
+Porechop (v0.2.4) was used to trim adapters, filtlong (v0.2.1) to filter out low‐quality sequences, and then raven (v6.10.0) and raven‐assembler (v1.6.1) were used to assemble long reads into contigs with default parameters (Wick et al.2017; Vaser and Šikić2020,2021).
+Once assembled, the long‐read polishing programs pepper (v8.0) and medaka (v1.11.3) were used to polish the contigs (Shafin et al.2021; Lee et al.2021).
+Putative homopolymer‐associated frameshifts, commonly observed with nanopore sequencing, were manually inspected and corrected in Geneious Prime 2024.0.7.
+In Geneious, contigs with low GC‐content (29.1%–31.3%) were identified as mt and cp sequences, some of which were completed; their circularity was confirmed using the program GetOrganelle (v1.7.7.1) (Jin et al.2020).
+The cp genomes ofM.
+trioculatusandM.
+comicuscontained self‐overlapping regions with multiple inverted repeats, which were manually resolved in Geneious to produce circular organellar genomes.
+A phylogenetic tree of the18SrRNA gene was constructed using 92 related species to determine the evolutionary relationships of the cultured isolates and to classify the AGSB‐0477 culture, which had not been identified elsewhere.
+The18SrRNA sequences were aligned using MUSCLE with default parameters, employing the PPP algorithm (Edgar2004).
+To determine the best‐fit model of nucleotide substitution, we used ModelFinder implemented in IQ‐TREE2 (v2.3.6), which identified GTR + F + I + R3 as the optimal model based on the Bayesian Information Criterion (BIC) (Minh et al.2020; Kalyaanamoorthy et al.2017).
+Maximum likelihood analysis was first performed using IQ‐TREE2 with 1000 ultrafast bootstrap replicates and model selection restricted to models compatible with MrBayes for later comparison.
+Additional maximum likelihood analysis was carried out using PHYML (v.
+3.0) with 1000 bootstrap replicates under a GTR substitution model (Guindon et al.2005,2010).
+Bayesian inference was performed in MrBayes (v.
+3.2.6) under the GTR + G model, with four Markov chains run for 1,100,000 generations, sampling every 200 generations (Huelsenbeck and Ronquist2001; Guindon et al.2005,2010).
+The IQ‐TREE2 software was used as the basis of the phylogenetic tree, and the PHYML bootstraps and Bayesian inferences were added as additional supports using Inkscape (v.
+Biomass preparation and DNA extraction for this analysis were the same as that described below for genomic sequencing.
+The18SrRNA genes were amplified and sequenced using the methods described by Mordret et al. (2024).
+BLAST comparison of the nanoplanktonic diatom mitochondrial genomes using Proksee (Grant et al.2023).
+Mitochondrial genomes were BLASTed against the other two isolates to highlight conserved genes.
+For ease of viewing, introns are highlighted.
+Innermost ring = GC‐content.
+The first two inner rings are annotations of key mt components on the forward and reverse strands.
+The outer two rings represent the BLAST alignment to the other two mt genomes; white = no alignment, and gradient = percent identity (%) for matches.
+All available complete mt and cp genomes from the Thalassiosirales taxonomic order were downloaded from Genbank (Clark et al.2016).
+For the mt genomes, this resulted in 16 mt genomes, including the three provided in this study (TableS2) (Clark et al.2016).
+For these 16 genomes, we constructed a concatenated phylogenetic tree of 28 protein‐coding mt genes (see TableS4for gene list) (Cox et al.2024).
+For the cp genomes, identical sequences of the same species were removed, which resulted in 37 complete cp genomes obtained from Genbank—34 previously available and the three obtained herein (TableS3) (Clark et al.2016).
+Among these genomes is the previously mentionedMinidiscus spinulatus, isolated from Jiaozhou Bay, China (Nordberg et al.2014; Wang and Chen2022).
+There were 97 protein‐coding genes selected for the concatenated alignment and phylogenetic tree (see TableS5for the gene list) (Cox et al.2024).
+In the case of the phylogenetic trees, there were two organisms from theLithodesmialesorder used as an outgroup:Helicotheca tamesisandLithodesmium undulatum.
+Organellar genomes were converted to contigs databases using the Anvi'o function ‘anvi‐gen‐contigs‐database’ (Eren et al.2015).
+Each genome database was then annotated with a custom HMM profile created from select protein‐coding genes in the cp (97) or mt (25) (TablesS4andS5).
+The function ‘anvi‐run‐hmms’ was run on each of the contig databases, and then the concatenated alignment was retrieved using ‘anvi‐get‐sequences‐for‐hmm‐hits’ and the MUSCLE alignment algorithm (Eren et al.2015; Edgar2004).
+The model for each of the partitions was determined using ModelFinder in IQ‐TREE2 (v2.3.6), which applied different best‐fit models (e.g., TIM3 + F + I + R3, GTR + F + R4) to each partitioned gene set based on the Bayesian Information Criterion (BIC) (Minh et al.2020; Kalyaanamoorthy et al.2017).
+In both the mt and cp trees, the maximum likelihood analysis was conducted using IQ‐TREE2 with 1000 ultrafast bootstrap replicates (Minh et al.2020).
+To further compare the similarity of the organisms, the same contigs databases were used in the Anvi'o pangenome pipeline (Eren et al.2015).
+Additionally, the average nucleotide identity (ANI) was calculated using the fastANI algorithm (Hernández‐Salmerón and Moreno‐Hagelsieb2022).
+The distribution of nanoplanktonic diatom isolates in the NWA was examined using metabarcoding datasets and related environmental data compiled over multiple years from various regions, thanks to the work of many research groups.
+These datasets included weekly sampling through the BBMP and multiple expeditions to the SS through the DFO Atlantic Zone Monitoring Program (AZMP;Atlantic Zone Monitoring Program (AZMP)), LS through the DFO Atlantic Zone Off‐Shelf Monitoring Program (AZOMP;Atlantic Zone Off‐Shelf Monitoring Program (AZOMP)) and the Ocean Frontier Institute's Northwest Atlantic Biological Carbon Pump project (NWA‐BCP;The Northwest Atlantic Biological Carbon Pump) and the CAG through the GEOTRACES program (GEOTRACES) (Table1) (Li et al.1998; Therriault et al.1998; Casault et al.2024; Yashayaev et al.2021).
+Due to the various sampling expeditions, some discrepancies in biomass sampling methods are important to take into account.
+The biomass samples for the SS, LS, and CAG expeditions were all size‐fractionated through large 3 μm (L) and small 0.2 μm (S) filters.
+In the case of the NWA‐BCP CE expedition to the LS, there were also marine snow catcher deployments at various sites with corresponding eDNA data.
+In the case of the BBMP, the filtering methods to collect biomass for DNA extraction have varied over that time.
+For some years (2014–2017, 2022), there was no size fractionation of the water sample, and therefore the sample was filtered through one 0.2 μm filter (W).
+However, from 2018 to 2021, the samples were size‐fractionated with the large 3 μm (L) and small 0.2 μm filters (S).
+To have comparable data across the years 2014–2022, the relative abundance of the sample was reconstituted using DNA concentration as a proxy for biomass (SL) (Haider et al.2025).
+Environmental data collected from various research cruises from 2014 to 2022.
+The BBMP is a long‐term weekly time series that has characterized microbial communities using flow cytometry since the 1990s (Li and Dickie2001; Li1998; Cullen et al.2007).
+In 2014, environmental DNA (eDNA) metabarcoding was incorporated into the monitoring efforts to further investigate microbial diversity.
+In this work, we used BBMP oceanographic measurements and flow cytometry measurements to make ecological predictions related to the prevalence of our three isolates of interest.
+Samples for the BBMP were collected at depths of 1, 5, 10, and 60 m. Environmental parameters, including temperature, chlorophylla, and nutrient concentrations, were obtained from the publicly available dataset maintained by the Bedford Institute of Oceanography (BIO) (Bedford Basin Monitoring Program).
+For consistency, flow cytometry cell counts (> 35 μm) for 2014–2017 were obtained from Robicheau et al. (2022), while counts for 2018–2022 were conducted in the LaRoche lab using a BD Accuri flow cytometer (2018–2021) and a Novocyte flow cytometer (2021–2022) from Agilent Technologies.
+In both cases, a threshold of < 450 was set for Chlorophyll‐H (proxy for chlorophyll), and approximate size gates of < 3, 3–10, and > 10 μm were established for forward scatter via Novocyte QC particles with a known size and fluorescence profile (Agilent Technologies).
+To investigate the prevalence of the three isolates in environmental genomic data, cp genomes were aligned to the16SrRNA sequence available fromM.
+spinulatus(Wang and Chen2022).
+Identified16SrRNA sequences were then aligned to ASVs for the V4V5 and V6V816SrRNA variable regions from environmental metabarcoding datasets (DataS2).
+Datasets from all of the expeditions were analyzed with the same pipeline as in Robicheau et al. (2022), with the only difference being that the ASV data was not rarefied (Robicheau et al.2022; Comeau et al.2017,2011; Willis et al.2019; Bolyen et al.2019; Decelle et al.2015; Quast et al.2013; Walters et al.2016; Parada et al.2016; Amir et al.2017).
+In determining the presence of these organisms at all geographic locations, a single identification of the nanoplanktonic diatom16Sbarcode within the 1–20 m depth range at a set of geographic coordinates in a given year was considered a detection of the species at that site.
+To quantify the prevalence of the three diatoms in the photosynthetic community within a water sample, relative abundances were calculated as the percentage of total cp16Sreads in that sample.
+Downstream data analysis and visualization were conducted using R (v4.4.2) and RStudio (v2024.09.1 + 394) with various packages (R Core Team2021; RStudio Team2020).
+Tidyverse (v2.2.0), tidyr (v1.3.1), and dplyr (v1.1.4) packages were used for initial data cleaning and filtering, and the microbiome (v1.28.0) and phyloseq (v2.12.1) packages were used to handle the microbial data (Wickham et al.2019,2023; Sudarshan2012–2019; McMurdie and Holmes2013; Boehmke2016).
+The redundancy analysis (RDA) using the environmental variables in the BBMP was performed using vegan (v2.6‐10) and microbiome (v1.28.0) packages (Sudarshan2012–2019; Dixon2003).
+ASV feature tables were first CLR transformed with the ‘microbiome::transform()’ function (Sudarshan2012–2019).
+All numerical environmental variables with sufficient data were initially retained (1530 out of 1736 samples).
+The environmental variables were checked for correlation using heatmaps, and variables were selected based on interest; highly correlated variables (|> 0.7|) were then removed (FigureS11).
+Standardization of the numerical values was performed using ‘deconstand()’ which scaled the data to a mean of zero, and then the RDA was conducted using the ‘rda()’ function (Dixon2003).
+The significance of the RDA and each environmental variable was done using the ‘anova()’ function with 999 permutations.
+Variables deemed insignificant were discarded, resulting in a reduced RDA that focused on select oceanographic measurements (salinity, temperature, oxygen), nutrients (nitrate, ammonia), chlorophyllaand flow cytometry measurements (nanoeukaryotes andSynechococcus).
+Isolates were initially identified as small centric diatoms based on cell morphology (Figure1).
+A phylogenetic analysis of18SrRNA sequences again confirmed the taxonomic placement ofMinidiscus trioculatus[AGSB‐0018; OR22670] andMediolabrus comicus[AGSB‐0017; OR22671] (Mordret et al.2024) and further showed that the BB isolate wasMinidiscus spinulatus[AGSB‐0477;PV640934] (Figure1).
+Specifically, AGSB‐0477 clustered closely withMN528624‐Minidiscus spinulatus(100% alignment, 99% bootstrap support) andKY912618‐Minidiscus proschkinae(previouslyThalassiosira proschkinae; 100% alignment, 99 bootstraps), AGSB‐0017 clustered withMN528623‐Mediolabrus comicus(99.9% alignment, 100% bootstrap support), and AGSB‐0018 clustered withFJ590768‐Minidiscus trioculatus(100% alignment, 100% bootstrap support) (Li et al.2020).Minidiscus spinulatusandMinidiscus proschkinaehave identical18Sregions, and the AGSB‐0477 isolate was further characterized asM.
+spinulatusthrough additional phylogenetic trees, including its cp genome (presented later in Figure5).Mediolabrusappeared as a sister clade ofSkeletonema, andMinidiscusas a sister clade to a group containingCyclostephanos,Stephanodiscus,Pantocsekiella,Discostella, andThalassiosira hispida.
+In general, theMinidiscusisolates fell within a much broader clade containing manyThalassiosiraspecies.
+The taxa in theThalassiosiragenus appear to form two different clusters in the phylogeny, one of which clusters more closely with theMinidiscusclade and one that forms its own cluster, dissimilar to both theMediolabrusandMinidiscusclades.
+IQ‐TREE phylogenies of18SrRNA genes.
+Phylogenies generated with the GTR + F + I + R3 model in IQ‐TREE using a 1051 bp alignment and 89 closely related taxa.
+Species inLithodesmium,Helicotheca, andBellerocheawere used as a monophyletic outgroup.
+Values reported at nodes indicate IQ‐TREE bootstrap support (%), PHYML bootstrap support (%), and Bayesian inferences using MrBayes, respectively (Huelsenbeck and Ronquist2001; Guindon et al.2005,2010).
+Bootstraps > 50% and Bayesian inferences > 0.9 are displayed, with “‐‐” indicating lower values and “**” indicating differing tree topologies.
+Scale bar indicates substitutions per site.
+Isolates are indicated with a star (★).
+Microscopy images show cell morphologies under oil immersion at 1000× magnification (using Olympus BX63).
+The associated cell diameter in micrometers (μm) for each organism was identified and is noted in TableS1.
+IQ‐TREE phylogenies comparing concatenated gene trees using either (A) chloroplast or (B) mitochondrial data.
+The chloroplast tree uses 97 protein‐coding genes (79,470 bp total length), and the mt tree uses 25 protein‐coding genes (31,100 bp total length).
+All currently available cps (n= 35) and mt (n= 13) genomes in the order Thalassiosirales were included.
+Two species in the orderLithodesmiales:Lithodesmium undulatumandHelicotheca tamesis, serve as an outgroup in both cases.
+Best‐fit models for each of the partitioned gene sets were first selected using ModelFinder implemented in IQ‐TREE, then phylogenies were calculated with 1000 bootstraps (v2.3.6) (Eren et al.2015; Edgar2004; Minh et al.2020; Kalyaanamoorthy et al.2017).
+The scale bar indicates substitutions per site.
+Mitochondrial (mt) genomes ofMinidiscus spinulatus,Minidiscus trioculatus, andMediolabrus comicusexhibited similar GC‐content, at 29.1%, 31.0%, and 30.5% GC, respectively.
+Their mt genomes, however, varied in size from 49,654 bp, 53,164 bp, to 79,303 bp forM.
+spinulatus,M.
+comicus, andM.
+trioculatus, respectively (Table2).
+The regions of sequence contributing to theM.
+trioculatus' longer 79,303 bp mt genome include a non‐coding region (13% of the mt genome), which is primarily composed of repeats in addition to seven introns in itscox1gene (Figure2).
+The three isolates shared a relatively conserved gene synteny, as is typical for species within the same order (Wang et al.2022).
+In all three, thenad11gene was not split intonad11aandnad11b, which is typical of species in the OrderMediophyceae(Wang et al.2022).
+Notably, thetatAgene was present only inM.
+comicusand absent in bothM.
+trioculatusandM.
+spinulatus.
+Mitochondrial genome features of the NWA isolates.
+spinulatusandM.
+trioculatushave long non‐coding regions in their mt genomes (Figure2).
+Specifically, located in positions 66,692–77,002 inM.
+trioculatusand 40,021–47,556 inM.
+spinulatusare the non‐coding regions of the genomes, which are primarily composed of repeats.
+In comparison, theM.
+comicusmt genome is instead compact with minimal non‐coding regions.
+Thecox1gene inM.
+trioculatuswas ~21 kb in length from positions 23,248–44,209 due to seven introns that range in length from 2528 to 3263 bp.
+In comparison,M.
+comicushad twocox1introns, which were 2459 and 2693 bp, while there were nocox1introns found inM.
+spinulatus.
+Two introns were also annotated in each of thernlgenes in each species by aligning the mt to related species ofThalassiosirawith and without introns (Table2; Figure2).
+Thernlgene inM.
+spinulatusis 4613 bp (two introns of 731 and 852 bp), whileM.
+comicusandM.
+trioculatushave genes that are 7932 bp (two introns of 2506 and 2411 bp) and 7733 bp (two introns of 2451 and 2333 bp), respectively.
+Comparison of the three isolates via local alignments (using BLAST) revealed that the twoMinidiscusspecies had higher pairwise similarity than theMediolabruswith either of theMinidiscusspecies (Figure2).Mediolabrus comicusalso had a closer overall similarity toM.
+spinulatus(Figure2).
+The exons of thernlgene were the most conserved regions across all the mt genomes, whereas introns and other non‐coding sequences were generally the least conserved (Figure2).
+Chloroplast genome size was 126,734, 135,507, and 138,031 bp forM.
+comicus,M.
+trioculatus, andM.
+spinulatus, respectively (Figure3, Table3).
+Sequenced chloroplast genomes further exhibited similar GC content, withM.
+spinulatusandM.
+comicusboth at 30.8% GC, whileM.
+trioculatuswas slightly higher at 31.1% GC.
+The large single‐copy (LSC) region varied in size among the species, withM.
+spinulatushaving the largest at 70,509 bp, followed byM.
+trioculatusat 66,399 bp andM.
+comicusat 65,377 bp (Table3).
+The small single‐copy (SSC) region showed notable differences, withM.
+trioculatuspossessing the largest at 45,515 bp, compared to 31,152 bp inM.
+spinulatusand 26,726 bp inM.
+The inverted repeat (IR) regions also differed, withM.
+spinulatusandM.
+comicushaving similar lengths of 18,185 and 17,315 bp, respectively, whereasM.
+trioculatushad a substantially smaller IR region at 11,795 bp.
+The percentage of each genome attributed to coding sequences varied, withM.
+trioculatusat 68.7%,M.
+spinulatusat 71.9%, andM.
+comicusat 76.4%.
+All three species contained the overlapping gene pairsatpF‐atpD,psbC‐psbD,rpl23‐rpl4, andsufC‐sufB.
+BLAST comparison of the nanoplanktonic diatom cp genomes using Proksee (Grant et al.2023).
+Chloroplast genomes were BLASTed against the other two isolates to highlight conserved genes.
+Innermost ring = GC‐content.
+First two inner rings = annotations of key cp genome components on forward and reverse strands.
+Outer two rings = percent identity (%) of the genome of interest in comparison with the other two isolates.
+Genes duplicated in the IR region are only counted once.
+BLAST comparison of the three isolates revealed the same pattern as the mt genomes, where theMinidiscusgenera were more closely related andM.
+comicusexhibited a higher BLAST similarity toM.
+spinulatusthanM.
+trioculatus.
+Unsurprisingly, the most highly conserved regions within the cp genomes were therRNAgenes (Figure3).
+Liu, Chen, et al. (2021) analyzed gene gain and loss across 61 diatom cp genomes.
+Using their dataset as a reference, we found our three isolates showed identical presence/absence patterns across all 44 protein‐coding genes (FigureS13).
+This pattern aligns closely with previously sequenced cp genomes within the order Thalassiosirales (Liu, Chen, et al.2021).
+While all three retainpetF, they notably lackacpP,syfB, andycf91(Liu, Chen, et al.2021; Lommer et al.2010).
+Further pangenomic analyses of Thalassiosirales mt genomes identified 112 gene clusters, of which 24 (21%) were present in all 16 genomes, forming the core mt genome, while the remaining 88 (79%) belonged to the accessory genome (Figure4A; DataS3).
+In the accessory genome, 62 were unique to only one organism (70% of the accessory genome), and of these, 28 (45%) were singleton gene clusters belonging toM.
+trioculatus.
+The 79,302 bp genome ofM.
+trioculatusis 1.79 times larger than the average of the 16 currently sequenced Thalassiosirales genomes at 44,285 [+/− 9709].Minidiscus trioculatusalso had the highest number of gene clusters (62, average = 40.6) and the highest GC‐content (31.0% GC, average = 29.7% GC).
+Pangenome analysis of all available mitochondrial (A) and chloroplast (B) genomes in the Thalassiosiraceae family.
+All sequences are unique, even though some species have multiple genomes available.
+This Anvi'o schematic shows the presence or absence of gene clusters [left] and average nucleotide identities [right] (Hernández‐Salmerón and Moreno‐Hagelsieb2022).
+Organellar genomes were ordered based on ANI similarity.
+In the case of the cp pangenome for the 37 Thalassiosirales genomes, 189 gene clusters were found, of which 112 (59%) were a part of the core genome and 77 (41%) were identified as the accessory genome; that latter includes 47/77 (61%) that were singleton gene clusters (Figure4B; DataS3).Minidiscus trioculatushad six singleton gene clusters,M.
+comicushad zero, and the NWAM.
+spinulatusisolate had one.
+TheOL855995M.
+spinulatushad two singleton gene clusters, showing regional‐specific diversity between the two isolates (Wang and Chen2022).
+Measuring the cp genomes' average nucleotide identities (ANI),Minidiscus spinulatushas 99.7% ANI toOL855995M.
+spinulatusand 91.5% ANI toM.
+trioculatus.
+Interestingly,M.
+trioculatushad a slightly higher ANI when compared to the NWAM.
+spinulatus(91.6%) than to theOL855995M.
+spinulatus(91.2%).
+In both organellar pangenomes (Figure4), as expected, isolates of the same species had highly similar ANIs (DataS4).
+The ANIs of the cluster includingSkeletonemaandMediolabrushad overall higher similarity than the cluster ofMinidiscusandThalassiosira.
+Overall, the cp genomes had closer similarity than the mt genomes, ranging from 83.1% to ~100% ANI with isolates of the same species in comparison to 80.9% to ~100% with isolates of the same species (DataS4).
+In both cases, Cluster 1, comprisingSkeletonemaspecies andMediolabrus comicus, exhibited a closer genetic relationship within the cluster compared to Cluster 2, which included the generaThalassiosiraandMinidiscus(Figure4).
+This indicates that the genomes in Cluster 1 are more highly conserved than those in Cluster 2 in terms of ANI.
+Concatenated alignments and trees for a suite of protein‐coding (PC) genes were generated for currently available data to further explore the phylogenomic relationships of the three new isolates within the Thalassiosirales order (one analysis using mt PC genes, the other cp PC genes).
+Both trees further emphasized the characterization of these three isolates asMinidiscusandMediolabrusspecies, respectively (Figure5).
+TheMinidiscusspecies clustered closely together (at 99%–100% bootstrap support), and the previously found clade separation was demonstrated as theM.
+comicusisolate formed a sister clade with theSkeletonemagenus (at 100% bootstrap support), and theMinidiscusspecies were either within the same clade or a sister clade to members of theThalassiosiragenus.
+Thus, the concatenated alignments from the mt and cp genomes (i.e., the ‘super‐barcodes’) re‐emphasize the clade separation ofMediolabrusandMinidiscus(Li et al.2020).
+Seagoing expeditions in the NWA (AZMP, AZOMP, NWA‐BCP CE, and GEOTRACES) characterized the distribution of the three isolates using16SrRNA metabarcoding.
+The presence and absence of the ASVs pertaining to the isolates in the surface photosynthetic community (1–20 m) were determined by subsetting the dataset to include only samples collected within that depth range (Figure6).
+When considering all samples across all depths and sampling methods, the ASVs were detected at more sites (FigureS4).
+Additionally, the proportions of the surface ASVs (1–20 m) to the rest of the photosynthetic community were determined and plotted (FigureS5).
+Of all these off‐shore samples,M.
+spinulatuswas only detected at one location off the SS in the Fall of 2017 (Figure6).
+In the sample at this location, it accounted for approximately 0.9% of the total photosynthetic community.
+In contrast, bothM.
+trioculatusandM.
+comicuswere commonly found at various locations and seasons.
+It is important to note thatM.
+trioculatuswas not detected in samples collected at any depth during the BELAS‐1 expedition (LS) and in any surface samples (1–20 m) in the AZOMP22 (LS) mission; hence, in 2022 this species had limited presence in the Central Labrador Basin and Greenland shelf (Figure6; FigureS4).Mediolabrus comicuswas detected at the surface in all expeditions except during AZOMP22 in 2022 (FigureS3; Figure6).
+In the 2015 cruise to the CAG,M.
+trioculatuswas also only found at the Southern site in the Central LS, whileM.
+comicuswas more frequently detected at northern sites, specifically within Baffin Bay and the Canadian Arctic Archipelago (Figure6).
+This demonstrates thatM.
+comicuspotentially has a more northern geographic range thanM.
+trioculatus.
+When comparing the relative proportions of phytoplankton communities on the SS in the fall versus spring,M.
+trioculatuswas generally more abundant in the spring, whileM.
+comicusappeared in greater proportions in the fall (FigureS5).
+Nanoplanktonic diatom isolates tracked across the NWA and Canadian Arctic using16Smetabarcoding of eDNA from the upper photic zone during various expeditions (1–20 m).
+Abbreviations: AF, Atlantic Zone Monitoring Program (AZMP) Fall (usually Sept–Oct, but Nov–Dec in 2017); AS, AZMP Spring (Apr–Jun); AZOMP, Atlantic Zone Off‐shore Monitoring Program (Apr–Jun); BELAS‐1, Biological Carbon Export in the Labrador Sea (May–Jun); Arctic15, GEOTRACES mission to CAG (Jul–Aug).
+Numbers at the end of mission codes indicate the year (see Table1for more information).
+For a more complete figure including limited sampling in AS18 and AS19, see FigureS3.
+While the expeditions above provide insight on the geographic range of the taxa in the NWA, in the BB (Halifax, N.S.), weekly16SrRNA data provide greater resolution of when the taxa were present in‐shore between 2014 and 2022.
+When observed, these nanoplankton occupied a higher proportion of the photosynthetic community at 1 m than at 60 m (Figure7A).
+However, all three isolates were found throughout the water column at the four depths sampled in the BB (FigureS6).
+For size‐fractionated years (> 3 μM versus 0.2–3 μM), the nanoplankton tended to occupy a larger proportion of the community in the > 3 μM fraction (FigureS7).
+Dynamics of the isolated nanoplanktonic diatoms relative to environmental conditions in the Bedford Basin (Halifax, N.S.) observed through a weekly time series over 8 years (2014–2022).
+Relative abundances are calculated as the percentage of cp16SrRNA V4V5 reads either on > 0.2‐μm filters or reconstituted > 3 and 0.2–3 μm filters.
+Missing data is due to COVID‐19 restrictions on sampling in 2020.
+Panels show (A) weekly relative abundances (Rel.
+for each taxa out of the total phytoplankton community in the 1 and 60 m depths, (B) environmental variables including surface [1 m] temperature (temp), chlorophylla(chla), oxygen (O2), and nitrate (NO3), (C) flow cytometry‐derived cell counts (< 35 μm) for nanoeukaryotes (nano), picoeukaryotes (pico), andSynechococcus(Syn), (D) box plots of the relative abundances of each isolate by each month irrespective of the year and depth (including 1, 5, 10, and 60 m), (E) box plots of relative abundances observed for each isolate according to temperature and irrespective of time of year and depth [species absences were excluded from the plot].
+(F) redundancy analysis (RDA) showing relationships between each of the nanoplankton and the environmental variables, where RDA1 accounts for the largest fraction of variance in species abundance explained by the environmental variables (21.0%).
+The green star on the 1 m plot in panel A indicates when the BB isolate ofMinidiscus spinulatuswas originally isolated.
+Additional environmental parameters were plotted and can be seen in FigureS8.
+Using the BBMP data, we found that the three nanoplanktonic diatoms each had a unique temporal pattern, with individual species tending to dominate different times of the year (Figure7A).
+AlthoughM.
+spinulatuswas only detected in one off‐shore sample (Figure6), it was observed consistently in the BB, occupying a large relative proportion of the phytoplankton community in the second half of the year (generally Jun–Dec).
+In comparison,M.
+trioculatuswas consistently present mainly in the first half of the year (Jan–Jun) and was then followed byM.
+comicusandM.
+spinulatus, with the former of the two taxa appearing slightly earlier than the other (Figure7D).Minidiscus spinulatusandM.
+trioculatusrarely dominated the photosynthetic community simultaneously, indicating that the two species may be adapted to conditions and/or dynamics of opposite seasons at the in‐shore BBMP site.Mediolabrus comicusappears more frequently in the second half of the year but also coexists withM.
+trioculatusin winter and spring, preceding the dominance ofM.
+spinulatus(Figure7D).
+A dot plot of the relative abundance of each isolate by month is visualized in FigureS9to demonstrate sample‐level variability.
+The seasonal patterns observed in the BBMP environmental data suggest that temperature (via seasonal change) plays a key role in driving succession across the three studied taxa;M. trioculatusdominates at lower temperatures (between −1°C and 5°C), andM.
+spinulatusdominates at higher temperatures, overlapping withM.
+comicus(at > 8°C; Figure7E).
+To further investigate this, the temperature ranges were plotted for each isolate.
+The individual species are shown with distinct distributions, and the pairwise Wilcoxon rank‐sum tests (with Benjamini–Hochberg correction) indicate that each species' temperature range is significantly different, as evidenced by the lowp‐values (p< 8.1e‐09) (FigureS10).
+To further explore the relationship between environmental variables and the nanoplanktonic diatoms, we performed an RDA using metadata from the BBMP (Figure7F).
+The RDA model was statistically significant (ANOVA, 1000 permutations,p< 0.001), with all selected environmental variables also showing significance (p< 0.01).
+The first axis (RDA1) explained 21.0% of the total variance and captured 90.2% of the constrained variance within the model, while RDA2 explained 1.6% of the total variance and 6.8% of the constrained variance.
+Temperature (9.365 variance,F= 312.50,p< 0.001) was the most influential variable, explaining the largest proportion of variance in the dataset, followed by ammonia (1.565 variance,F= 52.23,p< 0.001) and nitrate (1.076 variance,F= 35.92,p< 0.001).
+The impact of temperature on the RDA model re‐emphasizes our succession and temperature results (Figure7A–E).Minidiscus spinulatusandM.
+comicushad higher RDA1 values; separation on this axis also correlates with warmer temperatures toward positive RDA1, whereasM.
+trioculatus, with its negative RDA1 value, exhibited the opposite trend, suggesting a preference for cooler conditions.
+In contrast, the RDA2 axis was most influenced by stronger correlations with chlorophyll a, followed by nitrate, oxygen, andSynechococcus, suggesting nutrient availability and bloom conditions as potential controls for RDA2.Mediolabrus comicuswas more positively associated with RDA2 (1.94) in contrast toM.
+spinulatus(0.06), suggesting a potential preference forM.
+comicusfor higher bioavailable nitrogen and less biomass as indicated by chlorophyll a (Figure7F).
+Our work contributes new genomic information to the current repertoire of diatom organellar genomes.
+There are currently 266 species in theThalassiosiraceaefamily, and only 19 cp genomes (16 species) and 8 mt genomes are available for this diverse diatom family (Guiry and Guiry2015).
+Here we present the complete cp and mt genomes forM.
+spinulatus,M.
+trioculatus, andM.
+comicusisolates from the NWA.
+Currently, a complete cp genome (OL855995) is available for anM.
+spinulatusstrain from Jiaozhou Bay (China), while only a partial cp genome is available forM.
+trioculatus(strain CCMP495) (Nordberg et al.2014; Wang and Chen2022).
+Despite being from two distinct oceanographic regions, theMinidiscus spinulatusstrains from the NWA and Jiaozhou Bay have highly similar cp genomes (ANI = 99.7%) (Figure4, FigureS12).
+Recently established based on phylogenetic and morphological data (Li et al.2020), the genusMediolabrusremains under investigation, and our work advances understanding of its genetic and ecological distinctions fromMinidiscus.
+Recent studies have emphasized the power of organelle genomes in resolving fine‐scale phylogenetic relationships and uncovering unexpected evolutionary patterns within diatoms.
+For example, Jeong and Lee (2024) demonstrated that cp and mt phylogenies often conflict with traditional morphological classifications.
+In our case, using cp and mt genomes as super‐barcodes reaffirmed the two distinct clades ofMinidiscusandMediolabruspreviously identified by Li et al. (2020) with more robust support.
+Multiple methods, including the partial18SrRNA phylogeny (1051 bp), separate concatenated gene trees of protein‐coding regions from both the mt genomes and cp genomes, and pangenome analyses, consistently showed thatMediolabrus comicusclustered withSkeletonemaspecies.
+In contrast, in the18SrRNA tree,Minidiscusclustered closer to a group containingCyclostephanos,Stephanodiscus,Pantocsekiella,Discostella, andThalassiosiraspecies (Li et al.2020).
+The same species were not available for the concatenated tree of the Thalassiosirales organellar genomes; however,Minidiscusstill clustered closer to relatedThalassiosirathanSkeletonema.
+With additional sequencing of Thalassiosirales species' organellar genomes, the phylogenetic relationship ofMinidiscusto other genera will be further revealed.
+Cell size is a crucial factor that shapes various aspects of phytoplankton physiology, ecology, and evolution, influencing traits such as nutrient acquisition, photophysiology, and grazing pressures (Finkel et al.2010).
+For further context, we compiled a supplemental dataset of cell sizes for each species included in the three phylogenetic trees from various sources (TablesS1–S3).
+Within the18SrRNA tree, cell sizes varied across different taxonomic groupings, highlighting that smaller cell size is presumably not a monophyletic trait within the Thalassiosirales.
+For example, the sister clade toMinidiscusexhibited a range of 2.5–54 μm, with an average of 15.7 μm, while the sister clade toMediolabrus,Skeletonema menzelli, showed a range of 2–10 μm, with the closely relatedSkeletonemaspecies averaging 7.6 μm (range 2–21 μm).
+Additionally, more distantly related clades outside the nanoplanktonic diatoms generally had larger cell sizes, with average cell size (within the clades) ranging from 13.1 to 55.8 μm.
+However, there were also several species with small cell sizes that did not cluster closely with the nanoplankton (e.g.,Thalassiosira profundawith a size range of 2–5 μm).
+Organellar genome comparisons for members of the Order Thalassiosirales revealed thatM.
+trioculatushas a much larger mt genome than its close relatives.
+Within Thalassiosiraceae, the currently observed mt genome lengths range from 39,089 bp inThalassiosira pseudonanato 51,728 bp inThalassiosira rotula.
+Interestingly,M.
+trioculatushas the largest currently reported mt genome in the Thalassiosiraceae family and is more similar to two pennate diatoms,Phaeodactylum tricornutumandHalamphora calidilacuna, which are 77,356 and 103,605 bp, respectively (Oudot‐Le Secq and Green2011; Pogoda et al.2019).
+The extended length of theM.
+trioculatusmt genome is due to two main features: the long non‐coding region and seven introns located within thecox1gene.
+trioculatusandM.
+spinulatuspossess non‐coding regions, measuring 10,301 and 7490 bp, respectively.
+While non‐coding regions are uncommon in diatom mt genomes, researchers have previously reported them.
+For example,P.
+tricornutumhas a non‐coding region of 35,454 bp that is composed of directed repeats, andT.
+pseudonanahas a 4970 bp repeat region (Oudot‐Le Secq and Green2011).
+tricornutum, repeats account for 46% of the mt genome, whereas inM.
+trioculatusandM.
+spinulatus, repeats make up 13%–15% of the mt genome.
+In contrast toP.
+tricornutum,M.
+trioculatusalso has seven introns in thecox1gene, which account for 24.5% (19,435 bp) of the genome.Mediolabrus comicussimilarly has two introns in thecox1gene, whileM.
+spinulatushas none.
+The presence of group II introns within thecox1gene has been observed in other diatoms, such asH.
+calidilacunaandH.
+coffeaeformis(Pogoda et al.2019).
+Thecox1gene is the most commonly used marker for animals and is often referred to as the ‘barcode of life’ (Nakazato and Jinbo2022).
+Our data supports Pogoda et al. (2019), who argue that the introns found in thecox1gene may partially explain the varying success in amplifying thecox1gene in diatoms.
+The lack of non‐coding regions inM.
+comicusmirrors the compact mitochondrial genomes ofSkeletonemaspecies, but unlikeSkeletonema,M.
+comicuspossesses four introns.
+Differences in non‐coding region lengths and intron numbers among closely related species' mt genomes highlight the need for broader organellar genome sequencing in diatoms to better understand the distribution of mobile genetic elements and assess the reliability of potential biomarkers (i.e.,cox1) across taxonomic groups.
+Results from this study contribute to our collective knowledge on gene retention and loss in diatoms.
+In the mt genomes, thetatAgene was present inM.
+comicusbut absent in both of theMinidiscusisolates.
+ThetatAgene is involved in the twin‐arginine translocation pathway that translocates proteins across membranes (Cline and Theg2007; Bennewitz et al.2020).
+Loss oftatAhas previously been found in two Coscinodiscophyceae species,Guinardia striataandActinocyclussp., making the twoMinidiscusspecies the first diatoms in the Mediophyceae class to lack thetatAgene (Wang et al.2022).
+Moreover, in all three mt genomes, thenad11gene was present as a single, uninterrupted sequence, consistent with most other mt genomes within the class Mediophyceae.
+The only currently known exception in Mediophyceae isOdontella auritavar.minima, in whichnad11is split into two segments (Wang et al.2022).
+The cp genomes contained a total of 31 tRNAs, comprising 28 distinct tRNAs when accounting for duplicates in the inverted repeat (IR) regions.
+All three species shared tRNA‐Ala and tRNA‐Ile in their IR regions.
+However, whileM.
+spinulatusandM.
+comicusalso contained tRNA‐Leu,Minidiscus trioculatusdiffered by featuring a duplicated tRNA‐Phe.
+The total tRNAs match what has been previously found in theSkeletonemagenus and are close to the 30 total tRNAs in most currently knownThalassiosiracp genomes (Liu, Chen, et al.2021; Liu, Xu, et al.2021).
+Regarding overlapping gene pairs, the three isolates exhibited the same four gene overlaps that have been consistently observed across allThalassiosiraspecies (Table3) (Liu, Chen, et al.2021).
+ThepetF(ferredoxin) gene plays a role in electron transport during photosynthesis and has been transferred from the cp to the nuclear genome in select species, including someThalassiosiraspecies, likely enabling them to better tolerate iron‐limited environments (Lommer et al.2010; Liu, Chen, et al.2021).
+However, this endosymbiotic gene transfer has not occurred in any of the three isolates herein.
+A major benefit of sequencing chloroplast genomes from isolated cultures is the detection of full‐length16SrRNA gene sequences, which enables the strain‐specific identification of eDNA metabarcoding ASVs.
+Previously, Robicheau et al. (2022) described the succession of twoMinidiscusASVs (differing by 1 bp) throughout the year, which were classified asM.
+trioculatusbased on available reference databases.
+When reinvestigated, the16SrRNA sequences from the cp genomes revealed that one of those ASVs isM.
+spinulatus, highlighting the fundamental principle that microbial community datasets can only be correctly interpreted to the degree that reference databases can be relied on.
+Ongoing dedication to sequencing uncharacterized nuclear and plastid genomes of important phytoplankton species is crucial for enhancing the accuracy of microbial community analyses.
+Global monitoring programs using metabarcoding (primarily18SrRNA), microscopy, and flow cytometry have identifiedMinidiscusandMediolabrusas key players across a range of ecosystems.
+TheTara Oceansexpedition (2009–2013) found thatMinidiscus(encompassingMediolabrus) was one of the most commonly found diatoms with a high level of occupancy determined by both the V4 and V918SrRNA markers (Pierella Karlusich et al.2025; Malviya et al.2016).
+InTara Oceans,Minidiscuswere detected primarily in the surface ocean, with some detection at the deep chlorophyll maximum (DCM) (Pierella Karlusich et al.2025; Malviya et al.2016).
+These genera have also been detected in various localized monitoring programs; these include the NBay Plankton Time Series in Narragansett Bay, Rhode Island (2008–2014); the Elbe Estuary in Northern Germany (2021–2022); the LTER‐MC program in the Gulf of Naples (1984–2010, 2011–2013); the SOMLIT‐Astan monitoring program in the Western English Channel (2009–2016); the DeWeX program in the Gulf of Lions, Mediterranean Sea (2013); a survey in Marian Cove, Antarctica (January–February 2019); and natural salt marsh pools in California, USA (2018) (Fontaine and Rynearson2023; Martens, Biederbick, et al.2024; Martens, Russnak, et al.2024; Zingone et al.2023; Caracciolo, Berney, et al.2022; Caracciolo, Rigaut‐Jalabert, et al.2022; Jeon et al.2023; Arsenieff et al.2020; Vineis et al.2025; Leblanc et al.2018).
+Our work highlights the presence of these nanoplanktonic diatoms on the SS and in the LS—areas that have not been sampled by the globalTara Oceansproject.
+Moreover, the detection ofM.
+comicusin the CAG in 2015 reflects earlier records ofMinidiscusspecies in the region (Pierella Karlusich et al.2025; Malviya et al.2016).
+The distribution and seasonal patterns of these nanoplanktonic diatoms suggest that theM.
+spinulatusisolate from the Northwest Atlantic (NWA) is primarily restricted to the in‐shore BB and is not commonly found in open ocean areas.
+The other known circularized cp genome for this species comes from Jiaozhou Bay (China), which is also close to the coastline (Wang and Chen2022).
+In contrast,M.
+trioculatusandM.
+comicusappear to be more broadly distributed across the NWA.
+The seasonal trends observed in the BB (Figure7) are reflected in all years of sampling the SS region:M. trioculatustends to be more abundant in the spring, whereasM.
+comicusis more prevalent in the fall (FigureS5).
+The succession of differentMinidiscusgenotypes has been observed across multiple monitoring programs, reflecting strong seasonal and regional patterns.
+In Narragansett Bay (2008–2014),MinidiscusandMediolabrusspecies exhibited distinct seasonal trends:M. spinulatuswas more abundant from January to June,M.
+trioculatusappeared mainly between March and June, and twoMediolabrus comicusASVs displayed distinct seasonal peaks—one in late fall and another from May to November (Fontaine and Rynearson2023).
+In the Gulf of Naples (LTER‐MC station, 1984–2010),M. comicusshowed a bimodal pattern, appearing twice annually (Zingone et al.2023); this pattern was also confirmed with18SrRNA data (2011–2013) at both LTER‐MC and the SOMLIT‐Astan station in the Western English Channel, despite differing environmental conditions (Caracciolo, Berney, et al.2022).
+Extended monitoring at SOMLIT‐Astan (2009–2016) further revealed species‐specific seasonality:Minidiscus variabilisoccurred year‐round,M.
+spinulatuspeaked in the second half of the year, andM.
+comicusdominated from November to March (Caracciolo, Rigaut‐Jalabert, et al.2022).
+In the Elbe Estuary (2021–2022), eightMinidiscusgenotypes were identified, with three dominating (M. spinulatusgenotypes 1 and 2, andM.
+comicus), showing salinity‐dependent distributions (Martens, Biederbick, et al.2024; Martens, Russnak, et al.2024).
+These results demonstrate that not all nanoplanktonic diatoms in theMinidiscusandMediolabrusgenera display the same seasonal patterns and are likely controlled by environmental factors and/or seasonal shifts specific to each study area.
+Moreover, these studies provide evidence that different genotypes of the same species have been shown to have different seasonal patterns (Fontaine and Rynearson2023; Martens, Russnak, et al.2024; Martens, Biederbick, et al.2024).
+The BBMP's weekly resolution provides a clearer view of the succession of the three isolates with nine years of metabarcoding data (Figure7).
+The bimodal seasonal pattern similar to that observed in the Gulf of Naples and the Western English Channel was observed in the BB in 2014, 2016, 2017, 2018, and 2022 (FigureS6) (Caracciolo, Berney, et al.2022).
+In the BBMP,Minidiscus spinulatuspeaked in the second half of the year, similar to theM.
+spinulatusidentified in the SOMLIT‐Astan time series and dissimilar to the trend in Narragansett Bay (Caracciolo, Berney, et al.2022; Fontaine and Rynearson2023).
+We observedM.
+trioculatusalmost exclusively in the first half of the year, from January to June, which is a larger but similar window to that observed in Narragansett Bay (March–June) (Fontaine and Rynearson2023).
+It was previously assumed that nanoplanktonic diatoms, due to their small size, were predominantly remineralized within the microbial loop; however, our findings align with more recent studies demonstrating that these diatoms are capable of contributing significantly to carbon export (Leblanc et al.2018; Malviya et al.2016; Bolaños et al.2020).
+Notably, earlier work has identified speciesM.
+spinulatus,M.
+trioculatus,M.
+variabilis, andM.
+comicuswithin benthic communities along Nova Scotia's coast, suggesting some potential for sedimentary deposition (Krumhansl et al.2025).
+Our study extends this knowledge by detecting these species in deeper off‐shore waters, indicating an increased potential for long‐term carbon storage.
+Although there were no sediment samples taken for any of the off‐shore expeditions, the ASVs for our isolates were often detected below the euphotic layer (> 150 m) (Guidi et al.2016).
+On the SS, bothM.
+trioculatusandM.
+comicuswere found throughout the sampled water column from surface to 300 m, and in the LS,Mediolabruswas found in various water samples from the surface to 1000 m. In the Arctic sampling of 2015, bothM.
+comicusandM.
+trioculatuswere found as deep as 1400 m in the LS, andM.
+comicuswas notably detected as deep as 2300 m in the CAG.
+These observations suggest that nanoplanktonic diatoms may not only escape remineralization in the upper water column but also reach deep ocean layers, enhancing their role in vertical carbon flux.
+Temperature was the key factor shaping the relative abundance of the three nanoplankton ASVs in the BB, withM.
+trioculatusfavoring colder waters andM.
+spinulatusandM.
+comicusmore abundant in warmer conditions (Figure7).
+A comparable seasonal pattern was observed on the SS, whereM.
+trioculatuswas more dominant in the colder spring months, whileM.
+comicusbecame more prevalent in the warmer fall.
+Our findings from both the BB and SS suggest thatM.
+spinulatusandM.
+comicusthrive under warm, high‐biomass conditions, indicating greater resilience to future ocean warming compared toM.
+trioculatus.
+A notable contradictory finding is the broader distribution ofM.
+comicusinto the LS and CAG.
+If temperature were the primary driver, the cold‐adaptedM.
+trioculatuswould be expected to dominate these regions.
+This discrepancy highlights the complexity of environmental influences, as temperature is not only a direct factor but is also correlated with other oceanographic processes such as stratification, nutrient availability, light availability, and the concentration of dissolved gases.
+It is therefore possible that other environmental factors may play a more important role in shaping the species distributions in the LS and CAG.
+Alternatively, cold‐adaptedM.
+comicusstrains may exist, with genomic differences undetectable by the16Sregion alone.
+Similar strain‐level variation has been observed using the18SrRNA gene, whereM.
+comicusASVs exhibit distinct seasonal patterns in Narragansett Bay (Fontaine and Rynearson2023).
+Previous surveys have identified intense blooms and blooming capabilities ofMinidiscus.
+During a study in Marian Cove, Antarctica, nano‐diatoms (includingMinidiscus) made up approximately 20% of the total phytoplankton abundance, withMinidiscusitself reaching high concentrations ranging from 2.7 × 105to 5.6 × 106cells L−1(Jeon et al.2023).
+The highestMinidiscusabundances were generally observed near the glacier, associated with surface haline stratification and low‐light conditions.
+Another bloom was observed in the Mediterranean Sea; these species also reached very high abundances during an April expedition, with cell concentrations of 4–6 × 106cells L−1at several stations (Leblanc et al.2018).
+Moreover, in a coastal upwelling experiment, twoMinidiscusASVs were identified as stronger blooming species in the mesocosm (Vineis et al.2025).
+Although our work does not show direct evidence of large nanoplanktonic blooms in the NWA, the detection of these diatoms across depths, seasons, and years demonstrates the persistent presence of these species in the NWA.
+Research in the BB has demonstrated that smaller cells tend to dominate under conditions that depart from the typical seasonal cycles (i.e., increased temperature) (Robicheau et al.2022).
+We can therefore hypothesize that as climate change continues to cause changes to the ocean, such as rising temperatures, intensified stratification, and altered nutrient availability, small‐sized phytoplankton may become more dominant and potentially contribute to intense blooms as observed previously (Leblanc et al.2018; Jeon et al.2023; Bolaños et al.2020).
+Figure S1:Isolation of nanoplanktonic diatom cultures.
+Map showing the sampling locations from where three nanoplanktonic diatoms were isolated:Minidiscus spinulatus, collected from the BBMP in July 2018, andMinidiscus trioculatusandMediolabrus comicus, both collected from the COOGER‐2021 in August 2021 (Mordret et al. 2024).
+Figure S2:Schematic representation of complete mitochondrial (a) and chloroplast (b) genomes from the three isolates, annotated using OGDRAW (Greiner et al.2019).
+Genetic elements displayed outside the ring are transcribed counterclockwise, while the elements inside the ring are transcribed clockwise.
+The color of the gene box indicates the type of gene.
+The GC‐content is shown on the inner ring of each of the genomes.
+Figure S3:Yearly identification of nanoplanktonic diatom isolates in environmental metabarcoding samples, including the sampling conducted in AS18 and AS19 in the upper upper photic zone (1–20 m).
+All of the “AF” samples were collected in the fall; the “AS”, “AZOMP” and “CE” samples were collected in the spring; and the “Arctic15” samples were collected in the summer (see Table 1).
+Abbreviations: AF, Atlantic Zone Monitoring Program (AZMP) Fall (usually Sept–Oct, but Nov–Dec in 2017); AS, AZMP Spring (Apr–Jun); AZOMP, Atlantic Zone Off‐shore Monitoring Program (Apr–Jun); BELAS‐1, Biological Carbon Export in the Labrador Sea (May–Jun); Arctic15, GEOTRACES mission to CAG (Jul–Aug).
+Figure S4:Nanoplanktonic diatom isolates tracked across the NWA and Canadian Arctic using16Smetabarcoding of eDNA from any sample collected (1–2500 m; Niskin water samples and marine snow catcher (MSC) samples).
+Abbreviations: AF, Atlantic Zone Monitoring Program (AZMP) Fall (usually Sept–Oct, but Nov–Dec in 2017); AS, AZMP Spring (Apr–Jun); AZOMP, Atlantic Zone Off‐shore Monitoring Program (Apr–Jun); BELAS‐1, Biological Carbon Export in the Labrador Sea (May–Jun); Arctic15, GEOTRACES mission to CAG (Jul–Aug).
+Note numbers at the end of mission codes indicate year (see Table 1 for more information).
+For a more complete figure including limited sampling in AS18 and AS19, see Figure S3.
+Figure S5:Proportion of photosynthetic community contributed by nanoplanktonic isolates in the upper photic zone (1–20 m).
+This demonstrates the AZMP cruises that were completed in both Spring and Fall in order to determine a seasonal pattern for the proportion of the community that is each of the isolates.
+The environmental metabarcoding data is collected from various depths at each station using the16SV4V5 and16SV6V8 markers.
+Each data point is the proportion of the community that the ASV takes up in one sample, determined by the sample that had the highest proportion of that ASV.
+The heatmap represents the relative abundance (%) of the ASV to the rest of the photosynthetic community in that sample.
+Figure S6:Vertical distribution of the photosynthetic community in the Bedford Basin.
+The nanoplankton community was more abundant at 1 m depth compared to 60 m, but all three isolates were present throughout the water column at the four depths sampled.
+Figure S7:Proportional abundance of nanoplankton on 3 μM and 0.2 μM filters in Bedford Basin.
+Nanoplankton constituted a larger proportion of the community on the 3 μM filter compared to the 0.2 μM filter in the years sampled, although they were present in both size fractions.
+Figure S8:Distribution of nanoplankton isolates across depths in the Bedford Basin in relation to ocean conditions.
+Proportion of the community (Rel.
+), calculated from the % of the V4V5 region of the cp 16S rRNA, is shown for 1 m and 60 m depths over time (2014–2022) using 0.2‐μm filtered and reconstituted 3 and 0.2 μm size fractions.
+Environmental variables including temperature (temp), chlorophylla(chla), oxygen (O2), nitrate (NO3), nitrite (NO2), phosphate (PO4), silicate (SiO4), and salinity (sal) and flow cytometry counts for nanoeukaryotes (nano), picoeukaryotes (pico), cryptophytes (crypto), andSynechococcus(Syn) are plotted.
+Missing data is due to COVID‐19 restrictions.
+Figure S9:Month of the year versus relative abundance.
+Dot plot of the relative abundance of each isolate in the photosynthetic community by month from 2014 to 2022.
+Each dot represents one water sample collected during a select month, year, and depth.
+Figure S10:Boxplots showing the distribution of temperatures (°C) at which each species was detected based on non‐zero relative abundance.
+Significant differences in temperature distributions were detected among species (Kruskal–Wallis test: χ2= 461.34,p< 2.2e‐16).
+Pairwise Wilcoxon rank‐sum tests with Benjamini–Hochberg correction indicated that all species pairs differed significantly.
+Boxes represent the interquartile range (IQR), with medians shown as horizontal lines; whiskers extend to 1.5× IQR.
+Outliers are not shown for clarity.
+Figure S11:Correlation of variables related to the RDA analyses.
+(a) Representation of the correlations between environmental variables before reducing the dataset to non‐correlated variables.
+(b) Reduced dataset used for initial RDA.
+Figure S12:BLAST comparison of theMinidiscus spinulatusgenome with the previously sequenced genome (Grant et al.2023; Wang and Chen2022).
+The first two inner rings are the annotations of key components of the cp on the forward and reverse strands.
+The closest ring representsOL855995Minidiscus spinulatusas downloaded from GenBank.
+The outer two genomes representMinidiscus trioculatusandMediolabrus comicusas a reference.
+Figure S13:Heatmap of the 44 protein‐coding genes outlined by Liu et al. (2021a) applied to the three new nanoplanktonic diatom isolates.
+Blue indicates gene presence, and white indicates gene absence.
+Data S1:Summary of Oxford Nanopore sequencing runs.
+Data S2:FASTA file of ASV sequences from eDNA metabarcoding aligned to cp 16S.
+Data S4:Pairwise Average Nucleotide Identity (ANI) calculated with fastANI for each of the cp and mt genomes.
+Table S1:Cell sizes for each species included in Figure 1 with associated reference.
+Table S2:Mitochondrial genomes and associated cell sizes in the Order Thalassiosirales.
+Table S3:Chloroplast genomes and associated cell sizes in the Order Thalassiosirales.
+Table S4:Mitochondrial genes included in the concatenated phylogenetic tree of 16 Thalassiosirales mitochondrial genomes.
+Table S5:Chloroplast genes included in the concatenated phylogenetic tree of 37 Thalassiosirales chloroplast genomes.
+We extend our sincere gratitude to the crews and scientific teams who contributed to the collection, processing, and analysis of the environmental data utilized in this study.
+We acknowledge those involved in COOGER‐2021 for making the isolation ofM.
+trioculatusandM.
+comicuspossible.
+We gratefully acknowledge the Bedford Institute of Oceanography (BIO) and Fisheries and Oceans Canada (DFO) for their invaluable support in sampling efforts carried out through the BBMP, AZMP, and AZOMP programs.
+We would like to acknowledge the GEOTRACES project for the data provided from the Labrador Sea and Canadian Arctic Gateway in 2015.
+We would also like to thank our collaborators involved in the Ocean Frontier Institute's Northwest Atlantic Biological Carbon Pump (NWA‐BCP) project and the scientists and crew on board theRV Celtic Explorerin 2022 during the BELAS‐1 mission.
+The crew and scientific teams aboard each of the research vessels are what make research possible.
+Finally, we would like to thank those involved in the processing of the DNA samples for each of the projects including past LaRoche lab members for DNA extraction and the Integrated Microbiome Resource (IMR) for sequencing efforts.
+Stevens‐Green, R. , Chénard C., Mordret S., MacKinnon J., Robicheau B. M., and LaRoche J.. 2025.
+“Organellar Genomes of Three Globally Important Nanoplanktonic Diatoms Refine Their Taxon‐Specific Distribution and Succession Patterns in the Northwest Atlantic.” Journal of Eukaryotic Microbiology 72, no. 5: e70033.
+10.1111/jeu.70033.
+Funding:This study was supported by the NRC‐ACRD Internal Project (A1‐019982) awarded to CC, the NRC Ocean Program Grant and Contribution (OCN‐500) awarded to CC and JLR, the NSERC Discovery Grant (RGPIN/04060‐2021) awarded to JLR and the Canada's First Research Excellence Fund (NWA BCP) awarded to JLR.
+Through this project, RSG was supported at different times by the NSERC Canada Graduate Scholarship‐Masters' and subsequently Doctoral Award with the Fisheries and Oceans Canada Aquatic Science Supplement provided by DFO, as well as by a N.S. Graduate Scholarship from Dalhousie University.
+During the course of this study, BMR was supported at different times by NSERC through a Canada Graduate Scholarship‐Doctoral Award and a Postdoctoral Fellowship, as well as by a N.S. Graduate Scholarship and a Killam Predoctoral Award from Dalhousie University.
+Rebecca Stevens‐Green, Email: r.stevens-green@dal.ca.

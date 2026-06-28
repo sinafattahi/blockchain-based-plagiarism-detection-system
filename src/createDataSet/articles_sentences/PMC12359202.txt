@@ -1,0 +1,226 @@
+Thefralocus ofSalmonella entericaencodes five genes for metabolism of fructose‐asparagine, an Amadori product formed by condensation of asparagine with glucose.
+In the last step of this pathway, the FraB deglycase cleaves 6‐phospho‐fructose‐aspartate into glucose‐6‐phosphate and aspartate.
+In homology models, FraB forms a homodimer with two equivalent active sites located at the dimer interface.
+E214 and H230, two invariant residues essential for catalysis, project into each active site cleft from opposing subunits of the dimer.
+Here, we have determined six crystal structures of FraB, three of a variant containing an N‐terminal His6tag and two mutations needed for crystallization (hereafter referred to as WT′), two with additional mutations to active site residues (E214A and P232A), and one of a variant with C‐terminal residues 313–325 deleted.
+Surprisingly, in the WT′ FraB structure, the two catalytic residues, E214 (general base) and H230 (general acid), are positioned ~22 Å apart.
+In the E214A and C‐terminus‐truncated FraB variants, however, a conformational change in the E214‐residing helix brings E214 and H230* to ~7 Å (* indicates residue from the second protomer that creates the inter‐subunit catalytic center).
+The loop bearing H230 also exhibits significant variation, ranging from being completely disordered to adopting open or closed states, with the nearby P232* residue being eithercisortrans.
+The C‐terminal residues 313–325 form a flexible “C‐tail” that can be fully disordered, bind in the active site to block access of substrate, or angle across the active site to wrap across the other subunit of the dimer and potentially close over substrate.
+Collectively, these structures reveal that FraB is a conformational heterodimer with two chemically identical subunits that are constrained to adopt different structures as they come together for catalysis.
+This plasticity likely involves correlated opening and closure of the two active sites for their respective binding and release of substrates and ligands.
+The condensation of a carbonyl group in a sugar (e.g., glucose) with an amino group of an amino acid (e.g., Asn) followed by a rearrangement yields sugar‐amino acids [e.g., fructose‐asparagine, F‐Asn, anN‐substituted glycosylamine (FigureS1)] (Mossine & Mawhinney,2010).
+These non‐enzymatic products—called Amadori compounds—are varied and abundant in nature (Li et al.,2025a,2025b; Luo et al.,2021; Mossine & Mawhinney,2010; Wu et al.,2018).
+A growing appreciation of the nutritional and clinical significance of Amadori compounds continues to inspire investigations into their metabolism (Li et al.,2025a; Luo et al.,2021; Mossine & Mawhinney,2010).
+Both prokaryotes and eukaryotes can assimilate Amadori compounds into central metabolic pathways (e.g., glycolysis) that generate energy and metabolic precursors (Deppe et al.,2011; Van Schaftingen et al.,2012).
+Utilization of Amadori compounds involves three different strategies: oxidases (amadoriases), fructosamine‐3‐kinases, or the combined action of a kinase and deglycase (Deppe et al.,2011; Van Schaftingen et al.,2012).
+In this study, we focus on the last route, which entails the use of a fructosamine 6‐kinase and a 6‐phosphofructosamine deglycase: while the kinase phosphorylates the C6 position of the sugar, the deglycase splits the phosphorylated fructosamine into glucose‐6‐phosphate (Glc‐6‐P) and the corresponding amino acid.
+We have recently directed our attention to howSalmonella entericasubsp.entericaserovar Typhimurium (a causative agent of salmonellosis; hereafter,Salmonella) uses F‐Asn as a nutrient during infection of animal hosts (Ali et al.,2014; Sabag‐Daigle et al.,2016).
+TheSalmonella fralocus that is needed for F‐Asn catabolism encodes five genes: FraR (a transcriptional regulator, not discussed below), FraE, FraA, FraD, and FraB (FigureS1).
+The catabolic route begins with the action of FraE, a periplasmic asparaginase, that deamidates F‐Asn to F‐Asp.
+FraA, a Dcu‐type transporter, then facilitates the movement of F‐Asp from the periplasm to the cytoplasm, where the FraD kinase phosphorylates F‐Asp to 6‐phospho‐fructose‐aspartate (6‐P‐F‐Asp) (Ali et al.,2014; Sabag‐Daigle et al.,2016; Sabag‐Daigle et al.,2017).
+In the final step, the FraB deglycase breaks 6‐P‐F‐Asp into Glc‐6‐P and Asp.
+We previously purifiedSalmonellaFraD and FraB, synthesized their substrates, and confirmed their activities in vitro (Biswas et al.,2017; Sengupta et al.,2019).
+Remarkably, deletion ofSalmonellaFraB causes a build‐up of 6‐P‐F‐Asp (its substrate) and either a bacteriostatic phenotype in vitro or a bactericidal outcome in mice (up to 1000‐fold attenuation) (Boulanger et al.,2021,2022; Sabag‐Daigle et al.,2016).
+Since few species in the human microbiota can utilize F‐Asn and FraB is absent in animals (Sabag‐Daigle et al.,2018), FraB has thus emerged as an attractive narrow‐spectrum drug target for treatingSalmonella‐mediated gastroenteritis (Sabag‐Daigle et al.,2016).
+We recently used both cell‐based and biochemical high‐throughput screening assays to identify small molecule inhibitors of FraB and pave the way for the design of potential therapeutics against non‐typhoidalSalmonella(Law et al.,2025; Sabag‐Daigle et al.,2023).
+Because medicinal chemistry advances are expedited by structure‐based drug discovery (SBDD), we also sought to determine the structure of FraB.
+We previously built a RosettaCM‐aided homology model ofSalmonellaFraB using as templates two bacterial phosphosugar isomerases with ~50% identity to FraB (3FKJ,Salmonella; 3EUA,Bacillus subtilis) (Sengupta et al.,2019).
+We then docked the 6‐P‐F‐Asp substrate into this model and performed a 100‐ns molecular dynamics (MD) simulation to identify residues in the substrate‐binding pocket (Figure1, and FigureS2for detailed interactions).
+Based on the inter‐atomic distances between specific side chains and the substrate functional groups (in this model) as well as a sequence alignment of bacterial FraB homologs (conservation shown by ConSurf in FigureS3), we constructed several variants to test the roles of highly conserved residues in FraB substrate binding and catalysis.
+This work identified E214 and H230 as two invariant residues that are essential for catalysis, likely serving as general base and/or acid, respectively, during the multi‐step deglycase reaction (Sengupta et al.,2019) (FigureS4).
+While these studies identified residues essential for FraB function (Sengupta et al.,2019), an atomic resolution structure ofSalmonellaFraB is essential for SBDD efforts.
+Here, we present the first crystal structures of FraB.
+Although we were unable to get a structure with bound substrate, our surprising findings on the conformational plasticity of FraB, a homodimer, have implications for potential correlated opening and closure of the two active sites for respective binding and release of substrates and ligands (including inhibitors).
+FraB homology model with docked 6‐F‐P‐Asp substrate (Sengupta et al.,2019).
+(a) Full dimer, (b) Active site zoom.
+Subunit A, cyan; Subunit B, wheat; C‐tail residues 313–325 of Chain A, dark blue; H230* loop residues 227*–240* of Chain B, brown; Pi helix with E214 of Chain A (residues 209–216), pink; 6‐P‐F‐Asp, green bonds.
+The E214 to H230* distance of 10.3 Å is indicated by the dashed line.
+FraB was first overexpressed inEscherichia colias an N‐terminal His6‐tagged protein and purified by immobilized metal affinity chromatography.
+This protein, with or without the His tag removed (by using an engineered TEV cleavage site), failed to form diffraction‐quality crystals with our collection of ~15 commercial crystal screen kits.
+To overcome this roadblock, we explored the surface entropy reduction prediction (SERp) approach (Goldschmidt et al.,2007), which seeks to promote crystal contact formation by replacing with alanines two or three consecutive, non‐conserved surface‐exposed residues predicted to have a propensity for high conformational entropy.
+Based on the results from the SERp server (Goldschmidt et al.,2007), we constructed E17A/K18A and K275A/E276A, the two top‐scoring double mutants.
+Both were successfully purified and found to have activity comparable to WT′.
+While E17A/K18A failed to form crystals, the K275A/E276A variant yielded several types of well‐diffracting crystals, but only with the His6‐tag attached, likely due to increased solubility.
+Importantly, the K275/E276 residues that were mutated to alanine are distant (>20 Å) from the FraB active site, have only a 2‐fold effect on the kcat/Kmvalue compared to WT′ FraB (TableS1, FigureS5), and provide a surface that potentiates crystal lattice contacts for at least one of the FraB chains in each crystal form.
+Ultimately, we obtained three different WT′ FraB crystal forms (Forms 1, 2, 3) and determined their structures to ~1.8 Å resolution.
+We also obtained structures of three variants of FraB WT′, two with single point‐mutations to active‐site residues (E214A and P232A) and one with the C‐terminal “tail” residues 313–325 deleted.
+X‐ray diffraction data and refinement statistics for the six FraB crystal structures are presented in TableS2, and notable structural features of each are summarized in Table1.
+Despite significant effort, we could not crystallize FraB in complex with either 6‐P‐F‐Asp substrate or several inhibitor compounds – our numerous attempts either failed to produce crystals or more typically yielded crystals whose electron density maps showed no hint of a bound compound.
+Nonetheless, the unbound FraB structures exhibit a remarkable degree of conformational plasticity in their active site regions and thus provide significant insights into the possible modes of catalysis and regulation.
+Summary of active site features of the six FraB crystal forms.
+The entry indicates the prior Chain the H230* loop is similar to, unless it is a new conformation; the open/closed nature and presence of Mg2+are also indicated.
+For the E214A structures, the glutamate side chain was modeled onto the alanine to estimate the distance with the H230* imidazole ring.
+The 5B chain has a unique conformation of the C‐tail, in which it extends across and below the active site cleft to form interactions with the other subunit across the dimer.
+Collectively, the six crystal structures reveal that FraB forms the expected C2‐symmetric dimer, with each monomer formed by two α/β subdomains with similar topological folds (Figures2and3).
+The putative active‐site cleft is formed at the bottom portion of the dimer interface, with the catalytic residues E214 and H230* projecting from opposing subunits (* indicates residue from the second protomer).
+Two such active sites are formed on each FraB dimer—one at the front and one at the back as viewed in Figure3.
+Interestingly, all six crystal structures have the FraB dimer within the asymmetric unit (two dimers in Form 2), as opposed to being along a crystallographic 2‐fold, suggesting an inherent asymmetry.
+Furthermore, all structures show significant conformational differences between the two subunits of the dimer, a finding that suggests coupled asymmetry with implications for the catalytic mechanism.
+Alignment of 14 FraB dimers.
+(a) The 14 chains are all overlaid on Chain 1A of Form 1 as C‐α traces.
+Notice that the upper sub‐domains all align closely, but the lower sub‐domains that contain the active sites are more variable.
+(b) Close‐up of the active site alignment shows three variable segments (H230* loop, E214 helix, C‐tail).
+The figures were prepared with COOT (Emsley & Cowtan,2004).
+Structure of FraB Crystal Form 1 showing variable regions.
+(a, b) Front and back views of the Form 1 dimer with active site residues labeled.
+In this and in all structural figures, Chain A is cyan and Chain B is wheat.
+(c) Overlay of the two active sites of Form 1 dimer showing variable regions, including the open and closed states of the H230* loop, the presence or absence of the C‐tail (present, Chain A; disordered, Chain B), and the >20 Å distance between E214 and H230*.
+The last two residues of Chain A, E324 and Y325 bind in the putative active site cleft to interact with H230* and K133, respectively.
+H230* also interacts with E85 of the opposing chain, and E214 forms an ion pair with R310.
+While the overall structures of the seven FraB dimers are all highly similar to one another, aligning to rmsd values ranging from 0.45 to 1.1 Å for all Cα atoms (Figure2a), they exhibit significant and intriguing conformational differences at three regions of the active site (Figure2b): (Mossine & Mawhinney,2010) the helix containing E214, (Li et al.,2025a) the loop containing H230, and (Luo et al.,2021) the C‐terminal residues 313–325, which we termed the “C‐tail”.
+In the following sections, we describe the range of conformations observed at each of these regions and their implications for function.
+Most notably, in all structures of WT′ FraB, the side chains of the two catalytic residues E214 (general base) and H230 (general acid) are unexpectedly ~22 Å away from one another (Figure3c).
+However, in the E214A and C‐terminus‐truncated structures, conformational changes bring these two residues much closer together (Figure4).
+In addition, in many of the structures, the last two residues of the C‐tail, E324 and Y325, insert into the active site cleft right where the 6‐P‐F‐Asp substrate is predicted to bind (Figures3cand5), suggesting a possible role for the C‐terminus in auto‐inhibition.
+Conformational change in the Form 4 (C‐terminal deletion) and Form 5 (E214A) structures brings E214 closer to H230* across the dimer interface.
+(a) Form 4 C‐terminal deletion structure (Chain B, wheat; Chain A, cyan).
+Due to the Pi conformation of the last two turns of the E214 helix, the E214 side chain now faces H230*, across the dimer interface.
+The H230* loop of Chain A (cyan) is in the open conformation, such that the E214–H230* distance is still 12.0 Å.
+(b) Form 5 E214A structure.
+E214 of Chain B (left, wheat) is present as alanine in the structure, but the E214 side chain is grafted on for the figure to show its approximate position.
+With the opposing H230* loop of Chain A in a closed conformation, E214 and H230* are now only 6.7 Å from one another, as indicated by the dashed line.
+The C‐tail of Chain B, shown with M320 as the last ordered residue, now angles across and below the active site to wrap over the H230 loop of the opposing subunit.
+The side chains of K133, R310, and Gly30‐Gly31 of the helix N‐dipole are shown for reference.
+Conformational variability of the closed state of the H230* loop.
+(a) Close‐up of the Form 1 AB active site showing the full sequences of the C‐tail (cyan) and H230* loop (wheat).
+The ion pair between the C‐terminal carboxylate of Y325 and K133 is shown at the top left.
+The HGP sequence of the H230* loop has P232* in thecisconfiguration.
+Residues R317, Y319, and W321 of the C‐tail contact residues of the opposing H230* loop.
+(b) Close‐up of the Form 2 AB active site shows the H230* loop in a closed conformation with bound Mg2+ion (putative) in magenta and P232* in thetransconfiguration.
+Three backbone C=O groups of the H230* loop coordinate the Mg2+with distances ranging from 2.0 to 2.3 Å.
+As mentioned above, a surprising feature of all three structures of WT′ FraB (Forms 1–3) is that the two key catalytic residues, E214 and H230*, are ~22 Å apart from one another (Figure3c), a distance that is inconsistent with the proposed catalytic mechanism (FigureS4).
+Upon inspection, we observed that this unexpected separation is due to an interesting conformational change that occurs in the helix from which E214 projects.
+In the FraB homology model (Figure1), and in the structures of the homologs on which it was based (3EUA and 3FKJ), the last two turns of the E214‐containing helix adopt the unusual Pi configuration with (i, i + 5) hydrogen bonding instead of the normal (i, i + 4) pattern of the α‐helix.
+This shift in helix registry places the catalytic E214 on the side of the helix that faces the dimer interface and, importantly, the catalytic histidine (H230* in FraB) from the other protomer.
+The corresponding catalytic Glu‐His* distances in these structures range from 7 to 10 Å. Notably, the same Pi helix configuration is also present in structures of the more distantly related FrlB deglycase (2A3N and 8GLR), which catalyzes the conversion of 6‐phospho‐fructose‐lysine to Glc‐6‐P and lysine (Kovvali et al.,2023).
+In our structures of WT′ FraB, however, the E214 helix adopts the regular α‐helix conformation with (i, i + 4) hydrogen bonding (Figure3c).
+This feature places E214 on the side of the helix that faces away from the dimer interface and the H230* residue.
+In this orientation, E214 forms an ion pair with R310, the last residue before the flexible C‐tail, to form an interaction that likely stabilizes this apparently inactive conformation of FraB.
+Remarkably, in our structures of the E214A or C‐tail deletion FraB variants, the E214‐containing helix switches back to adopt the Pi helix conformation seen for the FraB homologs, placing E214 back on the side of the helix facing H230* (Figure4).
+Coupled to this change, the helix itself moves closer to H230*, a movement that is more exaggerated in the E214A variant than in the C‐terminal truncation.
+Together, these changes bring E214 and H230* to within 7 Å of one another (Figure4b), a distance that seems well suited for catalysis.
+Residues 227*–240* of the loop containing the catalytic H230* residue exhibit an even higher degree of structural plasticity than the E214 helix, ranging from completely disordered in two of the FraB chains (Chains 4B and 5B) to adopting at least five distinct conformations in the remaining 12 chains (Figure2band Table1).
+The ordered states range from an “open” conformation in chains 1A and 4A to variants of a closed conformation in the others (see Figure3cfor comparison of open and closed).
+Intriguingly, P232*, a highly conserved residue of the H230* loop (FigureS3), adopts acisconformation in four of the chains (1A, 1B, 2A, 4A) (shown in Figure5afor Chain 1B), including both that have the “open” conformation (1A and 4A), or the more commontransconformation in the remaining chains (shown in Figure5bfor Chain 2B).
+Mutation of Pro232* to Ala (in the SER variant K275A/E276A) diminished catalytic efficiency by 70‐fold (TableS1and FigureS5), and mutation of the adjacent G231* to Ala resulted in no detectable activity (TableS1).
+The 229*–FHGPFE–234* sequence encompassing H230* is highly conserved in FraB homologs (FigureS3), suggesting that the precise folding or interactions of these loop residues are critical for activity.
+To determine structures with 6‐P‐F‐Asp substrate, we crystallized the P232A variant and determined its structure to 1.48 Å resolution, the highest resolution of all crystal forms, although there was no density for bound substrate.
+The H230* loop in this structure (Form 6) adopted either a closed conformation in Chain A or was mostly disordered in Chain B.
+In all closed conformations, the H230* residue itself is in a similar position, forming an ion pair with E85 across the dimer interface and with E324 when the C‐tail of the opposing chain is ordered.
+In the open conformations (Figure3c), the H230* side chain moves by ~6 Å outward, away from E324, but still in contact with E85.
+In a previous study, we reported that the E85A variant of FraB exhibited akcat/Kmthat was ~75‐fold lower than WT largely driven by an increasedKm(Sengupta et al.,2019).
+The new structures are consistent with our earlier postulate that H‐bonding between E85 and H230* is critical to anchor the latter and permit its function as a general acid (Sengupta et al.,2019).
+Also notable is the finding that the three phenylalanine side chains of the H230* loop can bind in significantly different positions, depending on the overall loop conformation.
+Such variability is unusual for large apolar residues that are typically part of a hydrophobic core.
+Interestingly, in three of the four chains of the Form 2 structure, residues 227*–232* of the H230* loop coordinate what appears to be a divalent metal ion, modeled as Mg2+, via three backbone carbonyl groups that all point inwards in a planar configuration (Figure5b).
+This observation is particularly intriguing because Mg2+(or other divalent) was not added to the Form 2 crystallization mixture but was present at 100–200 mM for the Form 1 and Form 5 crystals, where no such density was observed.
+The Mg2+‐bound conformation is not likely to be relevant to catalysis, however, as addition of 16 mM EDTA to the enzymatic reaction mixture (lacking MgCl2) had no effect on catalysis (data not shown).
+Without a structure of FraB with bound substrate, it is difficult to predict which conformation of the H230* loop is most likely to be relevant to catalysis.
+The closed conformations seen in most of the FraB chains are closest to the conformations of the equivalent loops seen for FraB homologs, albeit in the absence of bound substrate.
+As the FraB deglycase reaction has different steps (FigureS4), the H230* loop could adopt multiple conformations during catalysis, some of which may be reflected in our structures.
+For three of the 14 FraB chains (1B, 2D, 5A), the interpretable electron density ends near R310, and there is no density for C‐tail residues 311–325, which are presumably disordered.
+For the remaining 11 FraB chains, at least the last two residues of the C‐tail, E324 and Y325, are ordered, and in all cases, they are bound right where the 6‐P‐F‐Asp is predicted to bind in our homology model (compare Figures3cand5, with Figures1andS2).
+The C‐terminal carboxylate of Y325 forms a close ion pair with K133, and the carboxylate of E324 forms an ion pair with H230* of the opposing subunit (Figures3cand5).
+By contrast, in our docked homology model (FigureS2), K133 is predicted to bind to the carboxylate of the Asp portion of 6‐P‐F‐Asp, and the C‐terminal carboxylate of Y325 is predicted to bind to the phosphate.
+We constructed and purified FraB K133A in the context of the SER variant K275A/E276A and found that itskcat/Kmwas reduced by 234‐fold compared to WT′ (TableS1and FigureS5).
+Whether the interaction of K133 with the C‐terminus or with the substrate is important for activity, or both, remains to be determined.
+The negative charges of the two C‐tail carboxylate groups, as well as the backbone carbonyl of E324, are also bound at the N‐end of the helix formed by G30 and G31 to form additional complementary electrostatic interactions (Figure3c).
+This feature is notable because in enzymes more distantly related to FraB for which structures with bound substrate are available, including 6SVM (Ruegenberg et al.,2020) and 4AMV (Durand et al.,2008; Mouilleron et al.,2006), similar N‐dipole interactions are formed with substrate.
+The two glycine residues are highly conserved (see Gly30‐Gly31 for FraB in FigureS3) and predicted to bind to 6‐P‐F‐Asp in our docked homology model of FraB (FigureS2).
+The FraB substrate 6‐P‐F‐Asp has two carboxylate groups, like the C‐terminal Glu‐Tyr pair, such that the latter could mimic the bound substrate.
+In six of the FraB chains (1A, 2A, 2B, 2C, 3A, 6B), additional residues of the C‐tail are ordered, as an extended segment that forms additional interactions with the residues of the H230* loop of the opposing subunit (Figure5).
+The conformation of the full C‐tail is best seen in Chain B of Form 2, in which all C‐tail residues are ordered.
+In particular, the side chains of W321 and Y319 pack against residues 232*–236* of the opposing H230* loop, and R317 forms a potential electrostatic interaction with D237* (Figure5).
+For the other structures, the C‐tail residues that are observed overlay closely with the corresponding residues of Chain 2B, suggesting that the C‐tail in WT′ FraB has a single binding mode that is dynamically moving in and out of position, in contrast with the multiple and more dynamic conformations of the H230* loop.
+In the E214A structure (Form 5), the C‐tail of Chain B adopts a unique conformation among the crystal structures that does not plug into the active site but rather angles across and below it to form a distinct set of interactions with the opposing subunit (Figure4b).
+This C‐tail conformation, for which the last ordered residue is M320, is closer to that observed in our FraB homology model (Figure1) and in structures of FraB homologs (3FKJ, 3EUA, 2A3N, and others).
+Thus, the C‐tail conformation observed for E214A could be closer to its conformation with bound substrate during catalysis, presumably closing over the substrate to form interactions such as those predicted in our docked homology model (FigureS2).
+In many of the FraB structures, the tip of the C‐tail plugs into the active site to overlap with the predicted position of substrate.
+It is therefore conceivable that the C‐tail has an auto‐inhibitory role, which in turn could be regulated by post‐translational modifications, interactions with other proteins, or allosteric effectors.
+To test this idea, the catalytic parameters of the C‐terminally truncated FraB protein consisting of residues 1–312 were measured.
+We observed that the FraB1–312(Δ313–325) protein exhibited a close to normalkcatof >40 min−1at 20 mM 6‐P‐F‐Asp (TableS1), but a dramatically elevatedKmreflecting weakened affinity for substrate upon deletion of the C‐tail.
+However, we were unable to reliably determine the Michaelis–Menten parameters as substrate concentrations >20 mM led to inhibition under the conditions used.
+Regardless, this variant is clearly quite capable of bond breakage but suffers from weak substrate binding, consistent with the interactions between the C‐tail and docked substrate predicted in FigureS2.
+To better understand these effects on FraB function, we also analyzed the oligomeric state of the FraB1–312protein by native mass spectrometry and confirmed that it forms homodimers, but with a higher proportion of monomer than full‐length FraB (Figure6a,b).
+This observation suggests that the inter‐subunit interactions observed for the C‐tail in the crystal structures could be involved in stabilizing the FraB homodimer.
+For the dimer, we also used ion mobility to compare the arrival time for the 18+ species and observed a higher abundance of an extended conformation for FraB with the C‐tail deleted (FraB1–312) than for WT′ (Figure6c), again suggesting a change in structure.
+Native mass spectra for WT′ FraB (a) and the FraB C‐tail deletion variant (b).
+Monomer observed from FraB C‐tail deletion variant (FraB1–312, Δ313–325) shows that deletion of the C‐tail (residues 313–325) weakens the dimer interface.
+(c) The arrival time (extracted dimer 18+) distribution comparison for FraB WT′ and FraB C‐tail deletion.
+The arrival time was measured by ion mobility with a single pass on a Waters SELECT Series Cyclic IMS mass spectrometer.
+Our rational surface engineering of FraB proved instrumental in mediating crystal contacts and reinforces the value of SER as a useful crystallization strategy.
+We discuss below the insights gained from our analysis of the six different high‐resolution FraB structures (three WT′ and three different variants).
+First, the notable structural differences between the two subunits of the dimer (within the asymmetric unit in all six crystals) establishes FraB as a conformational heterodimer.
+Despite having the same primary structure, the two FraB protomers within each dimer always exhibit differences in their tertiary structures.
+Whether or not this asymmetry reflects non‐equivalence of the two active sites (i.e., half‐of‐sites reactivity) with potential for regulation remains to be investigated.
+Second, a shift in registry (i.e., transitioning from a regular α‐helix to a Pi‐helix) changes the orientation of E214 to move it to a position that would enable it to act together with H230* as part of a concerted acid–base catalytic mechanism.
+We had previously shown that when 6‐P‐F‐Asp is docked in a FraB homology model, E214 is positioned <3 Å from the C1pro‐R hydrogen in 6‐P‐F‐Asp and H230* < 5 Å from the C2 carbonyl oxygen (Figures1bandS2).
+The essentiality of these residues was demonstrated by the findings that E214A and H230A* are inactive in vitro, and that the introduction of either mutation individually in theSalmonellachromosome fully abolished the pathogen's ability to grow on fructose‐asparagine (Sengupta et al.,2019).
+In our FraB homology model, and in the structures on which it was based (3EUA and 3FKJ), E214 or its equivalent exists in the unusual Pi helix, which places it close to H230* across the dimer interface.
+By contrast, in all three structures of WT′ FraB, E214 exists in the more regular α‐helix, which places it on the opposite side of the helix, away from the dimer interface and H230*, and forms an ion pair with R310.
+This new and unexpected conformation of FraB, which is presumably an inactive conformation, is likely to be the lowest energy (ground) state of FraB, since it is observed in all three structures of WT′ FraB.
+Third, our findings raise some key questions.
+If FraB catalysis depends on the formation of the short Pi‐helical segment with E214, what keeps the Pi helix from forming as the predominantly observed state in the absence of substrate?
+Furthermore, why would this helix restructuring to the active state occur in the E214A and C‐tail deletion variants, but not in WT′ FraB?
+As to the first question, it is possible that in WT′ FraB, the Pi and α‐helix conformations of the E214 helix are in conformational equilibrium with one another in solution.
+While it is conceivable that the crystallization conditions and crystal packing interactions favored one conformation over the other, our observation of the α‐helix for this segment in all three crystal forms of WT′ FraB (Forms 1–3) suggests that it is the lower energy conformation.
+Interestingly, AlphaFold 3 (AF3) predicts the Pi helix conformation for the E214 helix in WT′ FraB (in the absence of substrate), with an E214 – H230* distance of 7.5 Å (FigureS6).
+AF3 also predicts a conformation for C‐tail residues 313–325 that mirrors our previous homology model with docked substrate (FigureS2), with the C‐terminal Y325 residue removed from the active site and contacting the other subunit of the dimer.
+The AF3 models, unlike the crystal structures, likely reflect the structures of the most closely related proteins in the PDB.
+Regarding the second question, in the case of E214A, loss of the E214 carboxylate would remove the ion pair with R310, which would presumably destabilize the inactive state.
+In the case of the C‐terminal deletion (FraB1–312), with R310 being close to the new C‐terminus at H312, increased flexibility could also destabilize the ion pair with E214.
+It is unclear why FraB, but not its homologs, would adopt this inactive state in the first place, although it may reflect a regulatory mechanism that is unique to FraB.
+Since the inactive conformation with E214 in a regular α‐helix is observed in multiple crystal forms of WT′ FraB, it is not likely to simply be caused by crystal packing interactions.
+None of the structures of FraB or its homologs described above contain bound substrate.
+Thus, while the FraB homologs would appear to be poised for catalysis in the ground state (without substrate), FraB itself appears to inherently adopt an inactive conformation.
+Presumably, binding of substrate to FraB triggers the conformational change to the more active state observed in the E214A and C‐terminal deletion structures, but this feature remains to be determined experimentally.
+Fourth, significant conformational changes also occur in the H230* loop of each active site, across the dimer interface from the E214 helix.
+While the larger scale movements result in open and closed conformations, more subtle but significant changes occur within the different variations of the closed state, including the presence or absence of a Mg2+(or other divalent) ion bound by three backbone carbonyl groups and thecis‐transisomerization of the Pro323 residue.
+The 229‐FHGPFE‐234 sequence encompassing the catalytic H230* residue is among the most conserved regions of the FraB structure (FigureS3), yet the importance of most of these residues is not evident from our structures, which did not contain bound substrate.
+Fifth, our finding that the C‐tail plugs into the active site to overlap with the 6‐P‐F‐Asp substrate motivated us to test the idea that the C‐tail plays an auto‐inhibitory role.
+We originally hypothesized that deletion of the C‐tail might increase FraB activity.
+However, as deletion of the last 13 residues leftkcatrelatively unimpaired and increased theKm, we alternatively hypothesize that the C‐tail may have a role in substrate‐binding, perhaps in closing over the substrate once it is bound and thereby shielding the active site from bulk solvent, as seen in the homology model with docked substrate (Figures1bandS2).
+Given that our attempts to co‐crystallize FraB with substrate have so far failed, future experiments are needed to test this revised hypothesis.
+Finally, we speculate on a possible basis for the inactive state being the default conformation even though it is arguably primed for catalysis.
+It is possible that the enzyme is triggered to act only with thecorrectsubstrate (6‐P‐F‐Asp).
+One mechanism to ensure substrate specificity is to use intramolecular contacts that entrap the enzyme in an inactive state and then switch the enzyme to an active state when the same residues involved in autoregulation are also employed for substrate binding.
+For example, the C‐terminal carboxylate of Y325 forms a close ion pair with K133, but Y325 was postulated to interact with the phosphate moiety in 6‐P‐F‐Asp, the FraB substrate (FigureS2).
+Thus, in the presence of substrate, the C‐tail could then be released from its contact with K133 and thereby ensure generation of an active state.
+Such ideas could be tested using FRET and mass spectrometry experiments.
+For crystallization, purified K275A/E276A FraB protein (un‐cleaved by TEV) was thawed from concentrated aliquots frozen at −80°C and diluted to 10 mg/mL (0.263 mM monomer) in 50 mM Tris–HCl (pH 7.5), 150 mM NaCl, 1 mM DTT.
+For Form 5 and Form 6 crystals, a 10‐fold molar excess of 6‐P‐F‐Asp (2.63 mM) was added to 10 mg/mL FraB (E214A or P232A) during dilution.
+Crystal screens were performed in 96‐well hanging drop format using a Mosquito instrument.
+Hanging drops contained 0.2 μL of complex and 0.2 μL of cocktail solution and were hung over 100 μL of cocktail solution.
+Cocktail solutions were from standard commercial crystal screens from Hampton Research and Molecular Dimensions.
+After optimization of hits in 24‐well plates with 2 μL + 2 μL hanging drops and 1 mL of well solution, Form 1 crystals grew from solutions of 15% (v/v) 2‐propanol, 0.1 M MgCl2, 0.1 M MES (pH 6.5), and were transferred into well solution supplemented with 30% (v/v) glycerol as cryoprotectant prior to freezing.
+Form 2 crystals grew from solutions of 21.5% (w/v) PEG 3350, 0.4 M sodium thiocyanate, 0.1 M HEPES (pH 6.3), and were transferred into well solution supplemented with 25% (v/v) glycerol as cryoprotectant.
+Form 3 crystals grew from 10% to 14% (v/v) PEG 300, 0.1 M MES (pH 6.0–6.5), and were transferred into well solution supplemented to 30% (v/v) PEG 300 as cryoprotectant.
+Form 4 crystals (of K275A/E276A FraB1–312) grew from solutions of 20% (w/v) PEG 3350, 0.2 M sodium sulfate, 0.1 M Bis‐Tris propane (pH 8.0–8.5), and were transferred into well solution supplemented with 30% (v/v) glycerol as cryoprotectant.
+Form 5 crystals (of E214A/K275A/E276A FraB) grew from solutions of 18% (w/v) PEG 6000, 0.2 M MgCl2, 0.1 M MES (pH 6.0), and were transferred into well solution supplemented with 30% (v/v) glycerol as cryoprotectant.
+Form 6 crystals (of P232A/K275A/E276A FraB) grew from solutions of 13%–19% (v/v) PEG 300, 0.1 M MES, pH 6.5, and were transferred into well solution supplemented with 20% (v/v) glycerol as cryoprotectant.
+All crystals were mounted in nylon loops (Hampton Research) and plunge frozen in liquid nitrogen.
+X‐ray diffraction data were collected at Beamline 31‐ID of the Advanced Photon Source at Argonne National Laboratory.
+Images were processed with an automatic workflow consisting of autoPROC version 1.1.7 (Vonrhein et al.,2011), XDS (Kabsch,2010) (version Jan 26, 2018, BUILT 20180808 or later), POINTLESS version 1.11.21 or later (Evans,2006), AIMLESS version 0.7.4 or later (Evans & Murshudov,2013), CCP4 version 7.0.075 or later (Winn et al.,2011), and STARANISO version 2.3.28 or later (Tickle et al.,2020).
+The final anisotropic (ellipsoidal) reduced data sets were used for structure determination and crystallographic refinement.
+The Form 1 structure was determined by molecular replacement with MOLREP version 11.4.03 (Vagin & Teplyakov,1997) using a dimer of the most closely related putative phospho‐sugar isomerase (PDB accession code 3FKJ) as a search model.
+After refinement (REFMAC5 version 5.8.043 (Kovalevskiy et al.,2018)), the model was adjusted, and new side chains were built using COOT (Emsley & Cowtan,2004).
+Iterative rounds of refinement and model building yielded the final model with statistics presented in TableS2.
+Forms 2 to 6 were determined by molecular replacement using the Form 1 structure as a starting model and re‐built and refined as described above for Form 1.
+Figures depicting protein structures were generated using PyMOL (Delano,2002) and COOT (Emsley & Cowtan,2004).
+Master mix (15 μL for the C‐tail deletion variant and 29 μL for all others), lacking 6‐P‐F‐Asp, was aliquoted into wells of a 384‐well polystyrene white μClear® microplate (Greiner Bio‐One, #781095), and incubated in an INFINITE M1000Pro (Tecan) at 37°C for 2 min prior to the addition of varying [6‐P‐F‐Asp] (15 μL for the C‐tail deletion variant and 1 μL for all others).
+Conversion of Glc‐6‐P and NAD+into NADH by glucose‐6‐phosphate dehydrogenase (G6PD), as a proxy for FraB activity, was monitored at 37°C by fluorescence (350 nm excitation, 450 nm emission) for a total of 5 min in 2‐s intervals.
+The reaction mix consisted of 25 mM HEPES (pH 8.0 @ 22°C), 5 mM MgCl2, 0.1 mM EGTA, 0.5 mM NAD+, 0.1 μM FraB, 0.033 mU/μL G6PD fromLeuconostoc mesenteroides(Worthington Biochemicals, #LS003981), and varying [6‐P‐F‐Asp].
+Relative fluorescence units (RFUs) were plotted against time (min) and a linear regression curve (y = mx + b) was fitted to the linear range of the data.
+To generate an NADH standard curve, average RFUs of 0 (water), 10, 25, 50, 75, and 100 μM NADH, from triplicate measurements, were plotted against [NADH] (μM) and a linear regression curve (y = mx + b) was fitted to the data.
+The RFUs/min were converted to initial velocities (μm/min) by dividing the slope (RFUs/min) of the activity assay by the slope (RFUs/μM) of the standard curve.
+The initial velocities (μM/min) were plotted against [6‐P‐F‐Asp] (mM) using Kaleidagraph (Version 4.5.3, Synergy Software) and the data were fit tovo= (Vmax× [S])/(Km+ [S]) to generate a Michaelis–Menten curve and derive thekcatandKmvalues.
+The goodness of fit (as evident from the correlation coefficient) was 0.99 in all cases.
+The curve‐fit errors are provided in TableS1.
+FraB WT′ and C‐tail deletion samples for native mass spectrometry (nMS) analysis were buffer exchanged into 200 mM ammonium acetate (AmAc) (Sigma‐Aldrich) using micro Bio‐spin P6 spin columns (BioRad).
+Samples were introduced into the MS instrument by nano‐electrospray ionization, which uses glass capillary tips pulled in‐house using a P‐97 micropipette puller (Sutter Instruments).
+Samples were diluted to 3 μM (monomer) in AmAc; 3–5 μL of each sample was loaded into the tips.
+nMS experiments were performed on a Waters SELECT Series Cyclic IMS mass spectrometer.
+All experiments were operated under ion mobility (IM) mode using the following tuning setting: Cone V: 30 V; IM separation traveling wave (TW) static height and TW velocity: 25 V and 375 m/s.
+Drift time was measured in the mobility cell with a single pass.
+nMS and IM data were processed using MassLynx 4.2 (Waters).

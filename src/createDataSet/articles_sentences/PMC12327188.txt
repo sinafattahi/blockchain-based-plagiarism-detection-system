@@ -1,0 +1,280 @@
+We present an identity‐by‐descent mapping approach to test the association between genome‐wide loci and complex traits.
+Our method evaluates whether levels of genetic similarities at specific genomic locations, captured by local relatedness matrices derived from multi‐individual IBD sharing, are associated with phenotypic variation in complex traits.
+In addition, we propose an approach to adjust for multiple testing in genome‐wide IBD mapping scans based on the correlation structure between test statistics across the genome.
+Through simulation studies, we demonstrate that our test has a well‐controlled genome‐wide type I error rate and superior power to detect rare and untyped variants compared to standard single‐variant tests.
+We applied our method to systolic blood pressure data from White British individuals in the UK Biobank.
+With the development of sequencing technology, there has been a surge in understanding the association between genetic variants and complex traits over the past two decades.
+Historically, there are two major classes of methods for association analysis: linkage mapping and genome‐wide association studies (GWAS).
+Linkage mapping identifies regions of the genome that are co‐inherited with a trait within families, which is particularly powerful for detecting rare variants (Amos1994; Blangero and Almasy1997; Almasy and Blangero1998; Blangero et al.2000; Day‐Williams et al.2011).
+However, linkage mapping is often limited by its low resolution and requirement for family data.
+In contrast, as a more commonly used method at present, GWAS can analyze common genetic variants across large, unrelated populations, offering high resolution and the ability to detect associations with complex traits at a genome‐wide level (Hirschhorn and Daly2005; McCarthy and Hirschhorn2008; Visscher et al.2017).
+While single‐variant tests in GWAS are powerful for detecting common variants, they often struggle to detect structural variants or rare variants that are more likely to be population‐specific, untyped in the genotype data, and have small individual effect sizes (McCarthy et al.2008; Eichler et al.2010; Tam et al.2019).
+Variant‐set tests improve upon single‐variant tests by aggregating effects across multiple variants within a genomic region or a set of related genes, thus increasing power to detect rare variants (Madsen and Browning2009; Wu et al.2011; Lee et al.2012; Liu et al.2019).
+However, these methods often rely on pre‐defined models about the genetic architecture underlying complex traits, the sparsity of causal variants, and the choice of weights on the effects of variants.
+In comparison, population‐based identity‐by‐descent (IBD) mapping offers a complementary approach for linkage mapping, GWAS, and variant‐set tests, providing a more flexible and comprehensive framework for association testing.
+IBD mapping identifies genomic regions containing potential causal variants by searching for genomic positions where levels of IBD sharing are associated with phenotypic variation in a group of individuals for a trait of interest (Purcell et al.2007; Gusev et al.2011; Browning and Thompson2012; Browning and Browning2012; Qian et al.2014; Vacic et al.2014; Westerlind et al.2015; Belbin et al.2017; Hsueh et al.2017; Henden et al.2020; Chen et al.2023).
+By leveraging long stretches of IBD segments shared between individuals, IBD mapping can capture the combined effects of co‐occurring proximate rare alleles, even when individual variants have small or modest effects (Browning and Thompson2012; Browning and Browning2012; Chen et al.2023).
+In addition, IBD mapping approaches can indirectly recover signals of untyped rare variants, structural variants, or population‐specific variants tagged by IBD haplotypes (Purcell et al.2007; Gusev et al.2011; Browning and Thompson2012; Browning and Browning2012; Chen et al.2023).
+Furthermore, IBD mapping is not reliant on assumptions about the underlying genetic structure or models on the effects of causal variants, which contributes to its applicability and robustness in analysis of complex traits with unknown or intricate genetic architectures (Madsen and Browning2009; Wu et al.2011; Lee et al.2012; Liu et al.2019).
+Previous IBD mapping studies have mostly focused on using IBD segments shared between pairs of individuals (Purcell et al.2007; Browning and Thompson2012; Vacic et al.2014; Westerlind et al.2015; Belbin et al.2017; Hsueh et al.2017; Henden et al.2020; Chen et al.2023).
+However, IBD information can extend beyond the pairwise level by considering clusters of haplotypes that are all IBD with each other (Gusev et al.2011; Qian et al.2014; Browning and Browning2024; He2013).
+Using IBD haplotypes shared among groups of individuals may enhance power for IBD mapping due to more accurate IBD calls and the additional information provided by specific IBD group effects that are ignored in pairwise IBD analysis.
+Most existing approaches detect multi‐individual IBD sharing from pairwise IBD segments by either using probabilistic techniques to model the states of potential IBD tracts across multiple individuals or by aggregating overlapping pairwise IBD segments through graph‐based clustering or hidden Markov models (Gusev et al.2011; Qian et al.2014; He2013; Moltke et al.2011).
+However, these approaches face substantial computational challenges in biobank‐scale datasets because the number of pairwise IBD segments increases quadratically with sample size, limiting the applicability of multi‐individual IBD information for association testing in large‐scale studies.
+In contrast, Browning and Browning (2024) utilize PBWT sorting to directly merge haplotypes sharing the same allele sequence over a specified minimum length threshold within a targeted region, avoiding exhaustive pairwise comparisons (Browning and Browning2024).
+This approach reliably identifies clusters of shared ancestry and scales linearly with sample size, making it well‐suited for biobank‐scale analyses.
+In this study, we develop an IBD mapping test leveraging multi‐individual IBD sharing between distantly related individuals in large, outbred populations.
+Motivated by variance component models in linkage analysis, we construct local relatedness matrices from multi‐individual IBD sharing to quantify genetic similarities at consecutive genomic locations.
+Using a likelihood ratio framework, we test for associations between genomic regions and a complex trait of interest by evaluating whether local genetic similarities significantly contribute to the phenotypic variation of the trait.
+Additionally, we develop an approach to adjust for multiple testing based on an analytical formula for the correlation between test statistics across the genome.
+Through simulation studies, we demonstrate that our test maintains a well‐controlled family‐wise type I error rate and exhibits superior power to detect the effects of rare and untyped variants in SNP array data compared to standard single‐variant tests.
+Applying this method to White British individuals in the UK Biobank, we identified signals associated with systolic blood pressure in this cohort.
+In the above formula,Xis a matrix of fixed‐effects covariates with effect sizesβ.GandQlare random‐effects terms that represent the genome‐wide additive effect and the location‐specific effect at positionlrespectively, andεis the environmental effect.
+The genome‐wide additive effect,G,is assumed to follow a multivariate normal distributionN(0,Ψσa2), whereΨis the genome‐wide relatedness matrix that can be estimated from genome‐wide IBD sharing.
+We refer toΨas the global IBD matrix.
+The location‐specific effectQlat positionlis assumed to follow the multivariate normal distributionN(0,ΦlσQl2), whereΦlis the location‐specific relatedness matrix that characterizes the proportion of alleles shared IBD between each pair of individuals at a specific genomic locationl.
+We refer toΦlas the local IBD matrix at positionl.
+The environmental effect is assumed to be independent between individuals and follow a normal distribution with mean 0 and varianceσε2.
+The parametersσa2,σQl2andσε2represent the effect sizes of the three variance components.
+The structuring matricesΨ,Φl, andIpredict the covariances among individuals attributable to the effect of each variance component, respectively.
+Testing whether a locus at positionlis associated with the quantitative trait is equivalent to testing the variance component hypothesisH0:σQl2=0versusH1:σQl2>0.
+To calculate the test statistic, we find restricted maximum likelihood estimators (REML) of the fixed effectβand variance effectsσa2,σQl2andσε2.
+Under the null hypothesis, the distribution ofWlis a12:12mixture of a point mass at0and aχ2distribution with 1 degree of freedom (AppendixA) (Almasy and Blangero1998).
+The application of the likelihood ratio statistic in variance component tests faces two major challenges.
+First, without closed‐form solutions for REML estimates of variance components, an efficient and accurate numerical optimization algorithm is essential.
+To address this, we use the BFGS algorithm (Broyden1970; Fletcher1970; Goldfarb1970; Shanno1970; Byrd et al.1995) from the SciPy (Virtanen et al.2020) optimize library in Python due to its robustness and efficiency in handling large‐scale optimization problems.
+Second, calculating the log‐likelihood for multiple iterations during optimization can become computationally expensive with large sample sizes(N), as invertingN×Nmatrices typically hasO(N3)complexity.
+However, in our application, we can reduce the computational burden because the variance‐covariance matrix has a sparse block‐diagonal structure, which arises because individuals only share IBD within small clusters in large outbred populations (see the section “Global and local IBD matrices”).
+We stored the global and local IBD matrices as sparse matrices using data structures and functions provided by the SciPy (Virtanen et al.2020) sparse library.
+When calculating the inverse, we perform sparse matrix Cholesky decomposition followed by forward substitution, with utilities implemented in the scikit‐sparse library (Shor et al.2019; Davis2021).
+This approach takes advantage of the block structure in the sparse matrix by performing calculations only on blocks with non‐zero entries, so the overall computational complexity scales in cubic terms with the largest block size, rather than with the full sample size.
+In this study, we focus on haplotypes that are identical by descent across multiple individuals instead of between pairs of individuals, which provides more detailed information about IBD sharing across the genome.
+We use the recently developed software ibd‐cluster that scans locations across the genome to directly cluster haplotypes that are IBD at each specific genomic location without identifying pairwise IBD segments (Browning and Browning2024).
+The ibd‐cluster algorithm first assigns each haplotype to an individual cluster and then merges clusters when a pair of haplotypes, one from each cluster, share the same allele sequence in a genomic region of at leastLcM that contains the markers of interest and extends at leastTcM (T<L/2) in both direction from the markers of interest.
+We refer toLas the haplotype length threshold andTas the trimming threshold.
+Due to IBD transitivity, only clusters for pairs of haplotypes that are adjacent in the positional Burrows‐Wheeler Transform sorting need to be merged, so this approach scales linearly with the number of individuals in the dataset in terms of computation time, memory requirements, and output size.
+This makes it feasible for using with very large datasets, such as those in biobanks.
+At a given genomic location, a group identifier representing the IBD state is assigned to each of the two haplotypes for each individual in the sample.
+Haplotypes sharing the same group identifier are identical by descent with each other at the given location.
+This format is highly efficient for computing local relatedness matrices, as it avoids iterating through a potentially quadratic number of IBD segments relative to the sample size.
+Instead, computations are performed directly on a vector of haplotype cluster indices, which scales linearly with the sample size.
+Using smaller haplotype length thresholdsLor smaller trimming thresholdsTto detect multi‐individual IBD will lead to inclusion of shorter shared haplotypes in clustering, which will potentially lead to larger multi‐individual IBD clusters.
+As a result, the local IBD matrix will tend to be less sparse and also more likely to include false‐positive IBD.
+In contrast, using largerLandTto detect multi‐individual IBD imposes a more stringent standard when clustering IBD haplotypes, and thus the resulting multi‐individual clusters will tend to contain longer but fewer segments, leading to a sparser local IBD matrix.
+Through simulation studies, we evaluate how different choices ofLandTfor multi‐individual IBD inference affect the performance of our IBD mapping test.
+The global IBD matrixΨis a symmetric matrix, with 1's on the diagonal, and the(i,j)‐th entry being the coefficient of relatedness between thei‐th and thej‐th individuals, which equals twice the kinship coefficient of this pair of individuals.
+To construct the global IBD matrix, we infer pairwise IBD segments using the software hap‐ibd (Zhou et al.2020a) from phased genotype or sequence data and estimate kinship coefficients using the software IBDkin (Zhou et al.2020b).
+IBDkin calculates kinship coefficients based on the proportion of the genome shared between pairs of individuals with 1 or 2 IBD haplotypes.
+Unlike averaging local relatedness matrices across genomic locations, which can be computationally intensive and susceptible to noise from sparse or unevenly distributed local IBD data, IBDkin leverages genome‐wide information to yield a robust and efficient estimate of relatedness.
+To maintain the sparsity ofΨ, we set kinship coefficients below 0.044 (corresponding to relationships beyond third‐degree relatives) to zero.
+The local IBD matrixΦlcharacterizes the genetic similarities between individuals at a specific positionlon the genome.
+We utilize multi‐individual IBD inferred using the ibd‐cluster software to obtain the localized relatedness coefficient at positionlbetween each pair of individuals in the local IBD matrix.
+We summarize the proportion of each individual's chromosome in each multi‐individual IBD group at the given locationlwith a matrixAl.
+We defineAlas aN×Klmatrix, whereNis the number of individuals in the sample andKlis the total number of IBD clusters at the given locationl.
+The(i,k)‐th entry ofAlis the proportion of individuali's chromosomes (0, ½, or 1) that are assigned to IBD groupkat locusl.
+The local IBD matrix at genomic locationlis then obtained asΦl=2×AlAlT.
+This means that we sum the proportion of IBD haplotypes over all clusters atlfor each pair of individuals.
+As a result,Φlis a symmetric matrix with diagonal of 1's and the(i,j)‐th entry as the proportion of alleles shared IBD by individualsiandjat positionl, which would be non‐zero only if individualsiandjhave haplotypes in the same IBD cluster.
+Local IBD matrices constructed in this way are guaranteed to be positive (semi)definite, which ensures that Cholesky decomposition can be performed on the variance matrix in our optimization algorithm to efficiently optimize the model likelihood.
+To access the significance of test results in IBD mapping scan across the genome, correcting for multiple testing is essential.
+The commonly used Bonferroni threshold would be conservative for IBD mapping tests due to correlations between tests at nearby locations that are covered by the same IBD segment.
+To obtain an appropriate genome‐wide significance threshold, we need to consider the joint distribution of test statistics when performing IBD mapping at a series of locations across the genome.
+Consider standardized test statistics{Zl}that are approximately normally distributed and follow an Ornstein‐Uhlenbeck (OU) process under the null hypothesis of no genetic associations.
+The meanE[Zl]=0, and the covariance between any pair of test statisticsZliandZljis given bycov(Zli,Zlj)=exp(−α|li−lj|).
+(Lander and Botstein1989; Siegmund and Yakir2007; Grinde et al.2019).
+The parameterα>0is the rate of correlation decay as genomic distances increase between test statistics, and we refer to it as the decay parameter of the OU process.
+If the{Zl}l1:lpform an OU process, then we refer to{Wl}l1:lpas the modified OU process.
+We expect that the IBD mapping statistics will be approximately memoryless as a process along the genome, so that the modified OU process may provide a good approximation to the joint distribution of the test statistics.
+In what follows, we assume that the IBD mapping statistics do indeed follow a modified OU process.
+Based on (6), we can estimateαfrom observed correlations between LOD scores under the null hypothesis.
+To do so, we simulate phenotype values under the null hypothesis and use pairs of LOD scores obtained at any two locations spaced at distancedto calculate the empirical correlationfˆ(α,d), and then estimateρˆ(α,d)by solvingf(α,d)−fˆ(α,d)=0for a givend.Sinceρ(α,d)=exp(−αd), we have−log(ρ(α,d))=αd.Hence,αcan be estimated by the slope of a linear regression line without intercept between−log(ρˆ(α,d))anddat a series of different values ofd.
+Givenαˆ, we implemented a Monte Carlo approach to find the significance threshold for genome‐wide multiple testing based on the distribution formaxl{Wl}.
+We simulate observations{Wl′}from the modified OU process, starting froml=0and incrementinglby the same space between test locations selected in genome‐wide IBD mapping, untillreaches the end position on the genome.
+The simulated process{Wl′}represents a single replicate of the genome‐wide IBD mapping test under the null hypothesis.
+An empirical distribution formaxl{Wl}can be obtained by repeating the simulation thousands of times and recordingmaxl{Wl′}from each replicate.
+We take the 95% quantile from this empirical distribution as the 95% significance threshold of genome‐wide IBD mapping on the given data.
+The detailed algorithm to simulate the modified OU process along the genome is given in AppendixC.
+We note that the genome‐wide multiple testing correction depends on the specific settings used to detect multi‐individual IBD, because the length distribution of IBD haplotypes considered in the algorithm will affect the covariance between test statistics.
+The required input data for our IBD mapping test include phased genotype sequence or array data, a quantitative trait of interest, fixed‐effect covariates if applicable, and a genetic map.
+As the first step, we construct a global IBD matrix and location‐specific relatedness matrices.
+For the global IBD matrix, we use kinship coefficients that are estimated by the IBDkin program based on pairwise IBD segments identified from the sample using the hap‐ibd program, as described above.
+For the hap‐ibd analysis on sequence data, we set the minimum seed length to 0.5 cM, the minimum extension length to 0.2 cM, and the minimum output segment length to 2 cM.
+We also exclude rare variants by setting the minimum minor allele count filter to 100.
+For the hap‐ibd analysis on SNP array data, due to the lower marker density, we set the minimum seed length to 1 cM, the minimum extension length to 0.1 cM, the minimum number of markers in a seed IBS segment to 50, and the minimum output segment length to 3 cM.
+Other parameters are left at their default values.
+When estimating kinship coefficients, we use all default parameters of the IBDkin program.
+Next, we run the ibd‐cluster software to obtain multi‐individual IBD clusters.
+In our simulation studies, we applied different haplotype length thresholds at 2 cM or 3 cM and different trimming thresholds at 0.25 cM, 0.5 cM, or 1 cM to investigate how different IBD clustering thresholds affect the performance of our test.
+When analyzing UK Biobank data, we setL=2cMandT=0.5cM, which is the setting that we found through our simulation studies to give good power while producing reasonably sparse local IBD matrices that are computationally feasible for large‐scale data.
+We then select a collection of locations across the genome as candidates to compute the local IBD matrices and perform the IBD mapping test.
+The test locations do not need to be directly available in the array data or in the IBD cluster output, as we can simply use the nearest location to the testing position in the IBD cluster output to perform the test.
+As IBD states do not change immediately across nearby markers, we recommend running tests at 0.1 cM intervals when considering IBD clusters based on haplotypes that are at least 2 cM long.
+For the simulation studies, and to estimate the genome‐wide multiple testing threshold in the UK Biobank data, we ran IBD mapping tests at 0.1 cM intervals.
+When analyzing phenotypes from the UK Biobank, to save computational resources given the large sample size, we chose a two‐step approach.
+On each chromosome, we first ran IBD mapping test at locations spaced 1 cM apart across the genome, and we identified the top 10 locations ranked by ascending testp‐values.
+We then zoomed into 1 cM regions centered around these locations by conducting finer‐scale tests at 0.1 cM intervals.
+Our method is also applicable to genomic regions in addition to single genomic locations.
+We compute the local IBD matrix over a genomic region by averaging the local IBD matrices computed at a few selected locations within the given region.
+In the simulation studies for power estimation, we tested each 0.05 cM region containing simulated causal variants using the local IBD matrix computed by averaging the IBD matrices at the start and the end positions of the region.
+Finally, we compare testp‐values to the genome‐wide significance threshold.
+To derive the multiple testing adjustment for genome‐wide IBD mapping, we first estimate the decay parameterαof the modified OU process formed by IBD mapping statistics across the genome under the null hypothesis, as described above.
+Null phenotypes are simulated as the sum of independent random variables drawn from the standard normal distribution and random variables drawn from the multivariate normal distribution with mean 0 and covariance matrixΨˆ, whereΨˆis the global IBD matrix estimated from the data.
+We conduct IBD mapping tests at 0.1 cM intervals across the genome and calculate the empirical correlationfˆ(α,d)between pairs of test statistics spaced atdcM for a sequence ofdfrom 0.1 cM to 1 cM, spacing at 0.1 cM intervals.
+We then estimatedρˆ(d)fromfˆ(α,d)based on Equation (6) for eachd.Finally, we fit a regression on−log⁡(ρˆ(d))againstdand use the slope of the fitted line as the estimateαˆfor the decay parameterα.
+We perform a bootstrap analysis across chromosomes to obtain confidence intervals forαˆ.
+Specifically, we set the number of bootstrap replicates to 10,000, and we resample chromosomes with replacement in each replicate.
+We take all pairs of test statistics spaced atdcM within each chromosome, and combine pairs over all sampled chromosomes to calculate the sample correlations and estimate the decay parameterαˆ.We calculate the 2.5th and 97.5th percentile ofαˆacross all bootstrap replicates to construct the 95% confidence interval for the estimated decay parameterαˆ.
+We then useαˆas the decay parameter to simulate observations at 0.1 cM intervals from a modified OU process that spans the same distance as the total size of the genome for 10,000 replicates, and we take the 95% quantile of maximum test statistics from all simulations as the genome‐wide significance threshold.
+We used msprime (Kelleher and Lohse2020; Baumdicker et al.2022) to simulate whole‐genome sequence data for 5000 individuals, with each genome consisting of 30 chromosomes, all 100 cM in length.
+The demographic model for the simulation, adopted from previous studies, resembles the demographic history of the UK population (Browning and Browning2013).
+In the msprime simulations, mutation occurred at a rate of10−8per base pair per generation, and recombination at a rate of10−8per base pair per meiosis.
+We estimated the genome‐wide type I error rate in the simulated sequence data by simulating 1000 replicates of phenotypes without genetic associations on random samples of 1000 individuals from the original dataset.
+On the simulated sequence data, we generated phenotypes followingY=g+ε, wheregfollows a multivariateN(0,Ψˆ)distribution, withΨˆbeing the genome‐wide relatedness matrix constructed from estimated kinship coefficients of all pairs of individuals in the sample, andεis a vector of standard normal observations.
+For each replicate, we performed genome‐wide IBD mapping at 0.1 cM intervals and obtained a genome‐wide significance threshold based on the observed test scores.
+We calculated the genome‐wide type I error rate as the proportion of replicates that contain at least one test score achieving the corresponding genome‐wide significance threshold.
+We estimate the power of our test by simulating phenotypes associated with four types of causal variants using simulated sequence data.
+Variants in the sequence data are classified based on minor allele frequencies (MAF) as common (MAF > 10%), low‐frequency (1% < MAF < 10%), rare (0.05% < MAF < 1%), and ultra‐rare (MAF < 0.05% but appearing at least once in the data).
+We simulate 1000 replicates of phenotypes associated with a 0.05 cM region containingkcausal variants in each of these four classes.
+For phenotypes associated with common or low‐frequency variants, we consider regions that contain at least 4 variants of the target class, and designate half of them as causal.
+For rare and ultra‐rare variants, we consider regions that contain at least 8 variants of the target class, and randomly select a quarter of them as causal.
+The simulated phenotype for theithindividual is constructed asYi=gi+∑l=1kθlql(i)+εi, wheregiandεiare theithobservations of the vectorsgandεthat are defined as above,ql(i)=0,1or 2 is the number of copies of the minor allele at markerl, and the effect size of each causal marker depends on its minor allele frequency asθl=0.05/(2MAFl(1−MAFl)).
+From the simulated sequence data, we generate a simulated SNP array dataset for each chromosome by excluding all variants with MAF below 1% and all variants associated with the simulated phenotypes, and then randomly selecting 30,000 variants per chromosome.
+We evaluate the power of our test to detect variants associated with the simulated phenotypes using both the full simulated sequence data, where all genetic variants are directly available, and the simulated SNP array data, where none of the causal variants are directly present.
+The power of our IBD mapping test is calculated using both the Bonferroni threshold (0.05/30000=1.7×10−6)and the genome‐wide significance threshold derived from our proposed multiple testing adjustment.
+On simulated sequence data, we also conducted the SKAT (Wu et al.2011) test using default parameter settings to benchmark the performance of our IBD mapping test.
+On the SNP array data, we compare the performance of our test to the traditional single‐variant test used in GWAS.
+Within each 0.05 cM region containing causal variants, we test every marker in the SNP data using simple linear regression between the phenotype value and the copy number of minor alleles.
+The minimump‐value across all tests within a region is used as the overall single‐variant testp‐value for that region.
+For the SKAT test, power is calculated using the significance threshold10−6, as recommended in Wu et al. (2011) for genome‐wide testing (Wu et al.2011).
+For the single‐variant test, power is calculated using the traditional GWAS significance threshold5×10−8, which is approximately 0.05 divided by the total number of markers in our simulated SNP array data.
+We note that in the simulated data, it is not necessary to account for relatedness in the single‐variant and SKAT tests because there is no real relatedness among simulated individuals; each chromosome was simulated independently in msprime, and therefore relatedness is not preserved across the genome.
+The UK Biobank SNP array data were collected on half a million UK participants using the UK Biobank Axiom array that assays approximately 850,000 genetic variants across genome (Bycroft et al.2018).
+We analyzed the systolic blood pressure of White British UK Biobank individuals.
+We analyzed 124,376 White British individuals with no missing data in age, sex, the top 10 genetic PCs, the history of medication, and two measurements of systolic blood pressure at the initial assessment visit.
+The final phenotypic values for systolic blood pressure are obtained as the mean of the two measurements at initial assessment visit and adjusted for medication record.
+For individuals with a history of taking medications to control blood pressure, we increase their systolic blood pressure by 15, as suggested by previous genetic association studies on blood pressure in the UK Biobank White British cohort (Warren et al.2017).
+We used the GRCh37 deCODE map developed by Bhérer et al. (2017) in the analyses of the UK Biobank data (Bhérer et al.2017).
+We first estimated the genome‐wide type I error rate when applying our IBD mapping test on the UK Biobank dataset.
+We selected random subsets of 1000 individuals and simulated 1000 replicates of phenotypes with no genetic associations using the modelY=0.05*age+0.5*sex+g+ε, wheregandεare defined in the same way as the studies on the simulated data, and observed age and sex are included as fixed effects.
+For each replicate, we conducted genome‐wide IBD mapping at 0.1 cM intervals and derived the genome‐wide significance threshold based on the random subset of 1000 individuals.
+We calculated the genome‐wide type I error rates based on results of 1000 replicates as described previously.
+Next, to analyze the genetic association of systolic blood pressure among White British individuals in UK Biobank, we conducted IBD mapping tests adjusted for age, sex, age squared, their interactions, and the first 10 genetic principal components as fixed effects in the model.
+We used 2 cM as the haplotype length threshold and 0.5 cM as the trimming threshold in multi‐individual IBD clustering.
+We assessed the test results against the genome‐wide multiple testing threshold derived from the genotype data of all 124,376 individuals in the analysis.
+We also analyzed the data using FiMAP, a recently proposed IBD mapping test that employs the same variance component model but utilizes a score‐type statistic for testing the variance component hypothesis with pairwise IBD segments (Chen et al.2023).
+To balance power and computational efficiency, FiMAP recommends an IBD threshold of 3 cM because using a shorter threshold (such as 2 cM) would substantially increase the number of IBD segments, resulting in denser local IBD matrices and significantly higher computational demands (Chen et al.2023).
+Following the analysis procedure outlined in Chen et al. (2023), we used hap‐ibd to identify IBD segments of at least 3 cM in length and performed the FiMAP test at 3,363 consecutive, nonoverlapping 1 cM regions across the genome, adjusting the same set of fixed effects as in our IBD mapping test.
+FiMAPp‐values are evaluated against a Bonferroni‐adjusted significance threshold of0.05/3363=1.5×10−5.
+We derived the genome‐wide multiple testing threshold for IBD mapping tests on the simulated sequence data and the simulated SNP array data using different haplotype length and trimming thresholds for multi‐individual IBD clustering.
+For each test scenario, the estimated decay parameterαˆof the modified OU process (see Methods) is shown in Supporting Information S1: FigureS1along with its 95% bootstrap confidence interval.
+The 95% genome‐wide multiple testing thresholds for testp‐values are summarized in Table1.
+Estimated decay parametersαˆand the corresponding genome‐wide 95% significance threshold for test p‐values under different haplotype length thresholds (L) and trimming thresholds (T) for multi‐individual IBD detection.
+For each simulated test scenario, the estimatedαˆfrom the simulated sequence data closely matched those from the simulated SNP array data.
+Using a 3 cM haplotype length threshold for detecting multi‐individual IBD resulted in smallerαˆcompared to using a 2 cM threshold.
+At the same haplotype length threshold, increasing the trimming threshold for IBD clustering led to higherαˆestimates.
+Largerαˆvalues corresponded to smaller genome‐wide multiple‐testing thresholds forp‐values.
+We calculated the theoretical correlations between random variables in each modified OU process using Equation (6) and the estimatedαˆfor each test scenario.
+Across all test scenarios, the observed correlations between test statistics were consistent with the theoretical correlations of the modified OU process for both the simulated sequence data (Supporting Information S1: FigureS2) and the simulated SNP data (Supporting Information S1: FigureS3), especially for pairs of test statistics less than 1 cM apart.
+These results confirm that the modified OU process provides a reliable approximation to the correlation structure of the IBD mapping test statistics.
+For the UK Biobank SNP array data, we estimated the genome‐wide multiple testing threshold for IBD mapping tests using a haplotype length threshold of 2 cM and a trimming threshold of 0.5 cM in multi‐individual IBD clustering.
+The estimated decay parameterαˆof the corresponding modified OU process was 1.62, with a 95% bootstrap confidence interval of 1.35 and 1.92.
+The 95% bootstrap confidence interval of the observed correlations overlapped with the trajectory of theoretical correlation of the modified OU process withαˆ=1.62(Supporting Information S1: FigureS4).
+The estimated multiple‐testingp‐value threshold for a 5% genome‐wide type I error rate was2.3×10−6.
+Table2summarizes the estimated genome‐wide type I error rates of our IBD mapping test using the proposed genome‐wide multiple testing adjustment on both the simulated sequence data and the UK Biobank SNP array data when different haplotype length and trimming thresholds are used for multi‐individual IBD detection.
+As a comparison, we also calculated the proportion of genome‐wide IBD mapping replicates where at least one test exceeded the significance threshold based on the Bonferroni correction, which is0.05/30000for IBD mapping tests on the simulated sequence data and0.05/33498for tests on the UK Biobank data.
+Genome‐wide type I error rates for the proposed genome‐wide multiple‐testing adjustment and the Bonferroni adjustment for IBD mapping tests at a genome‐wide significance level of 0.05.
+Results are based on simulated phenotypes under the null hypothesis of no genetic association, using both the simulated sequence data and the UK Biobank SNP‐array data, with different haplotype length thresholds (L) and trimming thresholds (T) for multi‐individual IBD detection.
+In most test scenarios, our proposed genome‐wide multiple‐testing adjustment maintains a well‐controlled genome‐wide type I error rate close to the nominal level of 5%.
+In contrast, the genome‐wide type I error rates based on the Bonferroni threshold are lower than the nominal level, especially with a 3 cM haplotype length threshold, indicating that as expected the Bonferroni correction is conservative.
+The power of our IBD mapping test to detect different types of causal variants, calculated using the corresponding genome‐wide significance threshold from Table2under various parameter settings for multi‐individual IBD clustering, is compared in Figure1.
+Our IBD mapping test demonstrates similar power to detect all classes of causal variants when applied to both the simulated sequence data and the simulated SNP array data.
+The power of our IBD mapping test for detecting common (> 10% MAF), low‐frequency (1%–10% MAF), rare (0.05%‐1% MAF), and ultra‐rare (< 0.05% MAF) causal variants using the proposed genome‐wide multiple testing threshold.
+On the simulated sequence data, we compared the IBD mapping test to the sequence kernel association test (SKAT).
+On the simulated SNP array data, we compared the IBD mapping test to the traditional single‐variant test used in GWAS.
+The tick labels on thex‐axis indicate the haplotype length threshold (L) and the trimming threshold (T) used for multi‐individual IBD detection in the corresponding IBD mapping test.
+Across all parameter settings for multi‐individual IBD clustering, the highest power to detect causal variants is achieved for rare variants with MAFs between 0.05% and 1%.
+When using multi‐individual IBD detected from haplotypes of length at least 2 cM, trimmed by 0.25 cM or 0.5 cM, the IBD mapping test reaches over 97% power to detect rare variants associated with the simulated phenotypes in both the simulated sequence and SNP‐array data.
+These settings also yield good power (70%–80%) to detect common, low‐frequency, or ultra‐rare variants.
+Additionally, the IBD mapping test using a minimum haplotype length of 3 cM with trimming thresholds of 0.25 or 0.5 cM for multi‐individual IBD clustering also provides good power for detecting rare and ultra‐rare variants.
+When using the simulated sequence data as the testing dataset, the IBD mapping test does not outperform the SKAT test, which achieved 90% power for detecting common causal variants and 100% power for detecting the other three types of causal variants.
+When performing tests on the simulated SNP array data, where none of the causal variants are directly available, the single‐variant test achieved higher power for detecting common variants (96%).
+However, the single‐variant test showed similar power to detect low‐frequency variants as the IBD mapping test, and it achieved only 11% power for detecting rare variants and completely failed to detect ultra‐rare variants.
+Across all parameter settings, the IBD mapping test significantly outperformed the single‐variant test in detecting rare and ultra‐rare causal variants.
+The highest power for detecting rare causal variants reaches 98.6% when using a haplotype threshold of 2 cM and a trimming threshold of 0.25 cM for multi‐individual IBD detection, and 78% for detecting ultra‐rare causal variants when a haplotype threshold of 3 cM and a trimming threshold of 0.25 cM are used for multi‐individual IBD clustering.
+Lastly, we evaluated the power gain achieved by the proposed genome‐wide multiple‐testing adjustment.
+We calculated the power of our IBD mapping test using the naïve Bonferroni correction0.0530000=1.7×10−6and compared it to results obtained using our proposed genome‐wide multiple‐testing adjustment on both the simulated sequence data and the simulated SNP array data (Supporting Information S1: FigureS5).
+In most test scenarios, we observed an absolute increase of at least 2%–3% in power using our proposed multiple‐testing adjustment compared to using the Bonferroni correction on both the simulated sequence data and the simulated SNP data.
+Notably, when using a haplotype threshold of 3 cM and a trimming threshold of 0.25 cM for multi‐individual IBD clustering, the power to detect low‐frequency causal variants is improved by about 8% (from 45.8% to 53.7%) on simulated sequence data and by about 6% (from 47.0% to 52.8%) on simulated SNP array data using our proposed multiple‐testing adjustment.
+For the genome‐wide scan of systolic blood pressure from more than 120k White British individuals in the UK Biobank (Figure2), the IBD mapping test at 17.759 Mb on chromosome 19 (GRCh37) achieved the genome‐wide multiple‐testing threshold of2.3×10−6withp‐value =2.21×10−7.
+In addition, a near‐significant signal is observed at 3.790 Mb on chromosome 22 (p‐value =2.51×10−6).
+Genome‐wide IBD mapping on systolic blood pressure data from 124k White British individuals in the UK Biobank.
+The negative log10 transformedp‐values are plotted against tested positions on each chromosome along the genome.
+The result that achieved the genome‐wide multiple‐testing threshold is highlighted in red.
+For comparison, we applied the FiMAP test to this data set at 1 cM intervals across the genome (Supporting Information S1: FigureS6).
+No significant signals were observed relative to the Bonferronip‐value threshold of0.05/3363=1.5×10−5.
+In this study, we developed an IBD mapping approach that leverages multi‐individual IBD sharing among distantly related individuals in large, outbred populations.
+Our approach constructs local relatedness matrices from multi‐individual IBD sharing and employs a likelihood ratio statistic to assess the contribution of local genetic similarities to the total phenotypic variation.
+To address genome‐wide multiple‐testing, we proposed ap‐value adjustment obtained by modeling the correlations between test statistics across the genome.
+Through simulation studies, we evaluated the performance of our IBD mapping test across different types of testing datasets and a range of parameter settings for multi‐individual IBD clustering.
+Our results demonstrated that when appropriate haplotype length thresholds and trimming thresholds are chosen for multi‐individual IBD detection, the IBD mapping test maintains a well‐controlled genome‐wide type I error rate and exhibits robust power to detect various types of causal variants, with particular strength in detecting rare or untyped variants compared to traditional GWAS single‐variant tests.
+The power of IBD mapping was similar when applied to both SNP array and sequence data, making it a versatile approach that is suitable for use with either type of dataset.
+The proposed genome‐wide multiple testing adjustment further improved power for our IBD mapping test compared to the Bonferroni threshold.
+However, in our simulation study, the IBD mapping test did not outperform the SKAT test when applied to sequence data in which the causal variants were genotyped.
+It was also less powerful than single‐variant GWAS for variants with MAF > 10% on SNP array data.
+These findings emphasize that the strengths of our method lie in its complementary nature rather than as a replacement for existing approaches.
+Nevertheless, the IBD mapping test may still provide additional perspectives in scenarios involving structural variants or other genetic features that are not directly captured in the sequence data.
+Another strength of this study is the genome‐wide multiple‐testing adjustment we proposed, which serves as an alternative to the commonly used Bonferroni correction.
+In previous studies, resampling methods such as permutation tests have been employed to derive multiple‐testing adjustments that account for the correlations between test statistics (Browning and Thompson2012; Browning2008; Marees et al.2018).
+However, such approaches are computationally intensive, especially in large‐scale GWAS.
+In contrast, our proposed analytical adjustment is more computationally efficient while still ensuring reliable control of the family‐wise type I error rate by addressing the inherent correlation structure in test statistics.
+This feature is particularly advantageous for large‐scale studies where computational efficiency is crucial.
+Applications of our IBD mapping approach to the UK Biobank systolic blood pressure data revealed a locus on chromosome 19 with IBD mappingp‐value that surpassed the genome‐wide threshold.
+This location is close to theMYO9Bgene and theUSHBP1gene on chromosome 19, which has been found to harbor variants associated with blood pressure traits among European‐ancestry individuals (Hoffmann et al.2017; Giri et al.2019; Sakaue et al.2021; Plotnikov et al.2022; Zhu et al.2022).
+This result illustrates the potential of our method for uncovering biologically relevant signals in large‐scale datasets.
+In comparison, the FiMAP test did not find any significant signals in the same dataset.
+However, our method required hundreds of hours to run, whereas FiMAP completed in just a couple of hours, indicating a trade‐off between sensitivity and computational cost.
+While the FiMAP test is well‐suited for efficient genome‐wide scans in large‐scale biobank cohorts, our method may be more advantageous for smaller datasets, where the higher power it offers is more attainable given manageable computational cost.
+The performance of our IBD mapping approach is inherently dependent on the quality of the inferred multi‐individual IBD sharing.
+The accuracy and resolution of multi‐individual IBD detection, influenced by parameters such as haplotype length and trimming thresholds, directly impact both the type I error rate and the power of the mapping tests.
+In practice, the direct evaluation of power and false discovery rates of multi‐individual IBD detection may not always be feasible, as the true IBD states are typically unknown.
+Nonetheless, Browning and Browning (2024) demonstrated through simulation studies that both power and false discovery rates generally decrease as the length threshold or the trimming threshold increases.
+This highlights the importance of conducting further simulation studies to better understand the trade‐offs among sensitivity, error control, and computational efficiency in multi‐individual IBD detection, thereby refining the selection strategies for algorithm parameters used within our IBD mapping framework.
+An additional area for improvement in the use of multi‐individual IBD information within our IBD mapping approach is the derivation of kinship coefficients directly from multi‐individual IBD clusters across genome‐wide markers.
+Such an approach could reduce the computational complexity of the current implementation, which relies on pairwise IBD information to construct the global IBD matrix, although it would require further effort in algorithm development and testing to ensure accuracy and robustness.
+In addition to the challenges related to multi‐individual IBD detection, our study also highlights several areas for further improvement.
+First, our method requires a significant amount of computational time on biobank‐scale cohorts, limiting its scalability to sample size compared to studies using simpler statistical tests, such as single‐variant GWAS or SKAT‐type tests.
+These tests generally rely on more straightforward calculations, such as comparing summary statistics, fitting linear models, or computing score‐type statistics under the null hypothesis, which are computationally efficient even for large sample sizes.
+In contrast, our approach is based on a likelihood ratio framework, where optimizing model likelihoods is computationally intensive and becomes increasingly demanding as the sample size grows, thus restricting the scalability of our method.
+Future work could explore strategies to improve computational efficiency for our IBD mapping application, particularly regarding the inversion of the variance matrix.
+A key constraint is that the local IBD matrices in our data typically remain full‐rank because they consist of many small IBD clusters involving only one or a few individuals, rather than a few large, strongly related clusters.
+As a result, common strategies to accelerate matrix computations by reducing matrix rank may not yield significant efficiency gains in this setting.
+Nonetheless, some matrix randomization techniques to approximate the solution of matrix inversion might still be promising, although their impact on the power of the likelihood ratio test would require further investigation.
+Additionally, moving the current algorithm pipeline to GPU‐accelerated sparse linear algebra libraries could provide another avenue for improving computational performance.
+Furthermore, the resolution of the significant signals identified by our IBD mapping approach was relatively low because IBD status changes slowly along the chromosome.
+This suggests that future work could focus on methods such as haplotype testing to refine the IBD signals and pinpoint the causal variants under complex traits (Browning2006; Browning and Browning2007).
+Another limitation of our current approach is its focus on quantitative traits with continuous values; future research extending this method to binary or categorical traits would be useful.
+Likewise, extending this method to test gene‐environment interaction effects by incorporating interaction terms into the model framework could further enhance its applicability for complex trait analyses.
+Additionally, our IBD mapping test is currently designed for large outbred populations, such as the White British population in the UK Biobank data.
+However, it would be useful to extend the approach to scenarios involving inbreeding to enable its application in studies of small, inbred populations.
+Specifically, in the presence of inbreeding, the structure of the local relatedness matrix at the inbred locus would differ, with the diagonal entries being 2 for inbred individuals rather than 1.
+Such a scenario would necessitate modification in the current methodology to explicitly account for this altered matrix structure to ensure valid variance component modeling.
+In summary, the IBD mapping approach developed in this study offers a versatile and powerful tool for detecting associations between genomic regions and complex traits, particularly those involving rare or untyped variants.
+Its robust performance across both SNP array and sequence data underscores its broad applicability to diverse datasets.
+Future improvements in computational efficiency, integration with higher‐resolution methods, and extensions to binary traits, gene‐environment interactions, and other complex genetic features could further enhance the utility of IBD information in advancing our understanding of the genetic architecture underlying complex traits across diverse populations.
+Figure S1:Estimated decay parameter for genome‐wide IBD mapping tests under different algorithm parameters for multi‐individual IBD detection.
+Figure S2:Empirical correlation between test statistics spaced at cM from genome‐wide IBD mapping tests with phenotypes simulated under the null hypothesis on simulated sequence data, using different haplotype length thresholds (L) and trimming thresholds (T) for multi‐individual IBD detection.
+Figure S3:Empirical correlation between test statistics spaced at cM from genome‐wide IBD mapping tests with phenotypes simulated under the null hypothesis on simulated SNP array data, using different haplotype length thresholds (L) and trimming thresholds (T) for multi‐individual IBD detection.
+Figure S4:Empirical correlation between test statistics from genome‐wide IBD mapping tests with phenotypes simulated under the null hypothesis on the array data of 124,376 White British individuals in the UK Biobank.
+Figure S5:The power of our IBD mapping test for detecting common (>10% MAF), low‐frequency (1‐10% MAF), rare (0.05‐1% MAF), and ultra‐rare (<0.05% MAF) causal variants using the Bonferroni correction.
+Figure S6: Results of applying the FiMAP test at 1 cM intervals across the genome to systolic blood pressure data from 124k White British individuals in the UK Biobank.
+Research reported in this publication was supported by the National Human Genome Research Institute of the National Institutes of Health under award number HG007501.
+The content is solely the responsibility of the authors and does not necessarily represent the official views of the National Institutes of Health.
+This study has been conducted using the UK Biobank Resource under Application Number 19934.
+Note thatλ=0is a boundary point of its parameter space.
+Note thatU(0)→dN(0,I(0)).
+Thus,Pr[λ~<0]=Pr[U(0)<0]=12.
+Whenλˆ=0,Wl=0.
+Whenλˆ=λ~, by asymptotic properties of the maximum likelihood estimator, we have thatWl→dχ12.
+Therefore, the distribution ofWlis a 50:50 mixture of a point mass at 0 and aχ12underH0, as shown in Chernoff (1954), Miller (1977), and Self and Liang (1987) (Chernoff1954; Miller1977; Self and Liang1987).
+ConsiderZl~N(0,1).Pr[Zl>0]=12,andZl2~χ12.
+From results shown in Appendix A, it is easily seen thatWl=Zl2I[Zl>0].

@@ -1,0 +1,262 @@
+Skeletal muscle architecture—the internal arrangement of a muscle's fibers with respect to its line of action—is a major determinant of muscle function.
+In diffusion tensor imaging (DTI) tractography, the first eigenvector of the diffusion tensor is integrated to create “fiber‐tracts” that represent muscle architecture at the spatial scale of several fascicles.
+However, noise contamination of the images causes erroneous estimates of the first eigenvector that propagate during tractography, causing inaccurate architecture estimates at typical signal‐to‐noise ratios (SNR's).
+Although image denoising is commonly used, its effects have not been evaluated in skeletal muscle against known ground truth.
+Moreover, alternative strategies (such as smoothing of the muscle's first eigenvector field) remain unexplored.
+Therefore, simulated diffusion tensor images of a model muscle were used to quantify the effect of anisotropic image smoothing, threshold principal component analysis‐based image denoising, and first eigenvector field smoothing on the accuracy of DTI‐based muscle architecture estimates at different SNR levels.
+The denoising methods were then implemented in a human dataset.
+In the simulated dataset, anisotropic image smoothing and first eigenvector field smoothing reduced the deviation of the first eigenvector obtained from the noise‐contaminated images from those obtained from the noise‐free images and improved the accuracy of the fascicle curvature estimates.
+In the human dataset, both smoothing methods decreased the fiber‐tract curvature estimates compared to the values in the raw images.
+Both anisotropic image smoothing and smoothing of the first eigenvector field improve the accuracy of DTI tractography‐based muscle architecture estimates.
+Diffusion Tensor Imaging tractography of skeletal muscle architecture is limited by the presence of noise in diffusion‐weighted images, leading to inaccuracies in muscle fiber direction and fiber‐tract curvature estimation.
+We evaluated the use of anisotropic image smoothing, threshold PCA denoising, and first eigenvector field smoothing to improve skeletal muscle architecture estimates.
+We found that implementing both smoothing methods improves the precision and accuracy of muscle architecture estimates in a ground‐truth simulated model muscle, while threshold PCA denoising resulted in oversmoothing of the model muscle's fiber tracts.
+Moreover, both smoothing methods improved fiber tract termination and decreased fiber tract curvature estimates in a human in vivo dataset.
+Skeletal muscle architecture—defined as the internal arrangement of a muscle's fibers with respect to its line of action—is a major determinant of muscle function [1].
+Muscle fiber length [2] and orientation [1] influence muscle force production, length excursion, and lengthening or shortening velocity, while muscle fiber curvature affects intramuscular fluid pressure and fluid pressure gradients [3,4].
+Moreover, accurate muscle architecture characterization is necessary to study the role of a muscle's architecture and material properties on its passive and active mechanical behavior, such as strain development [5,6].
+Diffusion tensor imaging (DTI) tractography can quantify muscle architecture in three dimensions (3D).
+Muscle DTI tractography is based on the correspondence between the direction of greatest diffusion, as represented by the first eigenvector of the diffusion tensor, with the local fiber orientation [7].
+Beginning at anatomically relevant seed points, the first eigenvector is integrated to create streamlines or “fiber‐tracts” that represent muscle architecture at the spatial scale of several fascicles [8].
+DTI tractography has been used to characterize human muscle architecture in the lower [9,10] and upper extremities [11], with fascicle length [12], pennation angle [10], and fiber curvature [13] being estimated from the fiber‐tracts.
+Because MRI is also able to map several of the functional properties of muscle during contraction [14,15], DTI tractography is well suited for studying muscle structure–function relationships.
+However, the accuracy of DTI tractography‐based muscle architecture estimates is limited by the noise level of the images.
+Low signal‐to‐noise ratio (SNR) causes variability and bias in the first eigenvector of the diffusion tensor [16,17], resulting in trajectory errors.
+In addition, low SNR causes overestimation of the fractional anisotropy (FA) due to over‐ and underestimation of the diffusion tensor's first and third eigenvalues, respectively [17].
+These errors, as well as sufficiently severe trajectory errors, can prematurely terminate fiber‐tract propagations [16].
+While fascicle length and pennation angle can be accurately estimated at SNR > 39, fiber curvature is generally overestimated at all realistic SNR levels, especially in fiber‐tracts with curvature < 9.7 m−1[18].
+Likewise, there is a need to improve the pointwise correspondence between the reconstructed fiber‐tracts and the ground truth, as represented by similarity metrics [18].
+Notably, these conclusions are based on the analysis of images that have not been denoised.
+While SNR can be improved by using lower image resolution and/or a greater number of excitations for signal averaging, these modifications introduce both scientific and practical limitations.
+For example, larger voxel sizes may decrease the accuracy of fiber architecture estimates due to insufficient spatial sampling frequency [18].
+Also, the total scan time depends directly on the number of excitations, with longer scan times being limited by subject motion and tolerance and the potential need to acquire other forms of data during the fixed duration of the full imaging protocol.
+Hence, there is an interest in developing image postprocessing methods that can improve the accuracy of DTI tractography‐based muscle architecture estimates under typical SNR conditions (20–60 [19,20,21,22]) and at a sufficient spatial sampling frequency.
+Denoising of diffusion tensor images is used to improve the accuracy of DTI fiber tracts and the associated metrics.
+Anisotropic image smoothing (AIS) filters [23,24] and principal component analysis (PCA)‐based [25,26,27] denoising, used prior to computing the diffusion tensor, can reduce noise‐induced bias and/or variability in diffusion anisotropy measures and the first eigenvector of the diffusion tensor.
+Despite their frequent implementation in skeletal muscle DTI studies [9,28,29], AIS and PCA‐based methods have only been validated in brain imaging, however.
+This is especially important since DTI images of skeletal muscle have different characteristics from those of the brain.
+Extrinsic factors such as the coils used for image acquisition are different, with skeletal muscle images being commonly acquired with surface and knee coils that have 12–18 receive elements, while brain images are acquired with head coils having 32–64 receive elements.
+Intrinsically, the meso‐scale structure of skeletal muscle contains longitudinal fibers that may span the muscle volume from the tendon to the bone and fascia with fusiform and pennate patterns of fiber orientation [1], while brain microstructure is characterized by complex networks of fiber‐tracts with crossing, splaying, or converging pathways [30].
+Additionally, at 3 T, the transverse relaxation time constant (T2) is shorter in skeletal muscle (30–31 ms [31]) than in brain (74–132 ms [32]), while the longitudinal relaxation time constant (T1) in skeletal muscle (1340–1360 ms [31]) is longer than in brain (832–1331 ms [32]).
+These differences result in longer scans with a shorter echo time, a longer repetition time, and more excitations for signal averaging needed to obtain acceptable SNR levels in skeletal muscle DTI.
+Because of this, the number of diffusion directions acquired in the datasets is typically constrained.
+Given the differences in the DT imaging characteristics of skeletal muscle and brain, it is therefore vital to validate the performance of DTI denoising algorithms in skeletal muscle.
+One approach is PCA‐based denoising, which exploits the redundancy in the different diffusion weighted acquisitions obtained on DTI.
+In PCA, the imaging data is reshaped to anM×Ndimensional matrix withMimage voxels (typically from a subset of the image) andNmeasurements corresponding to the diffusion gradient acquisitions.
+Typically, there is a relatively small number of principal components carrying signal while the remaining components carry mostly noise and can be removed to denoise the image [26].
+Differentiating the principal components containing signal from the noise components can be accomplished empirically using adjusted thresholds [26] or objectively using the Marčenko‐Pastur distribution [25], with a recent study introducing a threshold PCA (TPCA) method that is robust to spatially correlated noise [25,27].
+AIS denoises the images by convolution with a Gaussian kernel followed by filtering according to the local signal gradient structure tensor, providing isotropic smoothing in structurally homogeneous regions inside of structures and anisotropic smoothing at their boundaries [23].
+A previous study in muscle DTI showed that AIS reduced variability in the spatial distributions of the azimuthal, elevation, and pennation angles without introducing identifiable artifacts or biases into the data [33].
+However, the effect of both AIS and PCA‐based methods on the accuracy and precision of muscle architecture estimates and the fiber‐tracts' structural similarity to ground truth data, at a range of typical SNR conditions, has not been evaluated.
+Moreover, alternative strategies to improve the accuracy of muscle DTI tractography other than denoising the raw images have not been explored.
+Since muscle architecture tends to be uniform or follow smoothly varying, compartment‐specific patterns, it may be possible to smooth the first eigenvector maps, reducing the random errors caused by image noise without oversmoothing the fascicle direction estimates.
+Uniformly sampled data representing a 3D spatially varying vector field, such as muscle fascicle direction, can be automatically smoothed using a penalized least squares approach combined with the discrete cosine transform (DPS) [34,35].
+This method has been used to smooth 3D ultrasound‐based muscle fascicle directions prior to the computation of 3D muscle fascicle architecture [36].
+If this method were implemented in a DTI‐based muscle fiber‐tractography workflow, it could reduce the effect of noise in muscle architecture estimates while promoting the efficient use of scan time and reducing subject burden.
+This reduction in fiber direction error may improve the accuracy of the reconstructed muscle fiber‐tracts and improve muscle architecture measurements.
+While TPCA‐based denoising, AIS of the diffusion weighted images, and smoothing of the first eigenvector map can be implemented to improve the accuracy of DTI‐based muscle architecture estimates, the validation of these tools at typical SNR levels and in conditions when known ground truth exists is necessary to identify the standard good practices of DTI‐based muscle fiber tractography.
+The goals of the study were therefore to quantify the effect of AIS, TPCA denoising, and DPS post‐processing in the accuracy of muscle architecture estimates and to validate their use in DTI‐based muscle architecture estimation.
+WithEbeing the eigenvector matrix,Lbeing a diagonal matrix of eigenvalues, and the superscript T indicating matrix transposition.
+The eigenvalues ofLwere assumed to be 2.1, 1.6, and 1.4 × 10−5cm2/s, based on previous muscle DTI simulation studies [17,18].
+WithSthe diffusion‐weighted signal,S0a unit value non‐diffusion‐weighted signal, andra three‐element unit row vector specifying each diffusion‐encoding direction.
+In addition, noise‐contaminated images were also created from the noise‐free images by adding Gaussian‐distributed noise at SNR levels of 24, 39, 54, and 71.
+In each case, the diffusion tensor was computed in each voxel using a weighted linear least‐squares algorithm and diagonalized using singular value decomposition.
+FA and ε1maps were obtained.
+For each condition, the mean absolute angular deviation was computed for the whole muscle (γ¯) and then averaged over all simulation trials (γ¯mean), and 95% confidence intervals were formed from the data points at 2.5th and 97.5th percentiles ofγ¯.
+When DPS was used in each SNR level, the average ρ over all Monte Carlo trials was obtained (ρmean).
+Fiber‐tracts from each denoising condition were generated using the MuscleDTI_Toolbox [29].
+The tracts were seeded using aponeurosis seeding, with updated rounding conventions as previously described [37].
+Fiber‐tracts were propagated from the seed points in the +Z direction by Euler integration of ε1at a step size of one voxel‐width.
+Fiber‐tracts were terminated at the muscle boundary or prematurely due to turning angles ≥ 30° or FA values outside of the range 0.10–0.40.
+The tracts were smoothed using 2nd, 2nd, and 3rd order polynomial fitting of their row, column, and slice coordinates, respectively, as functions of point number.
+Fiber‐tract architecture estimates, including fiber‐tract length (LFT), pennation angle (α), and curvature (κ), were evaluated for each SNR and denoising condition, with only tracts having LFT≥ 5 mm being analyzed.
+To promote uniform spatial sampling along the seeding meshes, (1) redundant tracts were defined as tracts that shared the same seed point and (2) one fiber‐tract was randomly selected from each set of redundant tracts.
+The α was computed for each preserved tract by finding the angles formed by the lines connecting each fiber‐tract point to the seed point and the local tangent to the muscle's central axis at the level of the seed point, as previously described [37].
+The κ was computed in a pointwise manner along the fiber‐tracts using the Frenet‐Serret formulas [13].
+The average α and κ were computed for each fiber‐tract.
+LFTwas computed as the summed Euclidean distance between adjacent points in the tracts.
+The whole muscle mean value was calculated for each architectural property in each Monte Carlo trial.
+At the end of the 1000 trials, the population average values of LFT, α, and κ were calculated (LFT,mean, etc.), and 95% confidence intervals were formed from the data points at the 2.5th and 97.5th percentiles of each parameter.
+The relative difference between the noise‐contaminated and noise‐free architecture estimates was computed by dividing the mean and 2.5th and 97.5th of the noise‐contaminated estimates by their respective noise‐free measurements.
+The similarity between the noise‐contaminated and noise‐free fiber‐tracts was evaluated for each SNR and denoising condition.
+The fiber similarity,SF, was calculated between the noise‐contaminated and noise‐free fiber‐tracts using Equation (4), whereRCSis the corresponding segment ratio,DEis the mean Euclidean distance between the corresponding points, andCis a weighting factor set to 1 mm (in‐plane resolution of the model muscle images) [40].
+The mean fiber similarity of the whole model muscle was computed in each Monte Carlo trial.
+The feasibility of implementing AIS, TPCA, DPS, AIS + DPS, and TPCA + DPS was evaluated using in vivo data.
+The procedures were approved by our local Institutional Review Board.
+Written informed consent was obtained from a 30‐year‐old male volunteer.
+The images were obtained using a Siemens Vida, XA 60 3 T MRI scanner.
+The participant laid feet‐first and supine on a patient bed containing built‐in spine elements.
+An 18‐element surface coil array was placed over the anterior surface of the leg and was supported by a frame running along the leg's medial and lateral surfaces.
+The heel and thigh were raised above the patient bed using foam supports, allowing the posterior leg muscles to hang freely.
+The surface coil was used for transmission; receive coil selection used the manufacturer's “Auto Coil Select” function.
+Siemens's product implementation of quantitative fat‐water imaging (multi‐echo Volume Interpolated Breath‐hold Examination, VIBE q‐Dixon) was used to acquire structural imaging data.
+Three‐dimensional gradient echo images were acquired in three stacks with matrix size, 160 × 160 acquired (320 × 320 reconstructed), FOV, 200 × 200 mm2; 40 slices with slice thickness (ST), 3 mm and inter‐slice gap, 0 mm; repetition time (TR) = 9.23 ms; echo time (TEs), [1.37, 2.60, …, 7.52] ms; flip angle, 4°; scan duration, 17 s; and number of excitations (NEX), 1.
+DTI data were also acquired in three stacks using a REadout segmentation of long variable echo‐trains (RESOLVE) sequence, with matrix size, 72 × 72 acquired (144 × 144 reconstructed), FOV, 200 × 200 mm2; 20 slices per stack with ST, 6 mm and inter‐slice gap, 0 mm; TR = 5000 ms; TE, 46.18 ms;b‐value, 0/450 s/mm2with 10 diffusion‐weighting directions; NEXforb= 0/450, 4/2; 5 readout segments; scan duration, 617 s; and “strong” (fat saturation and gradient reversal) fat suppression.
+The DTI slice offsets overlapped with contiguous pairs of VIBE q‐Dixon slices.
+The VIBE q‐Dixon dataset had a four‐slice overlap between each pair of contiguous stacks, and the RESOLVE dataset had a two‐slice overlap.
+The shim volume covered the lower leg muscles in each stack and minimized fat and air coverage.
+The VIBE q‐Dixon data were processed using the manufacturer's algorithms, resulting in maps of the fat and water signal distributions.
+The slice offsets resulted in overlapping regions of the image stacks of the VIBE and RESOLVE datasets.
+Inter‐stack registration was accomplished with a 2D rigid body translation.
+Theimregtform()function was used to define the inter‐stack 2D translations, with one transformation obtained from each pair of overlapping slices, and a final transformation defined for each dataset by averaging the 2D transformations of all the overlapping slices of the proximal and distal stacks to the water and RESOLVE central stacks.
+For the registration of the three stacks, the distal and proximal stacks were registered to the central stack with the final transformation using MATLAB'simwarp()function.
+After eliminating the redundant instances of each of the overlapping slices on the distal and proximal image stacks, the three stacks of each dataset were concatenated to form a single stack with 56 slices.
+The water image stack was resized to match the RESOLVE data, and a 2D rigid body translation to register the water and RESOLVE image stacks was defined by averaging the 2D translations obtained after individually registering the central 28 slices of both datasets using theimregtform()function.
+The RESOLVE dataset was then registered to the resized water dataset with the 2D rigid body translation using theimwarp()function.
+The SNR maps were computed on the registered RESOLVE dataset by dividing the signal of theb= 0 image over a noise estimate equal to 1.25 times the mean signal in a 10 × 10 section at the top corner of the image lateral to the lower leg [41].
+To analyze the dataset at different SNR levels, five SNR conditions were evaluated by varying the number of excitations that were averaged for theb= 0/450 images (NEX,b= 0/NEX,b= 450): (4/2) corresponding to all acquired excitations, (2/2), (4/1), (2/1), and (1/1) corresponding to the lowest SNR.
+Since SNR is directly proportional toNEX, the five SNR conditions result in a (1/1), (0.71/1), (1/0.71), (0.71/0.71) and (0.5/0.71) ratio of the originalb= 0/450 SNR of the dataset.
+The five different SNR conditions of the registered RESOLVE dataset were analyzed under each of the six denoising conditions.
+The tibialis anterior (TA) muscle was manually segmented and used in all further human data analyses.
+The mean SNR of the TA was computed from the SNR map of the (4/2) noise condition.
+When used, AIS was applied to the registered dataset using a Gaussian kernel with a variance of 5%.
+TPCA was applied using a sliding window of 9 × 9 × 1 voxels and a spatial map (x,y,z) of the noise variance (σ2) computed from the signals (S) of the four acquired excitations of theb= 0 images [27].
+whereS¯is the mean signal acquired from the fourb= 0 excitations at voxel positionx,y,z.
+The median of σ2was used to define the noise threshold in each sliding window.
+The diffusion tensor was calculated in each voxel using a weighted linear least squares algorithm, diagonalized using singular value decomposition, and used to calculate FA and ε1maps.
+When ε1map smoothing was used, it used unsupervised DPS with the general cross‐validation method, as in the simulated images.
+Fiber‐tracts were generated using aponeurosis seeding over a 35 × 45 mesh.
+Fiber‐tracts were propagated using Euler integration at a step size of one voxel width.
+Tracts were terminated at the muscle boundary, at a point where FA fell outside a range of 0.10–0.40, or when the angle between consecutive propagated points (inter‐segment angle) exceeded 30°.
+Tracts with LFT≥ 10 mm were retained, filtered for redundancy, smoothed with 3rd order polynomial fitting, and characterized with a mean LFT, α, and κ. The whole muscle average fiber architecture values were computed.
+When DPS was used,ρwas obtained.
+Figure1shows an example spatial distribution ofγin the middle slice of the model muscle for each combination of SNR and denoising method.
+Theγ¯meandecreased when AIS, TPCA, and/or DPS were used (Table1).
+For SNR of 24,39, and 54, the lowestγ¯meanoccurred in the TPCA + DPS condition with a mean deviation of 3.36°, 2.30°, and 1.95°, respectively.
+For SNR of 71, the AIS + DPS and TPCA + DPS conditions had the lowestγ¯mean, with mean deviations of 1.76° and 1.74° respectively.
+The ρmeanvalues obtained when DPS was used are listed in TableS2.
+Absolute angular deviation (γ) maps between the noise‐contaminated and noise‐free model muscle images.A middle slice of the model muscle is shown for all the denoising conditions at the four SNR levels studied.
+Each column corresponds to each denoising condition, while each row corresponds to each SNR level.
+Units in the colorbar are in degrees.
+All images share the same color scale.
+Mean absolute angular difference (γ¯) computed in each of the six denoising conditions over the 1000 Monte Carlo trials.
+The mean (γ¯mean) and [actual 95% confidence intervals] are given for the four SNR levels studied.
+All units are in degrees.
+The mean and 95% confidence intervals for the κ, LFT, and α estimates are listed in Supplementary Tables3, 4, and5, respectively.
+The relative difference between the noise‐contaminated and noise‐free architecture estimates is presented in Table2.
+Figure2shows the fiber curvature estimates obtained for all the denoising conditions and all SNR levels evaluated.
+The κ was overestimated in the Raw condition by 395% at SNR 24, and the amount of overestimation decreased with increasing SNR (to 41.9% at SNR 71).
+AIS reduced the error in the fiber curvature estimates of the model muscle, but the overestimation remained at 79.3%, 36.1%, 20.3%, and 12.3% for SNR levels of 24, 39, 54, and 71, respectively.
+TPCA resulted in underestimation of κ by −23% at SNR 24, −16% at SNR 39, −13% at SNR 54, and −13% at SNR 71.
+DPS improved the accuracy in the estimation of κ in the model muscle to 42.7%, 12.2%, 4.4%, and 6.1% at SNR levels of 24, 39, 54, and 71, respectively.
+In the AIS + DPS condition, similar results to the DPS condition were observed at SNR 24 and 39, where κ remained overestimated, while the difference in κ was 3.5% at SNR 54, and −2.5% at SNR 71.
+The TPCA + DPS condition resulted in more pronounced underestimations of κ than TPCA (Figure2).
+Relative difference between the noise‐contaminated and noise‐free architecture estimates of the simulated model muscle.
+The mean percent difference and [actual 95% confidence intervals] are given for the four SNR and six denoising conditions studied.
+Units are in percentage points.
+Mean muscle curvature (κ) estimates of the model muscle measured on the six denoising conditions at the four SNR levels evaluated in this study.Each boxplot contains the estimates measured from all Monte Carlo trials, while the gray dashed line represents the noise‐free estimate, and the data between the gray dotted lines represent a ± 5% interval with respect to the noise‐free estimate.
+Note the difference in the range of the y‐axis in the SNR 24 and 39 panels.
+All units are in m−1.
+LFTwas initially underestimated in the Raw condition and overestimated in the TPCA and TPCA + DPS conditions at SNR 24, but the estimates in the DPS and AIS + DPS conditions were within ±5% (± 1.06 mm) of the noise‐free values.
+At SNR 39, LFTmeasurements were within ±5% of the noise‐free values in the Raw, AIS, DPS, and AIS + DPS conditions, but were overestimated by more than 5% in the TPCA and TPCA + DPS conditions.
+All denoising conditions resulted in LFTwithin ±5% of the noise‐free values at SNR 54 and 71 (Figure3).
+The α estimates were within ±5% (1.01°) of the noise‐free measurements in the AIS and AIS + DPS denoising conditions at all SNR levels.
+For SNR levels of 24, 39, and 54, DPS resulted in an underestimation of α by −7.5%, −6.1%, and −5.1%, respectively.
+TPCA and TPCA + DPS conditions resulted in underestimations of α by more than 5% in all SNR levels (Figure4).
+Mean muscle fiber‐tract length (LFT) estimates of the model muscle measured on the six denoising conditions at the four SNR levels evaluated in this study.Each boxplot contains the estimates measured from all Monte Carlo trials, while the gray dashed line represents the noise‐free estimate, and the data between the gray dotted lines represent a ± 5% interval with respect to the noise‐free estimate.
+All units are in mm.
+Mean muscle pennation angle (α) estimates of the model muscle measured on the six denoising conditions at the four SNR levels evaluated in this study.Each boxplot contains the estimates measured from all Monte Carlo trials, while the gray dashed line represents the noise‐free estimate, and the data between the gray dotted lines represent a ± 5% interval with respect to the noise‐free estimate.
+All units are in degrees.
+TheSFbetween the fiber‐tracts of the noise‐contaminated images and the noise‐free was the lowest in the Raw condition, showing improvements in fiber similarity by all denoising methods (Figure5).SFwas the highest in the AIS + DPS condition at all SNR levels evaluated, and second highest in the AIS condition.
+TPCA + DPS showed the lowestSFof all the denoising methods in all SNR levels.
+Mean fiber similarity (SF) of the model muscle measured on the six denoising conditions at the four SNR levels evaluated in this study.Each boxplot contains the fiber similarity data measured from all Monte Carlo trials.
+Note the difference in the range of the y‐axis in the SNR 24 and 39 panels.
+The mean SNR of the tibialis anterior muscle in theb= 0 images was 58. ε1maps of a cross‐section of the TA muscle are shown in Figure6.
+These maps reveal the muscle's bipennate architecture and that more smoothing of the ε1map was accomplished by AIS and TPCA than with DPS.
+Visual assessments of thexcomponent of ε1reveal that TPCA resulted in a smoother fiber direction map than AIS in the highest SNR condition (NEX= 4,b= 0/NEX= 2,b= 450), while AIS had a smoother outcome than TPCA in the lowest SNR condition (NEX= 1,b= 0/NEX= 1,b= 450).
+Neither AIS, TPCA, nor DPS introduced visible artifacts in the images.
+First eigenvector maps (ε1) of a cross‐section of the tibialis anterior muscle.Each column corresponds to each denoising condition evaluated, while each row corresponds to thex,y, andzcomponents of the vector map.
+The top panel represents the lowest SNR condition by considering only one excitation (NEX) for the non‐diffusion weighted and diffusion‐weighted images, while the middle panel represents the highest SNR condition by averaging all the excitations collected.
+The bottom panel shows an axial anatomical image of the lower leg with the TA muscle's boundary and aponeurosis highlighted.
+Additionally, magnified versions of the x component of ε1from the AIS and TPCA conditions show how both denoising methods have different outcomes at high and low SNR.
+The components of the vectors are unitless.
+The coordinatesx,y, andzare in the Left, Posterior, and Head anatomical directions respectively.
+The mean muscle architecture estimates computed in the human dataset under the different denoising and SNR conditions are shown in Table3.
+In the highest SNR condition (4/2), AIS, TPCA, and DPS resulted in decreased mean κ estimates when compared to the Raw condition, with the lowest κ measured in the TPCA and TPCA + DPS conditions.
+As SNR decreases, the estimates of the mean κ decrease in all denoising conditions with respect to the Raw condition, but with AIS and AIS + DPS having the lowest κ. Mean muscle LFTestimates changed by less than 1.5% as a result of AIS, DPS, and AIS + DPS when compared to the Raw condition at the highest SNR, while TPCA and TPCA + DPS resulted in a 14% increase.
+At the lower SNR levels, we see that AIS and AIS + DPS remain within 5% of the Raw estimate in the highest SNR level, while LFTremains higher in the TPCA and TPCA + DPS conditions at low SNR.
+All denoising conditions result in a decrease in α when compared to the Raw condition, and this is observed in all SNR conditions.
+TPCA and TPCA + DPS result in the lowest estimation of α.
+Mean muscle fiber‐tract architecture estimates computed in the human dataset under the different denoising and SNR conditions.
+The fiber tracking termination conditions changed depending on the denoising method.
+Table4shows the percentage of fiber tracts that were terminated in the muscle mask due to high inter‐segment angle (≥ 30°) and out‐of‐threshold FA.
+The AIS and AIS + DPS conditions resulted in more than 92% of all the fiber tracts terminating at the muscle mask's boundary in all SNR conditions, with the AIS + DPS condition having the highest percentage of fiber tracts reaching completion at the muscle mask's boundary.
+The DPS, TPCA, and TPCA + DPS conditions improved the percentage of fiber tracts terminating at the muscle mask's boundary when compared to the Raw condition in all SNR conditions.
+The smoothing parameter (ρ) obtained from DPS was within 0.015–0.017 in all the SNR conditions for the DPS condition, while it was within 0.026–0.027 for the AIS + DPS condition and 0.018–0.019 for the TPCA + DPS condition.
+Percentage of fiber‐tracts that were terminated due to each termination condition in the fiber tractography analysis of the human dataset.Units are in percentage points.
+Three denoising methods intended to improve muscle fiber direction quantification from the noise‐contaminated diffusion‐weighted images are evaluated.
+Specifically, the AIS and DPS methods are effective at reducing the noise‐induced imprecision and inaccuracy caused by noise in the estimates of the diffusion tensor's first eigenvector.
+TPCA, conversely, causes underestimation of curvature (κ) and pennation angle (α), suggesting that this method oversmooths the first eigenvector of the diffusion tensor (ε1).
+Although the improved accuracy and precision of the fiber direction and architecture estimates with AIS + DPS is not additive in the combined implementation, the highest performance is achieved.
+These results support the implementation of both AIS and DPS in DTI estimation of skeletal muscle architecture.
+Muscle fiber‐tract length (LFT), pennation angle (α), and curvature (κ) can be derived from DTI‐based tractography data, with the mean α being robust to SNR levels of 24 or greater in all conditions except for TPCA and TPCA + DPS.
+At SNR 24, LFTwas underestimated in the Raw condition, but the mean value fell within 5% of the noise‐free estimates in the DPS and AIS + DPS conditions.
+At the higher SNR levels, LFTwas accurately estimated under all conditions.
+The curvature estimates are more sensitive to noise in the DTI data, and a previous study shows that κ can be overestimated by 14.4% even at SNR 54 in reconstructed muscle fiber‐tracts [18].
+We confirmed these results here, but we also show that implementing both AIS and DPS allowed for quantification of κ within 10% of the noise‐free estimates at SNR 54 and 71 in our model muscle, while implementing TPCA caused κ to be underestimated by more than 13% in all the SNR levels studied.
+While polynomial fitting of the fiber‐tracts helps address these issues [13,18], even in unsmoothed image data, the apparent curvature values remain overestimated in nonsmoothed data and can even be further amplified when 4thorder polynomials are used [18,42].
+The present results indicate that using anisotropic image or eigenvector field smoothing to reduce noise‐induced variability in the first eigenvector maps is sufficient for accurate estimation of κ. In addition to the improvements in first eigenvector map and muscle architecture estimates, implementing the AIS and DPS denoising techniques increased the fiber similarity between the DTI‐based fiber‐tracts from the noise‐contaminated and the noise‐free images, resulting in a more accurate representation of the intrinsic muscle architecture.
+In the human dataset of the tibialis anterior muscle, the implementation of AIS and DPS resulted in a more homogeneous bipennate fiber direction pattern and a lower fiber curvature estimation, showing the translatability of the model muscle results to human muscle data.
+Moreover, AIS and DPS increased the percentage of fiber tracts that start in the aponeurosis and terminate at the outer muscle boundary.
+The implementation of AIS + DPS can result in more accurate quantification of muscle fiber direction, although a comprehensive in vivo evaluation is still required.
+TPCA, on the other hand, decreased the κ and α estimates (similar to the underestimations observed in the model muscle) while increasing LFT.
+The TPCA results may indicate that this method oversmooths the first eigenvector direction fields in skeletal muscle, resulting in fiber‐tracts that propagate with less κ and lower α. Preliminary analyses showed the same oversmoothing effect in smaller sliding windows of 7 × 7 × 1 and 5 × 5 × 1 voxels and after omitting the overcomplete averaging procedure [26] that is implemented in TPCA.
+In our simulated and in vivo skeletal muscle data, the signal variance is mostly captured by one principal component.
+The remaining principal components capture low variance, with the eigenvalues of principal components 2–4 typically falling between 30% and 250% of the noise variance threshold (FigureS1).
+In these cases, the ability to distinguish between principal components carrying real variations in the MR signals and the principal components carrying noise is diminished, and some signal components may be discarded.
+This is not the case in the brain, where around 6–18 principal components are preserved when using TPCA denoising [27], and could explain the differences in the performance of TPCA denoising in skeletal muscle and in the brain.
+Considering that TPCA is the most robust and objective PCA‐based method to denoise DTI images [27], this may indicate that other PCA‐based methods in skeletal muscle DTI tractography should also be evaluated prior to being implemented.
+Because muscle fiber orientation is an important determinant of the mechanical behavior of the tissue [1,5,6], accurate knowledge of the muscle fiber direction is critical to the modeling of muscle mechanics.
+The full‐field, three‐dimensional mechanical behavior of muscle is typically modeled using the finite element method, and the fiber direction needs to be defined for each element in the model [5,6].
+Predicting mechanical strain fields depends on the accuracy of these fiber estimates and is also critical, for example, to defining the local and global risk of muscle injury during contractions [43].
+Obtaining more accurate muscle fiber direction maps from skeletal muscle DTI is therefore expected to improve the accuracy of subject‐specific finite element models of muscle.
+Additionally, improving fiber curvature estimates in muscles in vivo can lead to a better understanding of intramuscular pressure development, its relationship to muscle force [44], and how it changes after muscle injury and overuse.
+Although our study provides a comprehensive evaluation of three denoising techniques with a realistic ground truth model muscle and an in vivo DTI acquisition of a human lower leg muscle, it is worth noting several limitations to our methodology.
+Even though our model muscle is designed to resemble the architecture observed in muscles found in the lower extremities, the results are only applicable to the ranges of LFT(10.0–38.0 mm; 95% of all tracts), α (18.9°–22.4°), and κ (4.4 and 9.0 m−1) that we modeled here.
+Muscles may also have locally higher spatial gradients in orientations that could potentially be over‐ or under‐smoothed by the techniques proposed in this study.
+Moreover, in our implementation in the human dataset, we do not have a ground truth or gold‐standard muscle architecture estimates to compare with our DTI‐based estimates.
+Even though we believe that the results from our model muscle simulations provide strong evidence that implementing both AIS and DPS improves muscle architecture estimates in bipennate, unipennate, and fusiform muscles, in vivo validation with ultrasound or other gold‐standard architecture estimates is still required and could dictate the extent to which the variance of the Gaussian kernel in AIS and the smoothing parameter of DPS could be used to provide optimal results and adapted for use in different muscle architectures acquired with different scanners and DTI sequences.
+Additionally, our model muscle simulations only considered the effect of Gaussian‐distributed noise and did not consider any other uncertainties in DTI data caused by image distortion or misregistration.
+The smoothing parameters (ρ) used in our study are low compared toρ= 35 used in a previous study to smooth muscle fiber direction maps obtained from ultrasound images [36].
+However, the obtention of the datasets used in the study [36] required 3D spatial calibration, which most likely benefited from additional smoothing for accurate muscle fiber direction estimation.
+Higher smoothing parameters than the ones resulting from the general cross‐validation method proposed by Garcia [34] could be explored, but care must be taken to avoid oversmoothing.
+It is also worth noting that we implemented DPS assuming a constant smoothing parameter (ρ) across all three dimensions of our data, even though the data is sampled in anisotropic voxels.
+Preliminary studies showed that resampling the data to isotropic voxels or the input of the voxel dimensions into the DPS function resulted in the general cross‐validation method providing smoothing parameters that were too low.
+Because our data are equally sampled, the results demonstrate the benefits of this approach.
+Our results support a role for AIS with a Gaussian kernel variance of 5% and DPS as effective ways to reduce Gaussian‐noise related uncertainties and inaccuracies associated with muscle architecture characterization using DTI.
+These techniques could also be implemented in other tractography methods applied to muscle, such as probabilistic tractography [22].
+This study did not consider learning‐based methods to denoise skeletal muscle DTI data, such as SDnDTI [45].
+This is because muscle DTI datasets commonly include less than 18 diffusion gradient encoding directions (such as the ones assessed in this study) to assess comparatively simpler cellular geometry than in the brain and avoid long scan times, precluding the use of learning‐based methods that require higher data redundancy from more diffusion encoding directions.
+Further studies could assess the feasibility of using learning‐based denoising methods with more diffusion encoding directions and lower image SNR and compare these results to the denoising techniques evaluated in this study.
+Moreover, tractography regularization methods based on the unscented Kalman filter have been found to improve fiber‐tract reconstruction in the brain [46,47], and their applicability to DTI‐based tractography of skeletal muscle could be explored in future studies.
+DTI tractography‐based characterization of skeletal muscle architecture is improved by both anisotropic smoothing of the diffusion weighted images (AIS) using a Gaussian kernel variance of 5% and smoothing of the first eigenvector map using an unsupervised penalized least squares approach combined with the discrete cosine transform (DPS).
+In the model muscle, both techniques independently and jointly reduced the angular deviation of the first eigenvector with respect to its ground truth, increased the accuracy in the measurements of muscle curvature, and increased the fiber similarity between the noise‐contaminated fiber‐tracts and the noise‐free fiber‐tracts.
+In human muscle, we found that muscle fiber curvature estimates decreased and fiber‐tract completion increased with the joint implementation of AIS and DPS, potentially increasing the accuracy of in vivo DTI‐based muscle architecture estimates.
+Threshold PCA (TPCA) denoising, on the other hand, leads to oversmoothing of the first eigenvector under these experimental conditions and should be evaluated for the specific conditions envisioned.
+Table S1.Median, Median Absolute Deviation (MAD), and maximum (Max) values of the spatial gradients of the azimuth and elevation angles prescribed in the model muscle.
+All units are in degrees per millimeter.
+Table S2.Smoothing parameter (ρ) computed in the DPS, AIS + DPS, and TPCA + DPS conditions over the 1000 Monte Carlo trials.
+The mean (ρmean) and [actual 95% confidence intervals] are given for the four SNR levels studied.
+The smoothing parameter (ρ) is unitless.
+Table S3.Mean fiber‐tract curvature (κ) estimates of the model muscle computed in each of the denoising conditions over the 1000 Monte Carlo trials.
+The mean (κmean) and [actual 95% confidence intervals] are given for the four SNR levels studied.
+All units are in inverse meters.
+Table S4.Mean fiber‐tract length (LFT) estimates of the model muscle computed in each of the denoising conditions over the 1000 Monte Carlo trials.
+The mean (LFT,mean) and [actual 95% confidence intervals] are given for the four SNR levels studied.
+All units are in millimeters.
+Table S5.Mean pennation angle (α) estimates of the model muscle computed in each of the denoising conditions over the 1000 Monte Carlo trials.
+The mean (αmean) and [actual 95% confidence intervals] are given for the four SNR levels studied.
+All units are in degrees.
+Figure S1.
+(A) Histogram showing the number of principal components (PCs) preserved after denoising the data of the simulated muscle at SNR 39.
+(B) Normalized eigenvalues (λ/1+M/N2as described by Henriques et al.1) of the principal components of the simulated data.
+The three colored lines represent the eigenvalues of three sliding windows were 1, 2, and 3 PCs were preserved.
+The grey dashed line represents the prescribed noise variance.
+(C) Histogram showing the number of principal components (PCs) preserved after denoising the data of the in vivo dataset using all collected NEX(4/2).
+(D) Normalized eigenvalues (λ/1+M/N2) of the principal components of the in vivo data.
+The three colored lines represent the eigenvalues of three sliding windows were 1, 2, and 3 PCs were preserved.
+The dashed lines represent the noise variance estimated in each sliding window.
+The authors thank Prof. Zhaohua Ding, Ph.D., for supplying the code for anisotropic image smoothing and for helpful comments on the manuscript.
+The authors acknowledge support from NIH/NIAMS 1 R01 AR073831 and the Stephens Family Clinical Research Institute.
+Pineda Guzman R., Lockard C., Zhou X., and Damon B., “Improved DTI‐Based Skeletal Muscle Architecture Estimation via Diffusion Weighted Image Denoising and First Eigenvector Map Smoothing,” NMR in Biomedicine 38, no. 9 (2025): e70100, 10.1002/nbm.70100.
+Funding:This work was supported by the National Institutes of Health 1 R01 AR073831, Stephens Family Clinical Research Institute.

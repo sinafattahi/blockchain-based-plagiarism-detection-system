@@ -1,0 +1,161 @@
+Rumor spreading has been posing a significant threat to maintain the normal social order. In this paper, we propose a ISDR rumor propagation model on scale-free networks that considers fractional-order and refutation mechanism. we acquire basic reproduction numberbased on the rumor equilibrium point, which thoroughly characterizes the dynamics of rumor propagation. we have demonstrated that when, the rumor-free equilibrium point is globally asymptotically stable; when, the rumor equilibrium point is globally asymptotically stable. Numerical simulations are provided to illustrate the main theoretical results. By analyzing the existence and uniqueness of the equilibrium solution, we demonstrate the superiority of fractional-order dynamics and refutation mechanism in the rumor propagation model. Our findings are crucial for understanding the impact of network structure on the dynamics of fractional-order systems.
+
+Rumors are defined as unconfirmed elaborations or annotations related to common interests and are widely spread by online social media1. The convenience of social media, with its low barriers to entry and instantaneous communication capabilities, facilitates extensive user engagement in information dissemination processes. However, rumor spreading may cause a serious threat to society. For example, rumors during COVID-19 outbreaks can quickly trigger a mass effect, causing some people to believe and propagate these rumors through various channels. Therefore, studying the spreading process of rumors can provide insights into the influence of different factors and significantly reduce the adverse effects of rumors, leading to the development of better control strategies to restrain rumor propagation2.
+
+Numerous rumor models concerning transmission mechanism and forecasting the spread of rumors across populations have been proposed. In the early days, the D-K model, a classic rumor propagation model put forward by Daley and Kendall, was introduced3. In this D-K model, the population is grouped into three classes: people who contact with nothing of the rumor, people who push to spread the rumor, and people who know but will never spread the rumor. Based on the D-K model, Maki and Thomson proposed the M-K model which assumes that a spreader can change into a stifler who stops spreading the rumor4. Based on these two models, many extended rumor propagation models have been proposed and studied5–7. However, these rumor propagations are not appropriate for a social network environment, as they do not consider the influence of complex network topologies, such as regular networks, random networks, homogeneous networks and heterogeneous networks8–11. Zanette first researched the dynamic behavior of rumor spreading and found that the spreading threshold is observably influenced by the network topologies, especially in small- world networks8. Moreno et al. developed the mean-field theory in the scale-free network9. Zhu et al. proposed a rumor propagation model with a silence-forcing function and it was proven that optimal control can reduce the scale of rumor spreading in online social networks10. Yu et al. researched new 2I2SR rumor propagation models with and without time-delay based on multilingual environment and proposed a real-time optimization method that minimizes the cost of restraining rumors to eliminate them within an expected time period11. Ai et al. improved the traditional Barabasi-Albert scale-free network and proposed a network topology model that conforms to the characteristics of sharing social networks, based on complex network theory and the actual characteristics of sharing social networks12.
+
+In recent years, a multitude of rumor propagation models have been proposed, aiming to gaining insight into the influence of different factors on the prevalence of rumors such as heterogeneity of transmission and network13,14, the hesitating mechanism15, the memory16, the skepticism and denial17, the education or scientific knowledge18,19, the latency20, super spreading effect21and others22,23. Based on different rumor spreading models, true information or positive news is also an important factor affecting rumor spreading. Refutation mechanism can be the truth of the rumor released by the government or media in an emergency. There are many studies of true information24. Yang et al. proposed a competitive diffusion model to regulate rumors by propagating true information on social networks25. Tian et al. proposed a novel rumor spreading model that considering debunking behavior to describe the rumor dynamics in OSNs under emergencies26. Jiang et al. put forward a Spreading–debunking competitive model based on data from the real-world rumor case27. Zhang et al. came up with two-stage model and refutation mechanism with time delay on the different network topologies28. Huo et al. established a ISTR model of rumor by including influencing factors of true information spreader and social reinforcement in Heterogeneous Networks29. Thus, motivated by these aspect, it is more suitable to add a refutation mechanism into the rumor propagation model to improve the image of the relevant authorities and to strengthen other positive effects on social stability.
+
+Fractional differential equations can depict the dynamics of plentiful physical systems in a more precise way than integer order method30. Many scholars have recommended fractional-order to describe real-life problems with a fractional order Caputo derivative31–38. Angstman et al. concluded a fractional-order SIR model with a stochastic process that contains Infectious individual along with a time effect31. Huo et al. studied a fractional-order SIR model by means of birth and death rates on heterogeneous networks32. Alzahrani et al. proposed fractional-order derivative for the dynamical analysis of Hepatitis E model and optimal control33. Kheiri et al. studied a multi-patch model with fractional-order derivative to reveal the impact of human behavior on the HIV/AIDS propagate34. Singh et al. researched the dynamic model of rumor propagation associated with non-integer order in a social network35. Jajarmi et al. extended a fractional version of SIRS model to investigate the HRSV disease involving a new derivative operator with Mittag-Leffler kernel in the Caputo sense36. Ali et al. addressed the fractional mathematical model which describes the transmission dynamics of zika virus infection37. Alzahrani et al. utilized proportional fractional-order differential equations with time dela to predict each fractional change more realistically38. Although there have been numerous integer-order models to describe the dynamics of rumor propagation, few individuals probe into fractional-order rumor models on complex networks. Inspired by the above analysis, we will adopt Caputo derivative and propose a fractional-order ISDR rumor propagation model incorporating refutation mechanism on scale-free networks based on26,32.
+
+The rest of this paper is organized as follows. In Sect. 2, fractional-order ISDR rumor model incorporating refutation mechanism on scale-free networks is represented and some properties of the fractional calculus are provided. In Sect. 3, on account of the existence of rumor equilibrium point, the threshold is proven. In Sect. 4, the stability of equilibrium point is shown. In Sect. 5, the influences of two immunization strategies are proposed and compared. In Sect. 6, Sensitivity analysis and several numerical simulations are proposed. Finally, several conclusions are given at the end of this paper.
+
+In this section, we build a novel fractional-order ISDR rumor propagation model incorporating refutation mechanism on scale-free networks. The flow diagram of the model is shown in (Fig.1). We have divided the total population into four categories: ignorants who have never known the rumor and consequently are open to trust the rumor, denoted by I; spreaders who know and spread the rumor actively, denoted by S; debunkers who know the true information about the rumor and become the debunker under social reinforcement, denoted by D; resisters who have contacted the spreaders or debunkers but resist and do not spread it, denoted by R. On scale-free networks, every individual represents for a node of the network and the connections are deemed to the relations between individuals meanwhile which the rumor can transmit. let,,andbe the relative densities of ignorants, spreaders, debunkers and resisters by means of the degreeat timetrespectively.
+
+The transition among these states is subjected to the following rules.
+
+(1) When the ignorants are connected to the spreaders, they will know the rumor thus become the spreaders with a probability ofand become the debunkers with a probability of.pis used to describe the attractive degree of the debunkers andis the infection rate.
+
+(2) The parameteris the recovery rate of the spreaders under the influence of forgetting mechanism. When the spreaders get in touch with debunkers, it will become a debunker with probability. Moreover, the debunker is likely to be a resister in the probability.
+
+(3) We assume that the immigrate rate isand emigrate rate is. All the newly added nodes are classified as ignorants. The parameters are all nonnegative.
+
+whereis the average degree in regard to the network andstands for the degree of distribution.
+
+We firstly give the definitions of fractional-order integration and some properties of the fractional-order differential equation, since those have the advantages of dealing properly with initial value problems39. The Riemann–Liouville and the Caputo formula are two kinds of crucial and well-studied definitions40–44.
+
+The Riemann–Liouville fractional integral of orderof a functionis provided by.
+
+The Riemann–Liouville fractional derivative of orderof a functionis provided by.
+
+The Caputo fractional derivative of orderof a continuous functionis provided by.
+
+While when, the Caputo fractional derivative of functionis given by.
+
+To prove the globally asymptotical stability of equilibrium points, we proposed the following lemma.
+
+LetandMbe the largest invariant set ofE. Then every solutionoriginating inDtends toMas. Particularly, when, then, as.
+
+Supposebe a continuous and derivable function. Accordingly, for any time instant.
+
+To demonstrate the existence and uniqueness of equilibrium point, we define a function.
+
+Where. Therefore, if, then system (1) has a unique rumor equilibrium point.
+
+Closed setis a positive invariant set and global attractivity set of system (1).
+
+Especially, if, then, hence closed setis the positive invariant set of system (1). Additionally, due to, if, accordingly the solution of system (1) is inclined towhen time turns to infinity. Therefore, closed setattracts all the solution of, andis the global attracting set of the system (1).
+
+In this section, we will provide evidence of the stability ofand, which is one of the most crucial topics in the research of rumor spreading. Specifically, we will study the local asymptotic stability and then the global attractivity of the rumor-free equilibrium point. That is to say, the threshold value is, andis globally asymptotically stable.
+
+The rumor-free equilibrium pointof system (1) is locally asymptotically stable if, or unstable if.
+
+We primarily give the following lemma so as to demonstrate the stability of equilibrium point.
+
+The equilibrium point of system (1) is locally asymptotically stable, provided that all the eigenvaluesof the corresponding Jacobian matrix are equal to the following condition.
+
+The characteristic polynomial of linear system (8) is.
+
+It is quite obvious to obtain that the Jacobian matrixhasneigenvalues equivalent to, andneigenvalues equivalent to. And the lastneigenvalues of matrixare the eigenvalues of matrixF. The characteristic polynomial of matrixFis given by.
+
+Obviously, the matrixFhaseigenvalues equal to. Thenth eigenvalue isTherefore, on account of Lemma4.2, the rumor-free equilibrium pointis locally asymptotically stable if, and unstable if.
+
+If, thenis the unique equilibrium point of system (1), and it is globally asymptotically stable.
+
+Based on the first equation of system (1), we have, substituting into (9).
+
+Whenand we infer the only compact invariant set is the singletonfor. Through the use of Lemma2.5and Theorem4.1, the rumor-free equilibrium pointis globally asymptotically stable when, which means the rumor will fall into extinct ultimately in spite of the initial density of spreader.
+
+Next, we will demonstrate the global asymptotical stability of the rumor equilibrium pointof system (1) identical to the rumor-free equilibrium point.
+
+If, then the rumor equilibrium pointis locally asymptotically stable.
+
+In a similar way, we linearize the system (1) at, and acquire the corresponding Jacobian matrix.
+
+Clearly, matrixhas 2nnegative eigenvalues. Following, we calculate the lastneigenvalues of matrix.
+
+Hence, it exists at least one root in. in another word, there existnegative roots in.
+
+Hence, the matrixNhas n negative roots in. It is manifested that all the eigenvalues of the Jacobian matrixare negative so far. That is to say, the rumor equilibrium pointis locally asymptotically stable.
+
+Suppose thatis a solution of system (1) satisfying initial conditionsor. If, thenis the rumor-prevailing equilibrium of (1) satisfying for.
+
+In the following,kis fixed to be any integer in. By Theorem 4, there exists a sufficiently small constantand a larger enough constantsuch thatfor, thereforefor. Submit this into the equation of (8) gives.
+
+By means of the standard comparison theorem, for any given constant, there exists a, such thatfor, where.
+
+Hence, for any given constant, there exists a, such thatfor, where.
+
+Similarly, for any given constant, there exists a, such thatfor, where.
+
+Since, we substitute this into the first equation of (1).
+
+So for any given enough small constant, there exists a, such that,for, where.
+
+So for any given enough small constant, there exists a, such thatfor, where.
+
+So for any given enough small constant, there exists a, such thatfor.
+
+As a result ofis a small positive constant, we can deduce thatand.
+
+Hence, for any given constant, there exists a, such that.
+
+So, for any given constant, there exists a, such that.
+
+Consequently, from the third equation of (8), we have.
+
+Hence, for any given constant, there exists a, such that.
+
+So, for any given enough small constant, there exists a, such thatfor, where.
+
+So, for any given enough small constant, there exists a, such thatfor, where.
+
+Since the sequential limits of (10) exist, let,whereand.
+
+It is obviously that, so, which sees that, for. From (9) and (11), it follows that.
+
+Finally, substitutinginto (11), in view of (4) and (12), it obtains, and. The proof is completed.
+
+Rumor spreading can have incredible damage to maintain the normal social order, we need to take effective measures to control rumor propagation. Rumor control strategies are an important issue. The uniform immunization and the acquaintance immunization were adopted through immunizing a portion of the population based on different rumor transmission characteristics and channels45. Hence, we suppose immunization is effective completely, that is to say, the immunized nodes cannot be transmit rumors to their neighbors. In this case, two useful strategies to control the spreading of rumors and the effectiveness of these control strategies will be discussed and compared.
+
+By arguments similar to those in Sect. 3 and calculating the basic reproduction number of system (16), the basic reproductioncan be determined by the following inequality.
+
+Hence, we obtain the basic reproduction number as.
+
+In particular, when, that is, no immunization is performed, then; When, namely,, which means that the immunization strategy makes sense to reduce the transmission of the rumors. As, regarding the full immunization, it would be possible for the rumor to vanish in the network.
+
+Similarly, we obtain the basic reproduction number as.
+
+For appropriately smallk,andhave the same signs, then.
+
+It is prone to infer that, which means that targeted immunization is valid, andIf, then. Hence, based on same average immunization rate, the effect of the targeted immunization strategy is superior to the uniform immunization strategy.
+
+In this section, we provide some numerical simulations to explain the main theoretical results on scale-free networks with, where parametermrepresents the smallest degree of the network nodes, parameteris the variable of power law exponent. Supposeand the number of the nodes on scale-free networks isN, let.
+
+Consider system (2.1) with the following parameters, With this choice of parameter values and a simple calculation, one has the basic reproduction number. In terms of Theorem4.1, the unique rumor-free equilibrium pointis locally asymptotically stable as Fig.2show. These figures show that when, the rumor-spreading will ultimately disappear, and the spreaders will ultimately extend to the maximum value, which indicates that rumor will disappear from society.
+
+Each compartment population changes over time when.
+
+Here, we choose, By calculating,, which suggests that system (1) also has a rumor equilibrium pointand the rumor-free equilibrium point. In terms of Theorem4.4, the rumor equilibrium pointis locally asymptotically stable as Fig.3shows.
+
+Each compartment population changes over time when.
+
+The above figures prove that when, the rumor maintains and the density of spreaders will converge to a positive constant. Namely, it is also proved that the larger the degree number is, the wider the spread of rumors will be, which implies the more individuals contact, the more people get rumors.
+
+Without loss of generality in system (1), we set. That is, the basic reproduction number is. According to Remark 4.5, the rumor-free equilibrium pointis globally asymptotically stable. Next, we provide the image of. Figure4shows the global dynamics ofin Ω for the case. It indicates that the rumor-spreading vanishes with time, and the rumor will vanish ultimately.
+
+Without loss of generality in system (1), we take. That is, the basic reproduction number is. On the basis of Theorem4.5, the rumor equilibrium pointis globally asymptotically stable. simultaneously, we only provide the profile of. Figure5shows the global dynamics ofinfor the case. It indicates that the rumor-spreading persists at a rumor equilibrium level if it initially exists.
+
+Reference48verified the effects of parameteron the dynamic of the rumor propagation. Next, we will investigate the influences of the parameter in system (1) on scale-free networks, following the same approach as in32. We demonstrate some numerical simulations for different values of the parameter. As Fig.6shows, the numerical results show that the lower values of parameter, the peak of rumor propagation is wider and lower, which implies a more precise conclusion that fits the real data49–51. A wider rumor peak implies a longer period along with numerous spreaders, which can probably cause panic and unnecessary losses to the society. Therefore, we should implement appropriate control measures to block the spread of rumors.
+
+In this section, we will compare system (1) with and without immunization strategies on spread of rumors to prove the effectiveness of control strategy. To demonstrate the effectiveness of optimal control, we adopt the uniform immunization control as an example. Chooseand immunization control proportion, respectively. Figure7shows that the controlled system (17) can increase the density of spreaders, and decrease the density of resisters compared with the uncontrolled system (1). And the higher the immunization control proportionis, the lower the level of rumor propagation is. In fact, the rumor propagation can be eliminated if we make effort s to take immunization strategies actively.
+
+(a) The density of spreaders with degreeand; (b) The density of resisters with degreeand.
+
+In this paper, we have investigated the rumor dynamics of the fractional-order ISDR rumor propagation model incorporating a refutation mechanism on scale-free networks. We have established that there exists a basic reproduction number, which determines not only the prevalence of the rumor equilibrium point, but also the eradication of the rumor. Firstly, through simple calculations, we derived basic reproduction numberbased on the rumor equilibrium point, which thoroughly characterizes the dynamics of rumor propagation. Secondly, using the Lyapunov function, we analyzed the stability of the rumor-free equilibrium pointand the existence of rumor equilibrium point. when, the rumor-free equilibrium pointis globally asymptotically stable and the rumor always vanishes in community, in other words, the rumor will eventually disappear regardless of the initial density of spreaders; when, the rumor-free equilibrium pointcomes unstable and there exists a unique rumor equilibrium point, which is globally asymptotically stable and the rumor will continue, in other words, spreaders will sustain at an rumor equilibrium level on condition that it initially exists. Numerical simulations are provided to demonstrate the main theoretical results. The influences of the parameter α on the dynamics of rumor propagation has been confirmed. Finally, two control strategies are studied and compared. Simulations prove that targeted immunization strategy is more efficient.
+
+Our research provides a quantifiable intervention framework for the governance of social network rumors. The immune strategy simulation in our research provides a direct basis for the containment of rumors in reality, Public health departments can refer to this threshold (such as σ = 0.4) to formulate a resource allocation plan for rumor-refuting, such as allocating 40% of official accounts to disseminate authoritative information during emergencies. The fractional-order parameter α in our research reveals the “memory effect” mechanism of social media, the platform can optimize the content attenuation algorithm based on this (such as reducing the α value), and shorten the life cycle of old rumors by reducing their exposure.
+
+At the same time, the model in this paper can be more perfect, such as considering time delay, nonlinear incidence rate and so on, These work will be analyzed in more detail in the future research.
+
+This research was funded by the National Natural Science Foundation of China (Grant No.72171150, 72371150), and the Fundamental Research Funds for the Central Universities, China: High-Quality Development of Digital Econ-omy: An Investigation of Characteristics and Driving Strategies (Grant No. 2023110139).

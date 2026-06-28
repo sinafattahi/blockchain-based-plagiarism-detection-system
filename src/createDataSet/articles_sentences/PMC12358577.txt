@@ -1,0 +1,271 @@
+Predicting spatiotemporal Chlorophyll-a (Chl_a) distributions is essential for diagnosing and analysing productivity and ecosystem health of coastal oceans.
+Yet, current tools remain inadequate for prognosing marine ecosystems through predicting spatiotemporal Chl_a distributions, particularly in the dynamic coastal ocean.
+Coupled physics-biogeochemical models struggle to resolve complex trophic interactions, while data-driven approaches are limited by incomplete satellite observations.
+We developed an advanced AI-powered spatiotemporal imputation and prediction (STIMP) model for predicting Chl_a in coastal ocean.
+STIMP adopts a novel paradigm that first imputes and subsequently predicts Chl_a across a broad spatiotemporal scale, resolving difficulties arising from incompletion, nonstationary temporal variations, and spatial heterogeneity of data through integrating specially designed modules.
+We demonstrated the STIMP’s robust imputation and prediction of Chl_a in four representative global coastal oceans.
+STIMP reduced the imputation mean absolute error (MAE) by 45.90–81.39% compared with the data interpolating empirical orthogonal function method in geoscience and by 8.92–43.04% against leading AI methods.
+With accurate imputation, STIMP demonstrated superior predictive accuracy, achieving MAE reductions of 58.99% over biogeophysical models and 6.54–13.68% over AI benchmarks.
+STIMP offers a new approach for predicting oceans’ Chl_a that typically have spatiotemporally limited data.
+An AI-powered spatiotemporal imputation and prediction model (STIMP) is designed to predict Chlorophyll-a distributions in coastal oceans.
+STIMP reduces imputation mean absolute error and improves predictability compared to traditional and current leading AI methods.
+Coastal oceans are the world’s most productive marine ecosystems1because terrestrial nutrient input and active hydrodynamics produce high biological productivity and biodiversity2,3.
+The ecosystems of coastal oceans, however, are vulnerable to frequent and severe eutrophication4, biogeochemical extremes5, and hypoxia6that substantially threaten the sustainability of these coastal environments7,8and the blue economies of the coastal zones9,10.
+The concentration of chlorophyll-a (Chl_a) is a key indicator of the overall health of marine environments11,12.
+An increasing number of studies have diagnosed and predicted Chl_a concentration in marine ecosystems.
+These studies can be broadly classified into two categories: coupled physics-biogeochemistry numerical simulations and data-driven predictions.
+Simulations predict the concentrations by integrating a suit of physical and biogeochemical equations13–15.
+Unfortunately, complex and unknown trophic transfers in ocean ecosystems pose qualitative and quantitative challenges16in these coupled physical and biogeochemical models so that factors such as energy fluxes and biomass are not represented well because of simplified biogeochemical cycles.
+Unlike open ocean, Chl_a identification and prediction are even more challenge in the coastal waters under controls of multiple forcings from terrestrial, active coupled hydrodynamic-biogeochemical processes and influx from open ocean.
+These errors accumulate17continuously during the long-term integration of nonlinear systems, ultimately affecting the accuracy of the simulation results.
+Many works18,19intend to integrate observation of Chl_a and coupled physics-biogeochemistry numerical simulation model to mitigate error accumulations.
+By calibrating the state variables, these methods enhance the forecasting capability of ocean numerical simulations.
+However, error accumulations are inevitable in coupled physics-biogeochemistry numerical simulations20,21.
+In contrast, data-driven approaches that use historic observations allow discovery of underlying dynamic patterns by analysing spatiotemporal variations of Chl_a.
+Without requiring extensive oceanic knowledge, computational-friendly data-driven approaches, such as mechanistic22, statistical23,24and deep learning methods25–27, have gained more attention in marine ecosystem study by offering an alternative solution to the numerical modelling challenges.
+Moreover, remote sensing measurements provide precious data support for the developing data-driven spatiotemporal Chl_a prediction methods.
+Sea-viewing Wide Field-of-view Sensor (SeaWiFS), Moderate Resolution Imaging Spectroradiometers (MODIS), including Terra MODIS and Aqua MODIS, and other remotely sensing data provide near-daily coverage of the global surface ocean28and capture large-scale changes of phytoplankton biomass in the ocean29.
+However, there remain three challenges in developing large-scale spatiotemporal Chl_a data-driven prediction method.
+First, temporal variations are difficult to capture in existing data.
+Temporal variations of Chl_a are controlled by complex physical and biogeochemical stressors, such as water stratification, nutrient supply, and light conditions, whose variability exacerbate the unpredictability of Chl_a concentrations, even over short periods30.
+Second, spatial heterogeneity and relationships are difficult to model, and distinct temporal patterns in Chl_a distributions have been observed across different locations due to terrain, ocean currents, and other conditions.
+Third, high rates of missing observations render spatiotemporal variations more challenging to comprehend.
+Satellite remote sensing measurements are highly susceptible to environmental factors such as orbital position of satellite and cloud coverage31.
+In a typical coastal ocean such as the Pearl River Estuary, one of our study sites in the northern South China Sea (Fig.1a), the average rate of missing 8-day Chl_a data is 50.29%.
+These kinds of spatiotemporally limited observation data hinder resolving the variations of Chl_a that are needed for accurate predictions.
+aWe applied STIMP to four representative global coastal regions: the Pearl River Estuary, northern Gulf of Mexico, Chesapeake Bay, and the Yangtze River Estuary.bSTIMP is designed to predict future Chlorophyll-a (Chl_a) according to past partial observation.c–fThe overall framework for STIMP involves two successive stages: Imputation and Prediction.cSTIMP uses past partial observations of Chl_a, with spatial coordinates of the observations as inputs.dSTIMP uses the Spatiotemporal Denoising Diffusion Model (STDDM) to reconstruct a completed Chl_a dataset with spatiotemporal relationships from the past partial observation dataset.eSTIMP outputs the future Chl_a based on the completed Chl_a dataset.fThe outputs of STIMP, including imputed past observations of Chl_a and predicted future Chl_a for the entire ocean, can be used for marine conservation initiatives and policymaking for coastal regions.
+In this study, we developed an advanced AI-powered spatiotemporal imputation and prediction (STIMP) model for predicting Chl_a in coastal ocean.
+The success of STIMP is attributed to the paradigm of first imputing and subsequently predicting.
+High rates of missing observations render spatiotemporal variations of Chl_a and pose challenges to comprehend and predict of the ecosystem.
+Most data-driven methods are able to make the prediction of Chl_a when the observation datasets are complete, but struggle to identify its temporal patterns and spatial relationships when there are only partial datasets of observations.
+STIMP decomposes the prediction of Chl_a into two sequential steps: 1)the imputation process, which reconstructs multiple potential complete spatiotemporal Chl_a distributions from partial observations, and 2)the prediction process, which accurately predicts Chl_a based on each reconstructed continuous and complete spatiotemporal Chl_a distribution.
+Using Rubin’s rules32, the final Chl_a prediction is obtained by averaging the outcomes of multiple imputation and prediction processes.
+In this way, our STIMP method not only improves the overall predictive performance through accurate imputation of missing data but also provides confidence intervals to quantify the prediction uncertainties.
+Moreover, STIMP can address the three challenges of incompletion, nonstationary temporal variations, and spatial heterogeneity of data that we are facing by integrating three specially designed modules.
+We conducted benchmark studies of four representative global coastal regions: northern Gulf of Mexico, Chesapeake Bay, the Yangtze River Estuary, and the Pearl River Estuary.
+These four regions all suffer eutrophication and hypoxia due to explosively growths of algae with high concentrations of Chl_a.
+STIMP demonstrated superiority in large-scale spatiotemporal Chl_a imputation and prediction over baseline methods.
+Our results also indicated that the importance of imputation in the prediction.
+STIMP has proofed its capabilities to diagnose and prognose broad oceans that typically have spatiotemporally limited data.
+Then the large scale spatiotemporal future Chl_a distribution is predicted using the function,pΦ(Y~∣X).
+The network structures of the imputation and prediction functions are shown in the Fig.1.
+For both imputation and prediction functions, nonstationary temporal variations and spatial heterogeneity of Chl_a are all difficult and crucial.
+For nonstationary temporal variations, we employ Temporal Linear Transformer (TLT).
+TLT preserves crucial information regarding the Chl_a variations, computing across all elements of the time series to facilitate understanding of the temporal patterns of Chl_a.
+For spatial heterogeneity, we designed a Heterogeneous Spatial Graph Neural Network (HSGNN).
+HSGNN learns location-specific parameters from parameter pools to represent spatial heterogeneity.
+By doing so, distinct temporal patterns across different locations can be well accommodated in spatial-specific parameters in a computationally friendly way.
+We reuse the same structure of TLT and HSGNN in both the imputation function and the prediction function, ensuring that the spatiotemporal relationships of Chl_a can be well utilized in both tasks.
+We evaluated how well STIMP separately imputed and predicted Chl_a concentrations.
+We used MODIS Aqua project data33for: (1) the Pearl River Estuary, 4325 positions within 20.52–22.98°N, 112.02–115.98°E, with rates of missing data for each position ranging from 32.06% to 89.56% with an average rate of missing data across all positions equal to 50.29%; (2) northern Gulf of Mexico, 2907 positions within 28.52° to 29.98°N, 89.02° to 93.98°W, with rates of missing data for each position ranging from 5.35% to 94.23% with an average rate of missing data across all positions equal to 18.19%; (3) Chesapeake Bay, 1893 positions within 36.52–38.98°N, 74.52–76.48°W, with rates of missing data for each position ranging from 4.09% to 88.05% with an average rate of missing data across all positions equal to 10.49%; and (4) the Yangtze River, 4572 positions within 28.02° to 31.98°N, 121.02° to 123.98°E, with rates of missing data for each position ranging from 41.93% to 89.94% with an average rate of missing data across all positions equal to 54.28%.
+All data are from 01 January 2003 to 22 September 2023.
+For default settings, training data span 1 January 2003 through 31 January 2015, with the independent test set encompassing observations from 7 February 2015 to 22 September 2023.
+For the spatiotemporal imputation, we assessed the performance of STIMP based on four categories, comparing our results with different baseline methods in these categories: (1) a data interpolating empirical orthogonal function (DINEOF) method34,35from geoscience, note that, we selectedt= 1 in our implementation after conducting a comprehensive comparison of various values oft(Supplementary Figs.S11andS12); (2) classic statistical methods, including Slide Window and Lin-ITP; (3) spatiotemporal machine learning method, including TRMF36; (4) deep learning methods, including CSDI37, ImputeFormer38, Inpainter39and MaskedAE40.
+Because our collected data were not ground truthed for unobserved data, we randomly selected nine different rates of missing data, ranging from 10% to 90%, for choosing observed data as imputation targets.
+In so doing, we were able to verify the performance of all methods with different rates of missing data.
+Overall, we saw that STIMP outperformed the other baseline methods for different datasets in terms of the mean absolute error (MAE), demonstrating we could apply STIMP effectively to different regions.
+STIMP significantly reduced MAE by 45.90–81.39% compared to DINEOF, and by 8.92–43.04% compared to the state-of-the-art AI methods.
+STIMP reduced mean square error (MSE) by 69.47–95.64% compared to DINEOF, and by 12.04–68.30% compared to the state-of-the-art AI methods (Supplementary Fig.S1).
+In addition, DINEOF performed even worse than linear interpolation Lin-ITP due to the complexity of the spatiotemporal Chl_a distribution.
+Specifically, the intricate relationships present in the large-scale, long-term observations challenged DINEOF in effectively capturing the spatiotemporal relationships using singular value decomposition.
+The performance of CSDI and ImputeFormer was inevitably unsatisfactory because neither considers spatial relationships during imputation.
+Our results indicate that the spatial and temporal relationships are essential for imputing data.
+We comprehensively compared different methods of predicting Chl_a (Fig.2b).
+For the spatiotemporal prediction, we compared results against baseline methods in three categories: (1) machine learning method, XGBoost41; (2) time series prediction methods, including CrossFormer42, TSMixer43and iTransFormer44; (3) spatiotemporal prediction methods, including MTGNN45and PredRNN46.
+We also compared our STIMP results with results from the well-calibrated numerical model, CMOMS15for Pearl River Estuary.
+STIMP performed well for all four regions.
+Compared to the second best method, STIMP reduced MAE by 12.24%, 13.68%, 6.54%, and 9.72% (Fig.2b) and reduced MSE by 22.28%, 22.81%, 15.37%, and 12.17% for all four regions (Supplementary Fig.S2).
+PredRNN performed the second best.
+PredRNN uses spatiotemporal recurrent neural networks with long short-term memory to memorize spatial appearances and temporal variations, performing better than time series prediction methods.
+The results demonstrate the importance of the spatiotemporal relationships for accurate prediction.
+However, due to the inherent lack of observations of Chl_a, PredRNN could not perform as well as STIMP.
+aOverall mean absolute error (MAE) between ground truth and imputed Chl_a for different interpolation methods.
+For each coastal ocean, we constructed datasets with nine different rates of missing data, ranging from 10% to 90%.
+Source data are provided as a Source Data file.bOverall MAE between ground truth and predicted Chl_a of different prediction methods.
+Source data are provided as a Source Data file.
+We used the Pearl River Estuary to demonstrate the effectiveness of STIMP spatiotemporal imputation.
+The number of missing observations from the Pearl River Estuary reflects the data deficiencies for most estuaries.
+The advantage of using the Pearl River Estuary as an example is that we have results from numerical simulations to compare to our STIMP results.
+There are several major cities in the Pearl River Estuary, including Shenzhen, Guangzhou, and Zhuhai, where rapid industrialization and urbanization have adversely impacted water quality in downstream of the Pearl River system47.
+Eutrophication has produced serious red tide events or harmful algal blooms in the estuary and its adjacent coastal waters since the 1980s, causing economic losses48.
+High rates of missing observations prevent completing a picture of the spatiotemporal Chl_a relationships for the Pearl River Estuary, impeding forecasting and analysis.
+However, STIMP enabled large-scale spatiotemporal imputation of the Pearl River Estuary data.
+STIMP performed exceptionally compared to other imputation methods for one-year imputation in terms of MAE, reducing MAE significantly by 45.90% to 77.35% compared to DINEOF and by 10.20% to 40.38% compared to the second best model (Fig.2a).
+Despite the default length of the time series on imputation, we tested the performance of STIMP in imputation over periods of 6 months and one-and-a-half years (Fig.3a).
+The results demonstrated that the length of the time series on gap-filling did not affect the superiority of STIMP.
+For 6 months imputation, STIMP significantly reduced MAE by 44.34–76.54% compared to DINEOF, and 4.64–38.22% compared to the state-of-the-art AI methods.
+For one-and-a-half years imputation, STIMP achieved MAE reductions of 50.34–76.43% compared to DINEOF, and of 0.33–38.17% compared to the state-of-the-art AI methods.
+aOverall mean absolute error (MAE) between ground truth and imputed Chl_a for different imputation methods over half-year and one-and-a-half-year periods.bPearson correlation coefficient (PCC) between imputed data and ground truth data of STIMP and data interpolating empirical orthogonal function (DINEOF) method at rates of missing data equal to 10%, 30%, 50%, 70%, and 90%.cMeasured and imputed Chl_a distribution in the Pearl River Estuary.
+The first column from the left shows the original observations with many missing values.
+The second and third columns show the corresponding imputed Chl_a from DINEOF and STIMP.dImputed Chl_a from STIMP at five locations.
+The original observations are represented by blue lines, and the imputed Chl_a are represented by red lines.
+We selected observations of the entire Pearl River Estuary from 07 February 2015 to 02 February 2016 and used STIMP and the baseline methods, including data interpolating empirical orthogonal function (DINEOF) method, MaskedAE, and Lin-ITP, to reconstruct the Chl_a distribution to investigate why STIMP imputation of the Pearl River Estuary data outperformed the baseline methods.
+We examined the correlation between ground truth and imputed data of STIMP and DINEOF using rates of missing data of 10%, 30%, 50%, 70% and 90% (Fig.3b).
+We observed that the Pearson correlation coefficients (PCC) of the STIMP imputed data and ground truth data were greater than 0.90 even when the rate of missing data euqalled 90%.
+DINEOF was prone to fill in gaps with zero values when missing rate was high and could not perform singular value decomposition of the spatiotemporal distribution of Chl_a.
+When comparing STIMP results to MaskedAE and Lin-ITP results (Supplementary Fig.S3a), we saw that MaskedAE PCC values were comparable to STIMP when rates of missing data were 10% and 50%.
+However, MaskedAE imputation severely degenerated when rates of missing data were high.
+In that case, STIMP PCC (correlated to ground truth data) improved by 6.65% over MaskedAE.
+In addition, the results illustrated that Lin-ITP introduced significant errors which hindered the analysis of the Pearl River Estuary data.
+Because STIMP’s imputation is based on spatiotemporal relationships, using case studies, we explored whether the imputed values from STIMP aligned with actual spatiotemporal relationships.
+STIMP effectively preserved the spatial relationships during the imputation compared to DINEOF on 07 February 05 May, and 10 October 2015 (Fig.3c).
+STIMP generated larger values close to the coastline, and STIMP generated similar values for most regions.
+STIMP effectively reconstructed the completed data even when the rate of missing data was high (see 07 February 2015).
+Moreover, STIMP effectively preserved temporal relationships during imputation.
+In Fig.3d, we show the imputation of five single positions from 07 February 2015 to 22 September 2022, where blue represents the observations and red represents the imputation.
+Compared to simple linear interpolation, STIMP contained more fluctuations, especially for long-term missing data.
+Overall, we saw that the STIMP results were significantly superior compared to the results from the baseline methods.
+Predicting Chl_a is critical to diagnosing future sustainable marine environments and formulating effective mitigation schemes, particularly under a changing climate that will warm and stratify the vulnerable ocean.
+With the continuous and completed spatiotemporal Chl_a distribution imputed from partial datasets of observations, we found that STIMP accurately predicts Chl_a.
+STIMP has more advantages in long-term prediction.
+As shown in Fig.4a, STIMP gained more improvement for long-term prediction.
+For 1 year prediction, STIMP achieved 6.54–13.68% mean absolute error (MAE) reduction over baselines.
+For 2 years prediction, STIMP reduced 13.68–32.25% MAE.
+For 3 years prediction, STIMP achieved 13.77–32.01% MAE reduction.
+STIMP outperformed other prediction methods due to its paradigm of first imputing then predicting and three elaborately designed modules.
+Without imputation, our predictive model results still improved compared to PredRNN (Fig.4b), indicating that our designed TLT and HSGNN modules are more suitable for capturing the spatiotemporal relationships of Chl_a than the design of PredRNN.
+We examine the advantages of having these two modules when we describe our ablation study of STIMP later in supplementary.
+Moreover, imputation significantly improved how well STIMP predicted distributions (Fig.4b, STIMP w/o imputation versus STIMP).
+In locations with higher rates of missing data, STIMP results often improved more than PredRNN results (Fig.4c).
+Our analysis demonstrated that imputing before predicting contributed to STIMP effectively capturing the spatial distribution and the seasonal signal of Chl_a.
+The maxima of observed annual mean Chl_a are in the river, but large Chl_a concentrations are spread along the coast in the inner shelf and decrease with distance from the coast (Fig.4d).
+The time series of the domain-averaged Chl_a has a strong seasonal cycle where Chl_a concentrations in the Pearl River Estuary peak during summer when nutrient inputs from the Pearl River are large (Fig.4e).
+aThe performance of STIMP and the baseline models in terms of mean absolute error (MAE) for 1-year, 2-year, and 3-year predictions.bMAE between the actual values and the predictions made by PredRNN, STIMP without imputation and STIMP.cThe relationship between the improved performance due to imputation and the rates of missing data.dTime series of domain mean Chl_a from January 2017 to December 2022.eHorizontal distribution of observed and predicted temporally averaged Chl_a.fPredicted Chl_a at three locations.
+The first to third columns show the Chl_a predicted by CMOMS, PredRNN, and STIMP.
+The red scatter points represent the observations.
+The blue shading represents the confidence intervals of STIMP to quantify the prediction uncertainties.
+Source data are provided as a Source Data file.gPredicted Chl_a for the entire Pearl River Estuary.
+The first column shows the true observations.
+The second and third columns show the Chl_a predicted by STIMP and CMOMS.
+We conducted case studies at three specific locations in the Pearl River Estuary to further demonstrate the superiority of STIMP over other baseline methods: 1) 22°9’N, 113°49’E; 2) 20°41’N, 113°41’E; and 3) 21°16’N, 114°1’E.
+The three sites correspond to three marine regions delineated by isobaths at 30 m and 50 m below sea level (Fig.4f).
+Data are from 2 February 2016 to 2 February 2022.
+We compared STIMP to CMOMS15, which is a widely used numerical model for analysing ecosystem dynamics in the Pearl River Estuary.
+STIMP can not only provide accurate Chl_a prediction (blue lines in Fig.4i), but also provide confidence intervals, which is visualized as shaded regions around the predicted values, too quantify the prediction uncertainties.
+STIMP outperformed PredRNN by a large margin, with MAE improving by 30.28%, 22.09%, and 1.83%.
+CMOMS yielded large MAE because the model severely underestimated the Chl_a.
+STIMP improved the MAE by 53.78%, 74.63%, and 66.33% compared to CMOMS.
+In Fig.4g, we present the prediction results for the entire Pearl River Estuary for 2 February 2016, 16 July 2016, and 8 January 2017.
+We observed that STIMP predictions consistently agreed with the observations, providing larger predicted values near the coastline.
+CMOMS, on the other hand, severely underestimated the Chl_a in the region far from the coastline, especially in winter.
+We examined how effectively STIMP can be applied to global coastal oceans by examining how well the model predicted Chl_a for the northern Gulf of Mexico, Chesapeake Bay and the Yangtze River Estuary.
+The Gulf of Mexico, ranking as the ninth largest body of water globally49, is also among the most economically and ecologically productive water bodies in the world50.
+The average rate of missing data across all positions for the northern Gulf of Mexico was 18.19%.
+When imputing data, as shown in Fig.2a, STIMP performed well compared to other imputation methods, significantly reducing the error by 69.42–74.88% compared to DINEOF and by 8.92–43.04% compared to the second-best model in terms of MAE.
+The observations for the entire northern Gulf of Mexico were from 07 February 2015 to 02 February 2016.
+Our findings indicated that the correlation between the STIMP imputed Chl_a and the ground truth data was significantly higher than that of DINEOF imputed Chl_a and ground truth data with rates of missing data equal to 10%, 50%, and 90%, improving PCC by 6.77%, 24.58% and 226.74% Fig.5a).
+We also compared STIMP to MaskedAE and Lin-ITP methods (Supplementary Fig.3b).
+STIMP improved PCC by 1.07–6.77% compared to MaskedAE, and STIMP improved PCC by 10.90% to 25.75% compared to linear interpolation (Lin_ITP).
+For prediction, we showed that STIMP’s effective data imputation accurately predicted large-scale spatiotemporal Chl_a.
+STIMP predictions improved, compared to PredRNN, for most areas of the northern Gulf of Mexico (Fig.5b).
+From the Chl_a distribution (Supplementary Fig.6), we saw that locations close to the river mouth had the largest Chl_a, and the outer shelf had the smallest Chl_a.
+Hence, we examined results (Fig.5c) at two positions: 1) 29°29’N, 92°11’W and 28°54’N, 91°59’W, from February 2016 to 2 February 2022.
+Due to the lack of open-source numerical methods, we compared STIMP with XGBoost and PredRNN for these two positions.
+At the two positions, STIMP reduced MAE by 26.55% and 16.02% compared to XGBoost and reduced MAE by 6.75% and 10.84% compared to PredRNN.
+The satellite data from the northern Gulf of Mexico had considerable noise.
+Predictions generated by PredRNN tended to lose periodicity when confronted by the low signal-to-noise ratio data.
+In contrast, predictions produced by STIMP successfully captured six complete periods, which corresponded to a period of six years.
+We applied STIMP to other three representive coastal ocean areas: Northern Gulf of Mexico (a–c), Chesapeake Bay (d–f) and Yangtze River Estuary (g–i).a,d,gPearson correlation coefficient (PCC) between imputed data and ground truth data with the rates of missing data equal to 10%, 50%, and 90%.b,e,hMAE between the actual values and the predictions made by PredRNN (the first column) and STIMP (the second column).
+The third column indicates how much STIMP reduced the error compared to PredRNN.c,f,iXGBoost, PredRNN, and STIMP predicted Chl_a at two locations.
+The red scatter points represent the observations.
+Source data are provided as a Source Data file.
+Chesapeake Bay is one of the most productive estuaries in the United States.
+The average rate of missing data across all positions in Chesapeake Bay was 10.49%.
+For imputation, as shown in Fig.2a, STIMP performed exceptionally compared to the other imputation methods with regard to MAE.
+STIMP significantly reduced MAE by 62.08% to 75.63% compared to DINEOF and by 26.91% to 33.46% compared to the second-best model, except when the rate of missing data was 90%.
+We selected observations from the entire bay from 07 February 2015 to 02 February 2016 for this case study.
+STIMP demonstrated excellent imputation performance compared to DINEOF, improving PCC by 5.09%, 28.17% and 264.67% (Fig.5d), MaskedAE and Lin-ITP (Supplementary Fig.3c).
+Moreover, STIMP improved its predictions compared to PredRNN for most of Chesapeake Bay (Fig.5e).
+The case studies at the two locations at 1) 29°29’N, 92°11’W and 2) 28°54’N, 91°59’W indicated that STIMP more accurately predicted Chl_a than the other two methods.
+STIMP reduced MAE by 72.10% and 10.39% compared to XGBoost and reduced MAE by 44.34% and 3.99% compared to PredRNN.
+Overall, STIMP improved MAE by 6.54% compared to PredRNN.
+The Yangtze River is the third longest river in the world.
+The river discharges into the adjacent Yangtze River Estuary near the megacities, Shanghai and Hangzhou.
+The average rate of missing data across all positions in the Yangtze River Estuary was 54.28%.
+For imputation, as shown in Fig.2a, STIMP performed exceptionally compared to the other imputation methods, reducing the MAE by 68.31% to 90.92% compared to DINEOF and by 15.62% to 42.67% compared to the second-best model.
+The observations for the entire Yangtze River Estuary were from 07 February 2015 to 02 February 2016.
+STIMP imputed the data well compared to DINEOF (Fig.5g), MaskedAE and Lin-ITP (Supplementary Fig.3d).
+Moreover, STIMP improved predictions compared to PredRNN for most areas of the Yangtze River Estuary (Fig.5h), especially for the regions closest to the river mouth.
+As shown in Fig.4i, at 31°34’N, 122°31’E, STIMP reduced MAE by 45.02% and 9.95% compared to the two baseline methods.
+At 28°24’N, 123°21’E (outer shelf), STIMP’s error improvement was relatively smaller, but MAE still reduced by 14.45% and MAE reduced by 6.59% compared to the two baseline methods.
+To summarize, we demonstrated that STIMP can be successfully applied to the global coastal oceans.
+STIMP is a versatile and effective deep learning framework.
+STIMP not only reconstructs a complete Chl_a dataset by exploring the spatiotemporal relationships in the partial dataset of observations, STIMP also accurately predicts spatiotemporal distributions at large scales.
+STIMP even successfully captures periodic data when confronted with low signal-to-noise ratio data (for example, for the northern Gulf of Mexico and the Yangtze River Estuary).
+In this paper, we presented STIMP, an effective and versatile deep learning framework for analysing Chl_a using satellite remote sensing measurements.
+Our results demonstrated that STIMP effectively addresses the challenges of satellite remote sensing of Chl_a when diagnosing and prognosing coastal ocean ecosystems by overcoming high rates of missing data, composing complex spatial heterogeneity, and determining diverse dynamic temporal patterns.
+Specifically, STIMP imputes historical partial observations before predicting the future of Chl_a for coastal oceans, formulated asp(Y~∣Xob)=∫XpΦ(Y~∣X)pθ(X∣Xob)dX.
+Most AI methods, such as PredRNN, are designed to predict based on complete observational datasets.
+Directly applying these other AI methods to partial datasets results in substantial spatiotemporal relationships being disregarded.
+STIMP breaks down Chl_a prediction into two steps: 1)pθ(X∣Xob) to reconstruct a complete spatiotemporal Chl_a distribution from partial observations; and 2)pΦ(Y~∣X)to accurately predict Chl_a based on a set of continuous and complete spatiotemporal relationships.
+STIMP addresses the difficulty of the task and enables us to evaluate the confidence intervals associated with our predictions.
+When we were designing the model, we leveraged a diffusion model51(an elegant and powerful generative AI method) for the spatiotemporal Chl_a imputation, i.e.pθ(X∣Xob).
+Using the diffusion model offered distinct advantages for imputation compared to the traditional interpolating empirical orthogonal function (DINEOF)52in Geoscience and other AI-powered data imputation methods.
+We designed TLT and HSGNN to capture the diverse dynamic temporal patterns found in an entire time series and the spatial heterogeneity of the entire coastal ocean, respectively.
+STIMP demonstrated capability in large-scale spatiotemporal Chl_a imputation and prediction in four representative coastal oceans.
+The length of the time series does not affect the superiority of STIMP.
+Our results indicate that imputation significantly improved the prediction.
+In addition, STIMP was robust when presented with various rates of missing data, further showing that the model could be applied to global coastal oceans with different rates of missing data.
+Despite its advantages, STIMP does have limitations.
+The advantage of AI-based methods lies in predicting the seasonal and trend components of time series.
+Many methods43,53incorporate seasonal-trend decomposition within each neural block to enhance the predictability of time-series data54.
+Analogous to other AI-based time series methods, STIMP robustly capture the seasonal and trend signals of Chl_a but is incapable of effectively capturing anomaly peak signal.
+Through extensive analysis in the Pearl River Estuary, compared to weekly and monthly mean predictions, STIMP effectively captures fine-scale variability (Supplementary Figs.S13–S15).
+We also found that even though the numerical simulation method CMOMS15has a large prediction error, it performs better than AI-based data-driven methods in predicting extreme signals.
+Therefore, we believe that integrating numerical simulation methods with AI-based data-driven methods will be a challenging yet promising direction that we need to address in the future.
+Moreover, we focused on satellite remotely sensed data with a spatial resolution of 4 km and a temporal resolution of 8 days.
+In contrast to CMOMS, STIMP demonstrates low sensitivity to variations in spatial and temporal resolutions.
+Yet STIMP depends on observational data to capture Chl_a’s spatiotemporal patterns.
+When applied to MODIS's daily Chl_a data with > 90% missing rates, we might need to incorporate additional prior information to address the issue.
+In conclusion, based on available satellite observations, STIMP significantly advances large-scale spatiotemporal analysis, diagnostics, and prediction of coastal marine ecosystem health.
+We expect that STIMP can be broadly applied to future ocean AI-measurement-modelling studies to enhance management and mitigation of worsening coastal ocean ecosystem conditions.
+Rapidly developing satellite remote sensing observations offer opportunities to develop data-driven large-scale spatiotemporal Chl_a prediction method.
+However, three major challenges must first be solved.
+First, temporal variations induced by complex physical and biogeochemical stressors are difficult to capture.
+Second, spatial heterogeneity and relationships are difficult to represent.
+Third, the high rates of missing satellite observations compromise the completeness of spatiotemporal variations of Chl_a, rendering these observations inadequate to use for accurate prediction.
+whereXob∈RT×N,Ndenotes the number of positions andTdenotes the length of time series;Y~∈RT′×N,T′denotes the predicted length.
+Here, several datasetsXare generated by well-trainedpθ(X∣Xob).
+Based on each dataset, we trained specificpΦ(Y~∣X).
+Using Rubin’s rules32, the final Chl_a prediction is obtained by averaging the prediction of specificpΦ(Y~∣X)based on differentX.
+In this way, our STIMP method not only improves the overall predictive performance through accurate imputation of missing data but also provides confidence intervals to quantify the prediction uncertainties.
+More details of trainingpΦ(Y~∣X)andpθ(X∣Xob) can be found in the following two subsections.
+We contrived a spatiotemporal denoising diffusion model (STDDM) that we applied to the imputation function,pθ(X∣Xob).
+STDDM is fundamentally a Denoising Diffusion Probabilistic Model (DDPM) specifically designed to approximate the spatiotemporal distribution of Chl_a conditioned on partial observations.
+The training process of STDDM is summarized in Algorithm 1.
+Input: A sample of training data,X∈RT×N; Spatial Graph,G∈RN×N; the number of denoising steps,L; the number of training iteration,M.
+whereϵ~N(0,I).
+We summarized the imputation in Algorithm 2.
+We predict the most probable length-T′sequence of Chl_aY~withpΦ(Y~∣X).
+To achieve this goal, the data distributions in space and time are important and warrant careful consideration.
+Fortunately, we must obtain a complete spatiotemporal distribution of Chl_aXis obtained by imputing the Chl_a spatiotemporal satellite data, denoted bypθ(X∣Xob) in Eq.
+(3). We meticulously designed the network architecture to effectively capture spatial correlations and temporal dynamics.
+Input: A sample of incomplete observed data,Xob∈RT×N, with observation indicator,M; Spatial Graph,G∈RN×N; the number of diffusion steps,L; and the optimized STDDM.
+whereDEproject consists of two fully connected layers and a Sigmoid Linear Unit (SiLU) function as the activation layer, and we broadcast this embedding vector over timesteps and positionsL×N.
+whereGNmeans Group Normalization56to stabilize the training.
+More of the original informationHtempis preserved forHspa.
+TLT is dedicated to effectively capturing the temporal relationships of Chl_a.
+In TLT, each element in the time series will compute attention with all other elements, thereby preserving and propagating essential information throughout the extended sequence55.
+The long- and short-term temporal dependencies captured by TLT significantly enhance the accuracy of large-scale spatiotemporal Chl_a imputations and predictions.
+whereQ=HinWQ;K=HinWK;V=HinWVrepresent the queries, the keys, and the values, respectively, which are converted fromHin,WQ,WK, andWV∈Rd×dare learnable projection parameters.
+Essentially, MSA computes the dot product ofQiandKjto generate a weight that measures the relevance between Chl_a at timesiandj.
+MSA utilizes several SA layers:MSA(Hin) =Concat(h1,h2, ⋯ ,hn)WO+Hinwherehi=SA(Q,K,V).
+The residual is introduced to preserve more original Chl_a information.
+The added PFF networks consist of a fully connected layer and a Rectified Linear Unit(ReLU) function as and activation layer.
+As shown in Supplementary Fig.S16d (a), the time series exhibits spatial heterogeneity, with significantly different means and variances of Chl_a at different locations.
+Hence, the same parameterWfor different locations does not meet the requirements.
+whereH∈R3×k.
+In doing so, the learned parameter reduces fromθspa∈RN×d×dtoH∈R3×kandP∈Rk×d×d.
+whereFspais a fully connected network.
+Now, each position obtains information from an adjacent position throughHtemp⋅G.
+Meanwhile, location-specific parameters,Wspa, are utilized to embed the spatial heterogeneity intoHspa.
+As shown in Supplementary Fig.S16d, we leveraged the learned spatial heterogeneous embeddingQto partition the Pearl River Estuary.
+The results of the partition were generally consistent with the the isobaths at 30 m and 50 m below sea level, showing that STIMP indeed captured the spatial heterogeneity of different locations in the Pearl River Estuary.
+STIMP employs Adam for stochastic optimization during model training.
+By default, the number of training epochs in STIMP is 500 and 200 for imputation and prediction respectively, with learning ratelr= 0.0001 and a weight decay parameter λ = 0.00001.
+We computed the computational demands of STIMP, including FLOPs (floating-point operations), MACs (multiply-add operations) and Parameters, with Calflops (https://github.com/MrYxJ/calculate-flops.pytorch.git) on Pearl River Estuary.
+Moreover, we recorded the GPU memory usage of STIMP.
+Note that we set the batch size of training data is equal to 1 when calculating FLOPs, MACs and GPU memory, which means the minimum computational requirements for running STIMP.
+The hardware requirements analysis in Table1reveals that STIMP maintains low GPU memory demands (≥1.5 GB), compatible with obsolete consumer hardware, including NVIDIA’s GTX 1050 (2016 release).
+This highlights the framework’s practical deployability even with limited computational resources.
+The work described in this paper was fully supported by a grant from the Research Grants Council of the Hong Kong Special Administrative Region, China (Project Reference Number: AoE/P-601/23-N); we thank the support of the Center for Ocean Research in Hong Kong and Macau (CORE), CORE is a joint research center for ocean research between Laoshan Laboratory and HKUST; we thank the Moderate Resolution Imaging Spectroradiometer (MODIS) Aqua projects for providing 8-d Chl_a dataset with spatial resolution of 4 km (https://search.earthdata.nasa.gov/search?q=10.5067/AQUA/MODIS/L3M/CHL/2022).

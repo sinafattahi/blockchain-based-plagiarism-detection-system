@@ -1,0 +1,199 @@
+Tight blood glucose monitoring is crucial in the management of intensive care unit (ICU) delirium because glycaemic disorders were suggested as initiating risk factors.
+However, the association between the frequency of fingertip blood glucose measurement (FFBGM) owing to tight blood glucose monitoring and delirium in ICU patients remains unclear.
+This study aimed to investigate the association between FFBGM and the risk of delirium among ICU patients.
+This retrospective cohort study included 28 553 adult ICU patients from the Medical Information Mart for Intensive Care (MIMIC)‐IV database.
+Delirium was identified using the Confusion Assessment Method for the ICU tool.
+Multivariable logistic regression, restricted cubic spline regression, sensitivity analyses and subgroup analyses were used to evaluate the association between FFBGM frequency and ICU delirium.
+Of the 28 553 participants, 9599 (33.60%) developed delirium.
+The participants were categorised into three cohorts based on tertile‐derived thresholds for Total, Daytime and Nighttime FFBGM.
+Logistic regression analysis revealed a direct link between FFBGM and an increased incidence of critical delirium in ICU patients for each of the three variables (Total FFBGM Q3 vs. Q1: odds ratio [OR] = 1.25, 95% confidence interval [CI]: 1.18–1.32; Daytime FFBGM Q3 vs. Q1: OR = 1.21, 95% CI: 1.14–1.29; Nighttime FFBGM Q3 vs. Q1: OR = 1.17, 95% CI: 1.11–1.24).
+Sensitivity analysis, excluding diabetic and sedated patients, confirmed the robustness of the results.
+Furthermore, subgroup analysis showed consistent associations across demographic and clinical subgroups.
+Increased FFBGM was independently associated with an increased risk of delirium among ICU patients.
+This finding suggests that FFBGM could serve as an independent predictor for delirium risk assessment.
+This study may enhance nurses' awareness of the potential impact of FFBGM on delirium risk.
+It supports collaborative decision‐making between nurses and physicians to balance glycaemic control with patient comfort and to optimise monitoring strategies in ICU care.
+Delirium, estimated to impact 32%–87% of intensive care unit (ICU) patients worldwide, is the primary manifestation of acute brain dysfunction and is linked to heightened morbidity and mortality [1,2].
+It is also associated with a higher risk of adverse clinical results in both the immediate and the extended periods.
+These outcomes may include impairments in cognitive, physical and mental health; longer hospital stays; and early death [3,4,5].
+The pathophysiology of delirium is intricate and speculative, involving multiple mechanisms that contribute to insufficient cerebral metabolic function, peripheral inflammation or neuroinflammation, imbalances in neurotransmitters and neuroanatomical substrates, and disrupted network connectivity [6,7].
+ICU delirium, a preventable disorder that is frequently acquired during hospital stays, incurs significant costs.
+The US healthcare system is estimated to spend over $148 billion annually to address this issue [8].
+Therefore, identifying the risk factors for delirium and preventing its occurrence is crucial for improving the prognosis of ICU patients.
+Glycaemic disorders are proposed risk factors for ICU delirium, making tight blood glucose monitoring particularly crucial for its management [9,10].
+According to the 2016 American Society for Parenteral and Enteral Nutrition (ASPEN) guidelines, rigorous glycaemic control contributes to better outcomes in ICU patients [11].
+Previous research has found a significant link between hypoglycaemia, hyperglycaemia, blood glucose fluctuations, glucose variability, higher mean glucose levels and delirium in ICU patients [10,12,13,14,15,16].
+Given the increasing attention to blood glucose levels, frequent fingertip blood glucose measurements have become the ICU standard of care.
+However, a substantial portion of the research has primarily focused on the association between blood glucose and delirium, neglecting to investigate whether the frequency of fingertip blood glucose measurement (FFBGM) specifically correlates with delirium.
+In addition, ICU patients are frequently subjected to various bedside care interventions—including vital sign checks, medication administration and routine monitoring—that occur round the clock.
+Studies have demonstrated that such frequent care‐related interruptions, particularly during night‐time, can disrupt sleep and the circadian rhythm, which are recognised risk factors for delirium [17,18].
+Although existing studies have not specifically isolated the role of fingertip blood glucose monitoring, these findings suggest that not only glycaemic fluctuations but also the behavioural burden of monitoring may contribute to neurocognitive outcomes.
+To the best of our knowledge, there is a significant gap in the literature regarding the potential association between FFBGM and ICU delirium.
+Given the significance of exploring the relationship between FFBGM and delirium in clinical practice, uncovering such a correlation could assist in enhancing management and treatment strategies for patients with delirium.
+Given this gap in current evidence, this study aimed to explore the association between FFBGM and the occurrence of ICU delirium.
+By using a large‐scale, time‐series critical care database, we sought to address this understudied area.
+Our findings may guide nurses in refining glucose monitoring strategies to minimise harm and promote better clinical outcomes in critically ill patients.
+A retrospective cohort study was conducted using data from the publicly available Medical Information Mart for Intensive Care (MIMIC)‐IV (version 2.2) dataset, which includes a hospital‐wide electronic health record and an ICU‐specific clinical information system covering the period from 2008 to 2019 [19,20].
+This database contains anonymised patient data; thus, informed consent was not required.
+After completing the necessary evaluation (certificate number: 55437665), the research staff attended classes offered by the National Institutes of Health and were permitted to use the MIMIC‐IV version 2.2 database.
+Structured query language (SQL) was used to extract the required information.
+We included all adult patients (aged ≥ 18 years) with their first ICU admission documented in the MIMIC‐IV (v2.2) database between 2008 and 2019.
+The inclusion criteria were as follows: (1) age ≥ 18 years, (2) first ICU admission recorded in the MIMIC‐IV database, (3) ICU stay ≥ 24 h and (4) at least one documented Confusion Assessment Method for the ICU (CAM‐ICU) assessment during ICU stay.
+The exclusion criteria were as follows: (1) age < 18 years, (2) multiple ICU admissions, (3) ICU stay < 24 h, (4) no documented evaluation for delirium and an inability to be assessed (lacking the CAM‐ICU scale characteristics) and (5) diagnosed with delirium outside the ICU.
+Figure1presents a flowchart illustrating the inclusion and exclusion criteria.
+The final study population consisted of 28 553 adult ICU patients with a median age of 67 years, 43.6% of whom were female.
+Patients were admitted to various types of ICUs, including medical (MICU), surgical (SICU), coronary care, cardiac vascular, neuro and mixed medical/surgical units (MICU/SICU).
+Baseline demographic and clinical characteristics—such as comorbidities, laboratory values and severity scores—were extracted as described in the ‘Data extraction’ section and are summarised in Table1.
+Flowchart depicting the inclusion and exclusion of patients for the current study.
+An illustration of the application of inclusion and exclusion criteria to select a final cohort of 28 553 patients.
+Abbreviations: APACHE II, Acute Physiology and Chronic Health Evaluation II; APSIII, Acute Physiology Score III; CCU, coronary care unit; CVICU, cardiac vascular intensive care unit; MICU, medical intensive care unit; MICU/SICU, medical/surgical intensive care unit; NICU, neuro intensive care unit; SICU, surgical intensive care unit.
+Data retrieval relied on an SQL server encompassing demographic characteristics (sex, age, ethnicity, body mass index [BMI] and care unit type).
+Data on vital signs (temperature, blood pressure, heart rate and respiration) and laboratory variables (white blood cell [WBC], platelet count, albumin, red cell distribution width [RDW], blood urea nitrogen [BUN], creatinine, serum sodium, potassium and glucose) within 24 h of ICU admission were collected.
+Comorbidities (sepsis, heart attack, stroke, chronic lung disease, heart failure, diabetes, kidney disease, cancer) were identified using the International Classification of Diseases Ninth Revision (ICD‐9) and Tenth Revision (ICD‐10) codes.
+Post‐admission interventions (insulin, sedation, invasive ventilation and ICU duration) were recorded.
+Disease severity scores (Acute Physiology and Chronic Health Evaluation II [APACHE II] and Acute Physiology Score III [APSIII]) were also recorded.
+Glycaemic variability was assessed by collecting all ICU blood glucose readings and excluding patients with fewer than three measurements.
+Mean blood glucose levels were computed for each patient using all available ICU glucose records, and the glucose coefficient of variation (glucv), indicating the ratio of standard deviation to mean blood glucose, was calculated as a measure of glycaemic variability.
+The main exposure of interest was the FFBGM throughout the ICU stay.
+We classified the hours from 6:00 AM to 10:00 PM as Daytime FFBGM and those from 10:00 PM to 6:00 AM as Nighttime FFBGM.
+This time division was based on typical ICU routines and prior studies that defined 10:00 PM–6:00 AM as the night‐time period when patients' sleep is most vulnerable to disruption [21,22,23].
+The total FFBGM was calculated as the total number of blood glucose readings for each patient.
+Participants were categorised into Q1, Q2 and Q3 groups based on the optimal thresholds derived from the tertiles for the Total, Daytime and Nighttime FFBGM.
+Based on the Total FFBGM level, three patient categories were established: Q1 (< 3), Q2 (≥ 3 and < 12) and Q3 (≥ 12).
+Similarly, three patient categories were defined based on the Daytime FFBGM level: Q1 (< 2), Q2 (≥ 2 and < 7) and Q3 (≥ 7).
+Additionally, three patient categories were determined based on the Nighttime FFBGM level: Q1 (< 2), Q2 (≥ 2 and < 4) and Q3 (≥ 4).
+Delirium was the primary outcome variable and was assessed using the CAM‐ICU score [24], which consists of four characteristics: (1) acute onset of mental status changes or a fluctuating course, (2) inattention, (3) disorganised thinking and (4) altered level of consciousness.
+To be diagnosed with delirium, an individual must exhibit Features 1 and 2 in addition to Feature 3 or 4.
+In the MIMIC‐IV database, the CAM‐ICU assessments are recorded in English and reflect routine clinical documentation at the Beth Israel Deaconess Medical Center.
+These evaluations were typically conducted once or multiple times daily by ICU nurses, and each assessment includes a timestamp.
+In this study, the presence of at least one positive CAM‐ICU score during the ICU stay was used to identify delirium.
+The tool has been validated with a sensitivity of 93% and specificity of 89% for detecting delirium in critically ill patients [25].
+Indicators with missing values of > 20% were excluded, and the remaining data were completed using multiple imputations.
+Continuous variables are reported as means (standard deviations) or medians (interquartile ranges [IQRs]).
+The Kruskal–Wallis test was used to compare the continuous variables.
+Categorical variables are expressed as proportions and compared using chi‐square tests.
+We used restricted cubic spline (RCS) regression to examine the non‐linear association between FFBGM and delirium risk.
+The odds ratio (OR) and 95% confidence interval (CI) between each 1‐unit increase in the continuous variable and the primary outcome were calculated using logistic regression.
+We constructed three models that considered multicollinearity and clinical experience.
+Model 1 was not adjusted; Model 2 was adjusted for age, sex, race, BMI, care unit type, heart rate, mean blood pressure, respiratory rate and temperature; and Model 3 was adjusted for platelets, WBC, BUN, calcium, creatinine, glucose, sodium, potassium, anion gap, ICU stay, diabetes, hypertension, congestive heart failure, peripheral vascular disease, renal disease, malignant cancer, sepsis, insulin treatment, sedation treatment, invasive ventilation, APACHE II, APSIII and Charlson comorbidity index based on Model 2.
+To prevent model overflow caused by multicollinearity, we estimated the variance inflation factors and eliminated variables with a variance inflation factor of ≥ 5 (TableS1).
+Sensitivity analyses were performed to ensure the robustness of results.
+First, ICU mortality outcomes were excluded to reduce the impact of competitive mortality's impact on delirium risk assessment.
+Second, pre‐existing diabetes was excluded to study non‐diabetic delirium risk.
+Last, sedative users were removed to minimise confounding factors owing to the well‐established link between sedatives and delirium.
+Stratified analyses by subgroup factors included age, race, BMI, invasive ventilation, ICU stay and Charlson comorbidity index.
+We further investigated the threshold effect of glucv on FFBGM by implementing a smoothing function in a two‐piecewise linear regression model.
+Statistical analyses were conducted using R software (version 4.2.3) and Stata (version 17).p< 0.05 was considered statistically significant.
+After retrieving the MIMIC‐IV data, our final sample consisted of 28 553 individuals who met the inclusion criteria, with a median age of 67 years.
+The female population accounted for 43.6% (12 450 patients).
+The median Total FFBGM, Daytime FFBGM and Nighttime FFBGM values were 6 (1, 15), 4 (1, 9) and 1 (0, 6), respectively.
+Furthermore, 9599 (33.62%) individuals had delirium (Table1).
+Individuals with delirium exhibited elevated WBC, BUN, creatinine, glucose, anion gap, RDW, Total FFBGM, Daytime FFBGM and Nighttime FFBGM.
+Additionally, they were more likely to have diabetes, hypertension, renal disease, sepsis or other adverse outcomes (p< 0.001).
+Restricted cubic spline was used to investigate the association between the Total, Daytime and Nighttime FFBGM and the incidence of ICU delirium (Figure2).
+The completely modified multivariate RCS model demonstrated a non‐linear correlation between the Total, Daytime, and Nighttime FFBGM and the risk of ICU delirium (p‐non‐linear < 0.05,p‐overall < 0.05).
+Figure2a,iindicates that thepvalues for the non‐linear components were both > 0.05, specifically 0.85 and 0.065, respectively.
+Compared with the Q1 group (Table2), multivariate analysis of logistic regression revealed a notable disparity in the likelihood of delirium between the Q2 and Q3 groups, with Q1 as the reference group.
+Each of the three models demonstrated a similar trend (Tables2,3,4).
+Investigation of the association between Total, Daytime, and Nighttime FFBGM and ICU delirium incidence.
+Restricted cubic spline regression examines the potential non‐linear association between the levels of Total FFBGM, Daytime FFBGM, Nighttime FFBGM and the likelihood of delirium in patients admitted to the ICU.
+The estimated odds ratios and 95% confidence intervals are represented by the red and dashed lines, respectively.
+(a, d, g) Total FFBGM, Daytime FFBGM, Nighttime FFBGM Model 1: a crude model.
+(b, e, h) Total FFBGM, Daytime FFBGM, Nighttime FFBGM Model 2: adjusted for age, sex, race, BMI, care unit type, heart rate, mean blood pressure, respiratory rate, temperature.
+(c, f, i) Total FFBGM, Daytime FFBGM, Nighttime FFBGM Model 3: a full model based on Model 2.
+Relationship between Total FFBGM groups and delirium.
+Note:Data are presented as odds ratio (OR), 95% confidence intervals (CI) andpvalues; Model 1: unadjusted model; Model 2: adjusted for age, sex, race, BMI, care unit type, heart rate, mean blood pressure, respiratory rate and temperature; and Model 3: full model based on Model 2.
+Relationship between Daytime FFBGM groups and delirium.
+Note:Data are presented as odds ratio (OR), 95% confidence intervals (CI) andpvalues; Model 1: unadjusted model; Model 2: adjusted for age, sex, race, BMI, care unit type, heart rate, mean blood pressure, respiratory rate and temperature; and Model 3: full model based on Model 2.
+Relationship between Nighttime FFBGM groups and delirium.
+Note:Data are presented as odds ratio (OR), 95% confidence intervals (CI) andpvalues; Model 1: unadjusted model; Model 2: adjusted for age, sex, race, BMI, care unit type, heart rate, mean blood pressure, respiratory rate and temperature; and Model 3: full model based on Model 2.
+The robustness of the primary findings was validated through a sensitivity analysis conducted in this study.
+First, the statistical association between FFBGM and delirium was not significantly attenuated after excluding patients who died in the ICU (TablesS2–S4).
+Second, despite excluding patients with diabetes, a substantial link between FFBGM and delirium risk persisted in patients without a history of illness (TablesS5–S7).
+Finally, even after eliminating patients undergoing sedation therapy, which corresponds to the FFBGM, the risk of FFBGM and delirium remained substantial in patients without a history of sedation (TablesS8–S10).
+The correlation between the Total FFBGM, Daytime FFBGM, Nighttime FFBGM and the likelihood of delirium in critical care patients was analysed.
+The results of the stratified analysis indicated that the association between FFBGM and the risk of delirium was significant in each subpopulation (Figures3,4,5).
+Subgroup analyses of delirium risk with Total FFBGM.
+Correlation between Total FFBGM and the likelihood of delirium in critical care patients, considering factors such as age, race, body mass index, duration of ICU stay, use of invasive ventilation and Charlson Comorbidity Index.
+Subgroup analyses of delirium risk with Daytime FFBGM.
+Correlation between Daytime FFBGM and the likelihood of delirium in critical care patients, considering factors such as age, race, body mass index, duration of ICU stay, use of invasive ventilation and Charlson Comorbidity Index.
+Subgroup analyses of delirium risk with Nighttime FFBGM.
+Correlation between Nighttime FFBGM and the likelihood of delirium in critical care patients, considering factors such as age, race, body mass index, duration of ICU stay, use of invasive ventilation and Charlson Comorbidity Index.
+The smoothed plots suggest a non‐linear relationship between glycaemic variability and FFBGM.
+Total FFBGM, Daytime FFBGM and Nighttime FFBGM increased with glucv levels up to the turning point (39.479, 36.599 and 35.718, respectively).
+Total FFBGM, Daytime FFBGM and Nighttime FFBGM increased with increasing glucv until their respective turning points.
+The relationships between glucv and Total FFBGM, Daytime FFBGM and Nighttime FFBGM were all significant (p< 0.001).
+However, as glucv surpassed their turning points, the Total FFBGM, Daytime FFBGM and Nighttime FFBGM decreased with increases in glucv, indicating a negative correlation (Figure6, Table5).
+Association between glucv levels and Total FFBGM, Daytime FFBGM and Nighttime FFBGM in ICU patients.
+Restricted cubic spline regression was used to explore the potential non‐linear association between glucv levels and Total FFBGM, Daytime FFBGM Nighttime FFBGM in patients admitted to the ICU.
+The red and dashed lines represent the smoothed curve fit between the variables and 95% confidence intervals, respectively.
+(a) glucv and Total FFBGM; (b) glucv and Daytime FFBGM; (c) glucv and Nighttime FFBGM.
+Threshold effect analysis of glycaemic variability on Total FFBGM, Daytime FFBGM and Nighttime FFBGM using piecewise linear regression.
+Abbreviations:B, beta coefficient; CI, confidence intervals; SE, standard error.
+According to our investigation, individuals with delirium experienced poorer prognostic results during different follow‐up durations, such as 30, 90 and 360 days, as demonstrated by the Kaplan–Meier survival analyses.
+A significant disparity in mortality was observed between the two groups (log‐rank test, allp< 0.001).
+The results were more significant with a shorter follow‐up period of 30 days (hazard ratio [HR] = 3.519; FigureS1).
+This large‐scale study demonstrated a significant association between increased FFBGM and an increased likelihood of delirium in ICU patients.
+Importantly, the association remained significant, despite adjusting for various clinical and laboratory factors.
+Sensitivity analyses were conducted to ensure the robustness of the results by excluding individuals with diabetes, those who underwent sedation therapy and those who experienced unfavourable outcomes.
+Subgroup analyses revealed that the relationship between FFBGM and delirium remained consistent across various subgroups.
+Additionally, our findings indicated the presence of non‐linear associations between glycaemic variability and Total, Daytime and Nighttime FFBGM.
+Furthermore, examination of the adverse prognosis of delirium revealed that increased FFBGM increased the likelihood of both delirium and mortality.
+These findings suggest that the FFBGM may serve not only as a proxy for care intensity but also as an independent and potentially modifiable predictor for ICU delirium.
+To our knowledge, no definitive evidence has established a direct link between the FFBGM and delirium.
+However, our investigation yielded a noteworthy finding: a discernible association between increased FFBGM and a heightened occurrence of delirium.
+This relationship reveals a novel prospect, indicating that frequent invasive procedures (specifically fingertip blood glucose monitoring) may contribute to the underlying mechanism of delirium.
+Consistent with our findings, Cortés‐Beringola et al. identified external factors that can precipitate or exacerbate delirium, including invasive medical procedures such as central venous catheterisation, mechanical ventilation and coronary angiography [26].
+Inouye also proposed precipitating factors for delirium, including the use of physical restraints, bladder catheters and various bedside procedures [27].
+A one‐day point prevalence study revealed a higher likelihood of invasive device utilisation, such as drainage tubes and catheters, among patients with delirium.
+Furthermore, this study suggested that early removal of intrusive devices may reduce the occurrence and intensity of delirium [28].
+In this context, the FFBGM may represent an overlooked but clinically meaningful component of procedural burden that directly contributes to neurocognitive risk.
+Based on a significant body of literature, the increased risk of delirium associated with FFBGM exposure can be attributed to several factors.
+First, the bright lights in the ICU disrupt biological rhythms and suppress melatonin production, leading to sleep disturbances [29,30].
+Additionally, fingerstick blood glucose testing, which involves exposure to bright light during blood collection and glucometer analysis, exacerbates this effect.
+Second, noise pollution within the ICU can be considered a significant factor in initiating delirium [31,32].
+Conducting blood glucose measurements amplifies noise pollution levels, encompassing alerts from glucose monitoring devices, discussions among nurses, interactions with patients and auditory signals emitted by the glucometer.
+Consequently, this amplification adversely impacts sleep quality and induces sleep disturbances, ultimately culminating in the development of delirium [33,34].
+Third, effectively managing pain, a known delirium trigger, is of utmost importance [26,35,36].
+Current blood glucose assessment methods that coincide with severe pain may contribute to delirium.
+Factors including sleep deprivation, depression and disruption of the cholinergic system influence the link between pain and delirium [30].
+The pain experienced by ICU patients has garnered significant attention [37,38].
+However, procedural pain resulting from treatments, examinations and care procedures, including the pain induced by fingerstick glucose testing, remains inadequately addressed by healthcare professionals.
+Fourth, poor sleep is often associated with the critical care unit and is connected to the development of delirium [8,21,22,39].
+The objective of increasing the FFBGM in critically ill ICU patients was to effectively manage their blood glucose levels.
+However, this approach frequently disrupts the patient's sleep.
+Sleep deprivation affects the patient's circadian biomarkers, such as melatonin and cortisol secretion, and promotes chronodisruption, ultimately leading to delirium [40,41].
+The KSCCM 2021 ICU sleep disturbance recommendations acknowledge it as a significant cause of delirium.
+This recommendation suggests earplugs, eyeshades and fewer unnecessary examinations to facilitate sleep in critically ill patients and prevent delirium [42].
+These mechanisms collectively support the hypothesis that the FFBGM is not merely a marker of illness or care intensity, but may be a crucial factor in the pathophysiology of delirium.
+The correlation between FFBGM and glycaemic variability was significant in the present study.
+We found that increased FFBGM was positively associated with higher glycaemic variability.
+However, the FFBGM declined as the glucv exceeded its turning points, exhibiting a negative association.
+We speculate that healthcare practitioners may use more proactive approaches to prevent blood sugar variations when glycaemic variability is very high rather than relying solely on fingertip blood glucose monitoring.
+Multiple studies have validated the relationship between glycaemic fluctuations and delirium, wherein elevated glycaemic variability escalates the likelihood of delirium [14,16,43].
+The coexistence of these correlations might reveal the intricate relationship between the FFBGM and glycaemic fluctuations, ultimately impacting the occurrence of delirium.
+This finding suggests the need to consider not only the glycaemic variability but also the FFBGM when assessing the likelihood of delirium.
+Given the correlation between fingertip blood glucose monitoring and delirium, non‐invasive continuous blood glucose monitoring methods are undergoing extensive research.
+Some studies have investigated non‐invasive blood glucose detection techniques with accurate measurements using spectral sensors, infrared lighting and sweat sensors that correlate with blood glucose [44,45,46].
+Future studies should utilise experimental designs or animal models to confirm the processes related to FFBGM‐related processes, glycaemic fluctuation and delirium.
+These studies will help us understand the complex relationship between these variables and provide valuable insights for delirium prevention and treatment.
+Future research should also aim to clarify whether the FFBGM is simply a surrogate for clinical burden or whether it exerts direct physiological effects that heighten delirium risk.
+This distinction will have critical implications for ICU monitoring strategies.
+Our study has several limitations.
+First, because it was a single‐centre study, external validation is lacking.
+Second, as a retrospective analysis of secondary data, selection bias may be inevitable.
+Third, the use of multiple imputations to address missing data may have reduced the model's accuracy.
+Fourth, almost all of our patient data originated in the United States, potentially limiting the generalisability of our findings to patients from different geographical areas.
+Last, owing to the retrospective nature of our observational study, we could only establish a correlation, rather than a causal relationship, between delirium and FFBGM.
+Although we adjusted for major confounders, some degree of residual confounding or reverse causality may still exist.
+This study highlights the importance of reconsidering the FFBGM in critically ill patients.
+Higher FFBGM, particularly during night‐time hours, may inadvertently contribute to the development of delirium by disrupting sleep and causing discomfort.
+Clinically, these findings advocate for more individualised blood glucose monitoring strategies that balance metabolic control with patient comfort and neurocognitive safety.
+From a nursing perspective, this research underscores the need to integrate routine protocols with patient‐centred assessment.
+Nurses are often the primary executors of blood glucose monitoring orders and are uniquely positioned to observe patient responses and advocate for care adjustments.
+In practice, nurses should remain vigilant to signs of sleep disturbance or agitation in patients undergoing higher FFBGM and may collaborate with physicians to adjust the timing or frequency of checks when appropriate.
+To support this, critical care units should consider developing interdisciplinary guidelines that evaluate the risk–benefit ratio of increased FFBGM and promote nurse–physician collaboration in optimising monitoring schedules.
+Further prospective studies are needed to establish causal relationships and explore whether continuous or minimally invasive glucose monitoring technologies could better serve critically ill populations without increasing delirium risk.
+In conclusion, increased FFBGM is associated with an increased likelihood of delirium in ICU patients.
+This finding suggests that FFBGM could potentially serve as an independent predictor for assessing the risk of delirium and form a basis for clinical intervention.
+Future prospective studies are needed to investigate whether better control of the FFBGM or non‐invasive continuous glucose monitoring will improve the clinical prognosis of delirium and to explore their potential mechanisms.
