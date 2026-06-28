@@ -45,11 +45,15 @@ function App() {
         const fileName = articleList[i];
         const articleId = i + randomNumber;
 
-        const sentenceRes = await fetch(`/mainTestSet/${fileName}`);
+        const sentenceRes = await fetch(
+          `/dataSet/train/mainTestSet/${fileName}`,
+        );
         if (!sentenceRes.ok) continue;
         const sentenceText = await sentenceRes.text();
 
-        const paragraphRes = await fetch(`/mainParagraphs/${fileName}`);
+        const paragraphRes = await fetch(
+          `/dataSet/train/mainParagraphs/${fileName}`,
+        );
         let paragraphText = "";
         if (paragraphRes.ok) {
           paragraphText = await paragraphRes.text();
@@ -157,7 +161,7 @@ function App() {
         setStatus("System initialized successfully!");
 
         // Fetch article list
-        const response = await fetch("/mainTestSet/list.json");
+        const response = await fetch("/dataSet/train/mainTestSet/list.json");
         const data = await response.json();
         setArticleList(data);
       } catch (err) {
