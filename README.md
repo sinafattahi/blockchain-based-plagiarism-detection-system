@@ -1,4 +1,3 @@
-
 <!-- semantic query -->
 
 <!-- I want to give you some sentences and I want you to change them semantically and i want each sentence in one line.
@@ -15,13 +14,14 @@ This repository contains the source code and configuration files for the **`bloc
 
 The repository includes several key folders and files relevant to development and deployment:
 
-*   **`src`**: Contains the primary application source code.
-*   **`src/createDataSet`**: Contains the python code for crating the project dataSet.
-*   **`contracts`**: Likely contains the Solidity smart contracts for the blockchain element.
-*   **`scripts`**: Includes deployment scripts, such as `deploy.js`, used for deploying contracts.
-*   **`hardhat.config.cjs`**: Configuration file for the Hardhat development environment.
-*   **`package.json` / `package-lock.json`**: Defines project dependencies and scripts.
-*   **`index.html`**: The project's listed primary language is HTML (100.0%).
+- **`src`**: Contains the primary application source code.
+- **`public/dataSet`**: Contains the train and test data that uses in project.
+- **`src/createDataSet`**: Contains the python code for crating the project dataSet.
+- **`contracts`**: Likely contains the Solidity smart contracts for the blockchain element.
+- **`scripts`**: Includes deployment scripts, such as `deploy.js`, used for deploying contracts.
+- **`hardhat.config.cjs`**: Configuration file for the Hardhat development environment.
+- **`package.json` / `package-lock.json`**: Defines project dependencies and scripts.
+- **`index.html`**: The project's listed primary language is HTML (100.0%).
 
 ### Workflow for Running the `src` Code (Setup and Execution)
 
